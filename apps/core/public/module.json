@@ -1,0 +1,31 @@
+{
+  "id": "the-magic-emporium",
+  "title": "The Magic Emporium",
+  "description": "Some Description",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "KairosUnsupervised",
+      "url": "https://github.com/KairosUnsupervised",
+      "discord": "8fa08a83.9788.4340.ab81.f4474534",
+      "flags": {}
+    }
+  ],
+  "scripts": [
+    "index.js"
+  ],
+  "languages": [],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {}
+      }
+    ]
+  }
+}

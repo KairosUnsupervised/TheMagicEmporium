@@ -3,12 +3,11 @@
 ## Prerequisites
 
 - **Node.js** >= 22.21.1
-- **pnpm** 11.0.4
-- **Corepack** (Optional)
+- **bun** 1.3.13
 
 ## Installation
 
 Install dependencies:
    ```bash
-   pnpm install
+   bun install
    ```
