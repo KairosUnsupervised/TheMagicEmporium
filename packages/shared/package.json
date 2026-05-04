@@ -1,0 +1,5 @@
+{
+  "name": "@tme/shared",
+  "type": "module",
+  "private": true
+}
