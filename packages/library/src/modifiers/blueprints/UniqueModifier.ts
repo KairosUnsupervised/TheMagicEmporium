@@ -2,6 +2,8 @@ import Ajv from "ajv"
 import {type CreateProps, Modifier} from "../Modifier"
 import {Logger} from "../../misc/Logger";
 import {type Application, applicationSchema, type Flavor, flavorSchema, ModifierType} from "../modifier.types";
+import {DataManager} from "../dataManagers/DataManager";
+import {StackingManager} from "../stackingManagers/StackingManager";
 
 const ajv = new Ajv({removeAdditional: true, useDefaults: true})
 
@@ -38,10 +40,12 @@ export class UniqueModifier extends Modifier {
         return new UniqueModifier({...props.definition, application: {...props.definition.application, weight: 0}})
     }
 
-    private constructor(data: Schema) {
-        super(data)
-        this.identifier = data.identifier
-        this.application = data.application
-        this.flavor = data.flavor
+    public dataManager = DataManager.Disabled
+    // TODO Implement stacking Manager
+    public stackingManager = StackingManager.Disabled
+
+    private constructor(definition: Schema) {
+        super(definition)
+        this.flavor = definition.flavor
     }
 }
