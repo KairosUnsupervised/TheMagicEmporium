@@ -5,6 +5,10 @@ interface Window {
     }
 }
 
+declare class Item {
+    static create(data: object, options?: object): Promise<Item | undefined>
+}
+
 declare const game: {
     world: {
         id: string
