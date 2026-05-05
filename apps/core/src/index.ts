@@ -1,3 +1,8 @@
-import {someData} from "./notIndex.ts";
+import {loadPacks} from "./packs/loadPacks.ts";
 
-console.log("TheMagicEmporium Test", someData)
+window.Hooks.once("init", async () => {
+    console.log("TheMagicEmporium | Initializing")
+
+    const packs = loadPacks()
+    console.log("TheMagicEmporium | Loaded packs", packs)
+})
