@@ -9,6 +9,9 @@ declare const game: {
     world: {
         id: string
     }
+    modules: {
+        get(id: string): { api: unknown } | undefined
+    }
 }
 
 declare const foundry: {
