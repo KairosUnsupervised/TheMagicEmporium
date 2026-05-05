@@ -1,14 +1,14 @@
-# Modifier Management
+# Modifier & Packs
 
-All modifiers are stored as JSON files at the following path:
+All modifiers are stored in groups called `Packs` as JSON files at the following path:
 
 `worlds/{world.id}/the-magic-emporium/modifiers/{file}.json`
-
-Each file represents a single modifier `pack` containing a set of modifiers.
 
 When a new world is created, the default packs are copied into it automatically.
 
 // TODO TME-19 Setup Experience
+
+// TODO Auto Update Experience
 
 ## Disabling a pack
 A pack can be disabled by setting the root `enabled` property to `false` in its JSON file.

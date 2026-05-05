@@ -6,7 +6,7 @@ import {Logger} from "../misc/Logger.ts";
  * Loads all packs regardless of enabled or not and verifies their schema <br/>
  * Does not verify any modifier content
  */
-export const loadPacks = async () => {
+export const loadPacks = async (): Promise<RawPack[]> => {
     const files = await loadJsonPacks();
     const packs = await verifySchema(files);
 

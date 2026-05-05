@@ -1,8 +1,15 @@
 import {loadPacks} from "./packs/loadPacks.ts";
+import {Logger} from "./misc/Logger.ts";
+import {registry} from "./misc/registry.ts";
 
 window.Hooks.once("init", async () => {
-    console.log("TheMagicEmporium | Initializing")
+    Logger.log("Initializing")
 
-    const packs = loadPacks()
-    console.log("TheMagicEmporium | Loaded packs", packs)
+    const packs = await loadPacks()
+    Logger.log("Loaded packs", packs)
+
+    registry.loadPacks(packs)
+
+    console.log(registry)
+
 })
