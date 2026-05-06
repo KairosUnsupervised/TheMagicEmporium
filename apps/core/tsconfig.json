@@ -1,4 +1,5 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -7,24 +8,18 @@
       "DOM",
       "DOM.Iterable"
     ],
-    "module": "ESNext",
-    "skipLibCheck": true,
-    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@tme/library/*": ["../../packages/library/*"],
+      "@tme/shared/*": ["../../packages/shared/*"],
+      "@tme/types/*": ["../../packages/types/*"]
+    },
     "plugins": [
       {
         "name": "typescript-plugin-css-modules"
       }
     ],
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noPropertyAccessFromIndexSignature": true,
     "types": ["bun"]
   },
   "include": [

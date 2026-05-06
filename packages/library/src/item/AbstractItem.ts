@@ -1,6 +1,9 @@
 import {Modifier} from "../modifiers/Modifier";
 import {Equipment} from "./equipment.types";
 import {Rarity} from "./item.types";
+import {namespace} from "@tme/shared/src/namespaceConfig";
+import {Item5e, ItemType} from "@tme/shared/src/types/item5e"
+import {registry} from "../registry/Registry";
 
 /**
  * Represents an abstracted magic item, no fluff
@@ -16,4 +19,69 @@ export class AbstractItem {
     public primary: Modifier[] = [];
     public secondary: Modifier[] = [];
     public tertiary: Modifier[] = [];
+
+    /**
+     * Creates an abstract item from a foundry item document
+     * @param document
+     */
+    public static createFromDocument = (document: any): null | AbstractItem => {
+        const data = document.flags[namespace.core.id] as Item5e["flags"][typeof namespace.core.id];
+
+        if (!data) {
+            return null;
+        }
+
+        if (data.type !== ItemType.MagicItem) {
+            return null;
+        }
+
+        const item = new AbstractItem();
+        item.base = data.base as Equipment;
+        item.name = document.name;
+
+        if(document.system.price.denomination === 'gp') {
+            item.currency = document.system.price.value;
+        }
+
+        data.primary.forEach((rawMod) => {
+            const mod = registry.get(rawMod.identifier);
+            if (!mod) {
+                return;
+            }
+
+            if (mod.dataManager !== null) {
+                mod.dataManager.setData(rawMod.data);
+            }
+
+            item.primary.push(mod);
+        });
+
+        data.secondary.forEach((rawMod) => {
+            const mod = registry.get(rawMod.identifier);
+            if (!mod) {
+                return;
+            }
+
+            if (mod.dataManager !== null) {
+                mod.dataManager.setData(rawMod.data);
+            }
+
+            item.secondary.push(mod);
+        });
+
+        data.tertiary.forEach((rawMod) => {
+            const mod = registry.get(rawMod.identifier);
+            if (!mod) {
+                return;
+            }
+
+            if (mod.dataManager !== null) {
+                mod.dataManager.setData(rawMod.data);
+            }
+
+            item.tertiary.push(mod);
+        });
+
+        return item;
+    };
 }

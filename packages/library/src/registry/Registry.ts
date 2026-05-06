@@ -74,5 +74,14 @@ export class Registry {
         return modifier;
     }
 
+    public get = (identifier: string): Modifier | null => {
+        if (this.mapped[identifier]) {
+            return this.mapped[identifier];
+        }
+        Logger.error(`No modifier found with identifier ${identifier}`);
+        return null;
+    };
 
 }
+
+export const registry = new Registry()

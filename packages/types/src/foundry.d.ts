@@ -1,3 +1,4 @@
+// TODO MOVE THIS TYPES TO SHARED
 interface Window {
     Hooks: {
         on: any
@@ -10,6 +11,7 @@ declare class Item {
 }
 
 declare const game: {
+    userId: string
     world: {
         id: string
     }

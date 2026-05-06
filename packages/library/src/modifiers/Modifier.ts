@@ -50,6 +50,7 @@ export abstract class Modifier {
      */
     public abstract stackingManager: StackingManager | null;
 
+    // TODO MOVE THIS TO THE CHILDREN
     protected flavor: Flavor = {
         title: 'Base Modifier',
         description: 'This should not be on your item',

@@ -1,11 +1,11 @@
 import {merge} from "ts-deepmerge";
 import {AbstractItem} from "./AbstractItem";
-import {Item5e, ItemType} from "./item.types";
 import {DeepPartial} from "@tme/shared/src/helpers/deepPartial.types";
 import {equipmentDetails} from "./equipment.details";
 import {namespace} from "@tme/shared/src/namespaceConfig";
 import {Modifier} from "../modifiers/Modifier";
 import {generateDescriptionV3} from "./generateDescription";
+import {Item5e, ItemType} from "@tme/shared/src/types/item5e";
 
 /**
  * Represent a magic item from the 5e system view

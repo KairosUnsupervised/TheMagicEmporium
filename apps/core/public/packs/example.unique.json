@@ -1,0 +1,26 @@
+{
+  "id": "EXAMPLE_UNIQUE",
+  "name": "Example — Unique",
+  "enabled": false,
+  "modifiers": [
+    {
+      "id": "DARKVISION",
+      "enabled": true,
+      "type": "unique",
+      "application": {
+        "weight": 5,
+        "slot": "secondary",
+        "tags": {
+          "whitelistedBy": [],
+          "blacklistedBy": [],
+          "applies": []
+        }
+      },
+      "flavor": {
+        "title": "Darkvision",
+        "description": "You can see in darkness up to 60 feet.",
+        "disclaimer": null
+      }
+    }
+  ]
+}

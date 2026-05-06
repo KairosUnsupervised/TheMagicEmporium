@@ -4,6 +4,7 @@ import {Logger} from "../../misc/Logger";
 import {type Application, applicationSchema, type Flavor, flavorSchema, ModifierType} from "../modifier.types";
 import {DataManager} from "../dataManagers/DataManager";
 import {StackingManager} from "../stackingManagers/StackingManager";
+import {UniqueStackingManager} from "../stackingManagers/UniqueStackingManager";
 
 const ajv = new Ajv({removeAdditional: true, useDefaults: true})
 
@@ -29,6 +30,9 @@ export class UniqueModifier extends Modifier {
 
     public type = ModifierType.UNIQUE
 
+    public dataManager = DataManager.Disabled
+    public stackingManager = new UniqueStackingManager()
+
     static create(props: CreateProps): UniqueModifier | null {
         if (!validateSchema(props.definition)) {
             Logger.error("Invalid modifier definition", {definition: props.definition, errors: validateSchema.errors})
@@ -39,10 +43,6 @@ export class UniqueModifier extends Modifier {
         }
         return new UniqueModifier({...props.definition, application: {...props.definition.application, weight: 0}})
     }
-
-    public dataManager = DataManager.Disabled
-    // TODO Implement stacking Manager
-    public stackingManager = StackingManager.Disabled
 
     private constructor(definition: Schema) {
         super(definition)
