@@ -1,5 +1,4 @@
 import Ajv from "ajv"
-import { ActiveEffectDefinition } from "./activeEffects/ActiveEffect";
 
 const ajv = new Ajv({ removeAdditional: true })
 

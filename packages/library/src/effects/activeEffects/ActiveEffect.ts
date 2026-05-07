@@ -1,19 +1,7 @@
 import {namespace} from "@tme/shared/src/namespaceConfig";
 import {ItemType} from "@tme/shared/src/types/item5e";
+import {ActiveEffectSchema, ModeSchema} from "./activeEffect.schema";
 
-export interface ActiveEffectDefinition {
-    type: "ACTIVE_EFFECT"
-    title: string;
-    description: string;
-    disclaimer: string | null;
-    effects: {
-        key: string;
-        mode: string;
-        value: string;
-    }[]
-}
-
-// TODO THIS IS UNREADABLE FOR DEFINITION PURPOSES
 export enum Mode {
     /**
      * The Custom change mode applies logic defined by a game system or add-on module.
@@ -44,7 +32,6 @@ export enum Mode {
 interface Change {
     key: string;
     mode: Mode;
-    priority: undefined;
     value: string;
 }
 
@@ -63,6 +50,8 @@ interface Document {
     }
 }
 
+type CreateDefinition = ActiveEffectSchema & Required<Pick<ActiveEffectSchema, 'title' | 'description' | 'disclaimer'>>;
+
 export class ActiveEffect {
     public document: Document = {
         name: 'Unnamed Effect',
@@ -79,7 +68,7 @@ export class ActiveEffect {
         }
     };
 
-    static create = (definition: ActiveEffectDefinition) => {
+    static create = (definition: CreateDefinition) => {
 
         let description = `<p><strong>${definition.description}</strong></p>`;
 
@@ -87,10 +76,17 @@ export class ActiveEffect {
             description = `${description}<p><em>${definition.disclaimer}</em></p>`;
         }
 
+        const changes = definition.changes.map((effect) => ({
+            key: effect.key,
+            mode: ActiveEffect.schemaModeToRealMode(effect.mode),
+            value: effect.value,
+        }));
+
         return new ActiveEffect({
             name: definition.title,
             description,
             icon: "DefaultIcon.png",
+            changes,
         })
     }
 
@@ -103,5 +99,17 @@ export class ActiveEffect {
         this.document.flags[namespace.core.id].identifier = identifier;
         return this.document;
     };
+
+    private static schemaModeToRealMode = (mode: ModeSchema): Mode => {
+        const map: Record<ModeSchema, Mode> = {
+            [ModeSchema.Custom]:    Mode.Custom,
+            [ModeSchema.Multiply]:  Mode.Multiply,
+            [ModeSchema.Add]:       Mode.Add,
+            [ModeSchema.Downgrade]: Mode.Downgrade,
+            [ModeSchema.Upgrade]:   Mode.Upgrade,
+            [ModeSchema.Override]:  Mode.Override,
+        }
+        return map[mode];
+    }
 
 }

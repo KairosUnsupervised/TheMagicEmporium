@@ -11,7 +11,8 @@ export class Effect {
 
     /**
      * Parse an array of effect definitions into valid instances
-     * @param json
+     * @param json Raw JSON definition of an effect
+     * @param defaultFlavor Default title and description to fall back to if not specified
      */
     static parseEffectDefinitions = (json: unknown[], defaultFlavor: Flavor): (ActiveEffect)[] => {
 
@@ -28,6 +29,7 @@ export class Effect {
                 case EffectType.ActiveEffect:
                     return Effect.parseActiveEffectDefinition(part, defaultFlavor);
                 case EffectType.Feat:
+                    Logger.error("FEATS ARE NOT YET IMPLEMENTED")
                     return null;
                 default:
                     return null;
@@ -49,4 +51,5 @@ export class Effect {
             ...json,
         })
     }
+
 }
