@@ -1,21 +1,17 @@
 import Ajv from "ajv"
-import {type CreateProps, Modifier} from "../Modifier"
+import {BaseSchema, type CreateProps, Modifier} from "../Modifier"
 import {Logger} from "../../misc/Logger";
-import {type Application, applicationSchema, type Flavor, flavorSchema, ModifierType} from "../modifier.types";
-import {DataManager} from "../dataManagers/DataManager";
-import {StackingManager} from "../stackingManagers/StackingManager";
-import {UniqueStackingManager} from "../stackingManagers/UniqueStackingManager";
+import {Effect} from "../../effects/Effect";
+import {applicationSchema, flavorSchema, ModifierType} from "../modifier.schema";
 
 const ajv = new Ajv({removeAdditional: true, useDefaults: true})
 
-export interface Schema {
-    identifier: string;
-    type: ModifierType;
-    application: Application
-    flavor: Flavor
+interface Schema extends BaseSchema {
+    type: ModifierType.UNIQUE;
+    effects: unknown[]
 }
 
-export const validateSchema = ajv.compile<Schema>({
+const validateSchema = ajv.compile<Schema>({
     type: "object",
     required: ["identifier", "type", "application", "flavor"],
     properties: {
@@ -23,19 +19,21 @@ export const validateSchema = ajv.compile<Schema>({
         type: {type: "string", enum: Object.values(ModifierType)},
         application: applicationSchema,
         flavor: flavorSchema,
+        effects: {type: "array"}
     },
 })
 
-export class UniqueModifier extends Modifier {
-
-    public type = ModifierType.UNIQUE
-
-    public dataManager = DataManager.Disabled
-    public stackingManager = new UniqueStackingManager()
+/**
+ * A Unique modifier bound to a player, e.g. multiple instances do not stack effects
+ */
+export class UniqueModifier extends Modifier<Schema> {
 
     static create(props: CreateProps): UniqueModifier | null {
         if (!validateSchema(props.definition)) {
-            Logger.error("Invalid modifier definition", {definition: props.definition, errors: validateSchema.errors})
+            Logger.error("Invalid modifier definition for UniqueModifier", {
+                definition: props.definition,
+                errors: validateSchema.errors
+            })
             return null;
         }
         if (props.enabled) {
@@ -44,8 +42,8 @@ export class UniqueModifier extends Modifier {
         return new UniqueModifier({...props.definition, application: {...props.definition.application, weight: 0}})
     }
 
-    private constructor(definition: Schema) {
-        super(definition)
-        this.flavor = definition.flavor
+    public override getEffects = () => {
+        return Effect.parseEffectDefinitions(this.schema.effects, this.getDescription(null))
     }
+
 }

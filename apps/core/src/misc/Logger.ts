@@ -1,5 +1,6 @@
 import { namespace } from "@tme/shared/src/namespaceConfig";
 
+// TODO this could be an instance
 export class Logger {
     protected static prefix = namespace.core.name;
 

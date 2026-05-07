@@ -1,4 +1,4 @@
-import { ActiveEffect } from './ActiveEffect';
+import { ActiveEffect } from './activeEffects/ActiveEffect';
 import { Feat } from './Feat';
 
 interface FeatProps {

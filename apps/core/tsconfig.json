@@ -9,7 +9,6 @@
       "DOM.Iterable"
     ],
     "allowImportingTsExtensions": true,
-    "baseUrl": ".",
     "paths": {
       "@tme/library/*": ["../../packages/library/*"],
       "@tme/shared/*": ["../../packages/shared/*"],

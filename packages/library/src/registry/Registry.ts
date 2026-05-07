@@ -1,18 +1,7 @@
-import Ajv from "ajv"
 import {Modifier, ModifierFactory} from "../modifiers/Modifier";
 import {UniqueModifier} from "../modifiers/blueprints/UniqueModifier";
 import {Logger} from "../misc/Logger";
-import {ModifierType} from "../modifiers/modifier.types";
-
-const ajv = new Ajv()
-
-const validateType = ajv.compile<{ type: ModifierType }>({
-    type: "object",
-    required: ["type"],
-    properties: {
-        type: {type: "string", enum: Object.values(ModifierType)},
-    },
-})
+import {ModifierType, validateModifierTypeSchema} from "../modifiers/modifier.schema";
 
 const factoryMap: Record<ModifierType, ModifierFactory> = {
     [ModifierType.UNIQUE]: UniqueModifier.create
@@ -30,10 +19,10 @@ export class Registry {
     public mapped: { [key: string]: Modifier } = {};
 
     /**
-     * Loads all modifiers of a specific pack into the registry
+     * Registers all modifiers of a specific pack into the registry
      * @param packs
      */
-    public loadPacks = async (packs: { modifiers: unknown[], enabled: boolean }[]): Promise<void> => {
+    public registerPacks = async (packs: { modifiers: unknown[], enabled: boolean }[]): Promise<void> => {
         packs.forEach((pack) => {
 
             pack.modifiers.forEach((modifier) => {
@@ -50,8 +39,8 @@ export class Registry {
      * @param enabled
      */
     public loadModifier = (definition: unknown, enabled: boolean): Modifier | null => {
-        if (!validateType(definition)) {
-            Logger.error("Invalid modifier type", {errors: validateType.errors})
+        if (!validateModifierTypeSchema(definition)) {
+            Logger.error("Invalid modifier type", {errors: validateModifierTypeSchema.errors})
             return null;
         }
 

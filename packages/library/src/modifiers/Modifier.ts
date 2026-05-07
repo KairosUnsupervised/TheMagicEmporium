@@ -1,6 +1,6 @@
-import {Application, Flavor, ModifierType} from "./modifier.types";
-import {DataManager} from "./dataManagers/DataManager";
-import type {StackingManager} from "./stackingManagers/StackingManager";
+import {ActiveEffect} from "../effects/activeEffects/ActiveEffect";
+import {Feat} from "../effects/Feat";
+import {Application, Flavor, ModifierType} from "./modifier.schema";
 
 export type ModifierFactory = (props: CreateProps) => Modifier | null;
 
@@ -9,18 +9,19 @@ export interface CreateProps {
     enabled: boolean
 }
 
-export interface Schema {
+export interface BaseSchema {
     identifier: string;
     type: ModifierType;
     application: Application
+    flavor: Flavor
 }
 
-export abstract class Modifier {
+export interface AppliedModifier {
+    modifier: Modifier;
+    data: unknown;
+}
 
-    /**
-     * Hard type definition so it's easier to discriminate between modifiers types
-     */
-    public readonly type: ModifierType;
+export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
 
     /**
      * Unique identifier under which this modifier gets saved <br>
@@ -34,31 +35,36 @@ export abstract class Modifier {
      */
     public readonly application: Application;
 
+    public readonly schema: Schema;
+
     protected constructor(definition: Schema) {
-        this.application = definition.application
-        this.type = definition.type
         this.identifier = definition.identifier
+        this.application = definition.application
+        this.schema = definition;
     }
 
     /**
-     * Manager which handles save data for this modifier
+     * Retrieves a description for a slot on an item
+     * @param _data TODO Either null or an object containing the data
      */
-    public abstract dataManager: DataManager | null;
-
-    /**
-     * Manager which handles stacking logic of multiple modifiers across an actor
-     */
-    public abstract stackingManager: StackingManager | null;
-
-    // TODO MOVE THIS TO THE CHILDREN
-    protected flavor: Flavor = {
-        title: 'Base Modifier',
-        description: 'This should not be on your item',
-        disclaimer: null,
-    }
-
-    public getFlavor = (): Flavor => {
-        return this.flavor
+    public getDescription(_data: unknown): Flavor {
+        return this.schema.flavor;
     };
+
+    /**
+     * Retrieves passive effects for the actor
+     * @param _data
+     */
+    public getEffects = (_data: any[]): ActiveEffect[] => {
+        return []
+    };
+
+    /**
+     * Retrieves feats for the actor
+     * @param _data
+     */
+    public getFeats = (_data: any[]): Feat[] => {
+        return []
+    }
 
 }

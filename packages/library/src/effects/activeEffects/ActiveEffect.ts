@@ -1,3 +1,19 @@
+import {namespace} from "@tme/shared/src/namespaceConfig";
+import {ItemType} from "@tme/shared/src/types/item5e";
+
+export interface ActiveEffectDefinition {
+    type: "ACTIVE_EFFECT"
+    title: string;
+    description: string;
+    disclaimer: string | null;
+    effects: {
+        key: string;
+        mode: string;
+        value: string;
+    }[]
+}
+
+// TODO THIS IS UNREADABLE FOR DEFINITION PURPOSES
 export enum Mode {
     /**
      * The Custom change mode applies logic defined by a game system or add-on module.
@@ -39,37 +55,53 @@ interface Document {
     icon: string;
     transfer: boolean;
     changes: Change[];
+    flags: {
+        [namespace.core.id]: {
+            identifier: string;
+            type: ItemType
+        }
+    }
 }
 
 export class ActiveEffect {
-    private sortIndex = 0;
     public document: Document = {
-        name: 'Unnamed Item',
+        name: 'Unnamed Effect',
         type: 'base',
         description: '',
         icon: '',
         transfer: true,
         changes: [],
+        flags: {
+            [namespace.core.id]: {
+                identifier: "identifier",
+                type: ItemType.TemporaryItem
+            }
+        }
     };
 
-    constructor(props: Partial<Document>, sortIndex: number) {
-        this.document = { ...this.document, ...props };
-        this.sortIndex = sortIndex;
+    static create = (definition: ActiveEffectDefinition) => {
+
+        let description = `<p><strong>${definition.description}</strong></p>`;
+
+        if (definition.disclaimer !== '' && definition.disclaimer !== null) {
+            description = `${description}<p><em>${definition.disclaimer}</em></p>`;
+        }
+
+        return new ActiveEffect({
+            name: definition.title,
+            description,
+            icon: "DefaultIcon.png",
+        })
     }
 
-    public addEffect = (key: string, mode: Mode, value: string | number) => {
-        if (typeof value !== 'string') {
-            value = value.toString();
-        }
-        this.document.changes.push({ key, mode, value, priority: undefined });
-        return this;
-    };
+    constructor(props: Partial<Document>) {
+        this.document = { ...this.document, ...props };
+    }
 
-    public getSortIndex = (): number => {
-        return this.sortIndex;
-    };
 
-    public export = (): object => {
+    public export = (identifier: string): object => {
+        this.document.flags[namespace.core.id].identifier = identifier;
         return this.document;
     };
+
 }

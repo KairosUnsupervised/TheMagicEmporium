@@ -1,4 +1,4 @@
-import {loadPacks} from "./packs/loadPacks.ts";
+import {packLoader} from "./packLoader/PackLoader.ts";
 import {Logger} from "./misc/Logger.ts";
 import {namespace} from "@tme/shared/src/namespaceConfig";
 import {MagicItem} from "@tme/library/src/item/Item.ts"
@@ -10,10 +10,10 @@ import {registry} from "@tme/library/src/registry/Registry.ts";
 window.Hooks.once("init", async () => {
     Logger.log("Initializing")
 
-    const packs = await loadPacks()
+    const packs = await packLoader.load()
     Logger.log("Loaded packs", packs)
 
-    await registry.loadPacks(packs)
+    await registry.registerPacks(packs)
     Logger.log("Registered modifiers", registry)
 
     // biome-ignore lint/style/noNonNullAssertion: Required for FoundryVTT
@@ -25,23 +25,14 @@ window.Hooks.once("ready", async () => {
 })
 
 
+// @ts-ignore
 window.debug = () => {
     const abstractItem = new AbstractItem();
 
     abstractItem.base = Equipment.Battleaxe;
-    abstractItem.primary.push(registry.weighted[0])
+    abstractItem.primary.push({ modifier: registry.weighted[0], data: null })
 
     const item = new MagicItem(abstractItem)
 
-    console.log(item.export())
-
     Item.create(item.export())
 }
-
-/**
- * TODO
- * 1. Example Unique Modifiers
- * 2. Actor Validation
- * 3. Bring Other Modifiers to Life
- * 3. Alt // Images
- */

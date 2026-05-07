@@ -2,7 +2,7 @@ import Ajv from "ajv"
 
 const ajv = new Ajv({removeAdditional: true})
 
-export interface RawPack {
+export interface PackSchema {
     id: string
     name: string
     description: string
@@ -10,7 +10,7 @@ export interface RawPack {
     modifiers: unknown[]
 }
 
-export const validatePack = ajv.compile<RawPack>({
+export const validatePackSchema = ajv.compile<PackSchema>({
     type: "object",
     required: ["id", "name", "description", "enabled", "modifiers"],
     properties: {
@@ -20,5 +20,4 @@ export const validatePack = ajv.compile<RawPack>({
         enabled: { type: "boolean" },
         modifiers: { type: "array" },
     },
-    additionalProperties: false,
 })

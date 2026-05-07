@@ -1,5 +1,6 @@
 import {AbstractItem} from "./AbstractItem";
-import {Modifier} from "../modifiers/Modifier";
+import {AppliedModifier} from "../modifiers/Modifier";
+import type {Flavor} from "../modifiers/modifier.types";
 
 export const generateDescriptionV3 = (abstractItem: AbstractItem) => {
     let description = '';
@@ -10,8 +11,8 @@ export const generateDescriptionV3 = (abstractItem: AbstractItem) => {
         description += '<hr>';
         description += '<hr>';
 
-        abstractItem.primary.forEach((modifier: Modifier) => {
-            description += generateModifierDescription(modifier);
+        abstractItem.primary.forEach((applied: AppliedModifier) => {
+            description += generateModifierDescription(applied.modifier.getDescription(applied.data));
         });
     }
 
@@ -21,8 +22,8 @@ export const generateDescriptionV3 = (abstractItem: AbstractItem) => {
         description += '<hr>';
         description += '<hr>';
 
-        abstractItem.secondary.forEach((modifier: Modifier) => {
-            description += generateModifierDescription(modifier);
+        abstractItem.secondary.forEach((applied: AppliedModifier) => {
+            description += generateModifierDescription(applied.modifier.getDescription(applied.data));
         });
     }
 
@@ -32,44 +33,19 @@ export const generateDescriptionV3 = (abstractItem: AbstractItem) => {
         description += '<hr>';
         description += '<hr>';
 
-        abstractItem.tertiary.forEach((modifier: Modifier) => {
-            description += generateModifierDescription(modifier);
+        abstractItem.tertiary.forEach((applied: AppliedModifier) => {
+            description += generateModifierDescription(applied.modifier.getDescription(applied.data));
         });
     }
 
     return description;
 };
 
-const generateModifierDescription = (modifier: Modifier) => {
-    const flavor = modifier.getFlavor();
-
-    // TODO TYPE FLAVOR
-    const type = "";
-    // const type = (() => {
-    //     if (modifier.stackingManager instanceof UniqueStackingManager) {
-    //         return '<sub>Unique</sub><br>';
-    //     }
-    //
-    //     if (modifier.stackingManager instanceof IndependentStackingManager) {
-    //         return '<sub>Independent</sub><br>';
-    //     }
-    //
-    //     if (modifier.stackingManager instanceof LinearStackingManager) {
-    //         return '<sub>Stacking</sub><br>';
-    //     }
-    //
-    //     if (modifier.stackingManager instanceof TieredStackingManager) {
-    //         return '<sub>Tiered</sub><br>';
-    //     }
-    //
-    //     return '';
-    // })();
-
+const generateModifierDescription = (flavor: Flavor) => {
     if (flavor.disclaimer === null || flavor.disclaimer === '') {
         return `
-            <hr />          
+            <hr />
             <p style="text-align: center;">
-                ${type}
                 <strong>${flavor.title}</strong> <br />
                 ${flavor.description}
             </p>
@@ -79,7 +55,6 @@ const generateModifierDescription = (modifier: Modifier) => {
     return `
         <hr />
         <p style="text-align: center;">
-            ${type}
             <strong>${flavor.title}</strong> <br />
             ${flavor.description} <br />
             <em style="opacity: 0.5;">${flavor.disclaimer}</em>

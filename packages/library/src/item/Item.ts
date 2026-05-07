@@ -3,7 +3,7 @@ import {AbstractItem} from "./AbstractItem";
 import {DeepPartial} from "@tme/shared/src/helpers/deepPartial.types";
 import {equipmentDetails} from "./equipment.details";
 import {namespace} from "@tme/shared/src/namespaceConfig";
-import {Modifier} from "../modifiers/Modifier";
+import {AppliedModifier} from "../modifiers/Modifier";
 import {generateDescriptionV3} from "./generateDescription";
 import {Item5e, ItemType} from "@tme/shared/src/types/item5e";
 
@@ -86,14 +86,14 @@ export class MagicItem {
     };
 
     private mergeModifiers = () => {
-        const modifiers = [
-            ...this.abstractItem.primary,
-            ...this.abstractItem.secondary,
-            ...this.abstractItem.tertiary,
-        ];
         // TODO IMPLEMENT THIS AGAIN
-        // modifiers.forEach((mod) => {
-        //     const result = mod.mergeFoundryItem({
+        // const modifiers = [
+        //     ...this.abstractItem.primary,
+        //     ...this.abstractItem.secondary,
+        //     ...this.abstractItem.tertiary,
+        // ];
+        // modifiers.forEach((applied) => {
+        //     const result = applied.modifier.mergeFoundryItem({
         //         item: this.item,
         //         document: this.document as Item5e,
         //     });
@@ -128,18 +128,11 @@ export class MagicItem {
         };
     };
 
-    private exportModifiers = (mods: Modifier[]) => {
-        return mods.map((mod) => {
-            if (mod.dataManager === null) {
-                return {
-                    identifier: mod.identifier,
-                };
-            }
-            return {
-                identifier: mod.identifier,
-                data: mod.dataManager.data,
-            };
-        });
+    private exportModifiers = (mods: AppliedModifier[]) => {
+        return mods.map(({ modifier, data }) => ({
+            identifier: modifier.identifier,
+            data,
+        }));
     };
 
 }

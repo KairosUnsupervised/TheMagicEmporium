@@ -1,4 +1,4 @@
-import {Modifier} from "../modifiers/Modifier";
+import {AppliedModifier} from "../modifiers/Modifier";
 import {Equipment} from "./equipment.types";
 import {Rarity} from "./item.types";
 import {namespace} from "@tme/shared/src/namespaceConfig";
@@ -16,9 +16,9 @@ export class AbstractItem {
 
     public currency = 0;
 
-    public primary: Modifier[] = [];
-    public secondary: Modifier[] = [];
-    public tertiary: Modifier[] = [];
+    public primary: AppliedModifier[] = [];
+    public secondary: AppliedModifier[] = [];
+    public tertiary: AppliedModifier[] = [];
 
     /**
      * Creates an abstract item from a foundry item document
@@ -44,42 +44,21 @@ export class AbstractItem {
         }
 
         data.primary.forEach((rawMod) => {
-            const mod = registry.get(rawMod.identifier);
-            if (!mod) {
-                return;
-            }
-
-            if (mod.dataManager !== null) {
-                mod.dataManager.setData(rawMod.data);
-            }
-
-            item.primary.push(mod);
+            const modifier = registry.get(rawMod.identifier);
+            if (!modifier) return;
+            item.primary.push({ modifier, data: rawMod.data ?? null });
         });
 
         data.secondary.forEach((rawMod) => {
-            const mod = registry.get(rawMod.identifier);
-            if (!mod) {
-                return;
-            }
-
-            if (mod.dataManager !== null) {
-                mod.dataManager.setData(rawMod.data);
-            }
-
-            item.secondary.push(mod);
+            const modifier = registry.get(rawMod.identifier);
+            if (!modifier) return;
+            item.secondary.push({ modifier, data: rawMod.data ?? null });
         });
 
         data.tertiary.forEach((rawMod) => {
-            const mod = registry.get(rawMod.identifier);
-            if (!mod) {
-                return;
-            }
-
-            if (mod.dataManager !== null) {
-                mod.dataManager.setData(rawMod.data);
-            }
-
-            item.tertiary.push(mod);
+            const modifier = registry.get(rawMod.identifier);
+            if (!modifier) return;
+            item.tertiary.push({ modifier, data: rawMod.data ?? null });
         });
 
         return item;
