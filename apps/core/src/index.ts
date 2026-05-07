@@ -30,7 +30,8 @@ window.debug = () => {
     const abstractItem = new AbstractItem();
 
     abstractItem.base = Equipment.Battleaxe;
-    abstractItem.primary.push({ modifier: registry.weighted[0], data: null })
+    abstractItem.primary.push({ modifier: registry.get("TME.LINEAR_TEST")!, data: null })
+    abstractItem.primary.push({ modifier: registry.get("TME.LINEAR_TEST")!, data: null })
 
     const item = new MagicItem(abstractItem)
 

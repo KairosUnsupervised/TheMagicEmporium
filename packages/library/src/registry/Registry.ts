@@ -2,9 +2,11 @@ import {Modifier, ModifierFactory} from "../modifiers/Modifier";
 import {UniqueModifier} from "../modifiers/blueprints/UniqueModifier";
 import {Logger} from "../misc/Logger";
 import {ModifierType, validateModifierTypeSchema} from "../modifiers/modifier.schema";
+import {LinearModifier} from "../modifiers/blueprints/LinearModifier";
 
 const factoryMap: Record<ModifierType, ModifierFactory> = {
-    [ModifierType.UNIQUE]: UniqueModifier.create
+    [ModifierType.UNIQUE]: UniqueModifier.create,
+    [ModifierType.LINEAR]: LinearModifier.create
 }
 
 export class Registry {

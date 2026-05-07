@@ -1,6 +1,7 @@
 import {ActiveEffect} from "../effects/activeEffects/ActiveEffect";
 import {Feat} from "../effects/Feat";
 import {Application, Flavor, ModifierType} from "./modifier.schema";
+import {DataManager} from "./dataManagers/DataManager";
 
 export type ModifierFactory = (props: CreateProps) => Modifier | null;
 
@@ -36,6 +37,8 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
     public readonly application: Application;
 
     public readonly schema: Schema;
+
+    public readonly dataManager: DataManager | null = DataManager.Disabled;
 
     protected constructor(definition: Schema) {
         this.identifier = definition.identifier
