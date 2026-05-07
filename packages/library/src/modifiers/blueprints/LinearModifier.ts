@@ -59,6 +59,7 @@ export class LinearModifier extends Modifier<Schema> {
         return JSON.parse(JSON.stringify(this.schema.flavor).replaceAll("{amount}", amount.toString()));
     }
 
+    // TODO Replace amount with value!!!!
     public override getEffects = (data: unknown[]) => {
         const amount = this.dataManager.resolveMultiple(data)
 
