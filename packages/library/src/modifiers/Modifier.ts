@@ -16,7 +16,6 @@ export interface BaseSchema {
     identifier: string;
     type: ModifierType;
     application: Application
-    flavor: Flavor
 }
 
 export interface AppliedModifier {
@@ -50,15 +49,14 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
 
     /**
      * Retrieves a description for a slot on an item
-     * @param _data TODO Either null or an object containing the data
+     * @param _data
      */
-    public getDescription(_data: unknown): Flavor {
-        return this.schema.flavor;
-    };
+    public abstract getDescription(_data: unknown): Flavor;
 
     /**
      * Retrieves activeEffects and feats for the actor
-     * @param _data
+     * TODO SPLIT INTO TWO
+     * @param _data Unverified data from multiple item documents e.g. [{float: 0.777}]
      */
     public getEffects = (_data: any[]): (ActiveEffect | Feat)[] => {
         return []
@@ -66,7 +64,7 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
 
     /**
      * Retrieves keydot changes to be applied to the item document
-     * @param _data
+     * @param _data Unverified data from the item document e.g. {float: 0.777}
      */
     public getItemChanges = (_data: unknown): KeydotChange[] => {
         return [];
@@ -74,7 +72,7 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
 
     /**
      * Retrieves activities to be merged into the item document as a Record
-     * @param _data
+     * @param _data Unverified data from the item document e.g. {float: 0.777}
      */
     public getItemActivities = (_data: unknown): Activity[] => {
         return [];

@@ -4,7 +4,6 @@ import {Logger} from "../../misc/Logger";
 import {Effect} from "../../effects/Effect";
 import {applicationSchema, Flavor, flavorSchema, ModifierType} from "../modifier.schema";
 import {FloatDataManager} from "../dataManagers/FloatDataManager";
-import {Breakpoint, breakpointsSchema} from "../dataManagers/FloatDataManager";
 
 const ajv = new Ajv({removeAdditional: true, useDefaults: true})
 
@@ -12,6 +11,7 @@ interface Schema extends BaseSchema {
     type: ModifierType.LINEAR;
     effects: unknown[]
     breakpoints: Breakpoint[]
+    flavor: Flavor
 }
 
 const validateSchema = ajv.compile<Schema>({
@@ -22,14 +22,19 @@ const validateSchema = ajv.compile<Schema>({
         type: {type: "string", enum: Object.values(ModifierType)},
         application: applicationSchema,
         flavor: flavorSchema,
-        breakpoints: breakpointsSchema,
+        breakpoints: {type: "object"},
         effects: {type: "array"},
     },
 })
 
+interface Breakpoint {
+    min: number;
+    value: number;
+}
+
 export class LinearModifier extends Modifier<Schema> {
 
-    public readonly dataManager;
+    public readonly dataManager= FloatDataManager.create<Breakpoint>();
 
     static create(props: CreateProps): LinearModifier | null {
         if (!validateSchema(props.definition)) {
@@ -47,17 +52,27 @@ export class LinearModifier extends Modifier<Schema> {
 
     constructor(definition: Schema) {
         super(definition);
-        this.dataManager = new FloatDataManager(definition.breakpoints)
+        this.dataManager.setBreakpoints(definition.breakpoints)
     }
 
     public override getDescription(data: unknown): Flavor {
-        const keywords = {amount: this.dataManager.resolveSingle(data).toString()};
+
+        const amount = this.dataManager.getBreakpoint(data).value.toString()
+
+        const keywords = {amount};
 
         return this.replaceKeyWords(this.schema.flavor, keywords);
     }
 
     public override getEffects = (data: unknown[]) => {
-        const keywords = {amount: this.dataManager.resolveMultiple(data).toString()};
+
+        const numbers = data.map((data) => {
+            return this.dataManager.getBreakpoint(data).value;
+        })
+
+        const amount = numbers.reduce((a, b) => a + b, 0).toString()
+
+        const keywords = {amount};
 
         return Effect.parseEffectDefinitions(
             this.replaceKeyWords(this.schema.effects, keywords),

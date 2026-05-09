@@ -6,7 +6,7 @@ export enum KeydotOperation {
     Min = "MIN",
     Max = "MAX",
 }
-
+// TODO Refactor keydot into it's own change effect class
 export interface KeydotChange {
     key: string;
     operation: KeydotOperation;
@@ -15,6 +15,7 @@ export interface KeydotChange {
 
 export const keydotChangesSchema = {
     type: "array",
+    default: [],
     items: {
         type: "object",
         required: ["key", "operation", "value"],

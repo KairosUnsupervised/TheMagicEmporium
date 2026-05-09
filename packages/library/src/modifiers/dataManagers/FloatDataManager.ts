@@ -2,77 +2,53 @@ import Ajv from "ajv";
 import {DataManager} from "./DataManager";
 import {Logger} from "../../misc/Logger";
 
-export interface Breakpoint {
-    min: number;
-    value: number;
-}
+export type Breakpoint<Data extends object = object> = { min: number } & Data;
 
-export const breakpointsSchema = {
-    type: "array",
-    minItems: 1,
-    items: {
-        type: "object",
-        required: ["min", "value"],
-        properties: {
-            min: {type: "number", minimum: 0},
-            value: {type: "number"},
-        },
-    },
-}
-
-export interface Data {
+export interface FloatData {
     float: number;
 }
 
-const ajv = new Ajv()
+const ajv = new Ajv();
 
-const validateData = ajv.compile<Data>({
+const validateData = ajv.compile<FloatData>({
     type: "object",
     required: ["float"],
     properties: {
         float: {type: "number", minimum: 0},
     },
-})
+});
 
-export class FloatDataManager extends DataManager {
+export class FloatDataManager<Data extends object = object> extends DataManager {
 
-    public breakpoints: Breakpoint[];
+    private breakpoints: Breakpoint<Data>[] = [];
 
-    constructor(breakpoints: Breakpoint[]) {
-        super();
-        this.breakpoints = breakpoints.sort((a, b) => b.min - a.min);
-    }
+    public static create = <Data extends object = object>() => {
+        return new FloatDataManager<Data>();
+    };
 
-    private resolveBreakpoint = (float: number) => {
+    public setBreakpoints = (breakpoints: Breakpoint<Data>[]) => {
+        this.breakpoints = [...breakpoints].sort((a, b) => b.min - a.min);
+    };
+
+    public getBreakpoint = (data: unknown): Breakpoint<Data> => {
+        const float = this.resolveFloat(data);
         for (const breakpoint of this.breakpoints) {
             if (float >= breakpoint.min) {
-                return breakpoint.value;
+                return breakpoint;
             }
         }
-        return 0;
-    }
+        if(this.breakpoints.length === 0){
+            // This should be circumvented by the schema validation
+            throw new Error("No breakpoints set for FloatDataManager");
+        }
+        return this.breakpoints[0];
+    };
 
-    private resolveData = (data: unknown) => {
+    private resolveFloat = (data: unknown): number => {
         if (!validateData(data)) {
-            Logger.error("Invalid data for FloatDataManager.resolveData", {data, errors: validateData.errors})
-            return 0
+            Logger.error("Invalid data for FloatDataManager", {data, errors: validateData.errors});
+            return 0;
         }
         return data.float;
-    }
-
-    /**
-     * Translate the float to the nearest breakpoint
-     * @param data
-     */
-    public resolveSingle = (data: unknown): number => {
-        return this.resolveBreakpoint(this.resolveData(data));
-    }
-
-    /**
-     * Translates the float of all items to the nearest breakpoint and sums them up
-     * @param data
-     */
-    public resolveMultiple = (data: unknown[]): number => {
-        return data.reduce<number>((sum, item) => sum + this.resolveSingle(item), 0)
-    }
+    };
 }
