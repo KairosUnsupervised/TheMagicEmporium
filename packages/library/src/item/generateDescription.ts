@@ -1,6 +1,7 @@
 import {AbstractItem} from "./AbstractItem";
 import {AppliedModifier} from "../modifiers/Modifier";
-import {Flavor} from "../modifiers/modifier.schema";
+import {UniqueModifier} from "../modifiers/blueprints/UniqueModifier";
+import {LinearModifier} from "../modifiers/blueprints/LinearModifier";
 
 export const generateDescriptionV3 = (abstractItem: AbstractItem) => {
     let description = '';
@@ -12,7 +13,7 @@ export const generateDescriptionV3 = (abstractItem: AbstractItem) => {
         description += '<hr>';
 
         abstractItem.primary.forEach((applied: AppliedModifier) => {
-            description += generateModifierDescription(applied.modifier.getDescription(applied.data));
+            description += generateModifierDescription(applied);
         });
     }
 
@@ -23,7 +24,7 @@ export const generateDescriptionV3 = (abstractItem: AbstractItem) => {
         description += '<hr>';
 
         abstractItem.secondary.forEach((applied: AppliedModifier) => {
-            description += generateModifierDescription(applied.modifier.getDescription(applied.data));
+            description += generateModifierDescription(applied);
         });
     }
 
@@ -34,30 +35,44 @@ export const generateDescriptionV3 = (abstractItem: AbstractItem) => {
         description += '<hr>';
 
         abstractItem.tertiary.forEach((applied: AppliedModifier) => {
-            description += generateModifierDescription(applied.modifier.getDescription(applied.data));
+            description += generateModifierDescription(applied);
         });
     }
 
     return description;
 };
 
-const generateModifierDescription = (flavor: Flavor) => {
+const generateModifierDescription = (applied: AppliedModifier) => {
+    const flavor = applied.modifier.getDescription(applied.data);
+
+    const type = (() => {
+        if (applied.modifier instanceof UniqueModifier) {
+            return '<sub>Unique</sub><br>';
+        }
+        if (applied.modifier instanceof LinearModifier) {
+            return '<sub>Linear</sub><br>';
+        }
+        return '';
+    })();
+
     if (flavor.disclaimer === null || flavor.disclaimer === '') {
         return `
             <hr />
             <p style="text-align: center;">
+                ${type}
                 <strong>${flavor.title}</strong> <br />
                 ${flavor.description}
             </p>
-				`;
+        `;
     }
 
     return `
         <hr />
         <p style="text-align: center;">
+            ${type}
             <strong>${flavor.title}</strong> <br />
             ${flavor.description} <br />
             <em style="opacity: 0.5;">${flavor.disclaimer}</em>
         </p>
-            `;
+    `;
 };
