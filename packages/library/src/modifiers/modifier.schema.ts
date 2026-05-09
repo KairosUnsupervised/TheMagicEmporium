@@ -4,9 +4,9 @@ import {Tag} from "../item/tag.types";
 const ajv = new Ajv()
 
 export enum ModifierType {
-    UNIQUE = "UNIQUE",
-    LINEAR = "LINEAR",
-    INDEPENDENT = "INDEPENDENT",
+    Unique = "Unique",
+    Linear = "Linear",
+    Independent = "Independent",
 }
 
 export interface ModifierTypeSchema {

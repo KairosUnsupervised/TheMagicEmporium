@@ -16,7 +16,7 @@ interface Breakpoint {
 }
 
 interface Schema extends BaseSchema {
-    type: ModifierType.INDEPENDENT;
+    type: ModifierType.Independent;
     breakpoints: Breakpoint[];
 }
 
@@ -25,7 +25,7 @@ const validateRaw = ajv.compile<Schema>({
     required: ["identifier", "type", "application", "breakpoints"],
     properties: {
         identifier: {type: "string"},
-        type: {type: "string", const: ModifierType.INDEPENDENT},
+        type: {type: "string", const: ModifierType.Independent},
         application: applicationSchema,
         breakpoints: {
             type: "array", minItems: 1, items: {
@@ -75,8 +75,6 @@ export class IndependentModifier extends Modifier<Schema> {
 
     public override getDescription = (data: unknown): Flavor => {
         const breakpoint = this.dataManager.getBreakpoint(data);
-
-        console.log(data)
 
         return breakpoint.flavor;
     };

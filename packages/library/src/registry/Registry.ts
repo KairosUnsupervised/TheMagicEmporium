@@ -8,9 +8,9 @@ import {BrokenModifier} from "../modifiers/internal/Broken";
 import {ExhaustedModifier} from "../modifiers/internal/Exhausted";
 
 const factoryMap: Record<ModifierType, ModifierFactory> = {
-    [ModifierType.UNIQUE]: UniqueModifier.create,
-    [ModifierType.LINEAR]: LinearModifier.create,
-    [ModifierType.INDEPENDENT]: IndependentModifier.create,
+    [ModifierType.Unique]: UniqueModifier.create,
+    [ModifierType.Linear]: LinearModifier.create,
+    [ModifierType.Independent]: IndependentModifier.create,
 }
 
 export class Registry {

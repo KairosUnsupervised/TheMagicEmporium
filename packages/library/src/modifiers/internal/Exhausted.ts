@@ -6,7 +6,7 @@ export class ExhaustedModifier extends Modifier {
     public constructor() {
         super({
             identifier: "TME.INTERNAL.EXHAUSTED",
-            type: ModifierType.INDEPENDENT,
+            type: ModifierType.Independent,
             application: {weight: 0, whitelistedBy: [], blacklistedBy: [], applies: []},
             flavor: {
                 title: "Slot Exhausted",

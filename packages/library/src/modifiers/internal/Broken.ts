@@ -6,7 +6,7 @@ export class BrokenModifier extends Modifier {
     public constructor() {
         super({
             identifier: "INTERNAL_BROKEN",
-            type: ModifierType.INDEPENDENT,
+            type: ModifierType.Independent,
             application: {weight: 0, whitelistedBy: [], blacklistedBy: [], applies: []},
             flavor: {
                 title: "Broken Reference",

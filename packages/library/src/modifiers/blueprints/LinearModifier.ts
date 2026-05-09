@@ -7,11 +7,16 @@ import {FloatDataManager} from "../dataManagers/FloatDataManager";
 
 const ajv = new Ajv({removeAdditional: true, useDefaults: true})
 
+interface Breakpoint {
+    min: number;
+    value: number;
+}
+
 interface Schema extends BaseSchema {
-    type: ModifierType.LINEAR;
-    effects: unknown[]
-    breakpoints: Breakpoint[]
+    type: ModifierType.Linear;
     flavor: Flavor
+    breakpoints: Breakpoint[]
+    effects: unknown[]
 }
 
 const validateSchema = ajv.compile<Schema>({
@@ -26,11 +31,6 @@ const validateSchema = ajv.compile<Schema>({
         effects: {type: "array"},
     },
 })
-
-interface Breakpoint {
-    min: number;
-    value: number;
-}
 
 export class LinearModifier extends Modifier<Schema> {
 
@@ -56,12 +56,9 @@ export class LinearModifier extends Modifier<Schema> {
     }
 
     public override getDescription(data: unknown): Flavor {
-
         const amount = this.dataManager.getBreakpoint(data).value.toString()
 
-        const keywords = {amount};
-
-        return this.replaceKeyWords(this.schema.flavor, keywords);
+        return this.replaceKeyWords(this.schema.flavor, {amount});
     }
 
     public override getEffects = (data: unknown[]) => {
@@ -69,14 +66,11 @@ export class LinearModifier extends Modifier<Schema> {
         const numbers = data.map((data) => {
             return this.dataManager.getBreakpoint(data).value;
         })
-
         const amount = numbers.reduce((a, b) => a + b, 0).toString()
 
-        const keywords = {amount};
-
         return Effect.parseEffectDefinitions(
-            this.replaceKeyWords(this.schema.effects, keywords),
-            this.replaceKeyWords(this.schema.flavor, keywords),
+            this.replaceKeyWords(this.schema.effects,  {amount}),
+            this.replaceKeyWords(this.schema.flavor,  {amount}),
         )
     }
 
