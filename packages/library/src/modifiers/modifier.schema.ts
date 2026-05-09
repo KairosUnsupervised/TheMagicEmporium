@@ -6,6 +6,7 @@ const ajv = new Ajv()
 export enum ModifierType {
     UNIQUE = "UNIQUE",
     LINEAR = "LINEAR",
+    INDEPENDENT = "INDEPENDENT",
 }
 
 export interface ModifierTypeSchema {

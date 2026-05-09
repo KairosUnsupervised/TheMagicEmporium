@@ -2,6 +2,7 @@ import {AbstractItem} from "./AbstractItem";
 import {AppliedModifier} from "../modifiers/Modifier";
 import {UniqueModifier} from "../modifiers/blueprints/UniqueModifier";
 import {LinearModifier} from "../modifiers/blueprints/LinearModifier";
+import {IndependentModifier} from "../modifiers/blueprints/IndependentModifier";
 
 export const generateDescriptionV3 = (abstractItem: AbstractItem) => {
     let description = '';
@@ -51,6 +52,9 @@ const generateModifierDescription = (applied: AppliedModifier) => {
         }
         if (applied.modifier instanceof LinearModifier) {
             return '<sub>Linear</sub><br>';
+        }
+        if (applied.modifier instanceof IndependentModifier) {
+            return '<sub>Independent</sub><br>';
         }
         return '';
     })();
