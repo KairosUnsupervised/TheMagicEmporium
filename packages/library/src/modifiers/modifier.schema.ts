@@ -7,6 +7,7 @@ export enum ModifierType {
     Unique = "UNIQUE",
     Linear = "LINEAR",
     Independent = "INDEPENDENT",
+    Tiered = "TIERED",
 }
 
 export interface ModifierTypeSchema {

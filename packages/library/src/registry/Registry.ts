@@ -6,11 +6,13 @@ import {LinearModifier} from "../modifiers/blueprints/LinearModifier";
 import {IndependentModifier} from "../modifiers/blueprints/IndependentModifier";
 import {BrokenModifier} from "../modifiers/internal/Broken";
 import {ExhaustedModifier} from "../modifiers/internal/Exhausted";
+import {TieredModifier} from "../modifiers/blueprints/TieredModifier";
 
 const factoryMap: Record<ModifierType, ModifierFactory> = {
     [ModifierType.Unique]: UniqueModifier.create,
     [ModifierType.Linear]: LinearModifier.create,
     [ModifierType.Independent]: IndependentModifier.create,
+    [ModifierType.Tiered]: TieredModifier.create,
 }
 
 export class Registry {
