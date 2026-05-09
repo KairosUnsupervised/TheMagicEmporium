@@ -6,12 +6,14 @@ import {namespace} from "@tme/shared/src/namespaceConfig";
 import {AppliedModifier} from "../modifiers/Modifier";
 import {generateDescriptionV3} from "./generateDescription";
 import {Item5e, ItemType} from "@tme/shared/src/types/item5e";
+import {applyKeydotChanges, KeydotChange} from "../modifiers/keydot";
+import {Activity} from "../effects/activity/Activity";
 
 /**
  * Represent a magic item from the 5e system view
  */
 export class MagicItem {
-    // TODO Stop polluting the global scope
+    // TODO Stop polluting the global scope, then rename it back to Item
 
     private readonly abstractItem: AbstractItem;
 
@@ -31,6 +33,7 @@ export class MagicItem {
             weight: 777,
             rarity: 'common',
             attunement: 1,
+            activities: {}
         },
     };
 
@@ -45,12 +48,14 @@ export class MagicItem {
         this.addRarity();
         this.addName();
         this.addDescription();
-        this.mergeModifiers();
+
+        this.mergeItemChanges();
+        // TODO Retroactive activity updates
+        this.mergeItemActivities()
     }
 
     private addBase = () => {
         const details = equipmentDetails[this.abstractItem.base];
-        console.log("WTF", {details, base: this.abstractItem.base})
 
         this.merge({
             ...details.foundry,
@@ -85,23 +90,34 @@ export class MagicItem {
         });
     };
 
-    private mergeModifiers = () => {
-        // TODO IMPLEMENT THIS AGAIN
-        // const modifiers = [
-        //     ...this.abstractItem.primary,
-        //     ...this.abstractItem.secondary,
-        //     ...this.abstractItem.tertiary,
-        // ];
-        // modifiers.forEach((applied) => {
-        //     const result = applied.modifier.mergeFoundryItem({
-        //         item: this.item,
-        //         document: this.document as Item5e,
-        //     });
-        //     if (result) {
-        //         this.merge(result);
-        //     }
-        // });
+    private mergeItemChanges = () => {
+        const changes: KeydotChange[] = [
+            ...this.abstractItem.primary,
+            ...this.abstractItem.secondary,
+            ...this.abstractItem.tertiary,
+        ].flatMap(({modifier, data}) => {
+            return modifier.getItemChanges(data)
+        });
+
+        this.document = applyKeydotChanges(this.document, changes) as typeof this.document;
     };
+
+    private mergeItemActivities = () => {
+
+        const baseActivities = (equipmentDetails[this.abstractItem.base].foundry.activities || []).map((schema) => {
+            return new Activity(schema)
+        });
+
+        const activities: Activity[] = [
+            ...this.abstractItem.primary,
+            ...this.abstractItem.secondary,
+            ...this.abstractItem.tertiary,
+        ].flatMap(({modifier, data}) => {
+            return modifier.getItemActivities(data)
+        });
+
+        this.document.system!.activities = Activity.activitiesToRecord([...baseActivities, ...activities])
+    }
 
     public merge = (document: DeepPartial<Item5e>) => {
         this.document = merge.withOptions(
@@ -129,7 +145,7 @@ export class MagicItem {
     };
 
     private exportModifiers = (mods: AppliedModifier[]) => {
-        return mods.map(({ modifier, data }) => ({
+        return mods.map(({modifier, data}) => ({
             identifier: modifier.identifier,
             data,
         }));

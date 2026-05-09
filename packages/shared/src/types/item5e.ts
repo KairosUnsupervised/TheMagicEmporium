@@ -56,6 +56,7 @@ export interface Item5e<Flag = SubItem | BaseItem> {
         attunement: 1 | 0;
         equipped: boolean;
         attuned: boolean;
+        activities: object
     };
     flags: {
         [namespace.core.id]: Flag

@@ -1,38 +1,35 @@
 import Ajv from "ajv";
 import {BaseSchema, type CreateProps, Modifier} from "../Modifier";
 import {Logger} from "../../misc/Logger";
-import {applicationSchema, Flavor, flavorSchema, ModifierType} from "../modifier.schema";
-import {Breakpoint, breakpointsSchema, FloatDataManager} from "../dataManagers/FloatDataManager";
+import {applicationSchema, flavorSchema, ModifierType} from "../modifier.schema";
 import {KeydotChange, keydotChangesSchema} from "../keydot";
+import {Activity} from "../../effects/activity/Activity";
 
 const ajv = new Ajv({removeAdditional: true, useDefaults: true});
 
 interface Schema extends BaseSchema {
     type: ModifierType.INDEPENDENT;
-    breakpoints: Breakpoint[];
-    changes: KeydotChange[];
+    changes?: KeydotChange[];
+    activities?: unknown[];
 }
 
 const validateSchema = ajv.compile<Schema>({
     type: "object",
-    required: ["identifier", "type", "application", "flavor", "breakpoints"],
+    required: ["identifier", "type", "application", "flavor"],
     properties: {
-        identifier:  {type: "string"},
-        type:        {type: "string", const: ModifierType.INDEPENDENT},
+        identifier: {type: "string"},
+        type: {type: "string", const: ModifierType.INDEPENDENT},
         application: applicationSchema,
-        flavor:      flavorSchema,
-        breakpoints: breakpointsSchema,
-        changes:     keydotChangesSchema,
+        flavor: flavorSchema,
+        changes: keydotChangesSchema,
+        activities: {type: "array"},
     },
 });
 
 /**
- * An Independent modifier adds descriptive flavor text to an item without applying any effects to the character.
- * It has no effects and does not interact with the character's stats.
+ * An Independent modifier only has a direct effect on the item it's rolled on
  */
 export class IndependentModifier extends Modifier<Schema> {
-
-    public readonly dataManager;
 
     static create(props: CreateProps): IndependentModifier | null {
         if (!validateSchema(props.definition)) {
@@ -51,19 +48,12 @@ export class IndependentModifier extends Modifier<Schema> {
         });
     }
 
-    constructor(definition: Schema) {
-        super(definition);
-        this.dataManager = new FloatDataManager(definition.breakpoints);
-    }
+    public override getItemChanges = (_data: unknown): KeydotChange[] => {
+        return this.schema.changes ?? [];
+    };
 
-    public override getDescription(data: unknown): Flavor {
-        const keywords = {amount: this.dataManager.resolveSingle(data).toString()};
-        return this.replaceKeyWords(this.schema.flavor, keywords);
-    }
-
-    public override getItemChanges = (data: unknown): KeydotChange[] => {
-        const keywords = {amount: this.dataManager.resolveSingle(data).toString()};
-        return this.replaceKeyWords(this.schema.changes ?? [], keywords);
+    public override getItemActivities = (_data: unknown): Activity[] => {
+        return Activity.createMultiple(this.schema.activities ?? []);
     };
 
 }

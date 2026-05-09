@@ -1,6 +1,7 @@
 import { Tag } from '../tag.types';
 import { Equipment } from './equipment.types';
 import { equipmentAdjectives } from './equipment.adjectives';
+import {ActivitySchema} from "../../effects/activity/activity.schema";
 
 enum FoundryType {
 	Weapon = 'weapon',
@@ -19,8 +20,11 @@ interface EquipmentDetail {
 		img: string;
 		type: FoundryType;
 		system: object;
+		activities?: ActivitySchema[]
 	};
 }
+
+const defaultAttackActivities: ActivitySchema[] = [{type: "attack", sort: -100000}];
 
 export const equipmentDetails: {
 	[key in Equipment]: EquipmentDetail;
@@ -527,6 +531,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'simpleM', baseItem: 'club' },
 				properties: ['lgt'],
@@ -559,6 +564,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'simpleM', baseItem: 'dagger' },
 				properties: ['fin', 'lgt', 'thr'],
@@ -591,6 +597,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'simpleM', baseItem: 'greatclub' },
 				properties: ['two'],
@@ -622,6 +629,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'simpleM', baseItem: 'handaxe' },
 				properties: ['lgt', 'thr'],
@@ -653,6 +661,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'simpleM', baseItem: 'javelin' },
 				properties: ['thr'],
@@ -684,6 +693,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'simpleM', baseItem: 'lighthammer' },
 				properties: ['lgt', 'thr'],
@@ -715,6 +725,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'simpleM', baseItem: 'mace' },
 				properties: [],
@@ -746,6 +757,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'simpleM', baseItem: 'quarterstaff' },
 				properties: ['ver'],
@@ -777,6 +789,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'simpleM', baseItem: 'sickle' },
 				properties: ['lgt'],
@@ -808,6 +821,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'simpleM', baseItem: 'spear' },
 				properties: ['thr', 'ver'],
@@ -840,6 +854,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'simpleR', baseItem: 'lightcrossbow' },
 				properties: ['amm', 'lod', 'two'],
@@ -872,6 +887,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'simpleR', baseItem: 'dart' },
 				properties: ['fin', 'thr'],
@@ -904,6 +920,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'simpleR', baseItem: 'shortbow' },
 				properties: ['amm', 'two'],
@@ -936,6 +953,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'simpleR', baseItem: 'sling' },
 				properties: ['amm'],
@@ -969,6 +987,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'battleaxe' },
 				properties: ['ver'],
@@ -1000,6 +1019,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'flail' },
 				properties: [],
@@ -1031,6 +1051,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'glaive' },
 				properties: ['hvy', 'rch', 'two'],
@@ -1062,6 +1083,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'greataxe' },
 				properties: ['hvy', 'two'],
@@ -1093,6 +1115,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'greatsword' },
 				properties: ['hvy', 'two'],
@@ -1124,6 +1147,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'halberd' },
 				properties: ['hvy', 'two', 'rch'],
@@ -1155,6 +1179,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'lance' },
 				properties: ['rch', 'spc'],
@@ -1186,6 +1211,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'longsword' },
 				properties: ['ver'],
@@ -1217,6 +1243,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'maul' },
 				properties: ['hvy', 'two'],
@@ -1248,6 +1275,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'morningstar' },
 				properties: [],
@@ -1279,6 +1307,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'pike' },
 				properties: ['hvy', 'rch', 'two'],
@@ -1310,6 +1339,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'rapier' },
 				properties: ['fin'],
@@ -1341,6 +1371,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'scimitar' },
 				properties: ['fin', 'lgt'],
@@ -1372,6 +1403,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'shortsword' },
 				properties: ['fin', 'lgt'],
@@ -1403,6 +1435,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'trident' },
 				properties: ['thr', 'ver'],
@@ -1434,6 +1467,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'warpick' },
 				properties: [],
@@ -1465,6 +1499,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'warhammer' },
 				properties: ['ver'],
@@ -1496,6 +1531,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialM', baseItem: 'whip' },
 				properties: ['fin', 'rch'],
@@ -1528,6 +1564,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialR', baseItem: 'blowgun' },
 				properties: ['amm', 'lod'],
@@ -1560,6 +1597,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialR', baseItem: 'handcrossbow' },
 				properties: ['amm', 'lod', 'lgt'],
@@ -1592,6 +1630,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialR', baseItem: 'heavycrossbow' },
 				properties: ['amm', 'hvy', 'lod', 'two'],
@@ -1624,6 +1663,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialR', baseItem: 'longbow' },
 				properties: ['amm', 'hvy', 'two'],
@@ -1656,6 +1696,7 @@ export const equipmentDetails: {
 		foundry: {
 			img: 'TODO.png',
 			type: FoundryType.Weapon,
+			activities: defaultAttackActivities,
 			system: {
 				type: { value: 'martialR', baseItem: 'net' },
 				properties: ['spc', 'thr'],

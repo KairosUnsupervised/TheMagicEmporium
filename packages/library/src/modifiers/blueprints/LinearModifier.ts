@@ -27,9 +27,6 @@ const validateSchema = ajv.compile<Schema>({
     },
 })
 
-/**
- * A Unique modifier bound to a player, e.g. multiple instances do not stack effects
- */
 export class LinearModifier extends Modifier<Schema> {
 
     public readonly dataManager;

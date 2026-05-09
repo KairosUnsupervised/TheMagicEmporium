@@ -3,6 +3,7 @@ import {Feat} from "../effects/feats/Feat";
 import {Application, Flavor, ModifierType} from "./modifier.schema";
 import {DataManager} from "./dataManagers/DataManager";
 import {applyKeydotChanges, KeydotChange} from "./keydot";
+import {Activity} from "../effects/activity/Activity";
 
 export type ModifierFactory = (props: CreateProps) => Modifier | null;
 
@@ -68,6 +69,14 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
      * @param _data
      */
     public getItemChanges = (_data: unknown): KeydotChange[] => {
+        return [];
+    };
+
+    /**
+     * Retrieves activities to be merged into the item document as a Record
+     * @param _data
+     */
+    public getItemActivities = (_data: unknown): Activity[] => {
         return [];
     };
 
