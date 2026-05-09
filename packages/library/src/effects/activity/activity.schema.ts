@@ -382,6 +382,7 @@ export const activityArraySchema = {
 };
 
 export const validateActivitySchema = ajv.compile<ActivitySchema>({
+    // @ts-ignore
     type: "object",
     ...activitySchema,
 });

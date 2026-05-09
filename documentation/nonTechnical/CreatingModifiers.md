@@ -40,19 +40,23 @@ A modifier is one entry inside the `modifiers` array of a pack. Every modifier n
 
 ## Modifier Types
 
-There are currently two modifier types. Choose the one that matches how the bonus should behave:
+There are currently three modifier types. Choose the one that matches how the bonus should behave:
 
-| Type       | Use when…                                                                   | Reference                              |
-|------------|-----------------------------------------------------------------------------|----------------------------------------|
-| `UNIQUE`   | The bonus is fixed — the same regardless of how many items carry it.        | [UniqueModifier.md](UniqueModifier.md) |
-| `LINEAR`   | The bonus scales based on a float value and a set of breakpoints.           | [LinearModifier.md](LinearModifier.md) |
+| Type          | Use when…                                                                         | Reference                                      |
+|---------------|-----------------------------------------------------------------------------------|------------------------------------------------|
+| `UNIQUE`      | The bonus is fixed — the same regardless of how many items carry it.              | [UniqueModifier.md](UniqueModifier.md)          |
+| `LINEAR`      | The bonus scales based on a float value and a set of breakpoints.                 | [LinearModifier.md](LinearModifier.md)          |
+| `INDEPENDENT` | The modifier patches the item document directly or adds abilities to the item itself. | [IndependentModifier.md](IndependentModifier.md) |
 
 ---
 
 ## Effects
 
-The `effects` array defines what actually happens to the character. An empty array produces a default passive feat
-using the modifier's flavor text. Otherwise, list one or more effect definitions:
+The `effects` array defines what actually happens to the character. It applies to `UNIQUE` and `LINEAR` modifiers only
+— `INDEPENDENT` modifiers use `changes` and `activities` instead (see [IndependentModifier.md](IndependentModifier.md)).
+
+An empty `effects` array produces a default passive feat using the modifier's flavor text. Otherwise, list one or more
+effect definitions:
 
 | Type            | Use when…                                                             | Reference                          |
 |-----------------|-----------------------------------------------------------------------|------------------------------------|
