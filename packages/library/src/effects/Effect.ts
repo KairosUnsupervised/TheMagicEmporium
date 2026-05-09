@@ -12,14 +12,20 @@ import {Flavor} from "../modifiers/modifier.schema";
 export class Effect {
 
     /**
-     * Parse an array of effect definitions into valid instances
+     * Parse an array of effect definitions into valid instances, creates a default feat if no data is passed
      * @param json Raw JSON definition of an effect
      * @param defaultFlavor Default title and description to fall back to if not specified
      */
     static parseEffectDefinitions = (json: unknown[], defaultFlavor: Flavor): (ActiveEffect | Feat)[] => {
 
-        return json.map((part) => {
+        const effects = (() => {
+            if (json.length > 0) {
+                return json
+            }
+            return [{type: EffectType.Feat}];
+        })();
 
+        return effects.map((part) => {
             if (!validateEffect(part)) {
                 Logger.error("Invalid effect", {errors: validateEffect.errors})
                 return null;
