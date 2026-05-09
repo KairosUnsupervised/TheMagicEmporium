@@ -24,6 +24,6 @@
   "include": [
     "src",
     "scripts",
-    "../../packages/types/src/foundry.d.ts"
+    "../../packages/shared/src/types/foundry.d.ts"
   ]
 }

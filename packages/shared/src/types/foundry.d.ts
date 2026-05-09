@@ -1,4 +1,3 @@
-// TODO MOVE THIS TYPES TO SHARED
 interface Window {
     Hooks: {
         on: any

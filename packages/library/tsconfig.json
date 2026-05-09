@@ -6,5 +6,5 @@
       "@tme/shared/*": ["../shared/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "../shared/src/types"]
 }
