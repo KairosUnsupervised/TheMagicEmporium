@@ -1,8 +1,8 @@
 # Unique Modifier
 
-A **Unique modifier** applies a fixed set of effects to a character whenever the item is equipped and attuned. The
-effects are always the same, they do not change based on the character's stats or any other data. Multiple copies of
-the same Unique modifier on the same character do not stack; only one instance is ever active at a time.
+A **Unique modifier** applies a fixed set of effects to a character whenever the item is equipped and attuned. Multiple copies of the same Unique modifier on the same character do not stack; only the highest tier across all copies is ever active at a time.
+
+Each modifier supports one or more **breakpoints** — tiers that activate based on the item's internal float value. Most modifiers only need a single breakpoint at `min: 0`, which acts as the sole tier.
 
 ---
 
@@ -18,12 +18,17 @@ the same Unique modifier on the same character do not stack; only one instance i
     "blacklistedBy": [],
     "applies": []
   },
-  "flavor": {
-    "title": "Blessed Strikes",
-    "description": "Your weapon attacks are blessed by the gods.",
-    "disclaimer": null
-  },
-  "effects": []
+  "breakpoints": [
+    {
+      "min": 0,
+      "flavor": {
+        "title": "Blessed Strikes",
+        "description": "Your weapon attacks are blessed by the gods.",
+        "disclaimer": null
+      },
+      "effects": []
+    }
+  ]
 }
 ```
 
@@ -32,8 +37,7 @@ the same Unique modifier on the same character do not stack; only one instance i
 | `identifier`  | Yes      | Unique name for this modifier. Convention: `SOURCE.SCREAMING_SNAKE`. |
 | `type`        | Yes      | Must be `"UNIQUE"`.                                                   |
 | `application` | Yes      | Controls when and how often this modifier appears (see below).        |
-| `flavor`      | Yes      | The title and description shown to the player (see below).            |
-| `effects`     | No       | List of effects applied while this modifier is active.                |
+| `breakpoints` | Yes      | One or more tiers, each with its own flavor and effects (see below).  |
 
 ---
 
@@ -59,9 +63,33 @@ The `application` block controls how the modifier enters the loot pool and which
 
 ---
 
-## Flavor
+## Breakpoints
 
-The `flavor` block is the human-readable presentation of the modifier shown on the item card.
+The `breakpoints` array defines the tiers of this modifier. Each breakpoint activates when the item's internal value reaches its `min` threshold. When a character has multiple copies of this modifier, the tier with the highest `min` across all copies is the one whose effects are applied.
+
+Most modifiers only need a single breakpoint at `min: 0`.
+
+```json
+"breakpoints": [
+  {
+    "min": 0,
+    "flavor": {
+      "title": "Blessed Strikes",
+      "description": "Your weapon attacks are blessed by the gods.",
+      "disclaimer": null
+    },
+    "effects": []
+  }
+]
+```
+
+| Field     | Required | Defaults to | Description                                                  |
+|-----------|----------|-------------|--------------------------------------------------------------|
+| `min`     | Yes      | —           | The minimum internal value needed to activate this tier.     |
+| `flavor`  | Yes      | —           | The title and description shown to the player for this tier. |
+| `effects` | No       | `[]`        | List of effects applied while this tier is active.           |
+
+### Flavor
 
 ```json
 "flavor": {
@@ -71,11 +99,11 @@ The `flavor` block is the human-readable presentation of the modifier shown on t
 }
 ```
 
-| Field         | Required | Defaults to | Description                                        |
-|---------------|----------|-------------|----------------------------------------------------|
-| `title`       | Yes      | —           | Name shown on the modifier entry.                  |
-| `description` | Yes      | —           | Short description of what the modifier does.       |
-| `disclaimer`  | No       | `null`      | Small explanatory text shown below the description.|
+| Field         | Required | Defaults to | Description                                         |
+|---------------|----------|-------------|-----------------------------------------------------|
+| `title`       | Yes      | —           | Name shown on the modifier entry.                   |
+| `description` | Yes      | —           | Short description of what the modifier does.        |
+| `disclaimer`  | No       | `null`      | Small explanatory text shown below the description. |
 
 ---
 
@@ -91,21 +119,26 @@ The `flavor` block is the human-readable presentation of the modifier shown on t
     "blacklistedBy": [],
     "applies": ["BLESSED"]
   },
-  "flavor": {
-    "title": "Blessed Strikes",
-    "description": "Your weapon attacks are blessed by the gods.",
-    "disclaimer": null
-  },
-  "effects": [
+  "breakpoints": [
     {
-      "type": "ACTIVE_EFFECT",
-      "title": "Blessed Strikes",
-      "description": "Your attack rolls gain a +2 bonus.",
-      "changes": [
+      "min": 0,
+      "flavor": {
+        "title": "Blessed Strikes",
+        "description": "Your weapon attacks are blessed by the gods.",
+        "disclaimer": null
+      },
+      "effects": [
         {
-          "key": "system.bonuses.mwak.attack",
-          "mode": "ADD",
-          "value": "2"
+          "type": "ACTIVE_EFFECT",
+          "title": "Blessed Strikes",
+          "description": "Your attack rolls gain a +2 bonus.",
+          "changes": [
+            {
+              "key": "system.bonuses.mwak.attack",
+              "mode": "ADD",
+              "value": "2"
+            }
+          ]
         }
       ]
     }

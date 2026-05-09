@@ -5,7 +5,10 @@ patch any numeric or text field on the item itself, and it can attach usable abi
 show up in the item's own action list.
 
 Because its effects are item-bound rather than actor-bound, an Independent modifier does not support the `effects`
-array used by Unique and Linear modifiers. Instead it uses two optional fields: `changes` and `activities`.
+array used by Unique and Linear modifiers. Instead each breakpoint uses two optional fields: `changes` and `activities`.
+
+Each modifier supports one or more **breakpoints** — tiers that activate based on the item's internal float value. Most
+modifiers only need a single breakpoint at `min: 0`.
 
 ---
 
@@ -21,24 +24,27 @@ array used by Unique and Linear modifiers. Instead it uses two optional fields: 
     "blacklistedBy": [],
     "applies": []
   },
-  "flavor": {
-    "title": "Balanced Hilt",
-    "description": "This weapon has been expertly balanced, granting +1 to attack rolls.",
-    "disclaimer": null
-  },
-  "changes": [],
-  "activities": []
+  "breakpoints": [
+    {
+      "min": 0,
+      "flavor": {
+        "title": "Balanced Hilt",
+        "description": "This weapon has been expertly balanced, granting +1 to attack rolls.",
+        "disclaimer": null
+      },
+      "changes": [],
+      "activities": []
+    }
+  ]
 }
 ```
 
-| Field         | Required | Description                                                           |
-|---------------|----------|-----------------------------------------------------------------------|
-| `identifier`  | Yes      | Unique name for this modifier. Convention: `SOURCE.SCREAMING_SNAKE`. |
-| `type`        | Yes      | Must be `"INDEPENDENT"`.                                              |
-| `application` | Yes      | Controls when and how often this modifier appears (see below).        |
-| `flavor`      | Yes      | The title and description shown to the player.                        |
-| `changes`     | No       | List of dot-notation patches applied to the item document.            |
-| `activities`  | No       | List of usable abilities added directly to the item.                  |
+| Field         | Required | Description                                                                    |
+|---------------|----------|--------------------------------------------------------------------------------|
+| `identifier`  | Yes      | Unique name for this modifier. Convention: `SOURCE.SCREAMING_SNAKE`.           |
+| `type`        | Yes      | Must be `"INDEPENDENT"`.                                                       |
+| `application` | Yes      | Controls when and how often this modifier appears (see below).                 |
+| `breakpoints` | Yes      | One or more tiers, each with its own flavor, changes, and activities (see below). |
 
 ---
 
@@ -48,7 +54,36 @@ Works identically to the Unique modifier — see [UniqueModifier.md](UniqueModif
 
 ---
 
-## Flavor
+## Breakpoints
+
+The `breakpoints` array defines the tiers of this modifier. Each breakpoint activates when the item's internal value
+reaches its `min` threshold. The highest threshold still at or below the item's value is the active tier.
+
+Most modifiers only need a single breakpoint at `min: 0`.
+
+```json
+"breakpoints": [
+  {
+    "min": 0,
+    "flavor": {
+      "title": "Balanced Hilt",
+      "description": "This weapon has been expertly balanced, granting +1 to attack rolls.",
+      "disclaimer": null
+    },
+    "changes": [],
+    "activities": []
+  }
+]
+```
+
+| Field        | Required | Defaults to | Description                                                  |
+|--------------|----------|-------------|--------------------------------------------------------------|
+| `min`        | Yes      | —           | The minimum internal value needed to activate this tier.     |
+| `flavor`     | Yes      | —           | The title and description shown to the player for this tier. |
+| `changes`    | No       | `[]`        | Dot-notation patches applied to the item document.           |
+| `activities` | No       | `[]`        | Usable abilities added directly to the item.                 |
+
+### Flavor
 
 Works identically to the Unique modifier — see [UniqueModifier.md](UniqueModifier.md) for the full field reference.
 
@@ -77,16 +112,16 @@ The `changes` array lets you patch any field on the item document using dot-nota
 
 ### Operations
 
-| Operation  | Effect                                                                     |
-|------------|----------------------------------------------------------------------------|
-| `SET`      | Replaces the field with the given value.                                   |
+| Operation  | Effect                                                                      |
+|------------|-----------------------------------------------------------------------------|
+| `SET`      | Replaces the field with the given value.                                    |
 | `ADD`      | Adds the value to the current number (supports negative values to subtract).|
-| `MULTIPLY` | Multiplies the current number by the value.                                |
-| `APPEND`   | Appends the value to an array field.                                       |
-| `MIN`      | Keeps whichever is smaller: the current value or the given value.          |
-| `MAX`      | Keeps whichever is larger: the current value or the given value.           |
+| `MULTIPLY` | Multiplies the current number by the value.                                 |
+| `APPEND`   | Appends the value to an array field.                                        |
+| `MIN`      | Keeps whichever is smaller: the current value or the given value.           |
+| `MAX`      | Keeps whichever is larger: the current value or the given value.            |
 
-Multiple changes in the same modifier are applied in order. Later changes in the array can overwrite earlier ones if
+Multiple changes in the same breakpoint are applied in order. Later changes in the array can overwrite earlier ones if
 they target the same field.
 
 ### Finding the right key
@@ -137,9 +172,9 @@ The activity definition is the same format used inside a `FEAT` effect's `system
 
 ### Activities vs Feats
 
-| Situation                                              | Use                   |
-|--------------------------------------------------------|-----------------------|
-| Ability is tied to this specific item                  | `INDEPENDENT` activities |
+| Situation                                              | Use                          |
+|--------------------------------------------------------|------------------------------|
+| Ability is tied to this specific item                  | `INDEPENDENT` activities     |
 | Ability is a character trait that persists regardless  | `UNIQUE` / `LINEAR` with a `FEAT` effect |
 
 ---
@@ -158,16 +193,21 @@ A modifier that sets a weapon's magical attack bonus to +2:
     "blacklistedBy": [],
     "applies": []
   },
-  "flavor": {
-    "title": "Keen Edge",
-    "description": "This weapon's edge has been magically sharpened, granting a +2 bonus to attack and damage rolls.",
-    "disclaimer": null
-  },
-  "changes": [
+  "breakpoints": [
     {
-      "key": "system.magicalBonus",
-      "operation": "SET",
-      "value": 2
+      "min": 0,
+      "flavor": {
+        "title": "Keen Edge",
+        "description": "This weapon's edge has been magically sharpened, granting a +2 bonus to attack and damage rolls.",
+        "disclaimer": null
+      },
+      "changes": [
+        {
+          "key": "system.magicalBonus",
+          "operation": "SET",
+          "value": 2
+        }
+      ]
     }
   ]
 }
@@ -189,30 +229,35 @@ A modifier that adds a once-per-short-rest bonus action to deal extra fire damag
     "blacklistedBy": [],
     "applies": []
   },
-  "flavor": {
-    "title": "Blazing Edge",
-    "description": "Once per short rest as a bonus action, ignite this weapon to deal an extra 1d6 fire damage on your next hit.",
-    "disclaimer": null
-  },
-  "activities": [
+  "breakpoints": [
     {
-      "type": "damage",
-      "name": "Ignite Weapon",
-      "activation": {
-        "type": "bonus",
-        "cost": 1
+      "min": 0,
+      "flavor": {
+        "title": "Blazing Edge",
+        "description": "Once per short rest as a bonus action, ignite this weapon to deal an extra 1d6 fire damage on your next hit.",
+        "disclaimer": null
       },
-      "uses": {
-        "max": 1,
-        "recovery": [
-          { "period": "sr", "type": "recoverAll" }
-        ]
-      },
-      "damage": {
-        "parts": [
-          { "number": 1, "denomination": 6, "types": ["fire"] }
-        ]
-      }
+      "activities": [
+        {
+          "type": "damage",
+          "name": "Ignite Weapon",
+          "activation": {
+            "type": "bonus",
+            "cost": 1
+          },
+          "uses": {
+            "max": 1,
+            "recovery": [
+              { "period": "sr", "type": "recoverAll" }
+            ]
+          },
+          "damage": {
+            "parts": [
+              { "number": 1, "denomination": 6, "types": ["fire"] }
+            ]
+          }
+        }
+      ]
     }
   ]
 }
