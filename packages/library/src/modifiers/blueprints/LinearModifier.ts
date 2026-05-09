@@ -54,19 +54,18 @@ export class LinearModifier extends Modifier<Schema> {
     }
 
     public override getDescription(data: unknown): Flavor {
-        const amount = this.dataManager.resolveSingle(data)
+        const keywords = {amount: this.dataManager.resolveSingle(data).toString()};
 
-        return JSON.parse(JSON.stringify(this.schema.flavor).replaceAll("{amount}", amount.toString()));
+        return this.replaceKeyWords(this.schema.flavor, keywords);
     }
 
-    // TODO Replace amount with value!!!!
     public override getEffects = (data: unknown[]) => {
-        const amount = this.dataManager.resolveMultiple(data)
+        const keywords = {amount: this.dataManager.resolveMultiple(data).toString()};
 
-        const effects = JSON.parse(JSON.stringify(this.schema.effects).replaceAll("{amount}", amount.toString()));
-        const flavor = JSON.parse(JSON.stringify(this.schema.flavor).replaceAll("{amount}", amount.toString()));
-
-        return Effect.parseEffectDefinitions(effects, flavor)
+        return Effect.parseEffectDefinitions(
+            this.replaceKeyWords(this.schema.effects, keywords),
+            this.replaceKeyWords(this.schema.flavor, keywords),
+        )
     }
 
 }

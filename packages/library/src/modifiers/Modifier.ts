@@ -62,4 +62,15 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
         return []
     };
 
+    /**
+     * Replaces every {key} placeholder with the matching value
+     */
+    protected replaceKeyWords = <T>(target: T, replacements: Record<string, string>): T => {
+        let json = JSON.stringify(target);
+        for (const [key, value] of Object.entries(replacements)) {
+            json = json.replaceAll(`{${key}}`, value);
+        }
+        return JSON.parse(json);
+    };
+
 }
