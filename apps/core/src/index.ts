@@ -3,7 +3,7 @@ import {Logger} from "./misc/Logger.ts";
 import {namespace} from "@tme/shared/src/namespaceConfig";
 import {MagicItem} from "@tme/library/src/item/Item.ts"
 import {AbstractItem} from "@tme/library/src/item/AbstractItem.ts";
-import { Equipment } from "@tme/library/src/item/equipment.types.ts";
+import { Equipment } from "@tme/library/src/item/equipment/equipment.types.ts";
 import {registerValidator} from "./validator/registerValidator";
 import {registry} from "@tme/library/src/registry/Registry.ts";
 

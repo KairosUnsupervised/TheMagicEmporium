@@ -1,4 +1,4 @@
-import { Tag } from './tag.types';
+import { Tag } from '../tag.types';
 import { Equipment } from './equipment.types';
 import { equipmentAdjectives } from './equipment.adjectives';
 

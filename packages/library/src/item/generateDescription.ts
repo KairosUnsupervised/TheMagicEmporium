@@ -1,6 +1,6 @@
 import {AbstractItem} from "./AbstractItem";
 import {AppliedModifier} from "../modifiers/Modifier";
-import type {Flavor} from "../modifiers/modifier.types";
+import {Flavor} from "../modifiers/modifier.schema";
 
 export const generateDescriptionV3 = (abstractItem: AbstractItem) => {
     let description = '';

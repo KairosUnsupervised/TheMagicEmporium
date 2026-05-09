@@ -1,4 +1,4 @@
-import { Rarity } from './item.types';
+import { Rarity } from '../item.types';
 
 export const equipmentRarity: Record<Rarity, string> = {
 	[Rarity.Common]: 'Common',

@@ -1,5 +1,5 @@
 import {AppliedModifier} from "../modifiers/Modifier";
-import {Equipment} from "./equipment.types";
+import {Equipment} from "./equipment/equipment.types";
 import {Rarity} from "./item.types";
 import {namespace} from "@tme/shared/src/namespaceConfig";
 import {Item5e, ItemType} from "@tme/shared/src/types/item5e"
