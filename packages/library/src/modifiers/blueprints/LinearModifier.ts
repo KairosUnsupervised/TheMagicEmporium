@@ -27,7 +27,14 @@ const validateSchema = ajv.compile<Schema>({
         type: {type: "string", enum: Object.values(ModifierType)},
         application: applicationSchema,
         flavor: flavorSchema,
-        breakpoints: {type: "object"},
+        breakpoints: {type: "array", minItems: 1, items: {
+            type: "object",
+            required: ["min", "value"],
+            properties: {
+                min: {type: "number", minimum: 0},
+                value: {type: "number"},
+            },
+            }},
         effects: {type: "array"},
     },
 })
