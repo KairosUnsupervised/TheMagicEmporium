@@ -11,6 +11,14 @@ export class Logger {
         console.log(`${this.prefix} | ${message}`, meta);
     };
 
+    static warn = (message: string, meta?: object) => {
+        if (!meta) {
+            console.warn(`${this.prefix} | ${message}`);
+            return;
+        }
+        console.warn(`${this.prefix} | ${message}`, meta);
+    };
+
     // TODO Proper error reporting inside error cases
     static error = (message: string, meta?: object) => {
         if (!meta) {

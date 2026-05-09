@@ -4,7 +4,7 @@ import {Actor5e, Effect5e} from "@tme/shared/src/types/actor5e.ts"
 import {BaseItem, Item5e, ItemType} from "@tme/shared/src/types/item5e.ts";
 import {MagicItem} from "@tme/library/src/item/Item.ts";
 import {ActiveEffect} from "@tme/library/src/effects/activeEffects/ActiveEffect.ts";
-import {Feat} from "@tme/library/src/effects/Feat.ts";
+import {Feat} from "@tme/library/src/effects/feats/Feat.ts";
 import {registry} from "@tme/library/src/registry/Registry.ts";
 import {Logger} from "../misc/Logger.ts";
 import {namespace} from "@tme/shared/src/namespaceConfig.ts";
@@ -28,16 +28,16 @@ export class Validator {
         const modifiers = this.getAllModifiers(magicItems);
 
         await this.synchronizeDescriptions(magicItems);
-        const activeEffects = this.getAllActiveEffects(modifiers);
 
-        // TODO IMPLEMENT
-        // const effects = MagicEffect.create();
-        // modifiers.forEach((modifier) => {
-        //     modifier.getMagicEffects(effects);
-        // });
-        //
-        // await this.synchronizeFeats(effects.feats, actor);
-        await this.synchronizeEffects(activeEffects, actor);
+        const effects= this.getAllEffects(modifiers);
+
+        await this.synchronizeFeats(effects.filter((item) => {
+            return item instanceof Feat
+        }), actor);
+
+        await this.synchronizeEffects(effects.filter((item) => {
+            return item instanceof ActiveEffect
+        }), actor);
     };
 
     /**
@@ -120,86 +120,80 @@ export class Validator {
     };
 
     /**
-     * Retrieve all activeEffects of all modifiers
+     * Retrieve all activeEffects and feats of all modifiers
      */
-    private getAllActiveEffects = (modifiersMapped: ModifiersMapped): ActiveEffect[] => {
+    private getAllEffects = (modifiersMapped: ModifiersMapped): (ActiveEffect | Feat)[] => {
         return Object.values(modifiersMapped).flatMap(({modifier, data}) => {
                 return modifier.getEffects(data)
             }
         );
     }
 
-    // TODO IMPLEMENT
-    private getAllFeats = (): Feat[] => {
 
-        return []
-    }
+    private getMagicFeats = (actor: Actor5e) => {
+        return actor.items.filter((item: Item5e) => {
+            if (!item.flags[namespace.core.id]) {
+                return false;
+            }
 
-    //
-    // private getMagicFeats = (actor: Actor5e) => {
-    //     return actor.items.filter((item: Item5e) => {
-    //         if (!item.flags.magicInfluxV3) {
-    //             return false;
-    //         }
-    //
-    //         if (item.flags.magicInfluxV3.type === 'SUB_ITEM') {
-    //             return true;
-    //         }
-    //
-    //         return false;
-    //     });
-    // };
-    //
-    // private synchronizeFeats = async (feats: Feat[], actor: Actor5e) => {
-    //     let remaining = this.getMagicFeats(actor);
-    //
-    //     const creation = feats.map((feat, index) => {
-    //         const id = feat.document.name + index;
-    //
-    //         /**
-    //          * If the feat exists, remove it from the remaining array
-    //          */
-    //         const exists = remaining.find((item) => {
-    //             // @ts-ignore
-    //             return item.flags.magicInfluxV3?.id === id;
-    //         });
-    //
-    //         if (exists) {
-    //             remaining = remaining.filter((item) => {
-    //                 // @ts-ignore
-    //                 return item.flags.magicInfluxV3?.id !== id;
-    //             });
-    //             return;
-    //         }
-    //
-    //         Logger.log('Creating SubItem', {
-    //             id,
-    //         });
-    //
-    //         return actor.createEmbeddedDocuments('Item', [
-    //             {
-    //                 ...feat.export(),
-    //                 flags: {
-    //                     magicInfluxV3: {
-    //                         type: 'SUB_ITEM',
-    //                         id,
-    //                     },
-    //                 },
-    //             },
-    //         ]);
-    //     });
-    //     await Promise.all(creation);
-    //
-    //     /**
-    //      * Remove remaining feats
-    //      */
-    //     for (const item of remaining) {
-    //         Logger.log('Removing feat', { item });
-    //         // @ts-ignore
-    //         await actor.deleteEmbeddedDocuments('Item', [item.id]);
-    //     }
-    // };
-    //
+            if (item.flags[namespace.core.id].type === ItemType.TemporaryItem) {
+                return true;
+            }
+
+            return false;
+        });
+    };
+
+    private synchronizeFeats = async (feats: Feat[], actor: Actor5e) => {
+        let remaining = this.getMagicFeats(actor);
+
+        const creation = feats.map((feat, index) => {
+            const id = feat.document.name + index;
+
+            /**
+             * If the feat exists, remove it from the remaining array
+             */
+            const exists = remaining.find((item) => {
+                // @ts-ignore
+                return item.flags[namespace.core.id]?.id === id;
+            });
+
+            if (exists) {
+                remaining = remaining.filter((item) => {
+                    // @ts-ignore
+                    return item.flags[namespace.core.id]?.id !== id;
+                });
+                return;
+            }
+
+            Logger.log('Creating SubItem', {
+                id,
+            });
+
+            return actor.createEmbeddedDocuments('Item', [
+                {
+                    ...feat.export(),
+                    flags: {
+                        [namespace.core.id]: {
+                            type: ItemType.TemporaryItem,
+                            id,
+                        },
+                    },
+                },
+            ]);
+        });
+        await Promise.all(creation);
+
+        /**
+         * Remove remaining feats
+         */
+        for (const item of remaining) {
+            Logger.log('Removing feat', { item });
+            // @ts-ignore
+            await actor.deleteEmbeddedDocuments('Item', [item.id]);
+        }
+    };
+
 
     /**
      * Get all existing active effects of an actor related to this module

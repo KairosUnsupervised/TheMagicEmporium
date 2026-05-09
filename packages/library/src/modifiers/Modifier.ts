@@ -1,5 +1,5 @@
 import {ActiveEffect} from "../effects/activeEffects/ActiveEffect";
-import {Feat} from "../effects/Feat";
+import {Feat} from "../effects/feats/Feat";
 import {Application, Flavor, ModifierType} from "./modifier.schema";
 import {DataManager} from "./dataManagers/DataManager";
 
@@ -55,19 +55,11 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
     };
 
     /**
-     * Retrieves passive effects for the actor
+     * Retrieves activeEffects and feats for the actor
      * @param _data
      */
-    public getEffects = (_data: any[]): ActiveEffect[] => {
+    public getEffects = (_data: any[]): (ActiveEffect | Feat)[] => {
         return []
     };
-
-    /**
-     * Retrieves feats for the actor
-     * @param _data
-     */
-    public getFeats = (_data: any[]): Feat[] => {
-        return []
-    }
 
 }

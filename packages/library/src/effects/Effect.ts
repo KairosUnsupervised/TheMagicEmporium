@@ -1,8 +1,10 @@
 import {ActiveEffect} from "./activeEffects/ActiveEffect";
+import {Feat} from "./feats/Feat";
 import {EffectType, validateEffect} from "./effect.schema";
 import {Logger} from "../misc/Logger";
 import {validateActiveEffectSchema} from "./activeEffects/activeEffect.schema";
-import {Flavor} from "../modifiers/modifier.types";
+import {FeatSchema, validateFeatSchema} from "./feats/feat.schema";
+import {Flavor} from "../modifiers/modifier.schema";
 
 /**
  * This is a utility class that bridges the gap between raw JSON definitions for ActiveEffects and Feats their clean class instance counterpart
@@ -14,7 +16,7 @@ export class Effect {
      * @param json Raw JSON definition of an effect
      * @param defaultFlavor Default title and description to fall back to if not specified
      */
-    static parseEffectDefinitions = (json: unknown[], defaultFlavor: Flavor): (ActiveEffect)[] => {
+    static parseEffectDefinitions = (json: unknown[], defaultFlavor: Flavor): (ActiveEffect | Feat)[] => {
 
         return json.map((part) => {
 
@@ -29,8 +31,7 @@ export class Effect {
                 case EffectType.ActiveEffect:
                     return Effect.parseActiveEffectDefinition(part, defaultFlavor);
                 case EffectType.Feat:
-                    Logger.error("FEATS ARE NOT YET IMPLEMENTED")
-                    return null;
+                    return Effect.parseFeatDefinition(part, defaultFlavor);
                 default:
                     return null;
             }
@@ -49,6 +50,17 @@ export class Effect {
         return ActiveEffect.create({
             ...defaultFlavor,
             ...json,
+        })
+    }
+
+    static parseFeatDefinition = (json: unknown, defaultFlavor: Flavor): null | Feat => {
+        if (!validateFeatSchema(json)) {
+            Logger.warn("Feat definition has mismatched properties — importing anyway", {errors: validateFeatSchema.errors, json})
+        }
+
+        return Feat.create({
+            ...defaultFlavor,
+            ...(json as FeatSchema),
         })
     }
 
