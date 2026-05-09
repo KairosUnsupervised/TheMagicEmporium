@@ -6,6 +6,7 @@ import {AbstractItem} from "@tme/library/src/item/AbstractItem.ts";
 import { Equipment } from "@tme/library/src/item/equipment/equipment.types.ts";
 import {registerValidator} from "./validator/registerValidator";
 import {registry} from "@tme/library/src/registry/Registry.ts";
+import {Forge} from "@tme/library/src/forge/Forge.ts";
 
 window.Hooks.once("init", async () => {
     Logger.log("Initializing")
@@ -24,16 +25,5 @@ window.Hooks.once("ready", async () => {
     registerValidator()
 })
 
-
 // @ts-ignore
-window.debug = () => {
-    const abstractItem = new AbstractItem();
-
-    abstractItem.base = Equipment.Battleaxe;
-    abstractItem.primary.push({ modifier: registry.get("TME.LINEAR_TEST")!, data: null })
-    abstractItem.primary.push({ modifier: registry.get("TME.LINEAR_TEST")!, data: null })
-
-    const item = new MagicItem(abstractItem)
-
-    Item.create(item.export())
-}
+window.debug = Forge

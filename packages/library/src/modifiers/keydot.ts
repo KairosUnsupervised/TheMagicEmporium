@@ -1,15 +1,15 @@
 export enum KeydotOperation {
-    Set      = "SET",
-    Add      = "ADD",
+    Set = "SET",
+    Add = "ADD",
     Multiply = "MULTIPLY",
-    Append   = "APPEND",
-    Min      = "MIN",
-    Max      = "MAX",
+    Append = "APPEND",
+    Min = "MIN",
+    Max = "MAX",
 }
 
 export interface KeydotChange {
-    key:   string;
-    operation:    KeydotOperation;
+    key: string;
+    operation: KeydotOperation;
     value: string | number | boolean;
 }
 
@@ -19,8 +19,8 @@ export const keydotChangesSchema = {
         type: "object",
         required: ["key", "operation", "value"],
         properties: {
-            key:   {type: "string"},
-            operation:    {type: "string", enum: Object.values(KeydotOperation)},
+            key: {type: "string"},
+            operation: {type: "string", enum: Object.values(KeydotOperation)},
             value: {type: ["string", "number", "boolean"]},
         },
     },
@@ -41,7 +41,7 @@ export const applyKeydotChanges = <T extends object>(target: T, changes: KeydotC
 
         const current = node[lastKey];
 
-        switch (change.op) {
+        switch (change.operation) {
             case KeydotOperation.Set:
                 node[lastKey] = change.value;
                 break;

@@ -3,10 +3,14 @@ import {UniqueModifier} from "../modifiers/blueprints/UniqueModifier";
 import {Logger} from "../misc/Logger";
 import {ModifierType, validateModifierTypeSchema} from "../modifiers/modifier.schema";
 import {LinearModifier} from "../modifiers/blueprints/LinearModifier";
+import {IndependentModifier} from "../modifiers/blueprints/IndependentModifier";
+import {BrokenModifier} from "../modifiers/internal/Broken";
+import {ExhaustedModifier} from "../modifiers/internal/Exhausted";
 
 const factoryMap: Record<ModifierType, ModifierFactory> = {
     [ModifierType.UNIQUE]: UniqueModifier.create,
-    [ModifierType.LINEAR]: LinearModifier.create
+    [ModifierType.LINEAR]: LinearModifier.create,
+    [ModifierType.INDEPENDENT]: IndependentModifier.create,
 }
 
 export class Registry {
@@ -18,7 +22,10 @@ export class Registry {
     /**
      * All modifiers mapped by their identifier
      */
-    public mapped: { [key: string]: Modifier } = {};
+    public mapped: { [key: string]: Modifier } = {
+        "INTERNAL_BROKEN": new BrokenModifier(),
+        "INTERNAL_EXHAUSTED": new ExhaustedModifier()
+    };
 
     /**
      * Registers all modifiers of a specific pack into the registry
