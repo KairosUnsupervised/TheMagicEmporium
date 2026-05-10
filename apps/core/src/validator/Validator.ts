@@ -2,7 +2,7 @@ import {AbstractItem} from "@tme/library/src/item/AbstractItem";
 import {Modifier} from "@tme/library/src/modifiers/Modifier";
 import {Actor5e, Effect5e} from "@tme/shared/src/types/actor5e.ts"
 import {BaseItem, Item5e, ItemType} from "@tme/shared/src/types/item5e.ts";
-import {MagicItem} from "@tme/library/src/item/Item.ts";
+import {Item} from "@tme/library/src/item/Item.ts";
 import {ActiveEffect} from "@tme/library/src/effects/activeEffects/ActiveEffect.ts";
 import {Feat} from "@tme/library/src/effects/feats/Feat.ts";
 import {registry} from "@tme/library/src/registry/Registry.ts";
@@ -46,7 +46,7 @@ export class Validator {
      */
     private synchronizeDescriptions = async (items: QuickAccess[]) => {
         const sync = items.map((item) => {
-            const newDocument = new MagicItem(item.abstract).export();
+            const newDocument = new Item(item.abstract).export();
 
             if (
                 item.item5e.system.description.value ===

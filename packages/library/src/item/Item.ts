@@ -12,8 +12,7 @@ import {Activity} from "../effects/activity/Activity";
 /**
  * Represent a magic item from the 5e system view
  */
-export class MagicItem {
-    // TODO Stop polluting the global scope, then rename it back to Item
+export class Item {
 
     private readonly abstractItem: AbstractItem;
 
@@ -37,7 +36,7 @@ export class MagicItem {
     };
 
     public static create = (abstractItem: AbstractItem) => {
-        return new MagicItem(abstractItem)
+        return new Item(abstractItem)
     };
 
     constructor(abstractItem: AbstractItem) {

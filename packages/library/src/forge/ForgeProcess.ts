@@ -4,7 +4,7 @@ import {Equipment} from "../item/equipment/equipment.types";
 import {Rarity} from "../item/item.types";
 import {AppliedModifier, Modifier} from "../modifiers/Modifier";
 import {equipmentDetails} from "../item/equipment/equipment.details";
-import {MagicItem} from "../item/Item";
+import {Item} from "../item/Item";
 import {getFolder} from "./getFolder";
 import {Restriction} from "../modifiers/modifier.schema";
 
@@ -78,7 +78,7 @@ export class ForgeProcess {
 
     public addToFolder = async (): Promise<void> => {
         const folder = await getFolder();
-        const document = MagicItem.create(this.abstractItem).export(folder.id);
+        const document = Item.create(this.abstractItem).export(folder.id);
         // @ts-ignore
         await game.items.documentClass.create(document);
     };

@@ -11,7 +11,7 @@
       "flags": {}
     }
   ],
-  "scripts": [
+  "esmodules": [
     "index.js"
   ],
   "languages": [],
