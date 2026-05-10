@@ -3,6 +3,7 @@ import {AppliedModifier} from "../modifiers/Modifier";
 import {UniqueModifier} from "../modifiers/blueprints/UniqueModifier";
 import {LinearModifier} from "../modifiers/blueprints/LinearModifier";
 import {IndependentModifier} from "../modifiers/blueprints/IndependentModifier";
+import {TieredModifier} from "../modifiers/blueprints/TieredModifier";
 
 export const generateDescriptionV3 = (abstractItem: AbstractItem) => {
     let description = '';
@@ -40,6 +41,9 @@ export const generateDescriptionV3 = (abstractItem: AbstractItem) => {
         });
     }
 
+    description += '<br/>';
+    description += '<br/>';
+
     return description;
 };
 
@@ -55,6 +59,9 @@ const generateModifierDescription = (applied: AppliedModifier) => {
         }
         if (applied.modifier instanceof IndependentModifier) {
             return '<sub>Independent</sub><br>';
+        }
+        if(applied.modifier instanceof TieredModifier){
+            return '<sub>Tiered</sub><br>';
         }
         return '';
     })();

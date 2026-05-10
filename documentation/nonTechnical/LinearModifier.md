@@ -56,6 +56,7 @@ identically to the Unique modifier.
 ```json
 "application": {
   "weight": 10,
+  "restriction": "PRIMARY",
   "whitelistedBy": ["RING"],
   "blacklistedBy": [],
   "applies": []
@@ -65,6 +66,7 @@ identically to the Unique modifier.
 | Field           | Required | Defaults to | Description                                                                                   |
 |-----------------|----------|-------------|-----------------------------------------------------------------------------------------------|
 | `weight`        | Yes      | —           | How likely this modifier is to appear. `0` removes it from the loot pool entirely.            |
+| `restriction`   | No       | none        | If set, the modifier can only roll on this slot type: `"PRIMARY"`, `"SECONDARY"`, or `"TERTIARY"`. Omit to allow any slot. |
 | `whitelistedBy` | No       | `[]`        | If set, the item must have at least one of these tags for this modifier to be applicable.     |
 | `blacklistedBy` | No       | `[]`        | If set, the modifier cannot be applied if the item has any of these tags.                     |
 | `applies`       | No       | `[]`        | Tags added to the item once this modifier is applied.                                         |

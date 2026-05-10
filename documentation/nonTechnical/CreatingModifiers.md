@@ -32,7 +32,7 @@ A modifier is one entry inside the `modifiers` array of a pack. Every modifier n
 |--------------|----------------------------------------------------------------------------------------------|
 | `identifier` | A unique ID for this modifier. Use `SOURCE.SCREAMING_SNAKE_CASE` (e.g. `TME.IRON_GRIP`).    |
 | `type`       | The modifier type — controls how its value is calculated. See the type docs below.           |
-| `application`| Controls when and how this modifier can be applied to an item (weight, tag filters).         |
+| `application`| Controls when and how this modifier can be applied to an item (weight, slot restriction, tag filters). |
 | `flavor`     | The `title`, `description`, and optional `disclaimer` shown in the UI.                       |
 | `effects`    | The mechanical changes applied to a character when the modifier is active.                   |
 
@@ -78,6 +78,7 @@ A fixed +1 to Armor Class, available on any armor:
   "type": "UNIQUE",
   "application": {
     "weight": 1,
+    "restriction": "PRIMARY",
     "whitelistedBy": ["ARMOR"]
   },
   "flavor": {
