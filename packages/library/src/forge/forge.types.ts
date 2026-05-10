@@ -1,16 +1,11 @@
 import {Rarity} from "../item/item.types";
-
-export enum Slot {
-    Primary = 'PRIMARY',
-    Secondary = 'SECONDARY',
-    Tertiary = 'TERTIARY',
-}
+import {Restriction} from "../modifiers/modifier.schema";
 
 export type FloatBias = 'NORMAL' | 'LUCKY' | 'UNLUCKY';
 
 export interface Template {
     rarity: Rarity;
-    slots: Slot[];
+    slots: Restriction[];
     points: number;
     nonFloatCost: number;
     floatBias: FloatBias;

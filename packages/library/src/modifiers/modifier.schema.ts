@@ -10,6 +10,12 @@ export enum ModifierType {
     Tiered = "TIERED",
 }
 
+export enum Restriction {
+    Primary = "PRIMARY",
+    Secondary = "SECONDARY",
+    Tertiary = "TERTIARY",
+}
+
 export interface ModifierTypeSchema {
     type: ModifierType
 }
@@ -28,6 +34,11 @@ export interface Application {
      * Positive numbers, and zero only
      */
     weight: number;
+
+    /**
+     * Restrict what slot this modifier can roll on. If omitted, the modifier can roll on any slot.
+     */
+    restriction?: Restriction
     /**
      * The modifier can only be applied a single item tag is on the modifier whitelist <br/>
      * Ignored if empty
@@ -49,6 +60,7 @@ export const applicationSchema = {
     required: ["weight"],
     properties: {
         weight: { type: "number", minimum: 0 },
+        restriction: { type: "string", enum: Object.values(Restriction) },
         whitelistedBy: { type: "array", items: { type: "string", enum: Object.values(Tag) }, default: [] },
         blacklistedBy: { type: "array", items: { type: "string", enum: Object.values(Tag) }, default: [] },
         applies: { type: "array", items: { type: "string", enum: Object.values(Tag) }, default: [] },

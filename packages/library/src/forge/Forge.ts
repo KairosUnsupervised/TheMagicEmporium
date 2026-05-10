@@ -10,6 +10,7 @@ import {ForgeProcess} from "./ForgeProcess";
 import {FloatBias, Template} from "./forge.types";
 import {getRandomRarity} from "./forge.rarity";
 import {getRandomTemplate} from "./forge.templates";
+import {Restriction} from "../modifiers/modifier.schema";
 
 export class Forge {
 
@@ -40,7 +41,7 @@ export class Forge {
             const slot = slots[index];
             slots.splice(index, 1);
 
-            const modifier = Forge.getRandomModifier(process);
+            const modifier = Forge.getRandomModifier(process, slot);
             const hasFloat = modifier.dataManager instanceof FloatDataManager;
             const data = hasFloat ? {float: Forge.generateFloat(template.floatBias)} : null;
 
@@ -52,7 +53,7 @@ export class Forge {
         }
     };
 
-    private static getRandomModifier = (process: ForgeProcess): Modifier => {
+    private static getRandomModifier = (process: ForgeProcess, slot: Restriction): Modifier => {
         const totalWeight = registry.weighted.reduce((sum, mod) => sum + mod.application.weight, 0);
 
         console.log(registry.weighted);
@@ -63,7 +64,7 @@ export class Forge {
             for (const mod of registry.weighted) {
                 remaining -= mod.application.weight;
                 if (remaining <= 0) {
-                    if (process.canAdd(mod)) return mod;
+                    if (process.canAdd(mod, slot)) return mod;
                     break;
                 }
             }

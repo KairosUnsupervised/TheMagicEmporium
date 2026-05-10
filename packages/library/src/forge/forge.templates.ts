@@ -1,18 +1,19 @@
 import {Rarity} from "../item/item.types";
-import {Slot, Template} from "./forge.types";
+import {Template} from "./forge.types";
+import {Restriction} from "../modifiers/modifier.schema";
 
 export const templates: Template[] = [
     // ── Common ────────────────────────────────────────────────────────────────
     {
         rarity:       Rarity.Common,
-        slots:        [Slot.Primary, Slot.Primary],
+        slots:        [Restriction.Primary, Restriction.Primary],
         points:       0.4,
         floatBias:    'NORMAL',
         nonFloatCost: 0.5,
     },
     {
         rarity:       Rarity.Common,
-        slots:        [Slot.Secondary],
+        slots:        [Restriction.Secondary],
         points:       0.4,
         floatBias:    'UNLUCKY',
         nonFloatCost: 0.5,
@@ -21,14 +22,14 @@ export const templates: Template[] = [
     // ── Uncommon ──────────────────────────────────────────────────────────────
     {
         rarity:       Rarity.Uncommon,
-        slots:        [Slot.Primary, Slot.Primary, Slot.Primary],
+        slots:        [Restriction.Primary, Restriction.Primary, Restriction.Primary],
         points:       0.8,
         floatBias:    'NORMAL',
         nonFloatCost: 0.5,
     },
     {
         rarity:       Rarity.Uncommon,
-        slots:        [Slot.Primary, Slot.Primary, Slot.Secondary],
+        slots:        [Restriction.Primary, Restriction.Primary, Restriction.Secondary],
         points:       0.8,
         floatBias:    'UNLUCKY',
         nonFloatCost: 0.5,
@@ -37,21 +38,21 @@ export const templates: Template[] = [
     // ── Rare ──────────────────────────────────────────────────────────────────
     {
         rarity:       Rarity.Rare,
-        slots:        [Slot.Primary, Slot.Primary, Slot.Primary, Slot.Secondary, Slot.Secondary, Slot.Secondary],
+        slots:        [Restriction.Primary, Restriction.Primary, Restriction.Primary, Restriction.Secondary, Restriction.Secondary, Restriction.Secondary],
         points:       1.2,
         floatBias:    'UNLUCKY',
         nonFloatCost: 0.4,
     },
     {
         rarity:       Rarity.Rare,
-        slots:        [Slot.Primary, Slot.Primary, Slot.Primary, Slot.Secondary],
+        slots:        [Restriction.Primary, Restriction.Primary, Restriction.Primary, Restriction.Secondary],
         points:       1.2,
         floatBias:    'NORMAL',
         nonFloatCost: 0.4,
     },
     {
         rarity:       Rarity.Rare,
-        slots:        [Slot.Primary, Slot.Secondary],
+        slots:        [Restriction.Primary, Restriction.Secondary],
         points:       1.2,
         floatBias:    'LUCKY',
         nonFloatCost: 0.4,
@@ -60,21 +61,21 @@ export const templates: Template[] = [
     // ── Very Rare ─────────────────────────────────────────────────────────────
     {
         rarity:       Rarity.VeryRare,
-        slots:        [Slot.Primary, Slot.Primary, Slot.Primary, Slot.Secondary, Slot.Secondary, Slot.Secondary],
+        slots:        [Restriction.Primary, Restriction.Primary, Restriction.Primary, Restriction.Secondary, Restriction.Secondary, Restriction.Secondary],
         points:       2.4,
         floatBias:    'NORMAL',
         nonFloatCost: 0.3,
     },
     {
         rarity:       Rarity.VeryRare,
-        slots:        [Slot.Primary, Slot.Primary, Slot.Secondary, Slot.Secondary],
+        slots:        [Restriction.Primary, Restriction.Primary, Restriction.Secondary, Restriction.Secondary],
         points:       2.4,
         floatBias:    'LUCKY',
         nonFloatCost: 0.3,
     },
     {
         rarity:       Rarity.VeryRare,
-        slots:        [Slot.Primary, Slot.Primary, Slot.Primary, Slot.Secondary, Slot.Secondary, Slot.Secondary],
+        slots:        [Restriction.Primary, Restriction.Primary, Restriction.Primary, Restriction.Secondary, Restriction.Secondary, Restriction.Secondary],
         points:       2.4,
         floatBias:    'UNLUCKY',
         nonFloatCost: 0.3,
@@ -83,14 +84,14 @@ export const templates: Template[] = [
     // ── Legendary ─────────────────────────────────────────────────────────────
     {
         rarity:       Rarity.Legendary,
-        slots:        [Slot.Primary, Slot.Primary, Slot.Primary, Slot.Secondary, Slot.Secondary, Slot.Secondary, Slot.Tertiary],
+        slots:        [Restriction.Primary, Restriction.Primary, Restriction.Primary, Restriction.Secondary, Restriction.Secondary, Restriction.Secondary, Restriction.Tertiary],
         points:       4,
         floatBias:    'NORMAL',
         nonFloatCost: 0.3,
     },
     {
         rarity:       Rarity.Legendary,
-        slots:        [Slot.Primary, Slot.Primary, Slot.Secondary, Slot.Secondary, Slot.Tertiary],
+        slots:        [Restriction.Primary, Restriction.Primary, Restriction.Secondary, Restriction.Secondary, Restriction.Tertiary],
         points:       4,
         floatBias:    'LUCKY',
         nonFloatCost: 0.3,

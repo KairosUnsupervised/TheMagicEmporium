@@ -5,8 +5,8 @@ import {Rarity} from "../item/item.types";
 import {AppliedModifier, Modifier} from "../modifiers/Modifier";
 import {equipmentDetails} from "../item/equipment/equipment.details";
 import {MagicItem} from "../item/Item";
-import {Slot} from "./forge.types";
 import {getFolder} from "./getFolder";
+import {Restriction} from "../modifiers/modifier.schema";
 
 export class ForgeProcess {
 
@@ -25,15 +25,19 @@ export class ForgeProcess {
     };
 
     /**
-     * Returns true if the modifier can be added to the current item state.
-     * Checks for duplicates, tag whitelist, and tag blacklist.
+     * Returns true if the modifier can be added to the given slot in the current item state.
+     * Checks for duplicates, slot restriction, tag whitelist, and tag blacklist.
      */
-    public canAdd = (modifier: Modifier): boolean => {
+    public canAdd = (modifier: Modifier, slot: Restriction): boolean => {
         if (this.existingIdentifiers.includes(modifier.identifier)) {
             return false;
         }
 
-        const {whitelistedBy, blacklistedBy} = modifier.application;
+        const {restriction, whitelistedBy, blacklistedBy} = modifier.application;
+
+        if (restriction !== slot) {
+            return false;
+        }
 
         if (whitelistedBy.length > 0 && !whitelistedBy.some((tag) => this.tags.includes(tag))) {
             return false;
@@ -50,17 +54,17 @@ export class ForgeProcess {
      * Adds a modifier to the given slot and records its side-effects (tags, identifier).
      * Pass data = { float } for float-based modifiers, or null otherwise.
      */
-    public addModifier = (slot: Slot, modifier: Modifier, data: unknown): void => {
+    public addModifier = (slot: Restriction, modifier: Modifier, data: unknown): void => {
         const applied: AppliedModifier = {modifier, data};
 
         switch (slot) {
-            case Slot.Primary:
+            case Restriction.Primary:
                 this.abstractItem.primary.push(applied);
                 break;
-            case Slot.Secondary:
+            case Restriction.Secondary:
                 this.abstractItem.secondary.push(applied);
                 break;
-            case Slot.Tertiary:
+            case Restriction.Tertiary:
                 this.abstractItem.tertiary.push(applied);
                 break;
         }
