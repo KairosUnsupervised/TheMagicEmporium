@@ -1,6 +1,7 @@
 import {namespace} from "@tme/shared/src/namespaceConfig";
 import {ItemType} from "@tme/shared/src/types/item5e";
 import {ActiveEffectSchema, ModeSchema} from "./activeEffect.schema";
+import {Icon} from "../../item/icon";
 
 export enum Mode {
     /**
@@ -39,7 +40,7 @@ interface Document {
     name: string;
     type: 'base';
     description: string;
-    icon: string;
+    img: string;
     transfer: boolean;
     changes: Change[];
     flags: {
@@ -57,7 +58,7 @@ export class ActiveEffect {
         name: 'Unnamed Effect',
         type: 'base',
         description: '',
-        icon: '',
+        img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Effect}`,
         transfer: true,
         changes: [],
         flags: {
@@ -85,13 +86,12 @@ export class ActiveEffect {
         return new ActiveEffect({
             name: definition.title,
             description,
-            icon: "DefaultIcon.png",
             changes,
         })
     }
 
     constructor(props: Partial<Document>) {
-        this.document = { ...this.document, ...props };
+        this.document = {...this.document, ...props};
     }
 
 
@@ -102,12 +102,12 @@ export class ActiveEffect {
 
     private static schemaModeToRealMode = (mode: ModeSchema): Mode => {
         const map: Record<ModeSchema, Mode> = {
-            [ModeSchema.Custom]:    Mode.Custom,
-            [ModeSchema.Multiply]:  Mode.Multiply,
-            [ModeSchema.Add]:       Mode.Add,
+            [ModeSchema.Custom]: Mode.Custom,
+            [ModeSchema.Multiply]: Mode.Multiply,
+            [ModeSchema.Add]: Mode.Add,
             [ModeSchema.Downgrade]: Mode.Downgrade,
-            [ModeSchema.Upgrade]:   Mode.Upgrade,
-            [ModeSchema.Override]:  Mode.Override,
+            [ModeSchema.Upgrade]: Mode.Upgrade,
+            [ModeSchema.Override]: Mode.Override,
         }
         return map[mode];
     }

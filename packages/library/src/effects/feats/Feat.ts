@@ -2,6 +2,8 @@ import {merge} from "ts-deepmerge";
 import {FeatSchema, FeatSystem} from "./feat.schema";
 import {activitiesToRecord} from "../activity/Activity";
 import {ActivitySchema} from "../activity/activity.schema";
+import {namespace} from "@tme/shared/src/namespaceConfig";
+import {Icon} from "../../item/icon";
 
 type DocumentSystem = Omit<FeatSystem, 'activities'> & {
     type: { value: 'feat' };
@@ -21,7 +23,7 @@ export class Feat {
     public document: Document = {
         name: 'Unnamed Feat',
         type: 'feat',
-        img: 'PassiveIcon.png',
+        img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.FeatPassive}`,
         system: {
             type: {value: 'feat'},
         },
@@ -37,16 +39,13 @@ export class Feat {
             name: definition.title,
         };
 
-        if (definition.img) {
-            base.img = definition.img;
-        }
-
         if (definition.system) {
             const {activities, ...systemWithoutActivities} = definition.system;
             base.system = systemWithoutActivities as DocumentSystem;
 
             if (activities && activities.length > 0) {
                 base.system = {...base.system, activities: activitiesToRecord(activities)};
+                base.img = `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.FeatActive}`;
             }
         }
 

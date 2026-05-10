@@ -19,7 +19,6 @@ export class MagicItem {
 
     private document: DeepPartial<Item5e> = {
         name: 'Unset Item Name',
-        img: "IMAGE.png", // TODO replace image
         system: {
             price: {
                 value: 0,
@@ -62,6 +61,7 @@ export class MagicItem {
         });
 
         this.merge({
+            img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${details.icon}`,
             system: {
                 weight: details.weight,
                 price: {
@@ -69,6 +69,7 @@ export class MagicItem {
                 },
             },
         });
+
     };
 
     private addDescription = () => {

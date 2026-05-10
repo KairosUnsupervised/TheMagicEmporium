@@ -1,7 +1,8 @@
-import { Tag } from '../tag.types';
-import { Equipment } from './equipment.types';
-import { equipmentAdjectives } from './equipment.adjectives';
+import {Tag} from '../tag.types';
+import {Equipment} from './equipment.types';
+import {equipmentAdjectives} from './equipment.adjectives';
 import {ActivitySchema} from "../../effects/activity/activity.schema";
+import {Icon} from "../icon";
 
 enum FoundryType {
 	Weapon = 'weapon',
@@ -16,8 +17,8 @@ interface EquipmentDetail {
 	value: number;
 	tags: Tag[];
 	weight: number;
+	icon: Icon;
 	foundry: {
-		img: string;
 		type: FoundryType;
 		system: object;
 		activities?: ActivitySchema[]
@@ -47,11 +48,11 @@ export const equipmentDetails: {
 		value: 5,
 		weight: 8,
 		tags: [Tag.Armor, Tag.ArmorLight, Tag.ArmorWithArmorClass],
+		icon: Icon.Padded,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'light', baseItem: 'padded' },
+				type: {value: 'light', baseItem: 'padded'},
 				armor: {
 					value: 11,
 					dex: null,
@@ -78,11 +79,11 @@ export const equipmentDetails: {
 		value: 10,
 		weight: 10,
 		tags: [Tag.Armor, Tag.ArmorLight, Tag.ArmorWithArmorClass],
+		icon: Icon.Leather,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'light', baseItem: 'leather' },
+				type: {value: 'light', baseItem: 'leather'},
 				armor: {
 					value: 11,
 					dex: null,
@@ -107,11 +108,11 @@ export const equipmentDetails: {
 		value: 45,
 		weight: 13,
 		tags: [Tag.Armor, Tag.ArmorLight, Tag.ArmorWithArmorClass],
+		icon: Icon.StuddedLeather,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'light', baseItem: 'studded' },
+				type: {value: 'light', baseItem: 'studded'},
 				armor: {
 					value: 12,
 					dex: null,
@@ -137,11 +138,11 @@ export const equipmentDetails: {
 		value: 10,
 		weight: 12,
 		tags: [Tag.Armor, Tag.ArmorMedium, Tag.ArmorWithArmorClass],
+		icon: Icon.Hide,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'medium', baseItem: 'hide' },
+				type: {value: 'medium', baseItem: 'hide'},
 				armor: {
 					value: 12,
 					dex: 2,
@@ -167,11 +168,11 @@ export const equipmentDetails: {
 		value: 50,
 		weight: 20,
 		tags: [Tag.Armor, Tag.ArmorMedium, Tag.ArmorWithArmorClass],
+		icon: Icon.ChainShirt,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'medium', baseItem: 'chainshirt' },
+				type: {value: 'medium', baseItem: 'chainshirt'},
 				armor: {
 					value: 13,
 					dex: 2,
@@ -197,11 +198,11 @@ export const equipmentDetails: {
 		value: 50,
 		weight: 45,
 		tags: [Tag.Armor, Tag.ArmorMedium, Tag.ArmorWithArmorClass],
+		icon: Icon.ScaleMail,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'medium', baseItem: 'scalemail' },
+				type: {value: 'medium', baseItem: 'scalemail'},
 				armor: {
 					value: 14,
 					dex: 2,
@@ -225,11 +226,11 @@ export const equipmentDetails: {
 		value: 400,
 		weight: 20,
 		tags: [Tag.Armor, Tag.ArmorMedium, Tag.ArmorWithArmorClass],
+		icon: Icon.Breastplate,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'medium', baseItem: 'breastplate' },
+				type: {value: 'medium', baseItem: 'breastplate'},
 				armor: {
 					value: 14,
 					dex: 2,
@@ -254,11 +255,11 @@ export const equipmentDetails: {
 		value: 750,
 		weight: 40,
 		tags: [Tag.Armor, Tag.ArmorMedium, Tag.ArmorWithArmorClass],
+		icon: Icon.HalfPlate,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'medium', baseItem: 'halfplate' },
+				type: {value: 'medium', baseItem: 'halfplate'},
 				armor: {
 					value: 15,
 					dex: 2,
@@ -284,11 +285,11 @@ export const equipmentDetails: {
 		value: 30,
 		weight: 40,
 		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass],
+		icon: Icon.RingMail,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'heavy', baseItem: 'ringmail' },
+				type: {value: 'heavy', baseItem: 'ringmail'},
 				armor: {
 					value: 14,
 					dex: 0,
@@ -315,11 +316,11 @@ export const equipmentDetails: {
 		value: 75,
 		weight: 55,
 		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass],
+		icon: Icon.ChainMail,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'heavy', baseItem: 'chainmail' },
+				type: {value: 'heavy', baseItem: 'chainmail'},
 				armor: {
 					value: 16,
 					dex: 0,
@@ -347,11 +348,11 @@ export const equipmentDetails: {
 		value: 200,
 		weight: 60,
 		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass],
+		icon: Icon.Splint,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'heavy', baseItem: 'splint' },
+				type: {value: 'heavy', baseItem: 'splint'},
 				armor: {
 					value: 17,
 					dex: 0,
@@ -378,11 +379,11 @@ export const equipmentDetails: {
 		value: 1500,
 		weight: 65,
 		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass],
+		icon: Icon.Plate,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'heavy', baseItem: 'plate' },
+				type: {value: 'heavy', baseItem: 'plate'},
 				armor: {
 					value: 18,
 					dex: 0,
@@ -400,11 +401,11 @@ export const equipmentDetails: {
 		value: 1,
 		tags: [Tag.Armor, Tag.ArmorClothes],
 		weight: 3,
+		icon: Icon.CommonClothes,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'clothing', baseItem: '' },
+				type: {value: 'clothing', baseItem: ''},
 			},
 		},
 	},
@@ -415,11 +416,11 @@ export const equipmentDetails: {
 		value: 3,
 		tags: [Tag.Armor, Tag.ArmorClothes],
 		weight: 6,
+		icon: Icon.FineClothes,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'clothing', baseItem: '' },
+				type: {value: 'clothing', baseItem: ''},
 			},
 		},
 	},
@@ -430,11 +431,11 @@ export const equipmentDetails: {
 		value: 10,
 		tags: [Tag.Armor, Tag.ArmorClothes],
 		weight: 7,
+		icon: Icon.NobleClothes,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'clothing', baseItem: '' },
+				type: {value: 'clothing', baseItem: ''},
 			},
 		},
 	},
@@ -445,11 +446,11 @@ export const equipmentDetails: {
 		value: 30,
 		tags: [Tag.Armor, Tag.ArmorClothes],
 		weight: 9,
+		icon: Icon.RoyalClothes,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'clothing', baseItem: '' },
+				type: {value: 'clothing', baseItem: ''},
 			},
 		},
 	},
@@ -461,11 +462,11 @@ export const equipmentDetails: {
 		value: 10,
 		tags: [Tag.Armor],
 		weight: 6,
+		icon: Icon.Shield,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'shield', baseItem: 'shield' },
+				type: {value: 'shield', baseItem: 'shield'},
 				armor: {
 					value: 2,
 					dex: null,
@@ -482,11 +483,11 @@ export const equipmentDetails: {
 		value: 15,
 		tags: [Tag.Accessory],
 		weight: 0.1,
+		icon: Icon.Ring,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'trinket', baseItem: '', label: 'Trinket' },
+				type: {value: 'trinket', baseItem: '', label: 'Trinket'},
 			},
 		},
 	},
@@ -497,11 +498,11 @@ export const equipmentDetails: {
 		value: 30,
 		tags: [Tag.Accessory],
 		weight: 1,
+		icon: Icon.Amulet,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'trinket', baseItem: '', label: 'Trinket' },
+				type: {value: 'trinket', baseItem: '', label: 'Trinket'},
 			},
 		},
 	},
@@ -512,11 +513,11 @@ export const equipmentDetails: {
 		value: 50,
 		tags: [Tag.Accessory],
 		weight: 2,
+		icon: Icon.Relic,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Equipment,
 			system: {
-				type: { value: 'trinket', baseItem: '', label: 'Trinket' },
+				type: {value: 'trinket', baseItem: '', label: 'Trinket'},
 			},
 		},
 	},
@@ -528,12 +529,12 @@ export const equipmentDetails: {
 		value: 1,
 		weight: 2,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponMelee],
+		icon: Icon.Club,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'simpleM', baseItem: 'club' },
+				type: {value: 'simpleM', baseItem: 'club'},
 				properties: ['lgt'],
 				ability: 'dex',
 				actionType: 'mwak',
@@ -561,12 +562,12 @@ export const equipmentDetails: {
 		value: 2,
 		weight: 1,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponMelee],
+		icon: Icon.Dagger,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'simpleM', baseItem: 'dagger' },
+				type: {value: 'simpleM', baseItem: 'dagger'},
 				properties: ['fin', 'lgt', 'thr'],
 				ability: 'dex',
 				actionType: 'mwak',
@@ -594,12 +595,12 @@ export const equipmentDetails: {
 		value: 1,
 		weight: 10,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponMelee],
+		icon: Icon.GreatClub,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'simpleM', baseItem: 'greatclub' },
+				type: {value: 'simpleM', baseItem: 'greatclub'},
 				properties: ['two'],
 				actionType: 'mwak',
 				activation: {
@@ -626,12 +627,12 @@ export const equipmentDetails: {
 		value: 5,
 		weight: 2,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponMelee],
+		icon: Icon.Handaxe,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'simpleM', baseItem: 'handaxe' },
+				type: {value: 'simpleM', baseItem: 'handaxe'},
 				properties: ['lgt', 'thr'],
 				actionType: 'mwak',
 				activation: {
@@ -658,12 +659,12 @@ export const equipmentDetails: {
 		value: 1,
 		weight: 2,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponMelee],
+		icon: Icon.Javelin,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'simpleM', baseItem: 'javelin' },
+				type: {value: 'simpleM', baseItem: 'javelin'},
 				properties: ['thr'],
 				actionType: 'mwak',
 				activation: {
@@ -690,12 +691,12 @@ export const equipmentDetails: {
 		value: 2,
 		weight: 2,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponMelee],
+		icon: Icon.LightHammer,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'simpleM', baseItem: 'lighthammer' },
+				type: {value: 'simpleM', baseItem: 'lighthammer'},
 				properties: ['lgt', 'thr'],
 				actionType: 'mwak',
 				activation: {
@@ -722,12 +723,12 @@ export const equipmentDetails: {
 		value: 5,
 		weight: 4,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponMelee],
+		icon: Icon.Mace,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'simpleM', baseItem: 'mace' },
+				type: {value: 'simpleM', baseItem: 'mace'},
 				properties: [],
 				actionType: 'mwak',
 				activation: {
@@ -754,12 +755,12 @@ export const equipmentDetails: {
 		value: 1,
 		weight: 4,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponMelee],
+		icon: Icon.Quarterstaff,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'simpleM', baseItem: 'quarterstaff' },
+				type: {value: 'simpleM', baseItem: 'quarterstaff'},
 				properties: ['ver'],
 				actionType: 'mwak',
 				activation: {
@@ -786,12 +787,12 @@ export const equipmentDetails: {
 		value: 1,
 		weight: 2,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponMelee],
+		icon: Icon.Sickle,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'simpleM', baseItem: 'sickle' },
+				type: {value: 'simpleM', baseItem: 'sickle'},
 				properties: ['lgt'],
 				actionType: 'mwak',
 				activation: {
@@ -818,12 +819,12 @@ export const equipmentDetails: {
 		value: 1,
 		weight: 3,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponMelee],
+		icon: Icon.Spear,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'simpleM', baseItem: 'spear' },
+				type: {value: 'simpleM', baseItem: 'spear'},
 				properties: ['thr', 'ver'],
 				actionType: 'mwak',
 				activation: {
@@ -851,12 +852,12 @@ export const equipmentDetails: {
 		value: 25,
 		weight: 5,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponRanged],
+		icon: Icon.CrossbowLight,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'simpleR', baseItem: 'lightcrossbow' },
+				type: {value: 'simpleR', baseItem: 'lightcrossbow'},
 				properties: ['amm', 'lod', 'two'],
 				ability: 'dex',
 				actionType: 'rwak',
@@ -884,12 +885,12 @@ export const equipmentDetails: {
 		value: 1,
 		weight: 0.25,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponRanged],
+		icon: Icon.Dart,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'simpleR', baseItem: 'dart' },
+				type: {value: 'simpleR', baseItem: 'dart'},
 				properties: ['fin', 'thr'],
 				ability: 'dex',
 				actionType: 'rwak',
@@ -917,12 +918,12 @@ export const equipmentDetails: {
 		value: 25,
 		weight: 2,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponRanged],
+		icon: Icon.Shortbow,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'simpleR', baseItem: 'shortbow' },
+				type: {value: 'simpleR', baseItem: 'shortbow'},
 				properties: ['amm', 'two'],
 				ability: 'dex',
 				actionType: 'rwak',
@@ -950,12 +951,12 @@ export const equipmentDetails: {
 		value: 1,
 		weight: 2,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponRanged],
+		icon: Icon.Sling,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'simpleR', baseItem: 'sling' },
+				type: {value: 'simpleR', baseItem: 'sling'},
 				properties: ['amm'],
 				ability: 'dex',
 				actionType: 'rwak',
@@ -984,12 +985,12 @@ export const equipmentDetails: {
 		value: 10,
 		weight: 4,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Battleaxe,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'battleaxe' },
+				type: {value: 'martialM', baseItem: 'battleaxe'},
 				properties: ['ver'],
 				actionType: 'mwak',
 				activation: {
@@ -1016,12 +1017,12 @@ export const equipmentDetails: {
 		value: 10,
 		weight: 2,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Flail,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'flail' },
+				type: {value: 'martialM', baseItem: 'flail'},
 				properties: [],
 				actionType: 'mwak',
 				activation: {
@@ -1048,12 +1049,12 @@ export const equipmentDetails: {
 		value: 20,
 		weight: 6,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Glaive,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'glaive' },
+				type: {value: 'martialM', baseItem: 'glaive'},
 				properties: ['hvy', 'rch', 'two'],
 				actionType: 'mwak',
 				activation: {
@@ -1080,12 +1081,12 @@ export const equipmentDetails: {
 		value: 30,
 		weight: 7,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.GreatAxe,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'greataxe' },
+				type: {value: 'martialM', baseItem: 'greataxe'},
 				properties: ['hvy', 'two'],
 				actionType: 'mwak',
 				activation: {
@@ -1112,12 +1113,12 @@ export const equipmentDetails: {
 		value: 50,
 		weight: 6,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Greatsword,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'greatsword' },
+				type: {value: 'martialM', baseItem: 'greatsword'},
 				properties: ['hvy', 'two'],
 				actionType: 'mwak',
 				activation: {
@@ -1144,12 +1145,12 @@ export const equipmentDetails: {
 		value: 20,
 		weight: 6,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Halberd,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'halberd' },
+				type: {value: 'martialM', baseItem: 'halberd'},
 				properties: ['hvy', 'two', 'rch'],
 				actionType: 'mwak',
 				activation: {
@@ -1176,12 +1177,12 @@ export const equipmentDetails: {
 		value: 10,
 		weight: 6,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Lance,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'lance' },
+				type: {value: 'martialM', baseItem: 'lance'},
 				properties: ['rch', 'spc'],
 				actionType: 'mwak',
 				activation: {
@@ -1208,12 +1209,12 @@ export const equipmentDetails: {
 		value: 15,
 		weight: 3,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Longsword,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'longsword' },
+				type: {value: 'martialM', baseItem: 'longsword'},
 				properties: ['ver'],
 				actionType: 'mwak',
 				activation: {
@@ -1240,12 +1241,12 @@ export const equipmentDetails: {
 		value: 10,
 		weight: 10,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Maul,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'maul' },
+				type: {value: 'martialM', baseItem: 'maul'},
 				properties: ['hvy', 'two'],
 				actionType: 'mwak',
 				activation: {
@@ -1272,12 +1273,12 @@ export const equipmentDetails: {
 		value: 15,
 		weight: 4,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Morningstar,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'morningstar' },
+				type: {value: 'martialM', baseItem: 'morningstar'},
 				properties: [],
 				actionType: 'mwak',
 				activation: {
@@ -1304,12 +1305,12 @@ export const equipmentDetails: {
 		value: 5,
 		weight: 18,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Pike,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'pike' },
+				type: {value: 'martialM', baseItem: 'pike'},
 				properties: ['hvy', 'rch', 'two'],
 				actionType: 'mwak',
 				activation: {
@@ -1336,12 +1337,12 @@ export const equipmentDetails: {
 		value: 25,
 		weight: 2,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Rapier,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'rapier' },
+				type: {value: 'martialM', baseItem: 'rapier'},
 				properties: ['fin'],
 				actionType: 'mwak',
 				activation: {
@@ -1368,12 +1369,12 @@ export const equipmentDetails: {
 		value: 25,
 		weight: 3,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Scimitar,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'scimitar' },
+				type: {value: 'martialM', baseItem: 'scimitar'},
 				properties: ['fin', 'lgt'],
 				actionType: 'mwak',
 				activation: {
@@ -1400,12 +1401,12 @@ export const equipmentDetails: {
 		value: 10,
 		weight: 2,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Shortsword,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'shortsword' },
+				type: {value: 'martialM', baseItem: 'shortsword'},
 				properties: ['fin', 'lgt'],
 				actionType: 'mwak',
 				activation: {
@@ -1432,12 +1433,12 @@ export const equipmentDetails: {
 		value: 5,
 		weight: 4,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Trident,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'trident' },
+				type: {value: 'martialM', baseItem: 'trident'},
 				properties: ['thr', 'ver'],
 				actionType: 'mwak',
 				activation: {
@@ -1464,12 +1465,12 @@ export const equipmentDetails: {
 		value: 5,
 		weight: 2,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.WarPick,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'warpick' },
+				type: {value: 'martialM', baseItem: 'warpick'},
 				properties: [],
 				actionType: 'mwak',
 				activation: {
@@ -1496,12 +1497,12 @@ export const equipmentDetails: {
 		value: 15,
 		weight: 2,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Warhammer,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'warhammer' },
+				type: {value: 'martialM', baseItem: 'warhammer'},
 				properties: ['ver'],
 				actionType: 'mwak',
 				activation: {
@@ -1528,12 +1529,12 @@ export const equipmentDetails: {
 		value: 2,
 		weight: 3,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
+		icon: Icon.Whip,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialM', baseItem: 'whip' },
+				type: {value: 'martialM', baseItem: 'whip'},
 				properties: ['fin', 'rch'],
 				actionType: 'mwak',
 				activation: {
@@ -1561,12 +1562,12 @@ export const equipmentDetails: {
 		value: 10,
 		weight: 1,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponRanged],
+		icon: Icon.Blowgun,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialR', baseItem: 'blowgun' },
+				type: {value: 'martialR', baseItem: 'blowgun'},
 				properties: ['amm', 'lod'],
 				ability: 'dex',
 				actionType: 'rwak',
@@ -1594,12 +1595,12 @@ export const equipmentDetails: {
 		value: 75,
 		weight: 3,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponRanged],
+		icon: Icon.CrossbowHand,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialR', baseItem: 'handcrossbow' },
+				type: {value: 'martialR', baseItem: 'handcrossbow'},
 				properties: ['amm', 'lod', 'lgt'],
 				ability: 'dex',
 				actionType: 'rwak',
@@ -1627,12 +1628,12 @@ export const equipmentDetails: {
 		value: 50,
 		weight: 18,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponRanged],
+		icon: Icon.CrossbowHeavy,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialR', baseItem: 'heavycrossbow' },
+				type: {value: 'martialR', baseItem: 'heavycrossbow'},
 				properties: ['amm', 'hvy', 'lod', 'two'],
 				ability: 'dex',
 				actionType: 'rwak',
@@ -1660,12 +1661,12 @@ export const equipmentDetails: {
 		value: 50,
 		weight: 2,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponRanged],
+		icon: Icon.Longbow,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialR', baseItem: 'longbow' },
+				type: {value: 'martialR', baseItem: 'longbow'},
 				properties: ['amm', 'hvy', 'two'],
 				ability: 'dex',
 				actionType: 'rwak',
@@ -1693,12 +1694,12 @@ export const equipmentDetails: {
 		value: 1,
 		weight: 3,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponRanged],
+		icon: Icon.Net,
 		foundry: {
-			img: 'TODO.png',
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
 			system: {
-				type: { value: 'martialR', baseItem: 'net' },
+				type: {value: 'martialR', baseItem: 'net'},
 				properties: ['spc', 'thr'],
 				ability: 'dex',
 				actionType: 'rwak',

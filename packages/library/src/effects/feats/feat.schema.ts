@@ -63,7 +63,6 @@ export interface FeatSchema {
     description?: string;
     /** Appended to system.description.value as an italicised note */
     disclaimer?: string | null;
-    img?: string;
     system?: FeatSystem;
 }
 
