@@ -1,7 +1,8 @@
 import Ajv from "ajv"
 import {BaseSchema, type CreateProps, Modifier} from "../Modifier"
 import {Logger} from "../../misc/Logger";
-import {Effect} from "../../effects/Effect";
+import {ActiveEffect} from "../../effects/activeEffects/ActiveEffect";
+import {Feat} from "../../effects/feats/Feat";
 import {applicationSchema, Flavor, flavorSchema, ModifierType} from "../modifier.schema";
 import {FloatDataManager} from "../dataManagers/FloatDataManager";
 
@@ -16,7 +17,8 @@ interface Schema extends BaseSchema {
     type: ModifierType.Linear;
     flavor: Flavor
     breakpoints: Breakpoint[]
-    effects: unknown[]
+    activeEffects: unknown[]
+    feats: unknown[]
 }
 
 const validateSchema = ajv.compile<Schema>({
@@ -35,7 +37,8 @@ const validateSchema = ajv.compile<Schema>({
                 value: {type: "number"},
             },
             }},
-        effects: {type: "array"},
+        activeEffects: {type: "array", default: []},
+        feats: {type: "array", default: []},
     },
 })
 
@@ -68,17 +71,28 @@ export class LinearModifier extends Modifier<Schema> {
         return this.replaceKeyWords(this.schema.flavor, {amount});
     }
 
-    public override getEffects = (data: unknown[]) => {
+    /**
+     * Get the breakpoint amount of each passed float and sums them up
+     * @param data
+     */
+    private getAmount = (data: unknown[]): string => {
+        return data.map((d) => this.dataManager.getBreakpoint(d).value).reduce((a, b) => a + b, 0).toString();
+    };
 
-        const numbers = data.map((data) => {
-            return this.dataManager.getBreakpoint(data).value;
-        })
-        const amount = numbers.reduce((a, b) => a + b, 0).toString()
+    public override getActiveEffects = (data: unknown[]): ActiveEffect[] => {
+        const amount = this.getAmount(data);
+        return ActiveEffect.createMultiple(
+            this.replaceKeyWords(this.schema.activeEffects, {amount}),
+            this.replaceKeyWords(this.schema.flavor, {amount}),
+        );
+    };
 
-        return Effect.parseEffectDefinitions(
-            this.replaceKeyWords(this.schema.effects,  {amount}),
-            this.replaceKeyWords(this.schema.flavor,  {amount}),
-        )
-    }
+    public override getFeats = (data: unknown[]): Feat[] => {
+        const amount = this.getAmount(data);
+        return Feat.createMultiple(
+            this.replaceKeyWords(this.schema.feats, {amount}),
+            this.replaceKeyWords(this.schema.flavor, {amount}),
+        );
+    };
 
 }

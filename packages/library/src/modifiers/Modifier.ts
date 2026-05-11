@@ -54,12 +54,19 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
     public abstract getDescription(_data: unknown): Flavor;
 
     /**
-     * Retrieves activeEffects and feats for the actor
-     * TODO SPLIT INTO TWO
+     * Retrieves activeEffects for the actor
      * @param _data Unverified data from multiple item documents e.g. [{float: 0.777}]
      */
-    public getEffects = (_data: any[]): (ActiveEffect | Feat)[] => {
-        return []
+    public getActiveEffects = (_data: any[]): ActiveEffect[] => {
+        return [];
+    };
+
+    /**
+     * Retrieves feats for the actor
+     * @param _data Unverified data from multiple item documents e.g. [{float: 0.777}]
+     */
+    public getFeats = (_data: any[]): Feat[] => {
+        return [];
     };
 
     /**
@@ -71,18 +78,11 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
     };
 
     /**
-     * Retrieves activities to be merged into the item document as a Record
+     * Retrieves activities to be merged into the item document
      * @param _data Unverified data from the item document e.g. {float: 0.777}
      */
     public getItemActivities = (_data: unknown): Activity[] => {
         return [];
-    };
-
-    /**
-     * Applies an array of changes to a document, returning a new patched copy.
-     */
-    protected applyChanges = <T extends object>(target: T, changes: Change[]): T => {
-        return Change.applyAll(target, changes);
     };
 
     /**

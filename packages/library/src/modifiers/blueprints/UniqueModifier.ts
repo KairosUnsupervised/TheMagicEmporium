@@ -1,7 +1,8 @@
 import Ajv from "ajv"
 import {BaseSchema, type CreateProps, Modifier} from "../Modifier"
 import {Logger} from "../../misc/Logger";
-import {Effect} from "../../effects/Effect";
+import {ActiveEffect} from "../../effects/activeEffects/ActiveEffect";
+import {Feat} from "../../effects/feats/Feat";
 import {applicationSchema, Flavor, flavorSchema, ModifierType} from "../modifier.schema";
 import {FloatDataManager} from "../dataManagers/FloatDataManager";
 
@@ -10,7 +11,8 @@ const ajv = new Ajv({removeAdditional: true, useDefaults: true})
 interface Breakpoint {
     min: number;
     flavor: Flavor;
-    effects: unknown[];
+    activeEffects: unknown[];
+    feats: unknown[];
 }
 
 interface Schema extends BaseSchema {
@@ -32,7 +34,8 @@ const validateSchema = ajv.compile<Schema>({
                 properties: {
                     min: {type: "number", minimum: 0},
                     flavor: flavorSchema,
-                    effects: {type: "array", default: []},
+                    activeEffects: {type: "array", default: []},
+                    feats: {type: "array", default: []},
                 },
             }
         },
@@ -70,14 +73,18 @@ export class UniqueModifier extends Modifier<Schema> {
         return breakpoint.flavor;
     }
 
-    public override getEffects = (data: unknown[]) => {
+    private getHighestBreakpoint = (data: unknown[]): Breakpoint => {
+        return data.map((d) => this.dataManager.getBreakpoint(d)).sort((a, b) => b.min - a.min)[0];
+    };
 
-        const breakpoints = data.map((data) => {
-            return this.dataManager.getBreakpoint(data);
-        })
-        const highest = breakpoints.sort((a, b) => b.min - a.min)[0];
+    public override getActiveEffects = (data: unknown[]): ActiveEffect[] => {
+        const highest = this.getHighestBreakpoint(data);
+        return ActiveEffect.createMultiple(highest.activeEffects, highest.flavor);
+    };
 
-        return Effect.parseEffectDefinitions(highest.effects, highest.flavor)
-    }
+    public override getFeats = (data: unknown[]): Feat[] => {
+        const highest = this.getHighestBreakpoint(data);
+        return Feat.createMultiple(highest.feats, highest.flavor);
+    };
 
 }

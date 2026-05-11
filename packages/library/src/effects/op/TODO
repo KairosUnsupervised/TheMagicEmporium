@@ -1,0 +1,3 @@
+- split effects class into two
+- document classes, whats the differents. What is their region of ownership
+- document the general way what gets validated by who

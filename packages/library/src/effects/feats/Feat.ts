@@ -1,9 +1,11 @@
 import {merge} from "ts-deepmerge";
-import {FeatSchema, FeatSystem} from "./feat.schema";
+import {FeatSchema, FeatSystem, validateFeatSchema} from "./feat.schema";
 import {activitiesToRecord} from "../activity/Activity";
 import {ActivitySchema} from "../activity/activity.schema";
 import {namespace} from "@tme/shared/src/namespaceConfig";
 import {Icon} from "../../item/icon";
+import {Logger} from "../../misc/Logger";
+import {Flavor} from "../../modifiers/modifier.schema";
 
 type DocumentSystem = Omit<FeatSystem, 'activities'> & {
     type: { value: 'feat' };
@@ -27,6 +29,23 @@ export class Feat {
         system: {
             type: {value: 'feat'},
         },
+    };
+
+    /**
+     * Pass an array of unknown data and create an array of feat instances <br/>
+     * Schema mismatches will be logged as warning, an instance will still be created
+     * @param definitions
+     */
+    public static createMultiple = (definitions: unknown[], defaultFlavor: Flavor): Feat[] => {
+        return definitions.map((definition) => {
+            if (!validateFeatSchema(definition)) {
+                Logger.warn("Feat definition has mismatched properties — importing anyway", {
+                    definition,
+                    errors: validateFeatSchema.errors,
+                });
+            }
+            return Feat.create({...defaultFlavor, ...(definition as FeatSchema)});
+        });
     };
 
     static create = (definition: CreateDefinition): Feat => {

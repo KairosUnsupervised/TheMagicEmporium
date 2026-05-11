@@ -2,7 +2,8 @@ import {BaseSchema, type CreateProps, Modifier} from "../Modifier";
 import {applicationSchema, Flavor, flavorSchema, ModifierType} from "../modifier.schema";
 import Ajv from "ajv";
 import {Logger} from "../../misc/Logger";
-import {Effect} from "../../effects/Effect";
+import {ActiveEffect} from "../../effects/activeEffects/ActiveEffect";
+import {Feat} from "../../effects/feats/Feat";
 import {FloatDataManager} from "../dataManagers/FloatDataManager";
 
 const ajv = new Ajv({removeAdditional: true, useDefaults: true})
@@ -15,7 +16,8 @@ interface Breakpoint {
 interface Tier {
     min: number;
     flavor: Flavor;
-    effects: unknown[];
+    activeEffects: unknown[];
+    feats: unknown[];
 }
 
 interface Schema extends BaseSchema {
@@ -48,7 +50,8 @@ const validateSchema = ajv.compile<Schema>({
                 properties: {
                     min: {type: "number", minimum: 0},
                     flavor: flavorSchema,
-                    effects: {type: "array", default: []},
+                    activeEffects: {type: "array", default: []},
+                    feats: {type: "array", default: []},
                 },
             }
         },
@@ -104,15 +107,28 @@ export class TieredModifier extends Modifier<Schema> {
         return this.resolveTier(value).flavor;
     }
 
-    public override getEffects = (data: unknown[]) => {
+    private getActiveTier = (data: unknown[]): Tier | null => {
         if (data.length === 0) {
-            return [];
-        }
-        const sum = data.reduce((acc: number, d) => {
-            return acc + this.dataManager.getBreakpoint(d).value
-        }, 0);
-        const tier = this.resolveTier(sum);
-        return Effect.parseEffectDefinitions(tier.effects, tier.flavor);
-    }
+            return null
+        };
+        const sum = data.reduce((acc: number, d) => acc + this.dataManager.getBreakpoint(d).value, 0);
+        return this.resolveTier(sum);
+    };
+
+    public override getActiveEffects = (data: unknown[]): ActiveEffect[] => {
+        const tier = this.getActiveTier(data);
+        if (!tier) {
+            return []
+        };
+        return ActiveEffect.createMultiple(tier.activeEffects, tier.flavor);
+    };
+
+    public override getFeats = (data: unknown[]): Feat[] => {
+        const tier = this.getActiveTier(data);
+        if (!tier) {
+            return []
+        };
+        return Feat.createMultiple(tier.feats, tier.flavor);
+    };
 
 }

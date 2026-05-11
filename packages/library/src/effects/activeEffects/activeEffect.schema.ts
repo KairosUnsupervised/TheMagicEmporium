@@ -1,5 +1,4 @@
 import Ajv from "ajv";
-import {EffectType} from "../effect.schema";
 
 const ajv = new Ajv({removeAdditional: true})
 
@@ -13,7 +12,6 @@ export enum ModeSchema {
 }
 
 export interface ActiveEffectSchema {
-    type: EffectType.ActiveEffect,
     title?: string,
     description?: string,
     disclaimer?: string | null,
@@ -26,9 +24,8 @@ export interface ActiveEffectSchema {
 
 export const validateActiveEffectSchema = ajv.compile<ActiveEffectSchema>({
     type: "object",
-    required: ["type", "changes"],
+    required: ["changes"],
     properties: {
-        type: {type: "string", const: EffectType.ActiveEffect},
         title: {type: "string"},
         description: {type: "string"},
         disclaimer: {type: ["string", "null"]},

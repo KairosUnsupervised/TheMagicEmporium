@@ -1,7 +1,9 @@
 import {namespace} from "@tme/shared/src/namespaceConfig";
 import {ItemType} from "@tme/shared/src/types/item5e";
-import {ActiveEffectSchema, ModeSchema} from "./activeEffect.schema";
+import {ActiveEffectSchema, ModeSchema, validateActiveEffectSchema} from "./activeEffect.schema";
 import {Icon} from "../../item/icon";
+import {Logger} from "../../misc/Logger";
+import {Flavor} from "../../modifiers/modifier.schema";
 
 export enum Mode {
     /**
@@ -67,6 +69,25 @@ export class ActiveEffect {
                 type: ItemType.TemporaryItem
             }
         }
+    };
+
+    /**
+     * Pass an array of unknown data and create an array of activeEffect instances <br/>
+     * Invalid schemas will be logged as error and ignored
+     * @param definitions
+     * @param defaultFlavor
+     */
+    public static createMultiple = (definitions: unknown[], defaultFlavor: Flavor): ActiveEffect[] => {
+        return definitions.map((definition, index) => {
+            if (!validateActiveEffectSchema(definition)) {
+                Logger.error(`ActiveEffect at index ${index} has schema mismatches`, {
+                    definition,
+                    errors: validateActiveEffectSchema.errors,
+                });
+                return null;
+            }
+            return ActiveEffect.create({...defaultFlavor, ...definition});
+        }).filter((item) => item !== null) as ActiveEffect[];
     };
 
     static create = (definition: CreateDefinition) => {

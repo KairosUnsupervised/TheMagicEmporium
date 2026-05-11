@@ -1,5 +1,4 @@
 import Ajv from "ajv";
-import {EffectType} from "../effect.schema";
 import {activityArraySchema, ActivitySchema} from "../activity/activity.schema";
 
 const ajv = new Ajv({removeAdditional: false, strict: false});
@@ -56,7 +55,6 @@ export interface FeatSystem {
 }
 
 export interface FeatSchema {
-    type: EffectType.Feat;
     /** Generates document.name if not already set via system */
     title?: string;
     /** Generates system.description.value if not already set */
@@ -149,13 +147,10 @@ const systemSchema = {
 
 export const validateFeatSchema = ajv.compile<FeatSchema>({
     type: "object",
-    required: ["type"],
     properties: {
-        type: {type: "string", const: EffectType.Feat},
         title: {type: "string"},
         description: {type: "string"},
         disclaimer: {type: ["string", "null"]},
-        img: {type: "string"},
         system: systemSchema,
     },
 });
