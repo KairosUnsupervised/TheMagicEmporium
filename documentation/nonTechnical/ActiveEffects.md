@@ -88,13 +88,13 @@ A single Active Effect can apply several stat changes at once:
 }
 ```
 
-## Multiple Effects per Modifier
+## Multiple Active Effects per Modifier
 
 A modifier can produce more than one Active Effect. Each effect will appear as a separate entry on the character sheet:
 
 ```json
 {
-  "effects": [
+  "activeEffects": [
     {
       "type": "ACTIVE_EFFECT",
       "title": "Quickened Step",

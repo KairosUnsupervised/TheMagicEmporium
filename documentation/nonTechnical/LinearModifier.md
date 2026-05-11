@@ -33,18 +33,20 @@ character level before the effects are applied.
     {"min": 0.5, "value": 2},
     {"min": 0.8, "value": 3}
   ],
-  "effects": []
+  "activeEffects": [],
+  "feats": []
 }
 ```
 
-| Field         | Required | Description                                                           |
-|---------------|----------|-----------------------------------------------------------------------|
-| `identifier`  | Yes      | Unique name for this modifier. Convention: `SOURCE.SCREAMING_SNAKE`. |
-| `type`        | Yes      | Must be `"LINEAR"`.                                                   |
-| `application` | Yes      | Controls when and how often this modifier appears (see below).        |
-| `flavor`      | Yes      | The title and description shown to the player. Supports `{amount}`.  |
-| `breakpoints` | Yes      | Maps the input value to a bonus amount (see below).                   |
-| `effects`     | No       | List of effects applied while this modifier is active. Supports `{amount}`. |
+| Field           | Required | Description                                                                          |
+|-----------------|----------|--------------------------------------------------------------------------------------|
+| `identifier`    | Yes      | Unique name for this modifier. Convention: `SOURCE.SCREAMING_SNAKE`.                |
+| `type`          | Yes      | Must be `"LINEAR"`.                                                                  |
+| `application`   | Yes      | Controls when and how often this modifier appears (see below).                       |
+| `flavor`        | Yes      | The title and description shown to the player. Supports `{amount}`.                 |
+| `breakpoints`   | Yes      | Maps the input value to a bonus amount (see below).                                  |
+| `activeEffects` | No       | Always-on stat changes applied to the character. Supports `{amount}`.               |
+| `feats`         | No       | Named abilities added to the character sheet. Supports `{amount}` in all fields.    |
 
 ---
 
@@ -106,8 +108,8 @@ At least one breakpoint starting at `min: 0` is recommended so every character g
 
 ## The `{amount}` Placeholder
 
-Any field in `flavor` or inside `effects` that contains the text `{amount}` will have it replaced with the resolved
-bonus before it is shown to the player or applied to the character sheet.
+Any field in `flavor`, `activeEffects`, or `feats` that contains the text `{amount}` will have it replaced with the
+resolved bonus before it is shown to the player or applied to the character sheet.
 
 ```json
 "flavor": {
@@ -118,7 +120,7 @@ bonus before it is shown to the player or applied to the character sheet.
 
 A modifier with a float of `0.7` and the breakpoints above would show: *"Your spell attack rolls gain a +2 bonus."*
 
-The same placeholder works inside effect `changes` values:
+The same placeholder works inside `activeEffects` change values:
 
 ```json
 "changes": [
@@ -154,7 +156,7 @@ The same placeholder works inside effect `changes` values:
     {"min": 0.5, "value": 2},
     {"min": 0.8, "value": 3}
   ],
-  "effects": [
+  "activeEffects": [
     {
       "type": "ACTIVE_EFFECT",
       "title": "Arcane Attunement",

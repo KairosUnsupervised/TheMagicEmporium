@@ -34,7 +34,6 @@ A modifier is one entry inside the `modifiers` array of a pack. Every modifier n
 | `type`       | The modifier type — controls how its value is calculated. See the type docs below.           |
 | `application`| Controls when and how this modifier can be applied to an item (weight, slot restriction, tag filters). |
 | `flavor`     | The `title`, `description`, and optional `disclaimer` shown in the UI.                       |
-| `effects`    | The mechanical changes applied to a character when the modifier is active.                   |
 
 ---
 
@@ -51,20 +50,32 @@ There are currently four modifier types. Choose the one that matches how the bon
 
 ---
 
-## Effects
+## Effect Types
 
-The `effects` array defines what actually happens to the character. It applies to `UNIQUE` and `LINEAR` modifiers only
-— `INDEPENDENT` modifiers use `changes` and `activities` instead (see [IndependentModifier.md](IndependentModifier.md)).
+There are four kinds of effect a modifier can produce. They split cleanly by **where they land**:
 
-An empty `effects` array produces a default passive feat using the modifier's flavor text. Otherwise, list one or more
-effect definitions:
+### Player-level effects
 
-| Type            | Use when…                                                             | Reference                          |
-|-----------------|-----------------------------------------------------------------------|------------------------------------|
-| `ACTIVE_EFFECT` | You want a silent, always-on stat change (e.g. +2 Strength).         | [ActiveEffects.md](ActiveEffects.md) |
-| `FEAT`          | You want a named ability on the character sheet with optional actions.| [Feats.md](Feats.md)               |
+These are applied to the **character** when the item is equipped and attuned. They are defined on
+`UNIQUE`, `LINEAR`, and `TIERED` modifiers.
 
-See [Effects.md](Effects.md) for an overview of both types.
+| Field           | Type            | Use when…                                                                             | Reference                              |
+|-----------------|-----------------|---------------------------------------------------------------------------------------|----------------------------------------|
+| `activeEffects` | `ACTIVE_EFFECT` | You want a silent, always-on stat change (e.g. +2 Strength).                         | [ActiveEffects.md](ActiveEffects.md)   |
+| `feats`         | `FEAT`          | You want a named ability on the character sheet with optional actions.                | [Feats.md](Feats.md)                   |
+
+Both arrays are independent — a single breakpoint or tier can contain any number of entries in either.
+An empty `feats` array and an empty `activeEffects` array (the default) produces a passive feat using
+the modifier's flavor text.
+
+### Item-level effects
+
+These are applied to the **item document** itself. They are used exclusively by `INDEPENDENT` modifiers.
+
+| Field        | Use when…                                                                                  | Reference                                      |
+|--------------|--------------------------------------------------------------------------------------------|------------------------------------------------|
+| `changes`    | You want to patch a numeric, string, or boolean field on the item (e.g. magical bonus).    | [IndependentModifier.md](IndependentModifier.md) |
+| `activities` | You want to attach an action, bonus action, or other ability directly to the item.         | [IndependentModifier.md](IndependentModifier.md) |
 
 ---
 
@@ -81,18 +92,23 @@ A fixed +1 to Armor Class, available on any armor:
     "restriction": "PRIMARY",
     "whitelistedBy": ["ARMOR"]
   },
-  "flavor": {
-    "title": "Iron Plating",
-    "description": "The item's reinforced construction grants a small bonus to your defenses."
-  },
-  "effects": [
+  "breakpoints": [
     {
-      "type": "ACTIVE_EFFECT",
-      "changes": [
+      "min": 0,
+      "flavor": {
+        "title": "Iron Plating",
+        "description": "The item's reinforced construction grants a small bonus to your defenses."
+      },
+      "activeEffects": [
         {
-          "key": "system.attributes.ac.bonus",
-          "mode": "ADD",
-          "value": "1"
+          "type": "ACTIVE_EFFECT",
+          "changes": [
+            {
+              "key": "system.attributes.ac.bonus",
+              "mode": "ADD",
+              "value": "1"
+            }
+          ]
         }
       ]
     }

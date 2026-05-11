@@ -4,8 +4,9 @@ An **Independent modifier** applies changes directly to the **item document** ra
 patch any numeric or text field on the item itself, and it can attach usable abilities directly to the item so they
 show up in the item's own action list.
 
-Because its effects are item-bound rather than actor-bound, an Independent modifier does not support the `effects`
-array used by Unique and Linear modifiers. Instead each breakpoint uses two optional fields: `changes` and `activities`.
+Because its effects are item-bound rather than actor-bound, an Independent modifier does not support the `activeEffects`
+or `feats` arrays used by Unique, Linear, and Tiered modifiers. Instead each breakpoint uses two optional fields:
+`changes` and `activities`.
 
 Each modifier supports one or more **breakpoints** — tiers that activate based on the item's internal float value. Most
 modifiers only need a single breakpoint at `min: 0`.
@@ -172,10 +173,10 @@ The activity definition is the same format used inside a `FEAT` effect's `system
 
 ### Activities vs Feats
 
-| Situation                                              | Use                          |
-|--------------------------------------------------------|------------------------------|
-| Ability is tied to this specific item                  | `INDEPENDENT` activities     |
-| Ability is a character trait that persists regardless  | `UNIQUE` / `LINEAR` with a `FEAT` effect |
+| Situation                                              | Use                                          |
+|--------------------------------------------------------|----------------------------------------------|
+| Ability is tied to this specific item                  | `INDEPENDENT` activities                     |
+| Ability is a character trait that persists regardless  | `UNIQUE` / `LINEAR` / `TIERED` `feats` entry |
 
 ---
 

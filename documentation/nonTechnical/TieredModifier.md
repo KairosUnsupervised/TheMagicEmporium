@@ -42,7 +42,8 @@ Effects are applied to the character, not the item. For item-bound changes use a
         "description": "A modest effect.",
         "disclaimer": null
       },
-      "effects": []
+      "activeEffects": [],
+      "feats": []
     }
   ]
 }
@@ -120,7 +121,8 @@ set of effects. The highest threshold still at or below the sum is the active ti
       "description": "A modest effect.",
       "disclaimer": null
     },
-    "effects": []
+    "activeEffects": [],
+    "feats": []
   },
   {
     "min": 4,
@@ -129,16 +131,18 @@ set of effects. The highest threshold still at or below the sum is the active ti
       "description": "A powerful effect.",
       "disclaimer": null
     },
-    "effects": []
+    "activeEffects": [],
+    "feats": []
   }
 ]
 ```
 
-| Field     | Required | Defaults to | Description                                                  |
-|-----------|----------|-------------|--------------------------------------------------------------|
-| `min`     | Yes      | —           | The minimum summed value needed to activate this tier.       |
-| `flavor`  | Yes      | —           | The title and description shown to the player for this tier. |
-| `effects` | No       | `[]`        | List of effects applied while this tier is active.           |
+| Field           | Required | Defaults to | Description                                                                        |
+|-----------------|----------|-------------|------------------------------------------------------------------------------------|
+| `min`           | Yes      | —           | The minimum summed value needed to activate this tier.                             |
+| `flavor`        | Yes      | —           | The title and description shown to the player for this tier.                       |
+| `activeEffects` | No       | `[]`        | Always-on stat changes applied to the character while this tier is active.         |
+| `feats`         | No       | `[]`        | Named abilities added to the character sheet while this tier is active.            |
 
 ### Flavor
 
@@ -148,10 +152,7 @@ set of effects. The highest threshold still at or below the sum is the active ti
 | `description` | Yes      | —           | Short description of what the modifier does.        |
 | `disclaimer`  | No       | `null`      | Small explanatory text shown below the description. |
 
-### Effects
-
-Effects work the same as in the Unique modifier — see [UniqueModifier.md](UniqueModifier.md) and
-[Effects.md](Effects.md) for the full reference on `ACTIVE_EFFECT` and `FEAT` entries.
+See [ActiveEffects.md](ActiveEffects.md) and [Feats.md](Feats.md) for the full structure of each effect type.
 
 ---
 
@@ -202,7 +203,7 @@ changes, such as a flat bonus that grows from +1 to +3.
         "title": "Ember Ward",
         "description": "This armor smolders with a protective heat, granting resistance to fire damage."
       },
-      "effects": [
+      "activeEffects": [
         {
           "type": "ACTIVE_EFFECT",
           "changes": [
@@ -217,7 +218,7 @@ changes, such as a flat bonus that grows from +1 to +3.
         "title": "Ember Aegis",
         "description": "The armor blazes with warding flames, granting fire resistance and bolstering your defenses."
       },
-      "effects": [
+      "activeEffects": [
         {
           "type": "ACTIVE_EFFECT",
           "changes": [
@@ -233,7 +234,7 @@ changes, such as a flat bonus that grows from +1 to +3.
         "title": "Ember Fortress",
         "description": "The armor burns with an undying inferno, granting immunity to fire damage and hardening your defenses."
       },
-      "effects": [
+      "activeEffects": [
         {
           "type": "ACTIVE_EFFECT",
           "changes": [
@@ -250,14 +251,16 @@ changes, such as a flat bonus that grows from +1 to +3.
         "description": "The armor has become one with primordial fire. You are immune to fire, your defenses are ironclad, and you can unleash a devastating burst of flame.",
         "disclaimer": "Immolating Burst recharges on a short or long rest."
       },
-      "effects": [
+      "activeEffects": [
         {
           "type": "ACTIVE_EFFECT",
           "changes": [
             {"key": "system.traits.di.value",        "mode": "ADD", "value": "fire"},
             {"key": "system.attributes.ac.bonus",    "mode": "ADD", "value": "2"}
           ]
-        },
+        }
+      ],
+      "feats": [
         {
           "type": "FEAT",
           "system": {

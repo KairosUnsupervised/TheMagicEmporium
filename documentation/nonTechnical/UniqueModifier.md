@@ -26,7 +26,8 @@ Each modifier supports one or more **breakpoints** — tiers that activate based
         "description": "Your weapon attacks are blessed by the gods.",
         "disclaimer": null
       },
-      "effects": []
+      "activeEffects": [],
+      "feats": []
     }
   ]
 }
@@ -92,16 +93,20 @@ Most modifiers only need a single breakpoint at `min: 0`.
       "description": "Your weapon attacks are blessed by the gods.",
       "disclaimer": null
     },
-    "effects": []
+    "activeEffects": [],
+    "feats": []
   }
 ]
 ```
 
-| Field     | Required | Defaults to | Description                                                  |
-|-----------|----------|-------------|--------------------------------------------------------------|
-| `min`     | Yes      | —           | The minimum internal value needed to activate this tier.     |
-| `flavor`  | Yes      | —           | The title and description shown to the player for this tier. |
-| `effects` | No       | `[]`        | List of effects applied while this tier is active.           |
+| Field           | Required | Defaults to | Description                                                  |
+|-----------------|----------|-------------|--------------------------------------------------------------|
+| `min`           | Yes      | —           | The minimum internal value needed to activate this tier.     |
+| `flavor`        | Yes      | —           | The title and description shown to the player for this tier. |
+| `activeEffects` | No       | `[]`        | Always-on stat changes applied to the character while this tier is active. |
+| `feats`         | No       | `[]`        | Named abilities added to the character sheet while this tier is active.    |
+
+An empty `activeEffects` and `feats` (the default) produces a passive feat using the breakpoint's flavor text.
 
 ### Flavor
 
@@ -141,7 +146,7 @@ Most modifiers only need a single breakpoint at `min: 0`.
         "description": "Your weapon attacks are blessed by the gods.",
         "disclaimer": null
       },
-      "effects": [
+      "activeEffects": [
         {
           "type": "ACTIVE_EFFECT",
           "title": "Blessed Strikes",
