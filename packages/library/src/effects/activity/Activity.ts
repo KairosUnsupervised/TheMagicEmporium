@@ -12,6 +12,11 @@ export class Activity {
         this.document = {...definition, _id: this.id};
     }
 
+    /**
+     * Pass an array of unknown data and create an array of Activity instances <br/>
+     * Schema mismatches will be logged as warning, an instance will still be created
+     * @param definitions
+     */
     public static createMultiple = (definitions: unknown[]): Activity[] => {
         return definitions.map((definition, index) => {
             if (!validateActivitySchema(definition)) {
@@ -37,6 +42,10 @@ export class Activity {
     };
 }
 
+/**
+ * @DEPRECATED // TODO Replace deprecated function activitiesToRecord
+ * @param activities
+ */
 export const activitiesToRecord = (activities: ActivitySchema[]): Record<string, ActivityDocument> => {
     const record: Record<string, ActivityDocument> = {};
     for (const activity of Activity.createMultiple(activities)) {

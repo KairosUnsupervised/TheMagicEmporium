@@ -2,7 +2,7 @@ import {ActiveEffect} from "../effects/activeEffects/ActiveEffect";
 import {Feat} from "../effects/feats/Feat";
 import {Application, Flavor, ModifierType} from "./modifier.schema";
 import {DataManager} from "./dataManagers/DataManager";
-import {applyKeydotChanges, KeydotChange} from "./keydot";
+import {Change} from "../effects/change/Change";
 import {Activity} from "../effects/activity/Activity";
 
 export type ModifierFactory = (props: CreateProps) => Modifier | null;
@@ -63,10 +63,10 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
     };
 
     /**
-     * Retrieves keydot changes to be applied to the item document
+     * Retrieves changes to be applied to the item document
      * @param _data Unverified data from the item document e.g. {float: 0.777}
      */
-    public getItemChanges = (_data: unknown): KeydotChange[] => {
+    public getItemChanges = (_data: unknown): Change[] => {
         return [];
     };
 
@@ -79,10 +79,10 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
     };
 
     /**
-     * Applies an array of keydot operations to a document, returning a new patched copy.
+     * Applies an array of changes to a document, returning a new patched copy.
      */
-    protected applyChanges = <T extends object>(target: T, changes: KeydotChange[]): T => {
-        return applyKeydotChanges(target, changes);
+    protected applyChanges = <T extends object>(target: T, changes: Change[]): T => {
+        return Change.applyAll(target, changes);
     };
 
     /**

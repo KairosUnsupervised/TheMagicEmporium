@@ -6,7 +6,7 @@ import {namespace} from "@tme/shared/src/namespaceConfig";
 import {AppliedModifier} from "../modifiers/Modifier";
 import {generateDescriptionV3} from "./generateDescription";
 import {Item5e, ItemType} from "@tme/shared/src/types/item5e";
-import {applyKeydotChanges, KeydotChange} from "../modifiers/keydot";
+import {Change} from "../effects/change/Change";
 import {Activity} from "../effects/activity/Activity";
 
 /**
@@ -91,7 +91,7 @@ export class Item {
     };
 
     private mergeItemChanges = () => {
-        const changes: KeydotChange[] = [
+        const changes: Change[] = [
             ...this.abstractItem.primary,
             ...this.abstractItem.secondary,
             ...this.abstractItem.tertiary,
@@ -99,7 +99,7 @@ export class Item {
             return modifier.getItemChanges(data)
         });
 
-        this.document = applyKeydotChanges(this.document, changes) as typeof this.document;
+        this.document = Change.applyAll(this.document, changes) as typeof this.document;
     };
 
     private mergeItemActivities = () => {

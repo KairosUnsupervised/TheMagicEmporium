@@ -8,6 +8,7 @@ import {Flavor} from "../modifiers/modifier.schema";
 
 /**
  * This is a utility class that bridges the gap between raw JSON definitions for ActiveEffects and Feats their clean class instance counterpart
+ * @DEPRECATED WILL SOON BE REPLACED BY FEAT OR ACTIVEEFFECT CLASS
  */
 export class Effect {
 

@@ -2,7 +2,7 @@ import Ajv from "ajv";
 import {BaseSchema, type CreateProps, Modifier} from "../Modifier";
 import {Logger} from "../../misc/Logger";
 import {applicationSchema, Flavor, flavorSchema, ModifierType} from "../modifier.schema";
-import {KeydotChange, keydotChangesSchema} from "../keydot";
+import {Change} from "../../effects/change/Change";
 import {Activity} from "../../effects/activity/Activity";
 import {FloatDataManager} from "../dataManagers/FloatDataManager";
 
@@ -11,7 +11,7 @@ const ajv = new Ajv({removeAdditional: true, useDefaults: true});
 interface Breakpoint {
     min: number;
     flavor: Flavor;
-    changes: KeydotChange[];
+    changes: unknown[];
     activities: unknown[];
 }
 
@@ -34,7 +34,7 @@ const validateRaw = ajv.compile<Schema>({
                 properties: {
                     min: {type: "number", minimum: 0},
                     flavor: flavorSchema,
-                    changes: keydotChangesSchema,
+                    changes: {type: "array", default: []},
                     activities: {type: "array", default: []},
                 },
             }
@@ -44,7 +44,7 @@ const validateRaw = ajv.compile<Schema>({
 
 /**
  * An Independent modifier selects a tier based on a float value and applies that breakpoint's
- * flavor, keydot changes, and activities directly to the item document.
+ * flavor, changes, and activities directly to the item document.
  */
 export class IndependentModifier extends Modifier<Schema> {
 
@@ -79,10 +79,10 @@ export class IndependentModifier extends Modifier<Schema> {
         return breakpoint.flavor;
     };
 
-    public override getItemChanges = (data: unknown): KeydotChange[] => {
+    public override getItemChanges = (data: unknown): Change[] => {
         const breakpoint = this.dataManager.getBreakpoint(data);
 
-        return breakpoint.changes;
+        return Change.createMultiple(breakpoint.changes);
     };
 
     public override getItemActivities = (data: unknown): Activity[] => {
