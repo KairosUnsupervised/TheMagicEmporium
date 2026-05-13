@@ -1,14 +1,14 @@
 {
-	"private": true,
+	"name": "@tme/ui",
 	"type": "module",
+	"private": true,
 	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"preview": "vite preview",
-		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"storybook": "storybook dev -p 6006"
 	},
 	"dependencies": {
+		"@storybook/addon-docs": "^10.3.6",
+		"@tme/library": "workspace:*",
+		"@tme/shared": "workspace:*",
 		"preact": "^10.26.9"
 	},
 	"devDependencies": {
