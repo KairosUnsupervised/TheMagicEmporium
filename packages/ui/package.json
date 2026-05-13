@@ -4,13 +4,17 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
 	},
 	"dependencies": {
 		"preact": "^10.26.9"
 	},
 	"devDependencies": {
 		"@preact/preset-vite": "^2.10.2",
-		"vite": "^7.0.4"
+		"vite": "^7.0.4",
+		"storybook": "^10.3.6",
+		"@storybook/preact-vite": "^10.3.6"
 	}
 }
