@@ -5,7 +5,7 @@ export const linearStealthFixture = new LinearModifier({
     identifier: "fixture.stealth",
     type: ModifierType.Linear,
     application: {weight: 1, whitelistedBy: [], blacklistedBy: [], applies: []},
-    flavor: {title: "Redacted", description: "Your Stealth skill increases by +{amount}.", disclaimer: null},
+    flavor: {title: "Redacted +{amount}", description: "Your Stealth skill increases by +{amount}.", disclaimer: null},
     breakpoints: [{min: 0, value: 2}],
     activeEffects: [],
     feats: [],

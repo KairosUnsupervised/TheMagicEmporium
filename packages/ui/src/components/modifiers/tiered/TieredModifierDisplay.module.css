@@ -1,0 +1,62 @@
+.grid {
+	display: grid;
+	grid-template-columns: 40px 1fr;
+	gap: 14px;
+	padding: 14px 4px 16px;
+	align-items: start;
+}
+
+.iconWrapper {
+	padding-top: 6px;
+}
+
+.labelRow {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+}
+
+.label {
+	font-family: 'Cinzel', serif;
+	font-size: 9px;
+	letter-spacing: 0.34em;
+	color: #b88ce8;
+	text-shadow: 0 0 10px rgba(184, 140, 232, 0.45);
+}
+
+.tier {
+	font-family: 'Cinzel', serif;
+	font-size: 11px;
+	color: #b88ce8;
+	opacity: 0.6;
+	letter-spacing: 0.05em;
+}
+
+.tierSep {
+	opacity: 0.4;
+	margin: 0 3px;
+}
+
+.title {
+	font-family: 'Cormorant Garamond', serif;
+	font-weight: 600;
+	font-size: 22px;
+	color: #ece4cf;
+	margin: 3px 0 6px;
+}
+
+.description {
+	font-size: 12.5px;
+	line-height: 1.55;
+	color: #a89e84;
+	font-weight: 300;
+}
+
+.disclaimer {
+	font-size: 11px;
+	line-height: 1.5;
+	color: #6e6757;
+	font-style: italic;
+	margin-top: 6px;
+	font-weight: 300;
+}

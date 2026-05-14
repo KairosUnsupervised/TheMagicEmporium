@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 32 32">
+	<defs>
+		<radialGradient id="linear-halo" cx="0.5" cy="0.5" r="0.5">
+			<stop offset="0%" stop-color="#5dd49a" stop-opacity="0.9" />
+			<stop offset="60%" stop-color="#5dd49a" stop-opacity="0.18" />
+			<stop offset="100%" stop-color="#5dd49a" stop-opacity="0" />
+		</radialGradient>
+	</defs>
+	<circle cx="16" cy="16" r="15" fill="url(#linear-halo)" />
+	<polygon points="4,26 16,18 28,26 28,29 16,21 4,29" fill="#5dd49a" opacity="0.45" />
+	<polygon points="4,20 16,12 28,20 28,23 16,15 4,23" fill="#5dd49a" opacity="0.75" />
+	<polygon points="4,14 16,6 28,14 28,17 16,9 4,17" fill="#5dd49a" />
+</svg>

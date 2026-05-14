@@ -1,0 +1,53 @@
+import type { Meta, StoryObj } from "@storybook/preact-vite";
+import { UniqueModifierDisplay } from "./unique/UniqueModifierDisplay";
+import { TieredModifierDisplay } from "./tiered/TieredModifierDisplay";
+import { uniqueBloodthirstyFixture } from "../../fixtures/modifiers/unique/uniqueBloodthirsty";
+import { uniqueVenomousFixture } from "../../fixtures/modifiers/unique/uniqueVenomous";
+import { tieredFuryFixture } from "../../fixtures/modifiers/tiered/tieredFury";
+
+const meta: Meta = {
+	title: "Components/Modifiers/BreakpointSwap",
+	parameters: {
+		layout: "centered",
+		backgrounds: { default: "dark", values: [{ name: "dark", value: "#040510" }] },
+	},
+};
+
+export default meta;
+
+type Story = StoryObj;
+
+const venomousBreakpoints = (uniqueVenomousFixture.schema as unknown as { breakpoints: { min: number }[] }).breakpoints;
+const furyBreakpoints = (tieredFuryFixture.schema as unknown as { breakpoints: { min: number }[] }).breakpoints;
+
+export const Default: Story = {
+	render: () => (
+		<div style="background:#040510;width:460px;">
+			<UniqueModifierDisplay modifier={uniqueBloodthirstyFixture} data={{ float: 0 }} />
+		</div>
+	),
+};
+
+export const UniqueVenomousMiddle: Story = {
+	render: () => (
+		<div style="background:#040510;width:460px;">
+			<UniqueModifierDisplay modifier={uniqueVenomousFixture} data={{ float: "0.4" }} />
+		</div>
+	),
+};
+
+export const UniqueVenomousHighest: Story = {
+	render: () => (
+		<div style="background:#040510;width:460px;">
+			<UniqueModifierDisplay modifier={uniqueVenomousFixture} data={{ float: venomousBreakpoints[5].min }} />
+		</div>
+	),
+};
+
+export const TieredFuryMiddle: Story = {
+	render: () => (
+		<div style="background:#040510;width:460px;">
+			<TieredModifierDisplay modifier={tieredFuryFixture} data={{ float: furyBreakpoints[1].min }} />
+		</div>
+	),
+};

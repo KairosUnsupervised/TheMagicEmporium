@@ -1,5 +1,6 @@
 import { Rarity } from "@tme/library/src/item/item.types";
 import { Equipment } from "@tme/library/src/item/equipment/equipment.types";
+import styles from "./Header.module.css";
 
 export interface HeaderProps {
 	name: string;
@@ -35,21 +36,24 @@ export const Header = (props: HeaderProps) => {
 	const shadow = RARITY_SHADOW[props.rarity];
 
 	return (
-		<div style="text-align:center;padding:4px 0 8px;">
-			<div style={`font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.38em;color:${color};text-shadow:0 0 10px ${shadow};margin-bottom:8px;`}>
+		<div class={styles.root}>
+			<div
+				class={styles.rarity}
+				style={{"--rarity-color": color, "--rarity-shadow": shadow} as never}
+			>
 				{toDisplayName(props.rarity)}
 			</div>
-			<div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:1.05;color:#ece4cf;margin:0 0 10px;text-shadow:0 0 18px rgba(243,220,160,.22);">
+			<div class={styles.name}>
 				{props.name}
 			</div>
-			<div style="display:inline-flex;align-items:center;gap:10px;">
-				<span style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.3em;color:#8a7a5a;">
+			<div class={styles.meta}>
+				<span class={styles.metaText}>
 					{toDisplayName(props.base)}
 				</span>
 				<svg width="4" height="4" viewBox="0 0 4 4">
 					<circle cx="2" cy="2" r="2" fill="#5a4e32" />
 				</svg>
-				<span style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.3em;color:#8a7a5a;">
+				<span class={styles.metaText}>
 					{formatCurrency(props.currency)}
 				</span>
 			</div>

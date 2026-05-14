@@ -1,0 +1,57 @@
+.header {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 4px 0;
+	margin: 10px 0 18px;
+}
+
+.rule {
+	flex: 1;
+	height: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 3px;
+}
+
+.ruleLine {
+	height: 1px;
+	background: linear-gradient(90deg, rgba(212,166,74,0), #8a6a2c 40%, #e8c87a 50%, #8a6a2c 60%, rgba(212,166,74,0));
+}
+
+.ruleLineFaint {
+	height: 1px;
+	opacity: 0.4;
+	background: linear-gradient(90deg, rgba(212,166,74,0), #8a6a2c 40%, #e8c87a 50%, #8a6a2c 60%, rgba(212,166,74,0));
+}
+
+.titleWrapper {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 0 4px;
+	white-space: nowrap;
+}
+
+.title {
+	font-family: 'Cinzel', serif;
+	font-weight: 600;
+	font-size: 12px;
+	letter-spacing: 0.42em;
+	color: #f3dca0;
+	text-shadow: 0 0 14px rgba(212, 166, 74, 0.55);
+}
+
+.item {
+	position: relative;
+}
+
+.divider {
+	position: absolute;
+	left: 54px;
+	right: 0;
+	top: 0;
+	height: 1px;
+	background: linear-gradient(90deg, rgba(212,166,74,0), rgba(212,166,74,.25) 30%, rgba(212,166,74,.25) 70%, rgba(212,166,74,0));
+}

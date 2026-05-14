@@ -19,7 +19,7 @@ export const uniqueWrathfulFixture = new UniqueModifier({
         {
             min: 1,
             flavor: {
-                title: "Wrathful",
+                title: "Wrathful of Hatred",
                 description: "While below half health, your melee attacks deal an extra 1d8 fire damage and cause the target to burn.",
                 disclaimer: "Burning deals 1d4 fire damage at the start of each of the target's turns."
             },

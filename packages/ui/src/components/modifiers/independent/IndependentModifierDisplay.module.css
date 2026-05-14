@@ -1,0 +1,43 @@
+.grid {
+	display: grid;
+	grid-template-columns: 40px 1fr auto;
+	gap: 14px;
+	padding: 14px 4px 16px;
+	align-items: start;
+}
+
+.iconWrapper {
+	padding-top: 6px;
+}
+
+.label {
+	font-family: 'Cinzel', serif;
+	font-size: 9px;
+	letter-spacing: 0.34em;
+	color: #5db4e8;
+	text-shadow: 0 0 10px rgba(93, 180, 232, 0.45);
+}
+
+.title {
+	font-family: 'Cormorant Garamond', serif;
+	font-weight: 600;
+	font-size: 22px;
+	color: #ece4cf;
+	margin: 3px 0 6px;
+}
+
+.description {
+	font-size: 12.5px;
+	line-height: 1.55;
+	color: #a89e84;
+	font-weight: 300;
+}
+
+.disclaimer {
+	font-size: 11px;
+	line-height: 1.5;
+	color: #6e6757;
+	font-style: italic;
+	margin-top: 6px;
+	font-weight: 300;
+}

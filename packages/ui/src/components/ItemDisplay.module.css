@@ -1,0 +1,67 @@
+.frame {
+	position: relative;
+	width: 516px;
+	padding: 32px 28px;
+	box-sizing: border-box;
+	background:
+		radial-gradient(120% 60% at 50% -10%, rgba(212,166,74,.10) 0%, transparent 60%),
+		radial-gradient(80% 50% at 50% 120%, rgba(93,140,232,.06) 0%, transparent 65%),
+		linear-gradient(180deg, #0e1124 0%, #07091a 100%);
+	overflow: hidden;
+}
+
+.lattice {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.06;
+	pointer-events: none;
+}
+
+.card {
+	position: relative;
+	width: 460px;
+	box-sizing: border-box;
+	padding: 28px;
+	background: linear-gradient(180deg, #0e1124 0%, #07091a 100%);
+	border-radius: 4px;
+	box-shadow:
+		inset 0 0 0 1px rgba(212,166,74,.35),
+		inset 0 0 60px rgba(212,166,74,.06),
+		0 30px 80px rgba(0,0,0,.55),
+		0 0 0 1px rgba(0,0,0,.5);
+}
+
+.cornerTL {
+	position: absolute;
+	top: -4px;
+	left: -4px;
+}
+
+.cornerTR {
+	position: absolute;
+	top: -4px;
+	right: -4px;
+}
+
+.cornerBR {
+	position: absolute;
+	bottom: -4px;
+	right: -4px;
+}
+
+.cornerBL {
+	position: absolute;
+	bottom: -4px;
+	left: -4px;
+}
+
+.corner {
+	display: block;
+	overflow: visible;
+	transform: rotate(var(--rotation));
+}

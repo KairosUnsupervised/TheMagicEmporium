@@ -1,6 +1,11 @@
 import type {Preview} from '@storybook/preact-vite'
 import { themes } from "storybook/theming";
 
+const link = document.createElement("link");
+link.rel = "stylesheet";
+link.href = "https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap";
+document.head.appendChild(link);
+
 const preview: Preview = {
     tags: ["autodocs"],
     parameters: {

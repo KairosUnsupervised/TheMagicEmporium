@@ -1,0 +1,36 @@
+.root {
+	text-align: center;
+	padding: 4px 0 8px;
+}
+
+.rarity {
+	font-family: 'Cinzel', serif;
+	font-size: 9px;
+	letter-spacing: 0.38em;
+	color: var(--rarity-color);
+	text-shadow: 0 0 10px var(--rarity-shadow);
+	margin-bottom: 8px;
+}
+
+.name {
+	font-family: 'Cormorant Garamond', serif;
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 1.05;
+	color: #ece4cf;
+	margin: 0 0 10px;
+	text-shadow: 0 0 18px rgba(243, 220, 160, 0.22);
+}
+
+.meta {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.metaText {
+	font-family: 'Cinzel', serif;
+	font-size: 9px;
+	letter-spacing: 0.3em;
+	color: #8a7a5a;
+}

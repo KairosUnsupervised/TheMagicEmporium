@@ -1,6 +1,7 @@
 import { AbstractItem } from "@tme/library/src/item/AbstractItem";
 import { Header } from "./item/header/Header";
 import { Section } from "./item/section/Section";
+import styles from "./ItemDisplay.module.css";
 
 export interface ItemDisplayProps {
 	item: AbstractItem;
@@ -23,6 +24,7 @@ const Defs = () => (
 
 interface CornerProps {
 	rotation: number;
+	class: string;
 }
 
 const Corner = (props: CornerProps) => (
@@ -30,7 +32,8 @@ const Corner = (props: CornerProps) => (
 		width="72"
 		height="72"
 		viewBox="0 0 64 64"
-		style={`display:block;overflow:visible;transform:rotate(${props.rotation}deg);`}
+		class={`${styles.corner} ${props.class}`}
+		style={{"--rotation": `${props.rotation}deg`} as never}
 	>
 		<path d="M2 26 L2 2 L26 2" stroke="url(#tme-gold-diag)" fill="none" strokeWidth="1.3" strokeLinecap="round" />
 		<path d="M7 19 L7 7 L19 7" stroke="url(#tme-gold-diag)" fill="none" strokeWidth="0.7" opacity="0.6" />
@@ -47,18 +50,15 @@ const Corner = (props: CornerProps) => (
 export const ItemDisplay = (props: ItemDisplayProps) => (
 	<div>
 		<Defs />
-		<div style="position:relative;width:516px;padding:32px 28px;box-sizing:border-box;background:radial-gradient(120% 60% at 50% -10%,rgba(212,166,74,.10) 0%,transparent 60%),radial-gradient(80% 50% at 50% 120%,rgba(93,140,232,.06) 0%,transparent 65%),linear-gradient(180deg,#0e1124 0%,#07091a 100%);overflow:hidden;">
-			<svg
-				style="position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;opacity:0.06;pointer-events:none;"
-				preserveAspectRatio="xMidYMid slice"
-			>
+		<div class={styles.frame}>
+			<svg class={styles.lattice} preserveAspectRatio="xMidYMid slice">
 				<rect width="100%" height="100%" fill="url(#tme-hex-lat)" />
 			</svg>
-			<div style="position:relative;width:460px;box-sizing:border-box;padding:28px;background:linear-gradient(180deg,#0e1124 0%,#07091a 100%);border-radius:4px;box-shadow:inset 0 0 0 1px rgba(212,166,74,.35),inset 0 0 60px rgba(212,166,74,.06),0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.5);">
-				<div style="position:absolute;top:-4px;left:-4px;"><Corner rotation={0} /></div>
-				<div style="position:absolute;top:-4px;right:-4px;"><Corner rotation={90} /></div>
-				<div style="position:absolute;bottom:-4px;right:-4px;"><Corner rotation={180} /></div>
-				<div style="position:absolute;bottom:-4px;left:-4px;"><Corner rotation={270} /></div>
+			<div class={styles.card}>
+				<Corner rotation={0} class={styles.cornerTL} />
+				<Corner rotation={90} class={styles.cornerTR} />
+				<Corner rotation={180} class={styles.cornerBR} />
+				<Corner rotation={270} class={styles.cornerBL} />
 				<Header
 					name={props.item.name}
 					rarity={props.item.rarity}
