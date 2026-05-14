@@ -56,6 +56,7 @@ export class Tooltip {
     }
 
     public movePosition = (top: number, left: number): void => {
+        if (this.pinned) return;
         const x = left + GAP + TOOLTIP_WIDTH <= window.innerWidth
             ? left + GAP
             : left - TOOLTIP_WIDTH - GAP;

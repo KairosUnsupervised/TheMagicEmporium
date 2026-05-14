@@ -8,9 +8,6 @@ import {registerFancyModifierIcons} from "./hooks/fancyModifierIcons.ts";
 import {registerRarityBorderColors} from "./hooks/rarityBorderColors.ts";
 import {registerTooltips} from "./hooks/tooltips.ts";
 
-import tippy from 'tippy.js';
-import 'tippy.js/dist/tippy.css';
-
 // TODO move type
 window.Hooks.once("init", async () => {
     Logger.log("Initializing")
