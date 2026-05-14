@@ -25,19 +25,14 @@ export class Validator {
     public validate = async (actor: Actor5e) => {
 
         const magicItems = this.getActiveMagicItems(actor);
+        console.log("magicItems", magicItems)
         const modifiers = this.getAllModifiers(magicItems);
+
 
         await this.synchronizeDescriptions(magicItems);
 
-        const effects= this.getAllEffects(modifiers);
-
-        await this.synchronizeFeats(effects.filter((item) => {
-            return item instanceof Feat
-        }), actor);
-
-        await this.synchronizeEffects(effects.filter((item) => {
-            return item instanceof ActiveEffect
-        }), actor);
+        await this.synchronizeFeats(this.getAllFeats(modifiers), actor);
+        await this.synchronizeEffects(this.getAllActiveEffects(modifiers), actor);
     };
 
     /**
@@ -84,7 +79,9 @@ export class Validator {
                     item5e: item,
                 };
             })
-            .filter((item) => item !== null) as QuickAccess[];
+            .filter((item) => {
+                return item !== null && item.abstract !== null;
+            }) as QuickAccess[];
     };
 
     /**
@@ -119,13 +116,15 @@ export class Validator {
         return modifierMap
     };
 
-    /**
-     * Retrieve all activeEffects and feats of all modifiers
-     */
-    private getAllEffects = (modifiersMapped: ModifiersMapped): (ActiveEffect | Feat)[] => {
-        return Object.values(modifiersMapped).flatMap(({modifier, data}) => {
-                return modifier.getEffects(data)
-            }
+    private getAllFeats = (modifiersMapped: ModifiersMapped): Feat[] => {
+        return Object.values(modifiersMapped).flatMap(({modifier, data}) =>
+            modifier.getFeats(data)
+        );
+    }
+
+    private getAllActiveEffects = (modifiersMapped: ModifiersMapped): ActiveEffect[] => {
+        return Object.values(modifiersMapped).flatMap(({modifier, data}) =>
+            modifier.getActiveEffects(data)
         );
     }
 
