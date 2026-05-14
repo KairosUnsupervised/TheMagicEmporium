@@ -8,9 +8,12 @@
       "DOM",
       "DOM.Iterable"
     ],
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
     "allowImportingTsExtensions": true,
     "paths": {
       "@tme/library/*": ["../../packages/library/*"],
+      "@tme/ui/*": ["../../packages/ui/*"],
       "@tme/shared/*": ["../../packages/shared/*"],
       "@tme/types/*": ["../../packages/types/*"]
     },

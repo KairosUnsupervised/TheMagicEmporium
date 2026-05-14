@@ -1,0 +1,114 @@
+import {h, render} from "preact";
+import {AbstractItem} from "@tme/library/src/item/AbstractItem";
+import {ItemDisplay} from "@tme/ui/src/components/ItemDisplay";
+import styles from "./Tooltip.module.css";
+
+const GAP = 20;
+const TOOLTIP_WIDTH = 516;
+
+export class Tooltip {
+    private pinned: boolean = false;
+    private shown: boolean = false;
+    private showTimer: ReturnType<typeof setTimeout> | null = null;
+    private scrollTimer: ReturnType<typeof setTimeout> | null = null;
+    private currentTop: number = 0;
+    private readonly container: HTMLDivElement;
+    private readonly contentDiv: HTMLDivElement;
+
+    constructor() {
+        this.container = document.createElement("div");
+        this.container.className = styles["container"];
+
+        this.contentDiv = document.createElement("div");
+        this.contentDiv.className = styles["content"];
+        this.container.appendChild(this.contentDiv);
+
+        document.body.appendChild(this.container);
+
+        document.addEventListener("wheel", (e: WheelEvent) => {
+            if (!this.shown) return;
+            this.container.classList.add(styles["scrolling"]);
+            if (this.scrollTimer) clearTimeout(this.scrollTimer);
+            this.scrollTimer = setTimeout(() => {
+                this.container.classList.remove(styles["scrolling"]);
+                this.scrollTimer = null;
+            }, 400);
+            this.currentTop -= e.deltaY / 2;
+            this.container.style.top = `${this.currentTop}px`;
+        }, {passive: true});
+
+        document.addEventListener("mousedown", (e: MouseEvent) => {
+            if (e.button === 1 && this.shown && !this.pinned) {
+                e.preventDefault();
+                this.pin();
+                return;
+            }
+            if (this.pinned && !this.contentDiv.contains(e.target as Node)) {
+                this.unpin();
+            }
+        });
+
+        document.addEventListener("keydown", (e: KeyboardEvent) => {
+            if (this.pinned && e.key === "Escape") {
+                this.unpin();
+            }
+        });
+    }
+
+    public movePosition = (top: number, left: number): void => {
+        const x = left + GAP + TOOLTIP_WIDTH <= window.innerWidth
+            ? left + GAP
+            : left - TOOLTIP_WIDTH - GAP;
+
+        this.currentTop = top;
+        this.container.style.left = `${Math.max(0, x)}px`;
+        this.container.style.top = `${this.currentTop}px`;
+    }
+
+    public show = (): void => {
+        this.shown = true;
+        this.container.style.opacity = "1";
+        this.container.style.visibility = "visible";
+    }
+
+    public hide = (): void => {
+        if (this.showTimer) {
+            clearTimeout(this.showTimer);
+            this.showTimer = null;
+        }
+        if (this.pinned) return;
+        this.shown = false;
+        this.container.style.opacity = "0";
+        this.container.style.visibility = "hidden";
+    }
+
+    public setContent = (item: AbstractItem): void => {
+        render(h(ItemDisplay, {item}), this.contentDiv);
+    }
+
+    public showNextTo = (e: MouseEvent, item: AbstractItem): void => {
+        if (this.showTimer) clearTimeout(this.showTimer);
+        this.showTimer = setTimeout(() => {
+            this.setContent(item);
+            this.movePosition(e.clientY, e.clientX);
+            this.show();
+            this.showTimer = null;
+        }, 500);
+    }
+
+    public pin = (): void => {
+        if (!this.shown) return;
+        this.pinned = true;
+        this.contentDiv.style.pointerEvents = "auto";
+        this.contentDiv.style.outline = "1px solid rgba(212,166,74,.5)";
+    }
+
+    public unpin = (): void => {
+        this.pinned = false;
+        this.shown = false;
+        this.contentDiv.style.pointerEvents = "none";
+        this.contentDiv.style.outline = "none";
+        this.container.style.opacity = "0";
+        this.container.style.visibility = "hidden";
+    }
+}

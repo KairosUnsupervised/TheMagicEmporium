@@ -1,0 +1,20 @@
+.container {
+    position: fixed;
+    z-index: 9999;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%);
+    transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+}
+
+.scrolling {
+    transition: top 0.4s ease-out, opacity 0.2s ease-out, visibility 0.2s ease-out;
+}
+
+.content {
+    pointer-events: none;
+}
