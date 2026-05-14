@@ -3,6 +3,8 @@ import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
 import { BreakpointSwap } from "../BreakpointSwap";
 import styles from "./TieredModifierDisplay.module.css";
 import icon from "./Icon.svg";
+import {namespace} from "@tme/shared/src/namespaceConfig";
+import {Icon} from "@tme/library/src/item/icon";
 
 const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 
@@ -18,11 +20,14 @@ interface TieredBodyProps extends TieredModifierDisplayProps {
 
 const TieredBody = (props: TieredBodyProps) => {
 	const flavor = props.modifier.getDescription(props.data);
+	const iconSrc = (typeof game !== "undefined" && game?.world?.id)
+		? `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Tiered}`
+		: icon;
 
 	return (
 		<div class={styles.grid}>
 			<div class={styles.iconWrapper}>
-				<img src={icon} alt="Icon" />
+				<img src={iconSrc} alt="Icon" />
 			</div>
 			<div>
 				<div class={styles.labelRow}>

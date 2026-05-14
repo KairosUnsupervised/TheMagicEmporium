@@ -1,6 +1,8 @@
 import { LinearModifier } from "@tme/library/src/modifiers/blueprints/LinearModifier";
 import styles from "./LinearModifierDisplay.module.css";
 import icon from "./Icon.svg";
+import {namespace} from "@tme/shared/src/namespaceConfig";
+import {Icon} from "@tme/library/src/item/icon";
 
 export interface LinearModifierDisplayProps {
 	modifier: LinearModifier;
@@ -10,12 +12,15 @@ export interface LinearModifierDisplayProps {
 export const LinearModifierDisplay = (props: LinearModifierDisplayProps) => {
 	const flavor = props.modifier.getDescription(props.data);
 	const activeBreakpoint = props.modifier.dataManager.getBreakpoint(props.data) as { min: number; value: number };
+	const iconSrc = (typeof game !== "undefined" && game?.world?.id)
+		? `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Linear}`
+		: icon;
 
 	return (
 		<div class={styles.root}>
 			<div class={styles.grid}>
 				<div class={styles.iconWrapper}>
-					<img src={icon} alt="Icon" />
+					<img src={iconSrc} alt="Icon" />
 				</div>
 				<div>
 					<div class={styles.label}>
