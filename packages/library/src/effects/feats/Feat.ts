@@ -35,8 +35,10 @@ export class Feat {
      * Pass an array of unknown data and create an array of feat instances <br/>
      * Schema mismatches will be logged as warning, an instance will still be created
      * @param definitions
+     * @param defaultFlavor
+     * @param icon
      */
-    public static createMultiple = (definitions: unknown[], defaultFlavor: Flavor): Feat[] => {
+    public static createMultiple = (definitions: unknown[], defaultFlavor: Flavor, icon: Icon): Feat[] => {
         return definitions.map((definition) => {
             if (!validateFeatSchema(definition)) {
                 Logger.warn("Feat definition has mismatched properties — importing anyway", {
@@ -44,11 +46,11 @@ export class Feat {
                     errors: validateFeatSchema.errors,
                 });
             }
-            return Feat.create({...defaultFlavor, ...(definition as FeatSchema)});
+            return Feat.create({...defaultFlavor, ...(definition as FeatSchema)}, icon);
         });
     };
 
-    static create = (definition: CreateDefinition): Feat => {
+    private static create = (definition: CreateDefinition, icon: Icon): Feat => {
         let descriptionHtml = `<p><strong>${definition.description}</strong></p>`;
         if (definition.disclaimer !== '' && definition.disclaimer !== null) {
             descriptionHtml = `${descriptionHtml}<p><em>${definition.disclaimer}</em></p>`;
@@ -56,6 +58,7 @@ export class Feat {
 
         const base: Partial<Document> = {
             name: definition.title,
+            img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${icon}`
         };
 
         if (definition.system) {
@@ -64,7 +67,6 @@ export class Feat {
 
             if (activities && activities.length > 0) {
                 base.system = {...base.system, activities: activitiesToRecord(activities)};
-                base.img = `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.FeatActive}`;
             }
         }
 

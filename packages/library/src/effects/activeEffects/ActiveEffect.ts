@@ -76,8 +76,9 @@ export class ActiveEffect {
      * Invalid schemas will be logged as error and ignored
      * @param definitions
      * @param defaultFlavor
+     * @param icon
      */
-    public static createMultiple = (definitions: unknown[], defaultFlavor: Flavor): ActiveEffect[] => {
+    public static createMultiple = (definitions: unknown[], defaultFlavor: Flavor, icon: Icon): ActiveEffect[] => {
         return definitions.map((definition, index) => {
             if (!validateActiveEffectSchema(definition)) {
                 Logger.error(`ActiveEffect at index ${index} has schema mismatches`, {
@@ -86,11 +87,11 @@ export class ActiveEffect {
                 });
                 return null;
             }
-            return ActiveEffect.create({...defaultFlavor, ...definition});
+            return ActiveEffect.create({...defaultFlavor, ...definition}, icon);
         }).filter((item) => item !== null) as ActiveEffect[];
     };
 
-    static create = (definition: CreateDefinition) => {
+    private static create = (definition: CreateDefinition, icon: Icon) => {
 
         let description = `<p><strong>${definition.description}</strong></p>`;
 
@@ -108,6 +109,7 @@ export class ActiveEffect {
             name: definition.title,
             description,
             changes,
+            img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${icon}`
         })
     }
 

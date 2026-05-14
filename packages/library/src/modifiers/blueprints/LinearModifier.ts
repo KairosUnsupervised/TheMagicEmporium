@@ -5,6 +5,7 @@ import {ActiveEffect} from "../../effects/activeEffects/ActiveEffect";
 import {Feat} from "../../effects/feats/Feat";
 import {applicationSchema, Flavor, flavorSchema, ModifierType} from "../modifier.schema";
 import {FloatDataManager} from "../dataManagers/FloatDataManager";
+import {Icon} from "../../item/icon";
 
 const ajv = new Ajv({removeAdditional: true, useDefaults: true})
 
@@ -84,6 +85,7 @@ export class LinearModifier extends Modifier<Schema> {
         return ActiveEffect.createMultiple(
             this.replaceKeyWords(this.schema.activeEffects, {amount}),
             this.replaceKeyWords(this.schema.flavor, {amount}),
+            Icon.Linear
         );
     };
 
@@ -92,6 +94,7 @@ export class LinearModifier extends Modifier<Schema> {
         return Feat.createMultiple(
             this.replaceKeyWords(this.schema.feats, {amount}),
             this.replaceKeyWords(this.schema.flavor, {amount}),
+            Icon.Linear
         );
     };
 

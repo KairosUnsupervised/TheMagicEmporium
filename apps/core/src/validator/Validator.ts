@@ -25,7 +25,6 @@ export class Validator {
     public validate = async (actor: Actor5e) => {
 
         const magicItems = this.getActiveMagicItems(actor);
-        console.log("magicItems", magicItems)
         const modifiers = this.getAllModifiers(magicItems);
 
 

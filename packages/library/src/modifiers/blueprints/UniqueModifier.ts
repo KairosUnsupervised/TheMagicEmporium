@@ -5,6 +5,7 @@ import {ActiveEffect} from "../../effects/activeEffects/ActiveEffect";
 import {Feat} from "../../effects/feats/Feat";
 import {applicationSchema, Flavor, flavorSchema, ModifierType} from "../modifier.schema";
 import {FloatDataManager} from "../dataManagers/FloatDataManager";
+import {Icon} from "../../item/icon";
 
 const ajv = new Ajv({removeAdditional: true, useDefaults: true})
 
@@ -79,12 +80,12 @@ export class UniqueModifier extends Modifier<Schema> {
 
     public override getActiveEffects = (data: unknown[]): ActiveEffect[] => {
         const highest = this.getHighestBreakpoint(data);
-        return ActiveEffect.createMultiple(highest.activeEffects, highest.flavor);
+        return ActiveEffect.createMultiple(highest.activeEffects, highest.flavor, Icon.Unique);
     };
 
     public override getFeats = (data: unknown[]): Feat[] => {
         const highest = this.getHighestBreakpoint(data);
-        return Feat.createMultiple(highest.feats, highest.flavor);
+        return Feat.createMultiple(highest.feats, highest.flavor, Icon.Unique);
     };
 
 }

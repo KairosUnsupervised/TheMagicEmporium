@@ -1,8 +1,17 @@
+/**
+ * Core Icons
+ */
 export enum Icon {
     // Misc
     Effect = 'effect.jpg',
     FeatActive = 'featActive.jpg',
     FeatPassive = 'featPassive.jpg',
+
+    // Modifiers
+    Independent = 'modifiers/independent.png',
+    Linear = 'modifiers/linear.png',
+    Tiered = 'modifiers/tiered.png',
+    Unique = 'modifiers/unique.png',
 
     // Accessory
     Amulet = 'accessory/amulet.jpg',

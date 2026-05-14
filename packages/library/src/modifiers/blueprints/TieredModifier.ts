@@ -5,6 +5,7 @@ import {Logger} from "../../misc/Logger";
 import {ActiveEffect} from "../../effects/activeEffects/ActiveEffect";
 import {Feat} from "../../effects/feats/Feat";
 import {FloatDataManager} from "../dataManagers/FloatDataManager";
+import {Icon} from "../../item/icon";
 
 const ajv = new Ajv({removeAdditional: true, useDefaults: true})
 
@@ -120,7 +121,7 @@ export class TieredModifier extends Modifier<Schema> {
         if (!tier) {
             return []
         };
-        return ActiveEffect.createMultiple(tier.activeEffects, tier.flavor);
+        return ActiveEffect.createMultiple(tier.activeEffects, tier.flavor, Icon.Tiered);
     };
 
     public override getFeats = (data: unknown[]): Feat[] => {
@@ -128,7 +129,7 @@ export class TieredModifier extends Modifier<Schema> {
         if (!tier) {
             return []
         };
-        return Feat.createMultiple(tier.feats, tier.flavor);
+        return Feat.createMultiple(tier.feats, tier.flavor, Icon.Tiered);
     };
 
 }
