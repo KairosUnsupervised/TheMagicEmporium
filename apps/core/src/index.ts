@@ -5,6 +5,7 @@ import {registerValidator} from "./validator/registerValidator";
 import {registry} from "@tme/library/src/registry/Registry.ts";
 import {Forge} from "@tme/library/src/forge/Forge.ts";
 import {registerFancyModifierIcons} from "./hooks/fancyModifierIcons.ts";
+import {registerRarityBorderColors} from "./hooks/rarityBorderColors.ts";
 
 // TODO move type
 window.Hooks.once("init", async () => {
@@ -23,6 +24,7 @@ window.Hooks.once("init", async () => {
 window.Hooks.once("ready", async () => {
     registerValidator()
     registerFancyModifierIcons()
+    registerRarityBorderColors()
 })
 
 // @ts-ignore
