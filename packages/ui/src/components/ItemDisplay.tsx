@@ -10,11 +10,6 @@ export interface ItemDisplayProps {
 const Defs = () => (
 	<svg width="0" height="0" style="position:absolute;overflow:hidden;">
 		<defs>
-			<linearGradient id="tme-gold-diag" x1="0" y1="0" x2="1" y2="1">
-				<stop offset="0%" stopColor="#f3dca0" />
-				<stop offset="45%" stopColor="#d4a64a" />
-				<stop offset="100%" stopColor="#7a5a20" />
-			</linearGradient>
 			<pattern id="tme-hex-lat" width="36" height="32" patternUnits="userSpaceOnUse">
 				<polygon points="18,2 34,16 18,30 2,16" fill="none" stroke="#d4a64a" strokeWidth="0.5" />
 			</pattern>
@@ -35,10 +30,10 @@ const Corner = (props: CornerProps) => (
 		class={`${styles.corner} ${props.class}`}
 		style={{"--rotation": `${props.rotation}deg`} as never}
 	>
-		<path d="M2 26 L2 2 L26 2" stroke="url(#tme-gold-diag)" fill="none" strokeWidth="1.3" strokeLinecap="round" />
-		<path d="M7 19 L7 7 L19 7" stroke="url(#tme-gold-diag)" fill="none" strokeWidth="0.7" opacity="0.6" />
-		<path d="M2 38 Q 8 36 12 30 Q 14 26 20 24 L 28 22" stroke="url(#tme-gold-diag)" fill="none" strokeWidth="0.9" opacity="0.7" />
-		<path d="M38 2 Q 36 8 30 12 Q 26 14 24 20 L 22 28" stroke="url(#tme-gold-diag)" fill="none" strokeWidth="0.9" opacity="0.7" />
+		<path d="M2 26 L2 2 L26 2" stroke="#d4a64a" fill="none" strokeWidth="1.3" strokeLinecap="round" />
+		<path d="M7 19 L7 7 L19 7" stroke="#d4a64a" fill="none" strokeWidth="0.7" opacity="0.6" />
+		<path d="M2 38 Q 8 36 12 30 Q 14 26 20 24 L 28 22" stroke="#d4a64a" fill="none" strokeWidth="0.9" opacity="0.7" />
+		<path d="M38 2 Q 36 8 30 12 Q 26 14 24 20 L 22 28" stroke="#d4a64a" fill="none" strokeWidth="0.9" opacity="0.7" />
 		<circle cx="2" cy="2" r="2" fill="none" stroke="#f3dca0" strokeWidth="0.7" />
 		<circle cx="2" cy="2" r="0.8" fill="#f3dca0" />
 		<circle cx="13" cy="13" r="1.6" fill="none" stroke="#d4a64a" strokeWidth="0.6" />
