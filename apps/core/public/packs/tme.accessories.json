@@ -1,0 +1,240 @@
+{
+  "id": "tme.accessories",
+  "name": "TME — Accessory Modifiers",
+  "description": "Built-in accessory modifiers. Spellcasting enhancements, concentration effects, and general-purpose abilities.",
+  "enabled": true,
+  "modifiers": [
+    {
+      "identifier": "TME.INHERENT_LAG",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [],
+        "blacklistedBy": ["WEAPON"],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Inherent Lag",
+            "description": "When your concentration is broken, the spell persists as though you never lost it, for up to 1 instance",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Resonant Lag",
+            "description": "When your concentration is broken, the spell persists as though you never lost it, for up to 2 instances",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Eternal Lag",
+            "description": "When your concentration is broken, the spell persists as though you never lost it, for up to 3 instances",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    },
+    {
+      "identifier": "TME.ECCENTRIC_CASTER",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": ["WEAPON", "ACCESSORY"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Slightly Eccentric",
+            "description": "Once per long rest, as an action, trigger wild magic on yourself",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "uses": { "value": 0, "max": 1, "per": "lr" },
+                "activities": [
+                  {
+                    "type": "utility",
+                    "name": "Slightly Eccentric",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "consumption": {
+                      "scaling": { "allowed": false },
+                      "spellSlot": true,
+                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Moderately Eccentric",
+            "description": "Twice per long rest, as an action, trigger wild magic on an ally within 30ft",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "uses": { "value": 0, "max": 2, "per": "lr" },
+                "activities": [
+                  {
+                    "type": "utility",
+                    "name": "Moderately Eccentric",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "consumption": {
+                      "scaling": { "allowed": false },
+                      "spellSlot": true,
+                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Eccentric Maniac",
+            "description": "Three times per long rest, as an action, trigger wild magic on any creature within 30ft",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "uses": { "value": 0, "max": 3, "per": "lr" },
+                "activities": [
+                  {
+                    "type": "utility",
+                    "name": "Eccentric Maniac",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "consumption": {
+                      "scaling": { "allowed": false },
+                      "spellSlot": true,
+                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 8,
+          "flavor": {
+            "title": "Eccentric Mastermind",
+            "description": "Four times per long rest, as an action, trigger wild magic on any creature within 30ft. Once per long rest, replace any wild magic effect with one of your choosing",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "title": "Eccentric Mastermind - Wild Magic",
+              "description": "Four times per long rest, as an action, trigger wild magic on any creature within 30ft",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "uses": { "value": 0, "max": 4, "per": "lr" },
+                "activities": [
+                  {
+                    "type": "utility",
+                    "name": "Wild Magic",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "consumption": {
+                      "scaling": { "allowed": false },
+                      "spellSlot": true,
+                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "FEAT",
+              "title": "Eccentric Mastermind - Magic Intuition",
+              "description": "Once per long rest, replace any wild magic effect with one of your choosing",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "uses": { "value": 0, "max": 1, "per": "lr" },
+                "activities": [
+                  {
+                    "type": "utility",
+                    "name": "Magic Intuition",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "consumption": {
+                      "scaling": { "allowed": false },
+                      "spellSlot": true,
+                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identifier": "TME.TENACIOUS",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["ARMOR", "ACCESSORY"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Tenacious",
+            "description": "While making death saving throws, you can still crawl at double movement speed cost without provoking opportunity attacks",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    }
+  ]
+}

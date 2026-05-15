@@ -1,0 +1,31 @@
+{
+  "id": "tme.consumable",
+  "name": "TME — Consumable Modifiers",
+  "description": "Built-in consumable modifiers. One-time-use effects that trigger when the item is consumed.",
+  "enabled": true,
+  "modifiers": [
+    {
+      "identifier": "TME.LAST_STAND",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": ["CONSUMABLE"],
+        "applies": ["CONSUMABLE"]
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Last Stand",
+            "description": "If you are being downed, you may choose to consume this item to keep standing with 1 HP",
+            "disclaimer": "Consume effects do not require the item to be equipped or attuned"
+          },
+          "changes": [],
+          "activities": []
+        }
+      ]
+    }
+  ]
+}

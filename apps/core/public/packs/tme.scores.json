@@ -1,0 +1,7 @@
+{
+  "id": "tme.scores",
+  "name": "TME — Score Modifiers",
+  "description": "Built-in score modifiers. Affects character ability scores such as Strength, Dexterity, and Constitution.",
+  "enabled": true,
+  "modifiers": []
+}

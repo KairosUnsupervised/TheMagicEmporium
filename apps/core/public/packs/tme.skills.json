@@ -1,0 +1,7 @@
+{
+  "id": "tme.skills",
+  "name": "TME — Skill Modifiers",
+  "description": "Built-in skill modifiers. Affects skill checks and proficiency-based rolls.",
+  "enabled": true,
+  "modifiers": []
+}

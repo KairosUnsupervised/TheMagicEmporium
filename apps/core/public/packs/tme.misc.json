@@ -1,0 +1,198 @@
+{
+  "id": "tme.misc",
+  "name": "TME — Miscellaneous Modifiers",
+  "description": "Built-in miscellaneous modifiers. General-purpose effects that don't fit a specific category.",
+  "enabled": true,
+  "modifiers": [
+    {
+      "identifier": "TME.MUSCLE_MEMORY",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Muscle Memory",
+        "description": "You can expend up to {amount} actions, bonus actions and spells and store them. On damage taken the oldest stored action is triggered and consumed",
+        "disclaimer": "No reaction required. Parameters must be defined the moment you store the action"
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 3 }
+      ],
+      "activeEffects": [],
+      "feats": []
+    },
+    {
+      "identifier": "TME.VINDICATOR",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Vindicator",
+        "description": "Upon being downed you can take {amount} action(s)",
+        "disclaimer": "You can take multiple actions at once, your total amount of actions is pooled per long rest"
+      },
+      "breakpoints": [
+        { "min": 0,    "value": 1 },
+        { "min": 0.7,  "value": 2 },
+        { "min": 0.95, "value": 3 }
+      ],
+      "activeEffects": [],
+      "feats": [
+        {
+          "type": "FEAT",
+          "system": {
+            "activation": {
+              "type": "special",
+              "cost": null,
+              "condition": "upon being downed"
+            },
+            "uses": {
+              "value": 0,
+              "max": "{amount}",
+              "per": "lr"
+            },
+            "activities": [
+              {
+                "type": "utility",
+                "name": "Vindicator",
+                "activation": {
+                  "type": "special",
+                  "override": false,
+                  "condition": "upon being downed"
+                },
+                "consumption": {
+                  "scaling": { "allowed": false },
+                  "spellSlot": true,
+                  "targets": [
+                    {
+                      "type": "itemUses",
+                      "value": "1",
+                      "target": "",
+                      "scaling": {}
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "identifier": "TME.PROACTIVE",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Proactive",
+        "description": "Your initiative is increased by {amount}",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        { "min": 0,    "value": 1 },
+        { "min": 0.5,  "value": 2 },
+        { "min": 0.8,  "value": 3 },
+        { "min": 0.95, "value": 4 }
+      ],
+      "activeEffects": [
+        {
+          "key": "system.attributes.init.bonus",
+          "mode": "ADD",
+          "value": "{amount}"
+        }
+      ],
+      "feats": []
+    },
+    {
+      "identifier": "TME.SWIFT",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Swift",
+        "description": "Your movement speed is increased by {amount}ft",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 15 },
+        { "min": 0.7, "value": 30 }
+      ],
+      "activeEffects": [
+        {
+          "key": "system.attributes.movement.walk",
+          "mode": "ADD",
+          "value": "{amount}"
+        }
+      ],
+      "feats": []
+    },
+    {
+      "identifier": "TME.ALL_TIME_READY",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "All Time Ready",
+        "description": "On saving throws, you can't roll below a {amount}",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        { "min": 0,    "value": 1 },
+        { "min": 0.5,  "value": 2 },
+        { "min": 0.8,  "value": 3 },
+        { "min": 0.95, "value": 4 }
+      ],
+      "activeEffects": [],
+      "feats": []
+    },
+    {
+      "identifier": "TME.UNDYING",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Undying",
+            "description": "You have advantage on death saving throws",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,474 @@
+{
+  "id": "tme.armor",
+  "name": "TME — Armor Modifiers",
+  "description": "Built-in armor modifiers. Affects defensive stats, armor properties, and armor-bound abilities.",
+  "enabled": true,
+  "modifiers": [
+    {
+      "identifier": "TME.ADAMANTINE",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Adamantine",
+            "description": "You cannot be critted, every critical hit against you becomes a normal hit instead",
+            "disclaimer": null
+          },
+          "changes": [
+            {
+              "key": "system.properties",
+              "operation": "APPEND",
+              "value": "ada"
+            }
+          ],
+          "activities": []
+        }
+      ]
+    },
+    {
+      "identifier": "TME.MISTY_SIDESTEP",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["ARMOR"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Misty Sidestep",
+        "description": "{amount} times per long rest, as a reaction to being hit, you can misty step 30ft",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.7, "value": 2 }
+      ],
+      "activeEffects": [],
+      "feats": [
+        {
+          "type": "FEAT",
+          "system": {
+            "activation": {
+              "type": "reaction",
+              "cost": 1,
+              "condition": "when hit by an attack"
+            },
+            "uses": {
+              "value": 0,
+              "max": "{amount}",
+              "per": "lr"
+            },
+            "activities": [
+              {
+                "type": "utility",
+                "name": "Misty Sidestep",
+                "activation": {
+                  "type": "reaction",
+                  "override": false,
+                  "condition": "when hit by an attack"
+                },
+                "consumption": {
+                  "scaling": { "allowed": false },
+                  "spellSlot": true,
+                  "targets": [
+                    {
+                      "type": "itemUses",
+                      "value": "1",
+                      "target": "",
+                      "scaling": {}
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "identifier": "TME.EMBRACEMENT",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": ["ARMOR"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Embracement",
+            "description": "As an action, transfer 1d12 of your own HP to any other creature within touch range",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Embracement",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["hp"],
+                      "custom": { "enabled": false },
+                      "scaling": { "number": 1 },
+                      "number": 1,
+                      "denomination": 12,
+                      "bonus": ""
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Vital Embracement",
+            "description": "As an action, transfer 2d12 of your own HP to any other creature within touch range",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Vital Embracement",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["hp"],
+                      "custom": { "enabled": false },
+                      "scaling": { "number": 1 },
+                      "number": 2,
+                      "denomination": 12,
+                      "bonus": ""
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Soulful Embracement",
+            "description": "As an action, transfer 3d12 of your own HP to any other creature within touch range",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Soulful Embracement",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["hp"],
+                      "custom": { "enabled": false },
+                      "scaling": { "number": 1 },
+                      "number": 3,
+                      "denomination": 12,
+                      "bonus": ""
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 8,
+          "flavor": {
+            "title": "Transcendent Embracement",
+            "description": "As an action, transfer 4d12 of your own HP to any other creature within touch range. Spells with the range of self can now target creatures in touch range",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Transcendent Embracement",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["hp"],
+                      "custom": { "enabled": false },
+                      "scaling": { "number": 1 },
+                      "number": "4",
+                      "denomination": 12,
+                      "bonus": ""
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identifier": "TME.PROTECTION",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": ["ARMOR"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Protection",
+            "description": "Use an action to gain 1 Hit Die of temporary HP",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Protection",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["temphp"],
+                      "custom": { "enabled": true, "formula": "@attributes.hd.largest" },
+                      "scaling": { "number": 1 },
+                      "number": 0,
+                      "denomination": 0,
+                      "bonus": ""
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Steadfast Protection",
+            "description": "Use an action to gain 2 Hit Dice of temporary HP",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Steadfast Protection",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["temphp"],
+                      "custom": { "enabled": true, "formula": "@attributes.hd.largest + @attributes.hd.largest" },
+                      "scaling": { "number": 1 },
+                      "number": 0,
+                      "denomination": 0,
+                      "bonus": ""
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Indomitable Protection",
+            "description": "Use an action to gain 3 Hit Dice of temporary HP",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Indomitable Protection",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["temphp"],
+                      "custom": { "enabled": true, "formula": "@attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest" },
+                      "scaling": { "number": 1 },
+                      "number": 0,
+                      "denomination": 0,
+                      "bonus": ""
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identifier": "TME.BASTION",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": ["ARMOR"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Bastion",
+            "description": "Your AC increases by 1",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "type": "ACTIVE_EFFECT",
+              "changes": [
+                { "key": "system.attributes.ac.bonus", "mode": "ADD", "value": "1" }
+              ]
+            }
+          ],
+          "feats": []
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Fortified Bastion",
+            "description": "Your AC increases by 2",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "type": "ACTIVE_EFFECT",
+              "changes": [
+                { "key": "system.attributes.ac.bonus", "mode": "ADD", "value": "2" }
+              ]
+            }
+          ],
+          "feats": []
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Stalwart Bastion",
+            "description": "Your AC increases by 3",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "type": "ACTIVE_EFFECT",
+              "changes": [
+                { "key": "system.attributes.ac.bonus", "mode": "ADD", "value": "3" }
+              ]
+            }
+          ],
+          "feats": []
+        },
+        {
+          "min": 8,
+          "flavor": {
+            "title": "Ultimate Bastion",
+            "description": "Your AC increases by 3. Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP — temporary HP equal to your level or CR fade at the start of each of your turns",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "type": "ACTIVE_EFFECT",
+              "description": "Your AC increases by 3",
+              "changes": [
+                { "key": "system.attributes.ac.bonus", "mode": "ADD", "value": "3" }
+              ]
+            }
+          ],
+          "feats": [
+            {
+              "type": "FEAT",
+              "description": "Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP — temporary HP equal to your level or CR fade at the start of each of your turns",
+              "system": {
+                "activation": { "type": "bonus", "cost": 1, "condition": "" },
+                "uses": { "value": 0, "max": 1, "per": "lr" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Ultimate Bastion",
+                    "activation": { "type": "bonus", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["temphp"],
+                      "custom": { "enabled": true, "formula": "@attributes.hp.max" },
+                      "scaling": { "number": 1 },
+                      "number": 0,
+                      "denomination": 0,
+                      "bonus": ""
+                    },
+                    "consumption": {
+                      "scaling": { "allowed": false },
+                      "spellSlot": true,
+                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
