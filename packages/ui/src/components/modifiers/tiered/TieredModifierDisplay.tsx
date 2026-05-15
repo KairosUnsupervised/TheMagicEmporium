@@ -1,5 +1,5 @@
 import { TieredModifier } from "@tme/library/src/modifiers/blueprints/TieredModifier";
-import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
+import { Flavor, ModifierType } from "@tme/library/src/modifiers/modifier.schema";
 import { BreakpointSwap } from "../BreakpointSwap";
 import styles from "./TieredModifierDisplay.module.css";
 import icon from "./Icon.svg";
@@ -13,13 +13,13 @@ export interface TieredModifierDisplayProps {
 	data: unknown;
 }
 
-interface TieredBodyProps extends TieredModifierDisplayProps {
+interface TieredBodyProps {
+	flavor: Flavor;
 	tierIndex: number;
 	tierTotal: number;
 }
 
 const TieredBody = (props: TieredBodyProps) => {
-	const flavor = props.modifier.getDescription(props.data);
 	const iconSrc = (typeof game !== "undefined" && game?.world?.id)
 		? `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Tiered}`
 		: icon;
@@ -39,14 +39,14 @@ const TieredBody = (props: TieredBodyProps) => {
 					</span>
 				</div>
 				<div class={styles.title}>
-					{flavor.title}
+					{props.flavor.title}
 				</div>
 				<div class={styles.description}>
-					{flavor.description}
+					{props.flavor.description}
 				</div>
-				{flavor.disclaimer && (
+				{props.flavor.disclaimer && (
 					<div class={styles.disclaimer}>
-						{flavor.disclaimer}
+						{props.flavor.disclaimer}
 					</div>
 				)}
 			</div>
@@ -55,12 +55,14 @@ const TieredBody = (props: TieredBodyProps) => {
 };
 
 export const TieredModifierDisplay = (props: TieredModifierDisplayProps) => {
-	const breakpoints = (props.modifier.schema as unknown as { breakpoints: { min: number }[] }).breakpoints;
-	const activeBreakpoint = props.modifier.dataManager.getBreakpoint(props.data);
-	const activeIndex = breakpoints.findIndex(bp => bp.min === activeBreakpoint.min);
+	const schema = props.modifier.schema as unknown as { tiers: { min: number; flavor: Flavor }[] };
+	const tiers = [...schema.tiers].sort((a, b) => a.min - b.min);
 
-	const items = breakpoints.map((bp, i) => (
-		<TieredBody modifier={props.modifier} data={{ float: bp.min }} tierIndex={i} tierTotal={breakpoints.length} />
+	const activeValue = props.modifier.dataManager.getBreakpoint(props.data).value;
+	const activeIndex = tiers.reduce((best, tier, i) => activeValue >= tier.min ? i : best, 0);
+
+	const items = tiers.map((tier, i) => (
+		<TieredBody flavor={tier.flavor} tierIndex={i} tierTotal={tiers.length} />
 	));
 
 	return <BreakpointSwap items={items} defaultActiveIndex={activeIndex} type={ModifierType.Tiered} />;

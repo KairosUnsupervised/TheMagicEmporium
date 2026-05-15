@@ -42,18 +42,6 @@ export class Activity {
     };
 }
 
-/**
- * @DEPRECATED // TODO Replace deprecated function activitiesToRecord
- * @param activities
- */
-export const activitiesToRecord = (activities: ActivitySchema[]): Record<string, ActivityDocument> => {
-    const record: Record<string, ActivityDocument> = {};
-    for (const activity of Activity.createMultiple(activities)) {
-        record[activity.id] = activity.export();
-    }
-    return record;
-};
-
 const randomId = (length: number): string => {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';

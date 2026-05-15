@@ -1,6 +1,6 @@
 import {merge} from "ts-deepmerge";
 import {FeatSchema, FeatSystem, validateFeatSchema} from "./feat.schema";
-import {activitiesToRecord} from "../activity/Activity";
+import {Activity} from "../activity/Activity";
 import {ActivitySchema} from "../activity/activity.schema";
 import {namespace} from "@tme/shared/src/namespaceConfig";
 import {Icon} from "../../item/icon";
@@ -61,12 +61,13 @@ export class Feat {
             img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${icon}`
         };
 
+        console.log(definition)
         if (definition.system) {
             const {activities, ...systemWithoutActivities} = definition.system;
             base.system = systemWithoutActivities as DocumentSystem;
 
             if (activities && activities.length > 0) {
-                base.system = {...base.system, activities: activitiesToRecord(activities)};
+                base.system = {...base.system, activities: Activity.activitiesToRecord(Activity.createMultiple(activities))};
             }
         }
 
@@ -86,6 +87,7 @@ export class Feat {
     }
 
     public export = (): object => {
+        console.log(this.document);
         return this.document;
     };
 }
