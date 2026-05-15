@@ -83,6 +83,29 @@
       ],
       "activeEffects": [],
       "feats": []
+    },
+    {
+      "identifier": "TME.FINAL_VERDICT",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["WEAPON"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Final Verdict",
+        "description": "If a tag a creature and it has less then {amount} HP, execute it immediately"
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 3 },
+        { "min": 0.95, "value": 5 }
+      ],
+      "activeEffects": [],
+      "feats": []
     }
   ]
 }
