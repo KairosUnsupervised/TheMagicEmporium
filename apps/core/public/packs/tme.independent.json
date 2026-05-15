@@ -91,6 +91,57 @@
           ]
         }
       ]
+    },
+    {
+      "identifier": "TME.RADIANT",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 10,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["WEAPON"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Radiant",
+            "description": "This item sheds bright light in a 15ft radius",
+            "disclaimer": "Can be toggled on and off with a bonus action"
+          },
+          "changes": [],
+          "activities": [
+            {
+              "type": "utility",
+              "name": "Toggle Radiant Light",
+              "activation": {
+                "type": "bonus",
+                "cost": 1
+              }
+            }
+          ]
+        },
+        {
+          "min": 0.9,
+          "flavor": {
+            "title": "Highly Radiant",
+            "description": "This item sheds bright light in a 30ft radius",
+            "disclaimer": "Can be toggled on and off with a bonus action"
+          },
+          "changes": [],
+          "activities": [
+            {
+              "type": "utility",
+              "name": "Toggle Radiant Light",
+              "activation": {
+                "type": "bonus",
+                "cost": 1
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
