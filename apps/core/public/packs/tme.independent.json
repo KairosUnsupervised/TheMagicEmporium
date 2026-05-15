@@ -111,16 +111,7 @@
             "disclaimer": "Can be toggled on and off with a bonus action"
           },
           "changes": [],
-          "activities": [
-            {
-              "type": "utility",
-              "name": "Toggle Radiant Light",
-              "activation": {
-                "type": "bonus",
-                "cost": 1
-              }
-            }
-          ]
+          "activities": []
         },
         {
           "min": 0.9,
@@ -130,16 +121,30 @@
             "disclaimer": "Can be toggled on and off with a bonus action"
           },
           "changes": [],
-          "activities": [
-            {
-              "type": "utility",
-              "name": "Toggle Radiant Light",
-              "activation": {
-                "type": "bonus",
-                "cost": 1
-              }
-            }
-          ]
+          "activities": []
+        }
+      ]
+    },
+    {
+      "identifier": "TME.LAST_STAND",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": ["CONSUMABLE"],
+        "applies": ["CONSUMABLE"]
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Last Stand",
+            "description": "If you are being downed, you may choose to consume this item to keep standing with 1 HP",
+            "disclaimer": "Consume effects do not require the item to be equipped or attuned"
+          },
+          "changes": [],
+          "activities": []
         }
       ]
     }

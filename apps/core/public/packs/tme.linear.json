@@ -39,14 +39,18 @@
               {
                 "type": "heal",
                 "name": "Crimson Harvest",
+                "activation": {
+                  "type": "special",
+                  "override": false,
+                  "condition": "on direct creature kill"
+                },
                 "healing": {
-                  "parts": [
-                    {
-                      "number": "{amount}",
-                      "denomination": 4,
-                      "types": ["temphp"]
-                    }
-                  ]
+                  "types": ["temphp"],
+                  "custom": { "enabled": false },
+                  "scaling": { "number": 1 },
+                  "number": "{amount}",
+                  "denomination": 4,
+                  "bonus": ""
                 }
               }
             ]
