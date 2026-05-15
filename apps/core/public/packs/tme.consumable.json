@@ -1,6 +1,6 @@
 {
   "id": "tme.consumable",
-  "name": "TME — Consumable Modifiers",
+  "name": "TME, Consumable Modifiers",
   "description": "Built-in consumable modifiers. One-time-use effects that trigger when the item is consumed.",
   "enabled": true,
   "modifiers": [
@@ -11,8 +11,12 @@
         "weight": 1024,
         "restriction": "SECONDARY",
         "whitelistedBy": [],
-        "blacklistedBy": ["CONSUMABLE"],
-        "applies": ["CONSUMABLE"]
+        "blacklistedBy": [
+          "CONSUMABLE"
+        ],
+        "applies": [
+          "CONSUMABLE"
+        ]
       },
       "breakpoints": [
         {
@@ -33,9 +37,15 @@
       "application": {
         "weight": 1024,
         "restriction": "SECONDARY",
-        "whitelistedBy": ["WEAPON_MELEE"],
-        "blacklistedBy": ["CONSUMABLE"],
-        "applies": ["CONSUMABLE"]
+        "whitelistedBy": [
+          "WEAPON_MELEE"
+        ],
+        "blacklistedBy": [
+          "CONSUMABLE"
+        ],
+        "applies": [
+          "CONSUMABLE"
+        ]
       },
       "breakpoints": [
         {
@@ -87,8 +97,12 @@
         "weight": 1024,
         "restriction": "SECONDARY",
         "whitelistedBy": [],
-        "blacklistedBy": ["CONSUMABLE"],
-        "applies": ["CONSUMABLE"]
+        "blacklistedBy": [
+          "CONSUMABLE"
+        ],
+        "applies": [
+          "CONSUMABLE"
+        ]
       },
       "breakpoints": [
         {
@@ -100,6 +114,125 @@
           },
           "changes": [],
           "activities": []
+        }
+      ]
+    },
+    {
+      "identifier": "TME.RESTORATIVE",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [
+          "CONSUMABLE"
+        ],
+        "applies": [
+          "CONSUMABLE"
+        ]
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Restorative",
+            "description": "This item can be consumed like a potion of healing",
+            "disclaimer": "Gain 2 Hit Dice + 2 HP"
+          },
+          "changes": [],
+          "activities": [
+            {
+              "type": "heal",
+              "name": "Restorative",
+              "activation": {
+                "type": "bonus",
+                "cost": 1
+              },
+              "healing": {
+                "types": [
+                  "healing"
+                ],
+                "custom": {
+                  "enabled": true,
+                  "formula": "@attributes.hd.largest + @attributes.hd.largest + 2"
+                },
+                "scaling": {
+                  "number": 1
+                },
+                "number": 0,
+                "denomination": 0,
+                "bonus": ""
+              }
+            }
+          ]
+        },
+        {
+          "min": 0.5,
+          "flavor": {
+            "title": "Greater Restorative",
+            "description": "This item can be consumed like a potion of healing",
+            "disclaimer": "Gain 4 Hit Dice + 4 HP"
+          },
+          "changes": [],
+          "activities": [
+            {
+              "type": "heal",
+              "name": "Greater Restorative",
+              "activation": {
+                "type": "bonus",
+                "cost": 1
+              },
+              "healing": {
+                "types": [
+                  "healing"
+                ],
+                "custom": {
+                  "enabled": true,
+                  "formula": "@attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + 4"
+                },
+                "scaling": {
+                  "number": 1
+                },
+                "number": 0,
+                "denomination": 0,
+                "bonus": ""
+              }
+            }
+          ]
+        },
+        {
+          "min": 0.7,
+          "flavor": {
+            "title": "Superior Restorative",
+            "description": "This item can be consumed like a potion of healing",
+            "disclaimer": "Gain 8 Hit Dice + 8 HP"
+          },
+          "changes": [],
+          "activities": [
+            {
+              "type": "heal",
+              "name": "Superior Restorative",
+              "activation": {
+                "type": "bonus",
+                "cost": 1
+              },
+              "healing": {
+                "types": [
+                  "healing"
+                ],
+                "custom": {
+                  "enabled": true,
+                  "formula": "@attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest  + @attributes.hd.largest + 8"
+                },
+                "scaling": {
+                  "number": 1
+                },
+                "number": 0,
+                "denomination": 0,
+                "bonus": ""
+              }
+            }
+          ]
         }
       ]
     }
