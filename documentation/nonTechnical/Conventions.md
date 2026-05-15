@@ -43,6 +43,20 @@ Never end a `description` or `disclaimer` with a period. The UI does not use sen
 
 ---
 
+## Slot Restrictions
+
+The `restriction` field controls which slot type a modifier can occupy. Each slot type represents a different power tier.
+
+| Slot        | Intended use                                                                 |
+|-------------|------------------------------------------------------------------------------|
+| `PRIMARY`   | Weakest modifiers — mostly UNIQUE, LINEAR, and INDEPENDENT types             |
+| `SECONDARY` | Stronger modifiers — mostly TIERED and powerful others; also consumable effects |
+| `TERTIARY`  | Incredibly strong, legendary-tier modifiers                                  |
+
+When in doubt, match the slot to the modifier type's typical power level rather than the specific mechanic.
+
+---
+
 ## Flavor Naming
 
 Use the modifier name alone for all types — no suffixes, roman numerals, or `{amount}` appended to the title.
