@@ -61,7 +61,6 @@ export class Feat {
             img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${icon}`
         };
 
-        console.log(definition)
         if (definition.system) {
             const {activities, ...systemWithoutActivities} = definition.system;
             base.system = systemWithoutActivities as DocumentSystem;

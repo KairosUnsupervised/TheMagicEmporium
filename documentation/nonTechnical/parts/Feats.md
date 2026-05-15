@@ -30,6 +30,17 @@ Feat definitions are passed almost directly to Foundry. The `system` block follo
 
 > `title`, `description`, and `disclaimer` are ignored if `system.description.value` is provided directly.
 
+### Multiple feats per tier
+
+When a tier grants more than one feat, each feat must have its own `title` and `description` scoped to only that feat's ability. Do not repeat the full tier description across feats.
+
+```json
+{ "type": "FEAT", "title": "My Modifier - First Ability", "description": "Does the first thing", ... }
+{ "type": "FEAT", "title": "My Modifier - Second Ability", "description": "Does the second thing", ... }
+```
+
+Use the format `"Tier Title - Ability Name"` for the title so the parent modifier is always clear.
+
 ---
 
 ## Activation
