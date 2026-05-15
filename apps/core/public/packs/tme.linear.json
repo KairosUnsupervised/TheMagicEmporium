@@ -108,6 +108,36 @@
       "feats": []
     },
     {
+      "identifier": "TME.PROACTIVE",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Proactive",
+        "description": "Your initiative is increased by {amount}",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        { "min": 0,    "value": 1 },
+        { "min": 0.5,  "value": 2 },
+        { "min": 0.8,  "value": 3 },
+        { "min": 0.95, "value": 4 }
+      ],
+      "activeEffects": [
+        {
+          "key": "system.attributes.init.bonus",
+          "mode": "ADD",
+          "value": "{amount}"
+        }
+      ],
+      "feats": []
+    },
+    {
       "identifier": "TME.SWIFT",
       "type": "LINEAR",
       "application": {
