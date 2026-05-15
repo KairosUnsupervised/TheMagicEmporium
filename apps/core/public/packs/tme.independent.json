@@ -9,7 +9,7 @@
       "type": "INDEPENDENT",
       "application": {
         "weight": 10,
-        "restriction": "SECONDARY",
+        "restriction": "PRIMARY",
         "whitelistedBy": ["WEAPON"],
         "blacklistedBy": [],
         "applies": []

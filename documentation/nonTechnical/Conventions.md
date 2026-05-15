@@ -41,6 +41,22 @@ Never end a `description` or `disclaimer` with a period. The UI does not use sen
 ✗ "Gain {amount}d4 temporary HP on direct creature kill."
 ```
 
+### Dice Rolls
+
+Any dice roll mentioned in a `description` or `disclaimer` must use the Foundry inline roll format so players get a clickable prompt:
+
+```
+[[/roll 3d8]]
+```
+
+This applies to both fixed dice and `{amount}`-interpolated rolls:
+
+```
+✓ "Distribute [[/roll 1d8]] healing to any creature within 15ft"
+✓ "Gain [[/roll {amount}d4]] temporary HP on direct creature kill"
+✗ "Distribute 1d8 healing to any creature within 15ft"
+```
+
 ---
 
 ## Flavor Naming

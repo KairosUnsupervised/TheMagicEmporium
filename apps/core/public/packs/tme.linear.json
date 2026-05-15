@@ -9,14 +9,14 @@
       "type": "LINEAR",
       "application": {
         "weight": 10,
-        "restriction": "PRIMARY",
+        "restriction": "SECONDARY",
         "whitelistedBy": ["WEAPON"],
         "blacklistedBy": [],
         "applies": []
       },
       "flavor": {
         "title": "Crimson Harvest",
-        "description": "Gain {amount}d4 temporary HP on direct creature kill.",
+        "description": "Gain [[/roll {amount}d4]] temporary HP on direct creature kill",
         "disclaimer": "Temporary HP do not stack - only the highest value applies."
       },
       "breakpoints": [
