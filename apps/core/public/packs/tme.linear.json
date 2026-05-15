@@ -130,6 +130,67 @@
       ],
       "activeEffects": [],
       "feats": []
+    },
+    {
+      "identifier": "TME.MISTY_SIDESTEP",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["ARMOR"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Misty Sidestep",
+        "description": "{amount} times per long rest, as a reaction to being hit, you can misty step 30ft",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.7, "value": 2 }
+      ],
+      "activeEffects": [],
+      "feats": [
+        {
+          "type": "FEAT",
+          "system": {
+            "activation": {
+              "type": "reaction",
+              "cost": 1,
+              "condition": "when hit by an attack"
+            },
+            "uses": {
+              "value": 0,
+              "max": "{amount}",
+              "per": "lr"
+            },
+            "activities": [
+              {
+                "type": "utility",
+                "name": "Misty Sidestep",
+                "activation": {
+                  "type": "reaction",
+                  "override": false,
+                  "condition": "when hit by an attack"
+                },
+                "consumption": {
+                  "scaling": { "allowed": false },
+                  "spellSlot": true,
+                  "targets": [
+                    {
+                      "type": "itemUses",
+                      "value": "1",
+                      "target": "",
+                      "scaling": {}
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

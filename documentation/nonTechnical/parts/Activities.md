@@ -75,6 +75,29 @@ Every activity must have an `activation` block. Always include `override: false`
 
 ---
 
+## Consumption
+
+When a feat tracks uses via `system.uses`, every activity that should deduct a charge **must** include a `consumption` block linking it to the feat's use pool. Without it, activating the ability will not consume a charge.
+
+```json
+"consumption": {
+  "scaling": { "allowed": false },
+  "spellSlot": true,
+  "targets": [
+    {
+      "type": "itemUses",
+      "value": "1",
+      "target": "",
+      "scaling": {}
+    }
+  ]
+}
+```
+
+This applies to all activity types (`utility`, `damage`, `heal`, `save`, etc.) whenever the parent feat has a `uses` block.
+
+---
+
 ## Heal Activity
 
 The `heal` type uses a flat `healing` object — **not** a `parts` array.
