@@ -8,7 +8,7 @@
       "identifier": "TME.CRIMSON_HARVEST",
       "type": "LINEAR",
       "application": {
-        "weight": 10,
+        "weight": 1024,
         "restriction": "SECONDARY",
         "whitelistedBy": ["WEAPON"],
         "blacklistedBy": [],
@@ -58,7 +58,7 @@
       "identifier": "TME.EVISCERATE",
       "type": "LINEAR",
       "application": {
-        "weight": 10,
+        "weight": 1024,
         "restriction": "PRIMARY",
         "whitelistedBy": ["WEAPON"],
         "blacklistedBy": [],

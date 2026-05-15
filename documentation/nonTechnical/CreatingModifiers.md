@@ -32,7 +32,7 @@ A modifier is one entry inside the `modifiers` array of a pack. Every modifier n
 |--------------|----------------------------------------------------------------------------------------------|
 | `identifier` | A unique ID for this modifier. Use `SOURCE.SCREAMING_SNAKE_CASE` (e.g. `TME.IRON_GRIP`).    |
 | `type`       | The modifier type — controls how its value is calculated. See the type docs below.           |
-| `application`| Controls when and how this modifier can be applied to an item (weight, slot restriction, tag filters). |
+| `application`| Controls when and how this modifier can be applied to an item (weight, slot restriction, tag filters). See [Weights.md](Weights.md) for weight conventions. |
 | `flavor`     | The `title`, `description`, and optional `disclaimer` shown in the UI.                       |
 
 ---

@@ -8,7 +8,7 @@
       "identifier": "TME.DIVINE_REDISTRIBUTION",
       "type": "TIERED",
       "application": {
-        "weight": 10,
+        "weight": 1024,
         "restriction": "TERTIARY",
         "whitelistedBy": ["WEAPON"],
         "blacklistedBy": [],

@@ -1,0 +1,7 @@
+{
+  "id": "tme.unique",
+  "name": "TME — Unique Modifiers",
+  "description": "Built-in unique modifiers. Each applies a fixed set of effects regardless of how many copies are equipped.",
+  "enabled": true,
+  "modifiers": []
+}

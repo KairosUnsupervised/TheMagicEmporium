@@ -8,7 +8,7 @@
       "identifier": "TME.ZEN",
       "type": "INDEPENDENT",
       "application": {
-        "weight": 10,
+        "weight": 1024,
         "restriction": "PRIMARY",
         "whitelistedBy": ["WEAPON"],
         "blacklistedBy": [],
@@ -96,7 +96,7 @@
       "identifier": "TME.RADIANT",
       "type": "INDEPENDENT",
       "application": {
-        "weight": 10,
+        "weight": 1024,
         "restriction": "PRIMARY",
         "whitelistedBy": ["WEAPON"],
         "blacklistedBy": [],
