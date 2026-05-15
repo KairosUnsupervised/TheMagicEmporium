@@ -632,6 +632,122 @@
           ]
         }
       ]
+    },
+    {
+      "identifier": "TME.BASTION",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": ["ARMOR"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Bastion",
+            "description": "Your AC increases by 1",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "type": "ACTIVE_EFFECT",
+              "changes": [
+                { "key": "system.attributes.ac.bonus", "mode": "ADD", "value": "1" }
+              ]
+            }
+          ],
+          "feats": []
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Fortified Bastion",
+            "description": "Your AC increases by 2",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "type": "ACTIVE_EFFECT",
+              "changes": [
+                { "key": "system.attributes.ac.bonus", "mode": "ADD", "value": "2" }
+              ]
+            }
+          ],
+          "feats": []
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Stalwart Bastion",
+            "description": "Your AC increases by 3",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "type": "ACTIVE_EFFECT",
+              "changes": [
+                { "key": "system.attributes.ac.bonus", "mode": "ADD", "value": "3" }
+              ]
+            }
+          ],
+          "feats": []
+        },
+        {
+          "min": 8,
+          "flavor": {
+            "title": "Ultimate Bastion",
+            "description": "Your AC increases by 3. Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP — temporary HP equal to your level or CR fade at the start of each of your turns",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "type": "ACTIVE_EFFECT",
+              "description": "Your AC increases by 3",
+              "changes": [
+                { "key": "system.attributes.ac.bonus", "mode": "ADD", "value": "3" }
+              ]
+            }
+          ],
+          "feats": [
+            {
+              "type": "FEAT",
+              "description": "Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP — temporary HP equal to your level or CR fade at the start of each of your turns",
+              "system": {
+                "activation": { "type": "bonus", "cost": 1, "condition": "" },
+                "uses": { "value": 0, "max": 1, "per": "lr" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Ultimate Bastion",
+                    "activation": { "type": "bonus", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["temphp"],
+                      "custom": { "enabled": true, "formula": "@attributes.hp.max" },
+                      "scaling": { "number": 1 },
+                      "number": 0,
+                      "denomination": 0,
+                      "bonus": ""
+                    },
+                    "consumption": {
+                      "scaling": { "allowed": false },
+                      "spellSlot": true,
+                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
