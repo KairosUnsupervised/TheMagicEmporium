@@ -108,6 +108,29 @@
       "feats": []
     },
     {
+      "identifier": "TME.MUSCLE_MEMORY",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Muscle Memory",
+        "description": "You can expend up to {amount} actions, bonus actions and spells and store them. On damage taken the oldest stored action is triggered and consumed",
+        "disclaimer": "No reaction required. Parameters must be defined the moment you store the action"
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 3 }
+      ],
+      "activeEffects": [],
+      "feats": []
+    },
+    {
       "identifier": "TME.PROACTIVE",
       "type": "LINEAR",
       "application": {
