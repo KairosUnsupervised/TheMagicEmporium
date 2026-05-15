@@ -43,8 +43,11 @@ export class Tooltip {
                 this.pin();
                 return;
             }
-            if (this.pinned && !this.contentDiv.contains(e.target as Node)) {
-                this.unpin();
+            if (this.pinned) {
+                const rect = this.contentDiv.getBoundingClientRect();
+                const inside = e.clientX >= rect.left && e.clientX <= rect.right
+                    && e.clientY >= rect.top && e.clientY <= rect.bottom;
+                if (!inside) this.unpin();
             }
         });
 
