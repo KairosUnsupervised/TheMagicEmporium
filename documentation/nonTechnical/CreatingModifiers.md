@@ -32,7 +32,7 @@ A modifier is one entry inside the `modifiers` array of a pack. Every modifier n
 |--------------|----------------------------------------------------------------------------------------------|
 | `identifier` | A unique ID for this modifier. Use `SOURCE.SCREAMING_SNAKE_CASE` (e.g. `TME.IRON_GRIP`).    |
 | `type`       | The modifier type — controls how its value is calculated. See the type docs below.           |
-| `application`| Controls when and how this modifier can be applied to an item (weight, slot restriction, tag filters). See [Weights.md](Weights.md) for weight conventions. |
+| `application`| Controls when and how this modifier can be applied to an item (weight, slot restriction, tag filters). |
 | `flavor`     | The `title`, `description`, and optional `disclaimer` shown in the UI.                       |
 
 ---
@@ -61,8 +61,8 @@ These are applied to the **character** when the item is equipped and attuned. Th
 
 | Field           | Type            | Use when…                                                                             | Reference                              |
 |-----------------|-----------------|---------------------------------------------------------------------------------------|----------------------------------------|
-| `activeEffects` | `ACTIVE_EFFECT` | You want a silent, always-on stat change (e.g. +2 Strength).                         | [ActiveEffects.md](ActiveEffects.md)   |
-| `feats`         | `FEAT`          | You want a named ability on the character sheet with optional actions.                | [Feats.md](Feats.md)                   |
+| `activeEffects` | `ACTIVE_EFFECT` | You want a silent, always-on stat change (e.g. +2 Strength).                         | [ActiveEffects.md](parts/ActiveEffects.md)   |
+| `feats`         | `FEAT`          | You want a named ability on the character sheet with optional actions.                | [Feats.md](parts/Feats.md)                   |
 
 Both arrays are independent — a single breakpoint or tier can contain any number of entries in either.
 An empty `feats` array and an empty `activeEffects` array (the default) produces a passive feat using

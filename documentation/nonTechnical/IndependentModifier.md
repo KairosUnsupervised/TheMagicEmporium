@@ -144,6 +144,10 @@ The `activities` array adds usable abilities to the item itself — they appear 
 on the character sheet as a feat. This is the right choice when the ability is tied to wielding or using that specific
 item (e.g. *Ignite this sword as a bonus action*).
 
+Only add an activity when it performs a real mechanical action in Foundry (rolls dice, applies an effect, tracks uses).
+If the behaviour is manually tracked, purely descriptive, or not yet automated, leave `activities` as an empty array
+and describe the mechanic in the flavor `description` or `disclaimer` instead.
+
 ```json
 "activities": [
   {
@@ -169,7 +173,7 @@ item (e.g. *Ignite this sword as a bonus action*).
 ```
 
 The activity definition is the same format used inside a `FEAT` effect's `system.activities` array — refer to
-[Feats.md](Feats.md) for the complete field reference.
+[Feats.md](parts/Feats.md) for the complete field reference.
 
 ### Activities vs Feats
 

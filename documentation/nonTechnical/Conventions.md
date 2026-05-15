@@ -73,6 +73,42 @@ The UI displays tier, amount, and stacking information separately.
 
 ---
 
+## Weights
+
+The `weight` field controls how likely a modifier is to appear in the loot pool. Higher means more common, lower means less common. A weight of `0` removes the modifier from the pool entirely.
+
+Every modifier should default to **1024** unless there is a specific reason to deviate.
+
+### Splitting Weight Across Similar Modifiers
+
+When multiple modifiers cover the same conceptual space, make them mutually exclusive via `blacklistedBy` tags and split their weights so they together equal one normal modifier's probability.
+
+**Two-way split:**
+
+| Modifier   | Weight | Combined |
+|------------|--------|----------|
+| `TME.FOO`  | 512    | 1024     |
+| `TME.BAR`  | 512    | 1024     |
+
+Each applies its own tag and blacklists the other's:
+
+```json
+{ "identifier": "TME.FOO", "application": { "weight": 512, "applies": ["FOO"], "blacklistedBy": ["BAR"] } }
+{ "identifier": "TME.BAR", "application": { "weight": 512, "applies": ["BAR"], "blacklistedBy": ["FOO"] } }
+```
+
+**Three-way split:** use `341 / 341 / 342` (rounding the remainder onto one entry).
+
+### When to Deviate
+
+| Situation | Suggested weight |
+|-----------|-----------------|
+| Deliberately rare (e.g. very powerful tertiary modifier) | 256–512 |
+| Intentionally common (e.g. a flavour-only modifier) | 2048+ |
+| Disabled but kept for reference | 0 |
+
+---
+
 ## Breakpoint Values
 
 ### Unique

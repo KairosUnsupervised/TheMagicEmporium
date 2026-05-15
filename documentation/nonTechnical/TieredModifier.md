@@ -152,7 +152,7 @@ set of effects. The highest threshold still at or below the sum is the active ti
 | `description` | Yes      | —           | Short description of what the modifier does.        |
 | `disclaimer`  | No       | `null`      | Small explanatory text shown below the description. |
 
-See [ActiveEffects.md](ActiveEffects.md) and [Feats.md](Feats.md) for the full structure of each effect type.
+See [ActiveEffects.md](parts/ActiveEffects.md) and [Feats.md](parts/Feats.md) for the full structure of each effect type.
 
 ---
 

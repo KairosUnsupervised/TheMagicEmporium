@@ -1,7 +1,8 @@
 # Active Effects
 
-An Active Effect modifies a character's stats silently in the background. The player sees the end result, not the
-individual change.
+An Active Effect modifies a character's stats silently in the background. Used by `UNIQUE`, `LINEAR`, and `TIERED` modifiers.
+
+---
 
 ## Structure
 
@@ -28,6 +29,8 @@ individual change.
 | `description` | No       | Modifier's description | Description shown on the effect entry.                    |
 | `disclaimer`  | No       | Modifier's disclaimer  | Small print shown below the description.                  |
 | `changes`     | Yes      | —                      | One or more stat changes this effect applies (see below). |
+
+---
 
 ## Changes
 
@@ -64,6 +67,8 @@ Each entry in `changes` targets one specific stat on the character sheet.
 | Movement speed     | `system.attributes.movement.walk` |
 | Initiative         | `system.attributes.init.bonus`    |
 
+---
+
 ## Multiple Changes
 
 A single Active Effect can apply several stat changes at once:
@@ -74,51 +79,10 @@ A single Active Effect can apply several stat changes at once:
   "title": "Titan's Blessing",
   "description": "Your strength and constitution both increase by 2.",
   "changes": [
-    {
-      "key": "system.abilities.str.value",
-      "mode": "ADD",
-      "value": "2"
-    },
-    {
-      "key": "system.abilities.con.value",
-      "mode": "ADD",
-      "value": "2"
-    }
+    { "key": "system.abilities.str.value", "mode": "ADD", "value": "2" },
+    { "key": "system.abilities.con.value", "mode": "ADD", "value": "2" }
   ]
 }
 ```
 
-## Multiple Active Effects per Modifier
-
-A modifier can produce more than one Active Effect. Each effect will appear as a separate entry on the character sheet:
-
-```json
-{
-  "activeEffects": [
-    {
-      "type": "ACTIVE_EFFECT",
-      "title": "Quickened Step",
-      "description": "Your movement speed increases by 10 ft.",
-      "changes": [
-        {
-          "key": "system.attributes.movement.walk",
-          "mode": "ADD",
-          "value": "10"
-        }
-      ]
-    },
-    {
-      "type": "ACTIVE_EFFECT",
-      "title": "Sharpened Reflexes",
-      "description": "Your initiative bonus increases by 2.",
-      "changes": [
-        {
-          "key": "system.attributes.init.bonus",
-          "mode": "ADD",
-          "value": "2"
-        }
-      ]
-    }
-  ]
-}
-```
+A modifier can also contain multiple Active Effects — each will appear as a separate entry on the character sheet.
