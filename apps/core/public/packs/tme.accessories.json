@@ -1,6 +1,6 @@
 {
   "id": "tme.accessories",
-  "name": "TME — Accessory Modifiers",
+  "name": "TME \u2014 Accessory Modifiers",
   "description": "Built-in accessory modifiers. Spellcasting enhancements, concentration effects, and general-purpose abilities.",
   "enabled": true,
   "modifiers": [
@@ -11,13 +11,24 @@
         "weight": 1024,
         "restriction": "TERTIARY",
         "whitelistedBy": [],
-        "blacklistedBy": ["WEAPON"],
+        "blacklistedBy": [
+          "WEAPON"
+        ],
         "applies": []
       },
       "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.5, "value": 2 },
-        { "min": 0.8, "value": 4 }
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.5,
+          "value": 2
+        },
+        {
+          "min": 0.8,
+          "value": 4
+        }
       ],
       "tiers": [
         {
@@ -58,14 +69,26 @@
       "application": {
         "weight": 1024,
         "restriction": "SECONDARY",
-        "whitelistedBy": ["WEAPON", "ACCESSORY"],
+        "whitelistedBy": [
+          "WEAPON",
+          "ACCESSORY"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
       "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.5, "value": 2 },
-        { "min": 0.8, "value": 4 }
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.5,
+          "value": 2
+        },
+        {
+          "min": 0.8,
+          "value": 4
+        }
       ],
       "tiers": [
         {
@@ -80,17 +103,38 @@
             {
               "type": "FEAT",
               "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "uses": { "value": 0, "max": 1, "per": "lr" },
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
+                "uses": {
+                  "value": 0,
+                  "max": 1,
+                  "per": "lr"
+                },
                 "activities": [
                   {
                     "type": "utility",
                     "name": "Slightly Eccentric",
-                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
                     "consumption": {
-                      "scaling": { "allowed": false },
+                      "scaling": {
+                        "allowed": false
+                      },
                       "spellSlot": true,
-                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                      "targets": [
+                        {
+                          "type": "itemUses",
+                          "value": "1",
+                          "target": "",
+                          "scaling": {}
+                        }
+                      ]
                     }
                   }
                 ]
@@ -110,17 +154,38 @@
             {
               "type": "FEAT",
               "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "uses": { "value": 0, "max": 2, "per": "lr" },
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
+                "uses": {
+                  "value": 0,
+                  "max": 2,
+                  "per": "lr"
+                },
                 "activities": [
                   {
                     "type": "utility",
                     "name": "Moderately Eccentric",
-                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
                     "consumption": {
-                      "scaling": { "allowed": false },
+                      "scaling": {
+                        "allowed": false
+                      },
                       "spellSlot": true,
-                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                      "targets": [
+                        {
+                          "type": "itemUses",
+                          "value": "1",
+                          "target": "",
+                          "scaling": {}
+                        }
+                      ]
                     }
                   }
                 ]
@@ -140,17 +205,38 @@
             {
               "type": "FEAT",
               "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "uses": { "value": 0, "max": 3, "per": "lr" },
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
+                "uses": {
+                  "value": 0,
+                  "max": 3,
+                  "per": "lr"
+                },
                 "activities": [
                   {
                     "type": "utility",
                     "name": "Eccentric Maniac",
-                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
                     "consumption": {
-                      "scaling": { "allowed": false },
+                      "scaling": {
+                        "allowed": false
+                      },
                       "spellSlot": true,
-                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                      "targets": [
+                        {
+                          "type": "itemUses",
+                          "value": "1",
+                          "target": "",
+                          "scaling": {}
+                        }
+                      ]
                     }
                   }
                 ]
@@ -172,17 +258,38 @@
               "title": "Eccentric Mastermind - Wild Magic",
               "description": "Four times per long rest, as an action, trigger wild magic on any creature within 30ft",
               "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "uses": { "value": 0, "max": 4, "per": "lr" },
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
+                "uses": {
+                  "value": 0,
+                  "max": 4,
+                  "per": "lr"
+                },
                 "activities": [
                   {
                     "type": "utility",
                     "name": "Wild Magic",
-                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
                     "consumption": {
-                      "scaling": { "allowed": false },
+                      "scaling": {
+                        "allowed": false
+                      },
                       "spellSlot": true,
-                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                      "targets": [
+                        {
+                          "type": "itemUses",
+                          "value": "1",
+                          "target": "",
+                          "scaling": {}
+                        }
+                      ]
                     }
                   }
                 ]
@@ -193,17 +300,38 @@
               "title": "Eccentric Mastermind - Magic Intuition",
               "description": "Once per long rest, replace any wild magic effect with one of your choosing",
               "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "uses": { "value": 0, "max": 1, "per": "lr" },
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
+                "uses": {
+                  "value": 0,
+                  "max": 1,
+                  "per": "lr"
+                },
                 "activities": [
                   {
                     "type": "utility",
                     "name": "Magic Intuition",
-                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
                     "consumption": {
-                      "scaling": { "allowed": false },
+                      "scaling": {
+                        "allowed": false
+                      },
                       "spellSlot": true,
-                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                      "targets": [
+                        {
+                          "type": "itemUses",
+                          "value": "1",
+                          "target": "",
+                          "scaling": {}
+                        }
+                      ]
                     }
                   }
                 ]
@@ -219,7 +347,10 @@
       "application": {
         "weight": 1024,
         "restriction": "PRIMARY",
-        "whitelistedBy": ["ARMOR", "ACCESSORY"],
+        "whitelistedBy": [
+          "ARMOR",
+          "ACCESSORY"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
@@ -235,6 +366,44 @@
           "feats": []
         }
       ]
+    },
+    {
+      "identifier": "TME.DETERMINISTIC",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [
+          "ACCESSORY"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Deterministic",
+        "description": "On skill rolls, you can't roll below a {amount}",
+        "disclaimer": "May not actually be fully deterministic"
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.5,
+          "value": 2
+        },
+        {
+          "min": 0.8,
+          "value": 3
+        },
+        {
+          "min": 0.95,
+          "value": 4
+        }
+      ],
+      "activeEffects": [],
+      "feats": []
     }
   ]
 }
