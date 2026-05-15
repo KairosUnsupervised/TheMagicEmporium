@@ -1,0 +1,96 @@
+{
+  "id": "tme.independent",
+  "name": "TME — Independent Modifiers",
+  "description": "Built-in independent modifiers. Each patches the item document directly or attaches abilities to the item itself.",
+  "enabled": true,
+  "modifiers": [
+    {
+      "identifier": "TME.ZEN",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 10,
+        "restriction": "SECONDARY",
+        "whitelistedBy": ["WEAPON"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Zen",
+            "description": "Once per long rest, as an action, meditate and empower this weapon with +1 to attack and damage rolls for 3 rounds.",
+            "disclaimer": "Not automatically applied as of now"
+          },
+          "changes": [],
+          "activities": [
+            {
+              "type": "utility",
+              "name": "Zen",
+              "activation": {
+                "type": "action",
+                "cost": 1
+              },
+              "uses": {
+                "max": 1,
+                "recovery": [
+                  { "period": "lr", "type": "recoverAll" }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 0.5,
+          "flavor": {
+            "title": "Inner Harmony",
+            "description": "Once per long rest, as an action, meditate and empower this weapon with +2 to attack and damage rolls for 4 rounds.",
+            "disclaimer": "Not automatically applied as of now"
+          },
+          "changes": [],
+          "activities": [
+            {
+              "type": "utility",
+              "name": "Inner Harmony",
+              "activation": {
+                "type": "action",
+                "cost": 1
+              },
+              "uses": {
+                "max": 1,
+                "recovery": [
+                  { "period": "lr", "type": "recoverAll" }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 0.8,
+          "flavor": {
+            "title": "Transcendence",
+            "description": "Once per long rest, as an action, meditate and empower this weapon with +3 to attack and damage rolls for 6 rounds.",
+            "disclaimer": "Not automatically applied as of now"
+          },
+          "changes": [],
+          "activities": [
+            {
+              "type": "utility",
+              "name": "Transcendence",
+              "activation": {
+                "type": "action",
+                "cost": 1
+              },
+              "uses": {
+                "max": 1,
+                "recovery": [
+                  { "period": "lr", "type": "recoverAll" }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

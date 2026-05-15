@@ -43,7 +43,7 @@ character level before the effects are applied.
 | `identifier`    | Yes      | Unique name for this modifier. Convention: `SOURCE.SCREAMING_SNAKE`.                |
 | `type`          | Yes      | Must be `"LINEAR"`.                                                                  |
 | `application`   | Yes      | Controls when and how often this modifier appears (see below).                       |
-| `flavor`        | Yes      | The title and description shown to the player. Supports `{amount}`.                 |
+| `flavor`        | Yes      | The title and description shown to the player. `{amount}` is supported in `description` but not needed in `title`. |
 | `breakpoints`   | Yes      | Maps the input value to a bonus amount (see below).                                  |
 | `activeEffects` | No       | Always-on stat changes applied to the character. Supports `{amount}`.               |
 | `feats`         | No       | Named abilities added to the character sheet. Supports `{amount}` in all fields.    |

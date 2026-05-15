@@ -32,43 +32,28 @@ CORE.BLESSED_STRIKES
 
 ---
 
+## Flavor Text
+
+Never end a `description` or `disclaimer` with a period. The UI does not use sentence-ending punctuation.
+
+```
+✓ "Gain {amount}d4 temporary HP on direct creature kill"
+✗ "Gain {amount}d4 temporary HP on direct creature kill."
+```
+
+---
+
 ## Flavor Naming
 
-### Independent
-
-| Case | Convention |
-|------|------------|
-| Non-stacking | No suffix — use the modifier name alone: `"Radiant"` |
-| Stacking (multiple breakpoints) | Append a roman numeral matching the breakpoint strength: `"Radiant I"`, `"Radiant II"` |
-
-### Unique
-
-| Case | Convention |
-|------|------------|
-| Non-stacking | No suffix — use the modifier name alone: `"Radiant"` |
-| Stacking (multiple breakpoints) | Append a roman numeral matching the breakpoint strength: `"Radiant I"`, `"Radiant II"` |
-
-Multiple breakpoints on a Unique modifier are unusual. Prefer a single breakpoint at `min: 0` unless a
-tiered presentation is specifically intended.
-
-### Linear
-
-Always append a bracketed `{amount}` suffix to the title so the resolved value is visible to the player:
+Use the modifier name alone for all types — no suffixes, roman numerals, or `{amount}` appended to the title.
 
 ```
-"Alarming [ +{amount} ]"
+"Radiant"
+"Alarming"
+"Arcane Attunement"
 ```
 
-`{amount}` is replaced automatically with the resolved breakpoint value at runtime.
-
-### Tiered
-
-Append the current tier and the maximum tier count in roman numerals inside brackets:
-
-```
-"Radiant [ I / IV ]"   ← item is at tier 1 of 4
-"Radiant [ IV / IV ]"  ← item is at tier 4 of 4
-```
+The UI displays tier, amount, and stacking information separately.
 
 ---
 

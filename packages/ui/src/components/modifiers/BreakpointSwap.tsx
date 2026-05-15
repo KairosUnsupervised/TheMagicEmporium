@@ -16,6 +16,7 @@ const makeTransitionStyles = (name: string, dir: number) => `
 	::view-transition-new(${name}) { animation: bp-swap-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
 `;
 
+// TODO Upgrade to REACT and react view transition component
 export const BreakpointSwap = (props: BreakpointSwapProps) => {
 	const [temporaryActiveIndex, setTemporaryActiveIndex] = useState<number | null>(null);
 	const vtName = useRef(`bp-swap-${Math.random().toString(36).slice(2)}`).current;
