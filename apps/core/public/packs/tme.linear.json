@@ -1,0 +1,58 @@
+{
+  "id": "tme.linear",
+  "name": "TME — Linear Modifiers",
+  "description": "Built-in linear modifiers. Each scales a numeric bonus based on the item's float value, and stacks additively across items.",
+  "enabled": true,
+  "modifiers": [
+    {
+      "identifier": "TME.CRIMSON_HARVEST",
+      "type": "LINEAR",
+      "application": {
+        "weight": 10,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["WEAPON"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Crimson Harvest",
+        "description": "Gain {amount}d4 temporary HP on direct creature kill.",
+        "disclaimer": "Temporary HP do not stack - only the highest value applies."
+      },
+      "breakpoints": [
+        { "min": 0,    "value": 1 },
+        { "min": 0.5,  "value": 2 },
+        { "min": 0.8,  "value": 3 },
+        { "min": 0.95, "value": 4 }
+      ],
+      "activeEffects": [],
+      "feats": [
+        {
+          "type": "FEAT",
+          "system": {
+            "activation": {
+              "type": "special",
+              "cost": null,
+              "condition": "on direct creature kill"
+            },
+            "activities": [
+              {
+                "type": "heal",
+                "name": "Crimson Harvest",
+                "healing": {
+                  "parts": [
+                    {
+                      "number": "{amount}",
+                      "denomination": 4,
+                      "types": ["temphp"]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
