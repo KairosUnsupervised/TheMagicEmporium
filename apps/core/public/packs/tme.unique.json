@@ -26,6 +26,29 @@
           "feats": []
         }
       ]
+    },
+    {
+      "identifier": "TME.TENACIOUS",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["ARMOR", "ACCESSORY"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Tenacious",
+            "description": "While making death saving throws, you can still crawl at double movement speed cost without provoking opportunity attacks",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
     }
   ]
 }
