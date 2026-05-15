@@ -315,7 +315,7 @@
       "type": "TIERED",
       "application": {
         "weight": 1024,
-        "restriction": "PRIMARY",
+        "restriction": "SECONDARY",
         "whitelistedBy": ["ARMOR"],
         "blacklistedBy": [],
         "applies": []

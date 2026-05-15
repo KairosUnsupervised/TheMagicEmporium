@@ -108,6 +108,34 @@
       "feats": []
     },
     {
+      "identifier": "TME.SWIFT",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Swift",
+        "description": "Your movement speed is increased by {amount}ft",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 15 },
+        { "min": 0.7, "value": 30 }
+      ],
+      "activeEffects": [
+        {
+          "key": "system.attributes.movement.walk",
+          "mode": "ADD",
+          "value": "{amount}"
+        }
+      ],
+      "feats": []
+    },
+    {
       "identifier": "TME.ALL_TIME_READY",
       "type": "LINEAR",
       "application": {
