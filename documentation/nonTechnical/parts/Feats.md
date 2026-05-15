@@ -136,9 +136,12 @@ A feat that deals 4d10 force damage in a 30ft circle, DEX save (half on success)
         },
         "damage": {
           "onSave": "half",
-          "parts": [
-            { "number": 4, "denomination": 10, "types": ["force"] }
-          ]
+          "types": ["force"],
+          "custom": { "enabled": false },
+          "scaling": { "number": 1 },
+          "number": 4,
+          "denomination": 10,
+          "bonus": ""
         },
         "save": {
           "ability": ["dex"],

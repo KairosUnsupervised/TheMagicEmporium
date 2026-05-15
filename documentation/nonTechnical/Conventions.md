@@ -63,13 +63,20 @@ This applies to both fixed dice and `{amount}`-interpolated rolls:
 
 Use the modifier name alone for all types — no suffixes, roman numerals, or `{amount}` appended to the title.
 
+The UI displays tier, amount, and stacking information separately.
+
+### Shared Denominator Across Tiers and Breakpoints
+
+All tiers or breakpoints of a modifier must share a common name. Use the base modifier name for the first tier, then prefix higher tiers with an adjective.
+
 ```
-"Radiant"
-"Alarming"
-"Arcane Attunement"
+Tier I   → "Embracement"
+Tier II  → "Vital Embracement"
+Tier III → "Soulful Embracement"
+Tier IV  → "Transcendent Embracement"
 ```
 
-The UI displays tier, amount, and stacking information separately.
+The adjective should escalate in weight or intensity alongside the tier's power. Activity names within a tier must match the tier title.
 
 ---
 

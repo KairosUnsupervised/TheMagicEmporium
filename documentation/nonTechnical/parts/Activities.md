@@ -127,6 +127,8 @@ Template types: `circle`, `sphere`, `cylinder`, `cone`, `square`, `cube`, `line`
 
 ## Damage Activity
 
+The `damage` type uses a flat `damage` object — **not** a `parts` array. The structure mirrors the `heal` activity.
+
 ```json
 {
   "type": "damage",
@@ -137,12 +139,24 @@ Template types: `circle`, `sphere`, `cylinder`, `cone`, `square`, `cube`, `line`
     "condition": ""
   },
   "damage": {
-    "parts": [
-      { "number": 1, "denomination": 6, "types": ["fire"] }
-    ]
+    "types": ["fire"],
+    "custom": { "enabled": false },
+    "scaling": { "number": 1 },
+    "number": 1,
+    "denomination": 6,
+    "bonus": ""
   }
 }
 ```
+
+| Field                | Description                                                               |
+|----------------------|---------------------------------------------------------------------------|
+| `damage.types`       | Damage types (e.g. `["fire"]`, `["piercing"]`, `["healing"]`).           |
+| `damage.number`      | Number of dice. Supports `{amount}` for LINEAR modifiers.                 |
+| `damage.denomination`| Die size (e.g. `6` for d6).                                              |
+| `damage.bonus`       | Flat bonus formula. Use `""` if none.                                     |
+| `damage.custom`      | Always `{ "enabled": false }` unless using custom formulas.              |
+| `damage.scaling`     | Always `{ "number": 1 }`.                                                |
 
 ---
 

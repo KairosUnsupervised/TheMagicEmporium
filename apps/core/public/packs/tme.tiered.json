@@ -159,6 +159,156 @@
           ]
         }
       ]
+    },
+    {
+      "identifier": "TME.EMBRACEMENT",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["ARMOR"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Embracement",
+            "description": "As an action, transfer [[/roll 1d12]] of your own HP to any other creature within touch range",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Embracement",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["hp"],
+                      "custom": { "enabled": false },
+                      "scaling": { "number": 1 },
+                      "number": 1,
+                      "denomination": 12,
+                      "bonus": ""
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Vital Embracement",
+            "description": "As an action, transfer [[/roll 2d12]] of your own HP to any other creature within touch range",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Vital Embracement",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["hp"],
+                      "custom": { "enabled": false },
+                      "scaling": { "number": 1 },
+                      "number": 2,
+                      "denomination": 12,
+                      "bonus": ""
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Soulful Embracement",
+            "description": "As an action, transfer [[/roll 3d12]] of your own HP to any other creature within touch range",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Soulful Embracement",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["hp"],
+                      "custom": { "enabled": false },
+                      "scaling": { "number": 1 },
+                      "number": 3,
+                      "denomination": 12,
+                      "bonus": ""
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 8,
+          "flavor": {
+            "title": "Transcendent Embracement",
+            "description": "As an action, transfer [[/roll 4d12]] of your own HP to any other creature within touch range. Spells with the range of self can now target creatures in touch range",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Transcendent Embracement",
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
+                    "healing": {
+                      "types": ["hp"],
+                      "custom": { "enabled": false },
+                      "scaling": { "number": 1 },
+                      "number": "4",
+                      "denomination": 12,
+                      "bonus": ""
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
