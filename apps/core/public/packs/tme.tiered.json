@@ -425,6 +425,54 @@
       ]
     },
     {
+      "identifier": "TME.INHERENT_LAG",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [],
+        "blacklistedBy": ["WEAPON"],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Inherent Lag",
+            "description": "When your concentration is broken, the spell persists as though you never lost it, for up to 1 instance",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Resonant Lag",
+            "description": "When your concentration is broken, the spell persists as though you never lost it, for up to 2 instances",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Eternal Lag",
+            "description": "When your concentration is broken, the spell persists as though you never lost it, for up to 3 instances",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.ECCENTRIC_CASTER",
       "type": "TIERED",
       "application": {
