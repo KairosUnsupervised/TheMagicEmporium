@@ -26,6 +26,59 @@
           "activities": []
         }
       ]
+    },
+    {
+      "identifier": "TME.ARCANE_HUNGER",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": ["WEAPON_MELEE"],
+        "blacklistedBy": ["CONSUMABLE"],
+        "applies": ["CONSUMABLE"]
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Arcane Hunger?",
+            "description": "This item can be eaten to restore a cantrip slot",
+            "disclaimer": "Deals the weapon's damage upon consumption"
+          },
+          "changes": [],
+          "activities": []
+        },
+        {
+          "min": 0.01,
+          "flavor": {
+            "title": "Arcane Hunger",
+            "description": "This item can be eaten to restore a 1st level spell slot",
+            "disclaimer": "Deals the weapon's damage upon consumption"
+          },
+          "changes": [],
+          "activities": []
+        },
+        {
+          "min": 0.5,
+          "flavor": {
+            "title": "Greater Arcane Hunger",
+            "description": "This item can be eaten to restore a 3rd level spell slot",
+            "disclaimer": "Deals twice the weapon's damage upon consumption"
+          },
+          "changes": [],
+          "activities": []
+        },
+        {
+          "min": 0.7,
+          "flavor": {
+            "title": "Severe Arcane Hunger",
+            "description": "This item can be eaten to restore your highest available spell slot",
+            "disclaimer": "Deals four times the weapon's damage upon consumption. Not suited for wizards of Waterdeep"
+          },
+          "changes": [],
+          "activities": []
+        }
+      ]
     }
   ]
 }
