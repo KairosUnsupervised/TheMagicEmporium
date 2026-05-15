@@ -79,6 +79,29 @@
           "activities": []
         }
       ]
+    },
+    {
+      "identifier": "TME.EDIBLE",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": ["CONSUMABLE"],
+        "applies": ["CONSUMABLE"]
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Edible",
+            "description": "Despite its properties, this item is edible and counts as multiple rations",
+            "disclaimer": null
+          },
+          "changes": [],
+          "activities": []
+        }
+      ]
     }
   ]
 }
