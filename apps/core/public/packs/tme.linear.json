@@ -16,7 +16,7 @@
       },
       "flavor": {
         "title": "Crimson Harvest",
-        "description": "Gain [[/roll {amount}d4]] temporary HP on direct creature kill",
+        "description": "Gain {amount}d4 temporary HP on direct creature kill",
         "disclaimer": "Temporary HP do not stack - only the highest value applies."
       },
       "breakpoints": [

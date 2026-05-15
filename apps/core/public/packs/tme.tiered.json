@@ -24,7 +24,7 @@
           "min": 1,
           "flavor": {
             "title": "Redistribution",
-            "description": "If a tagged creature is killed, distribute [[/roll 1d8]] healing to any creatures within 15 feet of the killed creature",
+            "description": "If a tagged creature is killed, distribute 1d8 healing to any creatures within 15 feet of the killed creature",
             "disclaimer": null
           },
           "activeEffects": [],
@@ -70,7 +70,7 @@
           "min": 2,
           "flavor": {
             "title": "Sacred Redistribution",
-            "description": "If a tagged creature is killed, distribute [[/roll 2d8]] healing to any creatures within 20 feet of the killed creature",
+            "description": "If a tagged creature is killed, distribute 2d8 healing to any creatures within 20 feet of the killed creature",
             "disclaimer": null
           },
           "activeEffects": [],
@@ -116,7 +116,7 @@
           "min": 4,
           "flavor": {
             "title": "Divine Redistribution",
-            "description": "If a tagged creature is killed, distribute [[/roll 3d8]] healing to any creatures within 30 feet of the killed creature",
+            "description": "If a tagged creature is killed, distribute 3d8 healing to any creatures within 30 feet of the killed creature",
             "disclaimer": null
           },
           "activeEffects": [],
@@ -180,7 +180,7 @@
           "min": 1,
           "flavor": {
             "title": "Embracement",
-            "description": "As an action, transfer [[/roll 1d12]] of your own HP to any other creature within touch range",
+            "description": "As an action, transfer 1d12 of your own HP to any other creature within touch range",
             "disclaimer": null
           },
           "activeEffects": [],
@@ -212,7 +212,7 @@
           "min": 2,
           "flavor": {
             "title": "Vital Embracement",
-            "description": "As an action, transfer [[/roll 2d12]] of your own HP to any other creature within touch range",
+            "description": "As an action, transfer 2d12 of your own HP to any other creature within touch range",
             "disclaimer": null
           },
           "activeEffects": [],
@@ -244,7 +244,7 @@
           "min": 4,
           "flavor": {
             "title": "Soulful Embracement",
-            "description": "As an action, transfer [[/roll 3d12]] of your own HP to any other creature within touch range",
+            "description": "As an action, transfer 3d12 of your own HP to any other creature within touch range",
             "disclaimer": null
           },
           "activeEffects": [],
@@ -276,7 +276,7 @@
           "min": 8,
           "flavor": {
             "title": "Transcendent Embracement",
-            "description": "As an action, transfer [[/roll 4d12]] of your own HP to any other creature within touch range. Spells with the range of self can now target creatures in touch range",
+            "description": "As an action, transfer 4d12 of your own HP to any other creature within touch range. Spells with the range of self can now target creatures in touch range",
             "disclaimer": null
           },
           "activeEffects": [],
@@ -330,7 +330,7 @@
           "min": 1,
           "flavor": {
             "title": "Protection",
-            "description": "Use an action to gain [[/roll @attributes.hd.largest]] temporary HP",
+            "description": "Use an action to gain 1 Hit Die of temporary HP",
             "disclaimer": null
           },
           "activeEffects": [],
@@ -362,7 +362,7 @@
           "min": 2,
           "flavor": {
             "title": "Steadfast Protection",
-            "description": "Use an action to gain [[/roll @attributes.hd.largest + @attributes.hd.largest]] temporary HP",
+            "description": "Use an action to gain 2 Hit Dice of temporary HP",
             "disclaimer": null
           },
           "activeEffects": [],
@@ -394,7 +394,7 @@
           "min": 4,
           "flavor": {
             "title": "Indomitable Protection",
-            "description": "Use an action to gain [[/roll @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest]] temporary HP",
+            "description": "Use an action to gain 3 Hit Dice of temporary HP",
             "disclaimer": null
           },
           "activeEffects": [],
