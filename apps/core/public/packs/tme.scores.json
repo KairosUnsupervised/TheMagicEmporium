@@ -1,7 +1,168 @@
 {
   "id": "tme.scores",
-  "name": "TME — Score Modifiers",
+  "name": "TME \u2014 Score Modifiers",
   "description": "Built-in score modifiers. Affects character ability scores such as Strength, Dexterity, and Constitution.",
   "enabled": true,
-  "modifiers": []
+  "modifiers": [
+    {
+      "identifier": "TME.CHARM_OF_THE_HEART",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [
+          "ACCESSORY"
+        ],
+        "blacklistedBy": [
+          "SCORE"
+        ],
+        "applies": [
+          "SCORE"
+        ]
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.5,
+          "value": 2
+        },
+        {
+          "min": 0.8,
+          "value": 4
+        }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Charm of the Heart",
+            "description": "Your charisma score increases by 1",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "type": "ACTIVE_EFFECT",
+              "changes": [
+                {
+                  "key": "system.abilities.cha.value",
+                  "mode": "ADD",
+                  "value": "1"
+                }
+              ]
+            }
+          ],
+          "feats": []
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Greater Charm of the Heart",
+            "description": "Your charisma score increases by 2",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "type": "ACTIVE_EFFECT",
+              "changes": [
+                {
+                  "key": "system.abilities.cha.value",
+                  "mode": "ADD",
+                  "value": "2"
+                }
+              ]
+            }
+          ],
+          "feats": []
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Superior Charm of the Heart",
+            "description": "Your charisma score increases by 3",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "type": "ACTIVE_EFFECT",
+              "changes": [
+                {
+                  "key": "system.abilities.cha.value",
+                  "mode": "ADD",
+                  "value": "3"
+                }
+              ]
+            }
+          ],
+          "feats": []
+        },
+        {
+          "min": 8,
+          "flavor": {
+            "title": "Radiant Charm of the Heart",
+            "description": "Your charisma score increases by 6. Once per long rest, use an action to gain advantage on all charisma checks for 1 minute",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "type": "ACTIVE_EFFECT",
+              "description": "Your charisma score increases by 6",
+              "changes": [
+                {
+                  "key": "system.abilities.cha.value",
+                  "mode": "ADD",
+                  "value": "6"
+                }
+              ]
+            }
+          ],
+          "feats": [
+            {
+              "type": "FEAT",
+              "description": "Once per long rest, use an action to gain advantage on all charisma checks for 10 minute",
+              "system": {
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
+                "uses": {
+                  "value": 0,
+                  "max": 1,
+                  "per": "lr"
+                },
+                "activities": [
+                  {
+                    "type": "utility",
+                    "name": "Radiant Charm of the Heart",
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
+                    "consumption": {
+                      "scaling": {
+                        "allowed": false
+                      },
+                      "spellSlot": true,
+                      "targets": [
+                        {
+                          "type": "itemUses",
+                          "value": "1",
+                          "target": "",
+                          "scaling": {}
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
