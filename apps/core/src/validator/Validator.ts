@@ -142,11 +142,12 @@ export class Validator {
         });
     };
 
+    // TODO APPEND +N to feat / II / IV / V etc
     private synchronizeFeats = async (feats: Feat[], actor: Actor5e) => {
         let remaining = this.getMagicFeats(actor);
 
         const creation = feats.map((feat, index) => {
-            const id = feat.document.name + index;
+            const id = feat.document.name + index + feat.document.system.description?.value;
 
             /**
              * If the feat exists, remove it from the remaining array
@@ -224,7 +225,7 @@ export class Validator {
         let remaining = this.getExistingActiveEffects(actor);
 
         const creation = wantActiveEffects.map((effect, index) => {
-            const id = effect.document.name + index;
+            const id = effect.document.name + index + effect.document.description;
 
             /**
              * If the effect exists, remove it from the remaining array
