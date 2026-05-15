@@ -91,7 +91,8 @@ export class Tooltip {
         if (this.showTimer) clearTimeout(this.showTimer);
         this.showTimer = setTimeout(() => {
             this.setContent(item);
-            this.movePosition(e.clientY, e.clientX);
+            const height = this.contentDiv.getBoundingClientRect().height;
+            this.movePosition(e.clientY - height / 2, e.clientX);
             this.show();
             this.showTimer = null;
         }, 500);
