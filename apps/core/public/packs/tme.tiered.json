@@ -309,6 +309,120 @@
           ]
         }
       ]
+    },
+    {
+      "identifier": "TME.PROTECTION",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["ARMOR"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Protection",
+            "description": "Use an action to gain [[/roll @attributes.hd.largest]] temporary HP",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Protection",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["temphp"],
+                      "custom": { "enabled": true, "formula": "@attributes.hd.largest" },
+                      "scaling": { "number": 1 },
+                      "number": 0,
+                      "denomination": 0,
+                      "bonus": ""
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Steadfast Protection",
+            "description": "Use an action to gain [[/roll @attributes.hd.largest + @attributes.hd.largest]] temporary HP",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Steadfast Protection",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["temphp"],
+                      "custom": { "enabled": true, "formula": "@attributes.hd.largest + @attributes.hd.largest" },
+                      "scaling": { "number": 1 },
+                      "number": 0,
+                      "denomination": 0,
+                      "bonus": ""
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Indomitable Protection",
+            "description": "Use an action to gain [[/roll @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest]] temporary HP",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "heal",
+                    "name": "Indomitable Protection",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "healing": {
+                      "types": ["temphp"],
+                      "custom": { "enabled": true, "formula": "@attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest" },
+                      "scaling": { "number": 1 },
+                      "number": 0,
+                      "denomination": 0,
+                      "bonus": ""
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
