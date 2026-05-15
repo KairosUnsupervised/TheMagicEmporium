@@ -106,6 +106,30 @@
       ],
       "activeEffects": [],
       "feats": []
+    },
+    {
+      "identifier": "TME.ALL_TIME_READY",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "All Time Ready",
+        "description": "On saving throws, you can't roll below a {amount}",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        { "min": 0,    "value": 1 },
+        { "min": 0.5,  "value": 2 },
+        { "min": 0.8,  "value": 3 },
+        { "min": 0.95, "value": 4 }
+      ],
+      "activeEffects": [],
+      "feats": []
     }
   ]
 }
