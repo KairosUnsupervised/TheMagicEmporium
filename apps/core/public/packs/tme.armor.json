@@ -814,6 +814,225 @@
           "feats": []
         }
       ]
+    },
+    {
+      "identifier": "TME.SELF_IMMOLATION",
+      "type": "TIERED",
+      "application": {
+        "weight": 512,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [
+          "ARMOR"
+        ],
+        "blacklistedBy": [
+          "SELF_IMMOLATION"
+        ],
+        "applies": [
+          "SELF_IMMOLATION"
+        ]
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.5,
+          "value": 2
+        },
+        {
+          "min": 0.8,
+          "value": 4
+        }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Self Immolation",
+            "description": "Use an action to set yourself ablaze for 3 turns. While burning, deal 2d8 fire damage to yourself and each creature within 5ft each turn",
+            "disclaimer": "You automatically stop burning once downed. DC 15 CON save, half damage on success"
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
+                "activities": [
+                  {
+                    "type": "save",
+                    "name": "Self Immolation",
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
+                    "target": {
+                      "template": {
+                        "type": "circle",
+                        "size": 5,
+                        "units": "ft"
+                      },
+                      "affects": {
+                        "type": ""
+                      }
+                    },
+                    "save": {
+                      "ability": "con",
+                      "dc": {
+                        "calculation": "flat",
+                        "formula": "15"
+                      }
+                    },
+                    "damage": {
+                      "onSave": "half",
+                      "parts": [
+                        {
+                          "number": 2,
+                          "denomination": 8,
+                          "bonus": "",
+                          "types": [
+                            "fire"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Scorching Self Immolation",
+            "description": "Use an action to set yourself ablaze for 4 turns. While burning, deal 3d8 fire damage to yourself and each creature within 10ft each turn",
+            "disclaimer": "You automatically stop burning once downed. DC 17 CON save, half damage on success"
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
+                "activities": [
+                  {
+                    "type": "save",
+                    "name": "Scorching Self Immolation",
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
+                    "target": {
+                      "template": {
+                        "type": "circle",
+                        "size": 10,
+                        "units": "ft"
+                      },
+                      "affects": {
+                        "type": ""
+                      }
+                    },
+                    "save": {
+                      "ability": "con",
+                      "dc": {
+                        "calculation": "flat",
+                        "formula": "17"
+                      }
+                    },
+                    "damage": {
+                      "onSave": "half",
+                      "parts": [
+                        {
+                          "number": 3,
+                          "denomination": 8,
+                          "bonus": "",
+                          "types": [
+                            "fire"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Infernal Self Immolation",
+            "description": "Use an action to set yourself ablaze for 5 turns. While burning, deal 4d8 fire damage to yourself and each creature within 15ft each turn",
+            "disclaimer": "You automatically stop burning once downed. DC 19 CON save, half damage on success"
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
+                "activities": [
+                  {
+                    "type": "save",
+                    "name": "Infernal Self Immolation",
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
+                    "target": {
+                      "template": {
+                        "type": "circle",
+                        "size": 15,
+                        "units": "ft"
+                      },
+                      "affects": {
+                        "type": ""
+                      }
+                    },
+                    "save": {
+                      "ability": "con",
+                      "dc": {
+                        "calculation": "flat",
+                        "formula": "19"
+                      }
+                    },
+                    "damage": {
+                      "onSave": "half",
+                      "parts": [
+                        {
+                          "number": 4,
+                          "denomination": 8,
+                          "bonus": "",
+                          "types": [
+                            "fire"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
