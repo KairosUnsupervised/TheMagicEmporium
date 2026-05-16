@@ -176,7 +176,7 @@
       "type": "INDEPENDENT",
       "application": {
         "weight": 1024,
-        "restriction": "SECONDARY",
+        "restriction": "PRIMARY",
         "whitelistedBy": [],
         "blacklistedBy": [
           "ECONOMY"
@@ -313,6 +313,29 @@
               "value": "4"
             }
           ],
+          "activities": []
+        }
+      ]
+    },
+    {
+      "identifier": "TME.ARCANE_GRIP",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Arcane Grip",
+            "description": "As an action, this item can be used like a conjured mage hand (the hand replaced by this item). Additionally you can attack with it",
+            "disclaimer": null
+          },
+          "changes": [],
           "activities": []
         }
       ]
