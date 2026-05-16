@@ -253,6 +253,71 @@
       ]
     },
     {
+      "identifier": "TME.PRECIOUS",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [
+          "ECONOMY"
+        ],
+        "applies": [
+          "ECONOMY"
+        ]
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Precious",
+            "description": "The item value is increased by 50%",
+            "disclaimer": null
+          },
+          "changes": [
+            {
+              "key": "system.price.value",
+              "operation": "MULTIPLY",
+              "value": "1.5"
+            }
+          ],
+          "activities": []
+        },
+        {
+          "min": 0.7,
+          "flavor": {
+            "title": "Greatly Precious",
+            "description": "The item value is doubled",
+            "disclaimer": null
+          },
+          "changes": [
+            {
+              "key": "system.price.value",
+              "operation": "MULTIPLY",
+              "value": "2"
+            }
+          ],
+          "activities": []
+        },
+        {
+          "min": 0.9,
+          "flavor": {
+            "title": "Supremely Precious",
+            "description": "The item value is quadrupled",
+            "disclaimer": null
+          },
+          "changes": [
+            {
+              "key": "system.price.value",
+              "operation": "MULTIPLY",
+              "value": "4"
+            }
+          ],
+          "activities": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.UNDYING",
       "type": "UNIQUE",
       "application": {
