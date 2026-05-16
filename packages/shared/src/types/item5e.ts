@@ -51,12 +51,39 @@ export interface Item5e<Flag = SubItem | BaseItem> {
             denomination: 'gp' | 'pp' | 'ep' | 'sp' | 'cp';
         };
         properties: string[];
-        weight: number;
+        weight: {
+            value: number
+        };
         rarity: string;
         attunement: 1 | 0;
         equipped: boolean;
         attuned: boolean;
         activities: object
+        damage?: {
+            base: {
+                // Amount of Dice
+                number: number;
+                // What dice size, e.g. 8 => D8
+                denomination: number;
+                // Damage Bonus
+                bonus: number;
+                // Damage Type e.g. bludgeoning / slashing
+                types: string[]
+            }
+            versatile?: {
+                number: number;
+                denomination: number;
+                bonus: number;
+                types: string[]
+            }
+        }
+        type?: any;
+        armor?: any;
+        strength?: any;
+        actionType?: any;
+        activation?: any;
+        range?: any;
+        ability?: any;
     };
     flags: {
         [namespace.core.id]: Flag

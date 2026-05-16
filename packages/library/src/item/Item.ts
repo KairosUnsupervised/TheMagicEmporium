@@ -28,7 +28,6 @@ export class Item {
                 value: '',
             },
             properties: ['mgc'],
-            weight: 777,
             rarity: 'common',
             attunement: 1,
             activities: {}
@@ -62,7 +61,6 @@ export class Item {
         this.merge({
             img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${details.icon}`,
             system: {
-                weight: details.weight,
                 price: {
                     value: this.abstractItem.currency + details.value,
                 },
