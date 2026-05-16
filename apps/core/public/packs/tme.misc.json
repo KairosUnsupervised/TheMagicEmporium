@@ -1033,6 +1033,29 @@
           ]
         }
       ]
+    },
+    {
+      "identifier": "TME.LIMIT_BREAK",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Limit Break",
+            "description": "You can reroll any of your damage dice. Take the initial damage of the rerolled dice before rerolling them",
+            "disclaimer": "You must use the new roll, however you can reroll indefinitely"
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
     }
   ]
 }
