@@ -1104,6 +1104,30 @@
           "feats": []
         }
       ]
+    },
+    {
+      "identifier": "TME.RAPID",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Rapid",
+        "description": "Your jump distance is increased by {amount}ft",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 5  },
+        { "min": 0.2, "value": 10 },
+        { "min": 0.6, "value": 15 },
+        { "min": 0.8, "value": 20 }
+      ],
+      "activeEffects": [],
+      "feats": []
     }
   ]
 }
