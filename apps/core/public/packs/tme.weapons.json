@@ -851,6 +851,31 @@
           ]
         }
       ]
+    },
+    {
+      "identifier": "TME.HARKENING",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [
+          "WEAPON"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Harkening",
+            "description": "While on the same plane of existence and attuned, you hear through this artifact as if you were present",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
     }
   ]
 }
