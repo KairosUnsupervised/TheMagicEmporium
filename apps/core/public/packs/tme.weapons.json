@@ -358,6 +358,42 @@
       ]
     },
     {
+      "identifier": "TME.CONSISTENT",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [
+          "WEAPON"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Consistent",
+            "description": "This base weapon damage die become d4s. Roll twice as many dice on attack",
+            "disclaimer": null
+          },
+          "changes": [
+            {
+              "key": "system.damage.base.denomination",
+              "operation": "OVERRIDE",
+              "value": "4"
+            },
+            {
+              "key": "system.damage.base.number",
+              "operation": "MULTIPLY",
+              "value": "2"
+            }
+          ],
+          "activities": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.BLOODTHIRSTY",
       "type": "UNIQUE",
       "application": {
