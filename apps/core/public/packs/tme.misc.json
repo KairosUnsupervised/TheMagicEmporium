@@ -341,6 +341,35 @@
       ]
     },
     {
+      "identifier": "TME.MITHRIL",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Mithril",
+            "description": "This item has no weight",
+            "disclaimer": null
+          },
+          "changes": [
+            {
+              "key": "system.weight.value",
+              "operation": "SET",
+              "value": "0"
+            }
+          ],
+          "activities": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.UNDYING",
       "type": "UNIQUE",
       "application": {
