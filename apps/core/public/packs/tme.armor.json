@@ -1,6 +1,6 @@
 {
   "id": "tme.armor",
-  "name": "TME — Armor Modifiers",
+  "name": "TME \u2014 Armor Modifiers",
   "description": "Built-in armor modifiers. Affects defensive stats, armor properties, and armor-bound abilities.",
   "enabled": true,
   "modifiers": [
@@ -10,7 +10,9 @@
       "application": {
         "weight": 1024,
         "restriction": "PRIMARY",
-        "whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
+        "whitelistedBy": [
+          "ARMOR_WITH_ARMOR_CLASS"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
@@ -39,7 +41,9 @@
       "application": {
         "weight": 1024,
         "restriction": "PRIMARY",
-        "whitelistedBy": ["ARMOR"],
+        "whitelistedBy": [
+          "ARMOR"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
@@ -49,8 +53,14 @@
         "disclaimer": null
       },
       "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.7, "value": 2 }
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.7,
+          "value": 2
+        }
       ],
       "activeEffects": [],
       "feats": [
@@ -63,9 +73,13 @@
               "condition": "when hit by an attack"
             },
             "uses": {
-              "value": 0,
               "max": "{amount}",
-              "per": "lr"
+              "recovery": [
+                {
+                  "period": "lr",
+                  "type": "recoverAll"
+                }
+              ]
             },
             "activities": [
               {
@@ -77,7 +91,9 @@
                   "condition": "when hit by an attack"
                 },
                 "consumption": {
-                  "scaling": { "allowed": false },
+                  "scaling": {
+                    "allowed": false
+                  },
                   "spellSlot": true,
                   "targets": [
                     {
@@ -100,14 +116,25 @@
       "application": {
         "weight": 1024,
         "restriction": "SECONDARY",
-        "whitelistedBy": ["ARMOR"],
+        "whitelistedBy": [
+          "ARMOR"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
       "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.5, "value": 2 },
-        { "min": 0.8, "value": 4 }
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.5,
+          "value": 2
+        },
+        {
+          "min": 0.8,
+          "value": 4
+        }
       ],
       "tiers": [
         {
@@ -122,16 +149,30 @@
             {
               "type": "FEAT",
               "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
                 "activities": [
                   {
                     "type": "heal",
                     "name": "Embracement",
-                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
                     "healing": {
-                      "types": ["hp"],
-                      "custom": { "enabled": false },
-                      "scaling": { "number": 1 },
+                      "types": [
+                        "hp"
+                      ],
+                      "custom": {
+                        "enabled": false
+                      },
+                      "scaling": {
+                        "number": 1
+                      },
                       "number": 1,
                       "denomination": 12,
                       "bonus": ""
@@ -154,16 +195,30 @@
             {
               "type": "FEAT",
               "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
                 "activities": [
                   {
                     "type": "heal",
                     "name": "Vital Embracement",
-                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
                     "healing": {
-                      "types": ["hp"],
-                      "custom": { "enabled": false },
-                      "scaling": { "number": 1 },
+                      "types": [
+                        "hp"
+                      ],
+                      "custom": {
+                        "enabled": false
+                      },
+                      "scaling": {
+                        "number": 1
+                      },
                       "number": 2,
                       "denomination": 12,
                       "bonus": ""
@@ -186,16 +241,30 @@
             {
               "type": "FEAT",
               "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
                 "activities": [
                   {
                     "type": "heal",
                     "name": "Soulful Embracement",
-                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
                     "healing": {
-                      "types": ["hp"],
-                      "custom": { "enabled": false },
-                      "scaling": { "number": 1 },
+                      "types": [
+                        "hp"
+                      ],
+                      "custom": {
+                        "enabled": false
+                      },
+                      "scaling": {
+                        "number": 1
+                      },
                       "number": 3,
                       "denomination": 12,
                       "bonus": ""
@@ -218,16 +287,30 @@
             {
               "type": "FEAT",
               "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
                 "activities": [
                   {
                     "type": "heal",
                     "name": "Transcendent Embracement",
-                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
                     "healing": {
-                      "types": ["hp"],
-                      "custom": { "enabled": false },
-                      "scaling": { "number": 1 },
+                      "types": [
+                        "hp"
+                      ],
+                      "custom": {
+                        "enabled": false
+                      },
+                      "scaling": {
+                        "number": 1
+                      },
                       "number": "4",
                       "denomination": 12,
                       "bonus": ""
@@ -246,14 +329,25 @@
       "application": {
         "weight": 1024,
         "restriction": "SECONDARY",
-        "whitelistedBy": ["ARMOR"],
+        "whitelistedBy": [
+          "ARMOR"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
       "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.5, "value": 2 },
-        { "min": 0.8, "value": 4 }
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.5,
+          "value": 2
+        },
+        {
+          "min": 0.8,
+          "value": 4
+        }
       ],
       "tiers": [
         {
@@ -268,16 +362,31 @@
             {
               "type": "FEAT",
               "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
                 "activities": [
                   {
                     "type": "heal",
                     "name": "Protection",
-                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
                     "healing": {
-                      "types": ["temphp"],
-                      "custom": { "enabled": true, "formula": "@attributes.hd.largest" },
-                      "scaling": { "number": 1 },
+                      "types": [
+                        "temphp"
+                      ],
+                      "custom": {
+                        "enabled": true,
+                        "formula": "@attributes.hd.largest"
+                      },
+                      "scaling": {
+                        "number": 1
+                      },
                       "number": 0,
                       "denomination": 0,
                       "bonus": ""
@@ -300,16 +409,31 @@
             {
               "type": "FEAT",
               "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
                 "activities": [
                   {
                     "type": "heal",
                     "name": "Steadfast Protection",
-                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
                     "healing": {
-                      "types": ["temphp"],
-                      "custom": { "enabled": true, "formula": "@attributes.hd.largest + @attributes.hd.largest" },
-                      "scaling": { "number": 1 },
+                      "types": [
+                        "temphp"
+                      ],
+                      "custom": {
+                        "enabled": true,
+                        "formula": "@attributes.hd.largest + @attributes.hd.largest"
+                      },
+                      "scaling": {
+                        "number": 1
+                      },
                       "number": 0,
                       "denomination": 0,
                       "bonus": ""
@@ -332,16 +456,31 @@
             {
               "type": "FEAT",
               "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
                 "activities": [
                   {
                     "type": "heal",
                     "name": "Indomitable Protection",
-                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
                     "healing": {
-                      "types": ["temphp"],
-                      "custom": { "enabled": true, "formula": "@attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest" },
-                      "scaling": { "number": 1 },
+                      "types": [
+                        "temphp"
+                      ],
+                      "custom": {
+                        "enabled": true,
+                        "formula": "@attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest"
+                      },
+                      "scaling": {
+                        "number": 1
+                      },
                       "number": 0,
                       "denomination": 0,
                       "bonus": ""
@@ -360,14 +499,25 @@
       "application": {
         "weight": 1024,
         "restriction": "SECONDARY",
-        "whitelistedBy": ["ARMOR"],
+        "whitelistedBy": [
+          "ARMOR"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
       "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.5, "value": 2 },
-        { "min": 0.8, "value": 4 }
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.5,
+          "value": 2
+        },
+        {
+          "min": 0.8,
+          "value": 4
+        }
       ],
       "tiers": [
         {
@@ -381,7 +531,11 @@
             {
               "type": "ACTIVE_EFFECT",
               "changes": [
-                { "key": "system.attributes.ac.bonus", "mode": "ADD", "value": "1" }
+                {
+                  "key": "system.attributes.ac.bonus",
+                  "mode": "ADD",
+                  "value": "1"
+                }
               ]
             }
           ],
@@ -398,7 +552,11 @@
             {
               "type": "ACTIVE_EFFECT",
               "changes": [
-                { "key": "system.attributes.ac.bonus", "mode": "ADD", "value": "2" }
+                {
+                  "key": "system.attributes.ac.bonus",
+                  "mode": "ADD",
+                  "value": "2"
+                }
               ]
             }
           ],
@@ -415,7 +573,11 @@
             {
               "type": "ACTIVE_EFFECT",
               "changes": [
-                { "key": "system.attributes.ac.bonus", "mode": "ADD", "value": "3" }
+                {
+                  "key": "system.attributes.ac.bonus",
+                  "mode": "ADD",
+                  "value": "3"
+                }
               ]
             }
           ],
@@ -425,7 +587,7 @@
           "min": 8,
           "flavor": {
             "title": "Ultimate Bastion",
-            "description": "Your AC increases by 3. Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP — temporary HP equal to your level or CR fade at the start of each of your turns",
+            "description": "Your AC increases by 3. Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP \u2014 temporary HP equal to your level or CR fade at the start of each of your turns",
             "disclaimer": null
           },
           "activeEffects": [
@@ -433,34 +595,70 @@
               "type": "ACTIVE_EFFECT",
               "description": "Your AC increases by 3",
               "changes": [
-                { "key": "system.attributes.ac.bonus", "mode": "ADD", "value": "3" }
+                {
+                  "key": "system.attributes.ac.bonus",
+                  "mode": "ADD",
+                  "value": "3"
+                }
               ]
             }
           ],
           "feats": [
             {
               "type": "FEAT",
-              "description": "Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP — temporary HP equal to your level or CR fade at the start of each of your turns",
+              "description": "Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP \u2014 temporary HP equal to your level or CR fade at the start of each of your turns",
               "system": {
-                "activation": { "type": "bonus", "cost": 1, "condition": "" },
-                "uses": { "value": 0, "max": 1, "per": "lr" },
+                "activation": {
+                  "type": "bonus",
+                  "cost": 1,
+                  "condition": ""
+                },
+                "uses": {
+                  "max": 1,
+                  "recovery": [
+                    {
+                      "period": "lr",
+                      "type": "recoverAll"
+                    }
+                  ]
+                },
                 "activities": [
                   {
                     "type": "heal",
                     "name": "Ultimate Bastion",
-                    "activation": { "type": "bonus", "override": false, "condition": "" },
+                    "activation": {
+                      "type": "bonus",
+                      "override": false,
+                      "condition": ""
+                    },
                     "healing": {
-                      "types": ["temphp"],
-                      "custom": { "enabled": true, "formula": "@attributes.hp.max" },
-                      "scaling": { "number": 1 },
+                      "types": [
+                        "temphp"
+                      ],
+                      "custom": {
+                        "enabled": true,
+                        "formula": "@attributes.hp.max"
+                      },
+                      "scaling": {
+                        "number": 1
+                      },
                       "number": 0,
                       "denomination": 0,
                       "bonus": ""
                     },
                     "consumption": {
-                      "scaling": { "allowed": false },
+                      "scaling": {
+                        "allowed": false
+                      },
                       "spellSlot": true,
-                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                      "targets": [
+                        {
+                          "type": "itemUses",
+                          "value": "1",
+                          "target": "",
+                          "scaling": {}
+                        }
+                      ]
                     }
                   }
                 ]
@@ -469,22 +667,32 @@
           ]
         }
       ]
-    }
-  ,
+    },
     {
       "identifier": "TME.VITALITY",
       "type": "TIERED",
       "application": {
         "weight": 1024,
         "restriction": "SECONDARY",
-        "whitelistedBy": ["ARMOR"],
+        "whitelistedBy": [
+          "ARMOR"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
       "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.5, "value": 2 },
-        { "min": 0.8, "value": 4 }
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.5,
+          "value": 2
+        },
+        {
+          "min": 0.8,
+          "value": 4
+        }
       ],
       "tiers": [
         {
@@ -568,7 +776,9 @@
                       "condition": ""
                     },
                     "consumption": {
-                      "scaling": { "allowed": false },
+                      "scaling": {
+                        "allowed": false
+                      },
                       "spellSlot": true,
                       "targets": []
                     }

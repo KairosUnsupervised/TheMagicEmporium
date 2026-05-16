@@ -85,7 +85,6 @@ export interface ActivitySchema {
         };
     };
     uses?: {
-        spent?: number;
         max?: string | number;
         recovery?: ActivityUseRecovery[];
     };
@@ -244,7 +243,6 @@ export const activitySchema = {
         uses: {
             type: "object",
             properties: {
-                spent: {type: "number"},
                 max: {type: ["string", "number"]},
                 recovery: {
                     type: "array",

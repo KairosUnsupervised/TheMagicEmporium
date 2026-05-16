@@ -109,9 +109,13 @@
                   "condition": ""
                 },
                 "uses": {
-                  "value": 0,
                   "max": 1,
-                  "per": "lr"
+                  "recovery": [
+                    {
+                      "period": "lr",
+                      "type": "recoverAll"
+                    }
+                  ]
                 },
                 "activities": [
                   {
@@ -160,9 +164,13 @@
                   "condition": ""
                 },
                 "uses": {
-                  "value": 0,
                   "max": 2,
-                  "per": "lr"
+                  "recovery": [
+                    {
+                      "period": "lr",
+                      "type": "recoverAll"
+                    }
+                  ]
                 },
                 "activities": [
                   {
@@ -211,9 +219,13 @@
                   "condition": ""
                 },
                 "uses": {
-                  "value": 0,
                   "max": 3,
-                  "per": "lr"
+                  "recovery": [
+                    {
+                      "period": "lr",
+                      "type": "recoverAll"
+                    }
+                  ]
                 },
                 "activities": [
                   {
@@ -264,9 +276,13 @@
                   "condition": ""
                 },
                 "uses": {
-                  "value": 0,
                   "max": 4,
-                  "per": "lr"
+                  "recovery": [
+                    {
+                      "period": "lr",
+                      "type": "recoverAll"
+                    }
+                  ]
                 },
                 "activities": [
                   {
@@ -306,9 +322,13 @@
                   "condition": ""
                 },
                 "uses": {
-                  "value": 0,
                   "max": 1,
-                  "per": "lr"
+                  "recovery": [
+                    {
+                      "period": "lr",
+                      "type": "recoverAll"
+                    }
+                  ]
                 },
                 "activities": [
                   {
@@ -419,9 +439,18 @@
         "applies": []
       },
       "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.5, "value": 2 },
-        { "min": 0.8, "value": 4 }
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.5,
+          "value": 2
+        },
+        {
+          "min": 0.8,
+          "value": 4
+        }
       ],
       "tiers": [
         {

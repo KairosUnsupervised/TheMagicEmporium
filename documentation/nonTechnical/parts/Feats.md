@@ -72,18 +72,21 @@ Limits how often the feat can be used before a rest.
 ```json
 "system": {
   "uses": {
-    "value": 0,
     "max": 3,
-    "per": "lr"
+    "recovery": [
+      {
+        "period": "lr",
+        "type": "recoverAll"
+      }
+    ]
   }
 }
 ```
 
-| Field   | Description                                                              |
-|---------|--------------------------------------------------------------------------|
-| `value` | Current uses spent. Set to `0` for a fresh item.                         |
-| `max`   | Maximum uses. Can be a number or a roll formula string (e.g. `"@prof"`). |
-| `per`   | Recovery period: `lr`, `sr`, `day`, `dawn`, `dusk`, or `charges`.       |
+| Field      | Description                                                                              |
+|------------|------------------------------------------------------------------------------------------|
+| `max`      | Maximum uses. Can be a number or a roll formula string (e.g. `"@prof"`, `"{amount}"`).  |
+| `recovery` | Array of recovery rules. Each entry has `period` (`lr`, `sr`, `day`, `dawn`, `dusk`) and `type` (`recoverAll`, `loseAll`, `formula`). |
 
 ---
 
@@ -123,9 +126,13 @@ A feat that deals 4d10 force damage in a 30ft circle, DEX save (half on success)
       "condition": ""
     },
     "uses": {
-      "value": 0,
       "max": 4,
-      "per": "lr"
+      "recovery": [
+        {
+          "period": "lr",
+          "type": "recoverAll"
+        }
+      ]
     },
     "activities": [
       {

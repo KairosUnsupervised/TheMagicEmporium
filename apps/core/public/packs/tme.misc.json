@@ -1,6 +1,6 @@
 {
   "id": "tme.misc",
-  "name": "TME — Miscellaneous Modifiers",
+  "name": "TME \u2014 Miscellaneous Modifiers",
   "description": "Built-in miscellaneous modifiers. General-purpose effects that don't fit a specific category.",
   "enabled": true,
   "modifiers": [
@@ -20,9 +20,18 @@
         "disclaimer": "No reaction required. Parameters must be defined the moment you store the action"
       },
       "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.5, "value": 2 },
-        { "min": 0.8, "value": 3 }
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.5,
+          "value": 2
+        },
+        {
+          "min": 0.8,
+          "value": 3
+        }
       ],
       "activeEffects": [],
       "feats": []
@@ -43,9 +52,18 @@
         "disclaimer": "You can take multiple actions at once, your total amount of actions is pooled per long rest"
       },
       "breakpoints": [
-        { "min": 0,    "value": 1 },
-        { "min": 0.7,  "value": 2 },
-        { "min": 0.95, "value": 3 }
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.7,
+          "value": 2
+        },
+        {
+          "min": 0.95,
+          "value": 3
+        }
       ],
       "activeEffects": [],
       "feats": [
@@ -58,9 +76,13 @@
               "condition": "upon being downed"
             },
             "uses": {
-              "value": 0,
               "max": "{amount}",
-              "per": "lr"
+              "recovery": [
+                {
+                  "period": "lr",
+                  "type": "recoverAll"
+                }
+              ]
             },
             "activities": [
               {
@@ -72,7 +94,9 @@
                   "condition": "upon being downed"
                 },
                 "consumption": {
-                  "scaling": { "allowed": false },
+                  "scaling": {
+                    "allowed": false
+                  },
                   "spellSlot": true,
                   "targets": [
                     {
@@ -105,10 +129,22 @@
         "disclaimer": null
       },
       "breakpoints": [
-        { "min": 0,    "value": 1 },
-        { "min": 0.5,  "value": 2 },
-        { "min": 0.8,  "value": 3 },
-        { "min": 0.95, "value": 4 }
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.5,
+          "value": 2
+        },
+        {
+          "min": 0.8,
+          "value": 3
+        },
+        {
+          "min": 0.95,
+          "value": 4
+        }
       ],
       "activeEffects": [
         {
@@ -135,8 +171,14 @@
         "disclaimer": null
       },
       "breakpoints": [
-        { "min": 0,   "value": 15 },
-        { "min": 0.7, "value": 30 }
+        {
+          "min": 0,
+          "value": 15
+        },
+        {
+          "min": 0.7,
+          "value": 30
+        }
       ],
       "activeEffects": [
         {
@@ -163,10 +205,22 @@
         "disclaimer": null
       },
       "breakpoints": [
-        { "min": 0,    "value": 1 },
-        { "min": 0.5,  "value": 2 },
-        { "min": 0.8,  "value": 3 },
-        { "min": 0.95, "value": 4 }
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.5,
+          "value": 2
+        },
+        {
+          "min": 0.8,
+          "value": 3
+        },
+        {
+          "min": 0.95,
+          "value": 4
+        }
       ],
       "activeEffects": [],
       "feats": []
@@ -415,29 +469,52 @@
             {
               "type": "FEAT",
               "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "uses": { "value": 0, "max": 1, "per": "lr" },
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
+                "uses": {
+                  "max": 1,
+                  "recovery": [
+                    {
+                      "period": "lr",
+                      "type": "recoverAll"
+                    }
+                  ]
+                },
                 "activities": [
                   {
                     "type": "save",
                     "name": "Mocking",
-                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
                     "save": {
                       "ability": "wis",
-                      "dc": { "calculation": "wis", "formula": "" }
+                      "dc": {
+                        "calculation": "wis",
+                        "formula": ""
+                      }
                     },
                     "damage": {
                       "parts": [
                         {
                           "number": 1,
                           "denomination": 4,
-                          "types": ["psychic"],
+                          "types": [
+                            "psychic"
+                          ],
                           "bonus": ""
                         }
                       ]
                     },
                     "consumption": {
-                      "scaling": { "allowed": false },
+                      "scaling": {
+                        "allowed": false
+                      },
                       "spellSlot": true,
                       "targets": [
                         {
