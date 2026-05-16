@@ -532,6 +532,29 @@
           ]
         }
       ]
+    },
+    {
+      "identifier": "TME.UNACCOUNTABLE",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Unaccountable",
+            "description": "You cannot be counterspelled",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
     }
   ]
 }
