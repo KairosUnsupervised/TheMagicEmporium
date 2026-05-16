@@ -322,6 +322,42 @@
       "feats": []
     },
     {
+      "identifier": "TME.MIGHTY",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [
+          "WEAPON"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Mighty",
+            "description": "This weapon now deals force damage and gains +4 bonus to damage",
+            "disclaimer": null
+          },
+          "changes": [
+            {
+              "key": "system.damage.base.types",
+              "operation": "APPEND",
+              "value": "force"
+            },
+            {
+              "key": "system.damage.base.bonus",
+              "operation": "ADD",
+              "value": "4"
+            }
+          ],
+          "activities": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.BLOODTHIRSTY",
       "type": "UNIQUE",
       "application": {
