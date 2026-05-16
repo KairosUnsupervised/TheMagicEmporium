@@ -928,6 +928,111 @@
           "feats": []
         }
       ]
+    },
+    {
+      "identifier": "TME.HONK_AND_SMITE",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Honk & Smite",
+            "description": "As an action, retcon 1d4 goose into existence near you. You can have up to 2 goose at once. They will follow your screamed commands no matter the cost",
+            "disclaimer": "You also get the ability to speak with goose"
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "damage",
+                    "name": "Goose Count",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "damage": {
+                      "parts": [
+                        { "number": 1, "denomination": 4, "bonus": "", "types": [] }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Greater Honk & Smite",
+            "description": "As an action, retcon 1d4 goose into existence near you. You can have up to 4 goose at once. They will follow your screamed commands no matter the cost",
+            "disclaimer": "You also get the ability to speak with goose"
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "damage",
+                    "name": "Goose Count",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "damage": {
+                      "parts": [
+                        { "number": 1, "denomination": 4, "bonus": "", "types": [] }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Supreme Honk & Smite",
+            "description": "As an action, retcon 1d4 goose into existence near you. You can have up to 6 goose at once. They will follow your screamed commands no matter the cost",
+            "disclaimer": "You also get the ability to speak with goose"
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "activities": [
+                  {
+                    "type": "damage",
+                    "name": "Goose Count",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "damage": {
+                      "parts": [
+                        { "number": 1, "denomination": 4, "bonus": "", "types": [] }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

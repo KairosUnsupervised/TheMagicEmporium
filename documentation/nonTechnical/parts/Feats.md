@@ -110,6 +110,8 @@ Activities define the mechanics of the feat when used. See [Activities.md](Activ
 | `type` | `save`, `damage`, `heal`, `utility`, `attack`, `enchant`, or `summon`. |
 | `name` | Label shown in the chat card and character sheet.                       |
 
+> **No useless activities.** Only add an activity when it provides mechanical value (rolls dice, tracks a save, heals, etc.). Do not add a `utility` activity just to represent an activation type — the `system.activation` field already conveys that. If the flavor description already fully describes the mechanic and there is nothing for the player to click, leave `activities` empty.
+
 ---
 
 ## Full Example
