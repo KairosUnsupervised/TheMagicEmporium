@@ -296,6 +296,32 @@
       "feats": []
     },
     {
+      "identifier": "TME.FOCUSED",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [
+          "WEAPON"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Focused",
+        "description": "On attack rolls, you can't roll below a {amount}",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        { "min": 0,    "value": 1 },
+        { "min": 0.5,  "value": 2 },
+        { "min": 0.8,  "value": 3 },
+        { "min": 0.95, "value": 4 }
+      ],
+      "activeEffects": [],
+      "feats": []
+    },
+    {
       "identifier": "TME.BLOODTHIRSTY",
       "type": "UNIQUE",
       "application": {
