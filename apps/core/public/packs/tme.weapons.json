@@ -380,7 +380,7 @@
           "changes": [
             {
               "key": "system.damage.base.denomination",
-              "operation": "OVERRIDE",
+              "operation": "SET",
               "value": "4"
             },
             {

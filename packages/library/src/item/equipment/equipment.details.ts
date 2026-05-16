@@ -9,6 +9,29 @@ enum FoundryType {
 	Equipment = 'equipment',
 }
 
+interface System {
+	// Base Weapon Damage
+	damage?: {
+		base: {
+			// Amount of Dice
+			number: number;
+			// What dice size, e.g. 8 => D8
+			denomination: number;
+			// Damage Bonus
+			bonus: number;
+			// Damage Type e.g. bludgeoning / slashing
+			types: string[]
+		}
+		versatile?: {
+			number: number;
+			denomination: number;
+			bonus: number;
+			types: string[]
+		}
+	}
+	[key: string]: any;
+}
+
 interface EquipmentDetail {
 	title: string;
 	altTitles?: string[];
@@ -20,7 +43,7 @@ interface EquipmentDetail {
 	icon: Icon;
 	foundry: {
 		type: FoundryType;
-		system: object;
+		system: System;
 		activities?: ActivitySchema[]
 	};
 }
@@ -549,8 +572,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d4[bludgeoning] + @mod', 'bludgeoning']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 4,
+						bonus: 0,
+						types: ['bludgeoning']
+					}
 				},
 			},
 		},
@@ -582,8 +609,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d4[piercing] + @mod', 'piercing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 4,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -614,8 +645,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d8 + @mod', 'bludgeoning']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 8,
+						bonus: 0,
+						types: ['bludgeoning']
+					}
 				},
 			},
 		},
@@ -646,8 +681,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d6 + @mod', 'slashing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 6,
+						bonus: 0,
+						types: ['slashing']
+					}
 				},
 			},
 		},
@@ -678,8 +717,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d6 + @mod', 'piercing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 6,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -710,8 +753,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d4 + @mod', 'bludgeoning']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 4,
+						bonus: 0,
+						types: ['bludgeoning']
+					}
 				},
 			},
 		},
@@ -742,8 +789,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d6 + @mod', 'bludgeoning']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 6,
+						bonus: 0,
+						types: ['bludgeoning']
+					}
 				},
 			},
 		},
@@ -774,8 +825,18 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d6 + @mod', 'bludgeoning']],
-					versatile: '1d8 + @mod',
+					base: {
+						number: 1,
+						denomination: 6,
+						bonus: 0,
+						types: ['bludgeoning']
+					},
+					versatile: {
+						number: 1,
+						denomination: 8,
+						bonus: 0,
+						types: ['bludgeoning']
+					}
 				},
 			},
 		},
@@ -806,8 +867,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d4 + @mod', 'slashing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 4,
+						bonus: 0,
+						types: ['slashing']
+					}
 				},
 			},
 		},
@@ -838,8 +903,18 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d6[piercing] + @mod', 'piercing']],
-					versatile: '1d8[piercing] + @mod',
+					base: {
+						number: 1,
+						denomination: 6,
+						bonus: 0,
+						types: ['piercing']
+					},
+					versatile: {
+						number: 1,
+						denomination: 8,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -872,8 +947,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d8[piercing] + @mod', 'piercing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 8,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -905,8 +984,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d4[piercing] + @mod', 'piercing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 4,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -938,8 +1021,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d6[piercing] + @mod', 'piercing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 6,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -971,8 +1058,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d4[bludgeoning] + @mod', 'bludgeoning']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 4,
+						bonus: 0,
+						types: ['bludgeoning']
+					}
 				},
 			},
 		},
@@ -1004,8 +1095,18 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d8 + @mod', 'slashing']],
-					versatile: '1d10 + @mod',
+					base: {
+						number: 1,
+						denomination: 8,
+						bonus: 0,
+						types: ['slashing']
+					},
+					versatile: {
+						number: 1,
+						denomination: 10,
+						bonus: 0,
+						types: ['slashing']
+					}
 				},
 			},
 		},
@@ -1036,8 +1137,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d8 + @mod', 'bludgeoning']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 8,
+						bonus: 0,
+						types: ['bludgeoning']
+					}
 				},
 			},
 		},
@@ -1068,8 +1173,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d10 + @mod', 'slashing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 10,
+						bonus: 0,
+						types: ['slashing']
+					}
 				},
 			},
 		},
@@ -1100,8 +1209,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d12 + @mod', 'slashing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 12,
+						bonus: 0,
+						types: ['slashing']
+					}
 				},
 			},
 		},
@@ -1132,8 +1245,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['2d6 + @mod', 'slashing']],
-					versatile: '',
+					base: {
+						number: 2,
+						denomination: 6,
+						bonus: 0,
+						types: ['slashing']
+					}
 				},
 			},
 		},
@@ -1164,8 +1281,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d10 + @mod', 'slashing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 10,
+						bonus: 0,
+						types: ['slashing']
+					}
 				},
 			},
 		},
@@ -1196,8 +1317,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d12 + @mod', 'piercing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 12,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -1228,8 +1353,18 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d8 + @mod', 'slashing']],
-					versatile: '1d10 + @mod',
+					base: {
+						number: 1,
+						denomination: 8,
+						bonus: 0,
+						types: ['slashing']
+					},
+					versatile: {
+						number: 1,
+						denomination: 10,
+						bonus: 0,
+						types: ['slashing']
+					}
 				},
 			},
 		},
@@ -1260,8 +1395,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['2d6[bludgeoning] + @mod', 'bludgeoning']],
-					versatile: '',
+					base: {
+						number: 2,
+						denomination: 6,
+						bonus: 0,
+						types: ['bludgeoning']
+					}
 				},
 			},
 		},
@@ -1292,8 +1431,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d8[piercing] + @mod', 'piercing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 8,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -1324,8 +1467,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d10[piercing] + @mod', 'piercing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 10,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -1356,8 +1503,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d8[piercing] + @mod', 'piercing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 8,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -1388,8 +1539,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d6[slashing] + @mod', 'slashing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 6,
+						bonus: 0,
+						types: ['slashing']
+					}
 				},
 			},
 		},
@@ -1420,8 +1575,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d6[piercing] + @mod', 'piercing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 6,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -1452,8 +1611,18 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d6[piercing] + @mod', 'piercing']],
-					versatile: '1d8[piercing] + @mod',
+					base: {
+						number: 1,
+						denomination: 6,
+						bonus: 0,
+						types: ['piercing']
+					},
+					versatile: {
+						number: 1,
+						denomination: 8,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -1484,8 +1653,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d8[piercing] + @mod', 'piercing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 8,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -1516,8 +1689,18 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d8[bludgeoning] + @mod', 'bludgeoning']],
-					versatile: '1d10[bludgeoning] + @mod',
+					base: {
+						number: 1,
+						denomination: 8,
+						bonus: 0,
+						types: ['bludgeoning']
+					},
+					versatile: {
+						number: 1,
+						denomination: 10,
+						bonus: 0,
+						types: ['bludgeoning']
+					}
 				},
 			},
 		},
@@ -1548,8 +1731,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d4[slashing] + @mod', 'slashing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 4,
+						bonus: 0,
+						types: ['slashing']
+					}
 				},
 			},
 		},
@@ -1582,8 +1769,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['+ @mod + 1', 'piercing']],
-					versatile: '',
+					base: {
+						number: 0,
+						denomination: 0,
+						bonus: 1,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -1615,8 +1806,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d6[piercing] + @mod', 'piercing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 6,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -1648,8 +1843,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d10[piercing] + @mod', 'piercing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 10,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -1681,8 +1880,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['1d8[piercing] + @mod', 'piercing']],
-					versatile: '',
+					base: {
+						number: 1,
+						denomination: 8,
+						bonus: 0,
+						types: ['piercing']
+					}
 				},
 			},
 		},
@@ -1714,8 +1917,12 @@ export const equipmentDetails: {
 					units: 'ft',
 				},
 				damage: {
-					parts: [['+ @mod', 'bludgeoning']],
-					versatile: '',
+					base: {
+						number: 0,
+						denomination: 0,
+						bonus: 0,
+						types: ['bludgeoning']
+					}
 				},
 			},
 		},
