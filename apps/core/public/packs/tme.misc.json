@@ -905,6 +905,29 @@
           "feats": []
         }
       ]
+    },
+    {
+      "identifier": "TME.HEROISM",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Heroism",
+            "description": "You have advantage on saving throws vs. fear effects",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
     }
   ]
 }
