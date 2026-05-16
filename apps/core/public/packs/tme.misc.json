@@ -855,6 +855,56 @@
           ]
         }
       ]
+    },
+    {
+      "identifier": "TME.HEALING_SURGE",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [
+          "WEAPON"
+        ],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Healing Surge",
+            "description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
+            "disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Does not chain"
+          },
+          "activeEffects": [],
+          "feats": []
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Chained Healing Surge",
+            "description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
+            "disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Chains once with stacking efficiency loss"
+          },
+          "activeEffects": [],
+          "feats": []
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Cascading Healing Surge",
+            "description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
+            "disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Chains twice with stacking efficiency loss"
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
     }
   ]
 }
