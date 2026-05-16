@@ -411,6 +411,56 @@
       "feats": []
     },
     {
+      "identifier": "TME.DETERMINED",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [
+          "WEAPON"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Determined",
+            "description": "You can reroll 1's on your weapon induced damage dice, 1 reroll. The new rolls must be used",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Fiercely Determined",
+            "description": "You can reroll 1-2's on your weapon induced damage dice, up to 2 rerolls. The new rolls must be used",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Relentlessly Determined",
+            "description": "You can reroll 1-3's on your weapon induced damage dice, up to 3 rerolls. The new rolls must be used",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.DIVINE_REDISTRIBUTION",
       "type": "TIERED",
       "application": {
