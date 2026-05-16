@@ -1176,6 +1176,31 @@
           ]
         }
       ]
+    },
+    {
+      "identifier": "TME.SHIELD_HOOK",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [
+          "ARMOR_WITH_ARMOR_CLASS"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Shieldhook",
+            "description": "You can attach a shield to this armor. Any actions requiring two hands or the use of the hand nearest to the attached shield are done with disadvantage",
+            "disclaimer": null
+          },
+          "changes": [],
+          "activities": []
+        }
+      ]
     }
   ]
 }
