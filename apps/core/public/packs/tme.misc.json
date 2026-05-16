@@ -708,6 +708,153 @@
           ]
         }
       ]
+    },
+    {
+      "identifier": "TME.FIND_SNAIL",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Find Snail",
+            "description": "Once per long rest, as an action, summon a giant rideable snail to aid you. The snail has 2d10+4 HP and 30 ft movement speed",
+            "disclaimer": "Works like 'Find Steed' with the stats of a warhorse"
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "uses": {
+                  "max": 1,
+                  "recovery": [{ "period": "lr", "type": "recoverAll" }]
+                },
+                "activities": [
+                  {
+                    "type": "utility",
+                    "name": "Find Snail",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "consumption": {
+                      "scaling": { "allowed": false },
+                      "spellSlot": true,
+                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                    }
+                  },
+                  {
+                    "type": "damage",
+                    "name": "Snail HP",
+                    "activation": { "type": "special", "override": false, "condition": "" },
+                    "damage": {
+                      "parts": [
+                        { "number": 2, "denomination": 10, "bonus": "4", "types": [] }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Find Greater Snail",
+            "description": "Once per long rest, as an action, summon a giant rideable snail to aid you. The snail has 4d10+6 HP and 45 ft movement speed",
+            "disclaimer": "Works like 'Find Steed' with the stats of a warhorse"
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "uses": {
+                  "max": 1,
+                  "recovery": [{ "period": "lr", "type": "recoverAll" }]
+                },
+                "activities": [
+                  {
+                    "type": "utility",
+                    "name": "Find Greater Snail",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "consumption": {
+                      "scaling": { "allowed": false },
+                      "spellSlot": true,
+                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                    }
+                  },
+                  {
+                    "type": "damage",
+                    "name": "Snail HP",
+                    "activation": { "type": "special", "override": false, "condition": "" },
+                    "damage": {
+                      "parts": [
+                        { "number": 4, "denomination": 10, "bonus": "6", "types": [] }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Find Elder Snail",
+            "description": "Once per long rest, as an action, summon a giant rideable snail to aid you. The snail has 6d10+8 HP and 60 ft movement speed",
+            "disclaimer": "Works like 'Find Steed' with the stats of a warhorse"
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "action", "cost": 1, "condition": "" },
+                "uses": {
+                  "max": 1,
+                  "recovery": [{ "period": "lr", "type": "recoverAll" }]
+                },
+                "activities": [
+                  {
+                    "type": "utility",
+                    "name": "Find Elder Snail",
+                    "activation": { "type": "action", "override": false, "condition": "" },
+                    "consumption": {
+                      "scaling": { "allowed": false },
+                      "spellSlot": true,
+                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                    }
+                  },
+                  {
+                    "type": "damage",
+                    "name": "Snail HP",
+                    "activation": { "type": "special", "override": false, "condition": "" },
+                    "damage": {
+                      "parts": [
+                        { "number": 6, "denomination": 10, "bonus": "8", "types": [] }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
