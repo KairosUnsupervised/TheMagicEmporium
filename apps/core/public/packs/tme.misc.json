@@ -1128,6 +1128,54 @@
       ],
       "activeEffects": [],
       "feats": []
+    },
+    {
+      "identifier": "TME.REVENANT",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Revenant",
+            "description": "Once per long rest, as a bonus action, you can shadow step from one area of dim light or darkness to another within 60 feet",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": { "type": "bonus", "cost": 1, "condition": "" },
+                "uses": {
+                  "max": 1,
+                  "recovery": [
+                    { "period": "lr", "type": "recoverAll" }
+                  ]
+                },
+                "activities": [
+                  {
+                    "type": "utility",
+                    "name": "Shadow Step",
+                    "activation": { "type": "bonus", "override": false, "condition": "" },
+                    "consumption": {
+                      "scaling": { "allowed": false },
+                      "spellSlot": true,
+                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
