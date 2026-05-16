@@ -404,6 +404,57 @@
       ],
       "activeEffects": [],
       "feats": []
+    },
+    {
+      "identifier": "TME.OVERCHARGED",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [
+          "ACCESSORY",
+          "ARMOR_CLOTHES"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Overcharged",
+            "description": "You can reroll 1's on your spell induced damage dice, 1 reroll. The new rolls must be used",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Severely Overcharged",
+            "description": "You can reroll 1-2's on your spell induced damage dice, 2 rerolls. The new rolls must be used",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Wildly Overcharged",
+            "description": "You can reroll 1-3's on your spell induced damage dice, 3 rerolls. The new rolls must be used",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
     }
   ]
 }
