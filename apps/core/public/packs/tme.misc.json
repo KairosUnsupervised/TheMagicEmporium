@@ -534,11 +534,34 @@
       ]
     },
     {
-      "identifier": "TME.UNACCOUNTABLE",
+      "identifier": "TME.COUNT_ON_IT",
       "type": "UNIQUE",
       "application": {
         "weight": 1024,
         "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Count on It",
+            "description": "Your counterspells cannot be counterspelled",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    },
+    {
+      "identifier": "TME.UNACCOUNTABLE",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
         "whitelistedBy": [],
         "blacklistedBy": [],
         "applies": []
