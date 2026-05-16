@@ -559,6 +559,31 @@
       ]
     },
     {
+      "identifier": "TME.PROFITEER",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [
+          "WEAPON"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Profiteer",
+        "description": "Gain {amount} gold when a tagged hostile creature dies",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 5 },
+        { "min": 0.5,   "value": 9 },
+        { "min": 0.8, "value": 18 }
+      ],
+      "activeEffects": [],
+      "feats": []
+    },
+    {
       "identifier": "TME.DIVINE_REDISTRIBUTION",
       "type": "TIERED",
       "application": {
