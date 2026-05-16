@@ -136,7 +136,7 @@
           "min": 0,
           "flavor": {
             "title": "Restorative",
-            "description": "This item can be consumed like a potion of healing",
+            "description": "This item can be consumed like a potion for healing",
             "disclaimer": "Gain 2 Hit Dice + 2 HP"
           },
           "changes": [],
@@ -170,7 +170,7 @@
           "min": 0.5,
           "flavor": {
             "title": "Greater Restorative",
-            "description": "This item can be consumed like a potion of healing",
+            "description": "This item can be consumed like a potion for healing",
             "disclaimer": "Gain 4 Hit Dice + 4 HP"
           },
           "changes": [],
@@ -204,7 +204,7 @@
           "min": 0.7,
           "flavor": {
             "title": "Superior Restorative",
-            "description": "This item can be consumed like a potion of healing",
+            "description": "This item can be consumed like a potion for healing",
             "disclaimer": "Gain 8 Hit Dice + 8 HP"
           },
           "changes": [],
