@@ -1,6 +1,6 @@
 {
   "id": "tme.accessories",
-  "name": "TME \u2014 Accessory Modifiers",
+  "name": "TME — Accessory Modifiers",
   "description": "Built-in accessory modifiers. Spellcasting enhancements, concentration effects, and general-purpose abilities.",
   "enabled": true,
   "modifiers": [

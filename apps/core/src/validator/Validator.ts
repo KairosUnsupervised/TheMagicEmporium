@@ -20,7 +20,7 @@ interface ModifiersMapped {
         data: unknown[]
     }
 }
-
+// TODO On Item Delete or duplicate
 export class Validator {
     public validate = async (actor: Actor5e) => {
 
