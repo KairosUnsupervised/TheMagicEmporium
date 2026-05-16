@@ -470,5 +470,115 @@
         }
       ]
     }
+  ,
+    {
+      "identifier": "TME.VITALITY",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": ["ARMOR"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "Vitality",
+            "description": "Gain 1 max HP per level",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "key": "system.attributes.hp.bonuses.level",
+              "mode": "ADD",
+              "value": 1
+            }
+          ],
+          "feats": []
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "Greater Vitality",
+            "description": "Gain 2 max HP per level",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "key": "system.attributes.hp.bonuses.level",
+              "mode": "ADD",
+              "value": 2
+            }
+          ],
+          "feats": []
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "Superior Vitality",
+            "description": "Gain 3 max HP per level",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "key": "system.attributes.hp.bonuses.level",
+              "mode": "ADD",
+              "value": 3
+            }
+          ],
+          "feats": []
+        },
+        {
+          "min": 8,
+          "flavor": {
+            "title": "Supreme Vitality",
+            "description": "Gain 4 max HP per level. As an action you can choose up to two other willing targets in sight and equalize your combined HP",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "key": "system.attributes.hp.bonuses.level",
+              "mode": "ADD",
+              "value": 4
+            }
+          ],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": {
+                  "type": "action",
+                  "cost": 1,
+                  "condition": ""
+                },
+                "activities": [
+                  {
+                    "type": "utility",
+                    "name": "Supreme Vitality",
+                    "activation": {
+                      "type": "action",
+                      "override": false,
+                      "condition": ""
+                    },
+                    "consumption": {
+                      "scaling": { "allowed": false },
+                      "spellSlot": true,
+                      "targets": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
