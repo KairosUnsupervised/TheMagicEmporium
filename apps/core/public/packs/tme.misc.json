@@ -1056,6 +1056,54 @@
           "feats": []
         }
       ]
+    },
+    {
+      "identifier": "TME.NO_MATTER_THE_COST",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "No Matter The Cost",
+            "description": "As an action, with the help of a weapon or spell attack, execute a friendly creature below 12 HP. Forcefully motivate 1 creature of your choosing within 30ft to gain the effects of help",
+            "disclaimer": "You cannot motivate yourself"
+          },
+          "activeEffects": [],
+          "feats": []
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "No Matter The Cost.",
+            "description": "As an action, with the help of a weapon or spell attack, execute a friendly creature below 12 HP. Forcefully motivate 2 creatures of your choosing within 30ft to gain the effects of help",
+            "disclaimer": "You cannot motivate yourself"
+          },
+          "activeEffects": [],
+          "feats": []
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "No Matter The Cost!",
+            "description": "As an action, with the help of a weapon or spell attack, execute a friendly creature below 12 HP. Forcefully motivate 3 creatures of your choosing within 30ft to gain the effects of help",
+            "disclaimer": "You cannot motivate yourself"
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
     }
   ]
 }
