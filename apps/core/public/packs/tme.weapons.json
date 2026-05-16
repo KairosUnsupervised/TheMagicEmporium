@@ -296,10 +296,35 @@
       "feats": []
     },
     {
+      "identifier": "TME.BLOODTHIRSTY",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [
+          "WEAPON"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Bloodthirsty",
+            "description": "On direct creature kill, you gain advantage on your next attack",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.BACKSTABBY",
       "type": "LINEAR",
       "application": {
-        "weight": 10,
+        "weight": 1024,
         "restriction": "PRIMARY",
         "whitelistedBy": [
           "WEAPON"
