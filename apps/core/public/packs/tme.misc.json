@@ -172,6 +172,87 @@
       "feats": []
     },
     {
+      "identifier": "TME.LUSTROUS",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [
+          "ECONOMY"
+        ],
+        "applies": [
+          "ECONOMY"
+        ]
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Lustrous",
+            "description": "The item value is increased by 75",
+            "disclaimer": null
+          },
+          "changes": [
+            {
+              "key": "system.price.value",
+              "operation": "ADD",
+              "value": "75"
+            }
+          ],
+          "activities": []
+        },
+        {
+          "min": 0.5,
+          "flavor": {
+            "title": "Finely Lustrous",
+            "description": "The item value is increased by 125",
+            "disclaimer": null
+          },
+          "changes": [
+            {
+              "key": "system.price.value",
+              "operation": "ADD",
+              "value": "125"
+            }
+          ],
+          "activities": []
+        },
+        {
+          "min": 0.7,
+          "flavor": {
+            "title": "Richly Lustrous",
+            "description": "The item value is increased by 225",
+            "disclaimer": null
+          },
+          "changes": [
+            {
+              "key": "system.price.value",
+              "operation": "ADD",
+              "value": "225"
+            }
+          ],
+          "activities": []
+        },
+        {
+          "min": 0.9,
+          "flavor": {
+            "title": "Opulently Lustrous",
+            "description": "The item value is increased by 450",
+            "disclaimer": null
+          },
+          "changes": [
+            {
+              "key": "system.price.value",
+              "operation": "ADD",
+              "value": "450"
+            }
+          ],
+          "activities": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.UNDYING",
       "type": "UNIQUE",
       "application": {

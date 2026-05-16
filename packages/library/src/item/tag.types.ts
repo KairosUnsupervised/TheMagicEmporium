@@ -24,6 +24,7 @@ export enum Tag {
 	Score = 'SCORE', // Indicates that a modifier on the item already grants score bonuses
 	Consumable = 'CONSUMABLE', // Indicates that this item already has a consumable modifier applied
 	SelfImmolation = 'SELF_IMMOLATION',
+	Economy = "ECONOMY",
 
 	/**
 	 * Skill Modifier Tags
