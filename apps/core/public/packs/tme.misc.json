@@ -555,6 +555,60 @@
           "feats": []
         }
       ]
+    },
+    {
+      "identifier": "TME.BATTLE_MAGE",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Battle Mage",
+        "description": "While you are concentrating on a spell, your melee attacks deal an additional {amount}d4 damage",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.7, "value": 2 }
+      ],
+      "activeEffects": [],
+      "feats": [
+        {
+          "type": "FEAT",
+          "system": {
+            "activation": {
+              "type": "special",
+              "cost": null,
+              "condition": "while concentrating on a spell, on a melee hit"
+            },
+            "activities": [
+              {
+                "type": "damage",
+                "name": "Battle Mage",
+                "activation": {
+                  "type": "special",
+                  "override": false,
+                  "condition": "while concentrating on a spell, on a melee hit"
+                },
+                "damage": {
+                  "parts": [
+                    {
+                      "number": "{amount}",
+                      "denomination": 4,
+                      "bonus": "",
+                      "types": []
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

@@ -14,7 +14,7 @@ export interface ActivityConsumptionTarget {
 }
 
 export interface ActivityDamagePart {
-    number?: number;
+    number?: number | string;
     denomination?: number;
     bonus?: string;
     types?: string[];
@@ -274,7 +274,7 @@ export const activitySchema = {
                     items: {
                         type: "object",
                         properties: {
-                            number: {type: "number"},
+                            number: {type: ["number", "string"]},
                             denomination: {type: "number"},
                             bonus: {type: "string"},
                             types: {type: "array", items: {type: "string"}},
