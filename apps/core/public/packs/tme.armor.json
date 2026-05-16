@@ -789,6 +789,31 @@
           ]
         }
       ]
+    },
+    {
+      "identifier": "TME.STRIDER",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [
+          "ARMOR_WITH_ARMOR_CLASS"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Strider",
+            "description": "Your movement is unimpeded by non-magical difficult terrain",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
     }
   ]
 }
