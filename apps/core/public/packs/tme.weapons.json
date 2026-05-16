@@ -386,6 +386,31 @@
       ]
     },
     {
+      "identifier": "TME.CRITICALLY_ACCLAIMED",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [
+          "WEAPON"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Critically Acclaimed",
+        "description": "Gain +{amount} critical range",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.9, "value": 3 }
+      ],
+      "activeEffects": [],
+      "feats": []
+    },
+    {
       "identifier": "TME.DIVINE_REDISTRIBUTION",
       "type": "TIERED",
       "application": {
