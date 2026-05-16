@@ -632,6 +632,82 @@
           }
         }
       ]
+    },
+    {
+      "identifier": "TME.ARCANE_VOLATILITY",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [
+          "WEAPON"
+        ],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Arcane Volatility",
+            "description": "Upon casting a leveled spell, roll a d20. If 10 or lower, subtract a d4 from the spell level. If higher than 10, add a d4 to the spell level",
+            "disclaimer": "Under or over leveled spells change according to their upcast description"
+          },
+          "activeEffects": [],
+          "feats": [
+            {
+              "type": "FEAT",
+              "system": {
+                "activation": {
+                  "type": "special",
+                  "cost": null,
+                  "condition": "upon casting a leveled spell"
+                },
+                "activities": [
+                  {
+                    "type": "damage",
+                    "name": "Volatility Check",
+                    "activation": {
+                      "type": "special",
+                      "override": false,
+                      "condition": "upon casting a leveled spell"
+                    },
+                    "damage": {
+                      "parts": [
+                        {
+                          "number": 1,
+                          "denomination": 20,
+                          "bonus": "",
+                          "types": []
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "damage",
+                    "name": "Volatility Shift",
+                    "activation": {
+                      "type": "special",
+                      "override": false,
+                      "condition": "upon casting a leveled spell"
+                    },
+                    "damage": {
+                      "parts": [
+                        {
+                          "number": 1,
+                          "denomination": 4,
+                          "bonus": "",
+                          "types": []
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
