@@ -1715,6 +1715,81 @@
           }
         }
       ]
+    },
+    {
+      "identifier": "TME.HARDENED",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["ARMOR", "ACCESSORY"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Hardened",
+        "description": "Reduce one instance of non-magical damage by {amount}, 3 times per long rest",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "value": 2
+        },
+        {
+          "min": 0.4,
+          "value": 4
+        },
+        {
+          "min": 0.75,
+          "value": 6
+        }
+      ],
+      "activeEffects": [],
+      "feats": [
+        {
+          "type": "FEAT",
+          "system": {
+            "activation": {
+              "type": "reaction",
+              "cost": 1,
+              "condition": "when taking non-magical damage"
+            },
+            "uses": {
+              "max": 3,
+              "recovery": [
+                {
+                  "period": "lr",
+                  "type": "recoverAll"
+                }
+              ]
+            },
+            "activities": [
+              {
+                "type": "utility",
+                "name": "Hardened",
+                "activation": {
+                  "type": "reaction",
+                  "override": false,
+                  "condition": "when taking non-magical damage"
+                },
+                "consumption": {
+                  "scaling": { "allowed": false },
+                  "spellSlot": false,
+                  "targets": [
+                    {
+                      "type": "itemUses",
+                      "value": "1",
+                      "target": "",
+                      "scaling": {}
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }
