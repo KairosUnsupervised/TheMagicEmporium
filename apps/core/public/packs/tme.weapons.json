@@ -927,6 +927,34 @@
           "activities": []
         }
       ]
+    },
+    {
+      "identifier": "TME.RUNNING_HOT",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["WEAPON_MELEE"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Running Hot",
+        "description": "Your Melee attacks gain bonus fire damage, each 20% of your missing HP grant you +{amount} fire damage",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.8,
+          "value": 2
+        }
+      ],
+      "activeEffects": [],
+      "feats": []
     }
   ]
 }
