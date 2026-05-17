@@ -1178,6 +1178,29 @@
       ]
     },
     {
+      "identifier": "TME.HIDDEN_DEPTHS",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": ["ACCESSORY", "ARMOR"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Hidden Depths",
+            "description": "Gain a bonus to Investigation and Insight checks that increases the lower your current HP is, each 10% missing HP grant you +1",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.RELUCTANT_SAVIOR",
       "type": "UNIQUE",
       "application": {
