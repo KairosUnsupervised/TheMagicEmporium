@@ -639,10 +639,8 @@
       "application": {
         "weight": 1024,
         "restriction": "TERTIARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "WEAPON"
-        ],
+        "whitelistedBy": ["ARMOR", "ACCESSORY"],
+        "blacklistedBy": [],
         "applies": []
       },
       "breakpoints": [
@@ -862,10 +860,8 @@
       "application": {
         "weight": 1024,
         "restriction": "TERTIARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "WEAPON"
-        ],
+        "whitelistedBy": ["ARMOR", "ACCESSORY"],
+        "blacklistedBy": [],
         "applies": []
       },
       "breakpoints": [
