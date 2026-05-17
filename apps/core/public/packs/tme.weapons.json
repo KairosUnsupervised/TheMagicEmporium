@@ -1213,7 +1213,7 @@
       "type": "UNIQUE",
       "application": {
         "weight": 1024,
-        "restriction": "SECONDARY",
+        "restriction": "TERTIARY",
         "whitelistedBy": [
           "WEAPON"
         ],
@@ -1226,7 +1226,7 @@
           "flavor": {
             "title": "Escalating Edge",
             "description": "This weapon deals 1 extra damage for each consecutive turn it has been unsheathed",
-            "disclaimer": "Bonus resets when the weapon is sheathed or combat ends"
+            "disclaimer": "Bonus resets when the weapon is sheathed, combat ends or the weapon is unequipped in any way"
           },
           "changes": [],
           "activities": []
