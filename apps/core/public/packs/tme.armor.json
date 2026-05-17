@@ -1171,6 +1171,57 @@
           ]
         }
       ]
+    },
+    {
+      "identifier": "TME.FORTIFIED",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [
+          "ARMOR_WITH_ARMOR_CLASS"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "+1 Fortified",
+            "description": "This armor gains a +1 bonus to AC",
+            "disclaimer": null
+          },
+          "changes": [
+            { "key": "system.armor.magicalBonus", "operation": "ADD", "value": "1" }
+          ],
+          "activities": []
+        },
+        {
+          "min": 0.5,
+          "flavor": {
+            "title": "+2 Fortified",
+            "description": "This armor gains a +2 bonus to AC",
+            "disclaimer": null
+          },
+          "changes": [
+            { "key": "system.armor.magicalBonus", "operation": "ADD", "value": "2" }
+          ],
+          "activities": []
+        },
+        {
+          "min": 0.8,
+          "flavor": {
+            "title": "+3 Fortified",
+            "description": "This armor gains a +3 bonus to AC",
+            "disclaimer": null
+          },
+          "changes": [
+            { "key": "system.armor.magicalBonus", "operation": "ADD", "value": "3" }
+          ],
+          "activities": []
+        }
+      ]
     }
   ]
 }
