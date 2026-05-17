@@ -1083,6 +1083,29 @@
           "activities": []
         }
       ]
+    },
+    {
+      "identifier": "TME.SILENCED",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["WEAPON"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Silenced",
+            "description": "Attacks with this weapon make no sound",
+            "disclaimer": null
+          },
+          "changes": [],
+          "activities": []
+        }
+      ]
     }
   ]
 }

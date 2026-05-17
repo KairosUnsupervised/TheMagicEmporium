@@ -39,3 +39,4 @@ window.debug = Forge
 
 // TODO MAKE TAGS TO STRINGS
 // TODO BIOME
+// TODO Let people zoom the ui in / out
