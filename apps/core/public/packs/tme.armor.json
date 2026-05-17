@@ -1248,6 +1248,29 @@
       ],
       "activeEffects": [],
       "feats": []
+    },
+    {
+      "identifier": "TME.GROUNDED",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["ARMOR"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Grounded",
+            "description": "You have advantage on saving throws against being knocked prone or forcibly moved",
+            "disclaimer": null
+          },
+          "changes": [],
+          "activities": []
+        }
+      ]
     }
   ]
 }
