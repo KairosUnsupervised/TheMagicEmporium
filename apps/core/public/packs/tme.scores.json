@@ -516,7 +516,7 @@
       "identifier": "TME.REDSHIFT",
       "type": "TIERED",
       "application": {
-        "weight": 5,
+        "weight": 512,
         "restriction": "SECONDARY",
         "whitelistedBy": [
           "ACCESSORY"
@@ -676,7 +676,7 @@
       "identifier": "TME.ANNIHILATION",
       "type": "TIERED",
       "application": {
-        "weight": 5,
+        "weight": 512,
         "restriction": "SECONDARY",
         "whitelistedBy": [
           "ACCESSORY"
@@ -806,7 +806,7 @@
       "identifier": "TME.MAGIC_RESERVOIR",
       "type": "TIERED",
       "application": {
-        "weight": 5,
+        "weight": 512,
         "restriction": "SECONDARY",
         "whitelistedBy": [
           "ACCESSORY"
@@ -957,7 +957,7 @@
       "identifier": "TME.EARTHSHAKER",
       "type": "TIERED",
       "application": {
-        "weight": 5,
+        "weight": 512,
         "restriction": "SECONDARY",
         "whitelistedBy": [
           "ACCESSORY"
@@ -1151,7 +1151,7 @@
       "identifier": "TME.OLYMPIANS_FAVOR",
       "type": "TIERED",
       "application": {
-        "weight": 5,
+        "weight": 512,
         "restriction": "SECONDARY",
         "whitelistedBy": [
           "ACCESSORY"
@@ -1314,7 +1314,7 @@
       "identifier": "TME.HARMONY",
       "type": "TIERED",
       "application": {
-        "weight": 5,
+        "weight": 512,
         "restriction": "SECONDARY",
         "whitelistedBy": [
           "ACCESSORY"
@@ -1492,7 +1492,7 @@
       "identifier": "TME.VISIONARY_FORESIGHT",
       "type": "TIERED",
       "application": {
-        "weight": 5,
+        "weight": 512,
         "restriction": "SECONDARY",
         "whitelistedBy": [
           "ACCESSORY"
@@ -1670,7 +1670,7 @@
       "identifier": "TME.TEMPORAL",
       "type": "TIERED",
       "application": {
-        "weight": 5,
+        "weight": 512,
         "restriction": "SECONDARY",
         "whitelistedBy": [
           "ACCESSORY"
