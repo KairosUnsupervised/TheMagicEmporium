@@ -1178,6 +1178,32 @@
       ]
     },
     {
+      "identifier": "TME.RELUCTANT_SAVIOR",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [
+          "ARMOR",
+          "ACCESSORY"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Reluctant Savior",
+            "description": "Whenever you heal another creature, gain temporary HP equal to the amount healed",
+            "disclaimer": "Temporary HP do not stack, only the highest value applies"
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.FIRST_ONE_IN",
       "type": "UNIQUE",
       "application": {
