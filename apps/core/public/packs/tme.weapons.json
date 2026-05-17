@@ -955,6 +955,42 @@
       ],
       "activeEffects": [],
       "feats": []
+    },
+    {
+      "identifier": "TME.BLOOD_RUSH",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["WEAPON"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Blood Rush",
+        "description": "On direct creature kill, regain {amount} HP",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.5,
+          "value": 2
+        },
+        {
+          "min": 0.8,
+          "value": 3
+        },
+        {
+          "min": 0.95,
+          "value": 4
+        }
+      ],
+      "activeEffects": [],
+      "feats": []
     }
   ]
 }
