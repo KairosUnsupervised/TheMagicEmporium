@@ -5,6 +5,31 @@
   "enabled": true,
   "modifiers": [
     {
+      "identifier": "TME.DOUBLE_TROUBLE",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 4096,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [
+          "CONSUMABLE"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Double Trouble",
+            "description": "When you trigger this item's consumable effect, you must choose a point within 60ft to duplicate the effect at that location",
+            "disclaimer": null
+          },
+          "changes": [],
+          "activities": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.LAST_STAND",
       "type": "INDEPENDENT",
       "application": {
