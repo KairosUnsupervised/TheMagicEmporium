@@ -533,6 +533,32 @@
           }
         }
       ]
+    },
+    {
+      "identifier": "TME.OVERDRIVE",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [
+          "ARMOR",
+          "ACCESSORY"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Overdrive",
+            "description": "Advantage and disadvantage now stack on you",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
     }
   ]
 }
