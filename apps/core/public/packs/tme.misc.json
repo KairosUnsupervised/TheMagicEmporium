@@ -1178,6 +1178,29 @@
       ]
     },
     {
+      "identifier": "TME.RECKLESS_ABANDON",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Reckless Abandon",
+            "description": "Your reckless attacks deal bonus damage equal to your Strength modifier",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.ABSOLUTE_UNIT",
       "type": "UNIQUE",
       "application": {
