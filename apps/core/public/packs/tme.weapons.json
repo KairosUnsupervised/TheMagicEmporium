@@ -1014,6 +1014,52 @@
           "activities": []
         }
       ]
+    },
+    {
+      "identifier": "TME.COMPACT",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["WEAPON"],
+        "blacklistedBy": ["PROPERTY_CHANGE"],
+        "applies": ["PROPERTY_CHANGE"]
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Compact",
+            "description": "This item is half its usual size. Despite this, it is functionally identical to its full-sized counterpart in every way",
+            "disclaimer": "It even has the same weight"
+          },
+          "changes": [],
+          "activities": []
+        }
+      ]
+    },
+    {
+      "identifier": "TME.OVERSIZED",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["WEAPON"],
+        "blacklistedBy": ["PROPERTY_CHANGE"],
+        "applies": ["PROPERTY_CHANGE"]
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Oversized",
+            "description": "This item is double its usual size. Despite this, it is functionally identical to its normal-sized counterpart in every way",
+            "disclaimer": "It even has the same weight"
+          },
+          "changes": [],
+          "activities": []
+        }
+      ]
     }
   ]
 }
