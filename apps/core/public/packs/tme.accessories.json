@@ -558,6 +558,32 @@
       "feats": []
     },
     {
+      "identifier": "TME.BLOODBATH",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [
+          "WEAPON",
+          "ACCESSORY"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Bloodbath",
+            "description": "On direct creature kill, gain an additional action this turn",
+            "disclaimer": "This action must be used to harm a creature, it cannot be skipped"
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.ASSASSIN",
       "type": "UNIQUE",
       "application": {
