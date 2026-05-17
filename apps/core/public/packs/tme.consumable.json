@@ -236,5 +236,58 @@
         }
       ]
     }
+  ,
+    {
+      "identifier": "TME.VEIL_OF_SMOKE",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [
+          "CONSUMABLE"
+        ],
+        "applies": [
+          "CONSUMABLE"
+        ]
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Veil of Smoke",
+            "description": "Break this item to release a thick cloud of smoke in a 60ft radius. The area is heavily obscured for 1 minute",
+            "disclaimer": "Wind of 10+ mph disperses the smoke early. Consume effects do not require the item to be equipped or attuned"
+          },
+          "changes": [],
+          "activities": [
+            {
+              "type": "utility",
+              "name": "Veil of Smoke",
+              "activation": {
+                "type": "action",
+                "cost": 1
+              },
+              "duration": {
+                "value": 1,
+                "units": "minute"
+              },
+              "target": {
+                "template": {
+                  "type": "circle",
+                  "size": 60,
+                  "units": "ft"
+                }
+              },
+              "consumption": {
+                "scaling": { "allowed": false },
+                "spellSlot": false,
+                "targets": []
+              }
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
