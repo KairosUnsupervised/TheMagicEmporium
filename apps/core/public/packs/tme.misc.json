@@ -1617,6 +1617,29 @@
         }
       ],
       "feats": []
+    },
+    {
+      "identifier": "TME.BLOODHOUND",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Bloodhound",
+            "description": "You can sense the presence of bleeding creatures within 30ft",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
     }
   ]
 }
