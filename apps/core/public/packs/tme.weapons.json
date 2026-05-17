@@ -1165,6 +1165,29 @@
           "activities": []
         }
       ]
+    },
+    {
+      "identifier": "TME.ESCALATING_EDGE",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": ["WEAPON"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Escalating Edge",
+            "description": "This weapon deals 1 extra damage for each consecutive turn it has been unsheathed",
+            "disclaimer": "Bonus resets when the weapon is sheathed or combat ends"
+          },
+          "changes": [],
+          "activities": []
+        }
+      ]
     }
   ]
 }
