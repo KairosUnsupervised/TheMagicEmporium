@@ -1060,6 +1060,29 @@
           "activities": []
         }
       ]
+    },
+    {
+      "identifier": "TME.RETURNING",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["WEAPON"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Returning",
+            "description": "After being thrown, this weapon magically returns to your hand immediately after the attack",
+            "disclaimer": null
+          },
+          "changes": [],
+          "activities": []
+        }
+      ]
     }
   ]
 }
