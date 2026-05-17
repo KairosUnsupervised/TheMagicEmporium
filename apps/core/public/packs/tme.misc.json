@@ -1455,7 +1455,7 @@
       ]
     },
     {
-      "identifier": "TME.FOCUSED",
+      "identifier": "TME.RESOLUTE",
       "type": "LINEAR",
       "application": {
         "weight": 1024,
@@ -1465,7 +1465,7 @@
         "applies": []
       },
       "flavor": {
-        "title": "Focused",
+        "title": "Resolute",
         "description": "Gain a +{amount} bonus to Concentration saving throws",
         "disclaimer": null
       },
