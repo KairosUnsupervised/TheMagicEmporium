@@ -1178,6 +1178,29 @@
       ]
     },
     {
+      "identifier": "TME.MARK_OF_DEATH",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Mark of Death",
+        "description": "Each successful attack against a creature grants you a permanent +{amount} bonus to damage against it, stacking indefinitely",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        { "min": 0,    "value": 1 },
+        { "min": 0.7,  "value": 2 },
+        { "min": 0.9, "value": 3 }
+      ],
+      "activeEffects": [],
+      "feats": []
+    },
+    {
       "identifier": "TME.AURA_OF_BLOOD",
       "type": "LINEAR",
       "application": {
