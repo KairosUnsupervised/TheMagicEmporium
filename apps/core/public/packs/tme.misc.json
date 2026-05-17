@@ -1491,6 +1491,29 @@
         }
       ],
       "feats": []
+    },
+    {
+      "identifier": "TME.ACCELERANT",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Accelerant",
+            "description": "On your first turn of each combat, your movement speed is increased by 10ft",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
     }
   ]
 }
