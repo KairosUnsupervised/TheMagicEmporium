@@ -535,6 +535,29 @@
       ]
     },
     {
+      "identifier": "TME.SURELY_A_THERAPIST",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Certified Therapist",
+        "description": "+{amount} bonus to charisma checks and saving throws when gaslighting creatures"
+      },
+      "breakpoints": [
+        { "min": 0,    "value": 2 },
+        { "min": 0.5,  "value": 4 },
+        { "min": 0.8,  "value": 6 },
+        { "min": 0.95, "value": 8 }
+      ],
+      "activeEffects": [],
+      "feats": []
+    },
+    {
       "identifier": "TME.OVERDRIVE",
       "type": "UNIQUE",
       "application": {
