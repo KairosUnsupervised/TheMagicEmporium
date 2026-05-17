@@ -1188,6 +1188,29 @@
           "activities": []
         }
       ]
+    },
+    {
+      "identifier": "TME.FEARMONGER",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["WEAPON"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Fearmonger",
+            "description": "On a direct creature kill, gain advantage on Intimidation checks for 1 minute",
+            "disclaimer": null
+          },
+          "changes": [],
+          "activities": []
+        }
+      ]
     }
   ]
 }
