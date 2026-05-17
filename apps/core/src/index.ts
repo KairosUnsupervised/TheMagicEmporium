@@ -7,6 +7,7 @@ import {Forge} from "@tme/library/src/forge/Forge.ts";
 import {registerFancyModifierIcons} from "./hooks/fancyModifierIcons.ts";
 import {registerRarityBorderColors} from "./hooks/rarityBorderColors.ts";
 import {registerTooltips} from "./hooks/tooltips.ts";
+import {Utility} from "./utility/Utility.ts";
 
 // TODO move type
 window.Hooks.once("init", async () => {
@@ -18,8 +19,12 @@ window.Hooks.once("init", async () => {
     await registry.registerPacks(packs)
     Logger.log("Registered modifiers", registry)
 
+    /**
+     * Grab the dev utility with
+     * game.modules.get("the-magic-emporium").api.utility
+     */
     // biome-ignore lint/style/noNonNullAssertion: Required for FoundryVTT
-    game.modules.get(namespace.core.id)!.api = {Registry: registry};
+    game.modules.get(namespace.core.id)!.api = {registry: registry, utility: new Utility()};
 })
 
 window.Hooks.once("ready", async () => {
@@ -32,7 +37,5 @@ window.Hooks.once("ready", async () => {
 // @ts-ignore
 window.debug = Forge
 
-// TODO DEV TOOL
-// TODO EXPOSE REGISTRY
 // TODO MAKE TAGS TO STRINGS
 // TODO BIOME
