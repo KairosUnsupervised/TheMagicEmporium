@@ -401,8 +401,8 @@
         "weight": 1024,
         "restriction": "PRIMARY",
         "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
+        "blacklistedBy": ["PROPERTY_CHANGE"],
+        "applies": ["PROPERTY_CHANGE"]
       },
       "breakpoints": [
         {

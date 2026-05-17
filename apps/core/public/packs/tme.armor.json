@@ -13,8 +13,8 @@
         "whitelistedBy": [
           "ARMOR_WITH_ARMOR_CLASS"
         ],
-        "blacklistedBy": [],
-        "applies": []
+        "blacklistedBy": ["PROPERTY_CHANGE"],
+        "applies": ["PROPERTY_CHANGE"]
       },
       "breakpoints": [
         {

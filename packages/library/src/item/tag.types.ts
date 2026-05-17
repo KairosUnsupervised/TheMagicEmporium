@@ -25,6 +25,7 @@ export enum Tag {
 	Consumable = 'CONSUMABLE', // Indicates that this item already has a consumable modifier applied
 	SelfImmolation = 'SELF_IMMOLATION',
 	Economy = "ECONOMY",
+	PropertyChange = "PROPERTY_CHANGE",
 
 	/**
 	 * Skill Modifier Tags
