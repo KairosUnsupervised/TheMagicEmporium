@@ -558,6 +558,54 @@
       "feats": []
     },
     {
+      "identifier": "TME.THE_DARK_URGE",
+      "type": "TIERED",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        { "min": 0,   "value": 1 },
+        { "min": 0.5, "value": 2 },
+        { "min": 0.8, "value": 4 }
+      ],
+      "tiers": [
+        {
+          "min": 1,
+          "flavor": {
+            "title": "The Dark Urge",
+            "description": "Your shoves push creatures an additional 5ft",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        },
+        {
+          "min": 2,
+          "flavor": {
+            "title": "The Dark Urge",
+            "description": "You have advantage on shove attacks. Your shoves push creatures an additional 10ft",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        },
+        {
+          "min": 4,
+          "flavor": {
+            "title": "The Dark Urge",
+            "description": "You have advantage on shove attacks and enemies have disadvantage on shoves against you. Your shoves push creatures an additional 15ft",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.FORFEIT_OF_LIFE",
       "type": "UNIQUE",
       "application": {
