@@ -1142,6 +1142,29 @@
       ],
       "activeEffects": [],
       "feats": []
+    },
+    {
+      "identifier": "TME.MOMENTUM",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": ["WEAPON"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Momentum",
+            "description": "On a direct creature kill, gain stacking +1 to attack rolls for the rest of combat",
+            "disclaimer": "Effects melee attacks only, hostile creatures only"
+          },
+          "changes": [],
+          "activities": []
+        }
+      ]
     }
   ]
 }
