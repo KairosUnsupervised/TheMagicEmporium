@@ -31,3 +31,6 @@ window.Hooks.once("ready", async () => {
 
 // @ts-ignore
 window.debug = Forge
+
+// TODO DEV TOOL
+// TODO EXPOSE REGISTRY

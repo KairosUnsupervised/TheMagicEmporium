@@ -876,6 +876,57 @@
           "feats": []
         }
       ]
+    },
+    {
+      "identifier": "TME.SHARPENED",
+      "type": "INDEPENDENT",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [
+          "WEAPON"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "+1 Sharpened",
+            "description": "This weapon gains a +1 bonus to attack and damage rolls",
+            "disclaimer": null
+          },
+          "changes": [
+            { "key": "system.magicalBonus", "operation": "ADD", "value": "1" }
+          ],
+          "activities": []
+        },
+        {
+          "min": 0.5,
+          "flavor": {
+            "title": "+2 Sharpened",
+            "description": "This weapon gains a +2 bonus to attack and damage rolls",
+            "disclaimer": null
+          },
+          "changes": [
+            { "key": "system.magicalBonus", "operation": "ADD", "value": "2" }
+          ],
+          "activities": []
+        },
+        {
+          "min": 0.8,
+          "flavor": {
+            "title": "+3 Sharpened",
+            "description": "This weapon gains a +3 bonus to attack and damage rolls",
+            "disclaimer": null
+          },
+          "changes": [
+            { "key": "system.magicalBonus", "operation": "ADD", "value": "3" }
+          ],
+          "activities": []
+        }
+      ]
     }
   ]
 }
