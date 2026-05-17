@@ -1222,6 +1222,32 @@
           "activities": []
         }
       ]
+    },
+    {
+      "identifier": "TME.MEATSHIELD",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [
+          "ARMOR"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Meatshield",
+        "description": "As an action, mount a corpse on your armor for protection. Gain {amount}% of the creature's maximum HP as temporary HP",
+        "disclaimer": "Requires a nearby corpse. If you can mount a creature that is still alive gain double the percentage. Temporary HP do not stack, only the highest value applies"
+      },
+      "breakpoints": [
+        { "min": 0,    "value": 10 },
+        { "min": 0.5,  "value": 20 },
+        { "min": 0.8,  "value": 30 },
+        { "min": 0.95, "value": 40 }
+      ],
+      "activeEffects": [],
+      "feats": []
     }
   ]
 }
