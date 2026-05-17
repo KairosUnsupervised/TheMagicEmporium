@@ -1453,6 +1453,44 @@
           "feats": []
         }
       ]
+    },
+    {
+      "identifier": "TME.FOCUSED",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Focused",
+        "description": "Gain a +{amount} bonus to Concentration saving throws",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.6,
+          "value": 2
+        },
+        {
+          "min": 0.9,
+          "value": 3
+        }
+      ],
+      "activeEffects": [
+        {
+          "key": "system.attributes.concentration.roll.bonus",
+          "mode": "ADD",
+          "value": "{amount}"
+        }
+      ],
+      "feats": []
     }
   ]
 }
