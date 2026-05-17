@@ -1419,6 +1419,40 @@
           "activities": []
         }
       ]
+    },
+    {
+      "identifier": "TME.DARK_DEVOTION",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Dark Devotion",
+            "description": "Gain a bonus to Stealth and Deception checks equal to your Wisdom modifier",
+            "disclaimer": null
+          },
+          "activeEffects": [
+            {
+              "key": "system.skills.ste.bonuses.check",
+              "mode": "ADD",
+              "value": "@abilities.wis.mod"
+            },
+            {
+              "key": "system.skills.dec.bonuses.check",
+              "mode": "ADD",
+              "value": "@abilities.wis.mod"
+            }
+          ],
+          "feats": []
+        }
+      ]
     }
   ]
 }
