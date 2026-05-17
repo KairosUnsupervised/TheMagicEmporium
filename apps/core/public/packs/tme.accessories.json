@@ -558,6 +558,32 @@
       "feats": []
     },
     {
+      "identifier": "TME.ASSASSIN",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [
+          "ARMOR",
+          "WEAPON"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Assassin",
+            "description": "You have advantage on all Stealth checks",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.OVERDRIVE",
       "type": "UNIQUE",
       "application": {
