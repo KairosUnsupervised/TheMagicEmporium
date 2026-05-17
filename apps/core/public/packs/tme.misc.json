@@ -1640,6 +1640,81 @@
           "feats": []
         }
       ]
+    },
+    {
+      "identifier": "TME.ADRENALINE",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Adrenaline",
+        "description": "The first time you take damage in combat, regain {amount}d4 HP",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.4,
+          "value": 2
+        },
+        {
+          "min": 0.75,
+          "value": 3
+        }
+      ],
+      "activeEffects": [],
+      "feats": [
+        {
+          "type": "FEAT",
+          "system": {
+            "activation": {
+              "type": "special",
+              "cost": null,
+              "condition": "first time taking damage in combat"
+            },
+            "uses": {
+              "max": 1,
+              "recovery": [
+                {
+                  "period": "sr",
+                  "type": "recoverAll"
+                }
+              ]
+            },
+            "activities": [
+              {
+                "type": "heal",
+                "name": "Adrenaline",
+                "activation": {
+                  "type": "special",
+                  "override": false,
+                  "condition": "first time taking damage in combat"
+                },
+                "healing": {
+                  "types": ["healing"],
+                  "custom": {
+                    "enabled": false
+                  },
+                  "scaling": {
+                    "number": 1
+                  },
+                  "number": "{amount}",
+                  "denomination": 4,
+                  "bonus": ""
+                }
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }
