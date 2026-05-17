@@ -1178,6 +1178,29 @@
       ]
     },
     {
+      "identifier": "TME.ABSOLUTE_UNIT",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Absolute Unit",
+            "description": "You have advantage on Strength checks involving brute force",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.MARK_OF_DEATH",
       "type": "LINEAR",
       "application": {
