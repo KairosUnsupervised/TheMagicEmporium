@@ -898,7 +898,11 @@
             "disclaimer": null
           },
           "changes": [
-            { "key": "system.magicalBonus", "operation": "ADD", "value": "1" }
+            {
+              "key": "system.magicalBonus",
+              "operation": "ADD",
+              "value": "1"
+            }
           ],
           "activities": []
         },
@@ -910,7 +914,11 @@
             "disclaimer": null
           },
           "changes": [
-            { "key": "system.magicalBonus", "operation": "ADD", "value": "2" }
+            {
+              "key": "system.magicalBonus",
+              "operation": "ADD",
+              "value": "2"
+            }
           ],
           "activities": []
         },
@@ -922,7 +930,11 @@
             "disclaimer": null
           },
           "changes": [
-            { "key": "system.magicalBonus", "operation": "ADD", "value": "3" }
+            {
+              "key": "system.magicalBonus",
+              "operation": "ADD",
+              "value": "3"
+            }
           ],
           "activities": []
         }
@@ -934,7 +946,9 @@
       "application": {
         "weight": 1024,
         "restriction": "PRIMARY",
-        "whitelistedBy": ["WEAPON_MELEE"],
+        "whitelistedBy": [
+          "WEAPON_MELEE"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
@@ -962,7 +976,9 @@
       "application": {
         "weight": 1024,
         "restriction": "PRIMARY",
-        "whitelistedBy": ["WEAPON"],
+        "whitelistedBy": [
+          "WEAPON"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
@@ -998,9 +1014,15 @@
       "application": {
         "weight": 1024,
         "restriction": "PRIMARY",
-        "whitelistedBy": ["WEAPON"],
-        "blacklistedBy": ["PROPERTY_CHANGE"],
-        "applies": ["PROPERTY_CHANGE"]
+        "whitelistedBy": [
+          "WEAPON"
+        ],
+        "blacklistedBy": [
+          "PROPERTY_CHANGE"
+        ],
+        "applies": [
+          "PROPERTY_CHANGE"
+        ]
       },
       "breakpoints": [
         {
@@ -1021,9 +1043,15 @@
       "application": {
         "weight": 1024,
         "restriction": "PRIMARY",
-        "whitelistedBy": ["WEAPON"],
-        "blacklistedBy": ["PROPERTY_CHANGE"],
-        "applies": ["PROPERTY_CHANGE"]
+        "whitelistedBy": [
+          "WEAPON"
+        ],
+        "blacklistedBy": [
+          "PROPERTY_CHANGE"
+        ],
+        "applies": [
+          "PROPERTY_CHANGE"
+        ]
       },
       "breakpoints": [
         {
@@ -1044,9 +1072,15 @@
       "application": {
         "weight": 1024,
         "restriction": "PRIMARY",
-        "whitelistedBy": ["WEAPON"],
-        "blacklistedBy": ["PROPERTY_CHANGE"],
-        "applies": ["PROPERTY_CHANGE"]
+        "whitelistedBy": [
+          "WEAPON"
+        ],
+        "blacklistedBy": [
+          "PROPERTY_CHANGE"
+        ],
+        "applies": [
+          "PROPERTY_CHANGE"
+        ]
       },
       "breakpoints": [
         {
@@ -1067,7 +1101,9 @@
       "application": {
         "weight": 1024,
         "restriction": "PRIMARY",
-        "whitelistedBy": ["WEAPON"],
+        "whitelistedBy": [
+          "WEAPON"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
@@ -1090,7 +1126,9 @@
       "application": {
         "weight": 1024,
         "restriction": "PRIMARY",
-        "whitelistedBy": ["WEAPON"],
+        "whitelistedBy": [
+          "WEAPON"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
@@ -1113,7 +1151,9 @@
       "application": {
         "weight": 1024,
         "restriction": "SECONDARY",
-        "whitelistedBy": ["WEAPON"],
+        "whitelistedBy": [
+          "WEAPON"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
@@ -1149,7 +1189,9 @@
       "application": {
         "weight": 1024,
         "restriction": "SECONDARY",
-        "whitelistedBy": ["WEAPON"],
+        "whitelistedBy": [
+          "WEAPON"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
@@ -1172,7 +1214,9 @@
       "application": {
         "weight": 1024,
         "restriction": "SECONDARY",
-        "whitelistedBy": ["WEAPON"],
+        "whitelistedBy": [
+          "WEAPON"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
@@ -1195,7 +1239,9 @@
       "application": {
         "weight": 1024,
         "restriction": "PRIMARY",
-        "whitelistedBy": ["WEAPON"],
+        "whitelistedBy": [
+          "WEAPON"
+        ],
         "blacklistedBy": [],
         "applies": []
       },
@@ -1211,6 +1257,44 @@
           "activities": []
         }
       ]
+    },
+    {
+      "identifier": "TME.OPPORTUNIST",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": [
+          "WEAPON"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Opportunist",
+        "description": "Opportunity attacks deal +{amount} bonus damage",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "value": 2
+        },
+        {
+          "min": 0.4,
+          "value": 4
+        },
+        {
+          "min": 0.65,
+          "value": 6
+        },
+        {
+          "min": 0.9,
+          "value": 8
+        }
+      ],
+      "activeEffects": [],
+      "feats": []
     }
   ]
 }
