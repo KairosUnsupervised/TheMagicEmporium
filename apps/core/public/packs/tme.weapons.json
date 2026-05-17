@@ -1106,6 +1106,42 @@
           "activities": []
         }
       ]
+    },
+    {
+      "identifier": "TME.SURGE",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "SECONDARY",
+        "whitelistedBy": ["WEAPON"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Surge",
+        "description": "On a successful hit, gain {amount}ft of movement until the end of your turn",
+        "disclaimer": null
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "value": 5
+        },
+        {
+          "min": 0.4,
+          "value": 10
+        },
+        {
+          "min": 0.7,
+          "value": 15
+        },
+        {
+          "min": 0.9,
+          "value": 20
+        }
+      ],
+      "activeEffects": [],
+      "feats": []
     }
   ]
 }
