@@ -1271,6 +1271,31 @@
           "activities": []
         }
       ]
+    },
+    {
+      "identifier": "TME.FEATHERLIGHT",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": ["ARMOR_STEALTH_DISADVANTAGE"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "Featherlight",
+            "description": "This armor no longer imposes disadvantage on Stealth checks",
+            "disclaimer": null
+          },
+          "changes": [
+            { "key": "system.properties", "operation": "REMOVE", "value": "stealthDisadvantage" }
+          ],
+          "activities": []
+        }
+      ]
     }
   ]
 }

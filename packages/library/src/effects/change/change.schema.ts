@@ -9,6 +9,7 @@ export enum ChangeOperation {
     Append = "APPEND",
     Min = "MIN",
     Max = "MAX",
+    Remove = "REMOVE",
 }
 
 export interface ChangeSchema {

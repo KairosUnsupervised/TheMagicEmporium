@@ -68,6 +68,15 @@ export class Change {
                 case ChangeOperation.Max:
                     node[lastKey] = Math.max(Number(current) || 0, Number(value));
                     break;
+                case ChangeOperation.Remove:
+                    if (Array.isArray(current)) {
+                        node[lastKey] = current.filter((item) => item !== value);
+                    } else if (current instanceof Set) {
+                        const copy = new Set(current);
+                        copy.delete(value);
+                        node[lastKey] = copy;
+                    }
+                    break;
             }
         }
 

@@ -47,7 +47,7 @@ export const equipmentDetails: {
 		adjectives: equipmentAdjectives.armorWithArmorClass,
 		short: 'Padded',
 		value: 5,
-		tags: [Tag.Armor, Tag.ArmorLight, Tag.ArmorWithArmorClass],
+		tags: [Tag.Armor, Tag.ArmorLight, Tag.ArmorWithArmorClass, Tag.ArmorStealthDisadvantage],
 		icon: Icon.Padded,
 		foundry: {
 			type: FoundryType.Equipment,
@@ -207,7 +207,7 @@ export const equipmentDetails: {
 		adjectives: equipmentAdjectives.armorWithArmorClass,
 		short: null,
 		value: 50,
-		tags: [Tag.Armor, Tag.ArmorMedium, Tag.ArmorWithArmorClass],
+		tags: [Tag.Armor, Tag.ArmorMedium, Tag.ArmorWithArmorClass, Tag.ArmorStealthDisadvantage],
 		icon: Icon.ScaleMail,
 		foundry: {
 			type: FoundryType.Equipment,
@@ -268,7 +268,7 @@ export const equipmentDetails: {
 		adjectives: equipmentAdjectives.armorWithArmorClass,
 		short: null,
 		value: 750,
-		tags: [Tag.Armor, Tag.ArmorMedium, Tag.ArmorWithArmorClass],
+		tags: [Tag.Armor, Tag.ArmorMedium, Tag.ArmorWithArmorClass, Tag.ArmorStealthDisadvantage],
 		icon: Icon.HalfPlate,
 		foundry: {
 			type: FoundryType.Equipment,
@@ -300,7 +300,7 @@ export const equipmentDetails: {
 		adjectives: equipmentAdjectives.armorWithArmorClass,
 		short: null,
 		value: 30,
-		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass],
+		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass, Tag.ArmorStealthDisadvantage],
 		icon: Icon.RingMail,
 		foundry: {
 			type: FoundryType.Equipment,
@@ -333,7 +333,7 @@ export const equipmentDetails: {
 		adjectives: equipmentAdjectives.armorWithArmorClass,
 		short: null,
 		value: 75,
-		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass],
+		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass, Tag.ArmorStealthDisadvantage],
 		icon: Icon.ChainMail,
 		foundry: {
 			type: FoundryType.Equipment,
@@ -367,7 +367,7 @@ export const equipmentDetails: {
 		adjectives: equipmentAdjectives.armorWithArmorClass,
 		short: 'Splint',
 		value: 200,
-		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass],
+		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass, Tag.ArmorStealthDisadvantage],
 		icon: Icon.Splint,
 		foundry: {
 			type: FoundryType.Equipment,
@@ -400,7 +400,7 @@ export const equipmentDetails: {
 		adjectives: equipmentAdjectives.armorWithArmorClass,
 		short: 'Plate',
 		value: 1500,
-		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass],
+		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass, Tag.ArmorStealthDisadvantage],
 		icon: Icon.Plate,
 		foundry: {
 			type: FoundryType.Equipment,

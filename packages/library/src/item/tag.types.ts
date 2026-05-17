@@ -9,6 +9,7 @@ export enum Tag {
 	ArmorMedium = 'ARMOR_MEDIUM',
 	ArmorHeavy = 'ARMOR_HEAVY',
 	ArmorClothes = 'ARMOR_CLOTHES',
+	ArmorStealthDisadvantage = 'ARMOR_STEALTH_DISADVANTAGE',
 
 	Accessory = 'ACCESSORY',
 
