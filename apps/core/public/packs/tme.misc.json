@@ -1178,6 +1178,31 @@
       ]
     },
     {
+      "identifier": "TME.FIRST_ONE_IN",
+      "type": "UNIQUE",
+      "application": {
+        "weight": 1024,
+        "restriction": "PRIMARY",
+        "whitelistedBy": [
+          "WEAPON"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "flavor": {
+            "title": "First One In",
+            "description": "You have advantage on attack rolls on your first turn of combat",
+            "disclaimer": null
+          },
+          "activeEffects": [],
+          "feats": []
+        }
+      ]
+    },
+    {
       "identifier": "TME.RECKLESS_ABANDON",
       "type": "UNIQUE",
       "application": {
