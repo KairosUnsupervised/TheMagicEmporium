@@ -739,6 +739,81 @@
           "feats": []
         }
       ]
+    },
+    {
+      "identifier": "TME.UNCERTAINTY",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": ["ARMOR", "ACCESSORY"],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Uncertainty",
+        "description": "You gain a portal dice (d20). {amount} times per long rest, you may swap the result of your portal dice with the result of any other d20 roll in the game",
+        "disclaimer": "The portal dice result takes the place of the swapped roll and vice versa, roll the portal dice once upon aquiring this modifier"
+      },
+      "breakpoints": [
+        {
+          "min": 0,
+          "value": 1
+        },
+        {
+          "min": 0.6,
+          "value": 2
+        },
+        {
+          "min": 0.9,
+          "value": 3
+        }
+      ],
+      "activeEffects": [],
+      "feats": [
+        {
+          "type": "FEAT",
+          "system": {
+            "activation": {
+              "type": "reaction",
+              "cost": 1,
+              "condition": "when any d20 roll is made"
+            },
+            "uses": {
+              "max": "{amount}",
+              "recovery": [
+                {
+                  "period": "lr",
+                  "type": "recoverAll"
+                }
+              ]
+            },
+            "activities": [
+              {
+                "type": "utility",
+                "name": "Uncertainty",
+                "activation": {
+                  "type": "reaction",
+                  "override": false,
+                  "condition": "when any d20 roll is made"
+                },
+                "consumption": {
+                  "scaling": { "allowed": false },
+                  "spellSlot": false,
+                  "targets": [
+                    {
+                      "type": "itemUses",
+                      "value": "1",
+                      "target": "",
+                      "scaling": {}
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }
