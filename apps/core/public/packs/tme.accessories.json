@@ -485,5 +485,54 @@
         }
       ]
     }
+  ,
+    {
+      "identifier": "TME.REM_SLEEP",
+      "type": "LINEAR",
+      "application": {
+        "weight": 1024,
+        "restriction": "TERTIARY",
+        "whitelistedBy": [
+          "ARMOR",
+          "ACCESSORY"
+        ],
+        "blacklistedBy": [],
+        "applies": []
+      },
+      "flavor": {
+        "title": "Rem Sleep",
+        "description": "As an action, you can cast Sleep at will. Your total sleep hit point pool per long rest is {amount}",
+        "disclaimer": "Creatures that don't fall asleep because they have more hit points than the remaining pool, or are immune to Sleep, do not consume your pool"
+      },
+      "breakpoints": [
+        { "min": 0,    "value": 20 },
+        { "min": 0.5,  "value": 35 },
+        { "min": 0.8,  "value": 60 },
+        { "min": 0.95, "value": 80 }
+      ],
+      "activeEffects": [],
+      "feats": [
+        {
+          "type": "FEAT",
+          "system": {
+            "activation": {
+              "type": "action",
+              "cost": 1,
+              "condition": ""
+            },
+            "uses": {
+              "max": "{amount}",
+              "recovery": [
+                {
+                  "period": "lr",
+                  "type": "recoverAll"
+                }
+              ]
+            },
+            "activities": []
+          }
+        }
+      ]
+    }
   ]
 }
