@@ -1,2338 +1,2260 @@
 {
-  "id": "tme.skills",
-  "name": "TME — Skill Modifiers",
-  "description": "Built-in skill modifiers. Affects skill checks and proficiency-based rolls.",
-  "enabled": true,
-  "modifiers": [
-    {
-      "identifier": "TME.IDENTITY_THIEF",
-      "type": "TIERED",
-      "application": {
-        "weight": 256,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "CHARISMA_SKILL"
-        ],
-        "applies": [
-          "CHARISMA_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Identity Thief",
-            "description": "Your deception skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.dec.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Identity Thief",
-            "description": "Your deception skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.dec.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Identity Thief",
-            "description": "Your deception skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.dec.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Identity Thief",
-            "description": "Your deception skill increases by 6. Once per long rest, as an action, shape shift into any humanoid you have seen for 1 hour, complete with voice and scent",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.dec.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Identity Thief",
-              "description": "Once per long rest, as an action, shape shift into any humanoid you have seen for 1 hour, complete with voice and scent",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 1,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Identity Thief",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.LEGENDARY_BARD",
-      "type": "TIERED",
-      "application": {
-        "weight": 256,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "CHARISMA_SKILL"
-        ],
-        "applies": [
-          "CHARISMA_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Legendary Bard",
-            "description": "Your performance skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.prf.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Legendary Bard",
-            "description": "Your performance skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.prf.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Legendary Bard",
-            "description": "Your performance skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.prf.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Legendary Bard",
-            "description": "Your performance skill increases by 6. Once per short rest, as an action, roll a performance check, every creature within 30ft gains temporary HP equal to its value",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.prf.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Legendary Bard",
-              "description": "Once per short rest, as an action, roll a performance check, every creature within 30ft gains temporary HP equal to its value",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 1,
-                  "recovery": [
-                    {
-                      "period": "sr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Legendary Bard",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "healing": {
-                      "types": [
-                        "temphp"
-                      ],
-                      "custom": {
-                        "enabled": true,
-                        "formula": "D20 + @skills.prf.total"
-                      }
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    },
-                    "target": {
-                      "template": {
-                        "type": "circle",
-                        "size": 30,
-                        "units": "ft"
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.MASTER_MIND",
-      "type": "TIERED",
-      "application": {
-        "weight": 256,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "CHARISMA_SKILL"
-        ],
-        "applies": [
-          "CHARISMA_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Mastermind",
-            "description": "Your persuasion skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.per.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Mastermind",
-            "description": "Your persuasion skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.per.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Mastermind",
-            "description": "Your persuasion skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.per.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Mastermind",
-            "description": "Your persuasion skill increases by 6. Two times per long rest, as an action, implant an idea into a creatures mind as it is their own",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.per.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Mastermind",
-              "description": "Two times per long rest, as an action, implant an idea into a creatures mind as it is their own",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 2,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Mastermind",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.VOICE_OF_RUIN",
-      "type": "TIERED",
-      "application": {
-        "weight": 256,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "CHARISMA_SKILL"
-        ],
-        "applies": [
-          "CHARISMA_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Voice of Ruin",
-            "description": "Your intimidation skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.itm.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Voice of Ruin",
-            "description": "Your intimidation skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.itm.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Voice of Ruin",
-            "description": "Your intimidation skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.itm.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Voice of Ruin",
-            "description": "Your intimidation skill increases by 6. Your words echo with cosmic dread, you can break morale, incite mass panic, or make armies flee by speaking",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.itm.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Voice of Ruin",
-              "description": "Your words echo with cosmic dread, you can break morale, incite mass panic, or make armies flee by speaking",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "activities": []
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.ACROBAT",
-      "type": "TIERED",
-      "application": {
-        "weight": 512,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "DEXTERITY_SKILL"
-        ],
-        "applies": [
-          "DEXTERITY_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Acrobat",
-            "description": "Your acrobatics skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.acr.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Acrobat",
-            "description": "Your acrobatics skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.acr.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Acrobat",
-            "description": "Your acrobatics skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.acr.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Acrobat",
-            "description": "Your acrobatics skill increases by 6. Three times per short rest, perform an acrobatic feat to gain a D8 bonus on your next D20",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.acr.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Acrobat",
-              "description": "Three times per short rest, perform an acrobatic feat to gain a D8 bonus on your next D20",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 3,
-                  "recovery": [
-                    {
-                      "period": "sr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Acrobat",
-                    "activation": {
-                      "type": "special",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "roll": {
-                      "formula": "D8",
-                      "name": "D8"
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.PERFECT_TOUCH",
-      "type": "TIERED",
-      "application": {
-        "weight": 512,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "DEXTERITY_SKILL"
-        ],
-        "applies": [
-          "DEXTERITY_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Perfect Touch",
-            "description": "Your sleight of hand skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.slt.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Perfect Touch",
-            "description": "Your sleight of hand skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.slt.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Perfect Touch",
-            "description": "Your sleight of hand skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.slt.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Perfect Touch",
-            "description": "Your sleight of hand skill increases by 6. You can pickpocket and reverse pickpocket equipped items",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.slt.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Perfect Touch",
-              "description": "You can pickpocket and reverse pickpocket equipped items",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "activities": []
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.REDACTED",
-      "type": "TIERED",
-      "application": {
-        "weight": 512,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "DEXTERITY_SKILL"
-        ],
-        "applies": [
-          "DEXTERITY_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Redacted",
-            "description": "Your stealth skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ste.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Redacted",
-            "description": "Your stealth skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ste.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Redacted",
-            "description": "Your stealth skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ste.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Redacted",
-            "description": "Your stealth skill increases by 6. Twice per long rest, as an action, you can retcon all memories of your existence that happened in the last minute",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ste.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Redacted",
-              "description": "Twice per long rest, as an action, you can retcon all memories of your existence that happened in the last minute",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 2,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Redacted",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.ARCANE_FONT",
-      "type": "TIERED",
-      "application": {
-        "weight": 256,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "INTELLIGENCE_SKILL"
-        ],
-        "applies": [
-          "INTELLIGENCE_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Arcane Font",
-            "description": "Your arcana skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.arc.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Arcane Font",
-            "description": "Your arcana skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.arc.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Arcane Font",
-            "description": "Your arcana skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.arc.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Arcane Font",
-            "description": "Your arcana skill increases by 6. Once per short rest, cast any spell in existence, upon your max spell slot, no verbal, somatic, or material requirements",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.arc.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Arcane Font",
-              "description": "Once per short rest, cast any spell in existence, upon your max spell slot, no verbal, somatic, or material requirements",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 1,
-                  "recovery": [
-                    {
-                      "period": "sr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Arcane Font",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.DIVINATION",
-      "type": "TIERED",
-      "application": {
-        "weight": 256,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "INTELLIGENCE_SKILL"
-        ],
-        "applies": [
-          "INTELLIGENCE_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Divination",
-            "description": "Your religion skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.rel.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Divination",
-            "description": "Your religion skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.rel.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Divination",
-            "description": "Your religion skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.rel.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Divination",
-            "description": "Your religion skill increases by 6. As a reaction to an tagged foe being killed, grant an ally in sight 4d12 temporary HP, up to three times per short rest",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.rel.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Divination",
-              "description": "As a reaction to an tagged foe being killed, grant an ally in sight 4d12 temporary HP, up to three times per short rest",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 3,
-                  "recovery": [
-                    {
-                      "period": "sr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Divination",
-                    "activation": {
-                      "type": "special",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "healing": {
-                      "types": [
-                        "healing"
-                      ],
-                      "custom": {
-                        "enabled": true,
-                        "formula": "4d12"
-                      }
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.HISTORIAN",
-      "type": "TIERED",
-      "application": {
-        "weight": 256,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "INTELLIGENCE_SKILL"
-        ],
-        "applies": [
-          "INTELLIGENCE_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Historian",
-            "description": "Your history skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.his.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Historian",
-            "description": "Your history skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.his.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Historian",
-            "description": "Your history skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.his.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Historian",
-            "description": "Your history skill increases by 6. Once per short rest, as a bonus action, use a flashback to see echoes of the past",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.his.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Historian",
-              "description": "Once per short rest, as a bonus action, use a flashback to see echoes of the past",
-              "system": {
-                "activation": {
-                  "type": "bonus",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 1,
-                  "recovery": [
-                    {
-                      "period": "sr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Historian",
-                    "activation": {
-                      "type": "bonus",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.NATURALIST",
-      "type": "TIERED",
-      "application": {
-        "weight": 256,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "INTELLIGENCE_SKILL"
-        ],
-        "applies": [
-          "INTELLIGENCE_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Naturalist",
-            "description": "Your nature skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.nat.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Naturalist",
-            "description": "Your nature skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.nat.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Naturalist",
-            "description": "Your nature skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.nat.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Naturalist",
-            "description": "Your nature skill increases by 6. You can control and communicate to plants within a 30ft radius at will",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.nat.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Naturalist",
-              "description": "You can control and communicate to plants within a 30ft radius at will",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "activities": []
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.PARADOX_BUSTER",
-      "type": "TIERED",
-      "application": {
-        "weight": 256,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "INTELLIGENCE_SKILL"
-        ],
-        "applies": [
-          "INTELLIGENCE_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Paradox Buster",
-            "description": "Your investigation skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.inv.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Paradox Buster",
-            "description": "Your investigation skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.inv.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Paradox Buster",
-            "description": "Your investigation skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.inv.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Paradox Buster",
-            "description": "Your investigation skill increases by 6. When stumped by a puzzle, riddle or other investigative task, you may ask the DM one yes / no question about the solution, and must get a true answer",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.inv.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Paradox Buster",
-              "description": "When stumped by a puzzle, riddle or other investigative task, you may ask the DM one yes / no question about the solution, and must get a true answer",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "activities": []
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.COLOSSAL",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "STRENGTH_SKILL"
-        ],
-        "applies": [
-          "STRENGTH_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Colossal",
-            "description": "Your athletics skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ath.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Colossal",
-            "description": "Your athletics skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ath.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Colossal",
-            "description": "Your athletics skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ath.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Colossal",
-            "description": "Your athletics skill increases by 6. You can wield two handed weapons with a single hand",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ath.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Colossal",
-              "description": "You can wield two handed weapons with a single hand",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "activities": []
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.ANIMALISTIC_INSIGHT",
-      "type": "TIERED",
-      "application": {
-        "weight": 256,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "WISDOM_SKILL"
-        ],
-        "applies": [
-          "WISDOM_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Animalistic Insight",
-            "description": "Your animal handling skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ani.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Animalistic Insight",
-            "description": "Your animal handling skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ani.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Animalistic Insight",
-            "description": "Your animal handling skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ani.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Animalistic Insight",
-            "description": "Your animal handling skill increases by 6. Two times per long rest, as an action, you can command any friendly animal in sight. Gaining their senses and controlling them for up to one hour",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ani.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Animalistic Insight",
-              "description": "Two times per long rest, as an action, you can command any friendly animal in sight. Gaining their senses and controlling them for up to one hour",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 2,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Animalistic Insight",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.MEDICAL_PROFESSIONAL",
-      "type": "TIERED",
-      "application": {
-        "weight": 256,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "WISDOM_SKILL"
-        ],
-        "applies": [
-          "WISDOM_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Medical Professional",
-            "description": "Your medicine skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.med.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Medical Professional",
-            "description": "Your medicine skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.med.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Medical Professional",
-            "description": "Your medicine skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.med.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Surely a Medical Professional",
-            "description": "Your medicine skill increases by 12. You can have no clue about humanoid anatomy",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.med.bonuses.check",
-              "mode": "ADD",
-              "value": 12
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Surely a Medical Professional",
-              "description": "You can have no clue about humanoid anatomy",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "activities": []
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.PREDATORY_FOCUS",
-      "type": "TIERED",
-      "application": {
-        "weight": 256,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "WISDOM_SKILL"
-        ],
-        "applies": [
-          "WISDOM_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Predatory Focus",
-            "description": "Your perception skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.prc.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Predatory Focus",
-            "description": "Your perception skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.prc.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Predatory Focus",
-            "description": "Your perception skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.prc.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Predatory Focus",
-            "description": "Your perception skill increases by 6. As an action you can detect invisible creatures, heat signatures and heartbeat sounds",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.prc.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Predatory Focus",
-              "description": "As an action you can detect invisible creatures, heat signatures and heartbeat sounds",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "activities": []
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.SUPERIOR_INSIGHT",
-      "type": "TIERED",
-      "application": {
-        "weight": 256,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "WISDOM_SKILL"
-        ],
-        "applies": [
-          "WISDOM_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Superior Insight",
-            "description": "Your insight skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ins.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Superior Insight",
-            "description": "Your insight skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ins.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Superior Insight",
-            "description": "Your insight skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ins.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Superior Insight",
-            "description": "Your insight skill increases by 6. You gain advantage on all insight checks",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ins.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Superior Insight",
-              "description": "You gain advantage on all insight checks",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "activities": []
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.SURVIVAL_INSTINCT",
-      "type": "TIERED",
-      "application": {
-        "weight": 256,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "WISDOM_SKILL"
-        ],
-        "applies": [
-          "WISDOM_SKILL"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Survival Instinct",
-            "description": "Your survival skill increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.sur.bonuses.check",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Survival Instinct",
-            "description": "Your survival skill increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.sur.bonuses.check",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Survival Instinct",
-            "description": "Your survival skill increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.sur.bonuses.check",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Survival Instinct",
-            "description": "Your survival skill increases by 6. As a bonus action, up to 3 times per short rest, you can eat any item to gain D12 HP",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.sur.bonuses.check",
-              "mode": "ADD",
-              "value": 6
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Survival Instinct",
-              "description": "As a bonus action, up to 3 times per short rest, you can eat any item to gain D12 HP",
-              "system": {
-                "activation": {
-                  "type": "bonus",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 3,
-                  "recovery": [
-                    {
-                      "period": "sr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Survival Instinct",
-                    "activation": {
-                      "type": "bonus",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "healing": {
-                      "types": [
-                        "healing"
-                      ],
-                      "custom": {
-                        "enabled": true,
-                        "formula": "d12"
-                      }
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    }
-  ]
+	"id": "tme.skills",
+	"name": "TME — Skill Modifiers",
+	"description": "Built-in skill modifiers. Affects skill checks and proficiency-based rolls.",
+	"enabled": true,
+	"modifiers": [
+		{
+			"identifier": "TME.IDENTITY_THIEF",
+			"type": "TIERED",
+			"application": {
+				"weight": 256,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["CHARISMA_SKILL"],
+				"applies": ["CHARISMA_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Identity Thief",
+						"description": "Your deception skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.dec.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Identity Thief",
+						"description": "Your deception skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.dec.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Identity Thief",
+						"description": "Your deception skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.dec.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Identity Thief",
+						"description": "Your deception skill increases by 6. Once per long rest, as an action, shape shift into any humanoid you have seen for 1 hour, complete with voice and scent",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.dec.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Identity Thief",
+							"description": "Once per long rest, as an action, shape shift into any humanoid you have seen for 1 hour, complete with voice and scent",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 1,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Identity Thief",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.LEGENDARY_BARD",
+			"type": "TIERED",
+			"application": {
+				"weight": 256,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["CHARISMA_SKILL"],
+				"applies": ["CHARISMA_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Legendary Bard",
+						"description": "Your performance skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.prf.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Legendary Bard",
+						"description": "Your performance skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.prf.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Legendary Bard",
+						"description": "Your performance skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.prf.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Legendary Bard",
+						"description": "Your performance skill increases by 6. Once per short rest, as an action, roll a performance check, every creature within 30ft gains temporary HP equal to its value",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.prf.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Legendary Bard",
+							"description": "Once per short rest, as an action, roll a performance check, every creature within 30ft gains temporary HP equal to its value",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 1,
+									"recovery": [
+										{
+											"period": "sr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Legendary Bard",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["temphp"],
+											"custom": {
+												"enabled": true,
+												"formula": "D20 + @skills.prf.total"
+											}
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										},
+										"target": {
+											"template": {
+												"type": "circle",
+												"size": 30,
+												"units": "ft"
+											}
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.MASTER_MIND",
+			"type": "TIERED",
+			"application": {
+				"weight": 256,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["CHARISMA_SKILL"],
+				"applies": ["CHARISMA_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Mastermind",
+						"description": "Your persuasion skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.per.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Mastermind",
+						"description": "Your persuasion skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.per.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Mastermind",
+						"description": "Your persuasion skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.per.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Mastermind",
+						"description": "Your persuasion skill increases by 6. Two times per long rest, as an action, implant an idea into a creatures mind as it is their own",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.per.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Mastermind",
+							"description": "Two times per long rest, as an action, implant an idea into a creatures mind as it is their own",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 2,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Mastermind",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.VOICE_OF_RUIN",
+			"type": "TIERED",
+			"application": {
+				"weight": 256,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["CHARISMA_SKILL"],
+				"applies": ["CHARISMA_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Voice of Ruin",
+						"description": "Your intimidation skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.itm.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Voice of Ruin",
+						"description": "Your intimidation skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.itm.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Voice of Ruin",
+						"description": "Your intimidation skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.itm.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Voice of Ruin",
+						"description": "Your intimidation skill increases by 6. Your words echo with cosmic dread, you can break morale, incite mass panic, or make armies flee by speaking",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.itm.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Voice of Ruin",
+							"description": "Your words echo with cosmic dread, you can break morale, incite mass panic, or make armies flee by speaking",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"activities": []
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.ACROBAT",
+			"type": "TIERED",
+			"application": {
+				"weight": 512,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["DEXTERITY_SKILL"],
+				"applies": ["DEXTERITY_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Acrobat",
+						"description": "Your acrobatics skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.acr.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Acrobat",
+						"description": "Your acrobatics skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.acr.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Acrobat",
+						"description": "Your acrobatics skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.acr.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Acrobat",
+						"description": "Your acrobatics skill increases by 6. Three times per short rest, perform an acrobatic feat to gain a D8 bonus on your next D20",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.acr.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Acrobat",
+							"description": "Three times per short rest, perform an acrobatic feat to gain a D8 bonus on your next D20",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"uses": {
+									"max": 3,
+									"recovery": [
+										{
+											"period": "sr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Acrobat",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": ""
+										},
+										"roll": {
+											"formula": "D8",
+											"name": "D8"
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.PERFECT_TOUCH",
+			"type": "TIERED",
+			"application": {
+				"weight": 512,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["DEXTERITY_SKILL"],
+				"applies": ["DEXTERITY_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Perfect Touch",
+						"description": "Your sleight of hand skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.slt.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Perfect Touch",
+						"description": "Your sleight of hand skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.slt.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Perfect Touch",
+						"description": "Your sleight of hand skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.slt.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Perfect Touch",
+						"description": "Your sleight of hand skill increases by 6. You can pickpocket and reverse pickpocket equipped items",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.slt.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Perfect Touch",
+							"description": "You can pickpocket and reverse pickpocket equipped items",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"activities": []
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.REDACTED",
+			"type": "TIERED",
+			"application": {
+				"weight": 512,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["DEXTERITY_SKILL"],
+				"applies": ["DEXTERITY_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Redacted",
+						"description": "Your stealth skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ste.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Redacted",
+						"description": "Your stealth skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ste.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Redacted",
+						"description": "Your stealth skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ste.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Redacted",
+						"description": "Your stealth skill increases by 6. Twice per long rest, as an action, you can retcon all memories of your existence that happened in the last minute",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ste.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Redacted",
+							"description": "Twice per long rest, as an action, you can retcon all memories of your existence that happened in the last minute",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 2,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Redacted",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.ARCANE_FONT",
+			"type": "TIERED",
+			"application": {
+				"weight": 256,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["INTELLIGENCE_SKILL"],
+				"applies": ["INTELLIGENCE_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Arcane Font",
+						"description": "Your arcana skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.arc.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Arcane Font",
+						"description": "Your arcana skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.arc.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Arcane Font",
+						"description": "Your arcana skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.arc.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Arcane Font",
+						"description": "Your arcana skill increases by 6. Once per short rest, cast any spell in existence, upon your max spell slot, no verbal, somatic, or material requirements",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.arc.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Arcane Font",
+							"description": "Once per short rest, cast any spell in existence, upon your max spell slot, no verbal, somatic, or material requirements",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 1,
+									"recovery": [
+										{
+											"period": "sr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Arcane Font",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.DIVINATION",
+			"type": "TIERED",
+			"application": {
+				"weight": 256,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["INTELLIGENCE_SKILL"],
+				"applies": ["INTELLIGENCE_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Divination",
+						"description": "Your religion skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.rel.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Divination",
+						"description": "Your religion skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.rel.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Divination",
+						"description": "Your religion skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.rel.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Divination",
+						"description": "Your religion skill increases by 6. As a reaction to an tagged foe being killed, grant an ally in sight 4d12 temporary HP, up to three times per short rest",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.rel.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Divination",
+							"description": "As a reaction to an tagged foe being killed, grant an ally in sight 4d12 temporary HP, up to three times per short rest",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"uses": {
+									"max": 3,
+									"recovery": [
+										{
+											"period": "sr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Divination",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["healing"],
+											"custom": {
+												"enabled": true,
+												"formula": "4d12"
+											}
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.HISTORIAN",
+			"type": "TIERED",
+			"application": {
+				"weight": 256,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["INTELLIGENCE_SKILL"],
+				"applies": ["INTELLIGENCE_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Historian",
+						"description": "Your history skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.his.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Historian",
+						"description": "Your history skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.his.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Historian",
+						"description": "Your history skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.his.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Historian",
+						"description": "Your history skill increases by 6. Once per short rest, as a bonus action, use a flashback to see echoes of the past",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.his.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Historian",
+							"description": "Once per short rest, as a bonus action, use a flashback to see echoes of the past",
+							"system": {
+								"activation": {
+									"type": "bonus",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 1,
+									"recovery": [
+										{
+											"period": "sr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Historian",
+										"activation": {
+											"type": "bonus",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.NATURALIST",
+			"type": "TIERED",
+			"application": {
+				"weight": 256,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["INTELLIGENCE_SKILL"],
+				"applies": ["INTELLIGENCE_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Naturalist",
+						"description": "Your nature skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.nat.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Naturalist",
+						"description": "Your nature skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.nat.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Naturalist",
+						"description": "Your nature skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.nat.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Naturalist",
+						"description": "Your nature skill increases by 6. You can control and communicate to plants within a 30ft radius at will",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.nat.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Naturalist",
+							"description": "You can control and communicate to plants within a 30ft radius at will",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"activities": []
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.PARADOX_BUSTER",
+			"type": "TIERED",
+			"application": {
+				"weight": 256,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["INTELLIGENCE_SKILL"],
+				"applies": ["INTELLIGENCE_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Paradox Buster",
+						"description": "Your investigation skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.inv.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Paradox Buster",
+						"description": "Your investigation skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.inv.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Paradox Buster",
+						"description": "Your investigation skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.inv.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Paradox Buster",
+						"description": "Your investigation skill increases by 6. When stumped by a puzzle, riddle or other investigative task, you may ask the DM one yes / no question about the solution, and must get a true answer",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.inv.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Paradox Buster",
+							"description": "When stumped by a puzzle, riddle or other investigative task, you may ask the DM one yes / no question about the solution, and must get a true answer",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"activities": []
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.COLOSSAL",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["STRENGTH_SKILL"],
+				"applies": ["STRENGTH_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Colossal",
+						"description": "Your athletics skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ath.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Colossal",
+						"description": "Your athletics skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ath.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Colossal",
+						"description": "Your athletics skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ath.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Colossal",
+						"description": "Your athletics skill increases by 6. You can wield two handed weapons with a single hand",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ath.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Colossal",
+							"description": "You can wield two handed weapons with a single hand",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"activities": []
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.ANIMALISTIC_INSIGHT",
+			"type": "TIERED",
+			"application": {
+				"weight": 256,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["WISDOM_SKILL"],
+				"applies": ["WISDOM_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Animalistic Insight",
+						"description": "Your animal handling skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ani.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Animalistic Insight",
+						"description": "Your animal handling skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ani.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Animalistic Insight",
+						"description": "Your animal handling skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ani.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Animalistic Insight",
+						"description": "Your animal handling skill increases by 6. Two times per long rest, as an action, you can command any friendly animal in sight. Gaining their senses and controlling them for up to one hour",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ani.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Animalistic Insight",
+							"description": "Two times per long rest, as an action, you can command any friendly animal in sight. Gaining their senses and controlling them for up to one hour",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 2,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Animalistic Insight",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.MEDICAL_PROFESSIONAL",
+			"type": "TIERED",
+			"application": {
+				"weight": 256,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["WISDOM_SKILL"],
+				"applies": ["WISDOM_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Medical Professional",
+						"description": "Your medicine skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.med.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Medical Professional",
+						"description": "Your medicine skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.med.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Medical Professional",
+						"description": "Your medicine skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.med.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Surely a Medical Professional",
+						"description": "Your medicine skill increases by 12. You can have no clue about humanoid anatomy",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.med.bonuses.check",
+							"mode": "ADD",
+							"value": 12
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Surely a Medical Professional",
+							"description": "You can have no clue about humanoid anatomy",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"activities": []
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.PREDATORY_FOCUS",
+			"type": "TIERED",
+			"application": {
+				"weight": 256,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["WISDOM_SKILL"],
+				"applies": ["WISDOM_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Predatory Focus",
+						"description": "Your perception skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.prc.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Predatory Focus",
+						"description": "Your perception skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.prc.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Predatory Focus",
+						"description": "Your perception skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.prc.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Predatory Focus",
+						"description": "Your perception skill increases by 6. As an action you can detect invisible creatures, heat signatures and heartbeat sounds",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.prc.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Predatory Focus",
+							"description": "As an action you can detect invisible creatures, heat signatures and heartbeat sounds",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"activities": []
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.SUPERIOR_INSIGHT",
+			"type": "TIERED",
+			"application": {
+				"weight": 256,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["WISDOM_SKILL"],
+				"applies": ["WISDOM_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Superior Insight",
+						"description": "Your insight skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ins.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Superior Insight",
+						"description": "Your insight skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ins.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Superior Insight",
+						"description": "Your insight skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ins.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Superior Insight",
+						"description": "Your insight skill increases by 6. You gain advantage on all insight checks",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ins.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Superior Insight",
+							"description": "You gain advantage on all insight checks",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"activities": []
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.SURVIVAL_INSTINCT",
+			"type": "TIERED",
+			"application": {
+				"weight": 256,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["WISDOM_SKILL"],
+				"applies": ["WISDOM_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Survival Instinct",
+						"description": "Your survival skill increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.sur.bonuses.check",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Survival Instinct",
+						"description": "Your survival skill increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.sur.bonuses.check",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Survival Instinct",
+						"description": "Your survival skill increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.sur.bonuses.check",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Survival Instinct",
+						"description": "Your survival skill increases by 6. As a bonus action, up to 3 times per short rest, you can eat any item to gain D12 HP",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.sur.bonuses.check",
+							"mode": "ADD",
+							"value": 6
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Survival Instinct",
+							"description": "As a bonus action, up to 3 times per short rest, you can eat any item to gain D12 HP",
+							"system": {
+								"activation": {
+									"type": "bonus",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 3,
+									"recovery": [
+										{
+											"period": "sr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Survival Instinct",
+										"activation": {
+											"type": "bonus",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["healing"],
+											"custom": {
+												"enabled": true,
+												"formula": "d12"
+											}
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	]
 }

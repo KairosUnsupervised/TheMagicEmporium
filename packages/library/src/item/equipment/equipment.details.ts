@@ -1,14 +1,14 @@
-import {Tag} from '../tag.types';
-import {Equipment} from './equipment.types';
-import {equipmentAdjectives} from './equipment.adjectives';
-import {ActivitySchema} from "../../effects/activity/activity.schema";
-import {Icon} from "../icon";
-import {Item5e} from "@tme/shared/src/types/item5e";
-import {DeepPartial} from "@tme/shared/src/helpers/deepPartial.types";
+import { Tag } from "../tag.types";
+import { Equipment } from "./equipment.types";
+import { equipmentAdjectives } from "./equipment.adjectives";
+import { ActivitySchema } from "../../effects/activity/activity.schema";
+import { Icon } from "../icon";
+import { Item5e } from "@tme/shared/src/types/item5e";
+import { DeepPartial } from "@tme/shared/src/helpers/deepPartial.types";
 
 enum FoundryType {
-	Weapon = 'weapon',
-	Equipment = 'equipment',
+	Weapon = "weapon",
+	Equipment = "equipment",
 }
 
 interface EquipmentDetail {
@@ -22,63 +22,70 @@ interface EquipmentDetail {
 	foundry: {
 		type: FoundryType;
 		system: DeepPartial<Item5e["system"]>;
-		activities?: ActivitySchema[]
+		activities?: ActivitySchema[];
 	};
 }
 
-const defaultAttackActivities: ActivitySchema[] = [{type: "attack", sort: -100000}];
+const defaultAttackActivities: ActivitySchema[] = [
+	{ type: "attack", sort: -100000 },
+];
 
 export const equipmentDetails: {
 	[key in Equipment]: EquipmentDetail;
 } = {
 	// Light
 	[Equipment.PaddedArmor]: {
-		title: 'Padded Armor',
+		title: "Padded Armor",
 		altTitles: [
-			'Padded Armor',
-			'Quilted Armor',
-			'Stuffed Jerkin',
-			'Padded Tunic',
-			'Reinforced Doublet',
-			'Cushioned Garb',
-			'Layered Protection Wear',
-			'Stuffed Gambeson',
+			"Padded Armor",
+			"Quilted Armor",
+			"Stuffed Jerkin",
+			"Padded Tunic",
+			"Reinforced Doublet",
+			"Cushioned Garb",
+			"Layered Protection Wear",
+			"Stuffed Gambeson",
 		],
 		adjectives: equipmentAdjectives.armorWithArmorClass,
-		short: 'Padded',
+		short: "Padded",
 		value: 5,
-		tags: [Tag.Armor, Tag.ArmorLight, Tag.ArmorWithArmorClass, Tag.ArmorStealthDisadvantage],
+		tags: [
+			Tag.Armor,
+			Tag.ArmorLight,
+			Tag.ArmorWithArmorClass,
+			Tag.ArmorStealthDisadvantage,
+		],
 		icon: Icon.Padded,
 		foundry: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 8
+					value: 8,
 				},
-				type: {value: 'light', baseItem: 'padded'},
+				type: { value: "light", baseItem: "padded" },
 				armor: {
 					value: 11,
 					dex: null,
 				},
-				properties: ['stealthDisadvantage'],
+				properties: ["stealthDisadvantage"],
 			},
 		},
 	},
 	[Equipment.LeatherArmor]: {
-		title: 'Leather Armor',
+		title: "Leather Armor",
 		altTitles: [
-			'Leather',
-			'Leather Armor',
-			'Hardened Leather',
-			'Boiled Leather',
-			'Supple Hide Coat',
-			'Leather Jerkin',
-			'Tanned Hide Armor',
-			'Cured Leather Protection',
-			'Tooled Leather Suit',
+			"Leather",
+			"Leather Armor",
+			"Hardened Leather",
+			"Boiled Leather",
+			"Supple Hide Coat",
+			"Leather Jerkin",
+			"Tanned Hide Armor",
+			"Cured Leather Protection",
+			"Tooled Leather Suit",
 		],
 		adjectives: equipmentAdjectives.armorWithArmorClass,
-		short: 'Leather',
+		short: "Leather",
 		value: 10,
 		tags: [Tag.Armor, Tag.ArmorLight, Tag.ArmorWithArmorClass],
 		icon: Icon.Leather,
@@ -86,9 +93,9 @@ export const equipmentDetails: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 10
+					value: 10,
 				},
-				type: {value: 'light', baseItem: 'leather'},
+				type: { value: "light", baseItem: "leather" },
 				armor: {
 					value: 11,
 					dex: null,
@@ -97,19 +104,19 @@ export const equipmentDetails: {
 		},
 	},
 	[Equipment.StuddedLeatherArmor]: {
-		title: 'Studded Leather Armor',
+		title: "Studded Leather Armor",
 		altTitles: [
-			'Studded Leather Armor',
-			'Studded Armor',
-			'Riveted Leather',
-			'Reinforced Coat',
-			'Metal-Studded Jerkin',
-			'Nail-Reinforced Leather',
-			'Spiked Leather Armor',
-			'Buckled Leather Protection',
+			"Studded Leather Armor",
+			"Studded Armor",
+			"Riveted Leather",
+			"Reinforced Coat",
+			"Metal-Studded Jerkin",
+			"Nail-Reinforced Leather",
+			"Spiked Leather Armor",
+			"Buckled Leather Protection",
 		],
 		adjectives: equipmentAdjectives.armorWithArmorClass,
-		short: 'Studded Leather',
+		short: "Studded Leather",
 		value: 45,
 		tags: [Tag.Armor, Tag.ArmorLight, Tag.ArmorWithArmorClass],
 		icon: Icon.StuddedLeather,
@@ -117,9 +124,9 @@ export const equipmentDetails: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 13
+					value: 13,
 				},
-				type: {value: 'light', baseItem: 'studded'},
+				type: { value: "light", baseItem: "studded" },
 				armor: {
 					value: 12,
 					dex: null,
@@ -129,19 +136,19 @@ export const equipmentDetails: {
 	},
 	// Medium
 	[Equipment.HideArmor]: {
-		title: 'Hide Armor',
+		title: "Hide Armor",
 		altTitles: [
-			'Hide Armor',
-			'Hide',
-			'Beast Hide Coat',
-			'Cured Hide Protection',
-			'Hide Garb',
-			'Hide Jerkin',
-			'Hide Suit',
-			'Beast Hide',
+			"Hide Armor",
+			"Hide",
+			"Beast Hide Coat",
+			"Cured Hide Protection",
+			"Hide Garb",
+			"Hide Jerkin",
+			"Hide Suit",
+			"Beast Hide",
 		],
 		adjectives: equipmentAdjectives.armorWithArmorClass,
-		short: 'Hide',
+		short: "Hide",
 		value: 10,
 		tags: [Tag.Armor, Tag.ArmorMedium, Tag.ArmorWithArmorClass],
 		icon: Icon.Hide,
@@ -149,9 +156,9 @@ export const equipmentDetails: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 12
+					value: 12,
 				},
-				type: {value: 'medium', baseItem: 'hide'},
+				type: { value: "medium", baseItem: "hide" },
 				armor: {
 					value: 12,
 					dex: 2,
@@ -160,17 +167,17 @@ export const equipmentDetails: {
 		},
 	},
 	[Equipment.ChainShirt]: {
-		title: 'Chain Shirt',
+		title: "Chain Shirt",
 		altTitles: [
-			'Chain Shirt',
-			'Chain',
-			'Mail Shirt',
-			'Chainmail Vest',
-			'Interlocked Chain',
-			'Iron Link Armor',
-			'Chain Mail Tunic',
-			'Linked Metal Shirt',
-			'Woven Chain Garment',
+			"Chain Shirt",
+			"Chain",
+			"Mail Shirt",
+			"Chainmail Vest",
+			"Interlocked Chain",
+			"Iron Link Armor",
+			"Chain Mail Tunic",
+			"Linked Metal Shirt",
+			"Woven Chain Garment",
 		],
 		adjectives: equipmentAdjectives.armorWithArmorClass,
 		short: null,
@@ -181,9 +188,9 @@ export const equipmentDetails: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 20
+					value: 20,
 				},
-				type: {value: 'medium', baseItem: 'chainshirt'},
+				type: { value: "medium", baseItem: "chainshirt" },
 				armor: {
 					value: 13,
 					dex: 2,
@@ -192,47 +199,52 @@ export const equipmentDetails: {
 		},
 	},
 	[Equipment.ScaleMail]: {
-		title: 'Scale Mail',
+		title: "Scale Mail",
 		altTitles: [
-			'Scale Mail',
-			'Scale',
-			'Scaled Armor',
-			'Dragon Scale Coat',
-			'Overlapping Scales',
-			'Scale Plating',
-			'Scaled Hide Armor',
-			'Segmented Scale Suit',
-			'Lacquered Scale Armor',
+			"Scale Mail",
+			"Scale",
+			"Scaled Armor",
+			"Dragon Scale Coat",
+			"Overlapping Scales",
+			"Scale Plating",
+			"Scaled Hide Armor",
+			"Segmented Scale Suit",
+			"Lacquered Scale Armor",
 		],
 		adjectives: equipmentAdjectives.armorWithArmorClass,
 		short: null,
 		value: 50,
-		tags: [Tag.Armor, Tag.ArmorMedium, Tag.ArmorWithArmorClass, Tag.ArmorStealthDisadvantage],
+		tags: [
+			Tag.Armor,
+			Tag.ArmorMedium,
+			Tag.ArmorWithArmorClass,
+			Tag.ArmorStealthDisadvantage,
+		],
 		icon: Icon.ScaleMail,
 		foundry: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 45
+					value: 45,
 				},
-				type: {value: 'medium', baseItem: 'scalemail'},
+				type: { value: "medium", baseItem: "scalemail" },
 				armor: {
 					value: 14,
 					dex: 2,
 				},
-				properties: ['stealthDisadvantage'],
+				properties: ["stealthDisadvantage"],
 			},
 		},
 	},
 	[Equipment.Breastplate]: {
-		title: 'Breastplate',
+		title: "Breastplate",
 		altTitles: [
-			'Breastplate',
-			'Steel Breastplate',
-			'Cuirass',
-			'Armored Chest Plate',
-			'Chest Guard',
-			'Fitted Metal Plate',
+			"Breastplate",
+			"Steel Breastplate",
+			"Cuirass",
+			"Armored Chest Plate",
+			"Chest Guard",
+			"Fitted Metal Plate",
 		],
 		adjectives: equipmentAdjectives.armorWithArmorClass,
 		short: null,
@@ -243,9 +255,9 @@ export const equipmentDetails: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 20
+					value: 20,
 				},
-				type: {value: 'medium', baseItem: 'breastplate'},
+				type: { value: "medium", baseItem: "breastplate" },
 				armor: {
 					value: 14,
 					dex: 2,
@@ -254,175 +266,200 @@ export const equipmentDetails: {
 		},
 	},
 	[Equipment.HalfPlate]: {
-		title: 'Half Plate',
+		title: "Half Plate",
 		altTitles: [
-			'Half Plate',
-			'Half Plate Armor',
-			'Segmented Plate',
-			'Partial Plate Suit',
-			'Upper Body Plate',
-			'Composite Plate Armor',
-			'Sectioned Plate Guard',
-			'Hybrid Plate Protection',
+			"Half Plate",
+			"Half Plate Armor",
+			"Segmented Plate",
+			"Partial Plate Suit",
+			"Upper Body Plate",
+			"Composite Plate Armor",
+			"Sectioned Plate Guard",
+			"Hybrid Plate Protection",
 		],
 		adjectives: equipmentAdjectives.armorWithArmorClass,
 		short: null,
 		value: 750,
-		tags: [Tag.Armor, Tag.ArmorMedium, Tag.ArmorWithArmorClass, Tag.ArmorStealthDisadvantage],
+		tags: [
+			Tag.Armor,
+			Tag.ArmorMedium,
+			Tag.ArmorWithArmorClass,
+			Tag.ArmorStealthDisadvantage,
+		],
 		icon: Icon.HalfPlate,
 		foundry: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 40
+					value: 40,
 				},
-				type: {value: 'medium', baseItem: 'halfplate'},
+				type: { value: "medium", baseItem: "halfplate" },
 				armor: {
 					value: 15,
 					dex: 2,
 				},
-				properties: ['stealthDisadvantage'],
+				properties: ["stealthDisadvantage"],
 			},
 		},
 	},
 	[Equipment.RingMail]: {
-		title: 'Ring Mail',
+		title: "Ring Mail",
 		altTitles: [
-			'Ring Mail',
-			'Ringed Armor',
-			'Iron Ring Coat',
-			'Reinforced Ring Suit',
-			'Riveted Ring Armor',
-			'Ring-Plated Garment',
-			'Heavy Ring Protection',
-			'Banded Ring Mail',
+			"Ring Mail",
+			"Ringed Armor",
+			"Iron Ring Coat",
+			"Reinforced Ring Suit",
+			"Riveted Ring Armor",
+			"Ring-Plated Garment",
+			"Heavy Ring Protection",
+			"Banded Ring Mail",
 		],
 		adjectives: equipmentAdjectives.armorWithArmorClass,
 		short: null,
 		value: 30,
-		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass, Tag.ArmorStealthDisadvantage],
+		tags: [
+			Tag.Armor,
+			Tag.ArmorHeavy,
+			Tag.ArmorWithArmorClass,
+			Tag.ArmorStealthDisadvantage,
+		],
 		icon: Icon.RingMail,
 		foundry: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 40
+					value: 40,
 				},
-				type: {value: 'heavy', baseItem: 'ringmail'},
+				type: { value: "heavy", baseItem: "ringmail" },
 				armor: {
 					value: 14,
 					dex: 0,
 				},
-				properties: ['stealthDisadvantage'],
+				properties: ["stealthDisadvantage"],
 			},
 		},
 	},
 	[Equipment.ChainMail]: {
-		title: 'Chain Mail',
+		title: "Chain Mail",
 		altTitles: [
-			'Chain Mail',
-			'Chain',
-			'Full Chainmail',
-			'Interlocked Chain Suit',
-			'Heavy Chain Armor',
-			'Mesh Chain Coat',
-			'Iron Chain Mail',
-			'Linked Chain Protection',
-			'Comprehensive Chain Suit',
+			"Chain Mail",
+			"Chain",
+			"Full Chainmail",
+			"Interlocked Chain Suit",
+			"Heavy Chain Armor",
+			"Mesh Chain Coat",
+			"Iron Chain Mail",
+			"Linked Chain Protection",
+			"Comprehensive Chain Suit",
 		],
 		adjectives: equipmentAdjectives.armorWithArmorClass,
 		short: null,
 		value: 75,
-		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass, Tag.ArmorStealthDisadvantage],
+		tags: [
+			Tag.Armor,
+			Tag.ArmorHeavy,
+			Tag.ArmorWithArmorClass,
+			Tag.ArmorStealthDisadvantage,
+		],
 		icon: Icon.ChainMail,
 		foundry: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 55
+					value: 55,
 				},
-				type: {value: 'heavy', baseItem: 'chainmail'},
+				type: { value: "heavy", baseItem: "chainmail" },
 				armor: {
 					value: 16,
 					dex: 0,
 				},
-				properties: ['stealthDisadvantage'],
+				properties: ["stealthDisadvantage"],
 				strength: 13,
 			},
 		},
 	},
 	[Equipment.SplintArmor]: {
-		title: 'Splint Armor',
+		title: "Splint Armor",
 		altTitles: [
-			'Splint Armor',
-			'Splint',
-			'Splinted Plate',
-			'Banded Plate Armor',
-			'Reinforced Splints',
-			'Segmented Splint Suit',
-			'Strip Plate Armor',
-			'Overlapping Splint Plates',
-			'Riveted Strip Armor',
+			"Splint Armor",
+			"Splint",
+			"Splinted Plate",
+			"Banded Plate Armor",
+			"Reinforced Splints",
+			"Segmented Splint Suit",
+			"Strip Plate Armor",
+			"Overlapping Splint Plates",
+			"Riveted Strip Armor",
 		],
 		adjectives: equipmentAdjectives.armorWithArmorClass,
-		short: 'Splint',
+		short: "Splint",
 		value: 200,
-		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass, Tag.ArmorStealthDisadvantage],
+		tags: [
+			Tag.Armor,
+			Tag.ArmorHeavy,
+			Tag.ArmorWithArmorClass,
+			Tag.ArmorStealthDisadvantage,
+		],
 		icon: Icon.Splint,
 		foundry: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 60
+					value: 60,
 				},
-				type: {value: 'heavy', baseItem: 'splint'},
+				type: { value: "heavy", baseItem: "splint" },
 				armor: {
 					value: 17,
 					dex: 0,
 				},
-				properties: ['stealthDisadvantage'],
+				properties: ["stealthDisadvantage"],
 				strength: 15,
 			},
 		},
 	},
 	[Equipment.PlateArmor]: {
-		title: 'Plate Armor',
+		title: "Plate Armor",
 		altTitles: [
-			'Plate Armor',
-			'Full Plate',
-			'Polished Plate Suit',
-			'Steel Plate Armor',
-			'Gleaming Full Plate',
-			'Complete Plate Protection',
-			'Reinforced Plate Suit',
+			"Plate Armor",
+			"Full Plate",
+			"Polished Plate Suit",
+			"Steel Plate Armor",
+			"Gleaming Full Plate",
+			"Complete Plate Protection",
+			"Reinforced Plate Suit",
 			"Champion's Plate Armor",
 		],
 		adjectives: equipmentAdjectives.armorWithArmorClass,
-		short: 'Plate',
+		short: "Plate",
 		value: 1500,
-		tags: [Tag.Armor, Tag.ArmorHeavy, Tag.ArmorWithArmorClass, Tag.ArmorStealthDisadvantage],
+		tags: [
+			Tag.Armor,
+			Tag.ArmorHeavy,
+			Tag.ArmorWithArmorClass,
+			Tag.ArmorStealthDisadvantage,
+		],
 		icon: Icon.Plate,
 		foundry: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 65
+					value: 65,
 				},
-				type: {value: 'heavy', baseItem: 'plate'},
+				type: { value: "heavy", baseItem: "plate" },
 				armor: {
 					value: 18,
 					dex: 0,
 				},
-				properties: ['stealthDisadvantage'],
+				properties: ["stealthDisadvantage"],
 				strength: 15,
 			},
 		},
 	},
 	// Armor Clothes
 	[Equipment.CommonerClothes]: {
-		title: 'Commoner Clothes',
+		title: "Commoner Clothes",
 		adjectives: equipmentAdjectives.armorWithoutArmorClass,
-		short: 'Commoner',
+		short: "Commoner",
 		value: 1,
 		tags: [Tag.Armor, Tag.ArmorClothes],
 		icon: Icon.CommonClothes,
@@ -430,16 +467,16 @@ export const equipmentDetails: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 3
+					value: 3,
 				},
-				type: {value: 'clothing', baseItem: ''},
+				type: { value: "clothing", baseItem: "" },
 			},
 		},
 	},
 	[Equipment.FineClothes]: {
-		title: 'Fine Clothes',
+		title: "Fine Clothes",
 		adjectives: equipmentAdjectives.armorWithoutArmorClass,
-		short: 'Fine',
+		short: "Fine",
 		value: 3,
 		tags: [Tag.Armor, Tag.ArmorClothes],
 		icon: Icon.FineClothes,
@@ -447,16 +484,16 @@ export const equipmentDetails: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 6
+					value: 6,
 				},
-				type: {value: 'clothing', baseItem: ''},
+				type: { value: "clothing", baseItem: "" },
 			},
 		},
 	},
 	[Equipment.NobleClothes]: {
-		title: 'Noble Clothes',
+		title: "Noble Clothes",
 		adjectives: equipmentAdjectives.armorWithoutArmorClass,
-		short: 'Noble',
+		short: "Noble",
 		value: 10,
 		tags: [Tag.Armor, Tag.ArmorClothes],
 		icon: Icon.NobleClothes,
@@ -464,16 +501,16 @@ export const equipmentDetails: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 7
+					value: 7,
 				},
-				type: {value: 'clothing', baseItem: ''},
+				type: { value: "clothing", baseItem: "" },
 			},
 		},
 	},
 	[Equipment.RoyalClothes]: {
-		title: 'Royal Clothes',
+		title: "Royal Clothes",
 		adjectives: equipmentAdjectives.armorWithoutArmorClass,
-		short: 'Royal',
+		short: "Royal",
 		value: 30,
 		tags: [Tag.Armor, Tag.ArmorClothes],
 		icon: Icon.RoyalClothes,
@@ -481,15 +518,15 @@ export const equipmentDetails: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 9
+					value: 9,
 				},
-				type: {value: 'clothing', baseItem: ''},
+				type: { value: "clothing", baseItem: "" },
 			},
 		},
 	},
 	// Shield
 	[Equipment.Shield]: {
-		title: 'Shield',
+		title: "Shield",
 		adjectives: equipmentAdjectives.armorWithArmorClass,
 		short: null,
 		value: 10,
@@ -499,9 +536,9 @@ export const equipmentDetails: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 6
+					value: 6,
 				},
-				type: {value: 'shield', baseItem: 'shield'},
+				type: { value: "shield", baseItem: "shield" },
 				armor: {
 					value: 2,
 					dex: null,
@@ -512,7 +549,7 @@ export const equipmentDetails: {
 	},
 	// Accessories
 	[Equipment.Ring]: {
-		title: 'Ring',
+		title: "Ring",
 		adjectives: equipmentAdjectives.accessory,
 		short: null,
 		value: 15,
@@ -522,14 +559,14 @@ export const equipmentDetails: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 0.1
+					value: 0.1,
 				},
-				type: {value: 'trinket', baseItem: '', label: 'Trinket'},
+				type: { value: "trinket", baseItem: "", label: "Trinket" },
 			},
 		},
 	},
 	[Equipment.Amulet]: {
-		title: 'Amulet',
+		title: "Amulet",
 		adjectives: equipmentAdjectives.accessory,
 		short: null,
 		value: 30,
@@ -539,14 +576,14 @@ export const equipmentDetails: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 1
+					value: 1,
 				},
-				type: {value: 'trinket', baseItem: '', label: 'Trinket'},
+				type: { value: "trinket", baseItem: "", label: "Trinket" },
 			},
 		},
 	},
 	[Equipment.Relic]: {
-		title: 'Relic',
+		title: "Relic",
 		adjectives: equipmentAdjectives.accessory,
 		short: null,
 		value: 50,
@@ -556,15 +593,15 @@ export const equipmentDetails: {
 			type: FoundryType.Equipment,
 			system: {
 				weight: {
-					value: 2
+					value: 2,
 				},
-				type: {value: 'trinket', baseItem: '', label: 'Trinket'},
+				type: { value: "trinket", baseItem: "", label: "Trinket" },
 			},
 		},
 	},
 	// Simple Melee Weapons
 	[Equipment.Club]: {
-		title: 'Club',
+		title: "Club",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 1,
@@ -575,35 +612,35 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 2
+					value: 2,
 				},
-				type: {value: 'simpleM', baseItem: 'club'},
-				properties: ['lgt'],
-				ability: 'dex',
-				actionType: 'mwak',
+				type: { value: "simpleM", baseItem: "club" },
+				properties: ["lgt"],
+				ability: "dex",
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 4,
 						bonus: 0,
-						types: ['bludgeoning']
-					}
+						types: ["bludgeoning"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Dagger]: {
-		title: 'Dagger',
+		title: "Dagger",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 2,
@@ -614,35 +651,35 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 1
+					value: 1,
 				},
-				type: {value: 'simpleM', baseItem: 'dagger'},
-				properties: ['fin', 'lgt', 'thr'],
-				ability: 'dex',
-				actionType: 'mwak',
+				type: { value: "simpleM", baseItem: "dagger" },
+				properties: ["fin", "lgt", "thr"],
+				ability: "dex",
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 20,
 					long: 60,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 4,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Greatclub]: {
-		title: 'Greatclub',
+		title: "Greatclub",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 1,
@@ -653,34 +690,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 10
+					value: 10,
 				},
-				type: {value: 'simpleM', baseItem: 'greatclub'},
-				properties: ['two'],
-				actionType: 'mwak',
+				type: { value: "simpleM", baseItem: "greatclub" },
+				properties: ["two"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 8,
 						bonus: 0,
-						types: ['bludgeoning']
-					}
+						types: ["bludgeoning"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Handaxe]: {
-		title: 'Handaxe',
+		title: "Handaxe",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 5,
@@ -691,34 +728,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 2
+					value: 2,
 				},
-				type: {value: 'simpleM', baseItem: 'handaxe'},
-				properties: ['lgt', 'thr'],
-				actionType: 'mwak',
+				type: { value: "simpleM", baseItem: "handaxe" },
+				properties: ["lgt", "thr"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 20,
 					long: 60,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 6,
 						bonus: 0,
-						types: ['slashing']
-					}
+						types: ["slashing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Javelin]: {
-		title: 'Javelin',
+		title: "Javelin",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 1,
@@ -729,34 +766,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 2
+					value: 2,
 				},
-				type: {value: 'simpleM', baseItem: 'javelin'},
-				properties: ['thr'],
-				actionType: 'mwak',
+				type: { value: "simpleM", baseItem: "javelin" },
+				properties: ["thr"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 30,
 					long: 120,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 6,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.LightHammer]: {
-		title: 'Light Hammer',
+		title: "Light Hammer",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 2,
@@ -767,34 +804,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 2
+					value: 2,
 				},
-				type: {value: 'simpleM', baseItem: 'lighthammer'},
-				properties: ['lgt', 'thr'],
-				actionType: 'mwak',
+				type: { value: "simpleM", baseItem: "lighthammer" },
+				properties: ["lgt", "thr"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 20,
 					long: 60,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 4,
 						bonus: 0,
-						types: ['bludgeoning']
-					}
+						types: ["bludgeoning"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Mace]: {
-		title: 'Mace',
+		title: "Mace",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 5,
@@ -805,34 +842,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 4
+					value: 4,
 				},
-				type: {value: 'simpleM', baseItem: 'mace'},
+				type: { value: "simpleM", baseItem: "mace" },
 				properties: [],
-				actionType: 'mwak',
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 6,
 						bonus: 0,
-						types: ['bludgeoning']
-					}
+						types: ["bludgeoning"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Quarterstaff]: {
-		title: 'Quarterstaff',
+		title: "Quarterstaff",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 1,
@@ -843,40 +880,40 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 4
+					value: 4,
 				},
-				type: {value: 'simpleM', baseItem: 'quarterstaff'},
-				properties: ['ver'],
-				actionType: 'mwak',
+				type: { value: "simpleM", baseItem: "quarterstaff" },
+				properties: ["ver"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 6,
 						bonus: 0,
-						types: ['bludgeoning']
+						types: ["bludgeoning"],
 					},
 					versatile: {
 						number: 1,
 						denomination: 8,
 						bonus: 0,
-						types: ['bludgeoning']
-					}
+						types: ["bludgeoning"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Sickle]: {
-		title: 'Sickle',
+		title: "Sickle",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 1,
@@ -887,34 +924,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 2
+					value: 2,
 				},
-				type: {value: 'simpleM', baseItem: 'sickle'},
-				properties: ['lgt'],
-				actionType: 'mwak',
+				type: { value: "simpleM", baseItem: "sickle" },
+				properties: ["lgt"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 4,
 						bonus: 0,
-						types: ['slashing']
-					}
+						types: ["slashing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Spear]: {
-		title: 'Spear',
+		title: "Spear",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 1,
@@ -925,41 +962,41 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 3
+					value: 3,
 				},
-				type: {value: 'simpleM', baseItem: 'spear'},
-				properties: ['thr', 'ver'],
-				actionType: 'mwak',
+				type: { value: "simpleM", baseItem: "spear" },
+				properties: ["thr", "ver"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 20,
 					long: 60,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 6,
 						bonus: 0,
-						types: ['piercing']
+						types: ["piercing"],
 					},
 					versatile: {
 						number: 1,
 						denomination: 8,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	// Simple Ranged Weapon
 	[Equipment.CrosswbowLight]: {
-		title: 'Light Crossbow',
+		title: "Light Crossbow",
 		adjectives: equipmentAdjectives.rangedWeapon,
 		short: null,
 		value: 25,
@@ -970,35 +1007,35 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 5
+					value: 5,
 				},
-				type: {value: 'simpleR', baseItem: 'lightcrossbow'},
-				properties: ['amm', 'lod', 'two'],
-				ability: 'dex',
-				actionType: 'rwak',
+				type: { value: "simpleR", baseItem: "lightcrossbow" },
+				properties: ["amm", "lod", "two"],
+				ability: "dex",
+				actionType: "rwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 80,
 					long: 320,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 8,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Dart]: {
-		title: 'Dart',
+		title: "Dart",
 		adjectives: equipmentAdjectives.rangedWeapon,
 		short: null,
 		value: 1,
@@ -1009,35 +1046,35 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 0.25
+					value: 0.25,
 				},
-				type: {value: 'simpleR', baseItem: 'dart'},
-				properties: ['fin', 'thr'],
-				ability: 'dex',
-				actionType: 'rwak',
+				type: { value: "simpleR", baseItem: "dart" },
+				properties: ["fin", "thr"],
+				ability: "dex",
+				actionType: "rwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 20,
 					long: 60,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 4,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Shortbow]: {
-		title: 'Shortbow',
+		title: "Shortbow",
 		adjectives: equipmentAdjectives.rangedWeapon,
 		short: null,
 		value: 25,
@@ -1048,35 +1085,35 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 2
+					value: 2,
 				},
-				type: {value: 'simpleR', baseItem: 'shortbow'},
-				properties: ['amm', 'two'],
-				ability: 'dex',
-				actionType: 'rwak',
+				type: { value: "simpleR", baseItem: "shortbow" },
+				properties: ["amm", "two"],
+				ability: "dex",
+				actionType: "rwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 80,
 					long: 320,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 6,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Sling]: {
-		title: 'Sling',
+		title: "Sling",
 		adjectives: equipmentAdjectives.rangedWeapon,
 		short: null,
 		value: 1,
@@ -1087,36 +1124,36 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 2
+					value: 2,
 				},
-				type: {value: 'simpleR', baseItem: 'sling'},
-				properties: ['amm'],
-				ability: 'dex',
-				actionType: 'rwak',
+				type: { value: "simpleR", baseItem: "sling" },
+				properties: ["amm"],
+				ability: "dex",
+				actionType: "rwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 30,
 					long: 120,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 4,
 						bonus: 0,
-						types: ['bludgeoning']
-					}
+						types: ["bludgeoning"],
+					},
 				},
 			},
 		},
 	},
 	// Martial Melee Weapons
 	[Equipment.Battleaxe]: {
-		title: 'Battleaxe',
+		title: "Battleaxe",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 10,
@@ -1127,40 +1164,40 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 4
+					value: 4,
 				},
-				type: {value: 'martialM', baseItem: 'battleaxe'},
-				properties: ['ver'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "battleaxe" },
+				properties: ["ver"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 8,
 						bonus: 0,
-						types: ['slashing']
+						types: ["slashing"],
 					},
 					versatile: {
 						number: 1,
 						denomination: 10,
 						bonus: 0,
-						types: ['slashing']
-					}
+						types: ["slashing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Flail]: {
-		title: 'Flail',
+		title: "Flail",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 10,
@@ -1171,34 +1208,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 2
+					value: 2,
 				},
-				type: {value: 'martialM', baseItem: 'flail'},
+				type: { value: "martialM", baseItem: "flail" },
 				properties: [],
-				actionType: 'mwak',
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 8,
 						bonus: 0,
-						types: ['bludgeoning']
-					}
+						types: ["bludgeoning"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Glaive]: {
-		title: 'Glaive',
+		title: "Glaive",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 20,
@@ -1209,34 +1246,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 6
+					value: 6,
 				},
-				type: {value: 'martialM', baseItem: 'glaive'},
-				properties: ['hvy', 'rch', 'two'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "glaive" },
+				properties: ["hvy", "rch", "two"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 10,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 10,
 						bonus: 0,
-						types: ['slashing']
-					}
+						types: ["slashing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Greataxe]: {
-		title: 'Greataxe',
+		title: "Greataxe",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 30,
@@ -1247,34 +1284,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 7
+					value: 7,
 				},
-				type: {value: 'martialM', baseItem: 'greataxe'},
-				properties: ['hvy', 'two'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "greataxe" },
+				properties: ["hvy", "two"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 12,
 						bonus: 0,
-						types: ['slashing']
-					}
+						types: ["slashing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Greatsword]: {
-		title: 'Greatsword',
+		title: "Greatsword",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 50,
@@ -1285,34 +1322,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 6
+					value: 6,
 				},
-				type: {value: 'martialM', baseItem: 'greatsword'},
-				properties: ['hvy', 'two'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "greatsword" },
+				properties: ["hvy", "two"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 2,
 						denomination: 6,
 						bonus: 0,
-						types: ['slashing']
-					}
+						types: ["slashing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Halberd]: {
-		title: 'Halberd',
+		title: "Halberd",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 20,
@@ -1323,34 +1360,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 6
+					value: 6,
 				},
-				type: {value: 'martialM', baseItem: 'halberd'},
-				properties: ['hvy', 'two', 'rch'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "halberd" },
+				properties: ["hvy", "two", "rch"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 10,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 10,
 						bonus: 0,
-						types: ['slashing']
-					}
+						types: ["slashing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Lance]: {
-		title: 'Lance',
+		title: "Lance",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 10,
@@ -1361,34 +1398,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 6
+					value: 6,
 				},
-				type: {value: 'martialM', baseItem: 'lance'},
-				properties: ['rch', 'spc'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "lance" },
+				properties: ["rch", "spc"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 10,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 12,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Longsword]: {
-		title: 'Longsword',
+		title: "Longsword",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 15,
@@ -1399,40 +1436,40 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 3
+					value: 3,
 				},
-				type: {value: 'martialM', baseItem: 'longsword'},
-				properties: ['ver'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "longsword" },
+				properties: ["ver"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 8,
 						bonus: 0,
-						types: ['slashing']
+						types: ["slashing"],
 					},
 					versatile: {
 						number: 1,
 						denomination: 10,
 						bonus: 0,
-						types: ['slashing']
-					}
+						types: ["slashing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Maul]: {
-		title: 'Maul',
+		title: "Maul",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 10,
@@ -1443,34 +1480,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 10
+					value: 10,
 				},
-				type: {value: 'martialM', baseItem: 'maul'},
-				properties: ['hvy', 'two'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "maul" },
+				properties: ["hvy", "two"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 2,
 						denomination: 6,
 						bonus: 0,
-						types: ['bludgeoning']
-					}
+						types: ["bludgeoning"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Morningstar]: {
-		title: 'Morningstar',
+		title: "Morningstar",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 15,
@@ -1481,34 +1518,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 4
+					value: 4,
 				},
-				type: {value: 'martialM', baseItem: 'morningstar'},
+				type: { value: "martialM", baseItem: "morningstar" },
 				properties: [],
-				actionType: 'mwak',
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 8,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Pike]: {
-		title: 'Pike',
+		title: "Pike",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 5,
@@ -1519,34 +1556,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 18
+					value: 18,
 				},
-				type: {value: 'martialM', baseItem: 'pike'},
-				properties: ['hvy', 'rch', 'two'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "pike" },
+				properties: ["hvy", "rch", "two"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 10,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 10,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Rapier]: {
-		title: 'Rapier',
+		title: "Rapier",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 25,
@@ -1557,34 +1594,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 2
+					value: 2,
 				},
-				type: {value: 'martialM', baseItem: 'rapier'},
-				properties: ['fin'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "rapier" },
+				properties: ["fin"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 8,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Scimitar]: {
-		title: 'Scimitar',
+		title: "Scimitar",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 25,
@@ -1595,34 +1632,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 3
+					value: 3,
 				},
-				type: {value: 'martialM', baseItem: 'scimitar'},
-				properties: ['fin', 'lgt'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "scimitar" },
+				properties: ["fin", "lgt"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 6,
 						bonus: 0,
-						types: ['slashing']
-					}
+						types: ["slashing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Shortsword]: {
-		title: 'Shortsword',
+		title: "Shortsword",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 10,
@@ -1633,34 +1670,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 2
+					value: 2,
 				},
-				type: {value: 'martialM', baseItem: 'shortsword'},
-				properties: ['fin', 'lgt'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "shortsword" },
+				properties: ["fin", "lgt"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 6,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Trident]: {
-		title: 'Trident',
+		title: "Trident",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 5,
@@ -1671,40 +1708,40 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 4
+					value: 4,
 				},
-				type: {value: 'martialM', baseItem: 'trident'},
-				properties: ['thr', 'ver'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "trident" },
+				properties: ["thr", "ver"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 20,
 					long: 60,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 6,
 						bonus: 0,
-						types: ['piercing']
+						types: ["piercing"],
 					},
 					versatile: {
 						number: 1,
 						denomination: 8,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.WarPick]: {
-		title: 'War pick',
+		title: "War pick",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 5,
@@ -1715,34 +1752,34 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 2
+					value: 2,
 				},
-				type: {value: 'martialM', baseItem: 'warpick'},
+				type: { value: "martialM", baseItem: "warpick" },
 				properties: [],
-				actionType: 'mwak',
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 8,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Warhammer]: {
-		title: 'Warhammer',
+		title: "Warhammer",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 15,
@@ -1753,40 +1790,40 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 2
+					value: 2,
 				},
-				type: {value: 'martialM', baseItem: 'warhammer'},
-				properties: ['ver'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "warhammer" },
+				properties: ["ver"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 8,
 						bonus: 0,
-						types: ['bludgeoning']
+						types: ["bludgeoning"],
 					},
 					versatile: {
 						number: 1,
 						denomination: 10,
 						bonus: 0,
-						types: ['bludgeoning']
-					}
+						types: ["bludgeoning"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Whip]: {
-		title: 'Whip',
+		title: "Whip",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 2,
@@ -1797,35 +1834,35 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 3
+					value: 3,
 				},
-				type: {value: 'martialM', baseItem: 'whip'},
-				properties: ['fin', 'rch'],
-				actionType: 'mwak',
+				type: { value: "martialM", baseItem: "whip" },
+				properties: ["fin", "rch"],
+				actionType: "mwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 10,
 					long: null,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 4,
 						bonus: 0,
-						types: ['slashing']
-					}
+						types: ["slashing"],
+					},
 				},
 			},
 		},
 	},
 	// Martial Ranged Weapons
 	[Equipment.Blowgun]: {
-		title: 'Blowgun',
+		title: "Blowgun",
 		adjectives: equipmentAdjectives.meleeWeapon,
 		short: null,
 		value: 10,
@@ -1836,35 +1873,35 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 1
+					value: 1,
 				},
-				type: {value: 'martialR', baseItem: 'blowgun'},
-				properties: ['amm', 'lod'],
-				ability: 'dex',
-				actionType: 'rwak',
+				type: { value: "martialR", baseItem: "blowgun" },
+				properties: ["amm", "lod"],
+				ability: "dex",
+				actionType: "rwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 25,
 					long: 100,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 0,
 						denomination: 0,
 						bonus: 1,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.CrossbowHand]: {
-		title: 'Hand Crossbow',
+		title: "Hand Crossbow",
 		adjectives: equipmentAdjectives.rangedWeapon,
 		short: null,
 		value: 75,
@@ -1875,35 +1912,35 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 3
+					value: 3,
 				},
-				type: {value: 'martialR', baseItem: 'handcrossbow'},
-				properties: ['amm', 'lod', 'lgt'],
-				ability: 'dex',
-				actionType: 'rwak',
+				type: { value: "martialR", baseItem: "handcrossbow" },
+				properties: ["amm", "lod", "lgt"],
+				ability: "dex",
+				actionType: "rwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 30,
 					long: 120,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 6,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.CrossbowHeavy]: {
-		title: 'Heavy Crossbow',
+		title: "Heavy Crossbow",
 		adjectives: equipmentAdjectives.rangedWeapon,
 		short: null,
 		value: 50,
@@ -1914,35 +1951,35 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 18
+					value: 18,
 				},
-				type: {value: 'martialR', baseItem: 'heavycrossbow'},
-				properties: ['amm', 'hvy', 'lod', 'two'],
-				ability: 'dex',
-				actionType: 'rwak',
+				type: { value: "martialR", baseItem: "heavycrossbow" },
+				properties: ["amm", "hvy", "lod", "two"],
+				ability: "dex",
+				actionType: "rwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 100,
 					long: 400,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 10,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Longbow]: {
-		title: 'Longbow',
+		title: "Longbow",
 		adjectives: equipmentAdjectives.rangedWeapon,
 		short: null,
 		value: 50,
@@ -1953,35 +1990,35 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 2
+					value: 2,
 				},
-				type: {value: 'martialR', baseItem: 'longbow'},
-				properties: ['amm', 'hvy', 'two'],
-				ability: 'dex',
-				actionType: 'rwak',
+				type: { value: "martialR", baseItem: "longbow" },
+				properties: ["amm", "hvy", "two"],
+				ability: "dex",
+				actionType: "rwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 150,
 					long: 600,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 1,
 						denomination: 8,
 						bonus: 0,
-						types: ['piercing']
-					}
+						types: ["piercing"],
+					},
 				},
 			},
 		},
 	},
 	[Equipment.Net]: {
-		title: 'Net',
+		title: "Net",
 		adjectives: equipmentAdjectives.rangedWeapon,
 		short: null,
 		value: 1,
@@ -1992,29 +2029,29 @@ export const equipmentDetails: {
 			activities: defaultAttackActivities,
 			system: {
 				weight: {
-					value: 3
+					value: 3,
 				},
-				type: {value: 'martialR', baseItem: 'net'},
-				properties: ['spc', 'thr'],
-				ability: 'dex',
-				actionType: 'rwak',
+				type: { value: "martialR", baseItem: "net" },
+				properties: ["spc", "thr"],
+				ability: "dex",
+				actionType: "rwak",
 				activation: {
-					type: 'action',
+					type: "action",
 					cost: 1,
-					condition: '',
+					condition: "",
 				},
 				range: {
 					value: 5,
 					long: 15,
-					units: 'ft',
+					units: "ft",
 				},
 				damage: {
 					base: {
 						number: 0,
 						denomination: 0,
 						bonus: 0,
-						types: ['bludgeoning']
-					}
+						types: ["bludgeoning"],
+					},
 				},
 			},
 		},

@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/preact-vite";
-import { LinearModifierDisplay, type LinearModifierDisplayProps } from "./LinearModifierDisplay";
+import {
+	LinearModifierDisplay,
+	type LinearModifierDisplayProps,
+} from "./LinearModifierDisplay";
 import { linearStealthFixture } from "../../../fixtures/modifiers/linear/linearStealth";
 import { linearFortitudeFixture } from "../../../fixtures/modifiers/linear/linearFortitude";
 
@@ -8,7 +11,10 @@ const meta = {
 	component: LinearModifierDisplay,
 	parameters: {
 		layout: "centered",
-		backgrounds: { default: "dark", values: [{ name: "dark", value: "#040510" }] },
+		backgrounds: {
+			default: "dark",
+			values: [{ name: "dark", value: "#040510" }],
+		},
 	},
 	render: (props: LinearModifierDisplayProps) => (
 		<div style="background:#040510;width:460px;">

@@ -1,8 +1,8 @@
 import { LinearModifier } from "@tme/library/src/modifiers/blueprints/LinearModifier";
 import styles from "./LinearModifierDisplay.module.css";
 import icon from "./Icon.svg";
-import {namespace} from "@tme/shared/src/namespaceConfig";
-import {Icon} from "@tme/library/src/item/icon";
+import { namespace } from "@tme/shared/src/namespaceConfig";
+import { Icon } from "@tme/library/src/item/icon";
 
 export interface LinearModifierDisplayProps {
 	modifier: LinearModifier;
@@ -11,10 +11,13 @@ export interface LinearModifierDisplayProps {
 
 export const LinearModifierDisplay = (props: LinearModifierDisplayProps) => {
 	const flavor = props.modifier.getDescription(props.data);
-	const activeBreakpoint = props.modifier.dataManager.getBreakpoint(props.data) as { min: number; value: number };
-	const iconSrc = (typeof game !== "undefined" && game?.world?.id)
-		? `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Linear}`
-		: icon;
+	const activeBreakpoint = props.modifier.dataManager.getBreakpoint(
+		props.data,
+	) as { min: number; value: number };
+	const iconSrc =
+		typeof game !== "undefined" && game?.world?.id
+			? `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Linear}`
+			: icon;
 
 	return (
 		<div class={styles.root}>
@@ -23,24 +26,14 @@ export const LinearModifierDisplay = (props: LinearModifierDisplayProps) => {
 					<img src={iconSrc} alt="Icon" />
 				</div>
 				<div>
-					<div class={styles.label}>
-						LINEAR
-					</div>
+					<div class={styles.label}>LINEAR</div>
 					<div class={styles.titleRow}>
-						<div class={styles.title}>
-							{flavor.title}
-						</div>
-						<span class={styles.value}>
-							+{activeBreakpoint.value}
-						</span>
+						<div class={styles.title}>{flavor.title}</div>
+						<span class={styles.value}>+{activeBreakpoint.value}</span>
 					</div>
-					<div class={styles.description}>
-						{flavor.description}
-					</div>
+					<div class={styles.description}>{flavor.description}</div>
 					{flavor.disclaimer && (
-						<div class={styles.disclaimer}>
-							{flavor.disclaimer}
-						</div>
+						<div class={styles.disclaimer}>{flavor.disclaimer}</div>
 					)}
 				</div>
 			</div>

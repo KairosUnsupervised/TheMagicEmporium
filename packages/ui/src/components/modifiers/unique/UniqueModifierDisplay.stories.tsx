@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/preact-vite";
-import { UniqueModifierDisplay, type UniqueModifierDisplayProps } from "./UniqueModifierDisplay";
+import {
+	UniqueModifierDisplay,
+	type UniqueModifierDisplayProps,
+} from "./UniqueModifierDisplay";
 import { uniqueBloodthirstyFixture } from "../../../fixtures/modifiers/unique/uniqueBloodthirsty";
 import { uniqueSoulboundFixture } from "../../../fixtures/modifiers/unique/uniqueSoulbound";
 import { uniqueWrathfulFixture } from "../../../fixtures/modifiers/unique/uniqueWrathful";
@@ -10,7 +13,10 @@ const meta = {
 	component: UniqueModifierDisplay,
 	parameters: {
 		layout: "centered",
-		backgrounds: { default: "dark", values: [{ name: "dark", value: "#040510" }] },
+		backgrounds: {
+			default: "dark",
+			values: [{ name: "dark", value: "#040510" }],
+		},
 	},
 	render: (props: UniqueModifierDisplayProps) => (
 		<div style="background:#040510;width:460px;">

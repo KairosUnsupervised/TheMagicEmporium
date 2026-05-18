@@ -1,318 +1,287 @@
 {
-  "id": "tme.consumable",
-  "name": "TME, Consumable Modifiers",
-  "description": "Built-in consumable modifiers. One-time-use effects that trigger when the item is consumed.",
-  "enabled": true,
-  "modifiers": [
-    {
-      "identifier": "TME.DOUBLE_TROUBLE",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 4096,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "CONSUMABLE"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Double Trouble",
-            "description": "When you trigger this item's consumable effect, you must choose a point within 60ft to duplicate the effect at that location",
-            "disclaimer": null
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.LAST_STAND",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "CONSUMABLE"
-        ],
-        "applies": [
-          "CONSUMABLE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Last Stand",
-            "description": "If you are being downed, you may choose to consume this item to keep standing with 1 HP",
-            "disclaimer": "Consume effects do not require the item to be equipped or attuned"
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.ARCANE_HUNGER",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "WEAPON_MELEE"
-        ],
-        "blacklistedBy": [
-          "CONSUMABLE"
-        ],
-        "applies": [
-          "CONSUMABLE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Arcane Hunger?",
-            "description": "This item can be eaten to restore a cantrip slot",
-            "disclaimer": "Deals the weapon's damage upon consumption"
-          },
-          "changes": [],
-          "activities": []
-        },
-        {
-          "min": 0.01,
-          "flavor": {
-            "title": "Arcane Hunger",
-            "description": "This item can be eaten to restore a 1st level spell slot",
-            "disclaimer": "Deals the weapon's damage upon consumption"
-          },
-          "changes": [],
-          "activities": []
-        },
-        {
-          "min": 0.5,
-          "flavor": {
-            "title": "Greater Arcane Hunger",
-            "description": "This item can be eaten to restore a 3rd level spell slot",
-            "disclaimer": "Deals twice the weapon's damage upon consumption"
-          },
-          "changes": [],
-          "activities": []
-        },
-        {
-          "min": 0.7,
-          "flavor": {
-            "title": "Severe Arcane Hunger",
-            "description": "This item can be eaten to restore your highest available spell slot",
-            "disclaimer": "Deals four times the weapon's damage upon consumption. Not suited for wizards of Waterdeep"
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.EDIBLE",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "CONSUMABLE"
-        ],
-        "applies": [
-          "CONSUMABLE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Edible",
-            "description": "Despite its properties, this item is edible and counts as multiple rations",
-            "disclaimer": null
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.RESTORATIVE",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "CONSUMABLE"
-        ],
-        "applies": [
-          "CONSUMABLE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Restorative",
-            "description": "This item can be consumed like a potion for healing",
-            "disclaimer": "Gain 2 Hit Dice + 2 HP"
-          },
-          "changes": [],
-          "activities": [
-            {
-              "type": "heal",
-              "name": "Restorative",
-              "activation": {
-                "type": "bonus",
-                "cost": 1
-              },
-              "healing": {
-                "types": [
-                  "healing"
-                ],
-                "custom": {
-                  "enabled": true,
-                  "formula": "@attributes.hd.largest + @attributes.hd.largest + 2"
-                },
-                "scaling": {
-                  "number": 1
-                },
-                "number": 0,
-                "denomination": 0,
-                "bonus": ""
-              }
-            }
-          ]
-        },
-        {
-          "min": 0.5,
-          "flavor": {
-            "title": "Greater Restorative",
-            "description": "This item can be consumed like a potion for healing",
-            "disclaimer": "Gain 4 Hit Dice + 4 HP"
-          },
-          "changes": [],
-          "activities": [
-            {
-              "type": "heal",
-              "name": "Greater Restorative",
-              "activation": {
-                "type": "bonus",
-                "cost": 1
-              },
-              "healing": {
-                "types": [
-                  "healing"
-                ],
-                "custom": {
-                  "enabled": true,
-                  "formula": "@attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + 4"
-                },
-                "scaling": {
-                  "number": 1
-                },
-                "number": 0,
-                "denomination": 0,
-                "bonus": ""
-              }
-            }
-          ]
-        },
-        {
-          "min": 0.7,
-          "flavor": {
-            "title": "Superior Restorative",
-            "description": "This item can be consumed like a potion for healing",
-            "disclaimer": "Gain 8 Hit Dice + 8 HP"
-          },
-          "changes": [],
-          "activities": [
-            {
-              "type": "heal",
-              "name": "Superior Restorative",
-              "activation": {
-                "type": "bonus",
-                "cost": 1
-              },
-              "healing": {
-                "types": [
-                  "healing"
-                ],
-                "custom": {
-                  "enabled": true,
-                  "formula": "@attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest  + @attributes.hd.largest + 8"
-                },
-                "scaling": {
-                  "number": 1
-                },
-                "number": 0,
-                "denomination": 0,
-                "bonus": ""
-              }
-            }
-          ]
-        }
-      ]
-    }
-  ,
-    {
-      "identifier": "TME.VEIL_OF_SMOKE",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "CONSUMABLE"
-        ],
-        "applies": [
-          "CONSUMABLE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Veil of Smoke",
-            "description": "Break this item to release a thick cloud of smoke in a 60ft radius. The area is heavily obscured for 1 minute",
-            "disclaimer": "Wind of 10+ mph disperses the smoke early. Consume effects do not require the item to be equipped or attuned"
-          },
-          "changes": [],
-          "activities": [
-            {
-              "type": "utility",
-              "name": "Veil of Smoke",
-              "activation": {
-                "type": "action",
-                "cost": 1
-              },
-              "duration": {
-                "value": 1,
-                "units": "minute"
-              },
-              "target": {
-                "template": {
-                  "type": "circle",
-                  "size": 60,
-                  "units": "ft"
-                }
-              },
-              "consumption": {
-                "scaling": { "allowed": false },
-                "spellSlot": false,
-                "targets": []
-              }
-            }
-          ]
-        }
-      ]
-    }
-  ]
+	"id": "tme.consumable",
+	"name": "TME, Consumable Modifiers",
+	"description": "Built-in consumable modifiers. One-time-use effects that trigger when the item is consumed.",
+	"enabled": true,
+	"modifiers": [
+		{
+			"identifier": "TME.DOUBLE_TROUBLE",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 4096,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["CONSUMABLE"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Double Trouble",
+						"description": "When you trigger this item's consumable effect, you must choose a point within 60ft to duplicate the effect at that location",
+						"disclaimer": null
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.LAST_STAND",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["CONSUMABLE"],
+				"applies": ["CONSUMABLE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Last Stand",
+						"description": "If you are being downed, you may choose to consume this item to keep standing with 1 HP",
+						"disclaimer": "Consume effects do not require the item to be equipped or attuned"
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.ARCANE_HUNGER",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["WEAPON_MELEE"],
+				"blacklistedBy": ["CONSUMABLE"],
+				"applies": ["CONSUMABLE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Arcane Hunger?",
+						"description": "This item can be eaten to restore a cantrip slot",
+						"disclaimer": "Deals the weapon's damage upon consumption"
+					},
+					"changes": [],
+					"activities": []
+				},
+				{
+					"min": 0.01,
+					"flavor": {
+						"title": "Arcane Hunger",
+						"description": "This item can be eaten to restore a 1st level spell slot",
+						"disclaimer": "Deals the weapon's damage upon consumption"
+					},
+					"changes": [],
+					"activities": []
+				},
+				{
+					"min": 0.5,
+					"flavor": {
+						"title": "Greater Arcane Hunger",
+						"description": "This item can be eaten to restore a 3rd level spell slot",
+						"disclaimer": "Deals twice the weapon's damage upon consumption"
+					},
+					"changes": [],
+					"activities": []
+				},
+				{
+					"min": 0.7,
+					"flavor": {
+						"title": "Severe Arcane Hunger",
+						"description": "This item can be eaten to restore your highest available spell slot",
+						"disclaimer": "Deals four times the weapon's damage upon consumption. Not suited for wizards of Waterdeep"
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.EDIBLE",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["CONSUMABLE"],
+				"applies": ["CONSUMABLE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Edible",
+						"description": "Despite its properties, this item is edible and counts as multiple rations",
+						"disclaimer": null
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.RESTORATIVE",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["CONSUMABLE"],
+				"applies": ["CONSUMABLE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Restorative",
+						"description": "This item can be consumed like a potion for healing",
+						"disclaimer": "Gain 2 Hit Dice + 2 HP"
+					},
+					"changes": [],
+					"activities": [
+						{
+							"type": "heal",
+							"name": "Restorative",
+							"activation": {
+								"type": "bonus",
+								"cost": 1
+							},
+							"healing": {
+								"types": ["healing"],
+								"custom": {
+									"enabled": true,
+									"formula": "@attributes.hd.largest + @attributes.hd.largest + 2"
+								},
+								"scaling": {
+									"number": 1
+								},
+								"number": 0,
+								"denomination": 0,
+								"bonus": ""
+							}
+						}
+					]
+				},
+				{
+					"min": 0.5,
+					"flavor": {
+						"title": "Greater Restorative",
+						"description": "This item can be consumed like a potion for healing",
+						"disclaimer": "Gain 4 Hit Dice + 4 HP"
+					},
+					"changes": [],
+					"activities": [
+						{
+							"type": "heal",
+							"name": "Greater Restorative",
+							"activation": {
+								"type": "bonus",
+								"cost": 1
+							},
+							"healing": {
+								"types": ["healing"],
+								"custom": {
+									"enabled": true,
+									"formula": "@attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + 4"
+								},
+								"scaling": {
+									"number": 1
+								},
+								"number": 0,
+								"denomination": 0,
+								"bonus": ""
+							}
+						}
+					]
+				},
+				{
+					"min": 0.7,
+					"flavor": {
+						"title": "Superior Restorative",
+						"description": "This item can be consumed like a potion for healing",
+						"disclaimer": "Gain 8 Hit Dice + 8 HP"
+					},
+					"changes": [],
+					"activities": [
+						{
+							"type": "heal",
+							"name": "Superior Restorative",
+							"activation": {
+								"type": "bonus",
+								"cost": 1
+							},
+							"healing": {
+								"types": ["healing"],
+								"custom": {
+									"enabled": true,
+									"formula": "@attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest  + @attributes.hd.largest + 8"
+								},
+								"scaling": {
+									"number": 1
+								},
+								"number": 0,
+								"denomination": 0,
+								"bonus": ""
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.VEIL_OF_SMOKE",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["CONSUMABLE"],
+				"applies": ["CONSUMABLE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Veil of Smoke",
+						"description": "Break this item to release a thick cloud of smoke in a 60ft radius. The area is heavily obscured for 1 minute",
+						"disclaimer": "Wind of 10+ mph disperses the smoke early. Consume effects do not require the item to be equipped or attuned"
+					},
+					"changes": [],
+					"activities": [
+						{
+							"type": "utility",
+							"name": "Veil of Smoke",
+							"activation": {
+								"type": "action",
+								"cost": 1
+							},
+							"duration": {
+								"value": 1,
+								"units": "minute"
+							},
+							"target": {
+								"template": {
+									"type": "circle",
+									"size": 60,
+									"units": "ft"
+								}
+							},
+							"consumption": {
+								"scaling": { "allowed": false },
+								"spellSlot": false,
+								"targets": []
+							}
+						}
+					]
+				}
+			]
+		}
+	]
 }

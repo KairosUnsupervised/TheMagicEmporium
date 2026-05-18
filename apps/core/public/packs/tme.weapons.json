@@ -1,1300 +1,1224 @@
 {
-  "id": "tme.weapons",
-  "name": "TME - Weapon Modifiers",
-  "description": "Built-in weapon modifiers. Affects attack and damage rolls, kill effects, and weapon-bound abilities.",
-  "enabled": true,
-  "modifiers": [
-    {
-      "identifier": "TME.ZEN",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Zen",
-            "description": "Once per long rest, as an action, meditate and empower this weapon with +1 to attack and damage rolls for 3 rounds.",
-            "disclaimer": "Not automatically applied as of now"
-          },
-          "changes": [],
-          "activities": [
-            {
-              "type": "utility",
-              "name": "Zen",
-              "activation": {
-                "type": "action",
-                "cost": 1
-              },
-              "uses": {
-                "max": 1,
-                "recovery": [
-                  {
-                    "period": "lr",
-                    "type": "recoverAll"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 0.5,
-          "flavor": {
-            "title": "Inner Harmony",
-            "description": "Once per long rest, as an action, meditate and empower this weapon with +2 to attack and damage rolls for 4 rounds.",
-            "disclaimer": "Not automatically applied as of now"
-          },
-          "changes": [],
-          "activities": [
-            {
-              "type": "utility",
-              "name": "Inner Harmony",
-              "activation": {
-                "type": "action",
-                "cost": 1
-              },
-              "uses": {
-                "max": 1,
-                "recovery": [
-                  {
-                    "period": "lr",
-                    "type": "recoverAll"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 0.8,
-          "flavor": {
-            "title": "Transcendence",
-            "description": "Once per long rest, as an action, meditate and empower this weapon with +3 to attack and damage rolls for 6 rounds.",
-            "disclaimer": "Not automatically applied as of now"
-          },
-          "changes": [],
-          "activities": [
-            {
-              "type": "utility",
-              "name": "Transcendence",
-              "activation": {
-                "type": "action",
-                "cost": 1
-              },
-              "uses": {
-                "max": 1,
-                "recovery": [
-                  {
-                    "period": "lr",
-                    "type": "recoverAll"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.RADIANT",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Radiant",
-            "description": "This item sheds bright light in a 15ft radius",
-            "disclaimer": "Can be toggled on and off with a bonus action"
-          },
-          "changes": [],
-          "activities": []
-        },
-        {
-          "min": 0.9,
-          "flavor": {
-            "title": "Highly Radiant",
-            "description": "This item sheds bright light in a 30ft radius",
-            "disclaimer": "Can be toggled on and off with a bonus action"
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.CRIMSON_HARVEST",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Crimson Harvest",
-        "description": "Gain {amount}d4 temporary HP on direct creature kill",
-        "disclaimer": "Temporary HP do not stack - only the highest value applies."
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 3
-        },
-        {
-          "min": 0.95,
-          "value": 4
-        }
-      ],
-      "activeEffects": [],
-      "feats": [
-        {
-          "type": "FEAT",
-          "system": {
-            "activation": {
-              "type": "special",
-              "cost": null,
-              "condition": "on direct creature kill"
-            },
-            "activities": [
-              {
-                "type": "heal",
-                "name": "Crimson Harvest",
-                "activation": {
-                  "type": "special",
-                  "override": false,
-                  "condition": "on direct creature kill"
-                },
-                "healing": {
-                  "types": [
-                    "temphp"
-                  ],
-                  "custom": {
-                    "enabled": false
-                  },
-                  "scaling": {
-                    "number": 1
-                  },
-                  "number": "{amount}",
-                  "denomination": 4,
-                  "bonus": ""
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "identifier": "TME.EVISCERATE",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Eviscerate",
-        "description": "On crit, deal an additional +{amount} damage",
-        "disclaimer": "Not yet automatically applied"
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.2,
-          "value": 2
-        },
-        {
-          "min": 0.4,
-          "value": 2
-        },
-        {
-          "min": 0.6,
-          "value": 4
-        },
-        {
-          "min": 0.8,
-          "value": 5
-        },
-        {
-          "min": 0.9,
-          "value": 6
-        }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.FINAL_VERDICT",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Final Verdict",
-        "description": "If a tag a creature and it has less then {amount} HP, execute it immediately"
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 3
-        },
-        {
-          "min": 0.95,
-          "value": 5
-        }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.FOCUSED",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Focused",
-        "description": "On attack rolls, you can't roll below a {amount}",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 3
-        },
-        {
-          "min": 0.95,
-          "value": 4
-        }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.MIGHTY",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Mighty",
-            "description": "This weapon now deals force damage and gains +4 bonus to damage",
-            "disclaimer": null
-          },
-          "changes": [
-            {
-              "key": "system.damage.base.types",
-              "operation": "APPEND",
-              "value": "force"
-            },
-            {
-              "key": "system.damage.base.bonus",
-              "operation": "ADD",
-              "value": "4"
-            }
-          ],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.CONSISTENT",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Consistent",
-            "description": "This base weapon damage die become d4s. Roll twice as many dice on attack",
-            "disclaimer": null
-          },
-          "changes": [
-            {
-              "key": "system.damage.base.denomination",
-              "operation": "SET",
-              "value": "4"
-            },
-            {
-              "key": "system.damage.base.number",
-              "operation": "MULTIPLY",
-              "value": "2"
-            }
-          ],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.BLOODTHIRSTY",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Bloodthirsty",
-            "description": "On direct creature kill, you gain advantage on your next attack",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.BACKSTABBY",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Backstabby",
-        "description": "Once per long rest, as a bonus action, you can teleport behind a creature within {amount} feet",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 15
-        },
-        {
-          "min": 0.2,
-          "value": 30
-        },
-        {
-          "min": 0.5,
-          "value": 45
-        },
-        {
-          "min": 0.8,
-          "value": 60
-        }
-      ],
-      "activeEffects": [],
-      "feats": [
-        {
-          "type": "FEAT",
-          "system": {
-            "activation": {
-              "type": "bonus",
-              "cost": 1,
-              "condition": ""
-            },
-            "uses": {
-              "max": 1,
-              "recovery": [
-                {
-                  "period": "lr",
-                  "type": "recoverAll"
-                }
-              ]
-            },
-            "activities": [
-              {
-                "type": "utility",
-                "name": "Backstab!",
-                "activation": {
-                  "type": "bonus",
-                  "override": false,
-                  "condition": ""
-                },
-                "consumption": {
-                  "scaling": {
-                    "allowed": false
-                  },
-                  "spellSlot": true,
-                  "targets": [
-                    {
-                      "type": "itemUses",
-                      "value": "1",
-                      "target": "",
-                      "scaling": {}
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "identifier": "TME.CRITICALLY_ACCLAIMED",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Critically Acclaimed",
-        "description": "Gain +{amount} critical range",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.9,
-          "value": 3
-        }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.DETERMINED",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Determined",
-            "description": "You can reroll 1's on your weapon induced damage dice, 1 reroll. The new rolls must be used",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Fiercely Determined",
-            "description": "You can reroll 1-2's on your weapon induced damage dice, up to 2 rerolls. The new rolls must be used",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Relentlessly Determined",
-            "description": "You can reroll 1-3's on your weapon induced damage dice, up to 3 rerolls. The new rolls must be used",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.PROFITEER",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Profiteer",
-        "description": "Gain {amount} gold when a tagged hostile creature dies",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 5
-        },
-        {
-          "min": 0.5,
-          "value": 9
-        },
-        {
-          "min": 0.8,
-          "value": 18
-        }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.DIVINE_REDISTRIBUTION",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Redistribution",
-            "description": "If a tagged creature is killed, distribute 1d8 healing to any creatures within 15 feet of the killed creature",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": "on tagged creature kill"
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Alms of the Fallen",
-                    "activation": {
-                      "type": "special",
-                      "override": false,
-                      "condition": "on tagged creature kill"
-                    },
-                    "target": {
-                      "template": {
-                        "type": "circle",
-                        "size": 15,
-                        "units": "ft",
-                        "contiguous": false,
-                        "stationary": false
-                      },
-                      "affects": {
-                        "choice": false,
-                        "type": ""
-                      },
-                      "override": false,
-                      "prompt": true
-                    },
-                    "healing": {
-                      "types": [
-                        "healing"
-                      ],
-                      "custom": {
-                        "enabled": false
-                      },
-                      "scaling": {
-                        "number": 1
-                      },
-                      "number": 1,
-                      "denomination": 8,
-                      "bonus": ""
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Sacred Redistribution",
-            "description": "If a tagged creature is killed, distribute 2d8 healing to any creatures within 20 feet of the killed creature",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": "on tagged creature kill"
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Sacred Bounty",
-                    "activation": {
-                      "type": "special",
-                      "override": false,
-                      "condition": "on tagged creature kill"
-                    },
-                    "target": {
-                      "template": {
-                        "type": "circle",
-                        "size": 20,
-                        "units": "ft",
-                        "contiguous": false,
-                        "stationary": false
-                      },
-                      "affects": {
-                        "choice": false,
-                        "type": ""
-                      },
-                      "override": false,
-                      "prompt": true
-                    },
-                    "healing": {
-                      "types": [
-                        "healing"
-                      ],
-                      "custom": {
-                        "enabled": false
-                      },
-                      "scaling": {
-                        "number": 1
-                      },
-                      "number": 2,
-                      "denomination": 8,
-                      "bonus": ""
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Divine Redistribution",
-            "description": "If a tagged creature is killed, distribute 3d8 healing to any creatures within 30 feet of the killed creature",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": "on tagged creature kill"
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Divine Redistribution",
-                    "activation": {
-                      "type": "special",
-                      "override": false,
-                      "condition": "on tagged creature kill"
-                    },
-                    "target": {
-                      "template": {
-                        "type": "circle",
-                        "size": 30,
-                        "units": "ft",
-                        "contiguous": false,
-                        "stationary": false
-                      },
-                      "affects": {
-                        "choice": false,
-                        "type": ""
-                      },
-                      "override": false,
-                      "prompt": true
-                    },
-                    "healing": {
-                      "types": [
-                        "healing"
-                      ],
-                      "custom": {
-                        "enabled": false
-                      },
-                      "scaling": {
-                        "number": 1
-                      },
-                      "number": 3,
-                      "denomination": 8,
-                      "bonus": ""
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.HARKENING",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Harkening",
-            "description": "While on the same plane of existence and attuned, you hear through this artifact as if you were present",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.SHARPENED",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "+1 Sharpened",
-            "description": "This weapon gains a +1 bonus to attack and damage rolls",
-            "disclaimer": null
-          },
-          "changes": [
-            {
-              "key": "system.magicalBonus",
-              "operation": "ADD",
-              "value": "1"
-            }
-          ],
-          "activities": []
-        },
-        {
-          "min": 0.5,
-          "flavor": {
-            "title": "+2 Sharpened",
-            "description": "This weapon gains a +2 bonus to attack and damage rolls",
-            "disclaimer": null
-          },
-          "changes": [
-            {
-              "key": "system.magicalBonus",
-              "operation": "ADD",
-              "value": "2"
-            }
-          ],
-          "activities": []
-        },
-        {
-          "min": 0.8,
-          "flavor": {
-            "title": "+3 Sharpened",
-            "description": "This weapon gains a +3 bonus to attack and damage rolls",
-            "disclaimer": null
-          },
-          "changes": [
-            {
-              "key": "system.magicalBonus",
-              "operation": "ADD",
-              "value": "3"
-            }
-          ],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.RUNNING_HOT",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON_MELEE"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Running Hot",
-        "description": "Your Melee attacks gain bonus fire damage, each 20% of your missing HP grant you +{amount} fire damage",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.8,
-          "value": 2
-        }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.BLOOD_RUSH",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Blood Rush",
-        "description": "On direct creature kill, regain {amount} HP",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 3
-        },
-        {
-          "min": 0.95,
-          "value": 4
-        }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.AERODYNAMIC",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [
-          "PROPERTY_CHANGE"
-        ],
-        "applies": [
-          "PROPERTY_CHANGE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Aerodynamic",
-            "description": "This item can be thrown four times further than normal",
-            "disclaimer": null
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.COMPACT",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [
-          "PROPERTY_CHANGE"
-        ],
-        "applies": [
-          "PROPERTY_CHANGE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Compact",
-            "description": "This item is half its usual size. Despite this, it is functionally identical to its full-sized counterpart in every way",
-            "disclaimer": "It even has the same weight"
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.OVERSIZED",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [
-          "PROPERTY_CHANGE"
-        ],
-        "applies": [
-          "PROPERTY_CHANGE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Oversized",
-            "description": "This item is double its usual size. Despite this, it is functionally identical to its normal-sized counterpart in every way",
-            "disclaimer": "It even has the same weight"
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.RETURNING",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Returning",
-            "description": "After being thrown, this weapon magically returns to your hand immediately after the attack",
-            "disclaimer": null
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.SILENCED",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Silenced",
-            "description": "Attacks with this weapon make no sound",
-            "disclaimer": null
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.SURGE",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Surge",
-        "description": "On a successful hit, gain {amount}ft of movement until the end of your turn",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 5
-        },
-        {
-          "min": 0.4,
-          "value": 10
-        },
-        {
-          "min": 0.7,
-          "value": 15
-        },
-        {
-          "min": 0.9,
-          "value": 20
-        }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.MOMENTUM",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Momentum",
-            "description": "On a direct creature kill, gain stacking +1 to attack rolls for the rest of combat",
-            "disclaimer": "Effects melee attacks only, hostile creatures only"
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.ESCALATING_EDGE",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Escalating Edge",
-            "description": "This weapon deals 1 extra damage for each consecutive turn it has been unsheathed",
-            "disclaimer": "Bonus resets when the weapon is sheathed, combat ends or the weapon is unequipped in any way"
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.FEARMONGER",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Fearmonger",
-            "description": "On a direct creature kill, gain advantage on Intimidation checks for 1 minute",
-            "disclaimer": null
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.OPPORTUNIST",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Opportunist",
-        "description": "Opportunity attacks deal +{amount} bonus damage",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 2
-        },
-        {
-          "min": 0.4,
-          "value": 4
-        },
-        {
-          "min": 0.65,
-          "value": 6
-        },
-        {
-          "min": 0.9,
-          "value": 8
-        }
-      ],
-      "activeEffects": [],
-      "feats": []
-    }
-  ]
+	"id": "tme.weapons",
+	"name": "TME - Weapon Modifiers",
+	"description": "Built-in weapon modifiers. Affects attack and damage rolls, kill effects, and weapon-bound abilities.",
+	"enabled": true,
+	"modifiers": [
+		{
+			"identifier": "TME.ZEN",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Zen",
+						"description": "Once per long rest, as an action, meditate and empower this weapon with +1 to attack and damage rolls for 3 rounds.",
+						"disclaimer": "Not automatically applied as of now"
+					},
+					"changes": [],
+					"activities": [
+						{
+							"type": "utility",
+							"name": "Zen",
+							"activation": {
+								"type": "action",
+								"cost": 1
+							},
+							"uses": {
+								"max": 1,
+								"recovery": [
+									{
+										"period": "lr",
+										"type": "recoverAll"
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 0.5,
+					"flavor": {
+						"title": "Inner Harmony",
+						"description": "Once per long rest, as an action, meditate and empower this weapon with +2 to attack and damage rolls for 4 rounds.",
+						"disclaimer": "Not automatically applied as of now"
+					},
+					"changes": [],
+					"activities": [
+						{
+							"type": "utility",
+							"name": "Inner Harmony",
+							"activation": {
+								"type": "action",
+								"cost": 1
+							},
+							"uses": {
+								"max": 1,
+								"recovery": [
+									{
+										"period": "lr",
+										"type": "recoverAll"
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 0.8,
+					"flavor": {
+						"title": "Transcendence",
+						"description": "Once per long rest, as an action, meditate and empower this weapon with +3 to attack and damage rolls for 6 rounds.",
+						"disclaimer": "Not automatically applied as of now"
+					},
+					"changes": [],
+					"activities": [
+						{
+							"type": "utility",
+							"name": "Transcendence",
+							"activation": {
+								"type": "action",
+								"cost": 1
+							},
+							"uses": {
+								"max": 1,
+								"recovery": [
+									{
+										"period": "lr",
+										"type": "recoverAll"
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.RADIANT",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Radiant",
+						"description": "This item sheds bright light in a 15ft radius",
+						"disclaimer": "Can be toggled on and off with a bonus action"
+					},
+					"changes": [],
+					"activities": []
+				},
+				{
+					"min": 0.9,
+					"flavor": {
+						"title": "Highly Radiant",
+						"description": "This item sheds bright light in a 30ft radius",
+						"disclaimer": "Can be toggled on and off with a bonus action"
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.CRIMSON_HARVEST",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Crimson Harvest",
+				"description": "Gain {amount}d4 temporary HP on direct creature kill",
+				"disclaimer": "Temporary HP do not stack - only the highest value applies."
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 3
+				},
+				{
+					"min": 0.95,
+					"value": 4
+				}
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "special",
+							"cost": null,
+							"condition": "on direct creature kill"
+						},
+						"activities": [
+							{
+								"type": "heal",
+								"name": "Crimson Harvest",
+								"activation": {
+									"type": "special",
+									"override": false,
+									"condition": "on direct creature kill"
+								},
+								"healing": {
+									"types": ["temphp"],
+									"custom": {
+										"enabled": false
+									},
+									"scaling": {
+										"number": 1
+									},
+									"number": "{amount}",
+									"denomination": 4,
+									"bonus": ""
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"identifier": "TME.EVISCERATE",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Eviscerate",
+				"description": "On crit, deal an additional +{amount} damage",
+				"disclaimer": "Not yet automatically applied"
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.2,
+					"value": 2
+				},
+				{
+					"min": 0.4,
+					"value": 2
+				},
+				{
+					"min": 0.6,
+					"value": 4
+				},
+				{
+					"min": 0.8,
+					"value": 5
+				},
+				{
+					"min": 0.9,
+					"value": 6
+				}
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.FINAL_VERDICT",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Final Verdict",
+				"description": "If a tag a creature and it has less then {amount} HP, execute it immediately"
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 3
+				},
+				{
+					"min": 0.95,
+					"value": 5
+				}
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.FOCUSED",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Focused",
+				"description": "On attack rolls, you can't roll below a {amount}",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 3
+				},
+				{
+					"min": 0.95,
+					"value": 4
+				}
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.MIGHTY",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Mighty",
+						"description": "This weapon now deals force damage and gains +4 bonus to damage",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.damage.base.types",
+							"operation": "APPEND",
+							"value": "force"
+						},
+						{
+							"key": "system.damage.base.bonus",
+							"operation": "ADD",
+							"value": "4"
+						}
+					],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.CONSISTENT",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Consistent",
+						"description": "This base weapon damage die become d4s. Roll twice as many dice on attack",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.damage.base.denomination",
+							"operation": "SET",
+							"value": "4"
+						},
+						{
+							"key": "system.damage.base.number",
+							"operation": "MULTIPLY",
+							"value": "2"
+						}
+					],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.BLOODTHIRSTY",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Bloodthirsty",
+						"description": "On direct creature kill, you gain advantage on your next attack",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.BACKSTABBY",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Backstabby",
+				"description": "Once per long rest, as a bonus action, you can teleport behind a creature within {amount} feet",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 15
+				},
+				{
+					"min": 0.2,
+					"value": 30
+				},
+				{
+					"min": 0.5,
+					"value": 45
+				},
+				{
+					"min": 0.8,
+					"value": 60
+				}
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "bonus",
+							"cost": 1,
+							"condition": ""
+						},
+						"uses": {
+							"max": 1,
+							"recovery": [
+								{
+									"period": "lr",
+									"type": "recoverAll"
+								}
+							]
+						},
+						"activities": [
+							{
+								"type": "utility",
+								"name": "Backstab!",
+								"activation": {
+									"type": "bonus",
+									"override": false,
+									"condition": ""
+								},
+								"consumption": {
+									"scaling": {
+										"allowed": false
+									},
+									"spellSlot": true,
+									"targets": [
+										{
+											"type": "itemUses",
+											"value": "1",
+											"target": "",
+											"scaling": {}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"identifier": "TME.CRITICALLY_ACCLAIMED",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Critically Acclaimed",
+				"description": "Gain +{amount} critical range",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.9,
+					"value": 3
+				}
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.DETERMINED",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Determined",
+						"description": "You can reroll 1's on your weapon induced damage dice, 1 reroll. The new rolls must be used",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Fiercely Determined",
+						"description": "You can reroll 1-2's on your weapon induced damage dice, up to 2 rerolls. The new rolls must be used",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Relentlessly Determined",
+						"description": "You can reroll 1-3's on your weapon induced damage dice, up to 3 rerolls. The new rolls must be used",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.PROFITEER",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Profiteer",
+				"description": "Gain {amount} gold when a tagged hostile creature dies",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 5
+				},
+				{
+					"min": 0.5,
+					"value": 9
+				},
+				{
+					"min": 0.8,
+					"value": 18
+				}
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.DIVINE_REDISTRIBUTION",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Redistribution",
+						"description": "If a tagged creature is killed, distribute 1d8 healing to any creatures within 15 feet of the killed creature",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": "on tagged creature kill"
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Alms of the Fallen",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": "on tagged creature kill"
+										},
+										"target": {
+											"template": {
+												"type": "circle",
+												"size": 15,
+												"units": "ft",
+												"contiguous": false,
+												"stationary": false
+											},
+											"affects": {
+												"choice": false,
+												"type": ""
+											},
+											"override": false,
+											"prompt": true
+										},
+										"healing": {
+											"types": ["healing"],
+											"custom": {
+												"enabled": false
+											},
+											"scaling": {
+												"number": 1
+											},
+											"number": 1,
+											"denomination": 8,
+											"bonus": ""
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Sacred Redistribution",
+						"description": "If a tagged creature is killed, distribute 2d8 healing to any creatures within 20 feet of the killed creature",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": "on tagged creature kill"
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Sacred Bounty",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": "on tagged creature kill"
+										},
+										"target": {
+											"template": {
+												"type": "circle",
+												"size": 20,
+												"units": "ft",
+												"contiguous": false,
+												"stationary": false
+											},
+											"affects": {
+												"choice": false,
+												"type": ""
+											},
+											"override": false,
+											"prompt": true
+										},
+										"healing": {
+											"types": ["healing"],
+											"custom": {
+												"enabled": false
+											},
+											"scaling": {
+												"number": 1
+											},
+											"number": 2,
+											"denomination": 8,
+											"bonus": ""
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Divine Redistribution",
+						"description": "If a tagged creature is killed, distribute 3d8 healing to any creatures within 30 feet of the killed creature",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": "on tagged creature kill"
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Divine Redistribution",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": "on tagged creature kill"
+										},
+										"target": {
+											"template": {
+												"type": "circle",
+												"size": 30,
+												"units": "ft",
+												"contiguous": false,
+												"stationary": false
+											},
+											"affects": {
+												"choice": false,
+												"type": ""
+											},
+											"override": false,
+											"prompt": true
+										},
+										"healing": {
+											"types": ["healing"],
+											"custom": {
+												"enabled": false
+											},
+											"scaling": {
+												"number": 1
+											},
+											"number": 3,
+											"denomination": 8,
+											"bonus": ""
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.HARKENING",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Harkening",
+						"description": "While on the same plane of existence and attuned, you hear through this artifact as if you were present",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.SHARPENED",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "+1 Sharpened",
+						"description": "This weapon gains a +1 bonus to attack and damage rolls",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.magicalBonus",
+							"operation": "ADD",
+							"value": "1"
+						}
+					],
+					"activities": []
+				},
+				{
+					"min": 0.5,
+					"flavor": {
+						"title": "+2 Sharpened",
+						"description": "This weapon gains a +2 bonus to attack and damage rolls",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.magicalBonus",
+							"operation": "ADD",
+							"value": "2"
+						}
+					],
+					"activities": []
+				},
+				{
+					"min": 0.8,
+					"flavor": {
+						"title": "+3 Sharpened",
+						"description": "This weapon gains a +3 bonus to attack and damage rolls",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.magicalBonus",
+							"operation": "ADD",
+							"value": "3"
+						}
+					],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.RUNNING_HOT",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON_MELEE"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Running Hot",
+				"description": "Your Melee attacks gain bonus fire damage, each 20% of your missing HP grant you +{amount} fire damage",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.8,
+					"value": 2
+				}
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.BLOOD_RUSH",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Blood Rush",
+				"description": "On direct creature kill, regain {amount} HP",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 3
+				},
+				{
+					"min": 0.95,
+					"value": 4
+				}
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.AERODYNAMIC",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": ["PROPERTY_CHANGE"],
+				"applies": ["PROPERTY_CHANGE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Aerodynamic",
+						"description": "This item can be thrown four times further than normal",
+						"disclaimer": null
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.COMPACT",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": ["PROPERTY_CHANGE"],
+				"applies": ["PROPERTY_CHANGE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Compact",
+						"description": "This item is half its usual size. Despite this, it is functionally identical to its full-sized counterpart in every way",
+						"disclaimer": "It even has the same weight"
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.OVERSIZED",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": ["PROPERTY_CHANGE"],
+				"applies": ["PROPERTY_CHANGE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Oversized",
+						"description": "This item is double its usual size. Despite this, it is functionally identical to its normal-sized counterpart in every way",
+						"disclaimer": "It even has the same weight"
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.RETURNING",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Returning",
+						"description": "After being thrown, this weapon magically returns to your hand immediately after the attack",
+						"disclaimer": null
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.SILENCED",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Silenced",
+						"description": "Attacks with this weapon make no sound",
+						"disclaimer": null
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.SURGE",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Surge",
+				"description": "On a successful hit, gain {amount}ft of movement until the end of your turn",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 5
+				},
+				{
+					"min": 0.4,
+					"value": 10
+				},
+				{
+					"min": 0.7,
+					"value": 15
+				},
+				{
+					"min": 0.9,
+					"value": 20
+				}
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.MOMENTUM",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Momentum",
+						"description": "On a direct creature kill, gain stacking +1 to attack rolls for the rest of combat",
+						"disclaimer": "Effects melee attacks only, hostile creatures only"
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.ESCALATING_EDGE",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Escalating Edge",
+						"description": "This weapon deals 1 extra damage for each consecutive turn it has been unsheathed",
+						"disclaimer": "Bonus resets when the weapon is sheathed, combat ends or the weapon is unequipped in any way"
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.FEARMONGER",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Fearmonger",
+						"description": "On a direct creature kill, gain advantage on Intimidation checks for 1 minute",
+						"disclaimer": null
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.OPPORTUNIST",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Opportunist",
+				"description": "Opportunity attacks deal +{amount} bonus damage",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 2
+				},
+				{
+					"min": 0.4,
+					"value": 4
+				},
+				{
+					"min": 0.65,
+					"value": 6
+				},
+				{
+					"min": 0.9,
+					"value": 8
+				}
+			],
+			"activeEffects": [],
+			"feats": []
+		}
+	]
 }

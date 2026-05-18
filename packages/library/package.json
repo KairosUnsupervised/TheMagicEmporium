@@ -1,13 +1,13 @@
 {
-  "name": "@tme/library",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "format": "bun x @biomejs/biome format --write ."
-  },
-  "dependencies": {
-    "@tme/shared": "workspace:*",
-    "ajv": "^8.20.0",
-    "ts-deepmerge": "^7.0.3"
-  }
+	"name": "@tme/library",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"format": "bun x @biomejs/biome format --write ."
+	},
+	"dependencies": {
+		"@tme/shared": "workspace:*",
+		"ajv": "^8.20.0",
+		"ts-deepmerge": "^7.0.3"
+	}
 }

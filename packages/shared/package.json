@@ -1,8 +1,8 @@
 {
-  "name": "@tme/shared",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "format": "bun x @biomejs/biome format --write ."
-  }
+	"name": "@tme/shared",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"format": "bun x @biomejs/biome format --write ."
+	}
 }

@@ -15,16 +15,16 @@ veilpiercerFixture.base = Equipment.Longsword;
 veilpiercerFixture.currency = 2500;
 
 veilpiercerFixture.primary = [
-    { modifier: uniqueVenomousFixture, data: { float: 0.6 } },
-    { modifier: tieredFuryFixture, data: { float: 0.6 } },
-    { modifier: uniqueWrathfulFixture, data: { float: 0 } },
+	{ modifier: uniqueVenomousFixture, data: { float: 0.6 } },
+	{ modifier: tieredFuryFixture, data: { float: 0.6 } },
+	{ modifier: uniqueWrathfulFixture, data: { float: 0 } },
 ];
 
 veilpiercerFixture.secondary = [
-    { modifier: tieredStealthFixture, data: { float: 0.5 } },
-    { modifier: independentShadowwalkerFixture, data: { float: 0.5 } },
+	{ modifier: tieredStealthFixture, data: { float: 0.5 } },
+	{ modifier: independentShadowwalkerFixture, data: { float: 0.5 } },
 ];
 
 veilpiercerFixture.tertiary = [
-    { modifier: linearFortitudeFixture, data: { float: 0.7 } },
+	{ modifier: linearFortitudeFixture, data: { float: 0.7 } },
 ];

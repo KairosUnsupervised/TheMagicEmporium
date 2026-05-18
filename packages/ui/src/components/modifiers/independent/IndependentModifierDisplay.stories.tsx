@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/preact-vite";
-import { IndependentModifierDisplay, type IndependentModifierDisplayProps } from "./IndependentModifierDisplay";
+import {
+	IndependentModifierDisplay,
+	type IndependentModifierDisplayProps,
+} from "./IndependentModifierDisplay";
 import { independentEdibleFixture } from "../../../fixtures/modifiers/independent/independentEdible";
 import { independentShadowwalkerFixture } from "../../../fixtures/modifiers/independent/independentShadowwalker";
 
@@ -8,7 +11,10 @@ const meta = {
 	component: IndependentModifierDisplay,
 	parameters: {
 		layout: "centered",
-		backgrounds: { default: "dark", values: [{ name: "dark", value: "#040510" }] },
+		backgrounds: {
+			default: "dark",
+			values: [{ name: "dark", value: "#040510" }],
+		},
 	},
 	render: (props: IndependentModifierDisplayProps) => (
 		<div style="background:#040510;width:460px;">

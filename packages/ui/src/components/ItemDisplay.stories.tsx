@@ -7,7 +7,10 @@ const meta = {
 	component: ItemDisplay,
 	parameters: {
 		layout: "centered",
-		backgrounds: { default: "dark", values: [{ name: "dark", value: "#040510" }] },
+		backgrounds: {
+			default: "dark",
+			values: [{ name: "dark", value: "#040510" }],
+		},
 	},
 	render: (props: ItemDisplayProps) => (
 		<div style="background:#040510;padding:40px;">

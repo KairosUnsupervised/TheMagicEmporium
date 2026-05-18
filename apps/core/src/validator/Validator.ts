@@ -1,266 +1,263 @@
-import {AbstractItem} from "@tme/library/src/item/AbstractItem";
-import {Modifier} from "@tme/library/src/modifiers/Modifier";
-import {Actor5e, Effect5e} from "@tme/shared/src/types/actor5e.ts"
-import {BaseItem, Item5e, ItemType} from "@tme/shared/src/types/item5e.ts";
-import {Item} from "@tme/library/src/item/Item.ts";
-import {ActiveEffect} from "@tme/library/src/effects/activeEffects/ActiveEffect.ts";
-import {Feat} from "@tme/library/src/effects/feats/Feat.ts";
-import {registry} from "@tme/library/src/registry/Registry.ts";
-import {Logger} from "../misc/Logger.ts";
-import {namespace} from "@tme/shared/src/namespaceConfig.ts";
+import { AbstractItem } from "@tme/library/src/item/AbstractItem";
+import { Modifier } from "@tme/library/src/modifiers/Modifier";
+import { Actor5e, Effect5e } from "@tme/shared/src/types/actor5e.ts";
+import { BaseItem, Item5e, ItemType } from "@tme/shared/src/types/item5e.ts";
+import { Item } from "@tme/library/src/item/Item.ts";
+import { ActiveEffect } from "@tme/library/src/effects/activeEffects/ActiveEffect.ts";
+import { Feat } from "@tme/library/src/effects/feats/Feat.ts";
+import { registry } from "@tme/library/src/registry/Registry.ts";
+import { Logger } from "../misc/Logger.ts";
+import { namespace } from "@tme/shared/src/namespaceConfig.ts";
 
 interface QuickAccess {
-    item5e: Item5e<BaseItem>;
-    abstract: AbstractItem;
+	item5e: Item5e<BaseItem>;
+	abstract: AbstractItem;
 }
 
 interface ModifiersMapped {
-    [key: string]: {
-        modifier: Modifier;
-        data: unknown[]
-    }
+	[key: string]: {
+		modifier: Modifier;
+		data: unknown[];
+	};
 }
 // TODO On Item Delete or duplicate
 export class Validator {
-    public validate = async (actor: Actor5e) => {
+	public validate = async (actor: Actor5e) => {
+		const magicItems = this.getActiveMagicItems(actor);
+		const modifiers = this.getAllModifiers(magicItems);
 
-        const magicItems = this.getActiveMagicItems(actor);
-        const modifiers = this.getAllModifiers(magicItems);
+		await this.synchronizeDescriptions(magicItems);
 
+		await this.synchronizeFeats(this.getAllFeats(modifiers), actor);
+		await this.synchronizeEffects(this.getAllActiveEffects(modifiers), actor);
+	};
 
-        await this.synchronizeDescriptions(magicItems);
+	/**
+	 * Check descriptions of base items and update if necessarry
+	 * @param items
+	 */
+	private synchronizeDescriptions = async (items: QuickAccess[]) => {
+		const sync = items.map((item) => {
+			const newDocument = new Item(item.abstract).export();
 
-        await this.synchronizeFeats(this.getAllFeats(modifiers), actor);
-        await this.synchronizeEffects(this.getAllActiveEffects(modifiers), actor);
-    };
+			if (
+				item.item5e.system.description.value ===
+				newDocument.system?.description?.value
+			) {
+				return null;
+			}
 
-    /**
-     * Check descriptions of base items and update if necessarry
-     * @param items
-     */
-    private synchronizeDescriptions = async (items: QuickAccess[]) => {
-        const sync = items.map((item) => {
-            const newDocument = new Item(item.abstract).export();
+			return item.item5e.update({
+				system: {
+					description: {
+						value: newDocument.system?.description?.value,
+					},
+				},
+			});
+		});
+		await Promise.all(sync);
+	};
 
-            if (
-                item.item5e.system.description.value ===
-                newDocument.system?.description?.value
-            ) {
-                return null;
-            }
+	/**
+	 * Retrieve all active base magic items from an actor
+	 * @param actor
+	 */
+	private getActiveMagicItems = (actor: Actor5e): QuickAccess[] => {
+		return actor.items
+			.map((item: Item5e) => {
+				if (!item.system.attuned) {
+					return null;
+				}
+				if (!item.system.equipped) {
+					return null;
+				}
+				return {
+					abstract: AbstractItem.createFromDocument(item),
+					item5e: item,
+				};
+			})
+			.filter((item) => {
+				return item !== null && item.abstract !== null;
+			}) as QuickAccess[];
+	};
 
-            return item.item5e.update({
-                system: {
-                    description: {
-                        value: newDocument.system?.description?.value,
-                    },
-                },
-            });
-        });
-        await Promise.all(sync);
-    };
+	/**
+	 * Get all modifiers with each of their respective data in an array
+	 * @param items
+	 */
+	private getAllModifiers = (items: QuickAccess[]): ModifiersMapped => {
+		const modifierMap: ModifiersMapped = {};
 
-    /**
-     * Retrieve all active base magic items from an actor
-     * @param actor
-     */
-    private getActiveMagicItems = (actor: Actor5e): QuickAccess[] => {
-        return actor.items
-            .map((item: Item5e) => {
-                if (!item.system.attuned) {
-                    return null;
-                }
-                if (!item.system.equipped) {
-                    return null;
-                }
-                return {
-                    abstract: AbstractItem.createFromDocument(item),
-                    item5e: item,
-                };
-            })
-            .filter((item) => {
-                return item !== null && item.abstract !== null;
-            }) as QuickAccess[];
-    };
+		items.forEach((item) => {
+			const all = [
+				...item.abstract.primary,
+				...item.abstract.secondary,
+				...item.abstract.tertiary,
+			];
+			all.forEach((item) => {
+				const identifier = item.modifier.identifier;
+				const modifier = registry.get(identifier);
 
-    /**
-     * Get all modifiers with each of their respective data in an array
-     * @param items
-     */
-    private getAllModifiers = (items: QuickAccess[]): ModifiersMapped => {
-        const modifierMap: ModifiersMapped = {};
+				if (!modifier) {
+					Logger.error(`Could not find modifier ${identifier} in registry`);
+					return;
+				}
 
-        items.forEach((item) => {
-            const all = [
-                ...item.abstract.primary,
-                ...item.abstract.secondary,
-                ...item.abstract.tertiary,
-            ];
-            all.forEach((item) => {
-                const identifier = item.modifier.identifier;
-                const modifier = registry.get(identifier)
+				if (!modifierMap[identifier]) {
+					modifierMap[identifier] = { modifier, data: [] };
+				}
+				modifierMap[identifier].data.push(item.data || null);
+			});
+		});
 
-                if (!modifier) {
-                    Logger.error(`Could not find modifier ${identifier} in registry`)
-                    return;
-                }
+		return modifierMap;
+	};
 
-                if (!modifierMap[identifier]) {
-                    modifierMap[identifier] = {modifier, data: []}
-                }
-                modifierMap[identifier].data.push(item.data || null);
-            });
-        });
+	private getAllFeats = (modifiersMapped: ModifiersMapped): Feat[] => {
+		return Object.values(modifiersMapped).flatMap(({ modifier, data }) =>
+			modifier.getFeats(data),
+		);
+	};
 
-        return modifierMap
-    };
+	private getAllActiveEffects = (
+		modifiersMapped: ModifiersMapped,
+	): ActiveEffect[] => {
+		return Object.values(modifiersMapped).flatMap(({ modifier, data }) =>
+			modifier.getActiveEffects(data),
+		);
+	};
 
-    private getAllFeats = (modifiersMapped: ModifiersMapped): Feat[] => {
-        return Object.values(modifiersMapped).flatMap(({modifier, data}) =>
-            modifier.getFeats(data)
-        );
-    }
+	private getMagicFeats = (actor: Actor5e) => {
+		return actor.items.filter((item: Item5e) => {
+			if (!item.flags[namespace.core.id]) {
+				return false;
+			}
 
-    private getAllActiveEffects = (modifiersMapped: ModifiersMapped): ActiveEffect[] => {
-        return Object.values(modifiersMapped).flatMap(({modifier, data}) =>
-            modifier.getActiveEffects(data)
-        );
-    }
+			if (item.flags[namespace.core.id].type === ItemType.TemporaryItem) {
+				return true;
+			}
 
+			return false;
+		});
+	};
 
-    private getMagicFeats = (actor: Actor5e) => {
-        return actor.items.filter((item: Item5e) => {
-            if (!item.flags[namespace.core.id]) {
-                return false;
-            }
+	// TODO APPEND +N to feat / II / IV / V etc
+	private synchronizeFeats = async (feats: Feat[], actor: Actor5e) => {
+		let remaining = this.getMagicFeats(actor);
 
-            if (item.flags[namespace.core.id].type === ItemType.TemporaryItem) {
-                return true;
-            }
+		const creation = feats.map((feat, index) => {
+			const id =
+				feat.document.name + index + feat.document.system.description?.value;
 
-            return false;
-        });
-    };
+			/**
+			 * If the feat exists, remove it from the remaining array
+			 */
+			const exists = remaining.find((item) => {
+				// @ts-ignore
+				return item.flags[namespace.core.id]?.id === id;
+			});
 
-    // TODO APPEND +N to feat / II / IV / V etc
-    private synchronizeFeats = async (feats: Feat[], actor: Actor5e) => {
-        let remaining = this.getMagicFeats(actor);
+			if (exists) {
+				remaining = remaining.filter((item) => {
+					// @ts-ignore
+					return item.flags[namespace.core.id]?.id !== id;
+				});
+				return;
+			}
 
-        const creation = feats.map((feat, index) => {
-            const id = feat.document.name + index + feat.document.system.description?.value;
+			Logger.log("Creating SubItem", {
+				id,
+			});
 
-            /**
-             * If the feat exists, remove it from the remaining array
-             */
-            const exists = remaining.find((item) => {
-                // @ts-ignore
-                return item.flags[namespace.core.id]?.id === id;
-            });
+			return actor.createEmbeddedDocuments("Item", [
+				{
+					...feat.export(),
+					flags: {
+						[namespace.core.id]: {
+							type: ItemType.TemporaryItem,
+							id,
+						},
+					},
+				},
+			]);
+		});
+		await Promise.all(creation);
 
-            if (exists) {
-                remaining = remaining.filter((item) => {
-                    // @ts-ignore
-                    return item.flags[namespace.core.id]?.id !== id;
-                });
-                return;
-            }
+		/**
+		 * Remove remaining feats
+		 */
+		for (const item of remaining) {
+			Logger.log("Removing feat", { item });
+			// @ts-ignore
+			await actor.deleteEmbeddedDocuments("Item", [item.id]);
+		}
+	};
 
-            Logger.log('Creating SubItem', {
-                id,
-            });
+	/**
+	 * Get all existing active effects of an actor related to this module
+	 * @param actor
+	 */
+	private getExistingActiveEffects = (actor: Actor5e) => {
+		return actor.effects.filter((effect: Effect5e) => {
+			if (!effect.flags[namespace.core.id]) {
+				return false;
+			}
 
-            return actor.createEmbeddedDocuments('Item', [
-                {
-                    ...feat.export(),
-                    flags: {
-                        [namespace.core.id]: {
-                            type: ItemType.TemporaryItem,
-                            id,
-                        },
-                    },
-                },
-            ]);
-        });
-        await Promise.all(creation);
+			// @ts-ignore
+			if (effect.flags[namespace.core.id].type === ItemType.TemporaryItem) {
+				return true;
+			}
 
-        /**
-         * Remove remaining feats
-         */
-        for (const item of remaining) {
-            Logger.log('Removing feat', { item });
-            // @ts-ignore
-            await actor.deleteEmbeddedDocuments('Item', [item.id]);
-        }
-    };
+			return false;
+		});
+	};
 
+	/**
+	 * Sync the wantActiveEffects with the existing activeEffects of the actor
+	 * @param wantActiveEffects
+	 * @param actor
+	 */
+	private synchronizeEffects = async (
+		wantActiveEffects: ActiveEffect[],
+		actor: Actor5e,
+	) => {
+		let remaining = this.getExistingActiveEffects(actor);
 
-    /**
-     * Get all existing active effects of an actor related to this module
-     * @param actor
-     */
-    private getExistingActiveEffects = (actor: Actor5e) => {
-        return actor.effects.filter((effect: Effect5e) => {
-            if (!effect.flags[namespace.core.id]) {
-                return false;
-            }
+		const creation = wantActiveEffects.map((effect, index) => {
+			const id = effect.document.name + index + effect.document.description;
 
-            // @ts-ignore
-            if (effect.flags[namespace.core.id].type === ItemType.TemporaryItem) {
-                return true;
-            }
+			/**
+			 * If the effect exists, remove it from the remaining array
+			 */
+			const exists = remaining.find((effect) => {
+				return effect.flags[namespace.core.id]?.id === id;
+			});
 
-            return false;
-        });
-    };
+			if (exists) {
+				remaining = remaining.filter((effect) => {
+					return effect.flags[namespace.core.id]?.id !== id;
+				});
+				return;
+			}
 
-    /**
-     * Sync the wantActiveEffects with the existing activeEffects of the actor
-     * @param wantActiveEffects
-     * @param actor
-     */
-    private synchronizeEffects = async (
-        wantActiveEffects: ActiveEffect[],
-        actor: Actor5e,
-    ) => {
-        let remaining = this.getExistingActiveEffects(actor);
+			/**
+			 * Otherwise create a new activeEffect
+			 */
+			Logger.log("Creating ActiveEffect", {
+				id,
+			});
 
-        const creation = wantActiveEffects.map((effect, index) => {
-            const id = effect.document.name + index + effect.document.description;
+			return actor.createEmbeddedDocuments("ActiveEffect", [effect.export(id)]);
+		});
+		await Promise.all(creation);
 
-            /**
-             * If the effect exists, remove it from the remaining array
-             */
-            const exists = remaining.find((effect) => {
-                return effect.flags[namespace.core.id]?.id === id;
-            });
-
-            if (exists) {
-                remaining = remaining.filter((effect) => {
-                    return effect.flags[namespace.core.id]?.id !== id;
-                });
-                return;
-            }
-
-            /**
-             * Otherwise create a new activeEffect
-             */
-            Logger.log('Creating ActiveEffect', {
-                id,
-            });
-
-            return actor.createEmbeddedDocuments('ActiveEffect', [
-                effect.export(id),
-            ]);
-        });
-        await Promise.all(creation);
-
-        /**
-         * Remove remaining effects
-         */
-        for (const item of remaining) {
-            Logger.log('Removing effect', {item});
-            // @ts-ignore
-            await actor.deleteEmbeddedDocuments('ActiveEffect', [item.id]);
-        }
-    };
+		/**
+		 * Remove remaining effects
+		 */
+		for (const item of remaining) {
+			Logger.log("Removing effect", { item });
+			// @ts-ignore
+			await actor.deleteEmbeddedDocuments("ActiveEffect", [item.id]);
+		}
+	};
 }

@@ -18,11 +18,15 @@ const makeTransitionStyles = (name: string, dir: number) => `
 
 // TODO Upgrade to REACT and react view transition component
 export const BreakpointSwap = (props: BreakpointSwapProps) => {
-	const [temporaryActiveIndex, setTemporaryActiveIndex] = useState<number | null>(null);
-	const vtName = useRef(`bp-swap-${Math.random().toString(36).slice(2)}`).current;
+	const [temporaryActiveIndex, setTemporaryActiveIndex] = useState<
+		number | null
+	>(null);
+	const vtName = useRef(
+		`bp-swap-${Math.random().toString(36).slice(2)}`,
+	).current;
 	const styleEl = useRef<HTMLStyleElement | null>(null);
 
-	console.log("RERENDER")
+	console.log("RERENDER");
 
 	useEffect(() => {
 		const el = document.createElement("style");
@@ -51,7 +55,7 @@ export const BreakpointSwap = (props: BreakpointSwapProps) => {
 
 		document.startViewTransition(async () => {
 			setTemporaryActiveIndex(index);
-			await new Promise<void>(resolve => setTimeout(resolve));
+			await new Promise<void>((resolve) => setTimeout(resolve));
 		});
 	};
 

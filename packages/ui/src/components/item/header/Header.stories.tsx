@@ -9,11 +9,19 @@ const meta = {
 	component: Header,
 	parameters: {
 		layout: "centered",
-		backgrounds: { default: "dark", values: [{ name: "dark", value: "#040510" }] },
+		backgrounds: {
+			default: "dark",
+			values: [{ name: "dark", value: "#040510" }],
+		},
 	},
 	render: (props: HeaderProps) => (
 		<div style="background:#040510;width:460px;padding:28px;">
-			<Header name={props.name} rarity={props.rarity} base={props.base} currency={props.currency} />
+			<Header
+				name={props.name}
+				rarity={props.rarity}
+				base={props.base}
+				currency={props.currency}
+			/>
 		</div>
 	),
 } satisfies Meta<typeof Header>;
@@ -32,13 +40,28 @@ export const Default: Story = {
 };
 
 export const Common: Story = {
-	args: { name: "Iron Dagger", rarity: Rarity.Common, base: Equipment.Dagger, currency: 2 },
+	args: {
+		name: "Iron Dagger",
+		rarity: Rarity.Common,
+		base: Equipment.Dagger,
+		currency: 2,
+	},
 };
 
 export const Rare: Story = {
-	args: { name: "Stormcaller Bow", rarity: Rarity.Rare, base: Equipment.Longbow, currency: 500 },
+	args: {
+		name: "Stormcaller Bow",
+		rarity: Rarity.Rare,
+		base: Equipment.Longbow,
+		currency: 500,
+	},
 };
 
 export const Legendary: Story = {
-	args: { name: "Dawnbreaker", rarity: Rarity.Legendary, base: Equipment.Greatsword, currency: 50000 },
+	args: {
+		name: "Dawnbreaker",
+		rarity: Rarity.Legendary,
+		base: Equipment.Greatsword,
+		currency: 50000,
+	},
 };

@@ -1,1817 +1,1743 @@
 {
-  "id": "tme.scores",
-  "name": "TME — Score Modifiers",
-  "description": "Built-in score modifiers. Affects character ability scores such as Strength, Dexterity, and Constitution.",
-  "enabled": true,
-  "modifiers": [
-    {
-      "identifier": "TME.CHARM_OF_THE_HEART",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [
-          "SCORE"
-        ],
-        "applies": [
-          "SCORE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Charm of the Heart",
-            "description": "Your charisma score increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.cha.value",
-                  "mode": "ADD",
-                  "value": "1"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Greater Charm of the Heart",
-            "description": "Your charisma score increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.cha.value",
-                  "mode": "ADD",
-                  "value": "2"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Superior Charm of the Heart",
-            "description": "Your charisma score increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.cha.value",
-                  "mode": "ADD",
-                  "value": "3"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Radiant Charm of the Heart",
-            "description": "Your charisma score increases by 6. Once per long rest, use an action to gain advantage on all charisma checks for 1 minute",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "description": "Your charisma score increases by 6",
-              "changes": [
-                {
-                  "key": "system.abilities.cha.value",
-                  "mode": "ADD",
-                  "value": "6"
-                }
-              ]
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "description": "Once per long rest, use an action to gain advantage on all charisma checks for 10 minute",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 1,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Radiant Charm of the Heart",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.ENDLESS_ENDURANCE",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [
-          "SCORE"
-        ],
-        "applies": [
-          "SCORE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Endless Endurance",
-            "description": "Your constitution score increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.con.value",
-                  "mode": "ADD",
-                  "value": "1"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Endless Endurance",
-            "description": "Your constitution score increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.con.value",
-                  "mode": "ADD",
-                  "value": "2"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Endless Endurance",
-            "description": "Your constitution score increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.con.value",
-                  "mode": "ADD",
-                  "value": "3"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Endless Endurance",
-            "description": "Your constitution score increases by 6. Twice per long rest, use an action to gain temporary HP equal to your constitution score",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "description": "Your constitution score increases by 6",
-              "changes": [
-                {
-                  "key": "system.abilities.con.value",
-                  "mode": "ADD",
-                  "value": "6"
-                }
-              ]
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 2,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Endless Endurance",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "healing": {
-                      "types": [
-                        "temphp"
-                      ],
-                      "custom": {
-                        "enabled": true,
-                        "formula": "@abilities.con.value"
-                      }
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.MIGHT_OF_PHOENIX",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [
-          "SCORE"
-        ],
-        "applies": [
-          "SCORE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Might of Phoenix",
-            "description": "Your constitution score increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.con.value",
-                  "mode": "ADD",
-                  "value": "1"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Might of Phoenix",
-            "description": "Your constitution score increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.con.value",
-                  "mode": "ADD",
-                  "value": "2"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Might of Phoenix",
-            "description": "Your constitution score increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.con.value",
-                  "mode": "ADD",
-                  "value": "3"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Might of Phoenix",
-            "description": "Your constitution score increases by 6. Twice per long rest, use an action to regain HP equal to your constitution score",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "description": "Your constitution score increases by 6",
-              "changes": [
-                {
-                  "key": "system.abilities.con.value",
-                  "mode": "ADD",
-                  "value": "6"
-                }
-              ]
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 2,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Might of Phoenix",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "healing": {
-                      "types": [
-                        "healing"
-                      ],
-                      "custom": {
-                        "enabled": true,
-                        "formula": "@abilities.con.value"
-                      }
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.REDSHIFT",
-      "type": "TIERED",
-      "application": {
-        "weight": 512,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [
-          "SCORE"
-        ],
-        "applies": [
-          "SCORE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Redshift",
-            "description": "Your dexterity score increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.dex.value",
-                  "mode": "ADD",
-                  "value": "1"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Redshift",
-            "description": "Your dexterity score increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.dex.value",
-                  "mode": "ADD",
-                  "value": "2"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Redshift",
-            "description": "Your dexterity score increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.dex.value",
-                  "mode": "ADD",
-                  "value": "3"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Redshift",
-            "description": "Your dexterity score increases by 6. You can freely take one hit die damage to gain an additional 4d6 movement speed",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "description": "Your dexterity score increases by 6",
-              "changes": [
-                {
-                  "key": "system.abilities.dex.value",
-                  "mode": "ADD",
-                  "value": "6"
-                }
-              ]
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "damage",
-                    "name": "Redshift",
-                    "activation": {
-                      "type": "special",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "damage": {
-                      "parts": [
-                        {
-                          "custom": {
-                            "enabled": true,
-                            "formula": "@attributes.hd.largest"
-                          },
-                          "types": [
-                            ""
-                          ]
-                        }
-                      ]
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": false,
-                      "targets": []
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.ANNIHILATION",
-      "type": "TIERED",
-      "application": {
-        "weight": 512,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [
-          "SCORE"
-        ],
-        "applies": [
-          "SCORE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Annihilation",
-            "description": "Your intelligence score increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.int.value",
-                  "mode": "ADD",
-                  "value": "1"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Annihilation",
-            "description": "Your intelligence score increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.int.value",
-                  "mode": "ADD",
-                  "value": "2"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Annihilation",
-            "description": "Your intelligence score increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.int.value",
-                  "mode": "ADD",
-                  "value": "3"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Annihilation",
-            "description": "Your intelligence score increases by 6. Upon casting a spell, gain for each spell level spent two magic missile bolts to distribute, gain a single bolt for a cantrip",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "description": "Your intelligence score increases by 6",
-              "changes": [
-                {
-                  "key": "system.abilities.int.value",
-                  "mode": "ADD",
-                  "value": "6"
-                }
-              ]
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "activities": []
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.MAGIC_RESERVOIR",
-      "type": "TIERED",
-      "application": {
-        "weight": 512,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [
-          "SCORE"
-        ],
-        "applies": [
-          "SCORE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Magic Reservoir",
-            "description": "Your intelligence score increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.int.value",
-                  "mode": "ADD",
-                  "value": "1"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Magic Reservoir",
-            "description": "Your intelligence score increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.int.value",
-                  "mode": "ADD",
-                  "value": "2"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Magic Reservoir",
-            "description": "Your intelligence score increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.int.value",
-                  "mode": "ADD",
-                  "value": "3"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Magic Reservoir",
-            "description": "Your intelligence score increases by 6. Upon casting a spell roll a D6. On a 6 the spell slot is not consumed. On a 5 regain half (ceiled) of the spell level back",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "description": "Your intelligence score increases by 6",
-              "changes": [
-                {
-                  "key": "system.abilities.int.value",
-                  "mode": "ADD",
-                  "value": "6"
-                }
-              ]
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Magic Reservoir",
-                    "activation": {
-                      "type": "special",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "roll": {
-                      "formula": "1d6",
-                      "name": "D6"
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": false,
-                      "targets": []
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.EARTHSHAKER",
-      "type": "TIERED",
-      "application": {
-        "weight": 512,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [
-          "SCORE"
-        ],
-        "applies": [
-          "SCORE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Earthshaker",
-            "description": "Your strength score increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.str.value",
-                  "mode": "ADD",
-                  "value": "1"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Earthshaker",
-            "description": "Your strength score increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.str.value",
-                  "mode": "ADD",
-                  "value": "2"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Earthshaker",
-            "description": "Your strength score increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.str.value",
-                  "mode": "ADD",
-                  "value": "3"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Earthshaker",
-            "description": "Your strength score increases by 6. Once per long rest, as an action, strike the ground to cause an earthquake effect in a 30-foot radius to deal quadruple your level force damage to each creature",
-            "disclaimer": "AOE centered on self. Dex saving throw against your strength save dc otherwise half damage. You are immune to your own earthquake damage"
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "description": "Your strength score increases by 6",
-              "changes": [
-                {
-                  "key": "system.abilities.str.value",
-                  "mode": "ADD",
-                  "value": "6"
-                }
-              ]
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Earthshaker",
-              "description": "Once per long rest, as an action, strike the ground to cause an earthquake effect in a 30-foot radius to deal quadruple your level force damage to each creature",
-              "disclaimer": "AOE centered on self. Dex saving throw against your strength save dc otherwise half damage. You are immune to your own earthquake damage",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 1,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "save",
-                    "name": "Earthshaker",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "target": {
-                      "template": {
-                        "type": "circle",
-                        "size": 30,
-                        "units": "ft"
-                      }
-                    },
-                    "save": {
-                      "ability": "dex",
-                      "dc": {
-                        "calculation": "",
-                        "formula": "@abilities.str.dc"
-                      }
-                    },
-                    "damage": {
-                      "onSave": "half",
-                      "parts": [
-                        {
-                          "custom": {
-                            "enabled": true,
-                            "formula": "@details.level * 4"
-                          },
-                          "types": [
-                            "force"
-                          ]
-                        }
-                      ]
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.OLYMPIANS_FAVOR",
-      "type": "TIERED",
-      "application": {
-        "weight": 512,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [
-          "SCORE"
-        ],
-        "applies": [
-          "SCORE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Olympian's Favor",
-            "description": "Your strength score increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.str.value",
-                  "mode": "ADD",
-                  "value": "1"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Olympian's Favor",
-            "description": "Your strength score increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.str.value",
-                  "mode": "ADD",
-                  "value": "2"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Olympian's Favor",
-            "description": "Your strength score increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.str.value",
-                  "mode": "ADD",
-                  "value": "3"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Olympian's Favor",
-            "description": "Your strength score increases by 6. Twice per long rest, as a bonus action, perform a feat of strength that doubles your strength score and tenfolds lifting capacity and carrying capacity for 3 turns",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "description": "Your strength score increases by 6",
-              "changes": [
-                {
-                  "key": "system.abilities.str.value",
-                  "mode": "ADD",
-                  "value": "6"
-                }
-              ]
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "bonus",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 2,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Olympian's Favor",
-                    "activation": {
-                      "type": "bonus",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.HARMONY",
-      "type": "TIERED",
-      "application": {
-        "weight": 512,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [
-          "SCORE"
-        ],
-        "applies": [
-          "SCORE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Harmony",
-            "description": "Your wisdom score increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.wis.value",
-                  "mode": "ADD",
-                  "value": "1"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Harmony",
-            "description": "Your wisdom score increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.wis.value",
-                  "mode": "ADD",
-                  "value": "2"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Harmony",
-            "description": "Your wisdom score increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.wis.value",
-                  "mode": "ADD",
-                  "value": "3"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Harmony",
-            "description": "Your wisdom score increases by 6. You can stack advantages and disadvantages. Four times per long rest you can grant your ability and skill checks advantage",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "description": "Your wisdom score increases by 6",
-              "changes": [
-                {
-                  "key": "system.abilities.wis.value",
-                  "mode": "ADD",
-                  "value": "6"
-                }
-              ]
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Unbound Harmony",
-              "description": "You can stack advantages and disadvantages",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "activities": []
-              }
-            },
-            {
-              "type": "FEAT",
-              "title": "United Harmony",
-              "description": "Four times per long rest you can grant your ability and skill checks advantage",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 4,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "United Harmony",
-                    "activation": {
-                      "type": "special",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.VISIONARY_FORESIGHT",
-      "type": "TIERED",
-      "application": {
-        "weight": 512,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [
-          "SCORE"
-        ],
-        "applies": [
-          "SCORE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Visionary Foresight",
-            "description": "Your wisdom score increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.wis.value",
-                  "mode": "ADD",
-                  "value": "1"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Visionary Foresight",
-            "description": "Your wisdom score increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.wis.value",
-                  "mode": "ADD",
-                  "value": "2"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Visionary Foresight",
-            "description": "Your wisdom score increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.wis.value",
-                  "mode": "ADD",
-                  "value": "3"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Visionary Foresight",
-            "description": "Your wisdom score increases by 6. You can swap your d20s with each other that you rolled during your turn. Two times per long rest you can reroll any D20 you roll",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "description": "Your wisdom score increases by 6",
-              "changes": [
-                {
-                  "key": "system.abilities.wis.value",
-                  "mode": "ADD",
-                  "value": "6"
-                }
-              ]
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Visionary Foresight's Visions",
-              "description": "You can swap your d20s with each other that you rolled during your turn",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "activities": []
-              }
-            },
-            {
-              "type": "FEAT",
-              "title": "Visionary Foresight's Insights",
-              "description": "Two times per long rest you can reroll any D20 you roll",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 2,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Visionary Foresight's Insights",
-                    "activation": {
-                      "type": "special",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.TEMPORAL",
-      "type": "TIERED",
-      "application": {
-        "weight": 512,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [
-          "SCORE"
-        ],
-        "applies": [
-          "SCORE"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Temporal",
-            "description": "Your dexterity score increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.dex.value",
-                  "mode": "ADD",
-                  "value": "1"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Temporal",
-            "description": "Your dexterity score increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.dex.value",
-                  "mode": "ADD",
-                  "value": "2"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Temporal",
-            "description": "Your dexterity score increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.abilities.dex.value",
-                  "mode": "ADD",
-                  "value": "3"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Temporal",
-            "description": "Your dexterity score increases by 6. As an action you can teleport back to a place you occupied up to the start of your previous turn",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "description": "Your dexterity score increases by 6",
-              "changes": [
-                {
-                  "key": "system.abilities.dex.value",
-                  "mode": "ADD",
-                  "value": "6"
-                }
-              ]
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Temporal",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": false,
-                      "targets": []
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    }
-  ]
+	"id": "tme.scores",
+	"name": "TME — Score Modifiers",
+	"description": "Built-in score modifiers. Affects character ability scores such as Strength, Dexterity, and Constitution.",
+	"enabled": true,
+	"modifiers": [
+		{
+			"identifier": "TME.CHARM_OF_THE_HEART",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Charm of the Heart",
+						"description": "Your charisma score increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.cha.value",
+									"mode": "ADD",
+									"value": "1"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Greater Charm of the Heart",
+						"description": "Your charisma score increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.cha.value",
+									"mode": "ADD",
+									"value": "2"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Superior Charm of the Heart",
+						"description": "Your charisma score increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.cha.value",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Radiant Charm of the Heart",
+						"description": "Your charisma score increases by 6. Once per long rest, use an action to gain advantage on all charisma checks for 1 minute",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"description": "Your charisma score increases by 6",
+							"changes": [
+								{
+									"key": "system.abilities.cha.value",
+									"mode": "ADD",
+									"value": "6"
+								}
+							]
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"description": "Once per long rest, use an action to gain advantage on all charisma checks for 10 minute",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 1,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Radiant Charm of the Heart",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.ENDLESS_ENDURANCE",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Endless Endurance",
+						"description": "Your constitution score increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.con.value",
+									"mode": "ADD",
+									"value": "1"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Endless Endurance",
+						"description": "Your constitution score increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.con.value",
+									"mode": "ADD",
+									"value": "2"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Endless Endurance",
+						"description": "Your constitution score increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.con.value",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Endless Endurance",
+						"description": "Your constitution score increases by 6. Twice per long rest, use an action to gain temporary HP equal to your constitution score",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"description": "Your constitution score increases by 6",
+							"changes": [
+								{
+									"key": "system.abilities.con.value",
+									"mode": "ADD",
+									"value": "6"
+								}
+							]
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 2,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Endless Endurance",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["temphp"],
+											"custom": {
+												"enabled": true,
+												"formula": "@abilities.con.value"
+											}
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.MIGHT_OF_PHOENIX",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Might of Phoenix",
+						"description": "Your constitution score increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.con.value",
+									"mode": "ADD",
+									"value": "1"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Might of Phoenix",
+						"description": "Your constitution score increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.con.value",
+									"mode": "ADD",
+									"value": "2"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Might of Phoenix",
+						"description": "Your constitution score increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.con.value",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Might of Phoenix",
+						"description": "Your constitution score increases by 6. Twice per long rest, use an action to regain HP equal to your constitution score",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"description": "Your constitution score increases by 6",
+							"changes": [
+								{
+									"key": "system.abilities.con.value",
+									"mode": "ADD",
+									"value": "6"
+								}
+							]
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 2,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Might of Phoenix",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["healing"],
+											"custom": {
+												"enabled": true,
+												"formula": "@abilities.con.value"
+											}
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.REDSHIFT",
+			"type": "TIERED",
+			"application": {
+				"weight": 512,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Redshift",
+						"description": "Your dexterity score increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.dex.value",
+									"mode": "ADD",
+									"value": "1"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Redshift",
+						"description": "Your dexterity score increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.dex.value",
+									"mode": "ADD",
+									"value": "2"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Redshift",
+						"description": "Your dexterity score increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.dex.value",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Redshift",
+						"description": "Your dexterity score increases by 6. You can freely take one hit die damage to gain an additional 4d6 movement speed",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"description": "Your dexterity score increases by 6",
+							"changes": [
+								{
+									"key": "system.abilities.dex.value",
+									"mode": "ADD",
+									"value": "6"
+								}
+							]
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "damage",
+										"name": "Redshift",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": ""
+										},
+										"damage": {
+											"parts": [
+												{
+													"custom": {
+														"enabled": true,
+														"formula": "@attributes.hd.largest"
+													},
+													"types": [""]
+												}
+											]
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": false,
+											"targets": []
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.ANNIHILATION",
+			"type": "TIERED",
+			"application": {
+				"weight": 512,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Annihilation",
+						"description": "Your intelligence score increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.int.value",
+									"mode": "ADD",
+									"value": "1"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Annihilation",
+						"description": "Your intelligence score increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.int.value",
+									"mode": "ADD",
+									"value": "2"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Annihilation",
+						"description": "Your intelligence score increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.int.value",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Annihilation",
+						"description": "Your intelligence score increases by 6. Upon casting a spell, gain for each spell level spent two magic missile bolts to distribute, gain a single bolt for a cantrip",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"description": "Your intelligence score increases by 6",
+							"changes": [
+								{
+									"key": "system.abilities.int.value",
+									"mode": "ADD",
+									"value": "6"
+								}
+							]
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"activities": []
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.MAGIC_RESERVOIR",
+			"type": "TIERED",
+			"application": {
+				"weight": 512,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Magic Reservoir",
+						"description": "Your intelligence score increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.int.value",
+									"mode": "ADD",
+									"value": "1"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Magic Reservoir",
+						"description": "Your intelligence score increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.int.value",
+									"mode": "ADD",
+									"value": "2"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Magic Reservoir",
+						"description": "Your intelligence score increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.int.value",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Magic Reservoir",
+						"description": "Your intelligence score increases by 6. Upon casting a spell roll a D6. On a 6 the spell slot is not consumed. On a 5 regain half (ceiled) of the spell level back",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"description": "Your intelligence score increases by 6",
+							"changes": [
+								{
+									"key": "system.abilities.int.value",
+									"mode": "ADD",
+									"value": "6"
+								}
+							]
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Magic Reservoir",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": ""
+										},
+										"roll": {
+											"formula": "1d6",
+											"name": "D6"
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": false,
+											"targets": []
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.EARTHSHAKER",
+			"type": "TIERED",
+			"application": {
+				"weight": 512,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Earthshaker",
+						"description": "Your strength score increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.str.value",
+									"mode": "ADD",
+									"value": "1"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Earthshaker",
+						"description": "Your strength score increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.str.value",
+									"mode": "ADD",
+									"value": "2"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Earthshaker",
+						"description": "Your strength score increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.str.value",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Earthshaker",
+						"description": "Your strength score increases by 6. Once per long rest, as an action, strike the ground to cause an earthquake effect in a 30-foot radius to deal quadruple your level force damage to each creature",
+						"disclaimer": "AOE centered on self. Dex saving throw against your strength save dc otherwise half damage. You are immune to your own earthquake damage"
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"description": "Your strength score increases by 6",
+							"changes": [
+								{
+									"key": "system.abilities.str.value",
+									"mode": "ADD",
+									"value": "6"
+								}
+							]
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Earthshaker",
+							"description": "Once per long rest, as an action, strike the ground to cause an earthquake effect in a 30-foot radius to deal quadruple your level force damage to each creature",
+							"disclaimer": "AOE centered on self. Dex saving throw against your strength save dc otherwise half damage. You are immune to your own earthquake damage",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 1,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "save",
+										"name": "Earthshaker",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"target": {
+											"template": {
+												"type": "circle",
+												"size": 30,
+												"units": "ft"
+											}
+										},
+										"save": {
+											"ability": "dex",
+											"dc": {
+												"calculation": "",
+												"formula": "@abilities.str.dc"
+											}
+										},
+										"damage": {
+											"onSave": "half",
+											"parts": [
+												{
+													"custom": {
+														"enabled": true,
+														"formula": "@details.level * 4"
+													},
+													"types": ["force"]
+												}
+											]
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.OLYMPIANS_FAVOR",
+			"type": "TIERED",
+			"application": {
+				"weight": 512,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Olympian's Favor",
+						"description": "Your strength score increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.str.value",
+									"mode": "ADD",
+									"value": "1"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Olympian's Favor",
+						"description": "Your strength score increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.str.value",
+									"mode": "ADD",
+									"value": "2"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Olympian's Favor",
+						"description": "Your strength score increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.str.value",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Olympian's Favor",
+						"description": "Your strength score increases by 6. Twice per long rest, as a bonus action, perform a feat of strength that doubles your strength score and tenfolds lifting capacity and carrying capacity for 3 turns",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"description": "Your strength score increases by 6",
+							"changes": [
+								{
+									"key": "system.abilities.str.value",
+									"mode": "ADD",
+									"value": "6"
+								}
+							]
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "bonus",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 2,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Olympian's Favor",
+										"activation": {
+											"type": "bonus",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.HARMONY",
+			"type": "TIERED",
+			"application": {
+				"weight": 512,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Harmony",
+						"description": "Your wisdom score increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.wis.value",
+									"mode": "ADD",
+									"value": "1"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Harmony",
+						"description": "Your wisdom score increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.wis.value",
+									"mode": "ADD",
+									"value": "2"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Harmony",
+						"description": "Your wisdom score increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.wis.value",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Harmony",
+						"description": "Your wisdom score increases by 6. You can stack advantages and disadvantages. Four times per long rest you can grant your ability and skill checks advantage",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"description": "Your wisdom score increases by 6",
+							"changes": [
+								{
+									"key": "system.abilities.wis.value",
+									"mode": "ADD",
+									"value": "6"
+								}
+							]
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Unbound Harmony",
+							"description": "You can stack advantages and disadvantages",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"activities": []
+							}
+						},
+						{
+							"type": "FEAT",
+							"title": "United Harmony",
+							"description": "Four times per long rest you can grant your ability and skill checks advantage",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"uses": {
+									"max": 4,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "United Harmony",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.VISIONARY_FORESIGHT",
+			"type": "TIERED",
+			"application": {
+				"weight": 512,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Visionary Foresight",
+						"description": "Your wisdom score increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.wis.value",
+									"mode": "ADD",
+									"value": "1"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Visionary Foresight",
+						"description": "Your wisdom score increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.wis.value",
+									"mode": "ADD",
+									"value": "2"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Visionary Foresight",
+						"description": "Your wisdom score increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.wis.value",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Visionary Foresight",
+						"description": "Your wisdom score increases by 6. You can swap your d20s with each other that you rolled during your turn. Two times per long rest you can reroll any D20 you roll",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"description": "Your wisdom score increases by 6",
+							"changes": [
+								{
+									"key": "system.abilities.wis.value",
+									"mode": "ADD",
+									"value": "6"
+								}
+							]
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Visionary Foresight's Visions",
+							"description": "You can swap your d20s with each other that you rolled during your turn",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"activities": []
+							}
+						},
+						{
+							"type": "FEAT",
+							"title": "Visionary Foresight's Insights",
+							"description": "Two times per long rest you can reroll any D20 you roll",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": ""
+								},
+								"uses": {
+									"max": 2,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Visionary Foresight's Insights",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.TEMPORAL",
+			"type": "TIERED",
+			"application": {
+				"weight": 512,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Temporal",
+						"description": "Your dexterity score increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.dex.value",
+									"mode": "ADD",
+									"value": "1"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Temporal",
+						"description": "Your dexterity score increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.dex.value",
+									"mode": "ADD",
+									"value": "2"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Temporal",
+						"description": "Your dexterity score increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.abilities.dex.value",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Temporal",
+						"description": "Your dexterity score increases by 6. As an action you can teleport back to a place you occupied up to the start of your previous turn",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"description": "Your dexterity score increases by 6",
+							"changes": [
+								{
+									"key": "system.abilities.dex.value",
+									"mode": "ADD",
+									"value": "6"
+								}
+							]
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Temporal",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": false,
+											"targets": []
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	]
 }

@@ -1,819 +1,793 @@
 {
-  "id": "tme.accessories",
-  "name": "TME — Accessory Modifiers",
-  "description": "Built-in accessory modifiers. Spellcasting enhancements, concentration effects, and general-purpose abilities.",
-  "enabled": true,
-  "modifiers": [
-    {
-      "identifier": "TME.INHERENT_LAG",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": ["ARMOR", "ACCESSORY"],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Inherent Lag",
-            "description": "When your concentration is broken, the spell persists as though you never lost it, for up to 1 instance",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Resonant Lag",
-            "description": "When your concentration is broken, the spell persists as though you never lost it, for up to 2 instances",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Eternal Lag",
-            "description": "When your concentration is broken, the spell persists as though you never lost it, for up to 3 instances",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.ECCENTRIC_CASTER",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "WEAPON",
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Slightly Eccentric",
-            "description": "Once per long rest, as an action, trigger wild magic on yourself",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 1,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Slightly Eccentric",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Moderately Eccentric",
-            "description": "Twice per long rest, as an action, trigger wild magic on an ally within 30ft",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 2,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Moderately Eccentric",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Eccentric Maniac",
-            "description": "Three times per long rest, as an action, trigger wild magic on any creature within 30ft",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 3,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Eccentric Maniac",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Eccentric Mastermind",
-            "description": "Four times per long rest, as an action, trigger wild magic on any creature within 30ft. Once per long rest, replace any wild magic effect with one of your choosing",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "title": "Eccentric Mastermind - Wild Magic",
-              "description": "Four times per long rest, as an action, trigger wild magic on any creature within 30ft",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 4,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Wild Magic",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "type": "FEAT",
-              "title": "Eccentric Mastermind - Magic Intuition",
-              "description": "Once per long rest, replace any wild magic effect with one of your choosing",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 1,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Magic Intuition",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.TENACIOUS",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "ARMOR",
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Tenacious",
-            "description": "While making death saving throws, you can still crawl at double movement speed cost without provoking opportunity attacks",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.DETERMINISTIC",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Deterministic",
-        "description": "On skill rolls, you can't roll below a {amount}",
-        "disclaimer": "May not actually be fully deterministic"
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 3
-        },
-        {
-          "min": 0.95,
-          "value": 4
-        }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.OVERCHARGED",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "ACCESSORY",
-          "ARMOR_CLOTHES"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Overcharged",
-            "description": "You can reroll 1's on your spell induced damage dice, 1 reroll. The new rolls must be used",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Severely Overcharged",
-            "description": "You can reroll 1-2's on your spell induced damage dice, 2 rerolls. The new rolls must be used",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Wildly Overcharged",
-            "description": "You can reroll 1-3's on your spell induced damage dice, 3 rerolls. The new rolls must be used",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    }
-  ,
-    {
-      "identifier": "TME.REM_SLEEP",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "ARMOR",
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Rem Sleep",
-        "description": "As an action, you can cast Sleep at will. Your total sleep hit point pool per long rest is {amount}",
-        "disclaimer": "Creatures that don't fall asleep because they have more hit points than the remaining pool, or are immune to Sleep, do not consume your pool"
-      },
-      "breakpoints": [
-        { "min": 0,    "value": 20 },
-        { "min": 0.5,  "value": 35 },
-        { "min": 0.8,  "value": 60 },
-        { "min": 0.95, "value": 80 }
-      ],
-      "activeEffects": [],
-      "feats": [
-        {
-          "type": "FEAT",
-          "system": {
-            "activation": {
-              "type": "action",
-              "cost": 1,
-              "condition": ""
-            },
-            "uses": {
-              "max": "{amount}",
-              "recovery": [
-                {
-                  "period": "lr",
-                  "type": "recoverAll"
-                }
-              ]
-            },
-            "activities": []
-          }
-        }
-      ]
-    },
-    {
-      "identifier": "TME.SURELY_A_THERAPIST",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Certified Therapist",
-        "description": "+{amount} bonus to charisma checks and saving throws when gaslighting creatures"
-      },
-      "breakpoints": [
-        { "min": 0,    "value": 2 },
-        { "min": 0.5,  "value": 4 },
-        { "min": 0.8,  "value": 6 },
-        { "min": 0.95, "value": 8 }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.THE_DARK_URGE",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.5, "value": 2 },
-        { "min": 0.8, "value": 4 }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "The Dark Urge",
-            "description": "Your shoves push creatures an additional 5ft",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "The Dark Urge",
-            "description": "You have advantage on shove attacks. Your shoves push creatures an additional 10ft",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "The Dark Urge",
-            "description": "You have advantage on shove attacks and enemies have disadvantage on shoves against you. Your shoves push creatures an additional 15ft",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.FORFEIT_OF_LIFE",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Forfeit of Life",
-            "description": "As an action, sacrifice all your HP except one. Gain the sacrificed amount as temporary HP",
-            "disclaimer": "Temporary HP do not stack, only the highest value applies"
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Forfeit of Life",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "healing": {
-                      "types": ["temphp"],
-                      "custom": {
-                        "enabled": true,
-                        "formula": "@attributes.hp.value - 1"
-                      }
-                    },
-                    "consumption": {
-                      "scaling": { "allowed": false },
-                      "spellSlot": false,
-                      "targets": []
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.BLOODBATH",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "WEAPON",
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Bloodbath",
-            "description": "On direct creature kill, gain an additional action this turn",
-            "disclaimer": "This action must be used to harm a creature, it cannot be skipped"
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.ASSASSIN",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "ARMOR",
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Assassin",
-            "description": "You have advantage on all Stealth checks",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.OVERDRIVE",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "ARMOR",
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Overdrive",
-            "description": "Advantage and disadvantage now stack on you",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.UNCERTAINTY",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": ["ARMOR", "ACCESSORY"],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Uncertainty",
-        "description": "You gain a portal dice (d20). {amount} times per long rest, you may swap the result of your portal dice with the result of any other d20 roll in the game",
-        "disclaimer": "The portal dice result takes the place of the swapped roll and vice versa, roll the portal dice once upon aquiring this modifier"
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.6,
-          "value": 2
-        },
-        {
-          "min": 0.9,
-          "value": 3
-        }
-      ],
-      "activeEffects": [],
-      "feats": [
-        {
-          "type": "FEAT",
-          "system": {
-            "activation": {
-              "type": "reaction",
-              "cost": 1,
-              "condition": "when any d20 roll is made"
-            },
-            "uses": {
-              "max": "{amount}",
-              "recovery": [
-                {
-                  "period": "lr",
-                  "type": "recoverAll"
-                }
-              ]
-            },
-            "activities": [
-              {
-                "type": "utility",
-                "name": "Uncertainty",
-                "activation": {
-                  "type": "reaction",
-                  "override": false,
-                  "condition": "when any d20 roll is made"
-                },
-                "consumption": {
-                  "scaling": { "allowed": false },
-                  "spellSlot": false,
-                  "targets": [
-                    {
-                      "type": "itemUses",
-                      "value": "1",
-                      "target": "",
-                      "scaling": {}
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      ]
-    }
-  ]
+	"id": "tme.accessories",
+	"name": "TME — Accessory Modifiers",
+	"description": "Built-in accessory modifiers. Spellcasting enhancements, concentration effects, and general-purpose abilities.",
+	"enabled": true,
+	"modifiers": [
+		{
+			"identifier": "TME.INHERENT_LAG",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Inherent Lag",
+						"description": "When your concentration is broken, the spell persists as though you never lost it, for up to 1 instance",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Resonant Lag",
+						"description": "When your concentration is broken, the spell persists as though you never lost it, for up to 2 instances",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Eternal Lag",
+						"description": "When your concentration is broken, the spell persists as though you never lost it, for up to 3 instances",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.ECCENTRIC_CASTER",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["WEAPON", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Slightly Eccentric",
+						"description": "Once per long rest, as an action, trigger wild magic on yourself",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 1,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Slightly Eccentric",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Moderately Eccentric",
+						"description": "Twice per long rest, as an action, trigger wild magic on an ally within 30ft",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 2,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Moderately Eccentric",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Eccentric Maniac",
+						"description": "Three times per long rest, as an action, trigger wild magic on any creature within 30ft",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 3,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Eccentric Maniac",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Eccentric Mastermind",
+						"description": "Four times per long rest, as an action, trigger wild magic on any creature within 30ft. Once per long rest, replace any wild magic effect with one of your choosing",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Eccentric Mastermind - Wild Magic",
+							"description": "Four times per long rest, as an action, trigger wild magic on any creature within 30ft",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 4,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Wild Magic",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						},
+						{
+							"type": "FEAT",
+							"title": "Eccentric Mastermind - Magic Intuition",
+							"description": "Once per long rest, replace any wild magic effect with one of your choosing",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 1,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Magic Intuition",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.TENACIOUS",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Tenacious",
+						"description": "While making death saving throws, you can still crawl at double movement speed cost without provoking opportunity attacks",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.DETERMINISTIC",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Deterministic",
+				"description": "On skill rolls, you can't roll below a {amount}",
+				"disclaimer": "May not actually be fully deterministic"
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 3
+				},
+				{
+					"min": 0.95,
+					"value": 4
+				}
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.OVERCHARGED",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ACCESSORY", "ARMOR_CLOTHES"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Overcharged",
+						"description": "You can reroll 1's on your spell induced damage dice, 1 reroll. The new rolls must be used",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Severely Overcharged",
+						"description": "You can reroll 1-2's on your spell induced damage dice, 2 rerolls. The new rolls must be used",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Wildly Overcharged",
+						"description": "You can reroll 1-3's on your spell induced damage dice, 3 rerolls. The new rolls must be used",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.REM_SLEEP",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Rem Sleep",
+				"description": "As an action, you can cast Sleep at will. Your total sleep hit point pool per long rest is {amount}",
+				"disclaimer": "Creatures that don't fall asleep because they have more hit points than the remaining pool, or are immune to Sleep, do not consume your pool"
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 20 },
+				{ "min": 0.5, "value": 35 },
+				{ "min": 0.8, "value": 60 },
+				{ "min": 0.95, "value": 80 }
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "action",
+							"cost": 1,
+							"condition": ""
+						},
+						"uses": {
+							"max": "{amount}",
+							"recovery": [
+								{
+									"period": "lr",
+									"type": "recoverAll"
+								}
+							]
+						},
+						"activities": []
+					}
+				}
+			]
+		},
+		{
+			"identifier": "TME.SURELY_A_THERAPIST",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Certified Therapist",
+				"description": "+{amount} bonus to charisma checks and saving throws when gaslighting creatures"
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 2 },
+				{ "min": 0.5, "value": 4 },
+				{ "min": 0.8, "value": 6 },
+				{ "min": 0.95, "value": 8 }
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.THE_DARK_URGE",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.5, "value": 2 },
+				{ "min": 0.8, "value": 4 }
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "The Dark Urge",
+						"description": "Your shoves push creatures an additional 5ft",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "The Dark Urge",
+						"description": "You have advantage on shove attacks. Your shoves push creatures an additional 10ft",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "The Dark Urge",
+						"description": "You have advantage on shove attacks and enemies have disadvantage on shoves against you. Your shoves push creatures an additional 15ft",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.FORFEIT_OF_LIFE",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Forfeit of Life",
+						"description": "As an action, sacrifice all your HP except one. Gain the sacrificed amount as temporary HP",
+						"disclaimer": "Temporary HP do not stack, only the highest value applies"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Forfeit of Life",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["temphp"],
+											"custom": {
+												"enabled": true,
+												"formula": "@attributes.hp.value - 1"
+											}
+										},
+										"consumption": {
+											"scaling": { "allowed": false },
+											"spellSlot": false,
+											"targets": []
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.BLOODBATH",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["WEAPON", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Bloodbath",
+						"description": "On direct creature kill, gain an additional action this turn",
+						"disclaimer": "This action must be used to harm a creature, it cannot be skipped"
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.ASSASSIN",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ARMOR", "WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Assassin",
+						"description": "You have advantage on all Stealth checks",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.OVERDRIVE",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Overdrive",
+						"description": "Advantage and disadvantage now stack on you",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.UNCERTAINTY",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Uncertainty",
+				"description": "You gain a portal dice (d20). {amount} times per long rest, you may swap the result of your portal dice with the result of any other d20 roll in the game",
+				"disclaimer": "The portal dice result takes the place of the swapped roll and vice versa, roll the portal dice once upon aquiring this modifier"
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.6,
+					"value": 2
+				},
+				{
+					"min": 0.9,
+					"value": 3
+				}
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"condition": "when any d20 roll is made"
+						},
+						"uses": {
+							"max": "{amount}",
+							"recovery": [
+								{
+									"period": "lr",
+									"type": "recoverAll"
+								}
+							]
+						},
+						"activities": [
+							{
+								"type": "utility",
+								"name": "Uncertainty",
+								"activation": {
+									"type": "reaction",
+									"override": false,
+									"condition": "when any d20 roll is made"
+								},
+								"consumption": {
+									"scaling": { "allowed": false },
+									"spellSlot": false,
+									"targets": [
+										{
+											"type": "itemUses",
+											"value": "1",
+											"target": "",
+											"scaling": {}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
+		}
+	]
 }

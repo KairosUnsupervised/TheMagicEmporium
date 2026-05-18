@@ -1,32 +1,24 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": [
-      "ESNext",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact",
-    "allowImportingTsExtensions": true,
-    "paths": {
-      "@tme/library/*": ["../../packages/library/*"],
-      "@tme/ui/*": ["../../packages/ui/*"],
-      "@tme/shared/*": ["../../packages/shared/*"],
-      "@tme/types/*": ["../../packages/types/*"]
-    },
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules"
-      }
-    ],
-    "types": ["bun"]
-  },
-  "include": [
-    "src",
-    "scripts",
-    "../../packages/shared/src/types/foundry.d.ts"
-  ]
+	"extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"target": "ESNext",
+		"useDefineForClassFields": true,
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact",
+		"allowImportingTsExtensions": true,
+		"paths": {
+			"@tme/library/*": ["../../packages/library/*"],
+			"@tme/ui/*": ["../../packages/ui/*"],
+			"@tme/shared/*": ["../../packages/shared/*"],
+			"@tme/types/*": ["../../packages/types/*"]
+		},
+		"plugins": [
+			{
+				"name": "typescript-plugin-css-modules"
+			}
+		],
+		"types": ["bun"]
+	},
+	"include": ["src", "scripts", "../../packages/shared/src/types/foundry.d.ts"]
 }

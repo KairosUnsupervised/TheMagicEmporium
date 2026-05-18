@@ -1,10 +1,10 @@
-import {UniqueModifier} from "@tme/library/src/modifiers/blueprints/UniqueModifier";
-import {ModifierType} from "@tme/library/src/modifiers/modifier.schema";
-import {BreakpointSwap} from "../BreakpointSwap";
+import { UniqueModifier } from "@tme/library/src/modifiers/blueprints/UniqueModifier";
+import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
+import { BreakpointSwap } from "../BreakpointSwap";
 import styles from "./UniqueModifierDisplay.module.css";
 import icon from "./Icon.svg";
-import {namespace} from "@tme/shared/src/namespaceConfig";
-import {Icon} from "@tme/library/src/item/icon";
+import { namespace } from "@tme/shared/src/namespaceConfig";
+import { Icon } from "@tme/library/src/item/icon";
 
 export interface UniqueModifierDisplayProps {
 	modifier: UniqueModifier;
@@ -13,9 +13,10 @@ export interface UniqueModifierDisplayProps {
 
 const UniqueBody = (props: UniqueModifierDisplayProps) => {
 	const flavor = props.modifier.getDescription(props.data);
-	const iconSrc = (typeof game !== "undefined" && game?.world?.id)
-		? `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Unique}`
-		: icon;
+	const iconSrc =
+		typeof game !== "undefined" && game?.world?.id
+			? `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Unique}`
+			: icon;
 
 	return (
 		<div class={styles.grid}>
@@ -23,19 +24,11 @@ const UniqueBody = (props: UniqueModifierDisplayProps) => {
 				<img src={iconSrc} alt="Icon" />
 			</div>
 			<div>
-				<div class={styles.label}>
-					UNIQUE
-				</div>
-				<div class={styles.title}>
-					{flavor.title}
-				</div>
-				<div class={styles.description}>
-					{flavor.description}
-				</div>
+				<div class={styles.label}>UNIQUE</div>
+				<div class={styles.title}>{flavor.title}</div>
+				<div class={styles.description}>{flavor.description}</div>
 				{flavor.disclaimer && (
-					<div class={styles.disclaimer}>
-						{flavor.disclaimer}
-					</div>
+					<div class={styles.disclaimer}>{flavor.disclaimer}</div>
 				)}
 			</div>
 		</div>
@@ -43,11 +36,23 @@ const UniqueBody = (props: UniqueModifierDisplayProps) => {
 };
 
 export const UniqueModifierDisplay = (props: UniqueModifierDisplayProps) => {
-	const breakpoints = (props.modifier.schema as unknown as { breakpoints: { min: number }[] }).breakpoints;
+	const breakpoints = (
+		props.modifier.schema as unknown as { breakpoints: { min: number }[] }
+	).breakpoints;
 	const activeBreakpoint = props.modifier.dataManager.getBreakpoint(props.data);
-	const activeIndex = breakpoints.findIndex(bp => bp.min === activeBreakpoint.min);
+	const activeIndex = breakpoints.findIndex(
+		(bp) => bp.min === activeBreakpoint.min,
+	);
 
-	const items = breakpoints.map(bp => <UniqueBody modifier={props.modifier} data={{float: bp.min}}/>);
+	const items = breakpoints.map((bp) => (
+		<UniqueBody modifier={props.modifier} data={{ float: bp.min }} />
+	));
 
-	return <BreakpointSwap items={items} defaultActiveIndex={activeIndex} type={ModifierType.Unique}/>;
+	return (
+		<BreakpointSwap
+			items={items}
+			defaultActiveIndex={activeIndex}
+			type={ModifierType.Unique}
+		/>
+	);
 };

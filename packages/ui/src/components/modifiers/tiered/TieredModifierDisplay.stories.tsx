@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/preact-vite";
-import { TieredModifierDisplay, type TieredModifierDisplayProps } from "./TieredModifierDisplay";
+import {
+	TieredModifierDisplay,
+	type TieredModifierDisplayProps,
+} from "./TieredModifierDisplay";
 import { tieredStealthFixture } from "../../../fixtures/modifiers/tiered/tieredStealth";
 import { tieredFuryFixture } from "../../../fixtures/modifiers/tiered/tieredFury";
 
@@ -8,7 +11,10 @@ const meta = {
 	component: TieredModifierDisplay,
 	parameters: {
 		layout: "centered",
-		backgrounds: { default: "dark", values: [{ name: "dark", value: "#040510" }] },
+		backgrounds: {
+			default: "dark",
+			values: [{ name: "dark", value: "#040510" }],
+		},
 	},
 	render: (props: TieredModifierDisplayProps) => (
 		<div style="background:#040510;width:460px;">

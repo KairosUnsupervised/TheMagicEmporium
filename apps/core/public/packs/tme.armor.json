@@ -1,1301 +1,1304 @@
 {
-  "id": "tme.armor",
-  "name": "TME \u2014 Armor Modifiers",
-  "description": "Built-in armor modifiers. Affects defensive stats, armor properties, and armor-bound abilities.",
-  "enabled": true,
-  "modifiers": [
-    {
-      "identifier": "TME.ADAMANTINE",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "ARMOR_WITH_ARMOR_CLASS"
-        ],
-        "blacklistedBy": ["PROPERTY_CHANGE"],
-        "applies": ["PROPERTY_CHANGE"]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Adamantine",
-            "description": "You cannot be critted, every critical hit against you becomes a normal hit instead",
-            "disclaimer": null
-          },
-          "changes": [
-            {
-              "key": "system.properties",
-              "operation": "APPEND",
-              "value": "ada"
-            }
-          ],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.MISTY_SIDESTEP",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "ARMOR"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Misty Sidestep",
-        "description": "{amount} times per long rest, as a reaction to being hit, you can misty step 30ft",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.7,
-          "value": 2
-        }
-      ],
-      "activeEffects": [],
-      "feats": [
-        {
-          "type": "FEAT",
-          "system": {
-            "activation": {
-              "type": "reaction",
-              "cost": 1,
-              "condition": "when hit by an attack"
-            },
-            "uses": {
-              "max": "{amount}",
-              "recovery": [
-                {
-                  "period": "lr",
-                  "type": "recoverAll"
-                }
-              ]
-            },
-            "activities": [
-              {
-                "type": "utility",
-                "name": "Misty Sidestep",
-                "activation": {
-                  "type": "reaction",
-                  "override": false,
-                  "condition": "when hit by an attack"
-                },
-                "consumption": {
-                  "scaling": {
-                    "allowed": false
-                  },
-                  "spellSlot": true,
-                  "targets": [
-                    {
-                      "type": "itemUses",
-                      "value": "1",
-                      "target": "",
-                      "scaling": {}
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "identifier": "TME.EMBRACEMENT",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ARMOR"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Embracement",
-            "description": "As an action, transfer 1d12 of your own HP to any other creature within touch range",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Embracement",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "healing": {
-                      "types": [
-                        "hp"
-                      ],
-                      "custom": {
-                        "enabled": false
-                      },
-                      "scaling": {
-                        "number": 1
-                      },
-                      "number": 1,
-                      "denomination": 12,
-                      "bonus": ""
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Vital Embracement",
-            "description": "As an action, transfer 2d12 of your own HP to any other creature within touch range",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Vital Embracement",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "healing": {
-                      "types": [
-                        "hp"
-                      ],
-                      "custom": {
-                        "enabled": false
-                      },
-                      "scaling": {
-                        "number": 1
-                      },
-                      "number": 2,
-                      "denomination": 12,
-                      "bonus": ""
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Soulful Embracement",
-            "description": "As an action, transfer 3d12 of your own HP to any other creature within touch range",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Soulful Embracement",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "healing": {
-                      "types": [
-                        "hp"
-                      ],
-                      "custom": {
-                        "enabled": false
-                      },
-                      "scaling": {
-                        "number": 1
-                      },
-                      "number": 3,
-                      "denomination": 12,
-                      "bonus": ""
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Transcendent Embracement",
-            "description": "As an action, transfer 4d12 of your own HP to any other creature within touch range. Spells with the range of self can now target creatures in touch range",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Transcendent Embracement",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "healing": {
-                      "types": [
-                        "hp"
-                      ],
-                      "custom": {
-                        "enabled": false
-                      },
-                      "scaling": {
-                        "number": 1
-                      },
-                      "number": "4",
-                      "denomination": 12,
-                      "bonus": ""
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.PROTECTION",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ARMOR"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Protection",
-            "description": "Use an action to gain 1 Hit Die of temporary HP",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Protection",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "healing": {
-                      "types": [
-                        "temphp"
-                      ],
-                      "custom": {
-                        "enabled": true,
-                        "formula": "@attributes.hd.largest"
-                      },
-                      "scaling": {
-                        "number": 1
-                      },
-                      "number": 0,
-                      "denomination": 0,
-                      "bonus": ""
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Steadfast Protection",
-            "description": "Use an action to gain 2 Hit Dice of temporary HP",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Steadfast Protection",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "healing": {
-                      "types": [
-                        "temphp"
-                      ],
-                      "custom": {
-                        "enabled": true,
-                        "formula": "@attributes.hd.largest + @attributes.hd.largest"
-                      },
-                      "scaling": {
-                        "number": 1
-                      },
-                      "number": 0,
-                      "denomination": 0,
-                      "bonus": ""
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Indomitable Protection",
-            "description": "Use an action to gain 3 Hit Dice of temporary HP",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Indomitable Protection",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "healing": {
-                      "types": [
-                        "temphp"
-                      ],
-                      "custom": {
-                        "enabled": true,
-                        "formula": "@attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest"
-                      },
-                      "scaling": {
-                        "number": 1
-                      },
-                      "number": 0,
-                      "denomination": 0,
-                      "bonus": ""
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.BASTION",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ARMOR"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Bastion",
-            "description": "Your AC increases by 1",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.attributes.ac.bonus",
-                  "mode": "ADD",
-                  "value": "1"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Fortified Bastion",
-            "description": "Your AC increases by 2",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.attributes.ac.bonus",
-                  "mode": "ADD",
-                  "value": "2"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Stalwart Bastion",
-            "description": "Your AC increases by 3",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "changes": [
-                {
-                  "key": "system.attributes.ac.bonus",
-                  "mode": "ADD",
-                  "value": "3"
-                }
-              ]
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Ultimate Bastion",
-            "description": "Your AC increases by 3. Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP \u2014 temporary HP equal to your level or CR fade at the start of each of your turns",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "type": "ACTIVE_EFFECT",
-              "description": "Your AC increases by 3",
-              "changes": [
-                {
-                  "key": "system.attributes.ac.bonus",
-                  "mode": "ADD",
-                  "value": "3"
-                }
-              ]
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "description": "Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP \u2014 temporary HP equal to your level or CR fade at the start of each of your turns",
-              "system": {
-                "activation": {
-                  "type": "bonus",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 1,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "heal",
-                    "name": "Ultimate Bastion",
-                    "activation": {
-                      "type": "bonus",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "healing": {
-                      "types": [
-                        "temphp"
-                      ],
-                      "custom": {
-                        "enabled": true,
-                        "formula": "@attributes.hp.max"
-                      },
-                      "scaling": {
-                        "number": 1
-                      },
-                      "number": 0,
-                      "denomination": 0,
-                      "bonus": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.VITALITY",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ARMOR"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Vitality",
-            "description": "Gain 1 max HP per level",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.attributes.hp.bonuses.level",
-              "mode": "ADD",
-              "value": 1
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Greater Vitality",
-            "description": "Gain 2 max HP per level",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.attributes.hp.bonuses.level",
-              "mode": "ADD",
-              "value": 2
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Superior Vitality",
-            "description": "Gain 3 max HP per level",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.attributes.hp.bonuses.level",
-              "mode": "ADD",
-              "value": 3
-            }
-          ],
-          "feats": []
-        },
-        {
-          "min": 8,
-          "flavor": {
-            "title": "Supreme Vitality",
-            "description": "Gain 4 max HP per level. As an action you can choose up to two other willing targets in sight and equalize your combined HP",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.attributes.hp.bonuses.level",
-              "mode": "ADD",
-              "value": 4
-            }
-          ],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Supreme Vitality",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": []
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.STRIDER",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "ARMOR_WITH_ARMOR_CLASS"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Strider",
-            "description": "Your movement is unimpeded by non-magical difficult terrain",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.SELF_IMMOLATION",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [
-          "ARMOR"
-        ],
-        "blacklistedBy": [
-          "SELF_IMMOLATION"
-        ],
-        "applies": [
-          "SELF_IMMOLATION"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 4
-        }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Self Immolation",
-            "description": "Use an action to set yourself ablaze for 3 turns. While burning, deal 2d8 fire damage to yourself and each creature within 5ft each turn",
-            "disclaimer": "You automatically stop burning once downed. DC 15 CON save, half damage on success"
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "save",
-                    "name": "Self Immolation",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "target": {
-                      "template": {
-                        "type": "circle",
-                        "size": 5,
-                        "units": "ft"
-                      },
-                      "affects": {
-                        "type": ""
-                      }
-                    },
-                    "save": {
-                      "ability": "con",
-                      "dc": {
-                        "calculation": "flat",
-                        "formula": "15"
-                      }
-                    },
-                    "damage": {
-                      "onSave": "half",
-                      "parts": [
-                        {
-                          "number": 2,
-                          "denomination": 8,
-                          "bonus": "",
-                          "types": [
-                            "fire"
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Scorching Self Immolation",
-            "description": "Use an action to set yourself ablaze for 4 turns. While burning, deal 3d8 fire damage to yourself and each creature within 10ft each turn",
-            "disclaimer": "You automatically stop burning once downed. DC 17 CON save, half damage on success"
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "save",
-                    "name": "Scorching Self Immolation",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "target": {
-                      "template": {
-                        "type": "circle",
-                        "size": 10,
-                        "units": "ft"
-                      },
-                      "affects": {
-                        "type": ""
-                      }
-                    },
-                    "save": {
-                      "ability": "con",
-                      "dc": {
-                        "calculation": "flat",
-                        "formula": "17"
-                      }
-                    },
-                    "damage": {
-                      "onSave": "half",
-                      "parts": [
-                        {
-                          "number": 3,
-                          "denomination": 8,
-                          "bonus": "",
-                          "types": [
-                            "fire"
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Infernal Self Immolation",
-            "description": "Use an action to set yourself ablaze for 5 turns. While burning, deal 4d8 fire damage to yourself and each creature within 15ft each turn",
-            "disclaimer": "You automatically stop burning once downed. DC 19 CON save, half damage on success"
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "activities": [
-                  {
-                    "type": "save",
-                    "name": "Infernal Self Immolation",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "target": {
-                      "template": {
-                        "type": "circle",
-                        "size": 15,
-                        "units": "ft"
-                      },
-                      "affects": {
-                        "type": ""
-                      }
-                    },
-                    "save": {
-                      "ability": "con",
-                      "dc": {
-                        "calculation": "flat",
-                        "formula": "19"
-                      }
-                    },
-                    "damage": {
-                      "onSave": "half",
-                      "parts": [
-                        {
-                          "number": 4,
-                          "denomination": 8,
-                          "bonus": "",
-                          "types": [
-                            "fire"
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.UNENDING_SELF_IMMOLATION",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "ARMOR"
-        ],
-        "blacklistedBy": [
-          "SELF_IMMOLATION"
-        ],
-        "applies": [
-          "SELF_IMMOLATION"
-        ]
-      },
-      "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.5, "value": 2 },
-        { "min": 0.8, "value": 4 }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Unending Self Immolation",
-            "description": "Use an action to set yourself ablaze. While burning, deal 2d8 fire damage to yourself and each creature within 5ft each turn",
-            "disclaimer": "You have fire resistance. The only way to stop burning is by being downed. DC 15 CON save, half damage on success"
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "activities": [
-                  {
-                    "type": "save",
-                    "name": "Unending Self Immolation",
-                    "activation": { "type": "action", "override": false, "condition": "" },
-                    "target": {
-                      "template": { "type": "circle", "size": 5, "units": "ft" },
-                      "affects": { "type": "" }
-                    },
-                    "save": {
-                      "ability": "con",
-                      "dc": { "calculation": "flat", "formula": "15" }
-                    },
-                    "damage": {
-                      "onSave": "half",
-                      "parts": [
-                        { "number": 2, "denomination": 8, "bonus": "", "types": ["fire"] }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Relentless Unending Self Immolation",
-            "description": "Use an action to set yourself ablaze. While burning, deal 3d8 fire damage to yourself and each creature within 10ft each turn",
-            "disclaimer": "You have fire resistance. The only way to stop burning is by being downed. DC 17 CON save, half damage on success"
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "activities": [
-                  {
-                    "type": "save",
-                    "name": "Relentless Unending Self Immolation",
-                    "activation": { "type": "action", "override": false, "condition": "" },
-                    "target": {
-                      "template": { "type": "circle", "size": 10, "units": "ft" },
-                      "affects": { "type": "" }
-                    },
-                    "save": {
-                      "ability": "con",
-                      "dc": { "calculation": "flat", "formula": "17" }
-                    },
-                    "damage": {
-                      "onSave": "half",
-                      "parts": [
-                        { "number": 3, "denomination": 8, "bonus": "", "types": ["fire"] }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Eternal Unending Self Immolation",
-            "description": "Use an action to set yourself ablaze. While burning, deal 4d8 fire damage to yourself and each creature within 15ft each turn",
-            "disclaimer": "You have fire resistance. The only way to stop burning is by being downed. DC 19 CON save, half damage on success"
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "activities": [
-                  {
-                    "type": "save",
-                    "name": "Eternal Unending Self Immolation",
-                    "activation": { "type": "action", "override": false, "condition": "" },
-                    "target": {
-                      "template": { "type": "circle", "size": 15, "units": "ft" },
-                      "affects": { "type": "" }
-                    },
-                    "save": {
-                      "ability": "con",
-                      "dc": { "calculation": "flat", "formula": "19" }
-                    },
-                    "damage": {
-                      "onSave": "half",
-                      "parts": [
-                        { "number": 4, "denomination": 8, "bonus": "", "types": ["fire"] }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.FORTIFIED",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "ARMOR_WITH_ARMOR_CLASS"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "+1 Fortified",
-            "description": "This armor gains a +1 bonus to AC",
-            "disclaimer": null
-          },
-          "changes": [
-            { "key": "system.armor.magicalBonus", "operation": "ADD", "value": "1" }
-          ],
-          "activities": []
-        },
-        {
-          "min": 0.5,
-          "flavor": {
-            "title": "+2 Fortified",
-            "description": "This armor gains a +2 bonus to AC",
-            "disclaimer": null
-          },
-          "changes": [
-            { "key": "system.armor.magicalBonus", "operation": "ADD", "value": "2" }
-          ],
-          "activities": []
-        },
-        {
-          "min": 0.8,
-          "flavor": {
-            "title": "+3 Fortified",
-            "description": "This armor gains a +3 bonus to AC",
-            "disclaimer": null
-          },
-          "changes": [
-            { "key": "system.armor.magicalBonus", "operation": "ADD", "value": "3" }
-          ],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.MEATSHIELD",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "ARMOR"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Meatshield",
-        "description": "As an action, mount a corpse on your armor for protection. Gain {amount}% of the creature's maximum HP as temporary HP",
-        "disclaimer": "Requires a nearby corpse. If you can mount a creature that is still alive gain double the percentage. Temporary HP do not stack, only the highest value applies"
-      },
-      "breakpoints": [
-        { "min": 0,    "value": 10 },
-        { "min": 0.5,  "value": 20 },
-        { "min": 0.8,  "value": 30 },
-        { "min": 0.95, "value": 40 }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.GROUNDED",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": ["ARMOR"],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Grounded",
-            "description": "You have advantage on saving throws against being knocked prone or forcibly moved",
-            "disclaimer": null
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.FEATHERLIGHT",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": ["ARMOR_STEALTH_DISADVANTAGE"],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Featherlight",
-            "description": "This armor no longer imposes disadvantage on Stealth checks",
-            "disclaimer": null
-          },
-          "changes": [
-            { "key": "system.properties", "operation": "REMOVE", "value": "stealthDisadvantage" }
-          ],
-          "activities": []
-        }
-      ]
-    }
-  ]
+	"id": "tme.armor",
+	"name": "TME \u2014 Armor Modifiers",
+	"description": "Built-in armor modifiers. Affects defensive stats, armor properties, and armor-bound abilities.",
+	"enabled": true,
+	"modifiers": [
+		{
+			"identifier": "TME.ADAMANTINE",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
+				"blacklistedBy": ["PROPERTY_CHANGE"],
+				"applies": ["PROPERTY_CHANGE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Adamantine",
+						"description": "You cannot be critted, every critical hit against you becomes a normal hit instead",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.properties",
+							"operation": "APPEND",
+							"value": "ada"
+						}
+					],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.MISTY_SIDESTEP",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ARMOR"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Misty Sidestep",
+				"description": "{amount} times per long rest, as a reaction to being hit, you can misty step 30ft",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.7,
+					"value": 2
+				}
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"condition": "when hit by an attack"
+						},
+						"uses": {
+							"max": "{amount}",
+							"recovery": [
+								{
+									"period": "lr",
+									"type": "recoverAll"
+								}
+							]
+						},
+						"activities": [
+							{
+								"type": "utility",
+								"name": "Misty Sidestep",
+								"activation": {
+									"type": "reaction",
+									"override": false,
+									"condition": "when hit by an attack"
+								},
+								"consumption": {
+									"scaling": {
+										"allowed": false
+									},
+									"spellSlot": true,
+									"targets": [
+										{
+											"type": "itemUses",
+											"value": "1",
+											"target": "",
+											"scaling": {}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"identifier": "TME.EMBRACEMENT",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ARMOR"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Embracement",
+						"description": "As an action, transfer 1d12 of your own HP to any other creature within touch range",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Embracement",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["hp"],
+											"custom": {
+												"enabled": false
+											},
+											"scaling": {
+												"number": 1
+											},
+											"number": 1,
+											"denomination": 12,
+											"bonus": ""
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Vital Embracement",
+						"description": "As an action, transfer 2d12 of your own HP to any other creature within touch range",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Vital Embracement",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["hp"],
+											"custom": {
+												"enabled": false
+											},
+											"scaling": {
+												"number": 1
+											},
+											"number": 2,
+											"denomination": 12,
+											"bonus": ""
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Soulful Embracement",
+						"description": "As an action, transfer 3d12 of your own HP to any other creature within touch range",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Soulful Embracement",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["hp"],
+											"custom": {
+												"enabled": false
+											},
+											"scaling": {
+												"number": 1
+											},
+											"number": 3,
+											"denomination": 12,
+											"bonus": ""
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Transcendent Embracement",
+						"description": "As an action, transfer 4d12 of your own HP to any other creature within touch range. Spells with the range of self can now target creatures in touch range",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Transcendent Embracement",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["hp"],
+											"custom": {
+												"enabled": false
+											},
+											"scaling": {
+												"number": 1
+											},
+											"number": "4",
+											"denomination": 12,
+											"bonus": ""
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.PROTECTION",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ARMOR"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Protection",
+						"description": "Use an action to gain 1 Hit Die of temporary HP",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Protection",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["temphp"],
+											"custom": {
+												"enabled": true,
+												"formula": "@attributes.hd.largest"
+											},
+											"scaling": {
+												"number": 1
+											},
+											"number": 0,
+											"denomination": 0,
+											"bonus": ""
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Steadfast Protection",
+						"description": "Use an action to gain 2 Hit Dice of temporary HP",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Steadfast Protection",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["temphp"],
+											"custom": {
+												"enabled": true,
+												"formula": "@attributes.hd.largest + @attributes.hd.largest"
+											},
+											"scaling": {
+												"number": 1
+											},
+											"number": 0,
+											"denomination": 0,
+											"bonus": ""
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Indomitable Protection",
+						"description": "Use an action to gain 3 Hit Dice of temporary HP",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Indomitable Protection",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["temphp"],
+											"custom": {
+												"enabled": true,
+												"formula": "@attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest"
+											},
+											"scaling": {
+												"number": 1
+											},
+											"number": 0,
+											"denomination": 0,
+											"bonus": ""
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.BASTION",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ARMOR"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Bastion",
+						"description": "Your AC increases by 1",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.attributes.ac.bonus",
+									"mode": "ADD",
+									"value": "1"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Fortified Bastion",
+						"description": "Your AC increases by 2",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.attributes.ac.bonus",
+									"mode": "ADD",
+									"value": "2"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Stalwart Bastion",
+						"description": "Your AC increases by 3",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.attributes.ac.bonus",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Ultimate Bastion",
+						"description": "Your AC increases by 3. Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP \u2014 temporary HP equal to your level or CR fade at the start of each of your turns",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"description": "Your AC increases by 3",
+							"changes": [
+								{
+									"key": "system.attributes.ac.bonus",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"description": "Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP \u2014 temporary HP equal to your level or CR fade at the start of each of your turns",
+							"system": {
+								"activation": {
+									"type": "bonus",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 1,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Ultimate Bastion",
+										"activation": {
+											"type": "bonus",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["temphp"],
+											"custom": {
+												"enabled": true,
+												"formula": "@attributes.hp.max"
+											},
+											"scaling": {
+												"number": 1
+											},
+											"number": 0,
+											"denomination": 0,
+											"bonus": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.VITALITY",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ARMOR"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Vitality",
+						"description": "Gain 1 max HP per level",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.attributes.hp.bonuses.level",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Greater Vitality",
+						"description": "Gain 2 max HP per level",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.attributes.hp.bonuses.level",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Superior Vitality",
+						"description": "Gain 3 max HP per level",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.attributes.hp.bonuses.level",
+							"mode": "ADD",
+							"value": 3
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 8,
+					"flavor": {
+						"title": "Supreme Vitality",
+						"description": "Gain 4 max HP per level. As an action you can choose up to two other willing targets in sight and equalize your combined HP",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.attributes.hp.bonuses.level",
+							"mode": "ADD",
+							"value": 4
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Supreme Vitality",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": []
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.STRIDER",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Strider",
+						"description": "Your movement is unimpeded by non-magical difficult terrain",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.SELF_IMMOLATION",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ARMOR"],
+				"blacklistedBy": ["SELF_IMMOLATION"],
+				"applies": ["SELF_IMMOLATION"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Self Immolation",
+						"description": "Use an action to set yourself ablaze for 3 turns. While burning, deal 2d8 fire damage to yourself and each creature within 5ft each turn",
+						"disclaimer": "You automatically stop burning once downed. DC 15 CON save, half damage on success"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "save",
+										"name": "Self Immolation",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"target": {
+											"template": {
+												"type": "circle",
+												"size": 5,
+												"units": "ft"
+											},
+											"affects": {
+												"type": ""
+											}
+										},
+										"save": {
+											"ability": "con",
+											"dc": {
+												"calculation": "flat",
+												"formula": "15"
+											}
+										},
+										"damage": {
+											"onSave": "half",
+											"parts": [
+												{
+													"number": 2,
+													"denomination": 8,
+													"bonus": "",
+													"types": ["fire"]
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Scorching Self Immolation",
+						"description": "Use an action to set yourself ablaze for 4 turns. While burning, deal 3d8 fire damage to yourself and each creature within 10ft each turn",
+						"disclaimer": "You automatically stop burning once downed. DC 17 CON save, half damage on success"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "save",
+										"name": "Scorching Self Immolation",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"target": {
+											"template": {
+												"type": "circle",
+												"size": 10,
+												"units": "ft"
+											},
+											"affects": {
+												"type": ""
+											}
+										},
+										"save": {
+											"ability": "con",
+											"dc": {
+												"calculation": "flat",
+												"formula": "17"
+											}
+										},
+										"damage": {
+											"onSave": "half",
+											"parts": [
+												{
+													"number": 3,
+													"denomination": 8,
+													"bonus": "",
+													"types": ["fire"]
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Infernal Self Immolation",
+						"description": "Use an action to set yourself ablaze for 5 turns. While burning, deal 4d8 fire damage to yourself and each creature within 15ft each turn",
+						"disclaimer": "You automatically stop burning once downed. DC 19 CON save, half damage on success"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"activities": [
+									{
+										"type": "save",
+										"name": "Infernal Self Immolation",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"target": {
+											"template": {
+												"type": "circle",
+												"size": 15,
+												"units": "ft"
+											},
+											"affects": {
+												"type": ""
+											}
+										},
+										"save": {
+											"ability": "con",
+											"dc": {
+												"calculation": "flat",
+												"formula": "19"
+											}
+										},
+										"damage": {
+											"onSave": "half",
+											"parts": [
+												{
+													"number": 4,
+													"denomination": 8,
+													"bonus": "",
+													"types": ["fire"]
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.UNENDING_SELF_IMMOLATION",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ARMOR"],
+				"blacklistedBy": ["SELF_IMMOLATION"],
+				"applies": ["SELF_IMMOLATION"]
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.5, "value": 2 },
+				{ "min": 0.8, "value": 4 }
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Unending Self Immolation",
+						"description": "Use an action to set yourself ablaze. While burning, deal 2d8 fire damage to yourself and each creature within 5ft each turn",
+						"disclaimer": "You have fire resistance. The only way to stop burning is by being downed. DC 15 CON save, half damage on success"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activities": [
+									{
+										"type": "save",
+										"name": "Unending Self Immolation",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"target": {
+											"template": {
+												"type": "circle",
+												"size": 5,
+												"units": "ft"
+											},
+											"affects": { "type": "" }
+										},
+										"save": {
+											"ability": "con",
+											"dc": { "calculation": "flat", "formula": "15" }
+										},
+										"damage": {
+											"onSave": "half",
+											"parts": [
+												{
+													"number": 2,
+													"denomination": 8,
+													"bonus": "",
+													"types": ["fire"]
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Relentless Unending Self Immolation",
+						"description": "Use an action to set yourself ablaze. While burning, deal 3d8 fire damage to yourself and each creature within 10ft each turn",
+						"disclaimer": "You have fire resistance. The only way to stop burning is by being downed. DC 17 CON save, half damage on success"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activities": [
+									{
+										"type": "save",
+										"name": "Relentless Unending Self Immolation",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"target": {
+											"template": {
+												"type": "circle",
+												"size": 10,
+												"units": "ft"
+											},
+											"affects": { "type": "" }
+										},
+										"save": {
+											"ability": "con",
+											"dc": { "calculation": "flat", "formula": "17" }
+										},
+										"damage": {
+											"onSave": "half",
+											"parts": [
+												{
+													"number": 3,
+													"denomination": 8,
+													"bonus": "",
+													"types": ["fire"]
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Eternal Unending Self Immolation",
+						"description": "Use an action to set yourself ablaze. While burning, deal 4d8 fire damage to yourself and each creature within 15ft each turn",
+						"disclaimer": "You have fire resistance. The only way to stop burning is by being downed. DC 19 CON save, half damage on success"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activities": [
+									{
+										"type": "save",
+										"name": "Eternal Unending Self Immolation",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"target": {
+											"template": {
+												"type": "circle",
+												"size": 15,
+												"units": "ft"
+											},
+											"affects": { "type": "" }
+										},
+										"save": {
+											"ability": "con",
+											"dc": { "calculation": "flat", "formula": "19" }
+										},
+										"damage": {
+											"onSave": "half",
+											"parts": [
+												{
+													"number": 4,
+													"denomination": 8,
+													"bonus": "",
+													"types": ["fire"]
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.FORTIFIED",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "+1 Fortified",
+						"description": "This armor gains a +1 bonus to AC",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.armor.magicalBonus",
+							"operation": "ADD",
+							"value": "1"
+						}
+					],
+					"activities": []
+				},
+				{
+					"min": 0.5,
+					"flavor": {
+						"title": "+2 Fortified",
+						"description": "This armor gains a +2 bonus to AC",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.armor.magicalBonus",
+							"operation": "ADD",
+							"value": "2"
+						}
+					],
+					"activities": []
+				},
+				{
+					"min": 0.8,
+					"flavor": {
+						"title": "+3 Fortified",
+						"description": "This armor gains a +3 bonus to AC",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.armor.magicalBonus",
+							"operation": "ADD",
+							"value": "3"
+						}
+					],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.MEATSHIELD",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ARMOR"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Meatshield",
+				"description": "As an action, mount a corpse on your armor for protection. Gain {amount}% of the creature's maximum HP as temporary HP",
+				"disclaimer": "Requires a nearby corpse. If you can mount a creature that is still alive gain double the percentage. Temporary HP do not stack, only the highest value applies"
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 10 },
+				{ "min": 0.5, "value": 20 },
+				{ "min": 0.8, "value": 30 },
+				{ "min": 0.95, "value": 40 }
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.GROUNDED",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ARMOR"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Grounded",
+						"description": "You have advantage on saving throws against being knocked prone or forcibly moved",
+						"disclaimer": null
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.FEATHERLIGHT",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ARMOR_STEALTH_DISADVANTAGE"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Featherlight",
+						"description": "This armor no longer imposes disadvantage on Stealth checks",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.properties",
+							"operation": "REMOVE",
+							"value": "stealthDisadvantage"
+						}
+					],
+					"activities": []
+				}
+			]
+		}
+	]
 }

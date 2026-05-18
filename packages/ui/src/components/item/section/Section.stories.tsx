@@ -7,7 +7,10 @@ const meta = {
 	component: Section,
 	parameters: {
 		layout: "centered",
-		backgrounds: { default: "dark", values: [{ name: "dark", value: "#040510" }] },
+		backgrounds: {
+			default: "dark",
+			values: [{ name: "dark", value: "#040510" }],
+		},
 	},
 	render: (props: SectionProps) => (
 		<div style="background:#040510;width:460px;padding:16px;">

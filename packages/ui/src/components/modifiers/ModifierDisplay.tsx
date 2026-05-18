@@ -15,16 +15,24 @@ export interface ModifierDisplayProps {
 
 export const ModifierDisplay = (props: ModifierDisplayProps) => {
 	if (props.modifier instanceof UniqueModifier) {
-		return <UniqueModifierDisplay modifier={props.modifier} data={props.data} />;
+		return (
+			<UniqueModifierDisplay modifier={props.modifier} data={props.data} />
+		);
 	}
 	if (props.modifier instanceof IndependentModifier) {
-		return <IndependentModifierDisplay modifier={props.modifier} data={props.data} />;
+		return (
+			<IndependentModifierDisplay modifier={props.modifier} data={props.data} />
+		);
 	}
 	if (props.modifier instanceof LinearModifier) {
-		return <LinearModifierDisplay modifier={props.modifier} data={props.data} />;
+		return (
+			<LinearModifierDisplay modifier={props.modifier} data={props.data} />
+		);
 	}
 	if (props.modifier instanceof TieredModifier) {
-		return <TieredModifierDisplay modifier={props.modifier} data={props.data} />;
+		return (
+			<TieredModifierDisplay modifier={props.modifier} data={props.data} />
+		);
 	}
 	return null;
 };

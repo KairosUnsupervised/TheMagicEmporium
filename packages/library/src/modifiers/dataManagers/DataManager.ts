@@ -1,5 +1,3 @@
-
-
-export class DataManager{
-    public static Disabled = null;
+export class DataManager {
+	public static Disabled = null;
 }

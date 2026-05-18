@@ -15,7 +15,7 @@
 }
 
 .label {
-	font-family: 'Cinzel', serif;
+	font-family: "Cinzel", serif;
 	font-size: 9px;
 	letter-spacing: 0.34em;
 	color: #5dd49a;
@@ -30,14 +30,14 @@
 }
 
 .title {
-	font-family: 'Cormorant Garamond', serif;
+	font-family: "Cormorant Garamond", serif;
 	font-weight: 600;
 	font-size: 22px;
 	color: #ece4cf;
 }
 
 .value {
-	font-family: 'Cinzel Decorative', serif;
+	font-family: "Cinzel Decorative", serif;
 	font-weight: 700;
 	font-size: 22px;
 	line-height: 1;

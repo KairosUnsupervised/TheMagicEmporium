@@ -17,13 +17,27 @@
 
 .ruleLine {
 	height: 1px;
-	background: linear-gradient(90deg, rgba(212,166,74,0), #8a6a2c 40%, #e8c87a 50%, #8a6a2c 60%, rgba(212,166,74,0));
+	background: linear-gradient(
+		90deg,
+		rgba(212, 166, 74, 0),
+		#8a6a2c 40%,
+		#e8c87a 50%,
+		#8a6a2c 60%,
+		rgba(212, 166, 74, 0)
+	);
 }
 
 .ruleLineFaint {
 	height: 1px;
 	opacity: 0.4;
-	background: linear-gradient(90deg, rgba(212,166,74,0), #8a6a2c 40%, #e8c87a 50%, #8a6a2c 60%, rgba(212,166,74,0));
+	background: linear-gradient(
+		90deg,
+		rgba(212, 166, 74, 0),
+		#8a6a2c 40%,
+		#e8c87a 50%,
+		#8a6a2c 60%,
+		rgba(212, 166, 74, 0)
+	);
 }
 
 .titleWrapper {
@@ -35,7 +49,7 @@
 }
 
 .title {
-	font-family: 'Cinzel', serif;
+	font-family: "Cinzel", serif;
 	font-weight: 600;
 	font-size: 12px;
 	letter-spacing: 0.42em;
@@ -53,5 +67,11 @@
 	right: 0;
 	top: 0;
 	height: 1px;
-	background: linear-gradient(90deg, rgba(212,166,74,0), rgba(212,166,74,.25) 30%, rgba(212,166,74,.25) 70%, rgba(212,166,74,0));
+	background: linear-gradient(
+		90deg,
+		rgba(212, 166, 74, 0),
+		rgba(212, 166, 74, 0.25) 30%,
+		rgba(212, 166, 74, 0.25) 70%,
+		rgba(212, 166, 74, 0)
+	);
 }

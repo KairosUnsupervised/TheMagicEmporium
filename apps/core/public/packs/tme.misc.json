@@ -1,1791 +1,1867 @@
 {
-  "id": "tme.misc",
-  "name": "TME \u2014 Miscellaneous Modifiers",
-  "description": "Built-in miscellaneous modifiers. General-purpose effects that don't fit a specific category.",
-  "enabled": true,
-  "modifiers": [
-    {
-      "identifier": "TME.MUSCLE_MEMORY",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Muscle Memory",
-        "description": "You can expend up to {amount} actions, bonus actions and spells and store them. On damage taken the oldest stored action is triggered and consumed",
-        "disclaimer": "No reaction required. Parameters must be defined the moment you store the action"
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 3
-        }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.VINDICATOR",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Vindicator",
-        "description": "Upon being downed you can take {amount} action(s)",
-        "disclaimer": "You can take multiple actions at once, your total amount of actions is pooled per long rest"
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.7,
-          "value": 2
-        },
-        {
-          "min": 0.95,
-          "value": 3
-        }
-      ],
-      "activeEffects": [],
-      "feats": [
-        {
-          "type": "FEAT",
-          "system": {
-            "activation": {
-              "type": "special",
-              "cost": null,
-              "condition": "upon being downed"
-            },
-            "uses": {
-              "max": "{amount}",
-              "recovery": [
-                {
-                  "period": "lr",
-                  "type": "recoverAll"
-                }
-              ]
-            },
-            "activities": [
-              {
-                "type": "utility",
-                "name": "Vindicator",
-                "activation": {
-                  "type": "special",
-                  "override": false,
-                  "condition": "upon being downed"
-                },
-                "consumption": {
-                  "scaling": {
-                    "allowed": false
-                  },
-                  "spellSlot": true,
-                  "targets": [
-                    {
-                      "type": "itemUses",
-                      "value": "1",
-                      "target": "",
-                      "scaling": {}
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "identifier": "TME.PROACTIVE",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Proactive",
-        "description": "Your initiative is increased by {amount}",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 3
-        },
-        {
-          "min": 0.95,
-          "value": 4
-        }
-      ],
-      "activeEffects": [
-        {
-          "key": "system.attributes.init.bonus",
-          "mode": "ADD",
-          "value": "{amount}"
-        }
-      ],
-      "feats": []
-    },
-    {
-      "identifier": "TME.SWIFT",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Swift",
-        "description": "Your movement speed is increased by {amount}ft",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 15
-        },
-        {
-          "min": 0.7,
-          "value": 30
-        }
-      ],
-      "activeEffects": [
-        {
-          "key": "system.attributes.movement.walk",
-          "mode": "ADD",
-          "value": "{amount}"
-        }
-      ],
-      "feats": []
-    },
-    {
-      "identifier": "TME.ALL_TIME_READY",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "All Time Ready",
-        "description": "On saving throws, you can't roll below a {amount}",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.5,
-          "value": 2
-        },
-        {
-          "min": 0.8,
-          "value": 3
-        },
-        {
-          "min": 0.95,
-          "value": 4
-        }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.LUSTROUS",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "ECONOMY"
-        ],
-        "applies": [
-          "ECONOMY"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Lustrous",
-            "description": "The item value is increased by 75",
-            "disclaimer": null
-          },
-          "changes": [
-            {
-              "key": "system.price.value",
-              "operation": "ADD",
-              "value": "75"
-            }
-          ],
-          "activities": []
-        },
-        {
-          "min": 0.5,
-          "flavor": {
-            "title": "Finely Lustrous",
-            "description": "The item value is increased by 125",
-            "disclaimer": null
-          },
-          "changes": [
-            {
-              "key": "system.price.value",
-              "operation": "ADD",
-              "value": "125"
-            }
-          ],
-          "activities": []
-        },
-        {
-          "min": 0.7,
-          "flavor": {
-            "title": "Richly Lustrous",
-            "description": "The item value is increased by 225",
-            "disclaimer": null
-          },
-          "changes": [
-            {
-              "key": "system.price.value",
-              "operation": "ADD",
-              "value": "225"
-            }
-          ],
-          "activities": []
-        },
-        {
-          "min": 0.9,
-          "flavor": {
-            "title": "Opulently Lustrous",
-            "description": "The item value is increased by 450",
-            "disclaimer": null
-          },
-          "changes": [
-            {
-              "key": "system.price.value",
-              "operation": "ADD",
-              "value": "450"
-            }
-          ],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.PRECIOUS",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [
-          "ECONOMY"
-        ],
-        "applies": [
-          "ECONOMY"
-        ]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Precious",
-            "description": "The item value is increased by 50%",
-            "disclaimer": null
-          },
-          "changes": [
-            {
-              "key": "system.price.value",
-              "operation": "MULTIPLY",
-              "value": "1.5"
-            }
-          ],
-          "activities": []
-        },
-        {
-          "min": 0.7,
-          "flavor": {
-            "title": "Greatly Precious",
-            "description": "The item value is doubled",
-            "disclaimer": null
-          },
-          "changes": [
-            {
-              "key": "system.price.value",
-              "operation": "MULTIPLY",
-              "value": "2"
-            }
-          ],
-          "activities": []
-        },
-        {
-          "min": 0.9,
-          "flavor": {
-            "title": "Supremely Precious",
-            "description": "The item value is quadrupled",
-            "disclaimer": null
-          },
-          "changes": [
-            {
-              "key": "system.price.value",
-              "operation": "MULTIPLY",
-              "value": "4"
-            }
-          ],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.ARCANE_GRIP",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Arcane Grip",
-            "description": "As an action, this item can be used like a conjured mage hand (the hand replaced by this item). Additionally you can attack with it",
-            "disclaimer": null
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.MITHRIL",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": ["PROPERTY_CHANGE"],
-        "applies": ["PROPERTY_CHANGE"]
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Mithril",
-            "description": "This item has no weight",
-            "disclaimer": null
-          },
-          "changes": [
-            {
-              "key": "system.weight.value",
-              "operation": "SET",
-              "value": "0"
-            }
-          ],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.UNDYING",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Undying",
-            "description": "You have advantage on death saving throws",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.MOCKING",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Mocking",
-            "description": "As an action, you can cast vicious mockery once per long rest",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "action",
-                  "cost": 1,
-                  "condition": ""
-                },
-                "uses": {
-                  "max": 1,
-                  "recovery": [
-                    {
-                      "period": "lr",
-                      "type": "recoverAll"
-                    }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "save",
-                    "name": "Mocking",
-                    "activation": {
-                      "type": "action",
-                      "override": false,
-                      "condition": ""
-                    },
-                    "save": {
-                      "ability": "wis",
-                      "dc": {
-                        "calculation": "wis",
-                        "formula": ""
-                      }
-                    },
-                    "damage": {
-                      "parts": [
-                        {
-                          "number": 1,
-                          "denomination": 4,
-                          "types": [
-                            "psychic"
-                          ],
-                          "bonus": ""
-                        }
-                      ]
-                    },
-                    "consumption": {
-                      "scaling": {
-                        "allowed": false
-                      },
-                      "spellSlot": true,
-                      "targets": [
-                        {
-                          "type": "itemUses",
-                          "value": "1",
-                          "target": "",
-                          "scaling": {}
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.COUNT_ON_IT",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Count on It",
-            "description": "Your counterspells cannot be counterspelled",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.UNACCOUNTABLE",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Unaccountable",
-            "description": "You cannot be counterspelled",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.BATTLE_MAGE",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Battle Mage",
-        "description": "While you are concentrating on a spell, your melee attacks deal an additional {amount}d4 damage",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.7, "value": 2 }
-      ],
-      "activeEffects": [],
-      "feats": [
-        {
-          "type": "FEAT",
-          "system": {
-            "activation": {
-              "type": "special",
-              "cost": null,
-              "condition": "while concentrating on a spell, on a melee hit"
-            },
-            "activities": [
-              {
-                "type": "damage",
-                "name": "Battle Mage",
-                "activation": {
-                  "type": "special",
-                  "override": false,
-                  "condition": "while concentrating on a spell, on a melee hit"
-                },
-                "damage": {
-                  "parts": [
-                    {
-                      "number": "{amount}",
-                      "denomination": 4,
-                      "bonus": "",
-                      "types": []
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "identifier": "TME.ARCANE_VOLATILITY",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": ["ARMOR", "ACCESSORY"],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Arcane Volatility",
-            "description": "Upon casting a leveled spell, roll a d20. If 10 or lower, subtract a d4 from the spell level. If higher than 10, add a d4 to the spell level",
-            "disclaimer": "Under or over leveled spells change according to their upcast description"
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": {
-                  "type": "special",
-                  "cost": null,
-                  "condition": "upon casting a leveled spell"
-                },
-                "activities": [
-                  {
-                    "type": "damage",
-                    "name": "Volatility Check",
-                    "activation": {
-                      "type": "special",
-                      "override": false,
-                      "condition": "upon casting a leveled spell"
-                    },
-                    "damage": {
-                      "parts": [
-                        {
-                          "number": 1,
-                          "denomination": 20,
-                          "bonus": "",
-                          "types": []
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "type": "damage",
-                    "name": "Volatility Shift",
-                    "activation": {
-                      "type": "special",
-                      "override": false,
-                      "condition": "upon casting a leveled spell"
-                    },
-                    "damage": {
-                      "parts": [
-                        {
-                          "number": 1,
-                          "denomination": 4,
-                          "bonus": "",
-                          "types": []
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.FIND_SNAIL",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.5, "value": 2 },
-        { "min": 0.8, "value": 4 }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Find Snail",
-            "description": "Once per long rest, as an action, summon a giant rideable snail to aid you. The snail has 2d10+4 HP and 30 ft movement speed",
-            "disclaimer": "Works like 'Find Steed' with the stats of a warhorse"
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "uses": {
-                  "max": 1,
-                  "recovery": [{ "period": "lr", "type": "recoverAll" }]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Find Snail",
-                    "activation": { "type": "action", "override": false, "condition": "" },
-                    "consumption": {
-                      "scaling": { "allowed": false },
-                      "spellSlot": true,
-                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
-                    }
-                  },
-                  {
-                    "type": "damage",
-                    "name": "Snail HP",
-                    "activation": { "type": "special", "override": false, "condition": "" },
-                    "damage": {
-                      "parts": [
-                        { "number": 2, "denomination": 10, "bonus": "4", "types": [] }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Find Greater Snail",
-            "description": "Once per long rest, as an action, summon a giant rideable snail to aid you. The snail has 4d10+6 HP and 45 ft movement speed",
-            "disclaimer": "Works like 'Find Steed' with the stats of a warhorse"
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "uses": {
-                  "max": 1,
-                  "recovery": [{ "period": "lr", "type": "recoverAll" }]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Find Greater Snail",
-                    "activation": { "type": "action", "override": false, "condition": "" },
-                    "consumption": {
-                      "scaling": { "allowed": false },
-                      "spellSlot": true,
-                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
-                    }
-                  },
-                  {
-                    "type": "damage",
-                    "name": "Snail HP",
-                    "activation": { "type": "special", "override": false, "condition": "" },
-                    "damage": {
-                      "parts": [
-                        { "number": 4, "denomination": 10, "bonus": "6", "types": [] }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Find Elder Snail",
-            "description": "Once per long rest, as an action, summon a giant rideable snail to aid you. The snail has 6d10+8 HP and 60 ft movement speed",
-            "disclaimer": "Works like 'Find Steed' with the stats of a warhorse"
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "uses": {
-                  "max": 1,
-                  "recovery": [{ "period": "lr", "type": "recoverAll" }]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Find Elder Snail",
-                    "activation": { "type": "action", "override": false, "condition": "" },
-                    "consumption": {
-                      "scaling": { "allowed": false },
-                      "spellSlot": true,
-                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
-                    }
-                  },
-                  {
-                    "type": "damage",
-                    "name": "Snail HP",
-                    "activation": { "type": "special", "override": false, "condition": "" },
-                    "damage": {
-                      "parts": [
-                        { "number": 6, "denomination": 10, "bonus": "8", "types": [] }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.HEALING_SURGE",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": ["ARMOR", "ACCESSORY"],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.5, "value": 2 },
-        { "min": 0.8, "value": 4 }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Healing Surge",
-            "description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
-            "disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Does not chain"
-          },
-          "activeEffects": [],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Chained Healing Surge",
-            "description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
-            "disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Chains once with stacking efficiency loss"
-          },
-          "activeEffects": [],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Cascading Healing Surge",
-            "description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
-            "disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Chains twice with stacking efficiency loss"
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.HEROISM",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Heroism",
-            "description": "You have advantage on saving throws vs. fear effects",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.HONK_AND_SMITE",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.5, "value": 2 },
-        { "min": 0.8, "value": 4 }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "Honk & Smite",
-            "description": "As an action, retcon 1d4 goose into existence near you. You can have up to 2 goose at once. They will follow your screamed commands no matter the cost",
-            "disclaimer": "You also get the ability to speak with goose"
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "activities": [
-                  {
-                    "type": "damage",
-                    "name": "Goose Count",
-                    "activation": { "type": "action", "override": false, "condition": "" },
-                    "damage": {
-                      "parts": [
-                        { "number": 1, "denomination": 4, "bonus": "", "types": [] }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "Greater Honk & Smite",
-            "description": "As an action, retcon 1d4 goose into existence near you. You can have up to 4 goose at once. They will follow your screamed commands no matter the cost",
-            "disclaimer": "You also get the ability to speak with goose"
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "activities": [
-                  {
-                    "type": "damage",
-                    "name": "Goose Count",
-                    "activation": { "type": "action", "override": false, "condition": "" },
-                    "damage": {
-                      "parts": [
-                        { "number": 1, "denomination": 4, "bonus": "", "types": [] }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "Supreme Honk & Smite",
-            "description": "As an action, retcon 1d4 goose into existence near you. You can have up to 6 goose at once. They will follow your screamed commands no matter the cost",
-            "disclaimer": "You also get the ability to speak with goose"
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": { "type": "action", "cost": 1, "condition": "" },
-                "activities": [
-                  {
-                    "type": "damage",
-                    "name": "Goose Count",
-                    "activation": { "type": "action", "override": false, "condition": "" },
-                    "damage": {
-                      "parts": [
-                        { "number": 1, "denomination": 4, "bonus": "", "types": [] }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.LIMIT_BREAK",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Limit Break",
-            "description": "You can reroll any of your damage dice. Take the initial damage of the rerolled dice before rerolling them",
-            "disclaimer": "You must use the new roll, however you can reroll indefinitely"
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.NO_MATTER_THE_COST",
-      "type": "TIERED",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        { "min": 0,   "value": 1 },
-        { "min": 0.5, "value": 2 },
-        { "min": 0.8, "value": 4 }
-      ],
-      "tiers": [
-        {
-          "min": 1,
-          "flavor": {
-            "title": "No Matter The Cost",
-            "description": "As an action, with the help of a weapon or spell attack, execute a friendly creature below 12 HP. Forcefully motivate 1 creature of your choosing within 30ft to gain the effects of help",
-            "disclaimer": "You cannot motivate yourself"
-          },
-          "activeEffects": [],
-          "feats": []
-        },
-        {
-          "min": 2,
-          "flavor": {
-            "title": "No Matter The Cost.",
-            "description": "As an action, with the help of a weapon or spell attack, execute a friendly creature below 12 HP. Forcefully motivate 2 creatures of your choosing within 30ft to gain the effects of help",
-            "disclaimer": "You cannot motivate yourself"
-          },
-          "activeEffects": [],
-          "feats": []
-        },
-        {
-          "min": 4,
-          "flavor": {
-            "title": "No Matter The Cost!",
-            "description": "As an action, with the help of a weapon or spell attack, execute a friendly creature below 12 HP. Forcefully motivate 3 creatures of your choosing within 30ft to gain the effects of help",
-            "disclaimer": "You cannot motivate yourself"
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.RAPID",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Rapid",
-        "description": "Your jump distance is increased by {amount}ft",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        { "min": 0,   "value": 5  },
-        { "min": 0.2, "value": 10 },
-        { "min": 0.6, "value": 15 },
-        { "min": 0.8, "value": 20 }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.REVENANT",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Revenant",
-            "description": "Once per long rest, as a bonus action, you can shadow step from one area of dim light or darkness to another within 60 feet",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": [
-            {
-              "type": "FEAT",
-              "system": {
-                "activation": { "type": "bonus", "cost": 1, "condition": "" },
-                "uses": {
-                  "max": 1,
-                  "recovery": [
-                    { "period": "lr", "type": "recoverAll" }
-                  ]
-                },
-                "activities": [
-                  {
-                    "type": "utility",
-                    "name": "Shadow Step",
-                    "activation": { "type": "bonus", "override": false, "condition": "" },
-                    "consumption": {
-                      "scaling": { "allowed": false },
-                      "spellSlot": true,
-                      "targets": [{ "type": "itemUses", "value": "1", "target": "", "scaling": {} }]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "TME.HIDDEN_DEPTHS",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": ["ACCESSORY", "ARMOR"],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Hidden Depths",
-            "description": "Gain a bonus to Investigation and Insight checks that increases the lower your current HP is, each 10% missing HP grant you +1",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.RELUCTANT_SAVIOR",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "TERTIARY",
-        "whitelistedBy": [
-          "ARMOR",
-          "ACCESSORY"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Reluctant Savior",
-            "description": "Whenever you heal another creature, gain temporary HP equal to the amount healed",
-            "disclaimer": "Temporary HP do not stack, only the highest value applies"
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.FIRST_ONE_IN",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "WEAPON"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "First One In",
-            "description": "You have advantage on attack rolls on your first turn of combat",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.RECKLESS_ABANDON",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Reckless Abandon",
-            "description": "Your reckless attacks deal bonus damage equal to your Strength modifier",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.ABSOLUTE_UNIT",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Absolute Unit",
-            "description": "You have advantage on Strength checks involving brute force",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.MARK_OF_DEATH",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Mark of Death",
-        "description": "Each successful attack against a creature grants you a permanent +{amount} bonus to damage against it, stacking indefinitely",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        { "min": 0,    "value": 1 },
-        { "min": 0.7,  "value": 2 },
-        { "min": 0.9, "value": 3 }
-      ],
-      "activeEffects": [],
-      "feats": []
-    },
-    {
-      "identifier": "TME.AURA_OF_BLOOD",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Aura of Blood",
-        "description": "At the start of your turn, each hostile creature within 10ft must make a CON saving throw or take {amount} necrotic damage",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        { "min": 0,    "value": 2 },
-        { "min": 0.5,  "value": 4 },
-        { "min": 0.8,  "value": 6 },
-        { "min": 0.95, "value": 8 }
-      ],
-      "activeEffects": [],
-      "feats": [
-        {
-          "type": "FEAT",
-          "system": {
-            "activation": {
-              "type": "special",
-              "cost": null,
-              "condition": "at the start of your turn"
-            },
-            "activities": [
-              {
-                "type": "save",
-                "name": "Aura of Blood",
-                "activation": {
-                  "type": "special",
-                  "override": false,
-                  "condition": "at the start of your turn"
-                },
-                "target": {
-                  "template": {
-                    "type": "circle",
-                    "size": 10,
-                    "units": "ft"
-                  },
-                  "affects": { "type": "" }
-                },
-                "save": {
-                  "ability": "con",
-                  "dc": {
-                    "calculation": "",
-                    "formula": "@abilities.con.dc"
-                  }
-                },
-                "damage": {
-                  "onSave": "none",
-                  "parts": [
-                    {
-                      "custom": { "enabled": true, "formula": "{amount}" },
-                      "types": ["necrotic"]
-                    }
-                  ]
-                },
-                "consumption": {
-                  "scaling": { "allowed": false },
-                  "spellSlot": false,
-                  "targets": []
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "identifier": "TME.SHIELD_HOOK",
-      "type": "INDEPENDENT",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [
-          "ARMOR_WITH_ARMOR_CLASS"
-        ],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Shieldhook",
-            "description": "You can attach a shield to this armor. Any actions requiring two hands or the use of the hand nearest to the attached shield are done with disadvantage",
-            "disclaimer": null
-          },
-          "changes": [],
-          "activities": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.DARK_DEVOTION",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "SECONDARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Dark Devotion",
-            "description": "Gain a bonus to Stealth and Deception checks equal to your Wisdom modifier",
-            "disclaimer": null
-          },
-          "activeEffects": [
-            {
-              "key": "system.skills.ste.bonuses.check",
-              "mode": "ADD",
-              "value": "@abilities.wis.mod"
-            },
-            {
-              "key": "system.skills.dec.bonuses.check",
-              "mode": "ADD",
-              "value": "@abilities.wis.mod"
-            }
-          ],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.RESOLUTE",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Resolute",
-        "description": "Gain a +{amount} bonus to Concentration saving throws",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.6,
-          "value": 2
-        },
-        {
-          "min": 0.9,
-          "value": 3
-        }
-      ],
-      "activeEffects": [
-        {
-          "key": "system.attributes.concentration.roll.bonus",
-          "mode": "ADD",
-          "value": "{amount}"
-        }
-      ],
-      "feats": []
-    },
-    {
-      "identifier": "TME.ACCELERANT",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Accelerant",
-            "description": "On your first turn of each combat, your movement speed is increased by 10ft",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.IRON_WILL",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Iron Will",
-            "description": "You have advantage on saving throws against being frightened or charmed",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.PERCEPTIVE",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Perceptive",
-        "description": "Gain a +{amount} bonus to Perception checks",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.6,
-          "value": 2
-        },
-        {
-          "min": 0.85,
-          "value": 3
-        }
-      ],
-      "activeEffects": [
-        {
-          "key": "system.skills.prc.bonuses.check",
-          "mode": "ADD",
-          "value": "{amount}"
-        }
-      ],
-      "feats": []
-    },
-    {
-      "identifier": "TME.NIGHT_OWL",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": ["ARMOR", "ACCESSORY"],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Night Owl",
-        "description": "Gain darkvision out to {amount}ft, or extend existing darkvision by {amount}ft",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 10
-        },
-        {
-          "min": 0.3,
-          "value": 15
-        },
-        {
-          "min": 0.6,
-          "value": 20
-        },
-        {
-          "min": 0.85,
-          "value": 25
-        }
-      ],
-      "activeEffects": [
-        {
-          "key": "system.attributes.senses.darkvision",
-          "mode": "ADD",
-          "value": "{amount}"
-        }
-      ],
-      "feats": []
-    },
-    {
-      "identifier": "TME.BLOODHOUND",
-      "type": "UNIQUE",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "flavor": {
-            "title": "Bloodhound",
-            "description": "You can sense the presence of bleeding creatures within 30ft",
-            "disclaimer": null
-          },
-          "activeEffects": [],
-          "feats": []
-        }
-      ]
-    },
-    {
-      "identifier": "TME.ADRENALINE",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": [],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Adrenaline",
-        "description": "The first time you take damage in combat, regain {amount}d4 HP",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 1
-        },
-        {
-          "min": 0.4,
-          "value": 2
-        },
-        {
-          "min": 0.75,
-          "value": 3
-        }
-      ],
-      "activeEffects": [],
-      "feats": [
-        {
-          "type": "FEAT",
-          "system": {
-            "activation": {
-              "type": "special",
-              "cost": null,
-              "condition": "first time taking damage in combat"
-            },
-            "uses": {
-              "max": 1,
-              "recovery": [
-                {
-                  "period": "sr",
-                  "type": "recoverAll"
-                }
-              ]
-            },
-            "activities": [
-              {
-                "type": "heal",
-                "name": "Adrenaline",
-                "activation": {
-                  "type": "special",
-                  "override": false,
-                  "condition": "first time taking damage in combat"
-                },
-                "healing": {
-                  "types": ["healing"],
-                  "custom": {
-                    "enabled": false
-                  },
-                  "scaling": {
-                    "number": 1
-                  },
-                  "number": "{amount}",
-                  "denomination": 4,
-                  "bonus": ""
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "identifier": "TME.HARDENED",
-      "type": "LINEAR",
-      "application": {
-        "weight": 1024,
-        "restriction": "PRIMARY",
-        "whitelistedBy": ["ARMOR", "ACCESSORY"],
-        "blacklistedBy": [],
-        "applies": []
-      },
-      "flavor": {
-        "title": "Hardened",
-        "description": "Reduce one instance of non-magical damage by {amount}, 3 times per long rest",
-        "disclaimer": null
-      },
-      "breakpoints": [
-        {
-          "min": 0,
-          "value": 2
-        },
-        {
-          "min": 0.4,
-          "value": 4
-        },
-        {
-          "min": 0.75,
-          "value": 6
-        }
-      ],
-      "activeEffects": [],
-      "feats": [
-        {
-          "type": "FEAT",
-          "system": {
-            "activation": {
-              "type": "reaction",
-              "cost": 1,
-              "condition": "when taking non-magical damage"
-            },
-            "uses": {
-              "max": 3,
-              "recovery": [
-                {
-                  "period": "lr",
-                  "type": "recoverAll"
-                }
-              ]
-            },
-            "activities": [
-              {
-                "type": "utility",
-                "name": "Hardened",
-                "activation": {
-                  "type": "reaction",
-                  "override": false,
-                  "condition": "when taking non-magical damage"
-                },
-                "consumption": {
-                  "scaling": { "allowed": false },
-                  "spellSlot": false,
-                  "targets": [
-                    {
-                      "type": "itemUses",
-                      "value": "1",
-                      "target": "",
-                      "scaling": {}
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      ]
-    }
-  ]
+	"id": "tme.misc",
+	"name": "TME \u2014 Miscellaneous Modifiers",
+	"description": "Built-in miscellaneous modifiers. General-purpose effects that don't fit a specific category.",
+	"enabled": true,
+	"modifiers": [
+		{
+			"identifier": "TME.MUSCLE_MEMORY",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Muscle Memory",
+				"description": "You can expend up to {amount} actions, bonus actions and spells and store them. On damage taken the oldest stored action is triggered and consumed",
+				"disclaimer": "No reaction required. Parameters must be defined the moment you store the action"
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 3
+				}
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.VINDICATOR",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Vindicator",
+				"description": "Upon being downed you can take {amount} action(s)",
+				"disclaimer": "You can take multiple actions at once, your total amount of actions is pooled per long rest"
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.7,
+					"value": 2
+				},
+				{
+					"min": 0.95,
+					"value": 3
+				}
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "special",
+							"cost": null,
+							"condition": "upon being downed"
+						},
+						"uses": {
+							"max": "{amount}",
+							"recovery": [
+								{
+									"period": "lr",
+									"type": "recoverAll"
+								}
+							]
+						},
+						"activities": [
+							{
+								"type": "utility",
+								"name": "Vindicator",
+								"activation": {
+									"type": "special",
+									"override": false,
+									"condition": "upon being downed"
+								},
+								"consumption": {
+									"scaling": {
+										"allowed": false
+									},
+									"spellSlot": true,
+									"targets": [
+										{
+											"type": "itemUses",
+											"value": "1",
+											"target": "",
+											"scaling": {}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"identifier": "TME.PROACTIVE",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Proactive",
+				"description": "Your initiative is increased by {amount}",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 3
+				},
+				{
+					"min": 0.95,
+					"value": 4
+				}
+			],
+			"activeEffects": [
+				{
+					"key": "system.attributes.init.bonus",
+					"mode": "ADD",
+					"value": "{amount}"
+				}
+			],
+			"feats": []
+		},
+		{
+			"identifier": "TME.SWIFT",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Swift",
+				"description": "Your movement speed is increased by {amount}ft",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 15
+				},
+				{
+					"min": 0.7,
+					"value": 30
+				}
+			],
+			"activeEffects": [
+				{
+					"key": "system.attributes.movement.walk",
+					"mode": "ADD",
+					"value": "{amount}"
+				}
+			],
+			"feats": []
+		},
+		{
+			"identifier": "TME.ALL_TIME_READY",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "All Time Ready",
+				"description": "On saving throws, you can't roll below a {amount}",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 3
+				},
+				{
+					"min": 0.95,
+					"value": 4
+				}
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.LUSTROUS",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["ECONOMY"],
+				"applies": ["ECONOMY"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Lustrous",
+						"description": "The item value is increased by 75",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.price.value",
+							"operation": "ADD",
+							"value": "75"
+						}
+					],
+					"activities": []
+				},
+				{
+					"min": 0.5,
+					"flavor": {
+						"title": "Finely Lustrous",
+						"description": "The item value is increased by 125",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.price.value",
+							"operation": "ADD",
+							"value": "125"
+						}
+					],
+					"activities": []
+				},
+				{
+					"min": 0.7,
+					"flavor": {
+						"title": "Richly Lustrous",
+						"description": "The item value is increased by 225",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.price.value",
+							"operation": "ADD",
+							"value": "225"
+						}
+					],
+					"activities": []
+				},
+				{
+					"min": 0.9,
+					"flavor": {
+						"title": "Opulently Lustrous",
+						"description": "The item value is increased by 450",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.price.value",
+							"operation": "ADD",
+							"value": "450"
+						}
+					],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.PRECIOUS",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["ECONOMY"],
+				"applies": ["ECONOMY"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Precious",
+						"description": "The item value is increased by 50%",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.price.value",
+							"operation": "MULTIPLY",
+							"value": "1.5"
+						}
+					],
+					"activities": []
+				},
+				{
+					"min": 0.7,
+					"flavor": {
+						"title": "Greatly Precious",
+						"description": "The item value is doubled",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.price.value",
+							"operation": "MULTIPLY",
+							"value": "2"
+						}
+					],
+					"activities": []
+				},
+				{
+					"min": 0.9,
+					"flavor": {
+						"title": "Supremely Precious",
+						"description": "The item value is quadrupled",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.price.value",
+							"operation": "MULTIPLY",
+							"value": "4"
+						}
+					],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.ARCANE_GRIP",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Arcane Grip",
+						"description": "As an action, this item can be used like a conjured mage hand (the hand replaced by this item). Additionally you can attack with it",
+						"disclaimer": null
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.MITHRIL",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["PROPERTY_CHANGE"],
+				"applies": ["PROPERTY_CHANGE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Mithril",
+						"description": "This item has no weight",
+						"disclaimer": null
+					},
+					"changes": [
+						{
+							"key": "system.weight.value",
+							"operation": "SET",
+							"value": "0"
+						}
+					],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.UNDYING",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Undying",
+						"description": "You have advantage on death saving throws",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.MOCKING",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Mocking",
+						"description": "As an action, you can cast vicious mockery once per long rest",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
+								"uses": {
+									"max": 1,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "save",
+										"name": "Mocking",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"save": {
+											"ability": "wis",
+											"dc": {
+												"calculation": "wis",
+												"formula": ""
+											}
+										},
+										"damage": {
+											"parts": [
+												{
+													"number": 1,
+													"denomination": 4,
+													"types": ["psychic"],
+													"bonus": ""
+												}
+											]
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.COUNT_ON_IT",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Count on It",
+						"description": "Your counterspells cannot be counterspelled",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.UNACCOUNTABLE",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Unaccountable",
+						"description": "You cannot be counterspelled",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.BATTLE_MAGE",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Battle Mage",
+				"description": "While you are concentrating on a spell, your melee attacks deal an additional {amount}d4 damage",
+				"disclaimer": null
+			},
+			"breakpoints": [{ "min": 0, "value": 1 }, { "min": 0.7, "value": 2 }],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "special",
+							"cost": null,
+							"condition": "while concentrating on a spell, on a melee hit"
+						},
+						"activities": [
+							{
+								"type": "damage",
+								"name": "Battle Mage",
+								"activation": {
+									"type": "special",
+									"override": false,
+									"condition": "while concentrating on a spell, on a melee hit"
+								},
+								"damage": {
+									"parts": [
+										{
+											"number": "{amount}",
+											"denomination": 4,
+											"bonus": "",
+											"types": []
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"identifier": "TME.ARCANE_VOLATILITY",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Arcane Volatility",
+						"description": "Upon casting a leveled spell, roll a d20. If 10 or lower, subtract a d4 from the spell level. If higher than 10, add a d4 to the spell level",
+						"disclaimer": "Under or over leveled spells change according to their upcast description"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": "upon casting a leveled spell"
+								},
+								"activities": [
+									{
+										"type": "damage",
+										"name": "Volatility Check",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": "upon casting a leveled spell"
+										},
+										"damage": {
+											"parts": [
+												{
+													"number": 1,
+													"denomination": 20,
+													"bonus": "",
+													"types": []
+												}
+											]
+										}
+									},
+									{
+										"type": "damage",
+										"name": "Volatility Shift",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": "upon casting a leveled spell"
+										},
+										"damage": {
+											"parts": [
+												{
+													"number": 1,
+													"denomination": 4,
+													"bonus": "",
+													"types": []
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.FIND_SNAIL",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.5, "value": 2 },
+				{ "min": 0.8, "value": 4 }
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Find Snail",
+						"description": "Once per long rest, as an action, summon a giant rideable snail to aid you. The snail has 2d10+4 HP and 30 ft movement speed",
+						"disclaimer": "Works like 'Find Steed' with the stats of a warhorse"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"uses": {
+									"max": 1,
+									"recovery": [{ "period": "lr", "type": "recoverAll" }]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Find Snail",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": { "allowed": false },
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									},
+									{
+										"type": "damage",
+										"name": "Snail HP",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": ""
+										},
+										"damage": {
+											"parts": [
+												{
+													"number": 2,
+													"denomination": 10,
+													"bonus": "4",
+													"types": []
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Find Greater Snail",
+						"description": "Once per long rest, as an action, summon a giant rideable snail to aid you. The snail has 4d10+6 HP and 45 ft movement speed",
+						"disclaimer": "Works like 'Find Steed' with the stats of a warhorse"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"uses": {
+									"max": 1,
+									"recovery": [{ "period": "lr", "type": "recoverAll" }]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Find Greater Snail",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": { "allowed": false },
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									},
+									{
+										"type": "damage",
+										"name": "Snail HP",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": ""
+										},
+										"damage": {
+											"parts": [
+												{
+													"number": 4,
+													"denomination": 10,
+													"bonus": "6",
+													"types": []
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Find Elder Snail",
+						"description": "Once per long rest, as an action, summon a giant rideable snail to aid you. The snail has 6d10+8 HP and 60 ft movement speed",
+						"disclaimer": "Works like 'Find Steed' with the stats of a warhorse"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"uses": {
+									"max": 1,
+									"recovery": [{ "period": "lr", "type": "recoverAll" }]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Find Elder Snail",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": { "allowed": false },
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									},
+									{
+										"type": "damage",
+										"name": "Snail HP",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": ""
+										},
+										"damage": {
+											"parts": [
+												{
+													"number": 6,
+													"denomination": 10,
+													"bonus": "8",
+													"types": []
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.HEALING_SURGE",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.5, "value": 2 },
+				{ "min": 0.8, "value": 4 }
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Healing Surge",
+						"description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
+						"disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Does not chain"
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Chained Healing Surge",
+						"description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
+						"disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Chains once with stacking efficiency loss"
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Cascading Healing Surge",
+						"description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
+						"disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Chains twice with stacking efficiency loss"
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.HEROISM",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Heroism",
+						"description": "You have advantage on saving throws vs. fear effects",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.HONK_AND_SMITE",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.5, "value": 2 },
+				{ "min": 0.8, "value": 4 }
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Honk & Smite",
+						"description": "As an action, retcon 1d4 goose into existence near you. You can have up to 2 goose at once. They will follow your screamed commands no matter the cost",
+						"disclaimer": "You also get the ability to speak with goose"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activities": [
+									{
+										"type": "damage",
+										"name": "Goose Count",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"damage": {
+											"parts": [
+												{
+													"number": 1,
+													"denomination": 4,
+													"bonus": "",
+													"types": []
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Greater Honk & Smite",
+						"description": "As an action, retcon 1d4 goose into existence near you. You can have up to 4 goose at once. They will follow your screamed commands no matter the cost",
+						"disclaimer": "You also get the ability to speak with goose"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activities": [
+									{
+										"type": "damage",
+										"name": "Goose Count",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"damage": {
+											"parts": [
+												{
+													"number": 1,
+													"denomination": 4,
+													"bonus": "",
+													"types": []
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Supreme Honk & Smite",
+						"description": "As an action, retcon 1d4 goose into existence near you. You can have up to 6 goose at once. They will follow your screamed commands no matter the cost",
+						"disclaimer": "You also get the ability to speak with goose"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activities": [
+									{
+										"type": "damage",
+										"name": "Goose Count",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"damage": {
+											"parts": [
+												{
+													"number": 1,
+													"denomination": 4,
+													"bonus": "",
+													"types": []
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.LIMIT_BREAK",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Limit Break",
+						"description": "You can reroll any of your damage dice. Take the initial damage of the rerolled dice before rerolling them",
+						"disclaimer": "You must use the new roll, however you can reroll indefinitely"
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.NO_MATTER_THE_COST",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.5, "value": 2 },
+				{ "min": 0.8, "value": 4 }
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "No Matter The Cost",
+						"description": "As an action, with the help of a weapon or spell attack, execute a friendly creature below 12 HP. Forcefully motivate 1 creature of your choosing within 30ft to gain the effects of help",
+						"disclaimer": "You cannot motivate yourself"
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "No Matter The Cost.",
+						"description": "As an action, with the help of a weapon or spell attack, execute a friendly creature below 12 HP. Forcefully motivate 2 creatures of your choosing within 30ft to gain the effects of help",
+						"disclaimer": "You cannot motivate yourself"
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "No Matter The Cost!",
+						"description": "As an action, with the help of a weapon or spell attack, execute a friendly creature below 12 HP. Forcefully motivate 3 creatures of your choosing within 30ft to gain the effects of help",
+						"disclaimer": "You cannot motivate yourself"
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.RAPID",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Rapid",
+				"description": "Your jump distance is increased by {amount}ft",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 5 },
+				{ "min": 0.2, "value": 10 },
+				{ "min": 0.6, "value": 15 },
+				{ "min": 0.8, "value": 20 }
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.REVENANT",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Revenant",
+						"description": "Once per long rest, as a bonus action, you can shadow step from one area of dim light or darkness to another within 60 feet",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": { "type": "bonus", "cost": 1, "condition": "" },
+								"uses": {
+									"max": 1,
+									"recovery": [{ "period": "lr", "type": "recoverAll" }]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Shadow Step",
+										"activation": {
+											"type": "bonus",
+											"override": false,
+											"condition": ""
+										},
+										"consumption": {
+											"scaling": { "allowed": false },
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TME.HIDDEN_DEPTHS",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ACCESSORY", "ARMOR"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Hidden Depths",
+						"description": "Gain a bonus to Investigation and Insight checks that increases the lower your current HP is, each 10% missing HP grant you +1",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.RELUCTANT_SAVIOR",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Reluctant Savior",
+						"description": "Whenever you heal another creature, gain temporary HP equal to the amount healed",
+						"disclaimer": "Temporary HP do not stack, only the highest value applies"
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.FIRST_ONE_IN",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "First One In",
+						"description": "You have advantage on attack rolls on your first turn of combat",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.RECKLESS_ABANDON",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Reckless Abandon",
+						"description": "Your reckless attacks deal bonus damage equal to your Strength modifier",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.ABSOLUTE_UNIT",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Absolute Unit",
+						"description": "You have advantage on Strength checks involving brute force",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.MARK_OF_DEATH",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Mark of Death",
+				"description": "Each successful attack against a creature grants you a permanent +{amount} bonus to damage against it, stacking indefinitely",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.7, "value": 2 },
+				{ "min": 0.9, "value": 3 }
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.AURA_OF_BLOOD",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Aura of Blood",
+				"description": "At the start of your turn, each hostile creature within 10ft must make a CON saving throw or take {amount} necrotic damage",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 2 },
+				{ "min": 0.5, "value": 4 },
+				{ "min": 0.8, "value": 6 },
+				{ "min": 0.95, "value": 8 }
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "special",
+							"cost": null,
+							"condition": "at the start of your turn"
+						},
+						"activities": [
+							{
+								"type": "save",
+								"name": "Aura of Blood",
+								"activation": {
+									"type": "special",
+									"override": false,
+									"condition": "at the start of your turn"
+								},
+								"target": {
+									"template": {
+										"type": "circle",
+										"size": 10,
+										"units": "ft"
+									},
+									"affects": { "type": "" }
+								},
+								"save": {
+									"ability": "con",
+									"dc": {
+										"calculation": "",
+										"formula": "@abilities.con.dc"
+									}
+								},
+								"damage": {
+									"onSave": "none",
+									"parts": [
+										{
+											"custom": { "enabled": true, "formula": "{amount}" },
+											"types": ["necrotic"]
+										}
+									]
+								},
+								"consumption": {
+									"scaling": { "allowed": false },
+									"spellSlot": false,
+									"targets": []
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"identifier": "TME.SHIELD_HOOK",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Shieldhook",
+						"description": "You can attach a shield to this armor. Any actions requiring two hands or the use of the hand nearest to the attached shield are done with disadvantage",
+						"disclaimer": null
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.DARK_DEVOTION",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Dark Devotion",
+						"description": "Gain a bonus to Stealth and Deception checks equal to your Wisdom modifier",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"key": "system.skills.ste.bonuses.check",
+							"mode": "ADD",
+							"value": "@abilities.wis.mod"
+						},
+						{
+							"key": "system.skills.dec.bonuses.check",
+							"mode": "ADD",
+							"value": "@abilities.wis.mod"
+						}
+					],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.RESOLUTE",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Resolute",
+				"description": "Gain a +{amount} bonus to Concentration saving throws",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.6,
+					"value": 2
+				},
+				{
+					"min": 0.9,
+					"value": 3
+				}
+			],
+			"activeEffects": [
+				{
+					"key": "system.attributes.concentration.roll.bonus",
+					"mode": "ADD",
+					"value": "{amount}"
+				}
+			],
+			"feats": []
+		},
+		{
+			"identifier": "TME.ACCELERANT",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Accelerant",
+						"description": "On your first turn of each combat, your movement speed is increased by 10ft",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.IRON_WILL",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Iron Will",
+						"description": "You have advantage on saving throws against being frightened or charmed",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.PERCEPTIVE",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Perceptive",
+				"description": "Gain a +{amount} bonus to Perception checks",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.6,
+					"value": 2
+				},
+				{
+					"min": 0.85,
+					"value": 3
+				}
+			],
+			"activeEffects": [
+				{
+					"key": "system.skills.prc.bonuses.check",
+					"mode": "ADD",
+					"value": "{amount}"
+				}
+			],
+			"feats": []
+		},
+		{
+			"identifier": "TME.NIGHT_OWL",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Night Owl",
+				"description": "Gain darkvision out to {amount}ft, or extend existing darkvision by {amount}ft",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 10
+				},
+				{
+					"min": 0.3,
+					"value": 15
+				},
+				{
+					"min": 0.6,
+					"value": 20
+				},
+				{
+					"min": 0.85,
+					"value": 25
+				}
+			],
+			"activeEffects": [
+				{
+					"key": "system.attributes.senses.darkvision",
+					"mode": "ADD",
+					"value": "{amount}"
+				}
+			],
+			"feats": []
+		},
+		{
+			"identifier": "TME.BLOODHOUND",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Bloodhound",
+						"description": "You can sense the presence of bleeding creatures within 30ft",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
+			"identifier": "TME.ADRENALINE",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Adrenaline",
+				"description": "The first time you take damage in combat, regain {amount}d4 HP",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.4,
+					"value": 2
+				},
+				{
+					"min": 0.75,
+					"value": 3
+				}
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "special",
+							"cost": null,
+							"condition": "first time taking damage in combat"
+						},
+						"uses": {
+							"max": 1,
+							"recovery": [
+								{
+									"period": "sr",
+									"type": "recoverAll"
+								}
+							]
+						},
+						"activities": [
+							{
+								"type": "heal",
+								"name": "Adrenaline",
+								"activation": {
+									"type": "special",
+									"override": false,
+									"condition": "first time taking damage in combat"
+								},
+								"healing": {
+									"types": ["healing"],
+									"custom": {
+										"enabled": false
+									},
+									"scaling": {
+										"number": 1
+									},
+									"number": "{amount}",
+									"denomination": 4,
+									"bonus": ""
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"identifier": "TME.HARDENED",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Hardened",
+				"description": "Reduce one instance of non-magical damage by {amount}, 3 times per long rest",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 2
+				},
+				{
+					"min": 0.4,
+					"value": 4
+				},
+				{
+					"min": 0.75,
+					"value": 6
+				}
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"condition": "when taking non-magical damage"
+						},
+						"uses": {
+							"max": 3,
+							"recovery": [
+								{
+									"period": "lr",
+									"type": "recoverAll"
+								}
+							]
+						},
+						"activities": [
+							{
+								"type": "utility",
+								"name": "Hardened",
+								"activation": {
+									"type": "reaction",
+									"override": false,
+									"condition": "when taking non-magical damage"
+								},
+								"consumption": {
+									"scaling": { "allowed": false },
+									"spellSlot": false,
+									"targets": [
+										{
+											"type": "itemUses",
+											"value": "1",
+											"target": "",
+											"scaling": {}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
+		}
+	]
 }
