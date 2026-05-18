@@ -1375,6 +1375,30 @@
 					"feats": []
 				}
 			]
+		},
+		{
+			"identifier": "TME.DESPERATE_MEASURE",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Desperate Measure",
+				"description": "While below 25% HP, your minimum d20 roll increases by {amount}",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 2 },
+				{ "min": 0.5, "value": 4 },
+				{ "min": 0.8, "value": 6 },
+				{ "min": 0.95, "value": 8 }
+			],
+			"activeEffects": [],
+			"feats": []
 		}
 	]
 }
