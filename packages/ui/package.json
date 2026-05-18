@@ -3,7 +3,8 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"storybook": "storybook dev -p 6006"
+		"storybook": "storybook dev -p 6006",
+		"format": "bun x @biomejs/biome format --write ."
 	},
 	"dependencies": {
 		"@storybook/addon-docs": "^10.3.6",

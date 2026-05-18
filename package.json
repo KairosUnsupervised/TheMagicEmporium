@@ -8,7 +8,7 @@
 		"apps/*"
 	],
 	"scripts": {
-		"format": "bun x @biomejs/biome format --write"
+		"format": "bun run --filter '*' format"
 	},
 	"repository": {
 		"type": "git",
