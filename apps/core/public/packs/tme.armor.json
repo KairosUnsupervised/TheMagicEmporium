@@ -1399,6 +1399,54 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.IRON_STANCE",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.5, "value": 2 },
+				{ "min": 0.8, "value": 4 }
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Iron Stance",
+						"description": "If you haven't moved this turn, reduce incoming damage by 1",
+						"disclaimer": "Per damage instance"
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Iron Stance",
+						"description": "If you haven't moved this turn, reduce incoming damage by 2",
+						"disclaimer": "Per damage instance"
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Iron Stance",
+						"description": "If you haven't moved this turn, reduce incoming damage by 3",
+						"disclaimer": "Per damage instance"
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
 		}
 	]
 }
