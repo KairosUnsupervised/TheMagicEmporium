@@ -39,7 +39,7 @@ window.Hooks.once("ready", async () => {
 
 // @ts-ignore
 window.debug = Forge;
+// TODO FORGE API
 
 // TODO MAKE TAGS TO STRINGS
-// TODO BIOME
 // TODO Let people zoom the ui in / out

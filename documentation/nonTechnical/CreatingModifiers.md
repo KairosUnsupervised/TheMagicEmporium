@@ -4,6 +4,26 @@ This guide walks through how to add new modifiers to The Magic Emporium.
 
 ---
 
+## Design Principles
+
+### Mental load belongs to the player, not the DM
+
+Modifiers should only affect the **player's own character** — their stats, rolls, resources, and decisions. The player is responsible for tracking what their item does; the DM should never need to remember that a modifier exists.
+
+**Not allowed:**
+- Applying conditions to creatures (frightened, slowed, poisoned, etc.)
+- Any effect the DM needs to track on an enemy or NPC
+
+**Allowed:**
+- Buffs to the player's own attack rolls, damage, AC, saves, or HP
+- Self-inflicted costs or risks the player manages themselves
+- Active abilities the player chooses to trigger and tracks their own uses of
+- Effects that trigger on kills or crits and resolve entirely on the player's sheet
+
+The guiding question is: *after this modifier fires, does the DM need to remember anything?* If yes, redesign it.
+
+---
+
 ## Packs
 
 Modifiers are organised into **packs** — JSON files that group related modifiers together. Each pack has a unique `id`,
