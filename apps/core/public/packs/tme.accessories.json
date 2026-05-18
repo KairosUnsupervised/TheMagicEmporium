@@ -788,6 +788,39 @@
 					}
 				}
 			]
+		},
+		{
+			"identifier": "TME.OVERACHIEVER",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Overachiever",
+						"description": "For each damage die that rolls its maximum value, roll one additional die of the same type",
+						"disclaimer": "Additional dice don't trigger this effect"
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 0.9,
+					"flavor": {
+						"title": "Overachiever",
+						"description": "For each damage die that rolls its maximum value, roll one additional die of the same type",
+						"disclaimer": "Those dice can also trigger this effect"
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
 		}
 	]
 }
