@@ -1219,6 +1219,30 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.ECHO",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["WEAPON_MELEE"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Echo",
+				"description": "After each melee attack, roll a d20. On a {amount} or lower, the attack echos a second time against the same target",
+				"disclaimer": "Echoes attacks can also echo"
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 2 },
+				{ "min": 0.5, "value": 3 },
+				{ "min": 0.8, "value": 4 },
+				{ "min": 0.95, "value": 5 }
+			],
+			"activeEffects": [],
+			"feats": []
 		}
 	]
 }
