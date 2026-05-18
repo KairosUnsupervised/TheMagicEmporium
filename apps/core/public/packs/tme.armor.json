@@ -1299,6 +1299,82 @@
 					"activities": []
 				}
 			]
+		},
+		{
+			"identifier": "TME.CORNERED",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ARMOR"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Cornered",
+						"description": "While below 50% HP, your AC increases by 1",
+						"disclaimer": "Toggle the active effect on when you drop below half HP"
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.attributes.ac.bonus",
+									"mode": "ADD",
+									"value": "1"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 0.5,
+					"flavor": {
+						"title": "Cornered",
+						"description": "While below 50% HP, your AC increases by 2",
+						"disclaimer": "Toggle the active effect on when you drop below half HP"
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.attributes.ac.bonus",
+									"mode": "ADD",
+									"value": "2"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 0.9,
+					"flavor": {
+						"title": "Cornered",
+						"description": "While below 50% HP, your AC increases by 3",
+						"disclaimer": "Toggle the active effect on when you drop below half HP"
+					},
+					"activeEffects": [
+						{
+							"type": "ACTIVE_EFFECT",
+							"changes": [
+								{
+									"key": "system.attributes.ac.bonus",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": []
+				}
+			]
 		}
 	]
 }
