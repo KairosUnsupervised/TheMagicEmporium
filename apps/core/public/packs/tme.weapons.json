@@ -1266,6 +1266,30 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.FIRST_BLOOD",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "First Blood",
+				"description": "Your melee hit each combat that deals damage deals +{amount} damage",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.4, "value": 2 },
+				{ "min": 0.7, "value": 3 },
+				{ "min": 0.9, "value": 4 }
+			],
+			"activeEffects": [],
+			"feats": []
 		}
 	]
 }
