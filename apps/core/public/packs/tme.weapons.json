@@ -1268,6 +1268,29 @@
 			"feats": []
 		},
 		{
+			"identifier": "TME.FRENZY",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Frenzy",
+				"description": "On a missed attack, gain +{amount} to hit your next attack roll. Stacks until you land a hit, then resets",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.5, "value": 2 },
+				{ "min": 0.9, "value": 3 }
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
 			"identifier": "TME.FIRST_BLOOD",
 			"type": "LINEAR",
 			"application": {
