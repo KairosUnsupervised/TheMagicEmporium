@@ -821,6 +821,49 @@
 					"feats": []
 				}
 			]
+		},
+		{
+			"identifier": "TME.SHARED_BURDEN",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Shared Burden",
+						"description": "As a reaction when an ally within 30ft takes damage, you may redirect up to half of it to yourself",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 0.7,
+					"flavor": {
+						"title": "Shared Burden",
+						"description": "As a reaction when an ally within 60ft takes damage, you may redirect up to half of it to yourself",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 0.9,
+					"flavor": {
+						"title": "Shared Burden",
+						"description": "As a reaction when an ally within 90ft takes damage, you may redirect up to half of it to yourself",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
 		}
 	]
 }
