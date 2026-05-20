@@ -1,6 +1,6 @@
 import Ajv from "ajv";
-import { DataManager } from "./DataManager";
 import { Logger } from "../../misc/Logger";
+import { DataManager } from "./DataManager";
 
 export type Breakpoint<Data extends object = object> = { min: number } & Data;
 

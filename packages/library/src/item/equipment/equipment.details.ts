@@ -1,10 +1,10 @@
-import { Tag } from "../tag.types";
-import { Equipment } from "./equipment.types";
-import { equipmentAdjectives } from "./equipment.adjectives";
-import { ActivitySchema } from "../../effects/activity/activity.schema";
+import type { DeepPartial } from "@tme/shared/src/helpers/deepPartial.types";
+import type { Item5e } from "@tme/shared/src/types/item5e";
+import type { ActivitySchema } from "../../effects/activity/activity.schema";
 import { Icon } from "../icon";
-import { Item5e } from "@tme/shared/src/types/item5e";
-import { DeepPartial } from "@tme/shared/src/helpers/deepPartial.types";
+import { Tag } from "../tag.types";
+import { equipmentAdjectives } from "./equipment.adjectives";
+import { Equipment } from "./equipment.types";
 
 enum FoundryType {
 	Weapon = "weapon",

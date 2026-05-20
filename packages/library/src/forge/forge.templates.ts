@@ -1,6 +1,6 @@
 import { Rarity } from "../item/item.types";
-import { Template } from "./forge.types";
 import { Restriction } from "../modifiers/modifier.schema";
+import type { Template } from "./forge.types";
 
 export const templates: Template[] = [
 	// ── Common ────────────────────────────────────────────────────────────────

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/preact-vite";
+import { independentEdibleFixture } from "../../../fixtures/modifiers/independent/independentEdible";
+import { independentShadowwalkerFixture } from "../../../fixtures/modifiers/independent/independentShadowwalker";
 import {
 	IndependentModifierDisplay,
 	type IndependentModifierDisplayProps,
 } from "./IndependentModifierDisplay";
-import { independentEdibleFixture } from "../../../fixtures/modifiers/independent/independentEdible";
-import { independentShadowwalkerFixture } from "../../../fixtures/modifiers/independent/independentShadowwalker";
 
 const meta = {
 	title: "Components/Modifiers/Independent",

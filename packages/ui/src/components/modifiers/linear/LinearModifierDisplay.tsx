@@ -1,8 +1,8 @@
-import { LinearModifier } from "@tme/library/src/modifiers/blueprints/LinearModifier";
-import styles from "./LinearModifierDisplay.module.css";
-import icon from "./Icon.svg";
-import { namespace } from "@tme/shared/src/namespaceConfig";
 import { Icon } from "@tme/library/src/item/icon";
+import type { LinearModifier } from "@tme/library/src/modifiers/blueprints/LinearModifier";
+import { namespace } from "@tme/shared/src/namespaceConfig";
+import icon from "./Icon.svg";
+import styles from "./LinearModifierDisplay.module.css";
 
 export interface LinearModifierDisplayProps {
 	modifier: LinearModifier;

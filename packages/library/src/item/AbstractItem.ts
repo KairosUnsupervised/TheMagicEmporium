@@ -1,9 +1,9 @@
-import { AppliedModifier } from "../modifiers/Modifier";
+import { namespace } from "@tme/shared/src/namespaceConfig";
+import { type Item5e, ItemType } from "@tme/shared/src/types/item5e";
+import type { AppliedModifier } from "../modifiers/Modifier";
+import { registry } from "../registry/Registry";
 import { Equipment } from "./equipment/equipment.types";
 import { Rarity } from "./item.types";
-import { namespace } from "@tme/shared/src/namespaceConfig";
-import { Item5e, ItemType } from "@tme/shared/src/types/item5e";
-import { registry } from "../registry/Registry";
 
 /**
  * Represents an abstracted magic item, no fluff

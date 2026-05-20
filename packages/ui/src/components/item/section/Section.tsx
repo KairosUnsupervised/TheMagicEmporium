@@ -1,4 +1,4 @@
-import { type AppliedModifier } from "@tme/library/src/modifiers/Modifier";
+import type { AppliedModifier } from "@tme/library/src/modifiers/Modifier";
 import { ModifierDisplay } from "../../modifiers/ModifierDisplay";
 import styles from "./Section.module.css";
 

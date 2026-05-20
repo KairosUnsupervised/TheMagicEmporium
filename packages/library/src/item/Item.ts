@@ -1,13 +1,13 @@
-import { merge } from "ts-deepmerge";
-import { AbstractItem } from "./AbstractItem";
-import { DeepPartial } from "@tme/shared/src/helpers/deepPartial.types";
-import { equipmentDetails } from "./equipment/equipment.details";
+import type { DeepPartial } from "@tme/shared/src/helpers/deepPartial.types";
 import { namespace } from "@tme/shared/src/namespaceConfig";
-import { AppliedModifier } from "../modifiers/Modifier";
-import { generateDescriptionV3 } from "./generateDescription";
-import { Item5e, ItemType } from "@tme/shared/src/types/item5e";
-import { Change } from "../effects/change/Change";
+import { type Item5e, ItemType } from "@tme/shared/src/types/item5e";
+import { merge } from "ts-deepmerge";
 import { Activity } from "../effects/activity/Activity";
+import { Change } from "../effects/change/Change";
+import type { AppliedModifier } from "../modifiers/Modifier";
+import type { AbstractItem } from "./AbstractItem";
+import { equipmentDetails } from "./equipment/equipment.details";
+import { generateDescriptionV3 } from "./generateDescription";
 
 /**
  * Represent a magic item from the 5e system view

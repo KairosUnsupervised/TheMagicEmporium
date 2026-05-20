@@ -1,16 +1,16 @@
-import { Equipment } from "../item/equipment/equipment.types";
-import { equipmentDetails } from "../item/equipment/equipment.details";
 import { equipmentRarity } from "../item/equipment/equipment.adjectives";
-import { Rarity } from "../item/item.types";
-import { Modifier } from "../modifiers/Modifier";
-import { FloatDataManager } from "../modifiers/dataManagers/FloatDataManager";
-import { registry } from "../registry/Registry";
+import { equipmentDetails } from "../item/equipment/equipment.details";
+import { Equipment } from "../item/equipment/equipment.types";
+import type { Rarity } from "../item/item.types";
 import { Logger } from "../misc/Logger";
+import { FloatDataManager } from "../modifiers/dataManagers/FloatDataManager";
+import type { Modifier } from "../modifiers/Modifier";
+import type { Restriction } from "../modifiers/modifier.schema";
+import { registry } from "../registry/Registry";
 import { ForgeProcess } from "./ForgeProcess";
-import { FloatBias, Template } from "./forge.types";
 import { getRandomRarity } from "./forge.rarity";
 import { getRandomTemplate } from "./forge.templates";
-import { Restriction } from "../modifiers/modifier.schema";
+import type { FloatBias, Template } from "./forge.types";
 
 export class Forge {
 	/**

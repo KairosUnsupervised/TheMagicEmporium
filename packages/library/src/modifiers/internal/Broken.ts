@@ -1,5 +1,5 @@
 import { Modifier } from "../Modifier";
-import { Flavor, ModifierType } from "../modifier.schema";
+import { type Flavor, ModifierType } from "../modifier.schema";
 
 export class BrokenModifier extends Modifier {
 	public override getDescription(_data: unknown): Flavor {

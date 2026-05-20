@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/preact-vite";
-import { ItemDisplay, type ItemDisplayProps } from "./ItemDisplay";
 import { veilpiercerFixture } from "../fixtures/items/veilpiercerFixture";
+import { ItemDisplay, type ItemDisplayProps } from "./ItemDisplay";
 
 const meta = {
 	title: "Components/Item",

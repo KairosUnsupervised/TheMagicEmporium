@@ -1,4 +1,4 @@
-import { Actor5e } from "@tme/shared/src/types/actor5e.ts";
+import type { Actor5e } from "@tme/shared/src/types/actor5e.ts";
 
 export const registerRarityBorderColors = () => {
 	window.Hooks.on(

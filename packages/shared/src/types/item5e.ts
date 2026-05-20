@@ -1,5 +1,5 @@
 import { namespace } from "../namespaceConfig";
-import { Actor5e } from "./actor5e";
+import type { Actor5e } from "./actor5e";
 
 export type Type =
 	| "background"
@@ -34,6 +34,7 @@ export interface BaseItem {
 }
 
 export interface Item5e<Flag = SubItem | BaseItem> {
+	id: string;
 	isOwner: boolean;
 	name: string;
 	type: Type;

@@ -1,6 +1,6 @@
 import { namespace } from "@tme/shared/src/namespaceConfig";
 import { Logger } from "../misc/Logger.ts";
-import { PackSchema, validatePackSchema } from "./packLoader.schema.ts";
+import { type PackSchema, validatePackSchema } from "./packLoader.schema.ts";
 
 export class PackLoader {
 	/**

@@ -5,7 +5,7 @@ interface Folder {
 }
 
 export const getFolder = async (): Promise<Folder> => {
-	// @ts-ignore
+	// @ts-expect-error
 	const existing = game.folders.find((folder: Folder) => {
 		return folder.name === "The Magic Emporium" && folder.type === "Item";
 	});
@@ -14,7 +14,7 @@ export const getFolder = async (): Promise<Folder> => {
 		return existing;
 	}
 
-	// @ts-ignore
+	// @ts-expect-error
 	return await game.folders.documentClass.create({
 		name: "The Magic Emporium",
 		type: "Item",

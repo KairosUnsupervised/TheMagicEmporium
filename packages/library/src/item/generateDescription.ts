@@ -1,9 +1,9 @@
-import { AbstractItem } from "./AbstractItem";
-import { AppliedModifier } from "../modifiers/Modifier";
-import { UniqueModifier } from "../modifiers/blueprints/UniqueModifier";
-import { LinearModifier } from "../modifiers/blueprints/LinearModifier";
 import { IndependentModifier } from "../modifiers/blueprints/IndependentModifier";
+import { LinearModifier } from "../modifiers/blueprints/LinearModifier";
 import { TieredModifier } from "../modifiers/blueprints/TieredModifier";
+import { UniqueModifier } from "../modifiers/blueprints/UniqueModifier";
+import type { AppliedModifier } from "../modifiers/Modifier";
+import type { AbstractItem } from "./AbstractItem";
 
 export const generateDescriptionV3 = (abstractItem: AbstractItem) => {
 	let description = "";

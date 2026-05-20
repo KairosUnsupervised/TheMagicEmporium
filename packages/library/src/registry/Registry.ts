@@ -1,15 +1,15 @@
-import { Modifier, ModifierFactory } from "../modifiers/Modifier";
-import { UniqueModifier } from "../modifiers/blueprints/UniqueModifier";
 import { Logger } from "../misc/Logger";
+import { IndependentModifier } from "../modifiers/blueprints/IndependentModifier";
+import { LinearModifier } from "../modifiers/blueprints/LinearModifier";
+import { TieredModifier } from "../modifiers/blueprints/TieredModifier";
+import { UniqueModifier } from "../modifiers/blueprints/UniqueModifier";
+import { BrokenModifier } from "../modifiers/internal/Broken";
+import { ExhaustedModifier } from "../modifiers/internal/Exhausted";
+import type { Modifier, ModifierFactory } from "../modifiers/Modifier";
 import {
 	ModifierType,
 	validateModifierTypeSchema,
 } from "../modifiers/modifier.schema";
-import { LinearModifier } from "../modifiers/blueprints/LinearModifier";
-import { IndependentModifier } from "../modifiers/blueprints/IndependentModifier";
-import { BrokenModifier } from "../modifiers/internal/Broken";
-import { ExhaustedModifier } from "../modifiers/internal/Exhausted";
-import { TieredModifier } from "../modifiers/blueprints/TieredModifier";
 
 const factoryMap: Record<ModifierType, ModifierFactory> = {
 	[ModifierType.Unique]: UniqueModifier.create,

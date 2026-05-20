@@ -1,6 +1,6 @@
-import { h, render } from "preact";
-import { AbstractItem } from "@tme/library/src/item/AbstractItem";
+import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
 import { ItemDisplay } from "@tme/ui/src/components/ItemDisplay";
+import { h, render } from "preact";
 import styles from "./Tooltip.module.css";
 
 const GAP = 20;

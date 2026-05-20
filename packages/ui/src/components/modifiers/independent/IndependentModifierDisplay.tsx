@@ -1,10 +1,10 @@
-import { IndependentModifier } from "@tme/library/src/modifiers/blueprints/IndependentModifier";
-import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
-import { BreakpointSwap } from "../BreakpointSwap";
-import styles from "./IndependentModifierDisplay.module.css";
-import icon from "./Icon.svg";
-import { namespace } from "@tme/shared/src/namespaceConfig";
 import { Icon } from "@tme/library/src/item/icon";
+import type { IndependentModifier } from "@tme/library/src/modifiers/blueprints/IndependentModifier";
+import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
+import { namespace } from "@tme/shared/src/namespaceConfig";
+import { BreakpointSwap } from "../BreakpointSwap";
+import icon from "./Icon.svg";
+import styles from "./IndependentModifierDisplay.module.css";
 
 export interface IndependentModifierDisplayProps {
 	modifier: IndependentModifier;

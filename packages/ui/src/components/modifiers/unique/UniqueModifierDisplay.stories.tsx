@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/preact-vite";
+import { uniqueBloodthirstyFixture } from "../../../fixtures/modifiers/unique/uniqueBloodthirsty";
+import { uniqueSoulboundFixture } from "../../../fixtures/modifiers/unique/uniqueSoulbound";
+import { uniqueVenomousFixture } from "../../../fixtures/modifiers/unique/uniqueVenomous";
+import { uniqueWrathfulFixture } from "../../../fixtures/modifiers/unique/uniqueWrathful";
 import {
 	UniqueModifierDisplay,
 	type UniqueModifierDisplayProps,
 } from "./UniqueModifierDisplay";
-import { uniqueBloodthirstyFixture } from "../../../fixtures/modifiers/unique/uniqueBloodthirsty";
-import { uniqueSoulboundFixture } from "../../../fixtures/modifiers/unique/uniqueSoulbound";
-import { uniqueWrathfulFixture } from "../../../fixtures/modifiers/unique/uniqueWrathful";
-import { uniqueVenomousFixture } from "../../../fixtures/modifiers/unique/uniqueVenomous";
 
 const meta = {
 	title: "Components/Modifiers/Unique",

@@ -1,12 +1,12 @@
-import { Tag } from "../item/tag.types";
 import { AbstractItem } from "../item/AbstractItem";
-import { Equipment } from "../item/equipment/equipment.types";
-import { Rarity } from "../item/item.types";
-import { AppliedModifier, Modifier } from "../modifiers/Modifier";
 import { equipmentDetails } from "../item/equipment/equipment.details";
+import type { Equipment } from "../item/equipment/equipment.types";
 import { Item } from "../item/Item";
-import { getFolder } from "./getFolder";
+import type { Rarity } from "../item/item.types";
+import type { Tag } from "../item/tag.types";
+import type { AppliedModifier, Modifier } from "../modifiers/Modifier";
 import { Restriction } from "../modifiers/modifier.schema";
+import { getFolder } from "./getFolder";
 
 export class ForgeProcess {
 	public tags: Tag[] = [];
@@ -85,7 +85,7 @@ export class ForgeProcess {
 	public addToFolder = async (): Promise<void> => {
 		const folder = await getFolder();
 		const document = Item.create(this.abstractItem).export(folder.id);
-		// @ts-ignore
+		// @ts-expect-error
 		await game.items.documentClass.create(document);
 	};
 }

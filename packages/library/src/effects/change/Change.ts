@@ -1,9 +1,9 @@
+import { Logger } from "../../misc/Logger";
 import {
 	ChangeOperation,
-	ChangeSchema,
+	type ChangeSchema,
 	validateChangeSchema,
 } from "./change.schema";
-import { Logger } from "../../misc/Logger";
 
 export class Change {
 	public readonly definition: ChangeSchema;

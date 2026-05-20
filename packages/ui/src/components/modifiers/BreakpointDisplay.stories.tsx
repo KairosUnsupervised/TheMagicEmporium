@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/preact-vite";
-import { BreakpointDisplay } from "./BreakpointDisplay";
 import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
+import { BreakpointDisplay } from "./BreakpointDisplay";
 
 const meta: Meta = {
 	title: "Components/Modifiers/BreakpointDisplay",

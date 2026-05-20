@@ -1,7 +1,7 @@
-import { Validator } from "./Validator.ts";
-import { DeepPartial } from "@tme/shared/src/helpers/deepPartial.types.ts";
+import type { DeepPartial } from "@tme/shared/src/helpers/deepPartial.types.ts";
+import type { Item5e } from "@tme/shared/src/types/item5e.ts";
 import { Logger } from "../misc/Logger.ts";
-import { Item5e } from "@tme/shared/src/types/item5e.ts";
+import { Validator } from "./Validator.ts";
 
 const validator = new Validator();
 

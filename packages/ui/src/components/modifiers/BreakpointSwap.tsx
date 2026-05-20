@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "preact/hooks";
+import type { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
 import type { ComponentChildren } from "preact";
-import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
+import { useEffect, useRef, useState } from "preact/hooks";
 import { BreakpointDisplay } from "./BreakpointDisplay";
 
 export interface BreakpointSwapProps {

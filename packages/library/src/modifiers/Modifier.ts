@@ -1,9 +1,9 @@
-import { ActiveEffect } from "../effects/activeEffects/ActiveEffect";
-import { Feat } from "../effects/feats/Feat";
-import { Application, Flavor, ModifierType } from "./modifier.schema";
+import type { ActiveEffect } from "../effects/activeEffects/ActiveEffect";
+import type { Activity } from "../effects/activity/Activity";
+import type { Change } from "../effects/change/Change";
+import type { Feat } from "../effects/feats/Feat";
 import { DataManager } from "./dataManagers/DataManager";
-import { Change } from "../effects/change/Change";
-import { Activity } from "../effects/activity/Activity";
+import type { Application, Flavor, ModifierType } from "./modifier.schema";
 
 export type ModifierFactory = (props: CreateProps) => Modifier | null;
 

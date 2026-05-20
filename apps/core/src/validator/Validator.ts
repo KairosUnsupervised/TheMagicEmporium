@@ -1,13 +1,18 @@
+import type { ActiveEffect } from "@tme/library/src/effects/activeEffects/ActiveEffect.ts";
+import type { Feat } from "@tme/library/src/effects/feats/Feat.ts";
 import { AbstractItem } from "@tme/library/src/item/AbstractItem";
-import { Modifier } from "@tme/library/src/modifiers/Modifier";
-import { Actor5e, Effect5e } from "@tme/shared/src/types/actor5e.ts";
-import { BaseItem, Item5e, ItemType } from "@tme/shared/src/types/item5e.ts";
 import { Item } from "@tme/library/src/item/Item.ts";
-import { ActiveEffect } from "@tme/library/src/effects/activeEffects/ActiveEffect.ts";
-import { Feat } from "@tme/library/src/effects/feats/Feat.ts";
+import type { Modifier } from "@tme/library/src/modifiers/Modifier";
 import { registry } from "@tme/library/src/registry/Registry.ts";
-import { Logger } from "../misc/Logger.ts";
 import { namespace } from "@tme/shared/src/namespaceConfig.ts";
+import type { Actor5e, Effect5e } from "@tme/shared/src/types/actor5e.ts";
+import {
+	type BaseItem,
+	type Item5e,
+	ItemType,
+	type SubItem,
+} from "@tme/shared/src/types/item5e.ts";
+import { Logger } from "../misc/Logger.ts";
 
 interface QuickAccess {
 	item5e: Item5e<BaseItem>;
@@ -127,7 +132,7 @@ export class Validator {
 		);
 	};
 
-	private getMagicFeats = (actor: Actor5e) => {
+	private getMagicFeats = (actor: Actor5e): Item5e<SubItem>[] => {
 		return actor.items.filter((item: Item5e) => {
 			if (!item.flags[namespace.core.id]) {
 				return false;
@@ -138,10 +143,9 @@ export class Validator {
 			}
 
 			return false;
-		});
+		}) as Item5e<SubItem>[];
 	};
 
-	// TODO APPEND +N to feat / II / IV / V etc
 	private synchronizeFeats = async (feats: Feat[], actor: Actor5e) => {
 		let remaining = this.getMagicFeats(actor);
 
@@ -153,16 +157,14 @@ export class Validator {
 			 * If the feat exists, remove it from the remaining array
 			 */
 			const exists = remaining.find((item) => {
-				// @ts-ignore
-				return item.flags[namespace.core.id]?.id === id;
+				return item.flags[namespace.core.id].id === id;
 			});
 
 			if (exists) {
 				remaining = remaining.filter((item) => {
-					// @ts-ignore
-					return item.flags[namespace.core.id]?.id !== id;
+					return item.flags[namespace.core.id].id !== id;
 				});
-				return;
+				return null;
 			}
 
 			Logger.log("Creating SubItem", {
@@ -188,7 +190,6 @@ export class Validator {
 		 */
 		for (const item of remaining) {
 			Logger.log("Removing feat", { item });
-			// @ts-ignore
 			await actor.deleteEmbeddedDocuments("Item", [item.id]);
 		}
 	};
@@ -203,8 +204,7 @@ export class Validator {
 				return false;
 			}
 
-			// @ts-ignore
-			if (effect.flags[namespace.core.id].type === ItemType.TemporaryItem) {
+			if (effect.flags[namespace.core.id]?.type === ItemType.TemporaryItem) {
 				return true;
 			}
 
@@ -237,7 +237,7 @@ export class Validator {
 				remaining = remaining.filter((effect) => {
 					return effect.flags[namespace.core.id]?.id !== id;
 				});
-				return;
+				return null;
 			}
 
 			/**
@@ -256,7 +256,7 @@ export class Validator {
 		 */
 		for (const item of remaining) {
 			Logger.log("Removing effect", { item });
-			// @ts-ignore
+
 			await actor.deleteEmbeddedDocuments("ActiveEffect", [item.id]);
 		}
 	};

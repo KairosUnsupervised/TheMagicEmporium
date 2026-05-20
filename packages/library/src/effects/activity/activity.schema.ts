@@ -444,7 +444,7 @@ export const activityArraySchema = {
 };
 
 export const validateActivitySchema = ajv.compile<ActivitySchema>({
-	// @ts-ignore
+	// @ts-expect-error
 	type: "object",
 	...activitySchema,
 });

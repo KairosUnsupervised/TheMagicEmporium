@@ -1,15 +1,15 @@
 import Ajv from "ajv";
-import { BaseSchema, type CreateProps, Modifier } from "../Modifier";
+import { Activity } from "../../effects/activity/Activity";
+import { Change } from "../../effects/change/Change";
 import { Logger } from "../../misc/Logger";
+import { FloatDataManager } from "../dataManagers/FloatDataManager";
+import { type BaseSchema, type CreateProps, Modifier } from "../Modifier";
 import {
 	applicationSchema,
-	Flavor,
+	type Flavor,
 	flavorSchema,
 	ModifierType,
 } from "../modifier.schema";
-import { Change } from "../../effects/change/Change";
-import { Activity } from "../../effects/activity/Activity";
-import { FloatDataManager } from "../dataManagers/FloatDataManager";
 
 const ajv = new Ajv({ removeAdditional: true, useDefaults: true });
 

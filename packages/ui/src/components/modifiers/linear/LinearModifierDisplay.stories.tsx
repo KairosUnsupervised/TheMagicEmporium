@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/preact-vite";
+import { linearFortitudeFixture } from "../../../fixtures/modifiers/linear/linearFortitude";
+import { linearStealthFixture } from "../../../fixtures/modifiers/linear/linearStealth";
 import {
 	LinearModifierDisplay,
 	type LinearModifierDisplayProps,
 } from "./LinearModifierDisplay";
-import { linearStealthFixture } from "../../../fixtures/modifiers/linear/linearStealth";
-import { linearFortitudeFixture } from "../../../fixtures/modifiers/linear/linearFortitude";
 
 const meta = {
 	title: "Components/Modifiers/Linear",

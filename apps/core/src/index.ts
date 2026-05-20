@@ -1,13 +1,13 @@
-import { packLoader } from "./packLoader/PackLoader.ts";
-import { Logger } from "./misc/Logger.ts";
-import { namespace } from "@tme/shared/src/namespaceConfig";
-import { registerValidator } from "./validator/registerValidator";
-import { registry } from "@tme/library/src/registry/Registry.ts";
 import { Forge } from "@tme/library/src/forge/Forge.ts";
+import { registry } from "@tme/library/src/registry/Registry.ts";
+import { namespace } from "@tme/shared/src/namespaceConfig";
 import { registerFancyModifierIcons } from "./hooks/fancyModifierIcons.ts";
 import { registerRarityBorderColors } from "./hooks/rarityBorderColors.ts";
 import { registerTooltips } from "./hooks/tooltips.ts";
+import { Logger } from "./misc/Logger.ts";
+import { packLoader } from "./packLoader/PackLoader.ts";
 import { Utility } from "./utility/Utility.ts";
+import { registerValidator } from "./validator/registerValidator";
 
 // TODO move type
 window.Hooks.once("init", async () => {
@@ -37,9 +37,11 @@ window.Hooks.once("ready", async () => {
 	registerTooltips();
 });
 
-// @ts-ignore
+// @ts-expect-error
 window.debug = Forge;
 // TODO FORGE API
 
 // TODO MAKE TAGS TO STRINGS
 // TODO Let people zoom the ui in / out
+// TODO TEMPLATE CONFIG, at least 2 primary
+// TODO TEMPLATE FLOAT LUCK

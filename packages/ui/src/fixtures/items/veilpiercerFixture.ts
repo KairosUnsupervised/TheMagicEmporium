@@ -1,12 +1,12 @@
 import { AbstractItem } from "@tme/library/src/item/AbstractItem";
 import { Equipment } from "@tme/library/src/item/equipment/equipment.types";
 import { Rarity } from "@tme/library/src/item/item.types";
-import { uniqueVenomousFixture } from "../modifiers/unique/uniqueVenomous";
-import { uniqueWrathfulFixture } from "../modifiers/unique/uniqueWrathful";
-import { tieredFuryFixture } from "../modifiers/tiered/tieredFury";
-import { tieredStealthFixture } from "../modifiers/tiered/tieredStealth";
 import { independentShadowwalkerFixture } from "../modifiers/independent/independentShadowwalker";
 import { linearFortitudeFixture } from "../modifiers/linear/linearFortitude";
+import { tieredFuryFixture } from "../modifiers/tiered/tieredFury";
+import { tieredStealthFixture } from "../modifiers/tiered/tieredStealth";
+import { uniqueVenomousFixture } from "../modifiers/unique/uniqueVenomous";
+import { uniqueWrathfulFixture } from "../modifiers/unique/uniqueWrathful";
 
 export const veilpiercerFixture = new AbstractItem();
 veilpiercerFixture.name = "Legendary Veilpiercer";

@@ -1,7 +1,7 @@
-import { registry } from "@tme/library/src/registry/Registry.ts";
-import { Restriction } from "@tme/library/src/modifiers/modifier.schema.ts";
-import { Tag } from "@tme/library/src/item/tag.types.ts";
 import { equipmentDetails } from "@tme/library/src/item/equipment/equipment.details.ts";
+import { Tag } from "@tme/library/src/item/tag.types.ts";
+import { Restriction } from "@tme/library/src/modifiers/modifier.schema.ts";
+import { registry } from "@tme/library/src/registry/Registry.ts";
 
 export class Utility {
 	private registry = registry;

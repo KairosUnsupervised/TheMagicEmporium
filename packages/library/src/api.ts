@@ -1,5 +1,5 @@
-import { Registry } from "./registry/Registry";
 import { namespace } from "@tme/shared/src/namespaceConfig";
+import type { Registry } from "./registry/Registry";
 
 export interface CoreApi {
 	Registry: Registry;

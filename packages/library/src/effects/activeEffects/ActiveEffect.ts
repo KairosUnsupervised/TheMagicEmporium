@@ -1,13 +1,13 @@
 import { namespace } from "@tme/shared/src/namespaceConfig";
 import { ItemType } from "@tme/shared/src/types/item5e";
+import { Icon } from "../../item/icon";
+import { Logger } from "../../misc/Logger";
+import type { Flavor } from "../../modifiers/modifier.schema";
 import {
-	ActiveEffectSchema,
+	type ActiveEffectSchema,
 	ModeSchema,
 	validateActiveEffectSchema,
 } from "./activeEffect.schema";
-import { Icon } from "../../item/icon";
-import { Logger } from "../../misc/Logger";
-import { Flavor } from "../../modifiers/modifier.schema";
 
 export enum Mode {
 	/**

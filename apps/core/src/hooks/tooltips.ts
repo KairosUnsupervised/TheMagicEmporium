@@ -1,7 +1,7 @@
-import { Actor5e } from "@tme/shared/src/types/actor5e.ts";
-import { namespace } from "@tme/shared/src/namespaceConfig.ts";
-import { ItemType } from "@tme/shared/src/types/item5e.ts";
 import { AbstractItem } from "@tme/library/src/item/AbstractItem";
+import { namespace } from "@tme/shared/src/namespaceConfig.ts";
+import type { Actor5e } from "@tme/shared/src/types/actor5e.ts";
+import { ItemType } from "@tme/shared/src/types/item5e.ts";
 import { Tooltip } from "../tooltip/Tooltip.ts";
 
 const tooltip = new Tooltip();

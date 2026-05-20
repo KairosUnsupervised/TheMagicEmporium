@@ -8,7 +8,8 @@
 		"apps/*"
 	],
 	"scripts": {
-		"format": "bun run --filter '*' format"
+		"format": "bun run --filter '*' format",
+		"check": "bun run --filter '*' check"
 	},
 	"repository": {
 		"type": "git",

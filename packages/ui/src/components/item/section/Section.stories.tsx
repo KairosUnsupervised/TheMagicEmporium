@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/preact-vite";
-import { Section, type SectionProps } from "./Section";
 import { veilpiercerFixture } from "../../../fixtures/items/veilpiercerFixture";
+import { Section, type SectionProps } from "./Section";
 
 const meta = {
 	title: "Components/Item/Section",

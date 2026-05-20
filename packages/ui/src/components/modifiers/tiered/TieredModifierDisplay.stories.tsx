@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/preact-vite";
+import { tieredFuryFixture } from "../../../fixtures/modifiers/tiered/tieredFury";
+import { tieredStealthFixture } from "../../../fixtures/modifiers/tiered/tieredStealth";
 import {
 	TieredModifierDisplay,
 	type TieredModifierDisplayProps,
 } from "./TieredModifierDisplay";
-import { tieredStealthFixture } from "../../../fixtures/modifiers/tiered/tieredStealth";
-import { tieredFuryFixture } from "../../../fixtures/modifiers/tiered/tieredFury";
 
 const meta = {
 	title: "Components/Modifiers/Tiered",

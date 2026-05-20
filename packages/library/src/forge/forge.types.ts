@@ -1,5 +1,5 @@
-import { Rarity } from "../item/item.types";
-import { Restriction } from "../modifiers/modifier.schema";
+import type { Rarity } from "../item/item.types";
+import type { Restriction } from "../modifiers/modifier.schema";
 
 export type FloatBias = "NORMAL" | "LUCKY" | "UNLUCKY";
 

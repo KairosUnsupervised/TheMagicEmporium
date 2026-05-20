@@ -1,13 +1,13 @@
-import { TieredModifier } from "@tme/library/src/modifiers/blueprints/TieredModifier";
+import { Icon } from "@tme/library/src/item/icon";
+import type { TieredModifier } from "@tme/library/src/modifiers/blueprints/TieredModifier";
 import {
-	Flavor,
+	type Flavor,
 	ModifierType,
 } from "@tme/library/src/modifiers/modifier.schema";
-import { BreakpointSwap } from "../BreakpointSwap";
-import styles from "./TieredModifierDisplay.module.css";
-import icon from "./Icon.svg";
 import { namespace } from "@tme/shared/src/namespaceConfig";
-import { Icon } from "@tme/library/src/item/icon";
+import { BreakpointSwap } from "../BreakpointSwap";
+import icon from "./Icon.svg";
+import styles from "./TieredModifierDisplay.module.css";
 
 const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 

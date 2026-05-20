@@ -1,7 +1,7 @@
-import { AbstractItem } from "@tme/library/src/item/AbstractItem";
+import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
+import styles from "./ItemDisplay.module.css";
 import { Header } from "./item/header/Header";
 import { Section } from "./item/section/Section";
-import styles from "./ItemDisplay.module.css";
 
 export interface ItemDisplayProps {
 	item: AbstractItem;

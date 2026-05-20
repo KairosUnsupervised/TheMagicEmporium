@@ -1,16 +1,16 @@
-import { BaseSchema, type CreateProps, Modifier } from "../Modifier";
+import Ajv from "ajv";
+import { ActiveEffect } from "../../effects/activeEffects/ActiveEffect";
+import { Feat } from "../../effects/feats/Feat";
+import { Icon } from "../../item/icon";
+import { Logger } from "../../misc/Logger";
+import { FloatDataManager } from "../dataManagers/FloatDataManager";
+import { type BaseSchema, type CreateProps, Modifier } from "../Modifier";
 import {
 	applicationSchema,
-	Flavor,
+	type Flavor,
 	flavorSchema,
 	ModifierType,
 } from "../modifier.schema";
-import Ajv from "ajv";
-import { Logger } from "../../misc/Logger";
-import { ActiveEffect } from "../../effects/activeEffects/ActiveEffect";
-import { Feat } from "../../effects/feats/Feat";
-import { FloatDataManager } from "../dataManagers/FloatDataManager";
-import { Icon } from "../../item/icon";
 
 const ajv = new Ajv({ removeAdditional: true, useDefaults: true });
 

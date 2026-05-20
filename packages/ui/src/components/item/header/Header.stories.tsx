@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/preact-vite";
-import { Header, type HeaderProps } from "./Header";
-import { veilpiercerFixture } from "../../../fixtures/items/veilpiercerFixture";
-import { Rarity } from "@tme/library/src/item/item.types";
 import { Equipment } from "@tme/library/src/item/equipment/equipment.types";
+import { Rarity } from "@tme/library/src/item/item.types";
+import { veilpiercerFixture } from "../../../fixtures/items/veilpiercerFixture";
+import { Header, type HeaderProps } from "./Header";
 
 const meta = {
 	title: "Components/Item/Header",

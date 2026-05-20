@@ -1,7 +1,7 @@
 import Ajv from "ajv";
 import {
+	type ActivitySchema,
 	activityArraySchema,
-	ActivitySchema,
 } from "../activity/activity.schema";
 
 const ajv = new Ajv({ removeAdditional: false, strict: false });

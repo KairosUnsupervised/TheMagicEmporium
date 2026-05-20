@@ -1,11 +1,15 @@
-import { merge } from "ts-deepmerge";
-import { FeatSchema, FeatSystem, validateFeatSchema } from "./feat.schema";
-import { Activity } from "../activity/Activity";
-import { ActivitySchema } from "../activity/activity.schema";
 import { namespace } from "@tme/shared/src/namespaceConfig";
+import { merge } from "ts-deepmerge";
 import { Icon } from "../../item/icon";
 import { Logger } from "../../misc/Logger";
-import { Flavor } from "../../modifiers/modifier.schema";
+import type { Flavor } from "../../modifiers/modifier.schema";
+import { Activity } from "../activity/Activity";
+import type { ActivitySchema } from "../activity/activity.schema";
+import {
+	type FeatSchema,
+	type FeatSystem,
+	validateFeatSchema,
+} from "./feat.schema";
 
 type DocumentSystem = Omit<FeatSystem, "activities"> & {
 	type: { value: "feat" };

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/preact-vite";
-import { UniqueModifierDisplay } from "./unique/UniqueModifierDisplay";
-import { TieredModifierDisplay } from "./tiered/TieredModifierDisplay";
+import { tieredFuryFixture } from "../../fixtures/modifiers/tiered/tieredFury";
 import { uniqueBloodthirstyFixture } from "../../fixtures/modifiers/unique/uniqueBloodthirsty";
 import { uniqueVenomousFixture } from "../../fixtures/modifiers/unique/uniqueVenomous";
-import { tieredFuryFixture } from "../../fixtures/modifiers/tiered/tieredFury";
+import { TieredModifierDisplay } from "./tiered/TieredModifierDisplay";
+import { UniqueModifierDisplay } from "./unique/UniqueModifierDisplay";
 
 const meta: Meta = {
 	title: "Components/Modifiers/BreakpointSwap",

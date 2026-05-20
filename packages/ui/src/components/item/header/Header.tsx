@@ -1,5 +1,5 @@
+import type { Equipment } from "@tme/library/src/item/equipment/equipment.types";
 import { Rarity } from "@tme/library/src/item/item.types";
-import { Equipment } from "@tme/library/src/item/equipment/equipment.types";
 import styles from "./Header.module.css";
 
 export interface HeaderProps {
