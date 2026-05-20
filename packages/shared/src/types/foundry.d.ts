@@ -1,9 +1,7 @@
-interface Window {
-	Hooks: {
-		on: any;
-		once: any;
-	};
-}
+declare const Hooks: {
+	on: (hook: string, any) => void;
+	once: (hook: string, any) => void;
+};
 
 declare class Item {
 	static create(data: object, options?: object): Promise<Item | undefined>;

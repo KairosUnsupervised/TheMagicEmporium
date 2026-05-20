@@ -1,7 +1,7 @@
 import type { Actor5e } from "@tme/shared/src/types/actor5e.ts";
 
 export const registerRarityBorderColors = () => {
-	window.Hooks.on(
+	Hooks.on(
 		"renderActorSheetV2",
 		(_sheet: unknown, html: HTMLElement, actor: Actor5e, _token: unknown) => {
 			html.querySelectorAll(".item").forEach((_element: Element) => {

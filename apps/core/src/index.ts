@@ -10,7 +10,7 @@ import { Utility } from "./utility/Utility.ts";
 import { registerValidator } from "./validator/registerValidator";
 
 // TODO move type
-window.Hooks.once("init", async () => {
+Hooks.once("init", async () => {
 	Logger.log("Initializing");
 
 	const packs = await packLoader.load();
@@ -30,7 +30,7 @@ window.Hooks.once("init", async () => {
 	};
 });
 
-window.Hooks.once("ready", async () => {
+Hooks.once("ready", async () => {
 	registerValidator();
 	registerFancyModifierIcons();
 	registerRarityBorderColors();

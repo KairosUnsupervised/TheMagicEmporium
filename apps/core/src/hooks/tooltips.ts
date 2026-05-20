@@ -7,7 +7,7 @@ import { Tooltip } from "../tooltip/Tooltip.ts";
 const tooltip = new Tooltip();
 
 export const registerTooltips = () => {
-	window.Hooks.on(
+	Hooks.on(
 		"renderActorSheetV2",
 		(_sheet: unknown, html: HTMLElement, actor: Actor5e, _token: unknown) => {
 			const magicItems = actor.items.filter((item) => {

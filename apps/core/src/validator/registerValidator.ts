@@ -6,7 +6,7 @@ import { Validator } from "./Validator.ts";
 const validator = new Validator();
 
 export const registerValidator = () => {
-	window.Hooks.on(
+	Hooks.on(
 		"updateItem",
 		(
 			item: Item5e,

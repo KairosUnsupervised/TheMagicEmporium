@@ -4,7 +4,7 @@ import { namespace } from "@tme/shared/src/namespaceConfig.ts";
  * Renders modifiers icons on character sheets without the gold border and background
  */
 export const registerFancyModifierIcons = () => {
-	window.Hooks.on(
+	Hooks.on(
 		"renderActorSheetV2",
 		(
 			_sheet: unknown,
