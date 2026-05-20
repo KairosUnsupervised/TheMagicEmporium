@@ -78,18 +78,25 @@ export interface Item5e<Flag = SubItem | BaseItem> {
 				types: string[];
 			};
 		};
+		// biome-ignore lint/suspicious/noExplicitAny: FoundryVTT to be defined
 		type?: any;
+		// biome-ignore lint/suspicious/noExplicitAny: FoundryVTT to be defined
 		armor?: any;
+		// biome-ignore lint/suspicious/noExplicitAny: FoundryVTT to be defined
 		strength?: any;
+		// biome-ignore lint/suspicious/noExplicitAny: FoundryVTT to be defined
 		actionType?: any;
+		// biome-ignore lint/suspicious/noExplicitAny: FoundryVTT to be defined
 		activation?: any;
+		// biome-ignore lint/suspicious/noExplicitAny: FoundryVTT to be defined
 		range?: any;
+		// biome-ignore lint/suspicious/noExplicitAny: FoundryVTT to be defined
 		ability?: any;
 	};
 	flags: {
 		[namespace.core.id]: Flag;
 	};
 	actor: Actor5e;
-	update: (data: any) => Promise<void>;
+	update: (data: Partial<Item5e<Flag>>) => Promise<void>;
 	delete: () => Promise<void>;
 }

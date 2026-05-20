@@ -28,8 +28,11 @@ export interface Actor5e {
 		};
 	};
 	update: (data: DeepPartial<Actor5e>) => Promise<void>;
+	// biome-ignore lint/suspicious/noExplicitAny: FoundryVTT
 	createEmbeddedDocuments: (type: string, data: any) => Promise<Item5e[]>;
 	deleteEmbeddedDocuments: (type: string, ids: string[]) => Promise<void>;
+	// biome-ignore lint/suspicious/noExplicitAny: FoundryVTT
 	setFlag: (module: string, key: string, data: any) => Promise<Actor5e>;
+	// biome-ignore lint/suspicious/noExplicitAny: FoundryVTT
 	getFlag: (module: string, key: string) => undefined | any;
 }
