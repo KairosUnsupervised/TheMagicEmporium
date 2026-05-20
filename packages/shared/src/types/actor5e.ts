@@ -7,8 +7,7 @@ export interface Effect5e {
 	flags: {
 		[namespace.core.id]?: {
 			type: ItemType.TemporaryItem;
-			// TODO SHOULD THIS BE REQUIRED ?
-			id?: string;
+			id: string;
 		};
 	};
 }
