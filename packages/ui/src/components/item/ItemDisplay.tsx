@@ -1,10 +1,12 @@
+import { useMemo } from "preact/hooks";
 import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
 import styles from "./ItemDisplay.module.css";
-import { Header } from "./item/header/Header";
-import { Section } from "./item/section/Section";
+import { Header } from "./header/Header";
+import { Section } from "./section/Section";
 
 export interface ItemDisplayProps {
 	item: AbstractItem;
+	image?: string;
 }
 
 const Defs = () => (
@@ -90,28 +92,46 @@ const Corner = (props: CornerProps) => (
 	</svg>
 );
 
-export const ItemDisplay = (props: ItemDisplayProps) => (
-	<div>
-		<Defs />
-		<div class={styles.frame}>
-			<svg class={styles.lattice} preserveAspectRatio="xMidYMid slice">
-				<rect width="100%" height="100%" fill="url(#tme-hex-lat)" />
-			</svg>
-			<div class={styles.card}>
-				<Corner rotation={0} class={styles.cornerTL} />
-				<Corner rotation={90} class={styles.cornerTR} />
-				<Corner rotation={180} class={styles.cornerBR} />
-				<Corner rotation={270} class={styles.cornerBL} />
-				<Header
-					name={props.item.name}
-					rarity={props.item.rarity}
-					base={props.item.base}
-					currency={props.item.currency}
-				/>
-				<Section title="PRIMARY" modifiers={props.item.primary} />
-				<Section title="SECONDARY" modifiers={props.item.secondary} />
-				<Section title="TERTIARY" modifiers={props.item.tertiary} />
+export const ItemDisplay = (props: ItemDisplayProps) => {
+	const background = useMemo(() => {
+		if (!props.image) {
+			return null;
+		}
+
+		return (
+			<div
+				class={styles.background}
+				style={{ backgroundImage: `url(${props.image})` }}
+			>
+				<div class={styles.backgroundFilter} />
+			</div>
+		);
+	}, [props.image]);
+
+	return (
+		<div>
+			<Defs />
+			<div class={styles.frame}>
+				<svg class={styles.lattice} preserveAspectRatio="xMidYMid slice">
+					<rect width="100%" height="100%" fill="url(#tme-hex-lat)" />
+				</svg>
+				<div class={styles.card}>
+					{background}
+					<Corner rotation={0} class={styles.cornerTL} />
+					<Corner rotation={90} class={styles.cornerTR} />
+					<Corner rotation={180} class={styles.cornerBR} />
+					<Corner rotation={270} class={styles.cornerBL} />
+					<Header
+						name={props.item.name}
+						rarity={props.item.rarity}
+						base={props.item.base}
+						currency={props.item.currency}
+					/>
+					<Section title="PRIMARY" modifiers={props.item.primary} />
+					<Section title="SECONDARY" modifiers={props.item.secondary} />
+					<Section title="TERTIARY" modifiers={props.item.tertiary} />
+				</div>
 			</div>
 		</div>
-	</div>
-);
+	);
+};

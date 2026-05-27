@@ -9,7 +9,6 @@ import { packLoader } from "./packLoader/PackLoader.ts";
 import { Utility } from "./utility/Utility.ts";
 import { registerValidator } from "./validator/registerValidator";
 
-// TODO move type
 Hooks.once("init", async () => {
 	Logger.log("Initializing");
 

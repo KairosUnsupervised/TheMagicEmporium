@@ -32,6 +32,7 @@
 
 .card {
 	position: relative;
+	isolation: isolate;
 	width: 460px;
 	box-sizing: border-box;
 	padding: 28px;
@@ -40,6 +41,38 @@
 	box-shadow:
 		inset 0 0 0 1px rgba(212, 166, 74, 0.35),
 		inset 0 0 60px rgba(212, 166, 74, 0.06),
+		0 30px 80px rgba(0, 0, 0, 0.55),
+		0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	z-index: -1;
+
+	background-position: center center;
+	background-size: cover;
+}
+
+.backgroundFilter {
+	width: 100%;
+	height: 100%;
+	backdrop-filter: blur(16px) brightness(0.25);
+	background:
+		radial-gradient(
+			ellipse 110% 100% at 50% 50%,
+			transparent 35%,
+			rgba(5, 7, 20, 0.7) 100%
+		);
+
+	box-shadow:
+		inset 0 0 0 1px rgba(212, 166, 74, 0.35),
+		inset 0 0 60px rgba(212, 166, 74, 0.06),
+		inset 0 0 80px rgba(0, 0, 0, 1),
 		0 30px 80px rgba(0, 0, 0, 0.55),
 		0 0 0 1px rgba(0, 0, 0, 0.5);
 }

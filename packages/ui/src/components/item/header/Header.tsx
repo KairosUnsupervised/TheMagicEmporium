@@ -1,3 +1,4 @@
+import { useMemo } from "preact/hooks";
 import type { Equipment } from "@tme/library/src/item/equipment/equipment.types";
 import { Rarity } from "@tme/library/src/item/item.types";
 import styles from "./Header.module.css";
@@ -37,15 +38,21 @@ export const Header = (props: HeaderProps) => {
 	const color = RARITY_COLOR[props.rarity];
 	const shadow = RARITY_SHADOW[props.rarity];
 
+	const strippedName = useMemo(() => {
+		const prefix = toDisplayName(props.rarity);
+		if (props.name.startsWith(prefix)) {
+			return props.name.slice(prefix.length).trim();
+		}
+		return props.name;
+	}, [props.name, props.rarity]);
+
 	return (
-		<div class={styles.root}>
-			<div
-				class={styles.rarity}
-				style={{ "--rarity-color": color, "--rarity-shadow": shadow } as never}
-			>
-				{toDisplayName(props.rarity)}
-			</div>
-			<div class={styles.name}>{props.name}</div>
+		<div
+			class={styles.root}
+			style={{ "--rarity-color": color, "--rarity-shadow": shadow } as never}
+		>
+			<div class={styles.rarity}>{toDisplayName(props.rarity)}</div>
+			<div class={styles.name}>{strippedName}</div>
 			<div class={styles.meta}>
 				<span class={styles.metaText}>{toDisplayName(props.base)}</span>
 				<svg width="4" height="4" viewBox="0 0 4 4">

@@ -63,15 +63,15 @@
 
 .divider {
 	position: absolute;
-	left: 54px;
+	left: 0;
 	right: 0;
 	top: 0;
 	height: 1px;
 	background: linear-gradient(
 		90deg,
 		rgba(212, 166, 74, 0),
-		rgba(212, 166, 74, 0.25) 30%,
-		rgba(212, 166, 74, 0.25) 70%,
+		rgba(212, 166, 74, 0.45) 30%,
+		rgba(212, 166, 74, 0.45) 70%,
 		rgba(212, 166, 74, 0)
 	);
 }
