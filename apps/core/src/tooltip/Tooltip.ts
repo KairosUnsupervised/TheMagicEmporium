@@ -1,7 +1,8 @@
 import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
-import { ItemDisplay } from "@tme/ui/src/components/ItemDisplay";
-import { h, render } from "preact";
+import { createElement } from "react";
+import { createRoot, type Root } from "react-dom/client";
 import styles from "./Tooltip.module.css";
+import { ItemDisplay } from "@tme/ui/src/components/item/ItemDisplay.tsx";
 
 const GAP = 20;
 const TOOLTIP_WIDTH = 516;
@@ -14,6 +15,7 @@ export class Tooltip {
 	private currentTop: number = 0;
 	private readonly container: HTMLDivElement;
 	private readonly contentDiv: HTMLDivElement;
+	private root: Root | null = null;
 
 	constructor() {
 		this.container = document.createElement("div");
@@ -95,7 +97,10 @@ export class Tooltip {
 	};
 
 	public setContent = (item: AbstractItem): void => {
-		render(h(ItemDisplay, { item }), this.contentDiv);
+		if (!this.root) {
+			this.root = createRoot(this.contentDiv);
+		}
+		this.root.render(createElement(ItemDisplay, { item }));
 	};
 
 	public showNextTo = (e: MouseEvent, item: AbstractItem): void => {
