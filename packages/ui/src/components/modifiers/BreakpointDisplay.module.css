@@ -5,11 +5,20 @@
 }
 
 .slot {
+	appearance: none;
+	background: none;
+	border: none;
+	padding: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 2px;
 	cursor: pointer;
+}
+
+.dot {
+	overflow: visible;
+	transition: transform 0.15s ease;
 }
 
 .slot:hover .dot {
@@ -22,11 +31,6 @@
 
 .chevronHidden {
 	visibility: hidden;
-}
-
-.dot {
-	overflow: visible;
-	transition: transform 0.15s ease;
 }
 
 .glow {

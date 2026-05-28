@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { AbstractItem } from "@tme/library/src/item/AbstractItem";
-import type { AppliedModifier } from "@tme/library/src/modifiers/Modifier";
 import { Equipment } from "@tme/library/src/item/equipment/equipment.types";
 import { Rarity } from "@tme/library/src/item/item.types";
+import type { AppliedModifier } from "@tme/library/src/modifiers/Modifier";
+import { veilpiercerFixture } from "../../fixtures/items/veilpiercerFixture";
 import { independentShadowwalkerFixture } from "../../fixtures/modifiers/independent/independentShadowwalker";
 import { linearFortitudeFixture } from "../../fixtures/modifiers/linear/linearFortitude";
 import { tieredFuryFixture } from "../../fixtures/modifiers/tiered/tieredFury";
 import { tieredStealthFixture } from "../../fixtures/modifiers/tiered/tieredStealth";
 import { uniqueVenomousFixture } from "../../fixtures/modifiers/unique/uniqueVenomous";
 import { uniqueWrathfulFixture } from "../../fixtures/modifiers/unique/uniqueWrathful";
-import { veilpiercerFixture } from "../../fixtures/items/veilpiercerFixture";
 import { ItemDisplay, type ItemDisplayProps } from "./ItemDisplay";
 import boundlessSpirit from "./img/BoundlessSpirit.jpg";
 

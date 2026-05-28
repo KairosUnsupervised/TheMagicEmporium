@@ -1,6 +1,6 @@
-import { useMemo } from "react";
 import type { Equipment } from "@tme/library/src/item/equipment/equipment.types";
 import { Rarity } from "@tme/library/src/item/item.types";
+import { useMemo } from "react";
 import styles from "./Header.module.css";
 
 export interface HeaderProps {
@@ -32,7 +32,7 @@ const toDisplayName = (value: string) =>
 		.map((w) => w[0] + w.slice(1).toLowerCase())
 		.join(" ");
 
-const formatCurrency = (gp: number) => gp.toLocaleString("en-US") + " gp";
+const formatCurrency = (gp: number) => `${gp.toLocaleString("en-US")} gp`;
 
 export const Header = (props: HeaderProps) => {
 	const color = RARITY_COLOR[props.rarity];
@@ -55,10 +55,12 @@ export const Header = (props: HeaderProps) => {
 			<div className={styles.name}>{strippedName}</div>
 			<div className={styles.meta}>
 				<span className={styles.metaText}>{toDisplayName(props.base)}</span>
-				<svg width="4" height="4" viewBox="0 0 4 4">
+				<svg aria-hidden="true" width="4" height="4" viewBox="0 0 4 4">
 					<circle cx="2" cy="2" r="2" fill="#5a4e32" />
 				</svg>
-				<span className={styles.metaText}>{formatCurrency(props.currency)}</span>
+				<span className={styles.metaText}>
+					{formatCurrency(props.currency)}
+				</span>
 			</div>
 		</div>
 	);

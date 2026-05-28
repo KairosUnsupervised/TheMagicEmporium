@@ -1,7 +1,7 @@
-import { type CSSProperties, useMemo } from "react";
 import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
-import styles from "./ItemDisplay.module.css";
+import { type CSSProperties, useMemo } from "react";
 import { Header } from "./header/Header";
+import styles from "./ItemDisplay.module.css";
 import { Section } from "./section/Section";
 
 export interface ItemDisplayProps {
@@ -13,6 +13,7 @@ const Defs = () => (
 	<svg
 		width="0"
 		height="0"
+		aria-hidden="true"
 		style={{ position: "absolute", overflow: "hidden" }}
 	>
 		<defs>
@@ -43,6 +44,7 @@ const Corner = (props: CornerProps) => (
 		width="72"
 		height="72"
 		viewBox="0 0 64 64"
+		aria-hidden="true"
 		className={`${styles.corner} ${props.className}`}
 		style={{ "--rotation": `${props.rotation}deg` } as CSSProperties}
 	>
@@ -116,7 +118,11 @@ export const ItemDisplay = (props: ItemDisplayProps) => {
 		<div>
 			<Defs />
 			<div className={styles.frame}>
-				<svg className={styles.lattice} preserveAspectRatio="xMidYMid slice">
+				<svg
+					aria-hidden="true"
+					className={styles.lattice}
+					preserveAspectRatio="xMidYMid slice"
+				>
 					<rect width="100%" height="100%" fill="url(#tme-hex-lat)" />
 				</svg>
 				<div className={styles.card}>

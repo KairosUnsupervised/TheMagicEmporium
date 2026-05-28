@@ -1,11 +1,11 @@
 import type { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
 import {
 	type ReactNode,
-	ViewTransition,
 	startTransition,
 	useEffect,
 	useRef,
 	useState,
+	ViewTransition,
 } from "react";
 import { BreakpointDisplay } from "./BreakpointDisplay";
 

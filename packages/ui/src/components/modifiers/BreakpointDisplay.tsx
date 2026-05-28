@@ -1,5 +1,5 @@
-import type { CSSProperties } from "react";
 import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
+import type { CSSProperties } from "react";
 import styles from "./BreakpointDisplay.module.css";
 
 export interface BreakpointDisplayProps {
@@ -54,6 +54,7 @@ export const BreakpointDisplay = (props: BreakpointDisplayProps) => {
 				if (active)
 					return (
 						<svg
+							aria-hidden="true"
 							className={styles.dot}
 							width={size}
 							height={size}
@@ -70,6 +71,7 @@ export const BreakpointDisplay = (props: BreakpointDisplayProps) => {
 				if (index < props.defaultActiveIndex)
 					return (
 						<svg
+							aria-hidden="true"
 							className={styles.dot}
 							width={size}
 							height={size}
@@ -81,6 +83,7 @@ export const BreakpointDisplay = (props: BreakpointDisplayProps) => {
 					);
 				return (
 					<svg
+						aria-hidden="true"
 						className={styles.dot}
 						width={size}
 						height={size}
@@ -99,6 +102,7 @@ export const BreakpointDisplay = (props: BreakpointDisplayProps) => {
 			if (active)
 				return (
 					<svg
+						aria-hidden="true"
 						className={styles.dot}
 						width={size}
 						height={size}
@@ -116,6 +120,7 @@ export const BreakpointDisplay = (props: BreakpointDisplayProps) => {
 				);
 			return (
 				<svg
+					aria-hidden="true"
 					className={styles.dot}
 					width={size}
 					height={size}
@@ -135,12 +140,19 @@ export const BreakpointDisplay = (props: BreakpointDisplayProps) => {
 		})();
 
 		return (
-			<div
+			<button
 				key={`${index}-${active}-${preview}`}
+				type="button"
 				className={styles.slot}
 				onClick={() => props.onSelect?.(index)}
 			>
-				<svg className={chevronClass} width="9" height="5" viewBox="0 0 9 5">
+				<svg
+					aria-hidden="true"
+					className={chevronClass}
+					width="9"
+					height="5"
+					viewBox="0 0 9 5"
+				>
 					<polyline
 						points="1,1 4.5,4 8,1"
 						fill="none"
@@ -151,7 +163,13 @@ export const BreakpointDisplay = (props: BreakpointDisplayProps) => {
 					/>
 				</svg>
 				{dot}
-				<svg className={chevronClass} width="9" height="5" viewBox="0 0 9 5">
+				<svg
+					aria-hidden="true"
+					className={chevronClass}
+					width="9"
+					height="5"
+					viewBox="0 0 9 5"
+				>
 					<polyline
 						points="1,4 4.5,1 8,4"
 						fill="none"
@@ -161,7 +179,7 @@ export const BreakpointDisplay = (props: BreakpointDisplayProps) => {
 						strokeLinejoin="round"
 					/>
 				</svg>
-			</div>
+			</button>
 		);
 	});
 
