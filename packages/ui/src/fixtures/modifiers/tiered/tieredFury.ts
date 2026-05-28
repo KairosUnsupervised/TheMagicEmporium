@@ -18,6 +18,7 @@ export const tieredFuryFixture = new TieredModifier({
 				title: "Fury I",
 				description: "Your melee attacks deal an extra 1 fire damage.",
 				disclaimer: null,
+				background: null,
 			},
 			activeEffects: [],
 			feats: [],
@@ -28,6 +29,7 @@ export const tieredFuryFixture = new TieredModifier({
 				title: "Fury II",
 				description: "Your melee attacks deal an extra 1d4 fire damage.",
 				disclaimer: null,
+				background: null,
 			},
 			activeEffects: [],
 			feats: [],
@@ -40,6 +42,7 @@ export const tieredFuryFixture = new TieredModifier({
 					"Your melee attacks deal an extra 1d6 fire damage and ignite the target.",
 				disclaimer:
 					"Ignited targets take 1d4 fire damage at the start of their turn.",
+				background: null,
 			},
 			activeEffects: [],
 			feats: [],
@@ -52,6 +55,7 @@ export const tieredFuryFixture = new TieredModifier({
 					"Your melee attacks deal an extra 1d10 fire damage, ignite the target, and push it 5 feet.",
 				disclaimer:
 					"Ignited targets take 1d4 fire damage at the start of their turn.",
+				background: null,
 			},
 			activeEffects: [],
 			feats: [],

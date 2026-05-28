@@ -12,6 +12,7 @@ export const independentEdibleFixture = new IndependentModifier({
 				title: "Edible",
 				description: "Despite its properties, this item is edible.",
 				disclaimer: null,
+				background: null,
 			},
 			changes: [],
 			activities: [],

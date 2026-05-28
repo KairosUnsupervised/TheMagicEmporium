@@ -146,4 +146,11 @@ export class TieredModifier extends Modifier<Schema> {
 		}
 		return Feat.createMultiple(tier.feats, tier.flavor, Icon.Tiered);
 	};
+
+	public override getBackground = (data: unknown): string | null => {
+		return (
+			this.resolveTier(this.dataManager.getBreakpoint(data).value).flavor
+				.background ?? null
+		);
+	};
 }

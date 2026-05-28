@@ -9,4 +9,5 @@ export interface Template {
 	points: number;
 	nonFloatCost: number;
 	floatBias: FloatBias;
+	backgroundEligible: boolean;
 }

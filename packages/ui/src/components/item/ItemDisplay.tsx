@@ -6,7 +6,6 @@ import { Section } from "./section/Section";
 
 export interface ItemDisplayProps {
 	item: AbstractItem;
-	image?: string;
 }
 
 const Defs = () => (
@@ -100,19 +99,18 @@ const Corner = (props: CornerProps) => (
 
 export const ItemDisplay = (props: ItemDisplayProps) => {
 	const background = useMemo(() => {
-		if (!props.image) {
-			return null;
-		}
+		const bg = props.item.getBackground();
+		if (!bg) return null;
 
 		return (
 			<div
 				className={styles.background}
-				style={{ backgroundImage: `url(${props.image})` }}
+				style={{ backgroundImage: `url(${bg})` }}
 			>
 				<div className={styles.backgroundFilter} />
 			</div>
 		);
-	}, [props.image]);
+	}, [props.item]);
 
 	return (
 		<div>

@@ -10,6 +10,15 @@ export const templates: Template[] = [
 		points: 0.4,
 		floatBias: "NORMAL",
 		nonFloatCost: 0.5,
+		backgroundEligible: false,
+	},
+	{
+		rarity: Rarity.Common,
+		slots: [Restriction.Primary, Restriction.Primary],
+		points: 0.4,
+		floatBias: "NORMAL",
+		nonFloatCost: 0.5,
+		backgroundEligible: true,
 	},
 	{
 		rarity: Rarity.Common,
@@ -17,6 +26,15 @@ export const templates: Template[] = [
 		points: 0.4,
 		floatBias: "UNLUCKY",
 		nonFloatCost: 0.5,
+		backgroundEligible: false,
+	},
+	{
+		rarity: Rarity.Common,
+		slots: [Restriction.Secondary],
+		points: 0.4,
+		floatBias: "UNLUCKY",
+		nonFloatCost: 0.5,
+		backgroundEligible: true,
 	},
 
 	// ── Uncommon ──────────────────────────────────────────────────────────────
@@ -26,6 +44,15 @@ export const templates: Template[] = [
 		points: 0.8,
 		floatBias: "NORMAL",
 		nonFloatCost: 0.5,
+		backgroundEligible: false,
+	},
+	{
+		rarity: Rarity.Uncommon,
+		slots: [Restriction.Primary, Restriction.Primary, Restriction.Primary],
+		points: 0.8,
+		floatBias: "NORMAL",
+		nonFloatCost: 0.5,
+		backgroundEligible: true,
 	},
 	{
 		rarity: Rarity.Uncommon,
@@ -33,6 +60,15 @@ export const templates: Template[] = [
 		points: 0.8,
 		floatBias: "UNLUCKY",
 		nonFloatCost: 0.5,
+		backgroundEligible: false,
+	},
+	{
+		rarity: Rarity.Uncommon,
+		slots: [Restriction.Primary, Restriction.Primary, Restriction.Secondary],
+		points: 0.8,
+		floatBias: "UNLUCKY",
+		nonFloatCost: 0.5,
+		backgroundEligible: true,
 	},
 
 	// ── Rare ──────────────────────────────────────────────────────────────────
@@ -49,6 +85,22 @@ export const templates: Template[] = [
 		points: 1.2,
 		floatBias: "UNLUCKY",
 		nonFloatCost: 0.4,
+		backgroundEligible: false,
+	},
+	{
+		rarity: Rarity.Rare,
+		slots: [
+			Restriction.Primary,
+			Restriction.Primary,
+			Restriction.Primary,
+			Restriction.Secondary,
+			Restriction.Secondary,
+			Restriction.Secondary,
+		],
+		points: 1.2,
+		floatBias: "UNLUCKY",
+		nonFloatCost: 0.4,
+		backgroundEligible: true,
 	},
 	{
 		rarity: Rarity.Rare,
@@ -61,6 +113,20 @@ export const templates: Template[] = [
 		points: 1.2,
 		floatBias: "NORMAL",
 		nonFloatCost: 0.4,
+		backgroundEligible: false,
+	},
+	{
+		rarity: Rarity.Rare,
+		slots: [
+			Restriction.Primary,
+			Restriction.Primary,
+			Restriction.Primary,
+			Restriction.Secondary,
+		],
+		points: 1.2,
+		floatBias: "NORMAL",
+		nonFloatCost: 0.4,
+		backgroundEligible: true,
 	},
 	{
 		rarity: Rarity.Rare,
@@ -68,6 +134,15 @@ export const templates: Template[] = [
 		points: 1.2,
 		floatBias: "LUCKY",
 		nonFloatCost: 0.4,
+		backgroundEligible: false,
+	},
+	{
+		rarity: Rarity.Rare,
+		slots: [Restriction.Primary, Restriction.Secondary],
+		points: 1.2,
+		floatBias: "LUCKY",
+		nonFloatCost: 0.4,
+		backgroundEligible: true,
 	},
 
 	// ── Very Rare ─────────────────────────────────────────────────────────────
@@ -84,6 +159,22 @@ export const templates: Template[] = [
 		points: 2.4,
 		floatBias: "NORMAL",
 		nonFloatCost: 0.3,
+		backgroundEligible: false,
+	},
+	{
+		rarity: Rarity.VeryRare,
+		slots: [
+			Restriction.Primary,
+			Restriction.Primary,
+			Restriction.Primary,
+			Restriction.Secondary,
+			Restriction.Secondary,
+			Restriction.Secondary,
+		],
+		points: 2.4,
+		floatBias: "NORMAL",
+		nonFloatCost: 0.3,
+		backgroundEligible: true,
 	},
 	{
 		rarity: Rarity.VeryRare,
@@ -96,6 +187,20 @@ export const templates: Template[] = [
 		points: 2.4,
 		floatBias: "LUCKY",
 		nonFloatCost: 0.3,
+		backgroundEligible: false,
+	},
+	{
+		rarity: Rarity.VeryRare,
+		slots: [
+			Restriction.Primary,
+			Restriction.Primary,
+			Restriction.Secondary,
+			Restriction.Secondary,
+		],
+		points: 2.4,
+		floatBias: "LUCKY",
+		nonFloatCost: 0.3,
+		backgroundEligible: true,
 	},
 	{
 		rarity: Rarity.VeryRare,
@@ -110,6 +215,22 @@ export const templates: Template[] = [
 		points: 2.4,
 		floatBias: "UNLUCKY",
 		nonFloatCost: 0.3,
+		backgroundEligible: false,
+	},
+	{
+		rarity: Rarity.VeryRare,
+		slots: [
+			Restriction.Primary,
+			Restriction.Primary,
+			Restriction.Primary,
+			Restriction.Secondary,
+			Restriction.Secondary,
+			Restriction.Secondary,
+		],
+		points: 2.4,
+		floatBias: "UNLUCKY",
+		nonFloatCost: 0.3,
+		backgroundEligible: true,
 	},
 
 	// ── Legendary ─────────────────────────────────────────────────────────────
@@ -127,6 +248,23 @@ export const templates: Template[] = [
 		points: 4,
 		floatBias: "NORMAL",
 		nonFloatCost: 0.3,
+		backgroundEligible: false,
+	},
+	{
+		rarity: Rarity.Legendary,
+		slots: [
+			Restriction.Primary,
+			Restriction.Primary,
+			Restriction.Primary,
+			Restriction.Secondary,
+			Restriction.Secondary,
+			Restriction.Secondary,
+			Restriction.Tertiary,
+		],
+		points: 4,
+		floatBias: "NORMAL",
+		nonFloatCost: 0.3,
+		backgroundEligible: true,
 	},
 	{
 		rarity: Rarity.Legendary,
@@ -140,6 +278,21 @@ export const templates: Template[] = [
 		points: 4,
 		floatBias: "LUCKY",
 		nonFloatCost: 0.3,
+		backgroundEligible: false,
+	},
+	{
+		rarity: Rarity.Legendary,
+		slots: [
+			Restriction.Primary,
+			Restriction.Primary,
+			Restriction.Secondary,
+			Restriction.Secondary,
+			Restriction.Tertiary,
+		],
+		points: 4,
+		floatBias: "LUCKY",
+		nonFloatCost: 0.3,
+		backgroundEligible: true,
 	},
 ];
 

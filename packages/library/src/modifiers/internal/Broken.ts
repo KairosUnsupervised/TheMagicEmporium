@@ -7,6 +7,7 @@ export class BrokenModifier extends Modifier {
 			title: "Broken Reference",
 			description: "This modifier could not be resolved from the registry",
 			disclaimer: null,
+			background: null,
 		};
 	}
 

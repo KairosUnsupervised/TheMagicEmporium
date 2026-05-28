@@ -13,9 +13,10 @@ export const uniqueSoulboundFixture = new UniqueModifier({
 				description:
 					"This item cannot be unequipped by any means other than death.",
 				disclaimer: "Attunement cannot be broken while the wielder lives.",
+				background: null,
 			},
 			activeEffects: [],
-			feats: [],
+						feats: [],
 		},
 	],
 });

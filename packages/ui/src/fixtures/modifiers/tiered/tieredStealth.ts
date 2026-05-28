@@ -16,6 +16,7 @@ export const tieredStealthFixture = new TieredModifier({
 				title: "Redacted I",
 				description: "Your Stealth skill increases by +2.",
 				disclaimer: null,
+				background: null,
 			},
 			activeEffects: [],
 			feats: [],
@@ -27,6 +28,7 @@ export const tieredStealthFixture = new TieredModifier({
 				description:
 					"Your Stealth skill increases by +4 and you leave no tracks.",
 				disclaimer: null,
+				background: null,
 			},
 			activeEffects: [],
 			feats: [],

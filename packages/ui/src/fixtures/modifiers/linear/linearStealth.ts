@@ -9,8 +9,9 @@ export const linearStealthFixture = new LinearModifier({
 		title: "Redacted +{amount}",
 		description: "Your Stealth skill increases by +{amount}.",
 		disclaimer: null,
+		background: null,
 	},
-	breakpoints: [{ min: 0, value: 2 }],
+	breakpoints: [{ min: 0, value: 2, background: null }],
 	activeEffects: [],
 	feats: [],
 });

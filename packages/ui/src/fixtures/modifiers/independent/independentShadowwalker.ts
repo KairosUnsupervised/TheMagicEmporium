@@ -13,6 +13,7 @@ export const independentShadowwalkerFixture = new IndependentModifier({
 				description:
 					"You have advantage on Stealth checks made in dim light or darkness.",
 				disclaimer: null,
+				background: null,
 			},
 			changes: [],
 			activities: [],
@@ -24,6 +25,7 @@ export const independentShadowwalkerFixture = new IndependentModifier({
 				description:
 					"You have advantage on Stealth checks and cannot be tracked by non-magical means while in dim light or darkness.",
 				disclaimer: null,
+				background: null,
 			},
 			changes: [],
 			activities: [],
@@ -36,6 +38,7 @@ export const independentShadowwalkerFixture = new IndependentModifier({
 					"You have advantage on Stealth checks, cannot be tracked by non-magical means, and are invisible to darkvision while in dim light or darkness.",
 				disclaimer:
 					"Attacking or casting a spell ends the invisibility until the start of your next turn.",
+				background: null,
 			},
 			changes: [],
 			activities: [],

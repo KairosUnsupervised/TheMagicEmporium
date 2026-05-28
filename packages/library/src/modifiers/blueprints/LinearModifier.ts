@@ -17,6 +17,7 @@ const ajv = new Ajv({ removeAdditional: true, useDefaults: true });
 interface Breakpoint {
 	min: number;
 	value: number;
+	background: string | null;
 }
 
 interface Schema extends BaseSchema {
@@ -44,6 +45,7 @@ const validateSchema = ajv.compile<Schema>({
 				properties: {
 					min: { type: "number", minimum: 0 },
 					value: { type: "number" },
+					background: { type: ["string", "null"], default: null },
 				},
 			},
 		},
@@ -110,5 +112,10 @@ export class LinearModifier extends Modifier<Schema> {
 			this.replaceKeyWords(this.schema.flavor, { amount }),
 			Icon.Linear,
 		);
+	};
+
+	public override getBackground = (data: unknown): string | null => {
+		const breakpoint = this.dataManager.getBreakpoint(data);
+		return breakpoint.background ?? this.schema.flavor.background ?? null;
 	};
 }

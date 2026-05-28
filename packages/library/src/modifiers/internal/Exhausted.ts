@@ -8,6 +8,7 @@ export class ExhaustedModifier extends Modifier {
 			description:
 				"The modifier pool had no valid candidates left to fill this slot.",
 			disclaimer: null,
+			background: null,
 		};
 	}
 

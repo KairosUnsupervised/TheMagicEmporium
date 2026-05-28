@@ -16,6 +16,9 @@ export class AbstractItem {
 
 	public currency = 0;
 
+	public backgroundOverride: string | null = null;
+	public backgroundEligible = false;
+
 	public primary: AppliedModifier[] = [];
 	public secondary: AppliedModifier[] = [];
 	public tertiary: AppliedModifier[] = [];
@@ -40,6 +43,8 @@ export class AbstractItem {
 		const item = new AbstractItem();
 		item.base = data.base as Equipment;
 		item.name = document.name;
+		item.backgroundOverride = data.backgroundOverride;
+		item.backgroundEligible = data.backgroundEligible;
 
 		if (document.system.price.denomination === "gp") {
 			item.currency = document.system.price.value;
@@ -64,5 +69,25 @@ export class AbstractItem {
 		});
 
 		return item;
+	};
+
+	public getBackground = (): string | null => {
+		if (this.backgroundOverride) {
+			return this.backgroundOverride;
+		}
+		if (!this.backgroundEligible) {
+			return null;
+		}
+		for (const applied of [
+			...this.primary,
+			...this.secondary,
+			...this.tertiary,
+		].reverse()) {
+			const backgroundOverride = applied.modifier.getBackground(applied.data);
+			if (backgroundOverride) {
+				return backgroundOverride;
+			}
+		}
+		return null;
 	};
 }

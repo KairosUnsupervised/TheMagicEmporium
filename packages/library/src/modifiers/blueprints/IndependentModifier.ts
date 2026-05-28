@@ -96,4 +96,8 @@ export class IndependentModifier extends Modifier<Schema> {
 
 		return Activity.createMultiple(breakpoint.activities);
 	};
+
+	public override getBackground = (data: unknown): string | null => {
+		return this.dataManager.getBreakpoint(data).flavor.background ?? null;
+	};
 }

@@ -28,6 +28,8 @@ export interface SubItem {
 export interface BaseItem {
 	type: ItemType.MagicItem;
 	base: string;
+	backgroundEligible: boolean;
+	backgroundOverride: string | null;
 	primary: { identifier: string; data?: unknown }[];
 	secondary: { identifier: string; data?: unknown }[];
 	tertiary: { identifier: string; data?: unknown }[];

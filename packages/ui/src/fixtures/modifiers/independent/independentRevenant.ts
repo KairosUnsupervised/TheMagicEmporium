@@ -13,9 +13,10 @@ export const independentRevenantFixture = new IndependentModifier({
 				description:
 					"Once per long rest, shadow-step up to 60 feet between areas of dim light or darkness.",
 				disclaimer: null,
+				background: null,
 			},
 			changes: [],
-			activities: [],
+						activities: [],
 		},
 	],
 });

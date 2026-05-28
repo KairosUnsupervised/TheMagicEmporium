@@ -102,4 +102,8 @@ export class UniqueModifier extends Modifier<Schema> {
 		const highest = this.getHighestBreakpoint(data);
 		return Feat.createMultiple(highest.feats, highest.flavor, Icon.Unique);
 	};
+
+	public override getBackground = (data: unknown): string | null => {
+		return this.dataManager.getBreakpoint(data).flavor.background ?? null;
+	};
 }

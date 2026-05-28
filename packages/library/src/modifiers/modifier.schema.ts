@@ -92,6 +92,10 @@ export interface Flavor {
 	 * UI disclaimer text, small explanatory text
 	 */
 	disclaimer: string | null;
+	/**
+	 * Background image path for the item display, used when the item is background-eligible
+	 */
+	background: string | null;
 }
 
 export const flavorSchema = {
@@ -101,5 +105,6 @@ export const flavorSchema = {
 		title: { type: "string" },
 		description: { type: "string" },
 		disclaimer: { type: ["string", "null"], default: null },
+		background: { type: ["string", "null"], default: null },
 	},
 };

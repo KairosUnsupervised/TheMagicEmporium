@@ -84,6 +84,10 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
 		return [];
 	};
 
+	public getBackground = (_data: unknown): string | null => {
+		return null;
+	};
+
 	/**
 	 * Replaces every {key} placeholder with the matching value
 	 */

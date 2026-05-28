@@ -140,6 +140,8 @@ export class Item {
 				[namespace.core.id]: {
 					type: ItemType.MagicItem,
 					base: this.abstractItem.base,
+					backgroundOverride: this.abstractItem.backgroundOverride,
+					backgroundEligible: this.abstractItem.backgroundEligible,
 					primary: this.exportModifiers(this.abstractItem.primary),
 					secondary: this.exportModifiers(this.abstractItem.secondary),
 					tertiary: this.exportModifiers(this.abstractItem.tertiary),
