@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/preact-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { veilpiercerFixture } from "../../../fixtures/items/veilpiercerFixture";
 import { Section, type SectionProps } from "./Section";
 
@@ -13,7 +13,7 @@ const meta = {
 		},
 	},
 	render: (props: SectionProps) => (
-		<div style="background:#040510;width:460px;padding:16px;">
+		<div style={{ background: "#040510", width: "460px", padding: "16px" }}>
 			<Section title={props.title} modifiers={props.modifiers} />
 		</div>
 	),

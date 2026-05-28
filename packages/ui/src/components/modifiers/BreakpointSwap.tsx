@@ -1,11 +1,17 @@
 import type { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
-import type { ComponentChildren } from "preact";
-import { useEffect, useRef, useState } from "preact/hooks";
+import {
+	type ReactNode,
+	ViewTransition,
+	startTransition,
+	useEffect,
+	useRef,
+	useState,
+} from "react";
 import { BreakpointDisplay } from "./BreakpointDisplay";
 
 export interface BreakpointSwapProps {
 	type: ModifierType;
-	items: ComponentChildren[];
+	items: ReactNode[];
 	defaultActiveIndex: number;
 }
 
@@ -16,7 +22,6 @@ const makeTransitionStyles = (name: string, dir: number) => `
 	::view-transition-new(${name}) { animation: bp-swap-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
 `;
 
-// TODO Upgrade to REACT and react view transition component
 export const BreakpointSwap = (props: BreakpointSwapProps) => {
 	const [temporaryActiveIndex, setTemporaryActiveIndex] = useState<
 		number | null
@@ -25,8 +30,6 @@ export const BreakpointSwap = (props: BreakpointSwapProps) => {
 		`bp-swap-${Math.random().toString(36).slice(2)}`,
 	).current;
 	const styleEl = useRef<HTMLStyleElement | null>(null);
-
-	console.log("RERENDER");
 
 	useEffect(() => {
 		const el = document.createElement("style");
@@ -43,28 +46,20 @@ export const BreakpointSwap = (props: BreakpointSwapProps) => {
 
 	const onSelect = (index: number) => {
 		const dir = index > currentIndex ? 1 : -1;
-
 		if (styleEl.current) {
 			styleEl.current.textContent = makeTransitionStyles(vtName, dir);
 		}
-
-		if (!document.startViewTransition) {
+		startTransition(() => {
 			setTemporaryActiveIndex(index);
-			return;
-		}
-
-		document.startViewTransition(async () => {
-			setTemporaryActiveIndex(index);
-			await new Promise<void>((resolve) => setTimeout(resolve));
 		});
 	};
 
 	return (
-		<div style="position:relative;">
-			<div style={{ viewTransitionName: vtName } as never}>
-				{props.items[currentIndex]}
-			</div>
-			<div style="position:absolute;top:22px;right:4px;z-index:10;">
+		<div style={{ position: "relative" }}>
+			<ViewTransition name={vtName}>{props.items[currentIndex]}</ViewTransition>
+			<div
+				style={{ position: "absolute", top: "22px", right: "4px", zIndex: 10 }}
+			>
 				<BreakpointDisplay
 					type={props.type}
 					length={props.items.length}

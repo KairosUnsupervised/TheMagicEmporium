@@ -11,12 +11,15 @@
 		"@storybook/addon-docs": "^10.3.6",
 		"@tme/library": "workspace:*",
 		"@tme/shared": "workspace:*",
-		"preact": "^10.26.9"
+		"react": "canary",
+		"react-dom": "canary"
 	},
 	"devDependencies": {
-		"@preact/preset-vite": "^2.10.2",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"@vitejs/plugin-react": "^4.5.2",
 		"vite": "^7.0.4",
 		"storybook": "^10.3.6",
-		"@storybook/preact-vite": "^10.3.6"
+		"@storybook/react-vite": "^10.3.6"
 	}
 }

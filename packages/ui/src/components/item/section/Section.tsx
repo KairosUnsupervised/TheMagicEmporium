@@ -12,28 +12,28 @@ export const Section = (props: SectionProps) => {
 
 	return (
 		<div>
-			<div class={styles.header}>
-				<div class={styles.rule}>
-					<div class={styles.ruleLine} />
-					<div class={styles.ruleLineFaint} />
+			<div className={styles.header}>
+				<div className={styles.rule}>
+					<div className={styles.ruleLine} />
+					<div className={styles.ruleLineFaint} />
 				</div>
-				<div class={styles.titleWrapper}>
+				<div className={styles.titleWrapper}>
 					<svg width="10" height="10" viewBox="0 0 10 10">
 						<polygon points="5,0 10,5 5,10 0,5" fill="#d4a64a" />
 					</svg>
-					<span class={styles.title}>{props.title}</span>
+					<span className={styles.title}>{props.title}</span>
 					<svg width="10" height="10" viewBox="0 0 10 10">
 						<polygon points="5,0 10,5 5,10 0,5" fill="#d4a64a" />
 					</svg>
 				</div>
-				<div class={styles.rule}>
-					<div class={styles.ruleLine} />
-					<div class={styles.ruleLineFaint} />
+				<div className={styles.rule}>
+					<div className={styles.ruleLine} />
+					<div className={styles.ruleLineFaint} />
 				</div>
 			</div>
 			{props.modifiers.map((applied, i) => (
-				<div key={i} class={styles.item}>
-					{i > 0 && <div class={styles.divider} />}
+				<div key={i} className={styles.item}>
+					{i > 0 && <div className={styles.divider} />}
 					<ModifierDisplay modifier={applied.modifier} data={applied.data} />
 				</div>
 			))}

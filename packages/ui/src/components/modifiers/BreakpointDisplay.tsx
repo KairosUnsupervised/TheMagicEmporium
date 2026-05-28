@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
 import styles from "./BreakpointDisplay.module.css";
 
@@ -53,7 +54,7 @@ export const BreakpointDisplay = (props: BreakpointDisplayProps) => {
 				if (active)
 					return (
 						<svg
-							class={styles.dot}
+							className={styles.dot}
 							width={size}
 							height={size}
 							viewBox="0 0 10 10"
@@ -61,26 +62,26 @@ export const BreakpointDisplay = (props: BreakpointDisplayProps) => {
 							<polygon
 								points="5,0 10,5 5,10 0,5"
 								fill={color}
-								class={styles.glow}
-								style={`--bp-glow:${color}aa`}
+								className={styles.glow}
+								style={{ "--bp-glow": `${color}aa` } as CSSProperties}
 							/>
 						</svg>
 					);
 				if (index < props.defaultActiveIndex)
 					return (
 						<svg
-							class={styles.dot}
+							className={styles.dot}
 							width={size}
 							height={size}
 							viewBox="0 0 10 10"
-							style={"opacity: 0.6;"}
+							style={{ opacity: 0.6 }}
 						>
 							<polygon points="5,0 10,5 5,10 0,5" fill={color} />
 						</svg>
 					);
 				return (
 					<svg
-						class={styles.dot}
+						className={styles.dot}
 						width={size}
 						height={size}
 						viewBox="0 0 10 10"
@@ -97,19 +98,29 @@ export const BreakpointDisplay = (props: BreakpointDisplayProps) => {
 			}
 			if (active)
 				return (
-					<svg class={styles.dot} width={size} height={size} viewBox="0 0 7 7">
+					<svg
+						className={styles.dot}
+						width={size}
+						height={size}
+						viewBox="0 0 7 7"
+					>
 						<circle
 							cx="3.5"
 							cy="3.5"
 							r="3"
 							fill={color}
-							class={styles.glow}
-							style={`--bp-glow:${shadow}`}
+							className={styles.glow}
+							style={{ "--bp-glow": shadow } as CSSProperties}
 						/>
 					</svg>
 				);
 			return (
-				<svg class={styles.dot} width={size} height={size} viewBox="0 0 7 7">
+				<svg
+					className={styles.dot}
+					width={size}
+					height={size}
+					viewBox="0 0 7 7"
+				>
 					<circle
 						cx="3.5"
 						cy="3.5"
@@ -126,10 +137,10 @@ export const BreakpointDisplay = (props: BreakpointDisplayProps) => {
 		return (
 			<div
 				key={`${index}-${active}-${preview}`}
-				class={styles.slot}
+				className={styles.slot}
 				onClick={() => props.onSelect?.(index)}
 			>
-				<svg class={chevronClass} width="9" height="5" viewBox="0 0 9 5">
+				<svg className={chevronClass} width="9" height="5" viewBox="0 0 9 5">
 					<polyline
 						points="1,1 4.5,4 8,1"
 						fill="none"
@@ -140,7 +151,7 @@ export const BreakpointDisplay = (props: BreakpointDisplayProps) => {
 					/>
 				</svg>
 				{dot}
-				<svg class={chevronClass} width="9" height="5" viewBox="0 0 9 5">
+				<svg className={chevronClass} width="9" height="5" viewBox="0 0 9 5">
 					<polyline
 						points="1,4 4.5,1 8,4"
 						fill="none"
@@ -155,7 +166,10 @@ export const BreakpointDisplay = (props: BreakpointDisplayProps) => {
 	});
 
 	return (
-		<div class={styles.container} style={`--bp-gap:${gap}px`}>
+		<div
+			className={styles.container}
+			style={{ "--bp-gap": `${gap}px` } as CSSProperties}
+		>
 			{dots}
 		</div>
 	);

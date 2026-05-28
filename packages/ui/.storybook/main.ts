@@ -1,4 +1,4 @@
-import type { StorybookConfig } from "@storybook/preact-vite";
+import type { StorybookConfig } from "@storybook/react-vite";
 
 import { dirname } from "path";
 
@@ -14,6 +14,6 @@ function getAbsolutePath(value: string) {
 const config: StorybookConfig = {
 	stories: ["../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
 	addons: ["@storybook/addon-docs"],
-	framework: getAbsolutePath("@storybook/preact-vite"),
+	framework: getAbsolutePath("@storybook/react-vite"),
 };
 export default config;

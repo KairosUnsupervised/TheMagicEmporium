@@ -1,4 +1,4 @@
-import { useMemo } from "preact/hooks";
+import { type CSSProperties, useMemo } from "react";
 import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
 import styles from "./ItemDisplay.module.css";
 import { Header } from "./header/Header";
@@ -10,7 +10,11 @@ export interface ItemDisplayProps {
 }
 
 const Defs = () => (
-	<svg width="0" height="0" style="position:absolute;overflow:hidden;">
+	<svg
+		width="0"
+		height="0"
+		style={{ position: "absolute", overflow: "hidden" }}
+	>
 		<defs>
 			<pattern
 				id="tme-hex-lat"
@@ -31,7 +35,7 @@ const Defs = () => (
 
 interface CornerProps {
 	rotation: number;
-	class: string;
+	className: string;
 }
 
 const Corner = (props: CornerProps) => (
@@ -39,8 +43,8 @@ const Corner = (props: CornerProps) => (
 		width="72"
 		height="72"
 		viewBox="0 0 64 64"
-		class={`${styles.corner} ${props.class}`}
-		style={{ "--rotation": `${props.rotation}deg` } as never}
+		className={`${styles.corner} ${props.className}`}
+		style={{ "--rotation": `${props.rotation}deg` } as CSSProperties}
 	>
 		<path
 			d="M2 26 L2 2 L26 2"
@@ -100,10 +104,10 @@ export const ItemDisplay = (props: ItemDisplayProps) => {
 
 		return (
 			<div
-				class={styles.background}
+				className={styles.background}
 				style={{ backgroundImage: `url(${props.image})` }}
 			>
-				<div class={styles.backgroundFilter} />
+				<div className={styles.backgroundFilter} />
 			</div>
 		);
 	}, [props.image]);
@@ -111,16 +115,16 @@ export const ItemDisplay = (props: ItemDisplayProps) => {
 	return (
 		<div>
 			<Defs />
-			<div class={styles.frame}>
-				<svg class={styles.lattice} preserveAspectRatio="xMidYMid slice">
+			<div className={styles.frame}>
+				<svg className={styles.lattice} preserveAspectRatio="xMidYMid slice">
 					<rect width="100%" height="100%" fill="url(#tme-hex-lat)" />
 				</svg>
-				<div class={styles.card}>
+				<div className={styles.card}>
 					{background}
-					<Corner rotation={0} class={styles.cornerTL} />
-					<Corner rotation={90} class={styles.cornerTR} />
-					<Corner rotation={180} class={styles.cornerBR} />
-					<Corner rotation={270} class={styles.cornerBL} />
+					<Corner rotation={0} className={styles.cornerTL} />
+					<Corner rotation={90} className={styles.cornerTR} />
+					<Corner rotation={180} className={styles.cornerBR} />
+					<Corner rotation={270} className={styles.cornerBL} />
 					<Header
 						name={props.item.name}
 						rarity={props.item.rarity}

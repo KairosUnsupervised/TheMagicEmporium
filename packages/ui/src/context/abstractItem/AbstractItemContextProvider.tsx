@@ -1,5 +1,5 @@
 import { AbstractItem } from "@tme/library/src/item/AbstractItem";
-import * as React from "preact/compat";
+import * as React from "react";
 
 interface AbstractItemContextProviderProps {
 	abstractItem: AbstractItem;

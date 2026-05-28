@@ -19,16 +19,16 @@ const UniqueBody = (props: UniqueModifierDisplayProps) => {
 			: icon;
 
 	return (
-		<div class={styles.grid}>
-			<div class={styles.iconWrapper}>
+		<div className={styles.grid}>
+			<div className={styles.iconWrapper}>
 				<img src={iconSrc} alt="Icon" />
 			</div>
 			<div>
-				<div class={styles.label}>UNIQUE</div>
-				<div class={styles.title}>{flavor.title}</div>
-				<div class={styles.description}>{flavor.description}</div>
+				<div className={styles.label}>UNIQUE</div>
+				<div className={styles.title}>{flavor.title}</div>
+				<div className={styles.description}>{flavor.description}</div>
 				{flavor.disclaimer && (
-					<div class={styles.disclaimer}>{flavor.disclaimer}</div>
+					<div className={styles.disclaimer}>{flavor.disclaimer}</div>
 				)}
 			</div>
 		</div>

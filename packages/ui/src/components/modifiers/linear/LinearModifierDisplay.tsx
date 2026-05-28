@@ -20,20 +20,20 @@ export const LinearModifierDisplay = (props: LinearModifierDisplayProps) => {
 			: icon;
 
 	return (
-		<div class={styles.root}>
-			<div class={styles.grid}>
-				<div class={styles.iconWrapper}>
+		<div className={styles.root}>
+			<div className={styles.grid}>
+				<div className={styles.iconWrapper}>
 					<img src={iconSrc} alt="Icon" />
 				</div>
 				<div>
-					<div class={styles.label}>LINEAR</div>
-					<div class={styles.titleRow}>
-						<div class={styles.title}>{flavor.title}</div>
-						<span class={styles.value}>+{activeBreakpoint.value}</span>
+					<div className={styles.label}>LINEAR</div>
+					<div className={styles.titleRow}>
+						<div className={styles.title}>{flavor.title}</div>
+						<span className={styles.value}>+{activeBreakpoint.value}</span>
 					</div>
-					<div class={styles.description}>{flavor.description}</div>
+					<div className={styles.description}>{flavor.description}</div>
 					{flavor.disclaimer && (
-						<div class={styles.disclaimer}>{flavor.disclaimer}</div>
+						<div className={styles.disclaimer}>{flavor.disclaimer}</div>
 					)}
 				</div>
 			</div>

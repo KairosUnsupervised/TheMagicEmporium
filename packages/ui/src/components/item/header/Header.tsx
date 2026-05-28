@@ -1,4 +1,4 @@
-import { useMemo } from "preact/hooks";
+import { useMemo } from "react";
 import type { Equipment } from "@tme/library/src/item/equipment/equipment.types";
 import { Rarity } from "@tme/library/src/item/item.types";
 import styles from "./Header.module.css";
@@ -48,17 +48,17 @@ export const Header = (props: HeaderProps) => {
 
 	return (
 		<div
-			class={styles.root}
+			className={styles.root}
 			style={{ "--rarity-color": color, "--rarity-shadow": shadow } as never}
 		>
-			<div class={styles.rarity}>{toDisplayName(props.rarity)}</div>
-			<div class={styles.name}>{strippedName}</div>
-			<div class={styles.meta}>
-				<span class={styles.metaText}>{toDisplayName(props.base)}</span>
+			<div className={styles.rarity}>{toDisplayName(props.rarity)}</div>
+			<div className={styles.name}>{strippedName}</div>
+			<div className={styles.meta}>
+				<span className={styles.metaText}>{toDisplayName(props.base)}</span>
 				<svg width="4" height="4" viewBox="0 0 4 4">
 					<circle cx="2" cy="2" r="2" fill="#5a4e32" />
 				</svg>
-				<span class={styles.metaText}>{formatCurrency(props.currency)}</span>
+				<span className={styles.metaText}>{formatCurrency(props.currency)}</span>
 			</div>
 		</div>
 	);

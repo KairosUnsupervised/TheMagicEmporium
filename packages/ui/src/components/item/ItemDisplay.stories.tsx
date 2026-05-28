@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/preact-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { AbstractItem } from "@tme/library/src/item/AbstractItem";
 import type { AppliedModifier } from "@tme/library/src/modifiers/Modifier";
 import { Equipment } from "@tme/library/src/item/equipment/equipment.types";
@@ -11,7 +11,7 @@ import { uniqueVenomousFixture } from "../../fixtures/modifiers/unique/uniqueVen
 import { uniqueWrathfulFixture } from "../../fixtures/modifiers/unique/uniqueWrathful";
 import { veilpiercerFixture } from "../../fixtures/items/veilpiercerFixture";
 import { ItemDisplay, type ItemDisplayProps } from "./ItemDisplay";
-import boundlessSpirit from "./img/BoundlessSpirit.jpg"
+import boundlessSpirit from "./img/BoundlessSpirit.jpg";
 
 interface ItemConfig {
 	primary?: AppliedModifier[];
@@ -58,7 +58,7 @@ const meta = {
 		},
 	},
 	render: (props: ItemDisplayProps) => (
-		<div style="background:#040510;padding:40px;">
+		<div style={{ background: "#040510", padding: "40px" }}>
 			<ItemDisplay item={props.item} image={props.image} />
 		</div>
 	),

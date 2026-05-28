@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/preact-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { tieredFuryFixture } from "../../../fixtures/modifiers/tiered/tieredFury";
 import { tieredStealthFixture } from "../../../fixtures/modifiers/tiered/tieredStealth";
 import {
@@ -17,7 +17,7 @@ const meta = {
 		},
 	},
 	render: (props: TieredModifierDisplayProps) => (
-		<div style="background:#040510;width:460px;">
+		<div style={{ background: "#040510", width: "460px" }}>
 			<TieredModifierDisplay modifier={props.modifier} data={props.data} />
 		</div>
 	),

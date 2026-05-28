@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/preact-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Equipment } from "@tme/library/src/item/equipment/equipment.types";
 import { Rarity } from "@tme/library/src/item/item.types";
 import { veilpiercerFixture } from "../../../fixtures/items/veilpiercerFixture";
@@ -15,7 +15,7 @@ const meta = {
 		},
 	},
 	render: (props: HeaderProps) => (
-		<div style="background:#040510;width:460px;padding:28px;">
+		<div style={{ background: "#040510", width: "460px", padding: "28px" }}>
 			<Header
 				name={props.name}
 				rarity={props.rarity}

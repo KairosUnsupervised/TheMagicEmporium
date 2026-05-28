@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/preact-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { tieredFuryFixture } from "../../fixtures/modifiers/tiered/tieredFury";
 import { uniqueBloodthirstyFixture } from "../../fixtures/modifiers/unique/uniqueBloodthirsty";
 import { uniqueVenomousFixture } from "../../fixtures/modifiers/unique/uniqueVenomous";
@@ -29,7 +29,7 @@ const furyBreakpoints = (
 
 export const Default: Story = {
 	render: () => (
-		<div style="background:#040510;width:460px;">
+		<div style={{ background: "#040510", width: "460px" }}>
 			<UniqueModifierDisplay
 				modifier={uniqueBloodthirstyFixture}
 				data={{ float: 0 }}
@@ -40,7 +40,7 @@ export const Default: Story = {
 
 export const UniqueVenomousMiddle: Story = {
 	render: () => (
-		<div style="background:#040510;width:460px;">
+		<div style={{ background: "#040510", width: "460px" }}>
 			<UniqueModifierDisplay
 				modifier={uniqueVenomousFixture}
 				data={{ float: "0.4" }}
@@ -51,7 +51,7 @@ export const UniqueVenomousMiddle: Story = {
 
 export const UniqueVenomousHighest: Story = {
 	render: () => (
-		<div style="background:#040510;width:460px;">
+		<div style={{ background: "#040510", width: "460px" }}>
 			<UniqueModifierDisplay
 				modifier={uniqueVenomousFixture}
 				data={{ float: venomousBreakpoints[5].min }}
@@ -62,7 +62,7 @@ export const UniqueVenomousHighest: Story = {
 
 export const TieredFuryMiddle: Story = {
 	render: () => (
-		<div style="background:#040510;width:460px;">
+		<div style={{ background: "#040510", width: "460px" }}>
 			<TieredModifierDisplay
 				modifier={tieredFuryFixture}
 				data={{ float: furyBreakpoints[1].min }}

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/preact-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
 import { BreakpointDisplay } from "./BreakpointDisplay";
 
@@ -20,7 +20,16 @@ type Story = StoryObj;
 
 export const Default: Story = {
 	render: () => (
-		<div style="background:#040510;padding:32px;display:flex;flex-direction:column;gap:24px;align-items:flex-start;">
+		<div
+			style={{
+				background: "#040510",
+				padding: "32px",
+				display: "flex",
+				flexDirection: "column",
+				gap: "24px",
+				alignItems: "flex-start",
+			}}
+		>
 			<BreakpointDisplay
 				length={6}
 				defaultActiveIndex={0}
@@ -45,7 +54,16 @@ export const Default: Story = {
 
 export const Independent: Story = {
 	render: () => (
-		<div style="background:#040510;padding:32px;display:flex;flex-direction:column;gap:24px;align-items:flex-start;">
+		<div
+			style={{
+				background: "#040510",
+				padding: "32px",
+				display: "flex",
+				flexDirection: "column",
+				gap: "24px",
+				alignItems: "flex-start",
+			}}
+		>
 			<BreakpointDisplay
 				length={3}
 				defaultActiveIndex={0}
@@ -70,7 +88,16 @@ export const Independent: Story = {
 
 export const Tiered: Story = {
 	render: () => (
-		<div style="background:#040510;padding:32px;display:flex;flex-direction:column;gap:24px;align-items:flex-start;">
+		<div
+			style={{
+				background: "#040510",
+				padding: "32px",
+				display: "flex",
+				flexDirection: "column",
+				gap: "24px",
+				alignItems: "flex-start",
+			}}
+		>
 			<BreakpointDisplay
 				length={5}
 				defaultActiveIndex={0}

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/preact-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { uniqueBloodthirstyFixture } from "../../../fixtures/modifiers/unique/uniqueBloodthirsty";
 import { uniqueSoulboundFixture } from "../../../fixtures/modifiers/unique/uniqueSoulbound";
 import { uniqueVenomousFixture } from "../../../fixtures/modifiers/unique/uniqueVenomous";
@@ -19,7 +19,7 @@ const meta = {
 		},
 	},
 	render: (props: UniqueModifierDisplayProps) => (
-		<div style="background:#040510;width:460px;">
+		<div style={{ background: "#040510", width: "460px" }}>
 			<UniqueModifierDisplay modifier={props.modifier} data={props.data} />
 		</div>
 	),

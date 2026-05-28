@@ -29,23 +29,23 @@ const TieredBody = (props: TieredBodyProps) => {
 			: icon;
 
 	return (
-		<div class={styles.grid}>
-			<div class={styles.iconWrapper}>
+		<div className={styles.grid}>
+			<div className={styles.iconWrapper}>
 				<img src={iconSrc} alt="Icon" />
 			</div>
 			<div>
-				<div class={styles.labelRow}>
-					<div class={styles.label}>TIERED</div>
-					<span class={styles.tier}>
+				<div className={styles.labelRow}>
+					<div className={styles.label}>TIERED</div>
+					<span className={styles.tier}>
 						{ROMAN[props.tierIndex]}
-						<span class={styles.tierSep}>/</span>
+						<span className={styles.tierSep}>/</span>
 						{ROMAN[props.tierTotal - 1]}
 					</span>
 				</div>
-				<div class={styles.title}>{props.flavor.title}</div>
-				<div class={styles.description}>{props.flavor.description}</div>
+				<div className={styles.title}>{props.flavor.title}</div>
+				<div className={styles.description}>{props.flavor.description}</div>
 				{props.flavor.disclaimer && (
-					<div class={styles.disclaimer}>{props.flavor.disclaimer}</div>
+					<div className={styles.disclaimer}>{props.flavor.disclaimer}</div>
 				)}
 			</div>
 		</div>

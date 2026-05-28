@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/preact-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { independentEdibleFixture } from "../../../fixtures/modifiers/independent/independentEdible";
 import { independentShadowwalkerFixture } from "../../../fixtures/modifiers/independent/independentShadowwalker";
 import {
@@ -17,7 +17,7 @@ const meta = {
 		},
 	},
 	render: (props: IndependentModifierDisplayProps) => (
-		<div style="background:#040510;width:460px;">
+		<div style={{ background: "#040510", width: "460px" }}>
 			<IndependentModifierDisplay modifier={props.modifier} data={props.data} />
 		</div>
 	),
