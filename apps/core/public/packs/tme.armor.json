@@ -1013,7 +1013,8 @@
 					"flavor": {
 						"title": "Unending Self Immolation",
 						"description": "Use an action to set yourself ablaze. While burning, deal 2d8 fire damage to yourself and each creature within 5ft each turn",
-						"disclaimer": "You have fire resistance. The only way to stop burning is by being downed. DC 15 CON save, half damage on success"
+						"disclaimer": "You have fire resistance. The only way to stop burning is by being downed. DC 15 CON save, half damage on success",
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/unendingSelfImmolation.jpg"
 					},
 					"activeEffects": [],
 					"feats": [
@@ -1064,7 +1065,8 @@
 					"flavor": {
 						"title": "Relentless Unending Self Immolation",
 						"description": "Use an action to set yourself ablaze. While burning, deal 3d8 fire damage to yourself and each creature within 10ft each turn",
-						"disclaimer": "You have fire resistance. The only way to stop burning is by being downed. DC 17 CON save, half damage on success"
+						"disclaimer": "You have fire resistance. The only way to stop burning is by being downed. DC 17 CON save, half damage on success",
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/unendingSelfImmolation.jpg"
 					},
 					"activeEffects": [],
 					"feats": [
@@ -1115,7 +1117,8 @@
 					"flavor": {
 						"title": "Eternal Unending Self Immolation",
 						"description": "Use an action to set yourself ablaze. While burning, deal 4d8 fire damage to yourself and each creature within 15ft each turn",
-						"disclaimer": "You have fire resistance. The only way to stop burning is by being downed. DC 19 CON save, half damage on success"
+						"disclaimer": "You have fire resistance. The only way to stop burning is by being downed. DC 19 CON save, half damage on success",
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/unendingSelfImmolation.jpg"
 					},
 					"activeEffects": [],
 					"feats": [
@@ -1179,7 +1182,8 @@
 					"flavor": {
 						"title": "+1 Fortified",
 						"description": "This armor gains a +1 bonus to AC",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/fortified.jpg"
 					},
 					"changes": [
 						{
@@ -1195,7 +1199,8 @@
 					"flavor": {
 						"title": "+2 Fortified",
 						"description": "This armor gains a +2 bonus to AC",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/fortified.jpg"
 					},
 					"changes": [
 						{
@@ -1211,7 +1216,8 @@
 					"flavor": {
 						"title": "+3 Fortified",
 						"description": "This armor gains a +3 bonus to AC",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/fortified.jpg"
 					},
 					"changes": [
 						{
@@ -1237,7 +1243,8 @@
 			"flavor": {
 				"title": "Meatshield",
 				"description": "As an action, mount a corpse on your armor for protection. Gain {amount}% of the creature's maximum HP as temporary HP",
-				"disclaimer": "Requires a nearby corpse. If you can mount a creature that is still alive gain double the percentage. Temporary HP do not stack, only the highest value applies"
+				"disclaimer": "Requires a nearby corpse. If you can mount a creature that is still alive gain double the percentage. Temporary HP do not stack, only the highest value applies",
+				"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/meatshield.jpg"
 			},
 			"breakpoints": [
 				{ "min": 0, "value": 10 },

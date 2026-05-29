@@ -34,7 +34,8 @@
 					"flavor": {
 						"title": "Inherent Lag",
 						"description": "When your concentration is broken, the spell persists as though you never lost it, for up to 1 instance",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/inherentLag.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -44,7 +45,8 @@
 					"flavor": {
 						"title": "Resonant Lag",
 						"description": "When your concentration is broken, the spell persists as though you never lost it, for up to 2 instances",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/inherentLag.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -54,7 +56,8 @@
 					"flavor": {
 						"title": "Eternal Lag",
 						"description": "When your concentration is broken, the spell persists as though you never lost it, for up to 3 instances",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/inherentLag.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -445,7 +448,8 @@
 					"flavor": {
 						"title": "Overcharged",
 						"description": "You can reroll 1's on your spell induced damage dice, 1 reroll. The new rolls must be used",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/overcharged.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -455,7 +459,8 @@
 					"flavor": {
 						"title": "Severely Overcharged",
 						"description": "You can reroll 1-2's on your spell induced damage dice, 2 rerolls. The new rolls must be used",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/overcharged.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -465,7 +470,8 @@
 					"flavor": {
 						"title": "Wildly Overcharged",
 						"description": "You can reroll 1-3's on your spell induced damage dice, 3 rerolls. The new rolls must be used",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/overcharged.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -485,7 +491,8 @@
 			"flavor": {
 				"title": "Rem Sleep",
 				"description": "As an action, you can cast Sleep at will. Your total sleep hit point pool per long rest is {amount}",
-				"disclaimer": "Creatures that don't fall asleep because they have more hit points than the remaining pool, or are immune to Sleep, do not consume your pool"
+				"disclaimer": "Creatures that don't fall asleep because they have more hit points than the remaining pool, or are immune to Sleep, do not consume your pool",
+				"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/remSleep.jpg"
 			},
 			"breakpoints": [
 				{ "min": 0, "value": 20 },
@@ -604,7 +611,8 @@
 					"flavor": {
 						"title": "Forfeit of Life",
 						"description": "As an action, sacrifice all your HP except one. Gain the sacrificed amount as temporary HP",
-						"disclaimer": "Temporary HP do not stack, only the highest value applies"
+						"disclaimer": "Temporary HP do not stack, only the highest value applies",
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/forfeitOfLife.jpg"
 					},
 					"activeEffects": [],
 					"feats": [
@@ -661,7 +669,8 @@
 					"flavor": {
 						"title": "Bloodbath",
 						"description": "On direct creature kill, gain an additional action this turn",
-						"disclaimer": "This action must be used to harm a creature, it cannot be skipped"
+						"disclaimer": "This action must be used to harm a creature, it cannot be skipped",
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/bloodbath.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -684,7 +693,8 @@
 					"flavor": {
 						"title": "Assassin",
 						"description": "You have advantage on all Stealth checks",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/assassin.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -707,7 +717,8 @@
 					"flavor": {
 						"title": "Overdrive",
 						"description": "Advantage and disadvantage now stack on you",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/overdrive.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -727,7 +738,8 @@
 			"flavor": {
 				"title": "Uncertainty",
 				"description": "You gain a portal dice (d20). {amount} times per long rest, you may swap the result of your portal dice with the result of any other d20 roll in the game",
-				"disclaimer": "The portal dice result takes the place of the swapped roll and vice versa, roll the portal dice once upon aquiring this modifier"
+				"disclaimer": "The portal dice result takes the place of the swapped roll and vice versa, roll the portal dice once upon aquiring this modifier",
+				"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/uncertainty.jpg"
 			},
 			"breakpoints": [
 				{
@@ -805,7 +817,8 @@
 					"flavor": {
 						"title": "Overachiever",
 						"description": "For each damage die that rolls its maximum value, roll one additional die of the same type",
-						"disclaimer": "Additional dice don't trigger this effect"
+						"disclaimer": "Additional dice don't trigger this effect",
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/overachiever.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -815,7 +828,8 @@
 					"flavor": {
 						"title": "Overachiever",
 						"description": "For each damage die that rolls its maximum value, roll one additional die of the same type",
-						"disclaimer": "Those dice can also trigger this effect"
+						"disclaimer": "Those dice can also trigger this effect",
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/overachiever.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -838,7 +852,8 @@
 					"flavor": {
 						"title": "Shared Burden",
 						"description": "As a reaction when an ally within 30ft takes damage, you may redirect up to half of it to yourself",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/sharedBurden.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -848,7 +863,8 @@
 					"flavor": {
 						"title": "Shared Burden",
 						"description": "As a reaction when an ally within 60ft takes damage, you may redirect up to half of it to yourself",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/sharedBurden.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -858,7 +874,8 @@
 					"flavor": {
 						"title": "Shared Burden",
 						"description": "As a reaction when an ally within 90ft takes damage, you may redirect up to half of it to yourself",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/sharedBurden.jpg"
 					},
 					"activeEffects": [],
 					"feats": []

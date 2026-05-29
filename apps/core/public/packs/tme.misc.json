@@ -17,7 +17,8 @@
 			"flavor": {
 				"title": "Muscle Memory",
 				"description": "You can expend up to {amount} actions, bonus actions and spells and store them. On damage taken the oldest stored action is triggered and consumed",
-				"disclaimer": "No reaction required. Parameters must be defined the moment you store the action"
+				"disclaimer": "No reaction required. Parameters must be defined the moment you store the action",
+				"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/muscleMemory.jpg"
 			},
 			"breakpoints": [
 				{
@@ -636,7 +637,8 @@
 					"flavor": {
 						"title": "Arcane Volatility",
 						"description": "Upon casting a leveled spell, roll a d20. If 10 or lower, subtract a d4 from the spell level. If higher than 10, add a d4 to the spell level",
-						"disclaimer": "Under or over leveled spells change according to their upcast description"
+						"disclaimer": "Under or over leveled spells change according to their upcast description",
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/arcaneVolatility.jpg"
 					},
 					"activeEffects": [],
 					"feats": [
@@ -922,7 +924,8 @@
 					"flavor": {
 						"title": "Healing Surge",
 						"description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
-						"disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Does not chain"
+						"disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Does not chain",
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/healingSurge.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -932,7 +935,8 @@
 					"flavor": {
 						"title": "Chained Healing Surge",
 						"description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
-						"disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Chains once with stacking efficiency loss"
+						"disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Chains once with stacking efficiency loss",
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/healingSurge.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -942,7 +946,8 @@
 					"flavor": {
 						"title": "Cascading Healing Surge",
 						"description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
-						"disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Chains twice with stacking efficiency loss"
+						"disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Chains twice with stacking efficiency loss",
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/healingSurge.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -1120,7 +1125,8 @@
 					"flavor": {
 						"title": "Limit Break",
 						"description": "You can reroll any of your damage dice. Take the initial damage of the rerolled dice before rerolling them",
-						"disclaimer": "You must use the new roll, however you can reroll indefinitely"
+						"disclaimer": "You must use the new roll, however you can reroll indefinitely",
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/limitBreak.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -1295,7 +1301,8 @@
 					"flavor": {
 						"title": "Reluctant Savior",
 						"description": "Whenever you heal another creature, gain temporary HP equal to the amount healed",
-						"disclaimer": "Temporary HP do not stack, only the highest value applies"
+						"disclaimer": "Temporary HP do not stack, only the highest value applies",
+						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/reluctantSavior.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
