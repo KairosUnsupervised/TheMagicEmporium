@@ -169,7 +169,8 @@
 			"flavor": {
 				"title": "Swift",
 				"description": "Your movement speed is increased by {amount}ft",
-				"disclaimer": null
+				"disclaimer": null,
+				"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/swift.jpg"
 			},
 			"breakpoints": [
 				{
