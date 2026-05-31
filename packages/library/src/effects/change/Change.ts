@@ -3,7 +3,7 @@ import {
 	ChangeOperation,
 	type ChangeSchema,
 	validateChangeSchema,
-} from "./change.schema";
+} from "../../schemas/parts/change.schema";
 
 export class Change {
 	public readonly definition: ChangeSchema;

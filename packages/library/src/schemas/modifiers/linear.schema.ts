@@ -97,13 +97,13 @@ export const validateLinear = ajv.compile<LinearSchema>({
 		},
 		activeEffects: {
 			description:
-				"Foundry active effects applied when this modifier is active. Supports {amount} interpolation",
+				"Foundry active effects applied when this modifier is active. Supports {amount} interpolation. Each entry follows activeEffect.schema.ts",
 			type: "array",
 			default: [],
 		},
 		feats: {
 			description:
-				"Foundry feats added to the item when this modifier is active. Supports {amount} interpolation",
+				"Foundry feats added to the item when this modifier is active. Supports {amount} interpolation. Each entry follows feat.schema.ts",
 			type: "array",
 			default: [],
 		},

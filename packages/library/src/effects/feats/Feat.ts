@@ -4,12 +4,12 @@ import { Icon } from "../../item/icon";
 import { Logger } from "../../misc/Logger";
 import type { Flavor } from "../../modifiers/modifier.schema";
 import { Activity } from "../activity/Activity";
-import type { ActivitySchema } from "../activity/activity.schema";
+import type { ActivitySchema } from "../../schemas/parts/activity.schema";
 import {
 	type FeatSchema,
 	type FeatSystem,
 	validateFeatSchema,
-} from "./feat.schema";
+} from "../../schemas/parts/feat.schema";
 
 type DocumentSystem = Omit<FeatSystem, "activities"> & {
 	type: { value: "feat" };

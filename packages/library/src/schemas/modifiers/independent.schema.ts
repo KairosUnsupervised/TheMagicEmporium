@@ -85,13 +85,13 @@ export const validateIndependent = ajv.compile<IndependentSchema>({
 					flavor: flavorSchema,
 					changes: {
 						description:
-							"Item property changes applied while this breakpoint is active",
+							"Item property changes applied while this breakpoint is active. Each entry follows change.schema.ts",
 						type: "array",
 						default: [],
 					},
 					activities: {
 						description:
-							"Foundry activities added to the item while this breakpoint is active",
+							"Foundry activities added to the item while this breakpoint is active. Each entry follows activity.schema.ts",
 						type: "array",
 						default: [],
 					},

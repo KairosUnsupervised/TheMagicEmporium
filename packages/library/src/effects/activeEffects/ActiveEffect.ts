@@ -7,7 +7,7 @@ import {
 	type ActiveEffectSchema,
 	ModeSchema,
 	validateActiveEffectSchema,
-} from "./activeEffect.schema";
+} from "../../schemas/parts/activeEffect.schema";
 
 export enum Mode {
 	/**

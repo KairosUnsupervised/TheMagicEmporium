@@ -83,13 +83,13 @@ export const validateUnique = ajv.compile<UniqueSchema>({
 					flavor: flavorSchema,
 					activeEffects: {
 						description:
-							"Foundry active effects applied when this breakpoint is the highest active one",
+							"Foundry active effects applied when this breakpoint is the highest active one. Each entry follows activeEffect.schema.ts",
 						type: "array",
 						default: [],
 					},
 					feats: {
 						description:
-							"Foundry feats added to the item when this breakpoint is the highest active one",
+							"Foundry feats added to the item when this breakpoint is the highest active one. Each entry follows feat.schema.ts",
 						type: "array",
 						default: [],
 					},

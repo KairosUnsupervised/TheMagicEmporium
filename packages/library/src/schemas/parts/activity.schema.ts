@@ -165,10 +165,48 @@ export interface ActivitySchema {
 }
 
 export const activitySchema = {
+	title: "Activity",
+	description:
+		"A usable ability attached directly to the item's action panel. Used by INDEPENDENT modifier breakpoints. Only add an activity when it performs a real mechanical action (rolls dice, applies an effect, tracks uses) — if the behaviour is manually tracked or not yet automated, leave activities as [] and describe the mechanic in flavor text instead",
+	examples: [
+		{
+			type: "damage",
+			name: "Ignite Weapon",
+			activation: { type: "bonus", override: false, condition: "" },
+			uses: { max: 1, recovery: [{ period: "sr", type: "recoverAll" }] },
+			damage: {
+				types: ["fire"],
+				custom: { enabled: false },
+				scaling: { number: 1 },
+				number: 1,
+				denomination: 6,
+				bonus: "",
+			},
+		},
+		{
+			type: "heal",
+			name: "Crimson Harvest",
+			activation: {
+				type: "special",
+				override: false,
+				condition: "on direct creature kill",
+			},
+			healing: {
+				types: ["temphp"],
+				custom: { enabled: false },
+				scaling: { number: 1 },
+				number: 2,
+				denomination: 4,
+				bonus: "",
+			},
+		},
+	],
 	type: "object",
 	properties: {
 		_id: { type: "string" },
 		type: {
+			description:
+				"Activity type. Use utility for mechanics without damage or healing (toggling state, applying conditions, custom triggers)",
 			type: "string",
 			enum: [
 				"attack",
@@ -180,7 +218,10 @@ export const activitySchema = {
 				"summon",
 			],
 		},
-		name: { type: "string" },
+		name: {
+			description: "Label shown in the item's action panel and chat card",
+			type: "string",
+		},
 		img: { type: "string" },
 		sort: { type: "number" },
 		description: {
@@ -190,9 +231,15 @@ export const activitySchema = {
 			},
 		},
 		activation: {
+			description:
+				"Action type required to use this activity. Always include override: false. Use condition for trigger text (e.g. 'on direct creature kill')",
 			type: "object",
 			properties: {
-				type: { type: "string" },
+				type: {
+					description:
+						"action, bonus, reaction, special, legendary, mythic, lair, crew, or '' for passive",
+					type: "string",
+				},
 				cost: { type: ["number", "null"] },
 				condition: { type: "string" },
 			},
@@ -254,6 +301,8 @@ export const activitySchema = {
 			},
 		},
 		consumption: {
+			description:
+				"Required when the parent feat has a uses block — links this activity to the feat's use pool so activating it consumes a charge. Without it, the activation fires but no charge is deducted",
 			type: "object",
 			properties: {
 				targets: {
@@ -293,6 +342,8 @@ export const activitySchema = {
 			},
 		},
 		uses: {
+			description:
+				"Use limit and recovery. Omit for unlimited uses. max can be a number or roll formula (e.g. @prof). period: lr/sr/day/dawn/dusk; type: recoverAll",
 			type: "object",
 			properties: {
 				max: { type: ["string", "number"] },
@@ -316,6 +367,8 @@ export const activitySchema = {
 			},
 		},
 		damage: {
+			description:
+				"Damage dealt by this activity. Use a flat damage object — not a parts array. types specifies damage types (e.g. ['fire']). number/denomination define the dice. bonus is a flat formula or ''. custom always { enabled: false }. scaling always { number: 1 }. number supports {amount} for LINEAR modifiers",
 			type: "object",
 			properties: {
 				critical: {
@@ -377,6 +430,8 @@ export const activitySchema = {
 			},
 		},
 		healing: {
+			description:
+				"Healing dealt by this activity. Use a flat healing object — not a parts array. types: ['healing'] for normal healing, ['temphp'] for temporary HP. number/denomination define the dice. bonus is a flat formula or ''. custom always { enabled: false }. scaling always { number: 1 }. number supports {amount} for LINEAR modifiers",
 			type: "object",
 			properties: {
 				critical: {

@@ -128,13 +128,13 @@ export const validateTiered = ajv.compile<TieredSchema>({
 					flavor: flavorSchema,
 					activeEffects: {
 						description:
-							"Foundry active effects applied when this tier is active",
+							"Foundry active effects applied when this tier is active. Each entry follows activeEffect.schema.ts",
 						type: "array",
 						default: [],
 					},
 					feats: {
 						description:
-							"Foundry feats added to the item when this tier is active",
+							"Foundry feats added to the item when this tier is active. Each entry follows feat.schema.ts",
 						type: "array",
 						default: [],
 					},

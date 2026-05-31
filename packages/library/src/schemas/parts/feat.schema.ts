@@ -1,8 +1,5 @@
 import Ajv from "ajv";
-import {
-	type ActivitySchema,
-	activityArraySchema,
-} from "../activity/activity.schema";
+import { type ActivitySchema, activityArraySchema } from "./activity.schema";
 
 const ajv = new Ajv({ removeAdditional: false, strict: false });
 
@@ -194,11 +191,61 @@ const systemSchema = {
 };
 
 export const validateFeatSchema = ajv.compile<FeatSchema>({
+	title: "Feat",
+	description:
+		"A named ability that appears as its own entry on the character sheet. Used by UNIQUE, LINEAR, and TIERED modifiers. The system block follows the Foundry dnd5e item schema — anything Foundry accepts there is valid. title/description/disclaimer default to the parent modifier's values and are ignored entirely if system.description.value is set directly",
+	examples: [
+		{
+			title: "Arcane Eruption",
+			description: "Deal 4d10 force damage in a 30 ft area, DEX save for half",
+			system: {
+				activation: { type: "action", cost: 1, condition: "" },
+				uses: { max: 4, recovery: [{ period: "lr", type: "recoverAll" }] },
+				activities: [
+					{
+						type: "save",
+						name: "Use Arcane Eruption",
+						activation: { type: "action", override: false, condition: "" },
+						consumption: { targets: [{ type: "itemUses", value: "1" }] },
+						damage: {
+							onSave: "half",
+							types: ["force"],
+							custom: { enabled: false },
+							scaling: { number: 1 },
+							number: 4,
+							denomination: 10,
+							bonus: "",
+						},
+						save: {
+							ability: ["dex"],
+							dc: { calculation: "spellcasting", formula: "" },
+						},
+					},
+				],
+			},
+		},
+	],
 	type: "object",
 	properties: {
-		title: { type: "string" },
-		description: { type: "string" },
-		disclaimer: { type: ["string", "null"] },
-		system: systemSchema,
+		title: {
+			description:
+				"Name shown on the feat entry. Defaults to the modifier's title. When a tier grants multiple feats, use 'Tier Title - Ability Name' format so the parent modifier is always identifiable",
+			type: "string",
+		},
+		description: {
+			description:
+				"Shown on the feat entry wrapped in <p><strong>…</strong></p>. Defaults to the modifier's description. Each feat in a multi-feat tier must have its own description scoped to that feat's ability only",
+			type: "string",
+		},
+		disclaimer: {
+			description:
+				"Appended below the description in italics. Defaults to the modifier's disclaimer",
+			type: ["string", "null"],
+		},
+		system: {
+			...systemSchema,
+			description:
+				"Raw Foundry dnd5e system block. No useless activities — only add an activity when it provides mechanical value (rolls dice, tracks a save, heals, etc.). Do not add a utility activity just to represent an activation type; system.activation already conveys that. img defaults to PassiveIcon.png, or ActiveIcon.png when system.activation is set",
+		},
 	},
 });
