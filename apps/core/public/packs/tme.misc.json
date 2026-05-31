@@ -2011,6 +2011,29 @@
 					]
 				}
 			]
+		},
+		{
+			"identifier": "TME.UNTETHERED",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Untethered",
+						"description": "You can move through creature spaces and end your turn occupying the same space as another creature",
+						"background": "%BACKGROUNDS%/tertiary/untethered.jpg"
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
 		}
 	]
 }
