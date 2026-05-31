@@ -1,11 +1,12 @@
 import Ajv from "ajv";
 
+export type { Application } from "../schemas/modifiers/application.schema";
 export {
-	Application,
 	applicationSchema,
 	Restriction,
 } from "../schemas/modifiers/application.schema";
-export { Flavor, flavorSchema } from "../schemas/modifiers/flavor.schema";
+export type { Flavor } from "../schemas/modifiers/flavor.schema";
+export { flavorSchema } from "../schemas/modifiers/flavor.schema";
 
 const ajv = new Ajv();
 
