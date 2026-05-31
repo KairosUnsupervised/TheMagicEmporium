@@ -2107,6 +2107,65 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.CONDEMNED",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Condemned",
+				"description": "Readied attacks and spell attacks you make deal {amount}d6 additional damage",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.7, "value": 2 },
+				{
+					"min": 0.9,
+					"value": 3,
+					"background": "%BACKGROUNDS%/primary/condemned.jpg"
+				}
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "special",
+							"cost": null,
+							"condition": "on a readied attack or spell attack"
+						},
+						"activities": [
+							{
+								"type": "damage",
+								"name": "Condemned",
+								"activation": {
+									"type": "special",
+									"override": false,
+									"condition": "on a readied attack or spell attack"
+								},
+								"damage": {
+									"parts": [
+										{
+											"number": "{amount}",
+											"denomination": 6,
+											"bonus": "",
+											"types": []
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
 		}
 	]
 }
