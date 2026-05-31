@@ -2034,6 +2034,55 @@
 					"feats": []
 				}
 			]
+		},
+		{
+			"identifier": "TME.MAGIC_SPILLOVER",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.5, "value": 2 },
+				{ "min": 0.8, "value": 4 }
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Magic Spillover",
+						"description": "When you receive healing while at full HP, convert the excess into up to 8 temporary HP",
+						"disclaimer": "Temporary HP do not stack, only the highest applies"
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Greater Magic Spillover",
+						"description": "When you receive healing while at full HP, convert the excess into up to 16 temporary HP",
+						"disclaimer": "Temporary HP do not stack, only the highest applies"
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Supreme Magic Spillover",
+						"background": "%BACKGROUNDS%/secondary/magicSpillover.jpg",
+						"description": "When you receive healing while at full HP, convert the excess into up to 32 temporary HP",
+						"disclaimer": "Temporary HP do not stack, only the highest applies"
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
 		}
 	]
 }
