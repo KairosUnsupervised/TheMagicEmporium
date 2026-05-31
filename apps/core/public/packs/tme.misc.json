@@ -2041,7 +2041,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -2083,6 +2083,30 @@
 					"feats": []
 				}
 			]
+		},
+		{
+			"identifier": "TME.FLAGELLANT",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Flagellant",
+				"description": "While concentrating on a spell, reduce the damage you take each turn by {amount}",
+				"disclaimer": null,
+				"background": "%BACKGROUNDS%/primary/flagellant.jpg"
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.5, "value": 3 },
+				{ "min": 0.8, "value": 5 }
+			],
+			"activeEffects": [],
+			"feats": []
 		}
 	]
 }
