@@ -1318,9 +1318,34 @@
 				"description": "If you moved at least 15 feet before making an attack roll, gain +{amount} to the next attack roll",
 				"disclaimer": null
 			},
+			"breakpoints": [{ "min": 0, "value": 1 }, { "min": 0.6, "value": 2 }],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
+			"identifier": "TME.DOMINATION",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Domination",
+				"description": "While you have temporary HP, your melee attacks deal +{amount} bonus damage",
+				"disclaimer": null
+			},
 			"breakpoints": [
 				{ "min": 0, "value": 1 },
-				{ "min": 0.6, "value": 2 }
+				{ "min": 0.5, "value": 2 },
+				{
+					"min": 0.8,
+					"value": 4,
+					"background": "%BACKGROUNDS%/secondary/domination.jpg"
+				},
+				{ "min": 0.95, "value": 5, "background": "%BACKGROUNDS%/secondary/domination.jpg" }
 			],
 			"activeEffects": [],
 			"feats": []
