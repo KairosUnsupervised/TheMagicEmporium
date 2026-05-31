@@ -1897,6 +1897,51 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.STRUCTURAL_DISINTEGRY",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [{ "min": 0, "value": 1 }, { "min": 0.8, "value": 2 }],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Structural Disintegry",
+						"description": "Your attacks deal double damage to objects, structures, and non living constructs.",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Structural Disintegry",
+						"description": "Your attacks deal quadruple damage to objects, structures, and non living constructs.",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Structural Disintegry",
+						"description": "Your attacks deal octuple damage to objects, structures, and non living constructs.",
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/structuralDisintegry.jpg"
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
 		}
 	]
 }
