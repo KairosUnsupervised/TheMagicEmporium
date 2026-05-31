@@ -1345,7 +1345,11 @@
 					"value": 4,
 					"background": "%BACKGROUNDS%/secondary/domination.jpg"
 				},
-				{ "min": 0.95, "value": 5, "background": "%BACKGROUNDS%/secondary/domination.jpg" }
+				{
+					"min": 0.95,
+					"value": 5,
+					"background": "%BACKGROUNDS%/secondary/domination.jpg"
+				}
 			],
 			"activeEffects": [],
 			"feats": []
@@ -1373,6 +1377,61 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.ECHO_STRIKE",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Echo Strike",
+						"description": "When you miss with a melee attack, your next melee attack before the end of your turn deals an additional 1d4 damage",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": "on the next melee attack after missing this turn"
+								},
+								"activities": [
+									{
+										"type": "damage",
+										"name": "Echo Strike",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": "on the next melee attack after missing this turn"
+										},
+										"damage": {
+											"parts": [
+												{
+													"number": 1,
+													"denomination": 4,
+													"bonus": "",
+													"types": []
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
 		}
 	]
 }
