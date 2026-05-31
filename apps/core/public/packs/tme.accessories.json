@@ -10,7 +10,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -70,7 +73,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["WEAPON", "ACCESSORY"],
+				"whitelistedBy": [
+					"WEAPON",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -259,7 +265,8 @@
 					"flavor": {
 						"title": "Eccentric Mastermind",
 						"description": "Four times per long rest, as an action, trigger wild magic on any creature within 30ft. Once per long rest, replace any wild magic effect with one of your choosing",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/eccentricCaster.jpg"
 					},
 					"activeEffects": [],
 					"feats": [
@@ -365,7 +372,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -388,7 +398,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": ["ACCESSORY"],
+				"whitelistedBy": [
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -424,7 +436,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ACCESSORY", "ARMOR_CLOTHES"],
+				"whitelistedBy": [
+					"ACCESSORY",
+					"ARMOR_CLOTHES"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -484,7 +499,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -495,10 +513,22 @@
 				"background": "%BACKGROUNDS%/tertiary/remSleep.jpg"
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 20 },
-				{ "min": 0.5, "value": 35 },
-				{ "min": 0.8, "value": 60 },
-				{ "min": 0.95, "value": 80 }
+				{
+					"min": 0,
+					"value": 20
+				},
+				{
+					"min": 0.5,
+					"value": 35
+				},
+				{
+					"min": 0.8,
+					"value": 60
+				},
+				{
+					"min": 0.95,
+					"value": 80
+				}
 			],
 			"activeEffects": [],
 			"feats": [
@@ -539,10 +569,23 @@
 				"description": "+{amount} bonus to charisma checks and saving throws when gaslighting creatures"
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 2 },
-				{ "min": 0.5, "value": 4 },
-				{ "min": 0.8, "value": 6 },
-				{ "min": 0.95, "value": 8 }
+				{
+					"min": 0,
+					"value": 2
+				},
+				{
+					"min": 0.5,
+					"value": 4
+				},
+				{
+					"min": 0.8,
+					"value": 6
+				},
+				{
+					"min": 0.95,
+					"value": 8,
+					"background": "%BACKGROUNDS%/secondary/surelyATherapist.jpg"
+				}
 			],
 			"activeEffects": [],
 			"feats": []
@@ -558,9 +601,18 @@
 				"applies": []
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 1 },
-				{ "min": 0.5, "value": 2 },
-				{ "min": 0.8, "value": 4 }
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
 			],
 			"tiers": [
 				{
@@ -588,7 +640,8 @@
 					"flavor": {
 						"title": "The Dark Urge",
 						"description": "You have advantage on shove attacks and enemies have disadvantage on shoves against you. Your shoves push creatures an additional 15ft",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/theDarkUrge.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -601,7 +654,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ACCESSORY"],
+				"whitelistedBy": [
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -634,14 +689,18 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": ["temphp"],
+											"types": [
+												"temphp"
+											],
 											"custom": {
 												"enabled": true,
 												"formula": "@attributes.hp.value - 1"
 											}
 										},
 										"consumption": {
-											"scaling": { "allowed": false },
+											"scaling": {
+												"allowed": false
+											},
 											"spellSlot": false,
 											"targets": []
 										}
@@ -659,7 +718,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["WEAPON", "ACCESSORY"],
+				"whitelistedBy": [
+					"WEAPON",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -683,7 +745,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ARMOR", "WEAPON"],
+				"whitelistedBy": [
+					"ARMOR",
+					"WEAPON"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -707,7 +772,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -731,7 +799,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -784,7 +855,9 @@
 									"condition": "when any d20 roll is made"
 								},
 								"consumption": {
-									"scaling": { "allowed": false },
+									"scaling": {
+										"allowed": false
+									},
 									"spellSlot": false,
 									"targets": [
 										{
@@ -807,7 +880,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -842,7 +918,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -888,7 +967,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -897,7 +979,16 @@
 				"description": "The first leveled spell you cast after a long rest is treated as cast {amount} slot level(s) higher at no additional cost",
 				"disclaimer": null
 			},
-			"breakpoints": [{ "min": 0, "value": 1 }, { "min": 0.8, "value": 2 }],
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.8,
+					"value": 2
+				}
+			],
 			"activeEffects": [],
 			"feats": [
 				{
@@ -927,7 +1018,9 @@
 									"condition": "first leveled spell(s) cast after a long rest"
 								},
 								"consumption": {
-									"scaling": { "allowed": false },
+									"scaling": {
+										"allowed": false
+									},
 									"spellSlot": false,
 									"targets": [
 										{

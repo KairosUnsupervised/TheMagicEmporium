@@ -10,9 +10,15 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ACCESSORY"],
-				"blacklistedBy": ["SCORE"],
-				"applies": ["SCORE"]
+				"whitelistedBy": [
+					"ACCESSORY"
+				],
+				"blacklistedBy": [
+					"SCORE"
+				],
+				"applies": [
+					"SCORE"
+				]
 			},
 			"breakpoints": [
 				{
@@ -168,9 +174,15 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ACCESSORY"],
-				"blacklistedBy": ["SCORE"],
-				"applies": ["SCORE"]
+				"whitelistedBy": [
+					"ACCESSORY"
+				],
+				"blacklistedBy": [
+					"SCORE"
+				],
+				"applies": [
+					"SCORE"
+				]
 			},
 			"breakpoints": [
 				{
@@ -298,7 +310,9 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": ["temphp"],
+											"types": [
+												"temphp"
+											],
 											"custom": {
 												"enabled": true,
 												"formula": "@abilities.con.value"
@@ -332,9 +346,15 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ACCESSORY"],
-				"blacklistedBy": ["SCORE"],
-				"applies": ["SCORE"]
+				"whitelistedBy": [
+					"ACCESSORY"
+				],
+				"blacklistedBy": [
+					"SCORE"
+				],
+				"applies": [
+					"SCORE"
+				]
 			},
 			"breakpoints": [
 				{
@@ -419,7 +439,8 @@
 					"flavor": {
 						"title": "Might of Phoenix",
 						"description": "Your constitution score increases by 6. Twice per long rest, use an action to regain HP equal to your constitution score",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/mightOfPhoenix.jpg"
 					},
 					"activeEffects": [
 						{
@@ -462,7 +483,9 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": ["healing"],
+											"types": [
+												"healing"
+											],
 											"custom": {
 												"enabled": true,
 												"formula": "@abilities.con.value"
@@ -496,9 +519,15 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ACCESSORY"],
-				"blacklistedBy": ["SCORE"],
-				"applies": ["SCORE"]
+				"whitelistedBy": [
+					"ACCESSORY"
+				],
+				"blacklistedBy": [
+					"SCORE"
+				],
+				"applies": [
+					"SCORE"
+				]
 			},
 			"breakpoints": [
 				{
@@ -583,7 +612,8 @@
 					"flavor": {
 						"title": "Redshift",
 						"description": "Your dexterity score increases by 6. You can freely take one hit die damage to gain an additional 4d6 movement speed",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/redshift.jpg"
 					},
 					"activeEffects": [
 						{
@@ -623,7 +653,9 @@
 														"enabled": true,
 														"formula": "@attributes.hd.largest"
 													},
-													"types": [""]
+													"types": [
+														""
+													]
 												}
 											]
 										},
@@ -648,9 +680,15 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ACCESSORY"],
-				"blacklistedBy": ["SCORE"],
-				"applies": ["SCORE"]
+				"whitelistedBy": [
+					"ACCESSORY"
+				],
+				"blacklistedBy": [
+					"SCORE"
+				],
+				"applies": [
+					"SCORE"
+				]
 			},
 			"breakpoints": [
 				{
@@ -735,7 +773,8 @@
 					"flavor": {
 						"title": "Annihilation",
 						"description": "Your intelligence score increases by 6. Upon casting a spell, gain for each spell level spent two magic missile bolts to distribute, gain a single bolt for a cantrip",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/annihilation.jpg"
 					},
 					"activeEffects": [
 						{
@@ -772,9 +811,15 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ACCESSORY"],
-				"blacklistedBy": ["SCORE"],
-				"applies": ["SCORE"]
+				"whitelistedBy": [
+					"ACCESSORY"
+				],
+				"blacklistedBy": [
+					"SCORE"
+				],
+				"applies": [
+					"SCORE"
+				]
 			},
 			"breakpoints": [
 				{
@@ -859,7 +904,8 @@
 					"flavor": {
 						"title": "Magic Reservoir",
 						"description": "Your intelligence score increases by 6. Upon casting a spell roll a D6. On a 6 the spell slot is not consumed. On a 5 regain half (ceiled) of the spell level back",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/magicReservoir.jpg"
 					},
 					"activeEffects": [
 						{
@@ -917,9 +963,15 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ACCESSORY"],
-				"blacklistedBy": ["SCORE"],
-				"applies": ["SCORE"]
+				"whitelistedBy": [
+					"ACCESSORY"
+				],
+				"blacklistedBy": [
+					"SCORE"
+				],
+				"applies": [
+					"SCORE"
+				]
 			},
 			"breakpoints": [
 				{
@@ -1071,7 +1123,9 @@
 														"enabled": true,
 														"formula": "@details.level * 4"
 													},
-													"types": ["force"]
+													"types": [
+														"force"
+													]
 												}
 											]
 										},
@@ -1103,9 +1157,15 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ACCESSORY"],
-				"blacklistedBy": ["SCORE"],
-				"applies": ["SCORE"]
+				"whitelistedBy": [
+					"ACCESSORY"
+				],
+				"blacklistedBy": [
+					"SCORE"
+				],
+				"applies": [
+					"SCORE"
+				]
 			},
 			"breakpoints": [
 				{
@@ -1260,9 +1320,15 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ACCESSORY"],
-				"blacklistedBy": ["SCORE"],
-				"applies": ["SCORE"]
+				"whitelistedBy": [
+					"ACCESSORY"
+				],
+				"blacklistedBy": [
+					"SCORE"
+				],
+				"applies": [
+					"SCORE"
+				]
 			},
 			"breakpoints": [
 				{
@@ -1347,7 +1413,8 @@
 					"flavor": {
 						"title": "Harmony",
 						"description": "Your wisdom score increases by 6. You can stack advantages and disadvantages. Four times per long rest you can grant your ability and skill checks advantage",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/harmony.jpg"
 					},
 					"activeEffects": [
 						{
@@ -1432,9 +1499,15 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ACCESSORY"],
-				"blacklistedBy": ["SCORE"],
-				"applies": ["SCORE"]
+				"whitelistedBy": [
+					"ACCESSORY"
+				],
+				"blacklistedBy": [
+					"SCORE"
+				],
+				"applies": [
+					"SCORE"
+				]
 			},
 			"breakpoints": [
 				{
@@ -1604,9 +1677,15 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ACCESSORY"],
-				"blacklistedBy": ["SCORE"],
-				"applies": ["SCORE"]
+				"whitelistedBy": [
+					"ACCESSORY"
+				],
+				"blacklistedBy": [
+					"SCORE"
+				],
+				"applies": [
+					"SCORE"
+				]
 			},
 			"breakpoints": [
 				{
@@ -1691,7 +1770,8 @@
 					"flavor": {
 						"title": "Temporal",
 						"description": "Your dexterity score increases by 6. As an action you can teleport back to a place you occupied up to the start of your previous turn",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/temporal.jpg"
 					},
 					"activeEffects": [
 						{

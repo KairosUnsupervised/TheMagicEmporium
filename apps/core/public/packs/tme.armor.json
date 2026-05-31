@@ -1,6 +1,6 @@
 {
 	"id": "tme.armor",
-	"name": "TME \u2014 Armor Modifiers",
+	"name": "TME — Armor Modifiers",
 	"description": "Built-in armor modifiers. Affects defensive stats, armor properties, and armor-bound abilities.",
 	"enabled": true,
 	"modifiers": [
@@ -10,9 +10,15 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
-				"blacklistedBy": ["PROPERTY_CHANGE"],
-				"applies": ["PROPERTY_CHANGE"]
+				"whitelistedBy": [
+					"ARMOR_WITH_ARMOR_CLASS"
+				],
+				"blacklistedBy": [
+					"PROPERTY_CHANGE"
+				],
+				"applies": [
+					"PROPERTY_CHANGE"
+				]
 			},
 			"breakpoints": [
 				{
@@ -39,7 +45,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": ["ARMOR"],
+				"whitelistedBy": [
+					"ARMOR"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -112,7 +120,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ARMOR"],
+				"whitelistedBy": [
+					"ARMOR"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -158,7 +168,9 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": ["hp"],
+											"types": [
+												"hp"
+											],
 											"custom": {
 												"enabled": false
 											},
@@ -202,7 +214,9 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": ["hp"],
+											"types": [
+												"hp"
+											],
 											"custom": {
 												"enabled": false
 											},
@@ -246,7 +260,9 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": ["hp"],
+											"types": [
+												"hp"
+											],
 											"custom": {
 												"enabled": false
 											},
@@ -290,7 +306,9 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": ["hp"],
+											"types": [
+												"hp"
+											],
 											"custom": {
 												"enabled": false
 											},
@@ -315,7 +333,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ARMOR"],
+				"whitelistedBy": [
+					"ARMOR"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -361,7 +381,9 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": ["temphp"],
+											"types": [
+												"temphp"
+											],
 											"custom": {
 												"enabled": true,
 												"formula": "@attributes.hd.largest"
@@ -406,7 +428,9 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": ["temphp"],
+											"types": [
+												"temphp"
+											],
 											"custom": {
 												"enabled": true,
 												"formula": "@attributes.hd.largest + @attributes.hd.largest"
@@ -429,7 +453,8 @@
 					"flavor": {
 						"title": "Indomitable Protection",
 						"description": "Use an action to gain 3 Hit Dice of temporary HP",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/protection.jpg"
 					},
 					"activeEffects": [],
 					"feats": [
@@ -451,7 +476,9 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": ["temphp"],
+											"types": [
+												"temphp"
+											],
 											"custom": {
 												"enabled": true,
 												"formula": "@attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest"
@@ -477,7 +504,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ARMOR"],
+				"whitelistedBy": [
+					"ARMOR"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -563,7 +592,7 @@
 					"min": 8,
 					"flavor": {
 						"title": "Ultimate Bastion",
-						"description": "Your AC increases by 3. Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP \u2014 temporary HP equal to your level or CR fade at the start of each of your turns",
+						"description": "Your AC increases by 3. Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP — temporary HP equal to your level or CR fade at the start of each of your turns",
 						"disclaimer": null
 					},
 					"activeEffects": [
@@ -582,7 +611,7 @@
 					"feats": [
 						{
 							"type": "FEAT",
-							"description": "Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP \u2014 temporary HP equal to your level or CR fade at the start of each of your turns",
+							"description": "Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP — temporary HP equal to your level or CR fade at the start of each of your turns",
 							"system": {
 								"activation": {
 									"type": "bonus",
@@ -608,7 +637,9 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": ["temphp"],
+											"types": [
+												"temphp"
+											],
 											"custom": {
 												"enabled": true,
 												"formula": "@attributes.hp.max"
@@ -648,7 +679,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ARMOR"],
+				"whitelistedBy": [
+					"ARMOR"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -720,7 +753,8 @@
 					"flavor": {
 						"title": "Supreme Vitality",
 						"description": "Gain 4 max HP per level. As an action you can choose up to two other willing targets in sight and equalize your combined HP",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/vitality.jpg"
 					},
 					"activeEffects": [
 						{
@@ -768,7 +802,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
+				"whitelistedBy": [
+					"ARMOR_WITH_ARMOR_CLASS"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -791,9 +827,15 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ARMOR"],
-				"blacklistedBy": ["SELF_IMMOLATION"],
-				"applies": ["SELF_IMMOLATION"]
+				"whitelistedBy": [
+					"ARMOR"
+				],
+				"blacklistedBy": [
+					"SELF_IMMOLATION"
+				],
+				"applies": [
+					"SELF_IMMOLATION"
+				]
 			},
 			"breakpoints": [
 				{
@@ -860,7 +902,9 @@
 													"number": 2,
 													"denomination": 8,
 													"bonus": "",
-													"types": ["fire"]
+													"types": [
+														"fire"
+													]
 												}
 											]
 										}
@@ -920,7 +964,9 @@
 													"number": 3,
 													"denomination": 8,
 													"bonus": "",
-													"types": ["fire"]
+													"types": [
+														"fire"
+													]
 												}
 											]
 										}
@@ -980,7 +1026,9 @@
 													"number": 4,
 													"denomination": 8,
 													"bonus": "",
-													"types": ["fire"]
+													"types": [
+														"fire"
+													]
 												}
 											]
 										}
@@ -998,14 +1046,29 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ARMOR"],
-				"blacklistedBy": ["SELF_IMMOLATION"],
-				"applies": ["SELF_IMMOLATION"]
+				"whitelistedBy": [
+					"ARMOR"
+				],
+				"blacklistedBy": [
+					"SELF_IMMOLATION"
+				],
+				"applies": [
+					"SELF_IMMOLATION"
+				]
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 1 },
-				{ "min": 0.5, "value": 2 },
-				{ "min": 0.8, "value": 4 }
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
 			],
 			"tiers": [
 				{
@@ -1021,7 +1084,11 @@
 						{
 							"type": "FEAT",
 							"system": {
-								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
 								"activities": [
 									{
 										"type": "save",
@@ -1037,11 +1104,16 @@
 												"size": 5,
 												"units": "ft"
 											},
-											"affects": { "type": "" }
+											"affects": {
+												"type": ""
+											}
 										},
 										"save": {
 											"ability": "con",
-											"dc": { "calculation": "flat", "formula": "15" }
+											"dc": {
+												"calculation": "flat",
+												"formula": "15"
+											}
 										},
 										"damage": {
 											"onSave": "half",
@@ -1050,7 +1122,9 @@
 													"number": 2,
 													"denomination": 8,
 													"bonus": "",
-													"types": ["fire"]
+													"types": [
+														"fire"
+													]
 												}
 											]
 										}
@@ -1073,7 +1147,11 @@
 						{
 							"type": "FEAT",
 							"system": {
-								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
 								"activities": [
 									{
 										"type": "save",
@@ -1089,11 +1167,16 @@
 												"size": 10,
 												"units": "ft"
 											},
-											"affects": { "type": "" }
+											"affects": {
+												"type": ""
+											}
 										},
 										"save": {
 											"ability": "con",
-											"dc": { "calculation": "flat", "formula": "17" }
+											"dc": {
+												"calculation": "flat",
+												"formula": "17"
+											}
 										},
 										"damage": {
 											"onSave": "half",
@@ -1102,7 +1185,9 @@
 													"number": 3,
 													"denomination": 8,
 													"bonus": "",
-													"types": ["fire"]
+													"types": [
+														"fire"
+													]
 												}
 											]
 										}
@@ -1125,7 +1210,11 @@
 						{
 							"type": "FEAT",
 							"system": {
-								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
 								"activities": [
 									{
 										"type": "save",
@@ -1141,11 +1230,16 @@
 												"size": 15,
 												"units": "ft"
 											},
-											"affects": { "type": "" }
+											"affects": {
+												"type": ""
+											}
 										},
 										"save": {
 											"ability": "con",
-											"dc": { "calculation": "flat", "formula": "19" }
+											"dc": {
+												"calculation": "flat",
+												"formula": "19"
+											}
 										},
 										"damage": {
 											"onSave": "half",
@@ -1154,7 +1248,9 @@
 													"number": 4,
 													"denomination": 8,
 													"bonus": "",
-													"types": ["fire"]
+													"types": [
+														"fire"
+													]
 												}
 											]
 										}
@@ -1172,7 +1268,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
+				"whitelistedBy": [
+					"ARMOR_WITH_ARMOR_CLASS"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1236,7 +1334,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ARMOR"],
+				"whitelistedBy": [
+					"ARMOR"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1247,10 +1347,22 @@
 				"background": "%BACKGROUNDS%/tertiary/meatshield.jpg"
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 10 },
-				{ "min": 0.5, "value": 20 },
-				{ "min": 0.8, "value": 30 },
-				{ "min": 0.95, "value": 40 }
+				{
+					"min": 0,
+					"value": 10
+				},
+				{
+					"min": 0.5,
+					"value": 20
+				},
+				{
+					"min": 0.8,
+					"value": 30
+				},
+				{
+					"min": 0.95,
+					"value": 40
+				}
 			],
 			"activeEffects": [],
 			"feats": []
@@ -1261,7 +1373,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": ["ARMOR"],
+				"whitelistedBy": [
+					"ARMOR"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1284,7 +1398,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": ["ARMOR_STEALTH_DISADVANTAGE"],
+				"whitelistedBy": [
+					"ARMOR_STEALTH_DISADVANTAGE"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1313,7 +1429,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ARMOR"],
+				"whitelistedBy": [
+					"ARMOR"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1399,10 +1517,22 @@
 				"disclaimer": null
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 2 },
-				{ "min": 0.5, "value": 4 },
-				{ "min": 0.8, "value": 6 },
-				{ "min": 0.95, "value": 8 }
+				{
+					"min": 0,
+					"value": 2
+				},
+				{
+					"min": 0.5,
+					"value": 4
+				},
+				{
+					"min": 0.8,
+					"value": 6
+				},
+				{
+					"min": 0.95,
+					"value": 8
+				}
 			],
 			"activeEffects": [],
 			"feats": []
@@ -1413,14 +1543,26 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 1 },
-				{ "min": 0.5, "value": 2 },
-				{ "min": 0.8, "value": 4 }
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
 			],
 			"tiers": [
 				{

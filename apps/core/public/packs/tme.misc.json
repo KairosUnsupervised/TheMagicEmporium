@@ -1,6 +1,6 @@
 {
 	"id": "tme.misc",
-	"name": "TME \u2014 Miscellaneous Modifiers",
+	"name": "TME — Miscellaneous Modifiers",
 	"description": "Built-in miscellaneous modifiers. General-purpose effects that don't fit a specific category.",
 	"enabled": true,
 	"modifiers": [
@@ -234,8 +234,12 @@
 				"weight": 1024,
 				"restriction": "PRIMARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["ECONOMY"],
-				"applies": ["ECONOMY"]
+				"blacklistedBy": [
+					"ECONOMY"
+				],
+				"applies": [
+					"ECONOMY"
+				]
 			},
 			"breakpoints": [
 				{
@@ -311,8 +315,12 @@
 				"weight": 1024,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["ECONOMY"],
-				"applies": ["ECONOMY"]
+				"blacklistedBy": [
+					"ECONOMY"
+				],
+				"applies": [
+					"ECONOMY"
+				]
 			},
 			"breakpoints": [
 				{
@@ -395,8 +403,12 @@
 				"weight": 1024,
 				"restriction": "PRIMARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["PROPERTY_CHANGE"],
-				"applies": ["PROPERTY_CHANGE"]
+				"blacklistedBy": [
+					"PROPERTY_CHANGE"
+				],
+				"applies": [
+					"PROPERTY_CHANGE"
+				]
 			},
 			"breakpoints": [
 				{
@@ -498,7 +510,9 @@
 												{
 													"number": 1,
 													"denomination": 4,
-													"types": ["psychic"],
+													"types": [
+														"psychic"
+													],
 													"bonus": ""
 												}
 											]
@@ -564,7 +578,8 @@
 					"flavor": {
 						"title": "Unaccountable",
 						"description": "You cannot be counterspelled",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/unaccountable.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -586,7 +601,16 @@
 				"description": "While you are concentrating on a spell, your melee attacks deal an additional {amount}d4 damage",
 				"disclaimer": null
 			},
-			"breakpoints": [{ "min": 0, "value": 1 }, { "min": 0.7, "value": 2 }],
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.7,
+					"value": 2
+				}
+			],
 			"activeEffects": [],
 			"feats": [
 				{
@@ -628,7 +652,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -708,9 +735,18 @@
 				"applies": []
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 1 },
-				{ "min": 0.5, "value": 2 },
-				{ "min": 0.8, "value": 4 }
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
 			],
 			"tiers": [
 				{
@@ -725,10 +761,19 @@
 						{
 							"type": "FEAT",
 							"system": {
-								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
 								"uses": {
 									"max": 1,
-									"recovery": [{ "period": "lr", "type": "recoverAll" }]
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
 								},
 								"activities": [
 									{
@@ -740,7 +785,9 @@
 											"condition": ""
 										},
 										"consumption": {
-											"scaling": { "allowed": false },
+											"scaling": {
+												"allowed": false
+											},
 											"spellSlot": true,
 											"targets": [
 												{
@@ -788,10 +835,19 @@
 						{
 							"type": "FEAT",
 							"system": {
-								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
 								"uses": {
 									"max": 1,
-									"recovery": [{ "period": "lr", "type": "recoverAll" }]
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
 								},
 								"activities": [
 									{
@@ -803,7 +859,9 @@
 											"condition": ""
 										},
 										"consumption": {
-											"scaling": { "allowed": false },
+											"scaling": {
+												"allowed": false
+											},
 											"spellSlot": true,
 											"targets": [
 												{
@@ -851,10 +909,19 @@
 						{
 							"type": "FEAT",
 							"system": {
-								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
 								"uses": {
 									"max": 1,
-									"recovery": [{ "period": "lr", "type": "recoverAll" }]
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
 								},
 								"activities": [
 									{
@@ -866,7 +933,9 @@
 											"condition": ""
 										},
 										"consumption": {
-											"scaling": { "allowed": false },
+											"scaling": {
+												"allowed": false
+											},
 											"spellSlot": true,
 											"targets": [
 												{
@@ -910,14 +979,26 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 1 },
-				{ "min": 0.5, "value": 2 },
-				{ "min": 0.8, "value": 4 }
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
 			],
 			"tiers": [
 				{
@@ -989,9 +1070,18 @@
 				"applies": []
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 1 },
-				{ "min": 0.5, "value": 2 },
-				{ "min": 0.8, "value": 4 }
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
 			],
 			"tiers": [
 				{
@@ -1006,7 +1096,11 @@
 						{
 							"type": "FEAT",
 							"system": {
-								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
 								"activities": [
 									{
 										"type": "damage",
@@ -1044,7 +1138,11 @@
 						{
 							"type": "FEAT",
 							"system": {
-								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
 								"activities": [
 									{
 										"type": "damage",
@@ -1075,14 +1173,19 @@
 					"flavor": {
 						"title": "Supreme Honk & Smite",
 						"description": "As an action, retcon 1d4 goose into existence near you. You can have up to 6 goose at once. They will follow your screamed commands no matter the cost",
-						"disclaimer": "You also get the ability to speak with goose"
+						"disclaimer": "You also get the ability to speak with goose",
+						"background": "%BACKGROUNDS%/secondary/honkAndSmite.jpg"
 					},
 					"activeEffects": [],
 					"feats": [
 						{
 							"type": "FEAT",
 							"system": {
-								"activation": { "type": "action", "cost": 1, "condition": "" },
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								},
 								"activities": [
 									{
 										"type": "damage",
@@ -1145,9 +1248,18 @@
 				"applies": []
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 1 },
-				{ "min": 0.5, "value": 2 },
-				{ "min": 0.8, "value": 4 }
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
 			],
 			"tiers": [
 				{
@@ -1175,7 +1287,8 @@
 					"flavor": {
 						"title": "No Matter The Cost!",
 						"description": "As an action, with the help of a weapon or spell attack, execute a friendly creature below 12 HP. Forcefully motivate 3 creatures of your choosing within 30ft to gain the effects of help",
-						"disclaimer": "You cannot motivate yourself"
+						"disclaimer": "You cannot motivate yourself",
+						"background": "%BACKGROUNDS%/secondary/noMatterTheCost.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -1198,10 +1311,22 @@
 				"disclaimer": null
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 5 },
-				{ "min": 0.2, "value": 10 },
-				{ "min": 0.6, "value": 15 },
-				{ "min": 0.8, "value": 20 }
+				{
+					"min": 0,
+					"value": 5
+				},
+				{
+					"min": 0.2,
+					"value": 10
+				},
+				{
+					"min": 0.6,
+					"value": 15
+				},
+				{
+					"min": 0.8,
+					"value": 20
+				}
 			],
 			"activeEffects": [],
 			"feats": []
@@ -1229,10 +1354,19 @@
 						{
 							"type": "FEAT",
 							"system": {
-								"activation": { "type": "bonus", "cost": 1, "condition": "" },
+								"activation": {
+									"type": "bonus",
+									"cost": 1,
+									"condition": ""
+								},
 								"uses": {
 									"max": 1,
-									"recovery": [{ "period": "lr", "type": "recoverAll" }]
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
 								},
 								"activities": [
 									{
@@ -1244,7 +1378,9 @@
 											"condition": ""
 										},
 										"consumption": {
-											"scaling": { "allowed": false },
+											"scaling": {
+												"allowed": false
+											},
 											"spellSlot": true,
 											"targets": [
 												{
@@ -1269,7 +1405,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ACCESSORY", "ARMOR"],
+				"whitelistedBy": [
+					"ACCESSORY",
+					"ARMOR"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1292,7 +1431,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1316,7 +1458,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": ["WEAPON"],
+				"whitelistedBy": [
+					"WEAPON"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1395,9 +1539,19 @@
 				"disclaimer": null
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 1 },
-				{ "min": 0.7, "value": 2 },
-				{ "min": 0.9, "value": 3 }
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.7,
+					"value": 2
+				},
+				{
+					"min": 0.9,
+					"value": 3,
+					"background": "%BACKGROUNDS%/secondary/markofDeath.jpg"
+				}
 			],
 			"activeEffects": [],
 			"feats": []
@@ -1418,10 +1572,23 @@
 				"disclaimer": null
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 2 },
-				{ "min": 0.5, "value": 4 },
-				{ "min": 0.8, "value": 6 },
-				{ "min": 0.95, "value": 8 }
+				{
+					"min": 0,
+					"value": 2
+				},
+				{
+					"min": 0.5,
+					"value": 4
+				},
+				{
+					"min": 0.8,
+					"value": 6
+				},
+				{
+					"min": 0.95,
+					"value": 8,
+					"background": "%BACKGROUNDS%/secondary/auraOfBlood.jpg"
+				}
 			],
 			"activeEffects": [],
 			"feats": [
@@ -1448,7 +1615,9 @@
 										"size": 10,
 										"units": "ft"
 									},
-									"affects": { "type": "" }
+									"affects": {
+										"type": ""
+									}
 								},
 								"save": {
 									"ability": "con",
@@ -1461,13 +1630,20 @@
 									"onSave": "none",
 									"parts": [
 										{
-											"custom": { "enabled": true, "formula": "{amount}" },
-											"types": ["necrotic"]
+											"custom": {
+												"enabled": true,
+												"formula": "{amount}"
+											},
+											"types": [
+												"necrotic"
+											]
 										}
 									]
 								},
 								"consumption": {
-									"scaling": { "allowed": false },
+									"scaling": {
+										"allowed": false
+									},
 									"spellSlot": false,
 									"targets": []
 								}
@@ -1483,7 +1659,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
+				"whitelistedBy": [
+					"ARMOR_WITH_ARMOR_CLASS"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1662,7 +1840,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1779,7 +1960,9 @@
 									"condition": "first time taking damage in combat"
 								},
 								"healing": {
-									"types": ["healing"],
+									"types": [
+										"healing"
+									],
 									"custom": {
 										"enabled": false
 									},
@@ -1802,7 +1985,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1854,7 +2040,9 @@
 									"condition": "when taking non-magical damage"
 								},
 								"consumption": {
-									"scaling": { "allowed": false },
+									"scaling": {
+										"allowed": false
+									},
 									"spellSlot": false,
 									"targets": [
 										{
@@ -1887,8 +2075,14 @@
 				"disclaimer": null
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 5 },
-				{ "min": 0.6, "value": 10 },
+				{
+					"min": 0,
+					"value": 5
+				},
+				{
+					"min": 0.6,
+					"value": 10
+				},
 				{
 					"min": 0.9,
 					"value": 15,
@@ -1908,7 +2102,16 @@
 				"blacklistedBy": [],
 				"applies": []
 			},
-			"breakpoints": [{ "min": 0, "value": 1 }, { "min": 0.8, "value": 2 }],
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.8,
+					"value": 2
+				}
+			],
 			"tiers": [
 				{
 					"min": 1,
@@ -2041,14 +2244,26 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 1 },
-				{ "min": 0.5, "value": 2 },
-				{ "min": 0.8, "value": 4 }
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
 			],
 			"tiers": [
 				{
@@ -2090,7 +2305,10 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"whitelistedBy": [
+					"ARMOR",
+					"ACCESSORY"
+				],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -2101,9 +2319,18 @@
 				"background": "%BACKGROUNDS%/primary/flagellant.jpg"
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 1 },
-				{ "min": 0.5, "value": 3 },
-				{ "min": 0.8, "value": 5 }
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 3
+				},
+				{
+					"min": 0.8,
+					"value": 5
+				}
 			],
 			"activeEffects": [],
 			"feats": []
@@ -2124,8 +2351,14 @@
 				"disclaimer": null
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 1 },
-				{ "min": 0.7, "value": 2 },
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.7,
+					"value": 2
+				},
 				{
 					"min": 0.9,
 					"value": 3,
@@ -2183,9 +2416,18 @@
 				"disclaimer": null
 			},
 			"breakpoints": [
-				{ "min": 0, "value": 1 },
-				{ "min": 0.5, "value": 2 },
-				{ "min": 0.8, "value": 3 }
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 3
+				}
 			],
 			"activeEffects": [],
 			"feats": [
@@ -2207,7 +2449,9 @@
 									"condition": "when healed by an ally's spell"
 								},
 								"healing": {
-									"types": ["healing"],
+									"types": [
+										"healing"
+									],
 									"custom": {
 										"enabled": true,
 										"formula": "{amount}"

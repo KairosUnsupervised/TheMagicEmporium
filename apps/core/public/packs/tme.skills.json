@@ -11,8 +11,12 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["CHARISMA_SKILL"],
-				"applies": ["CHARISMA_SKILL"]
+				"blacklistedBy": [
+					"CHARISMA_SKILL"
+				],
+				"applies": [
+					"CHARISMA_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -149,8 +153,12 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["CHARISMA_SKILL"],
-				"applies": ["CHARISMA_SKILL"]
+				"blacklistedBy": [
+					"CHARISMA_SKILL"
+				],
+				"applies": [
+					"CHARISMA_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -259,7 +267,9 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": ["temphp"],
+											"types": [
+												"temphp"
+											],
 											"custom": {
 												"enabled": true,
 												"formula": "D20 + @skills.prf.total"
@@ -301,8 +311,12 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["CHARISMA_SKILL"],
-				"applies": ["CHARISMA_SKILL"]
+				"blacklistedBy": [
+					"CHARISMA_SKILL"
+				],
+				"applies": [
+					"CHARISMA_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -439,8 +453,12 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["CHARISMA_SKILL"],
-				"applies": ["CHARISMA_SKILL"]
+				"blacklistedBy": [
+					"CHARISMA_SKILL"
+				],
+				"applies": [
+					"CHARISMA_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -544,8 +562,12 @@
 				"weight": 512,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["DEXTERITY_SKILL"],
-				"applies": ["DEXTERITY_SKILL"]
+				"blacklistedBy": [
+					"DEXTERITY_SKILL"
+				],
+				"applies": [
+					"DEXTERITY_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -686,8 +708,12 @@
 				"weight": 512,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["DEXTERITY_SKILL"],
-				"applies": ["DEXTERITY_SKILL"]
+				"blacklistedBy": [
+					"DEXTERITY_SKILL"
+				],
+				"applies": [
+					"DEXTERITY_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -757,7 +783,8 @@
 					"flavor": {
 						"title": "Perfect Touch",
 						"description": "Your sleight of hand skill increases by 6. You can pickpocket and reverse pickpocket equipped items",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/perfectTouch.jpg"
 					},
 					"activeEffects": [
 						{
@@ -791,8 +818,12 @@
 				"weight": 512,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["DEXTERITY_SKILL"],
-				"applies": ["DEXTERITY_SKILL"]
+				"blacklistedBy": [
+					"DEXTERITY_SKILL"
+				],
+				"applies": [
+					"DEXTERITY_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -862,7 +893,8 @@
 					"flavor": {
 						"title": "Redacted",
 						"description": "Your stealth skill increases by 6. Twice per long rest, as an action, you can retcon all memories of your existence that happened in the last minute",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/redacted.jpg"
 					},
 					"activeEffects": [
 						{
@@ -929,8 +961,12 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["INTELLIGENCE_SKILL"],
-				"applies": ["INTELLIGENCE_SKILL"]
+				"blacklistedBy": [
+					"INTELLIGENCE_SKILL"
+				],
+				"applies": [
+					"INTELLIGENCE_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -1067,8 +1103,12 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["INTELLIGENCE_SKILL"],
-				"applies": ["INTELLIGENCE_SKILL"]
+				"blacklistedBy": [
+					"INTELLIGENCE_SKILL"
+				],
+				"applies": [
+					"INTELLIGENCE_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -1177,7 +1217,9 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": ["healing"],
+											"types": [
+												"healing"
+											],
 											"custom": {
 												"enabled": true,
 												"formula": "4d12"
@@ -1212,8 +1254,12 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["INTELLIGENCE_SKILL"],
-				"applies": ["INTELLIGENCE_SKILL"]
+				"blacklistedBy": [
+					"INTELLIGENCE_SKILL"
+				],
+				"applies": [
+					"INTELLIGENCE_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -1350,8 +1396,12 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["INTELLIGENCE_SKILL"],
-				"applies": ["INTELLIGENCE_SKILL"]
+				"blacklistedBy": [
+					"INTELLIGENCE_SKILL"
+				],
+				"applies": [
+					"INTELLIGENCE_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -1455,8 +1505,12 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["INTELLIGENCE_SKILL"],
-				"applies": ["INTELLIGENCE_SKILL"]
+				"blacklistedBy": [
+					"INTELLIGENCE_SKILL"
+				],
+				"applies": [
+					"INTELLIGENCE_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -1560,8 +1614,12 @@
 				"weight": 1024,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["STRENGTH_SKILL"],
-				"applies": ["STRENGTH_SKILL"]
+				"blacklistedBy": [
+					"STRENGTH_SKILL"
+				],
+				"applies": [
+					"STRENGTH_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -1665,8 +1723,12 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["WISDOM_SKILL"],
-				"applies": ["WISDOM_SKILL"]
+				"blacklistedBy": [
+					"WISDOM_SKILL"
+				],
+				"applies": [
+					"WISDOM_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -1803,8 +1865,12 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["WISDOM_SKILL"],
-				"applies": ["WISDOM_SKILL"]
+				"blacklistedBy": [
+					"WISDOM_SKILL"
+				],
+				"applies": [
+					"WISDOM_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -1874,7 +1940,8 @@
 					"flavor": {
 						"title": "Surely a Medical Professional",
 						"description": "Your medicine skill increases by 12. You can have no clue about humanoid anatomy",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/medicalProfessional.jpg"
 					},
 					"activeEffects": [
 						{
@@ -1908,8 +1975,12 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["WISDOM_SKILL"],
-				"applies": ["WISDOM_SKILL"]
+				"blacklistedBy": [
+					"WISDOM_SKILL"
+				],
+				"applies": [
+					"WISDOM_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -1979,7 +2050,8 @@
 					"flavor": {
 						"title": "Predatory Focus",
 						"description": "Your perception skill increases by 6. As an action you can detect invisible creatures, heat signatures and heartbeat sounds",
-						"disclaimer": null
+						"disclaimer": null,
+						"background": "%BACKGROUNDS%/secondary/predatoryFocus.jpg"
 					},
 					"activeEffects": [
 						{
@@ -2013,8 +2085,12 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["WISDOM_SKILL"],
-				"applies": ["WISDOM_SKILL"]
+				"blacklistedBy": [
+					"WISDOM_SKILL"
+				],
+				"applies": [
+					"WISDOM_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -2118,8 +2194,12 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["WISDOM_SKILL"],
-				"applies": ["WISDOM_SKILL"]
+				"blacklistedBy": [
+					"WISDOM_SKILL"
+				],
+				"applies": [
+					"WISDOM_SKILL"
+				]
 			},
 			"breakpoints": [
 				{
@@ -2228,7 +2308,9 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": ["healing"],
+											"types": [
+												"healing"
+											],
 											"custom": {
 												"enabled": true,
 												"formula": "d12"
