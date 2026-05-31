@@ -16,7 +16,7 @@ export const uniqueVenomousFixture = new UniqueModifier({
 				background: null,
 			},
 			activeEffects: [],
-						feats: [],
+			feats: [],
 		},
 		{
 			min: 0.2,
@@ -28,7 +28,7 @@ export const uniqueVenomousFixture = new UniqueModifier({
 				background: null,
 			},
 			activeEffects: [],
-						feats: [],
+			feats: [],
 		},
 		{
 			min: 0.4,
@@ -40,7 +40,7 @@ export const uniqueVenomousFixture = new UniqueModifier({
 				background: null,
 			},
 			activeEffects: [],
-						feats: [],
+			feats: [],
 		},
 		{
 			min: 0.6,
@@ -52,7 +52,7 @@ export const uniqueVenomousFixture = new UniqueModifier({
 				background: null,
 			},
 			activeEffects: [],
-						feats: [],
+			feats: [],
 		},
 		{
 			min: 0.8,
@@ -64,7 +64,7 @@ export const uniqueVenomousFixture = new UniqueModifier({
 				background: null,
 			},
 			activeEffects: [],
-						feats: [],
+			feats: [],
 		},
 		{
 			min: 0.9,
@@ -76,7 +76,7 @@ export const uniqueVenomousFixture = new UniqueModifier({
 				background: null,
 			},
 			activeEffects: [],
-						feats: [],
+			feats: [],
 		},
 	],
 });

@@ -1,11 +1,11 @@
-import {UniqueModifier} from "@tme/library/src/modifiers/blueprints/UniqueModifier";
-import {ModifierType} from "@tme/library/src/modifiers/modifier.schema";
-import image from "./RedSkull.jpg"
+import { UniqueModifier } from "@tme/library/src/modifiers/blueprints/UniqueModifier";
+import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
+import image from "./RedSkull.jpg";
 
 export const uniqueBloodthirstyFixture = new UniqueModifier({
 	identifier: "fixture.bloodthirsty",
 	type: ModifierType.Unique,
-	application: {weight: 1, whitelistedBy: [], blacklistedBy: [], applies: []},
+	application: { weight: 1, whitelistedBy: [], blacklistedBy: [], applies: [] },
 	breakpoints: [
 		{
 			min: 0,

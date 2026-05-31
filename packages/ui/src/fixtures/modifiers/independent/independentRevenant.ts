@@ -16,7 +16,7 @@ export const independentRevenantFixture = new IndependentModifier({
 				background: null,
 			},
 			changes: [],
-						activities: [],
+			activities: [],
 		},
 	],
 });

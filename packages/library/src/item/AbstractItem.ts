@@ -45,6 +45,7 @@ export class AbstractItem {
 		item.name = document.name;
 		item.backgroundOverride = data.backgroundOverride;
 		item.backgroundEligible = data.backgroundEligible;
+		item.rarity = document.system.rarity as Rarity;
 
 		if (document.system.price.denomination === "gp") {
 			item.currency = document.system.price.value;
@@ -78,20 +79,25 @@ export class AbstractItem {
 		if (!this.backgroundEligible) {
 			return null;
 		}
-		const background = (() => {for (const applied of [
-			...this.primary,
-			...this.secondary,
-			...this.tertiary,
-		].reverse()) {
-			const backgroundOverride = applied.modifier.getBackground(applied.data);
-			if (backgroundOverride) {
-				return backgroundOverride;
+		const background = (() => {
+			for (const applied of [
+				...this.primary,
+				...this.secondary,
+				...this.tertiary,
+			].reverse()) {
+				const backgroundOverride = applied.modifier.getBackground(applied.data);
+				if (backgroundOverride) {
+					return backgroundOverride;
+				}
+				return null;
 			}
-			return null;
-		}})()
+		})();
 
-		if(background){
-			return background.replaceAll("%BACKGROUNDS%", `worlds/${game.world.id}/data/${namespace.core.id}/backgrounds`)
+		if (background) {
+			return background.replaceAll(
+				"%BACKGROUNDS%",
+				`worlds/${game.world.id}/data/${namespace.core.id}/backgrounds`,
+			);
 		}
 		return null;
 	};

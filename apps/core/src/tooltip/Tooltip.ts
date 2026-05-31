@@ -1,8 +1,8 @@
 import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
+import { ItemDisplay } from "@tme/ui/src/components/item/ItemDisplay.tsx";
 import { createElement } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import styles from "./Tooltip.module.css";
-import { ItemDisplay } from "@tme/ui/src/components/item/ItemDisplay.tsx";
 
 const GAP = 20;
 const TOOLTIP_WIDTH = 516;

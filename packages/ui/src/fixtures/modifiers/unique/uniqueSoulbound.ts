@@ -16,7 +16,7 @@ export const uniqueSoulboundFixture = new UniqueModifier({
 				background: null,
 			},
 			activeEffects: [],
-						feats: [],
+			feats: [],
 		},
 	],
 });
