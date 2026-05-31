@@ -1,66 +1,24 @@
-import Ajv from "ajv";
 import { Activity } from "../../effects/activity/Activity";
 import { Change } from "../../effects/change/Change";
 import { Logger } from "../../misc/Logger";
-import { FloatDataManager } from "../dataManagers/FloatDataManager";
-import { type BaseSchema, type CreateProps, Modifier } from "../Modifier";
 import {
-	applicationSchema,
-	type Flavor,
-	flavorSchema,
-	ModifierType,
-} from "../modifier.schema";
+	type IndependentBreakpoint,
+	type IndependentSchema,
+	validateIndependent,
+} from "../../schemas/modifiers/independent.schema";
+import { FloatDataManager } from "../dataManagers/FloatDataManager";
+import { type CreateProps, Modifier } from "../Modifier";
+import type { Flavor } from "../modifier.schema";
 
-const ajv = new Ajv({ removeAdditional: true, useDefaults: true });
-
-interface Breakpoint {
-	min: number;
-	flavor: Flavor;
-	changes: unknown[];
-	activities: unknown[];
-}
-
-interface Schema extends BaseSchema {
-	type: ModifierType.Independent;
-	breakpoints: Breakpoint[];
-}
-
-const validateRaw = ajv.compile<Schema>({
-	type: "object",
-	required: ["identifier", "type", "application", "breakpoints"],
-	properties: {
-		identifier: { type: "string" },
-		type: { type: "string", const: ModifierType.Independent },
-		application: applicationSchema,
-		breakpoints: {
-			type: "array",
-			minItems: 1,
-			items: {
-				type: "object",
-				required: ["min", "flavor"],
-				properties: {
-					min: { type: "number", minimum: 0 },
-					flavor: flavorSchema,
-					changes: { type: "array", default: [] },
-					activities: { type: "array", default: [] },
-				},
-			},
-		},
-	},
-});
-
-/**
- * An Independent modifier selects a tier based on a float value and applies that breakpoint's
- * flavor, changes, and activities directly to the item document.
- */
-export class IndependentModifier extends Modifier<Schema> {
-	public readonly dataManager = FloatDataManager.create<Breakpoint>();
+export class IndependentModifier extends Modifier<IndependentSchema> {
+	public readonly dataManager =
+		FloatDataManager.create<IndependentBreakpoint>();
 
 	static create(props: CreateProps): IndependentModifier | null {
-		if (!validateRaw(props.definition)) {
+		if (!validateIndependent(props.definition)) {
 			Logger.error("Invalid modifier definition for IndependentModifier", {
 				definition: props.definition,
-				errors: validateRaw.errors,
+				errors: validateIndependent.errors,
 			});
 			return null;
 		}
@@ -74,7 +32,7 @@ export class IndependentModifier extends Modifier<Schema> {
 		});
 	}
 
-	constructor(definition: Schema) {
+	constructor(definition: IndependentSchema) {
 		super(definition);
 		this.dataManager.setBreakpoints(definition.breakpoints);
 	}

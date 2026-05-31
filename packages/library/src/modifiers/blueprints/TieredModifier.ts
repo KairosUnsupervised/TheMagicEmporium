@@ -1,72 +1,16 @@
-import Ajv from "ajv";
 import { ActiveEffect } from "../../effects/activeEffects/ActiveEffect";
 import { Feat } from "../../effects/feats/Feat";
 import { Icon } from "../../item/icon";
 import { Logger } from "../../misc/Logger";
-import { FloatDataManager } from "../dataManagers/FloatDataManager";
-import { type BaseSchema, type CreateProps, Modifier } from "../Modifier";
 import {
-	applicationSchema,
-	type Flavor,
-	flavorSchema,
-	ModifierType,
-} from "../modifier.schema";
-
-const ajv = new Ajv({ removeAdditional: true, useDefaults: true });
-
-interface Breakpoint {
-	min: number;
-	value: number;
-}
-
-interface Tier {
-	min: number;
-	flavor: Flavor;
-	activeEffects: unknown[];
-	feats: unknown[];
-}
-
-interface Schema extends BaseSchema {
-	type: ModifierType.Tiered;
-	breakpoints: Breakpoint[];
-	tiers: Tier[];
-}
-
-const validateSchema = ajv.compile<Schema>({
-	type: "object",
-	required: ["identifier", "type", "application", "breakpoints", "tiers"],
-	properties: {
-		identifier: { type: "string" },
-		type: { type: "string", enum: Object.values(ModifierType) },
-		application: applicationSchema,
-		breakpoints: {
-			type: "array",
-			minItems: 1,
-			items: {
-				type: "object",
-				required: ["min", "value"],
-				properties: {
-					min: { type: "number", minimum: 0 },
-					value: { type: "number" },
-				},
-			},
-		},
-		tiers: {
-			type: "array",
-			minItems: 1,
-			items: {
-				type: "object",
-				required: ["min", "flavor"],
-				properties: {
-					min: { type: "number", minimum: 0 },
-					flavor: flavorSchema,
-					activeEffects: { type: "array", default: [] },
-					feats: { type: "array", default: [] },
-				},
-			},
-		},
-	},
-});
+	type TieredBreakpoint,
+	type TieredSchema,
+	type TieredTier,
+	validateTiered,
+} from "../../schemas/modifiers/tiered.schema";
+import { FloatDataManager } from "../dataManagers/FloatDataManager";
+import { type CreateProps, Modifier } from "../Modifier";
+import type { Flavor } from "../modifier.schema";
 
 /**
  * A Tiered modifier resolves a float to a numeric value via breakpoints, then maps that value
@@ -75,15 +19,15 @@ const validateSchema = ajv.compile<Schema>({
  * sum is matched against the tier thresholds. Breakpoints and tiers are independent — their counts
  * do not need to match.
  */
-export class TieredModifier extends Modifier<Schema> {
-	public readonly dataManager = FloatDataManager.create<Breakpoint>();
-	private readonly tiers: Tier[];
+export class TieredModifier extends Modifier<TieredSchema> {
+	public readonly dataManager = FloatDataManager.create<TieredBreakpoint>();
+	private readonly tiers: TieredTier[];
 
 	static create(props: CreateProps): TieredModifier | null {
-		if (!validateSchema(props.definition)) {
+		if (!validateTiered(props.definition)) {
 			Logger.error("Invalid modifier definition for TieredModifier", {
 				definition: props.definition,
-				errors: validateSchema.errors,
+				errors: validateTiered.errors,
 			});
 			return null;
 		}
@@ -96,13 +40,13 @@ export class TieredModifier extends Modifier<Schema> {
 		});
 	}
 
-	constructor(definition: Schema) {
+	constructor(definition: TieredSchema) {
 		super(definition);
 		this.dataManager.setBreakpoints(definition.breakpoints);
 		this.tiers = [...definition.tiers].sort((a, b) => b.min - a.min);
 	}
 
-	private resolveTier(value: number): Tier {
+	private resolveTier(value: number): TieredTier {
 		for (const tier of this.tiers) {
 			if (value >= tier.min) {
 				return tier;
@@ -116,7 +60,7 @@ export class TieredModifier extends Modifier<Schema> {
 		return this.resolveTier(value).flavor;
 	}
 
-	private getActiveTier = (data: unknown[]): Tier | null => {
+	private getActiveTier = (data: unknown[]): TieredTier | null => {
 		if (data.length === 0) {
 			return null;
 		}

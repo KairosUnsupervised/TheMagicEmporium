@@ -1,66 +1,27 @@
-import Ajv from "ajv";
 import { ActiveEffect } from "../../effects/activeEffects/ActiveEffect";
 import { Feat } from "../../effects/feats/Feat";
 import { Icon } from "../../item/icon";
 import { Logger } from "../../misc/Logger";
-import { FloatDataManager } from "../dataManagers/FloatDataManager";
-import { type BaseSchema, type CreateProps, Modifier } from "../Modifier";
 import {
-	applicationSchema,
-	type Flavor,
-	flavorSchema,
-	ModifierType,
-} from "../modifier.schema";
-
-const ajv = new Ajv({ removeAdditional: true, useDefaults: true });
-
-interface Breakpoint {
-	min: number;
-	flavor: Flavor;
-	activeEffects: unknown[];
-	feats: unknown[];
-}
-
-interface Schema extends BaseSchema {
-	type: ModifierType.Unique;
-	breakpoints: Breakpoint[];
-}
-
-const validateSchema = ajv.compile<Schema>({
-	type: "object",
-	required: ["identifier", "type", "application", "breakpoints"],
-	properties: {
-		identifier: { type: "string" },
-		type: { type: "string", const: ModifierType.Unique },
-		application: applicationSchema,
-		breakpoints: {
-			type: "array",
-			minItems: 1,
-			items: {
-				type: "object",
-				required: ["min", "flavor"],
-				properties: {
-					min: { type: "number", minimum: 0 },
-					flavor: flavorSchema,
-					activeEffects: { type: "array", default: [] },
-					feats: { type: "array", default: [] },
-				},
-			},
-		},
-	},
-});
+	type UniqueBreakpoint,
+	type UniqueSchema,
+	validateUnique,
+} from "../../schemas/modifiers/unique.schema";
+import { FloatDataManager } from "../dataManagers/FloatDataManager";
+import { type CreateProps, Modifier } from "../Modifier";
+import type { Flavor } from "../modifier.schema";
 
 /**
  * A Unique modifier bound to a player, e.g. multiple instances do not stack effects instead the highest effect is applied
  */
-export class UniqueModifier extends Modifier<Schema> {
-	public readonly dataManager = FloatDataManager.create<Breakpoint>();
+export class UniqueModifier extends Modifier<UniqueSchema> {
+	public readonly dataManager = FloatDataManager.create<UniqueBreakpoint>();
 
 	static create(props: CreateProps): UniqueModifier | null {
-		if (!validateSchema(props.definition)) {
+		if (!validateUnique(props.definition)) {
 			Logger.error("Invalid modifier definition for UniqueModifier", {
 				definition: props.definition,
-				errors: validateSchema.errors,
+				errors: validateUnique.errors,
 			});
 			return null;
 		}
@@ -73,7 +34,7 @@ export class UniqueModifier extends Modifier<Schema> {
 		});
 	}
 
-	constructor(definition: Schema) {
+	constructor(definition: UniqueSchema) {
 		super(definition);
 		this.dataManager.setBreakpoints(definition.breakpoints);
 	}
@@ -83,7 +44,7 @@ export class UniqueModifier extends Modifier<Schema> {
 		return breakpoint.flavor;
 	}
 
-	private getHighestBreakpoint = (data: unknown[]): Breakpoint => {
+	private getHighestBreakpoint = (data: unknown[]): UniqueBreakpoint => {
 		return data
 			.map((d) => this.dataManager.getBreakpoint(d))
 			.sort((a, b) => b.min - a.min)[0];

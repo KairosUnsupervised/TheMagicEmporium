@@ -1,67 +1,24 @@
-import Ajv from "ajv";
 import { ActiveEffect } from "../../effects/activeEffects/ActiveEffect";
 import { Feat } from "../../effects/feats/Feat";
 import { Icon } from "../../item/icon";
 import { Logger } from "../../misc/Logger";
-import { FloatDataManager } from "../dataManagers/FloatDataManager";
-import { type BaseSchema, type CreateProps, Modifier } from "../Modifier";
 import {
-	applicationSchema,
-	type Flavor,
-	flavorSchema,
-	ModifierType,
-} from "../modifier.schema";
+	type LinearBreakpoint,
+	type LinearSchema,
+	validateLinear,
+} from "../../schemas/modifiers/linear.schema";
+import { FloatDataManager } from "../dataManagers/FloatDataManager";
+import { type CreateProps, Modifier } from "../Modifier";
+import type { Flavor } from "../modifier.schema";
 
-const ajv = new Ajv({ removeAdditional: true, useDefaults: true });
-
-interface Breakpoint {
-	min: number;
-	value: number;
-	background: string | null;
-}
-
-interface Schema extends BaseSchema {
-	type: ModifierType.Linear;
-	flavor: Flavor;
-	breakpoints: Breakpoint[];
-	activeEffects: unknown[];
-	feats: unknown[];
-}
-
-const validateSchema = ajv.compile<Schema>({
-	type: "object",
-	required: ["identifier", "type", "application", "flavor", "breakpoints"],
-	properties: {
-		identifier: { type: "string" },
-		type: { type: "string", enum: Object.values(ModifierType) },
-		application: applicationSchema,
-		flavor: flavorSchema,
-		breakpoints: {
-			type: "array",
-			minItems: 1,
-			items: {
-				type: "object",
-				required: ["min", "value"],
-				properties: {
-					min: { type: "number", minimum: 0 },
-					value: { type: "number" },
-					background: { type: ["string", "null"], default: null },
-				},
-			},
-		},
-		activeEffects: { type: "array", default: [] },
-		feats: { type: "array", default: [] },
-	},
-});
-
-export class LinearModifier extends Modifier<Schema> {
-	public readonly dataManager = FloatDataManager.create<Breakpoint>();
+export class LinearModifier extends Modifier<LinearSchema> {
+	public readonly dataManager = FloatDataManager.create<LinearBreakpoint>();
 
 	static create(props: CreateProps): LinearModifier | null {
-		if (!validateSchema(props.definition)) {
+		if (!validateLinear(props.definition)) {
 			Logger.error("Invalid modifier definition for UniqueModifier", {
 				definition: props.definition,
-				errors: validateSchema.errors,
+				errors: validateLinear.errors,
 			});
 			return null;
 		}
@@ -74,7 +31,7 @@ export class LinearModifier extends Modifier<Schema> {
 		});
 	}
 
-	constructor(definition: Schema) {
+	constructor(definition: LinearSchema) {
 		super(definition);
 		this.dataManager.setBreakpoints(definition.breakpoints);
 	}
