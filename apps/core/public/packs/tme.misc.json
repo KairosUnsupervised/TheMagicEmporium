@@ -2166,6 +2166,59 @@
 					}
 				}
 			]
+		},
+		{
+			"identifier": "TME.DIRECTED_HEALING",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Directed Healing",
+				"description": "As a reaction when an ally heals you with a spell, gain {amount} additional HP",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.5, "value": 2 },
+				{ "min": 0.8, "value": 3 }
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"condition": "when healed by an ally's spell"
+						},
+						"activities": [
+							{
+								"type": "heal",
+								"name": "Directed Healing",
+								"activation": {
+									"type": "reaction",
+									"override": false,
+									"condition": "when healed by an ally's spell"
+								},
+								"healing": {
+									"types": ["healing"],
+									"custom": {
+										"enabled": true,
+										"formula": "{amount}"
+									},
+									"bonus": ""
+								}
+							}
+						]
+					}
+				}
+			]
 		}
 	]
 }
