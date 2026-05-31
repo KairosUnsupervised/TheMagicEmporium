@@ -23,6 +23,8 @@ export class Forge {
 		const template = getRandomTemplate(rarity ?? getRandomRarity());
 		const process = new ForgeProcess();
 
+		process.abstractItem.backgroundEligible = template.backgroundEligible;
+
 		process.setBase(equipment ?? Forge.pickRandomEquipment());
 		Forge.generateEconomy(process, template);
 		Forge.generateModifiers(process, template);
@@ -68,8 +70,6 @@ export class Forge {
 			(sum, mod) => sum + mod.application.weight,
 			0,
 		);
-
-		console.log(registry.weighted);
 
 		for (let attempt = 0; attempt < 10000; attempt++) {
 			let remaining = Math.random() * totalWeight;

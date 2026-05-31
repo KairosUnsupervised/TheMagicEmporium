@@ -78,7 +78,7 @@ export class AbstractItem {
 		if (!this.backgroundEligible) {
 			return null;
 		}
-		for (const applied of [
+		const background = (() => {for (const applied of [
 			...this.primary,
 			...this.secondary,
 			...this.tertiary,
@@ -87,6 +87,11 @@ export class AbstractItem {
 			if (backgroundOverride) {
 				return backgroundOverride;
 			}
+			return null;
+		}})()
+
+		if(background){
+			return background.replaceAll("%BACKGROUNDS%", `worlds/${game.world.id}/data/${namespace.core.id}/backgrounds`)
 		}
 		return null;
 	};

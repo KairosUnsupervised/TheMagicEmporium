@@ -336,7 +336,7 @@
 						"title": "Mighty",
 						"description": "This weapon now deals force damage and gains +4 bonus to damage",
 						"disclaimer": null,
-						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/mighty.jpg"
+						"background": "%BACKGROUNDS%/tertiary/mighty.jpg"
 					},
 					"changes": [
 						{
@@ -371,7 +371,7 @@
 						"title": "Consistent",
 						"description": "This base weapon damage die become d4s. Roll twice as many dice on attack",
 						"disclaimer": null,
-						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/consistent.jpg"
+						"background": "%BACKGROUNDS%/tertiary/consistent.jpg"
 					},
 					"changes": [
 						{
@@ -507,7 +507,7 @@
 				"title": "Critically Acclaimed",
 				"description": "Gain +{amount} critical range",
 				"disclaimer": null,
-				"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/criticallyAcclaimed.jpg"
+				"background": "%BACKGROUNDS%/tertiary/criticallyAcclaimed.jpg"
 			},
 			"breakpoints": [
 				{
@@ -557,7 +557,7 @@
 						"title": "Determined",
 						"description": "You can reroll 1's on your weapon induced damage dice, 1 reroll. The new rolls must be used",
 						"disclaimer": null,
-						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/determined.jpg"
+						"background": "%BACKGROUNDS%/tertiary/determined.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -568,7 +568,7 @@
 						"title": "Fiercely Determined",
 						"description": "You can reroll 1-2's on your weapon induced damage dice, up to 2 rerolls. The new rolls must be used",
 						"disclaimer": null,
-						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/determined.jpg"
+						"background": "%BACKGROUNDS%/tertiary/determined.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -579,7 +579,7 @@
 						"title": "Relentlessly Determined",
 						"description": "You can reroll 1-3's on your weapon induced damage dice, up to 3 rerolls. The new rolls must be used",
 						"disclaimer": null,
-						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/determined.jpg"
+						"background": "%BACKGROUNDS%/tertiary/determined.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -600,7 +600,7 @@
 				"title": "Profiteer",
 				"description": "Gain {amount} gold when a tagged hostile creature dies",
 				"disclaimer": null,
-				"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/profiteer.jpg"
+				"background": "%BACKGROUNDS%/tertiary/profiteer.jpg"
 			},
 			"breakpoints": [
 				{
@@ -863,7 +863,7 @@
 						"title": "+1 Sharpened",
 						"description": "This weapon gains a +1 bonus to attack and damage rolls",
 						"disclaimer": null,
-						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/sharpened.jpg"
+						"background": "%BACKGROUNDS%/tertiary/sharpened.jpg"
 					},
 					"changes": [
 						{
@@ -880,7 +880,7 @@
 						"title": "+2 Sharpened",
 						"description": "This weapon gains a +2 bonus to attack and damage rolls",
 						"disclaimer": null,
-						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/sharpened.jpg"
+						"background": "%BACKGROUNDS%/tertiary/sharpened.jpg"
 					},
 					"changes": [
 						{
@@ -897,7 +897,7 @@
 						"title": "+3 Sharpened",
 						"description": "This weapon gains a +3 bonus to attack and damage rolls",
 						"disclaimer": null,
-						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/sharpened.jpg"
+						"background": "%BACKGROUNDS%/tertiary/sharpened.jpg"
 					},
 					"changes": [
 						{
@@ -1165,7 +1165,7 @@
 						"title": "Escalating Edge",
 						"description": "This weapon deals 1 extra damage for each consecutive turn it has been unsheathed",
 						"disclaimer": "Bonus resets when the weapon is sheathed, combat ends or the weapon is unequipped in any way",
-						"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/escelatingEdge.jpg"
+						"background": "%BACKGROUNDS%/tertiary/escelatingEdge.jpg"
 					},
 					"changes": [],
 					"activities": []
@@ -1245,7 +1245,7 @@
 				"title": "Echo",
 				"description": "After each melee attack, roll a d20. On a {amount} or lower, the attack echos a second time against the same target",
 				"disclaimer": "Echoes attacks can also echo",
-				"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/echo.jpg"
+				"background": "%BACKGROUNDS%/tertiary/echo.jpg"
 			},
 			"breakpoints": [
 				{ "min": 0, "value": 2 },
@@ -1270,7 +1270,7 @@
 				"title": "Glass Cannon",
 				"description": "Deal +{amount} flat bonus damage, but also take +{amount} damage from all sources",
 				"disclaimer": null,
-				"background": "/modules/the-magic-emporium/public/backgrounds/tertiary/glassCanon.jpg"
+				"background": "%BACKGROUNDS%/tertiary/glassCanon.jpg"
 			},
 			"breakpoints": [
 				{ "min": 0, "value": 1 },
