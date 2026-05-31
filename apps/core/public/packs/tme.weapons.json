@@ -1304,6 +1304,29 @@
 			"feats": []
 		},
 		{
+			"identifier": "TME.WARPATH",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Warpath",
+				"description": "If you moved at least 15 feet before making an attack roll, gain +{amount} to that attack roll",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.5, "value": 2 },
+				{ "min": 0.8, "value": 3 }
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
 			"identifier": "TME.FIRST_BLOOD",
 			"type": "LINEAR",
 			"application": {
