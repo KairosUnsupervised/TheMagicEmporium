@@ -881,6 +881,68 @@
 					"feats": []
 				}
 			]
+		},
+		{
+			"identifier": "TME.FIRST_RITE",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "First Rite",
+				"description": "The first leveled spell you cast after a long rest is treated as cast {amount} slot level(s) higher at no additional cost",
+				"disclaimer": null
+			},
+			"breakpoints": [{ "min": 0, "value": 1 }, { "min": 0.8, "value": 2 }],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "special",
+							"cost": null,
+							"condition": "first leveled spell(s) cast after a long rest"
+						},
+						"uses": {
+							"max": 1,
+							"recovery": [
+								{
+									"period": "lr",
+									"type": "recoverAll"
+								}
+							]
+						},
+						"activities": [
+							{
+								"type": "utility",
+								"name": "First Rite",
+								"activation": {
+									"type": "special",
+									"override": false,
+									"condition": "first leveled spell(s) cast after a long rest"
+								},
+								"consumption": {
+									"scaling": { "allowed": false },
+									"spellSlot": false,
+									"targets": [
+										{
+											"type": "itemUses",
+											"value": "1",
+											"target": "",
+											"scaling": {}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
 		}
 	]
 }
