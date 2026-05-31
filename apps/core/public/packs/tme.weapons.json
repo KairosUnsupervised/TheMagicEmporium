@@ -1432,6 +1432,29 @@
 					]
 				}
 			]
+		},
+		{
+			"identifier": "TME.CORNERED",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Cornered",
+						"description": "While at 25% or fewer of your maximum HP, your attacks deal +3 bonus damage",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
 		}
 	]
 }
