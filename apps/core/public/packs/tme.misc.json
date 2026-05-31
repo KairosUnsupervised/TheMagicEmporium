@@ -234,12 +234,8 @@
 				"weight": 1024,
 				"restriction": "PRIMARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"ECONOMY"
-				],
-				"applies": [
-					"ECONOMY"
-				]
+				"blacklistedBy": ["ECONOMY"],
+				"applies": ["ECONOMY"]
 			},
 			"breakpoints": [
 				{
@@ -315,12 +311,8 @@
 				"weight": 1024,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"ECONOMY"
-				],
-				"applies": [
-					"ECONOMY"
-				]
+				"blacklistedBy": ["ECONOMY"],
+				"applies": ["ECONOMY"]
 			},
 			"breakpoints": [
 				{
@@ -403,12 +395,8 @@
 				"weight": 1024,
 				"restriction": "PRIMARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"PROPERTY_CHANGE"
-				],
-				"applies": [
-					"PROPERTY_CHANGE"
-				]
+				"blacklistedBy": ["PROPERTY_CHANGE"],
+				"applies": ["PROPERTY_CHANGE"]
 			},
 			"breakpoints": [
 				{
@@ -510,9 +498,7 @@
 												{
 													"number": 1,
 													"denomination": 4,
-													"types": [
-														"psychic"
-													],
+													"types": ["psychic"],
 													"bonus": ""
 												}
 											]
@@ -652,10 +638,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -979,10 +962,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1405,10 +1385,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ACCESSORY",
-					"ARMOR"
-				],
+				"whitelistedBy": ["ACCESSORY", "ARMOR"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1431,10 +1408,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1458,9 +1432,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1634,9 +1606,7 @@
 												"enabled": true,
 												"formula": "{amount}"
 											},
-											"types": [
-												"necrotic"
-											]
+											"types": ["necrotic"]
 										}
 									]
 								},
@@ -1659,9 +1629,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"ARMOR_WITH_ARMOR_CLASS"
-				],
+				"whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1840,10 +1808,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1960,9 +1925,7 @@
 									"condition": "first time taking damage in combat"
 								},
 								"healing": {
-									"types": [
-										"healing"
-									],
+									"types": ["healing"],
 									"custom": {
 										"enabled": false
 									},
@@ -1985,10 +1948,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -2244,10 +2204,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -2305,10 +2262,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -2401,6 +2355,30 @@
 			]
 		},
 		{
+			"identifier": "TME.THE_FINALS",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "The Finals",
+						"description": "Gain +1 to melee attack and damage rolls as well as spell attack and damage rolls for each ally that outnumbers your hostiles",
+						"disclaimer": "Bonus equals the number by which allies exceed hostiles. Minimum 0",
+						"background": "%BACKGROUNDS%/tertiary/theFinals.jpg"
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
+		},
+		{
 			"identifier": "TME.DIRECTED_HEALING",
 			"type": "LINEAR",
 			"application": {
@@ -2449,9 +2427,7 @@
 									"condition": "when healed by an ally's spell"
 								},
 								"healing": {
-									"types": [
-										"healing"
-									],
+									"types": ["healing"],
 									"custom": {
 										"enabled": true,
 										"formula": "{amount}"
