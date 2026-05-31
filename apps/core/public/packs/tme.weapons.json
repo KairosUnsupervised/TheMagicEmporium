@@ -1434,6 +1434,28 @@
 			]
 		},
 		{
+			"identifier": "TME.LONE_WOLF",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Lone Wolf",
+				"description": "While no ally is within 15 feet of you, gain +{amount} to attack and damage rolls",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{ "min": 0, "value": 1 },
+				{ "min": 0.85, "value": 2 }
+			],
+			"activeEffects": [],
+			"feats": []
+		},
+		{
 			"identifier": "TME.CORNERED",
 			"type": "UNIQUE",
 			"application": {
