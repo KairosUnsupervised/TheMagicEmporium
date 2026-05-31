@@ -1942,6 +1942,75 @@
 					"feats": []
 				}
 			]
+		},
+		{
+			"identifier": "TME.REALITY_ANCHOR",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Reality Anchor",
+						"description": "You are immune to forced movement. Twice per long rest, as a reaction, end one magical effect currently affecting you",
+						"disclaimer": "Forced movement includes pushes, pulls, and teleportation against your will",
+						"background": "%BACKGROUNDS%/tertiary/realityAnchor.jpg"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "reaction",
+									"cost": 1,
+									"condition": "when affected by a magical effect"
+								},
+								"uses": {
+									"max": 2,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Reality Anchor",
+										"activation": {
+											"type": "reaction",
+											"override": false,
+											"condition": "when affected by a magical effect"
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": false,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
 		}
 	]
 }
