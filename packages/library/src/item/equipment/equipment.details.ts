@@ -684,7 +684,7 @@ export const equipmentDetails: {
 		short: null,
 		value: 1,
 		tags: [Tag.Weapon, Tag.WeaponSimple, Tag.WeaponMelee],
-		icon: Icon.GreatClub,
+		icon: Icon.Greatclub,
 		foundry: {
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,
@@ -1278,7 +1278,7 @@ export const equipmentDetails: {
 		short: null,
 		value: 30,
 		tags: [Tag.Weapon, Tag.WeaponMartial, Tag.WeaponMelee],
-		icon: Icon.GreatAxe,
+		icon: Icon.Greataxe,
 		foundry: {
 			type: FoundryType.Weapon,
 			activities: defaultAttackActivities,

@@ -46,7 +46,7 @@ export enum Icon {
 	// Melee - Simple
 	Club = "melee/simple/club.jpg",
 	Dagger = "melee/simple/dagger.jpg",
-	GreatClub = "melee/simple/greatClub.jpg",
+	Greatclub = "melee/simple/greatclub.jpg",
 	Handaxe = "melee/simple/handaxe.jpg",
 	Javelin = "melee/simple/javelin.jpg",
 	LightHammer = "melee/simple/lightHammer.jpg",
@@ -59,7 +59,7 @@ export enum Icon {
 	Battleaxe = "melee/martial/battleaxe.jpg",
 	Flail = "melee/martial/flail.jpg",
 	Glaive = "melee/martial/glaive.jpg",
-	GreatAxe = "melee/martial/greatAxe.jpg",
+	Greataxe = "melee/martial/greataxe.jpg",
 	Greatsword = "melee/martial/greatsword.jpg",
 	Halberd = "melee/martial/halberd.jpg",
 	Lance = "melee/martial/lance.jpg",
