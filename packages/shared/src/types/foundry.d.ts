@@ -15,6 +15,17 @@ declare const game: {
 	modules: {
 		get(id: string): { api: unknown } | undefined;
 	};
+	user: {
+		role: number;
+	};
+};
+
+declare const ui: {
+	notifications: {
+		info(message: string): void;
+		warn(message: string): void;
+		error(message: string): void;
+	};
 };
 
 declare const foundry: {
