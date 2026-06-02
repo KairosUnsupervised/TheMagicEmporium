@@ -1,6 +1,6 @@
 {
 	"id": "tme.armor",
-	"name": "TME — Armor Modifiers",
+	"name": "TME \u2014 Armor Modifiers",
 	"description": "Built-in armor modifiers. Affects defensive stats, armor properties, and armor-bound abilities.",
 	"enabled": true,
 	"modifiers": [
@@ -564,7 +564,7 @@
 					"min": 8,
 					"flavor": {
 						"title": "Ultimate Bastion",
-						"description": "Your AC increases by 3. Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP — temporary HP equal to your level or CR fade at the start of each of your turns",
+						"description": "Your AC increases by 3. Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP \u2014 temporary HP equal to your level or CR fade at the start of each of your turns",
 						"disclaimer": null
 					},
 					"activeEffects": [
@@ -583,7 +583,7 @@
 					"feats": [
 						{
 							"type": "FEAT",
-							"description": "Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP — temporary HP equal to your level or CR fade at the start of each of your turns",
+							"description": "Once per long rest, as a bonus action, fortify yourself with temporary HP equal to your maximum HP \u2014 temporary HP equal to your level or CR fade at the start of each of your turns",
 							"system": {
 								"activation": {
 									"type": "bonus",
@@ -677,9 +677,13 @@
 					},
 					"activeEffects": [
 						{
-							"key": "system.attributes.hp.bonuses.level",
-							"mode": "ADD",
-							"value": 1
+							"changes": [
+								{
+									"key": "system.attributes.hp.bonuses.level",
+									"mode": "ADD",
+									"value": "1"
+								}
+							]
 						}
 					],
 					"feats": []
@@ -693,9 +697,13 @@
 					},
 					"activeEffects": [
 						{
-							"key": "system.attributes.hp.bonuses.level",
-							"mode": "ADD",
-							"value": 2
+							"changes": [
+								{
+									"key": "system.attributes.hp.bonuses.level",
+									"mode": "ADD",
+									"value": "2"
+								}
+							]
 						}
 					],
 					"feats": []
@@ -709,9 +717,13 @@
 					},
 					"activeEffects": [
 						{
-							"key": "system.attributes.hp.bonuses.level",
-							"mode": "ADD",
-							"value": 3
+							"changes": [
+								{
+									"key": "system.attributes.hp.bonuses.level",
+									"mode": "ADD",
+									"value": "3"
+								}
+							]
 						}
 					],
 					"feats": []
@@ -726,9 +738,13 @@
 					},
 					"activeEffects": [
 						{
-							"key": "system.attributes.hp.bonuses.level",
-							"mode": "ADD",
-							"value": 4
+							"changes": [
+								{
+									"key": "system.attributes.hp.bonuses.level",
+									"mode": "ADD",
+									"value": "4"
+								}
+							]
 						}
 					],
 					"feats": [

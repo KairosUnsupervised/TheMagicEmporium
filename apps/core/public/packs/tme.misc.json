@@ -1,6 +1,6 @@
 {
 	"id": "tme.misc",
-	"name": "TME — Miscellaneous Modifiers",
+	"name": "TME \u2014 Miscellaneous Modifiers",
 	"description": "Built-in miscellaneous modifiers. General-purpose effects that don't fit a specific category.",
 	"enabled": true,
 	"modifiers": [
@@ -149,9 +149,13 @@
 			],
 			"activeEffects": [
 				{
-					"key": "system.attributes.init.bonus",
-					"mode": "ADD",
-					"value": "{amount}"
+					"changes": [
+						{
+							"key": "system.attributes.init.bonus",
+							"mode": "ADD",
+							"value": "{amount}"
+						}
+					]
 				}
 			],
 			"feats": []
@@ -184,9 +188,13 @@
 			],
 			"activeEffects": [
 				{
-					"key": "system.attributes.movement.walk",
-					"mode": "ADD",
-					"value": "{amount}"
+					"changes": [
+						{
+							"key": "system.attributes.movement.walk",
+							"mode": "ADD",
+							"value": "{amount}"
+						}
+					]
 				}
 			],
 			"feats": []
@@ -1666,14 +1674,22 @@
 					},
 					"activeEffects": [
 						{
-							"key": "system.skills.ste.bonuses.check",
-							"mode": "ADD",
-							"value": "@abilities.wis.mod"
+							"changes": [
+								{
+									"key": "system.skills.ste.bonuses.check",
+									"mode": "ADD",
+									"value": "@abilities.wis.mod"
+								}
+							]
 						},
 						{
-							"key": "system.skills.dec.bonuses.check",
-							"mode": "ADD",
-							"value": "@abilities.wis.mod"
+							"changes": [
+								{
+									"key": "system.skills.dec.bonuses.check",
+									"mode": "ADD",
+									"value": "@abilities.wis.mod"
+								}
+							]
 						}
 					],
 					"feats": []
@@ -1711,9 +1727,13 @@
 			],
 			"activeEffects": [
 				{
-					"key": "system.attributes.concentration.roll.bonus",
-					"mode": "ADD",
-					"value": "{amount}"
+					"changes": [
+						{
+							"key": "system.attributes.concentration.roll.bonus",
+							"mode": "ADD",
+							"value": "{amount}"
+						}
+					]
 				}
 			],
 			"feats": []
@@ -1795,9 +1815,13 @@
 			],
 			"activeEffects": [
 				{
-					"key": "system.skills.prc.bonuses.check",
-					"mode": "ADD",
-					"value": "{amount}"
+					"changes": [
+						{
+							"key": "system.skills.prc.bonuses.check",
+							"mode": "ADD",
+							"value": "{amount}"
+						}
+					]
 				}
 			],
 			"feats": []
@@ -1837,9 +1861,13 @@
 			],
 			"activeEffects": [
 				{
-					"key": "system.attributes.senses.darkvision",
-					"mode": "ADD",
-					"value": "{amount}"
+					"changes": [
+						{
+							"key": "system.attributes.senses.darkvision",
+							"mode": "ADD",
+							"value": "{amount}"
+						}
+					]
 				}
 			],
 			"feats": []
