@@ -1,5 +1,6 @@
 import type { Icon } from "../item/icon";
+import {namespace} from "@tme/shared/src/namespaceConfig";
 
 export const generateIconUrl = (icon: Icon) => {
-	return `/modules/${game.world.id}/icons/${icon}`;
+	return `/modules/${namespace.core.id}/icons/${icon}`;
 };
