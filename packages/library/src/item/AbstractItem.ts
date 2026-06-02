@@ -4,6 +4,7 @@ import type { AppliedModifier } from "../modifiers/Modifier";
 import { registry } from "../registry/Registry";
 import { Equipment } from "./equipment/equipment.types";
 import { Rarity } from "./item.types";
+import {generateBackgroundUrl} from "../misc/generateBackgroundUrl";
 
 /**
  * Represents an abstracted magic item, no fluff
@@ -94,10 +95,7 @@ export class AbstractItem {
 		})();
 
 		if (background) {
-			return background.replaceAll(
-				"%BACKGROUNDS%",
-				`worlds/${game.world.id}/data/${namespace.core.id}/backgrounds`,
-			);
+			return generateBackgroundUrl(background)
 		}
 		return null;
 	};

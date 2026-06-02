@@ -352,7 +352,7 @@
 						"title": "Mighty",
 						"description": "This weapon now deals force damage and gains +4 bonus to damage",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/tertiary/mighty.jpg"
+						"background": "{backgroundPath}/tertiary/mighty.jpg"
 					},
 					"changes": [
 						{
@@ -389,7 +389,7 @@
 						"title": "Consistent",
 						"description": "This base weapon damage die become d4s. Roll twice as many dice on attack",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/tertiary/consistent.jpg"
+						"background": "{backgroundPath}/tertiary/consistent.jpg"
 					},
 					"changes": [
 						{
@@ -531,7 +531,7 @@
 				"title": "Critically Acclaimed",
 				"description": "Gain +{amount} critical range",
 				"disclaimer": null,
-				"background": "%BACKGROUNDS%/tertiary/criticallyAcclaimed.jpg"
+				"background": "{backgroundPath}/tertiary/criticallyAcclaimed.jpg"
 			},
 			"breakpoints": [
 				{
@@ -583,7 +583,7 @@
 						"title": "Determined",
 						"description": "You can reroll 1's on your weapon induced damage dice, 1 reroll. The new rolls must be used",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/tertiary/determined.jpg"
+						"background": "{backgroundPath}/tertiary/determined.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -594,7 +594,7 @@
 						"title": "Fiercely Determined",
 						"description": "You can reroll 1-2's on your weapon induced damage dice, up to 2 rerolls. The new rolls must be used",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/tertiary/determined.jpg"
+						"background": "{backgroundPath}/tertiary/determined.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -605,7 +605,7 @@
 						"title": "Relentlessly Determined",
 						"description": "You can reroll 1-3's on your weapon induced damage dice, up to 3 rerolls. The new rolls must be used",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/tertiary/determined.jpg"
+						"background": "{backgroundPath}/tertiary/determined.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -628,7 +628,7 @@
 				"title": "Profiteer",
 				"description": "Gain {amount} gold when a tagged hostile creature dies",
 				"disclaimer": null,
-				"background": "%BACKGROUNDS%/tertiary/profiteer.jpg"
+				"background": "{backgroundPath}/tertiary/profiteer.jpg"
 			},
 			"breakpoints": [
 				{
@@ -903,7 +903,7 @@
 						"title": "+1 Sharpened",
 						"description": "This weapon gains a +1 bonus to attack and damage rolls",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/tertiary/sharpened.jpg"
+						"background": "{backgroundPath}/tertiary/sharpened.jpg"
 					},
 					"changes": [
 						{
@@ -920,7 +920,7 @@
 						"title": "+2 Sharpened",
 						"description": "This weapon gains a +2 bonus to attack and damage rolls",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/tertiary/sharpened.jpg"
+						"background": "{backgroundPath}/tertiary/sharpened.jpg"
 					},
 					"changes": [
 						{
@@ -937,7 +937,7 @@
 						"title": "+3 Sharpened",
 						"description": "This weapon gains a +3 bonus to attack and damage rolls",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/tertiary/sharpened.jpg"
+						"background": "{backgroundPath}/tertiary/sharpened.jpg"
 					},
 					"changes": [
 						{
@@ -1188,7 +1188,7 @@
 				{
 					"min": 0.9,
 					"value": 20,
-					"background": "%BACKGROUNDS%/secondary/surge.jpg"
+					"background": "{backgroundPath}/secondary/surge.jpg"
 				}
 			],
 			"activeEffects": [],
@@ -1238,7 +1238,7 @@
 						"title": "Escalating Edge",
 						"description": "This weapon deals 1 extra damage for each consecutive turn it has been unsheathed",
 						"disclaimer": "Bonus resets when the weapon is sheathed, combat ends or the weapon is unequipped in any way",
-						"background": "%BACKGROUNDS%/tertiary/escelatingEdge.jpg"
+						"background": "{backgroundPath}/tertiary/escelatingEdge.jpg"
 					},
 					"changes": [],
 					"activities": []
@@ -1324,7 +1324,7 @@
 				"title": "Echo",
 				"description": "After each melee attack, roll a d20. On a {amount} or lower, the attack echos a second time against the same target",
 				"disclaimer": "Echoes attacks can also echo",
-				"background": "%BACKGROUNDS%/tertiary/echo.jpg"
+				"background": "{backgroundPath}/tertiary/echo.jpg"
 			},
 			"breakpoints": [
 				{
@@ -1363,7 +1363,7 @@
 				"title": "Glass Cannon",
 				"description": "Deal +{amount} flat bonus damage, but also take +{amount} damage from all sources",
 				"disclaimer": null,
-				"background": "%BACKGROUNDS%/tertiary/glassCanon.jpg"
+				"background": "{backgroundPath}/tertiary/glassCanon.jpg"
 			},
 			"breakpoints": [
 				{
@@ -1475,12 +1475,12 @@
 				{
 					"min": 0.8,
 					"value": 4,
-					"background": "%BACKGROUNDS%/secondary/domination.jpg"
+					"background": "{backgroundPath}/secondary/domination.jpg"
 				},
 				{
 					"min": 0.95,
 					"value": 5,
-					"background": "%BACKGROUNDS%/secondary/domination.jpg"
+					"background": "{backgroundPath}/secondary/domination.jpg"
 				}
 			],
 			"activeEffects": [],

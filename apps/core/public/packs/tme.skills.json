@@ -784,7 +784,7 @@
 						"title": "Perfect Touch",
 						"description": "Your sleight of hand skill increases by 6. You can pickpocket and reverse pickpocket equipped items",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/secondary/perfectTouch.jpg"
+						"background": "{backgroundPath}/secondary/perfectTouch.jpg"
 					},
 					"activeEffects": [
 						{
@@ -894,7 +894,7 @@
 						"title": "Redacted",
 						"description": "Your stealth skill increases by 6. Twice per long rest, as an action, you can retcon all memories of your existence that happened in the last minute",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/secondary/redacted.jpg"
+						"background": "{backgroundPath}/secondary/redacted.jpg"
 					},
 					"activeEffects": [
 						{
@@ -1941,7 +1941,7 @@
 						"title": "Surely a Medical Professional",
 						"description": "Your medicine skill increases by 12. You can have no clue about humanoid anatomy",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/secondary/medicalProfessional.jpg"
+						"background": "{backgroundPath}/secondary/medicalProfessional.jpg"
 					},
 					"activeEffects": [
 						{
@@ -2051,7 +2051,7 @@
 						"title": "Predatory Focus",
 						"description": "Your perception skill increases by 6. As an action you can detect invisible creatures, heat signatures and heartbeat sounds",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/secondary/predatoryFocus.jpg"
+						"background": "{backgroundPath}/secondary/predatoryFocus.jpg"
 					},
 					"activeEffects": [
 						{

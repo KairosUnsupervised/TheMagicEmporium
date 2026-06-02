@@ -18,7 +18,7 @@
 				"title": "Muscle Memory",
 				"description": "You can expend up to {amount} actions, bonus actions and spells and store them. On damage taken the oldest stored action is triggered and consumed",
 				"disclaimer": "No reaction required. Parameters must be defined the moment you store the action",
-				"background": "%BACKGROUNDS%/tertiary/muscleMemory.jpg"
+				"background": "{backgroundPath}/tertiary/muscleMemory.jpg"
 			},
 			"breakpoints": [
 				{
@@ -170,7 +170,7 @@
 				"title": "Swift",
 				"description": "Your movement speed is increased by {amount}ft",
 				"disclaimer": null,
-				"background": "%BACKGROUNDS%/tertiary/swift.jpg"
+				"background": "{backgroundPath}/tertiary/swift.jpg"
 			},
 			"breakpoints": [
 				{
@@ -565,7 +565,7 @@
 						"title": "Unaccountable",
 						"description": "You cannot be counterspelled",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/secondary/unaccountable.jpg"
+						"background": "{backgroundPath}/secondary/unaccountable.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -649,7 +649,7 @@
 						"title": "Arcane Volatility",
 						"description": "Upon casting a leveled spell, roll a d20. If 10 or lower, subtract a d4 from the spell level. If higher than 10, add a d4 to the spell level",
 						"disclaimer": "Under or over leveled spells change according to their upcast description",
-						"background": "%BACKGROUNDS%/tertiary/arcaneVolatility.jpg"
+						"background": "{backgroundPath}/tertiary/arcaneVolatility.jpg"
 					},
 					"activeEffects": [],
 					"feats": [
@@ -987,7 +987,7 @@
 						"title": "Healing Surge",
 						"description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
 						"disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Does not chain",
-						"background": "%BACKGROUNDS%/tertiary/healingSurge.jpg"
+						"background": "{backgroundPath}/tertiary/healingSurge.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -998,7 +998,7 @@
 						"title": "Chained Healing Surge",
 						"description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
 						"disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Chains once with stacking efficiency loss",
-						"background": "%BACKGROUNDS%/tertiary/healingSurge.jpg"
+						"background": "{backgroundPath}/tertiary/healingSurge.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -1009,7 +1009,7 @@
 						"title": "Cascading Healing Surge",
 						"description": "Each healing instance you provide is forwarded to the nearest creature near the effect at 50% efficiency",
 						"disclaimer": "Cannot affect the healed creature. Cannot affect the same creature twice. Chains twice with stacking efficiency loss",
-						"background": "%BACKGROUNDS%/tertiary/healingSurge.jpg"
+						"background": "{backgroundPath}/tertiary/healingSurge.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -1154,7 +1154,7 @@
 						"title": "Supreme Honk & Smite",
 						"description": "As an action, retcon 1d4 goose into existence near you. You can have up to 6 goose at once. They will follow your screamed commands no matter the cost",
 						"disclaimer": "You also get the ability to speak with goose",
-						"background": "%BACKGROUNDS%/secondary/honkAndSmite.jpg"
+						"background": "{backgroundPath}/secondary/honkAndSmite.jpg"
 					},
 					"activeEffects": [],
 					"feats": [
@@ -1210,7 +1210,7 @@
 						"title": "Limit Break",
 						"description": "You can reroll any of your damage dice. Take the initial damage of the rerolled dice before rerolling them",
 						"disclaimer": "You must use the new roll, however you can reroll indefinitely",
-						"background": "%BACKGROUNDS%/tertiary/limitBreak.jpg"
+						"background": "{backgroundPath}/tertiary/limitBreak.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -1268,7 +1268,7 @@
 						"title": "No Matter The Cost!",
 						"description": "As an action, with the help of a weapon or spell attack, execute a friendly creature below 12 HP. Forcefully motivate 3 creatures of your choosing within 30ft to gain the effects of help",
 						"disclaimer": "You cannot motivate yourself",
-						"background": "%BACKGROUNDS%/secondary/noMatterTheCost.jpg"
+						"background": "{backgroundPath}/secondary/noMatterTheCost.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -1419,7 +1419,7 @@
 						"title": "Reluctant Savior",
 						"description": "Whenever you heal another creature, gain temporary HP equal to the amount healed",
 						"disclaimer": "Temporary HP do not stack, only the highest value applies",
-						"background": "%BACKGROUNDS%/tertiary/reluctantSavior.jpg"
+						"background": "{backgroundPath}/tertiary/reluctantSavior.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -1522,7 +1522,7 @@
 				{
 					"min": 0.9,
 					"value": 3,
-					"background": "%BACKGROUNDS%/secondary/markofDeath.jpg"
+					"background": "{backgroundPath}/secondary/markofDeath.jpg"
 				}
 			],
 			"activeEffects": [],
@@ -1559,7 +1559,7 @@
 				{
 					"min": 0.95,
 					"value": 8,
-					"background": "%BACKGROUNDS%/secondary/auraOfBlood.jpg"
+					"background": "{backgroundPath}/secondary/auraOfBlood.jpg"
 				}
 			],
 			"activeEffects": [],
@@ -2046,7 +2046,7 @@
 				{
 					"min": 0.9,
 					"value": 15,
-					"background": "%BACKGROUNDS%/secondary/mysticReach.jpg"
+					"background": "{backgroundPath}/secondary/mysticReach.jpg"
 				}
 			],
 			"activeEffects": [],
@@ -2099,7 +2099,7 @@
 						"title": "Structural Disintegry",
 						"description": "Your attacks deal octuple damage to objects, structures, and non living constructs.",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/secondary/structuralDisintegry.jpg"
+						"background": "{backgroundPath}/secondary/structuralDisintegry.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -2123,7 +2123,7 @@
 						"title": "Reality Anchor",
 						"description": "You are immune to forced movement. Twice per long rest, as a reaction, end one magical effect currently affecting you",
 						"disclaimer": "Forced movement includes pushes, pulls, and teleportation against your will",
-						"background": "%BACKGROUNDS%/tertiary/realityAnchor.jpg"
+						"background": "{backgroundPath}/tertiary/realityAnchor.jpg"
 					},
 					"activeEffects": [],
 					"feats": [
@@ -2191,7 +2191,7 @@
 					"flavor": {
 						"title": "Untethered",
 						"description": "You can move through creature spaces and end your turn occupying the same space as another creature",
-						"background": "%BACKGROUNDS%/tertiary/untethered.jpg"
+						"background": "{backgroundPath}/tertiary/untethered.jpg"
 					},
 					"activeEffects": [],
 					"feats": []
@@ -2247,7 +2247,7 @@
 					"min": 4,
 					"flavor": {
 						"title": "Supreme Magic Spillover",
-						"background": "%BACKGROUNDS%/secondary/magicSpillover.jpg",
+						"background": "{backgroundPath}/secondary/magicSpillover.jpg",
 						"description": "When you receive healing while at full HP, convert the excess into up to 32 temporary HP",
 						"disclaimer": "Temporary HP do not stack, only the highest applies"
 					},
@@ -2270,7 +2270,7 @@
 				"title": "Flagellant",
 				"description": "While concentrating on a spell, reduce the damage you take each turn by {amount}",
 				"disclaimer": null,
-				"background": "%BACKGROUNDS%/primary/flagellant.jpg"
+				"background": "{backgroundPath}/primary/flagellant.jpg"
 			},
 			"breakpoints": [
 				{
@@ -2316,7 +2316,7 @@
 				{
 					"min": 0.9,
 					"value": 3,
-					"background": "%BACKGROUNDS%/primary/condemned.jpg"
+					"background": "{backgroundPath}/primary/condemned.jpg"
 				}
 			],
 			"activeEffects": [],
@@ -2371,7 +2371,7 @@
 						"title": "The Finals",
 						"description": "Gain +1 to melee attack and damage rolls as well as spell attack and damage rolls for each ally that outnumbers your hostiles",
 						"disclaimer": "Bonus equals the number by which allies exceed hostiles. Minimum 0",
-						"background": "%BACKGROUNDS%/tertiary/theFinals.jpg"
+						"background": "{backgroundPath}/tertiary/theFinals.jpg"
 					},
 					"activeEffects": [],
 					"feats": []

@@ -440,7 +440,7 @@
 						"title": "Might of Phoenix",
 						"description": "Your constitution score increases by 6. Twice per long rest, use an action to regain HP equal to your constitution score",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/secondary/mightOfPhoenix.jpg"
+						"background": "{backgroundPath}/secondary/mightOfPhoenix.jpg"
 					},
 					"activeEffects": [
 						{
@@ -613,7 +613,7 @@
 						"title": "Redshift",
 						"description": "Your dexterity score increases by 6. You can freely take one hit die damage to gain an additional 4d6 movement speed",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/secondary/redshift.jpg"
+						"background": "{backgroundPath}/secondary/redshift.jpg"
 					},
 					"activeEffects": [
 						{
@@ -774,7 +774,7 @@
 						"title": "Annihilation",
 						"description": "Your intelligence score increases by 6. Upon casting a spell, gain for each spell level spent two magic missile bolts to distribute, gain a single bolt for a cantrip",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/secondary/annihilation.jpg"
+						"background": "{backgroundPath}/secondary/annihilation.jpg"
 					},
 					"activeEffects": [
 						{
@@ -905,7 +905,7 @@
 						"title": "Magic Reservoir",
 						"description": "Your intelligence score increases by 6. Upon casting a spell roll a D6. On a 6 the spell slot is not consumed. On a 5 regain half (ceiled) of the spell level back",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/secondary/magicReservoir.jpg"
+						"background": "{backgroundPath}/secondary/magicReservoir.jpg"
 					},
 					"activeEffects": [
 						{
@@ -1414,7 +1414,7 @@
 						"title": "Harmony",
 						"description": "Your wisdom score increases by 6. You can stack advantages and disadvantages. Four times per long rest you can grant your ability and skill checks advantage",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/secondary/harmony.jpg"
+						"background": "{backgroundPath}/secondary/harmony.jpg"
 					},
 					"activeEffects": [
 						{
@@ -1771,7 +1771,7 @@
 						"title": "Temporal",
 						"description": "Your dexterity score increases by 6. As an action you can teleport back to a place you occupied up to the start of your previous turn",
 						"disclaimer": null,
-						"background": "%BACKGROUNDS%/secondary/temporal.jpg"
+						"background": "{backgroundPath}/secondary/temporal.jpg"
 					},
 					"activeEffects": [
 						{
