@@ -40,6 +40,9 @@ export const registerValidator = () => {
 		if (!isMagicItem(item)) {
 			return;
 		}
+		if(!item.actor){
+			return;
+		}
 
 		void validator.validate(item.actor);
 	});
@@ -49,6 +52,9 @@ export const registerValidator = () => {
 			return;
 		}
 		if (!isMagicItem(item)) {
+			return;
+		}
+		if(!item.actor){
 			return;
 		}
 
