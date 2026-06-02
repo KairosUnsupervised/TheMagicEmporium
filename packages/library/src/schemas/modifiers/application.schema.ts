@@ -8,8 +8,7 @@ export enum Restriction {
 
 export interface Application {
 	weight: number;
-	// TODO MAKE REQUIRED
-	restriction?: Restriction;
+	restriction: Restriction;
 	whitelistedBy: Tag[];
 	blacklistedBy: Tag[];
 	applies: Tag[];
@@ -32,7 +31,7 @@ export const applicationSchema = {
 		},
 	],
 	type: "object",
-	required: ["weight"],
+	required: ["weight", "restriction"],
 	properties: {
 		weight: {
 			description:
