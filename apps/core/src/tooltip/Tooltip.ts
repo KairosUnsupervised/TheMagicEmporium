@@ -10,6 +10,7 @@ const TOOLTIP_WIDTH = 516;
 export class Tooltip {
 	private pinned: boolean = false;
 	private shown: boolean = false;
+	private mouseOver: boolean = false;
 	private showTimer: ReturnType<typeof setTimeout> | null = null;
 	private scrollTimer: ReturnType<typeof setTimeout> | null = null;
 	private currentTop: number = 0;
@@ -27,20 +28,29 @@ export class Tooltip {
 
 		document.body.appendChild(this.container);
 
+		this.container.addEventListener("mouseenter", () => {
+			this.mouseOver = true;
+		});
+
+		this.container.addEventListener("mouseleave", () => {
+			this.mouseOver = false;
+		});
+
 		document.addEventListener(
 			"wheel",
 			(e: WheelEvent) => {
-				if (!this.shown) return;
+				if (!this.shown || !this.mouseOver) return;
+				e.preventDefault();
 				this.container.classList.add(styles["scrolling"]);
 				if (this.scrollTimer) clearTimeout(this.scrollTimer);
 				this.scrollTimer = setTimeout(() => {
 					this.container.classList.remove(styles["scrolling"]);
 					this.scrollTimer = null;
-				}, 400);
+				}, 150);
 				this.currentTop -= e.deltaY / 2;
 				this.container.style.top = `${this.currentTop}px`;
 			},
-			{ passive: true },
+			{ passive: false },
 		);
 
 		document.addEventListener("mousedown", (e: MouseEvent) => {
