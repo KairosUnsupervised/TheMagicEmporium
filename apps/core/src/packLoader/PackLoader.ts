@@ -1,5 +1,5 @@
 import { namespace } from "@tme/shared/src/namespaceConfig";
-import { Logger } from "../misc/Logger.ts";
+import { logger } from "../logger.ts";
 import { type PackSchema, validatePackSchema } from "./packLoader.schema.ts";
 
 export class PackLoader {
@@ -26,7 +26,7 @@ export class PackLoader {
 				return file.endsWith(".json") && !file.endsWith(".disabled.json");
 			});
 		} catch {
-			Logger.log(
+			logger.notification.gm.error(
 				`No modifier pack directory found at worlds/${game.world.id}/data/${namespace.core.id}/packs`,
 			);
 			return [];
@@ -49,7 +49,7 @@ export class PackLoader {
 				const data: unknown = await response.json();
 
 				if (!validatePackSchema(data)) {
-					Logger.error(`Invalid pack schema in ${file}:`, {
+					logger.notification.gm.error(`Invalid pack schema in ${file}:`, {
 						errors: validatePackSchema.errors,
 					});
 					continue;
@@ -57,7 +57,7 @@ export class PackLoader {
 
 				packs.push(data);
 			} catch (error) {
-				Logger.error(`Failed to load pack ${file}:`, { error });
+				logger.notification.gm.error(`Failed to load pack ${file}:`, { error });
 			}
 		}
 

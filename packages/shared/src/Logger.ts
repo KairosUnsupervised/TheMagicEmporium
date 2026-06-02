@@ -11,15 +11,25 @@ export class NotificationLogger {
 		this.notificationLevel = notificationLevel;
 	}
 
-	warn(message: string): void {
+	warn(message: string, meta?: object): void {
 		if (game.user && this.notificationLevel <= game.user.role) {
 			ui.notifications.warn(`${this.prefix} | ${message}`);
 		}
+		if (meta !== undefined) {
+			console.warn(`${this.prefix} | ${message}`, meta);
+		} else {
+			console.warn(`${this.prefix} | ${message}`);
+		}
 	}
 
-	error(message: string): void {
+	error(message: string, meta?: object): void {
 		if (game.user && this.notificationLevel <= game.user.role) {
 			ui.notifications.error(`${this.prefix} | ${message}`);
+		}
+		if (meta !== undefined) {
+			console.error(`${this.prefix} | ${message}`, meta);
+		} else {
+			console.error(`${this.prefix} | ${message}`);
 		}
 	}
 }

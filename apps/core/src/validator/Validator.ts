@@ -12,7 +12,7 @@ import {
 	ItemType,
 	type SubItem,
 } from "@tme/shared/src/types/item5e.ts";
-import { Logger } from "../misc/Logger.ts";
+import { logger } from "../logger.ts";
 
 interface QuickAccess {
 	item5e: Item5e<BaseItem>;
@@ -104,7 +104,7 @@ export class Validator {
 				const modifier = registry.get(identifier);
 
 				if (!modifier) {
-					Logger.error(`Could not find modifier ${identifier} in registry`);
+					logger.notification.all.error(`Could not find modifier ${identifier} in registry`);
 					return;
 				}
 
@@ -167,7 +167,7 @@ export class Validator {
 				return null;
 			}
 
-			Logger.log("Creating SubItem", {
+			logger.log("Creating feat", {
 				id,
 			});
 
@@ -189,7 +189,7 @@ export class Validator {
 		 * Remove remaining feats
 		 */
 		for (const item of remaining) {
-			Logger.log("Removing feat", { item });
+			logger.log("Removing feat", { item });
 			await actor.deleteEmbeddedDocuments("Item", [item.id]);
 		}
 	};
@@ -243,7 +243,7 @@ export class Validator {
 			/**
 			 * Otherwise create a new activeEffect
 			 */
-			Logger.log("Creating ActiveEffect", {
+			logger.log("Creating activeEffect", {
 				id,
 			});
 
@@ -255,7 +255,7 @@ export class Validator {
 		 * Remove remaining effects
 		 */
 		for (const item of remaining) {
-			Logger.log("Removing effect", { item });
+			logger.log("Removing activeEffect", { item });
 
 			await actor.deleteEmbeddedDocuments("ActiveEffect", [item.id]);
 		}

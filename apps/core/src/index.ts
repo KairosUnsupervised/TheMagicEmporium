@@ -4,19 +4,19 @@ import { namespace } from "@tme/shared/src/namespaceConfig";
 import { registerFancyModifierIcons } from "./hooks/fancyModifierIcons.ts";
 import { registerRarityBorderColors } from "./hooks/rarityBorderColors.ts";
 import { registerTooltips } from "./hooks/tooltips.ts";
-import { Logger } from "./misc/Logger.ts";
+import { logger } from "./logger.ts";
 import { packLoader } from "./packLoader/PackLoader.ts";
 import { Utility } from "./utility/Utility.ts";
 import { registerValidator } from "./validator/registerValidator";
 
 Hooks.once("init", async () => {
-	Logger.log("Initializing");
+	logger.log("Initializing");
 
 	const packs = await packLoader.load();
-	Logger.log("Loaded packs", packs);
+	logger.log("Loaded packs", packs);
 
 	await registry.registerPacks(packs);
-	Logger.log("Registered modifiers", registry);
+	logger.log("Registered modifiers", registry);
 
 	/**
 	 * Grab the dev utility with
@@ -39,8 +39,6 @@ Hooks.once("ready", async () => {
 // @ts-expect-error
 window.debug = Forge;
 // TODO FORGE API
-
-// TODO MAKE TAGS TO STRINGS
 // TODO Let people zoom the ui in / out
 // TODO TEMPLATE CONFIG, at least 2 primary
 // TODO TEMPLATE FLOAT LUCK
