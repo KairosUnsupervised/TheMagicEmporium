@@ -22,7 +22,7 @@ export class FloatDataManager<
 	Data extends object = object,
 > extends DataManager {
 	/**
-	 * Sorted ascending by min value
+	 * Sorted descended by min value
 	 * @private
 	 */
 	private breakpoints: Breakpoint<Data>[] = [];
@@ -41,7 +41,7 @@ export class FloatDataManager<
 		}
 		return (
 			this.getBreakpoint(data).min ===
-			this.breakpoints[this.breakpoints.length - 1].min
+			this.breakpoints[0].min
 		);
 	};
 
