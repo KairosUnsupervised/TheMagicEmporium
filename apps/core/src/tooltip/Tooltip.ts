@@ -14,6 +14,7 @@ export class Tooltip {
 	private showTimer: ReturnType<typeof setTimeout> | null = null;
 	private scrollTimer: ReturnType<typeof setTimeout> | null = null;
 	private currentTop: number = 0;
+	private currentScale: number = 1;
 	private readonly container: HTMLDivElement;
 	private readonly contentDiv: HTMLDivElement;
 	private root: Root | null = null;
@@ -41,6 +42,14 @@ export class Tooltip {
 			(e: WheelEvent) => {
 				if (!this.shown || !this.mouseOver) return;
 				e.preventDefault();
+				if (e.ctrlKey) {
+					this.currentScale = Math.min(
+						2,
+						Math.max(0.5, this.currentScale - e.deltaY * 0.001),
+					);
+					this.container.style.transform = `scale(${this.currentScale})`;
+					return;
+				}
 				this.container.classList.add(styles["scrolling"]);
 				if (this.scrollTimer) clearTimeout(this.scrollTimer);
 				this.scrollTimer = setTimeout(() => {
