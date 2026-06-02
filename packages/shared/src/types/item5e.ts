@@ -1,3 +1,4 @@
+import type { DeepPartial } from "../helpers/deepPartial.types";
 import { namespace } from "../namespaceConfig";
 import type { Actor5e } from "./actor5e";
 
@@ -99,6 +100,6 @@ export interface Item5e<Flag = SubItem | BaseItem> {
 		[namespace.core.id]: Flag;
 	};
 	actor: Actor5e;
-	update: (data: Partial<Item5e<Flag>>) => Promise<void>;
+	update: (data: DeepPartial<Item5e<Flag>>) => Promise<void>;
 	delete: () => Promise<void>;
 }

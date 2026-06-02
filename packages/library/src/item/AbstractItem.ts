@@ -1,10 +1,10 @@
-import {namespace} from "@tme/shared/src/namespaceConfig";
-import {type Item5e, ItemType} from "@tme/shared/src/types/item5e";
-import {generateBackgroundUrl} from "../misc/generateBackgroundUrl";
-import type {AppliedModifier} from "../modifiers/Modifier";
-import {registry} from "../registry/Registry";
-import {Equipment} from "./equipment/equipment.types";
-import {Rarity} from "./item.types";
+import { namespace } from "@tme/shared/src/namespaceConfig";
+import { type Item5e, ItemType } from "@tme/shared/src/types/item5e";
+import { generateBackgroundUrl } from "../misc/generateBackgroundUrl";
+import type { AppliedModifier } from "../modifiers/Modifier";
+import { registry } from "../registry/Registry";
+import { Equipment } from "./equipment/equipment.types";
+import { Rarity } from "./item.types";
 
 /**
  * Represents an abstracted magic item, no fluff
@@ -31,7 +31,7 @@ export class AbstractItem {
 	public static createFromDocument = (document: any): null | AbstractItem => {
 		const data = document.flags[
 			namespace.core.id
-			] as Item5e["flags"][typeof namespace.core.id];
+		] as Item5e["flags"][typeof namespace.core.id];
 
 		if (!data) {
 			return null;
@@ -55,19 +55,19 @@ export class AbstractItem {
 		data.primary.forEach((rawMod) => {
 			const modifier = registry.get(rawMod.identifier);
 			if (!modifier) return;
-			item.primary.push({modifier, data: rawMod.data ?? null});
+			item.primary.push({ modifier, data: rawMod.data ?? null });
 		});
 
 		data.secondary.forEach((rawMod) => {
 			const modifier = registry.get(rawMod.identifier);
 			if (!modifier) return;
-			item.secondary.push({modifier, data: rawMod.data ?? null});
+			item.secondary.push({ modifier, data: rawMod.data ?? null });
 		});
 
 		data.tertiary.forEach((rawMod) => {
 			const modifier = registry.get(rawMod.identifier);
 			if (!modifier) return;
-			item.tertiary.push({modifier, data: rawMod.data ?? null});
+			item.tertiary.push({ modifier, data: rawMod.data ?? null });
 		});
 
 		return item;
@@ -102,14 +102,14 @@ export class AbstractItem {
 
 	public getSparkles = (): { enabled: boolean; amount: number } => {
 		const all = [...this.primary, ...this.secondary, ...this.tertiary];
-		if (all.length < 3) return {enabled: false, amount: 30};
+		if (all.length < 3) return { enabled: false, amount: 30 };
 		if (
-			all.every(({modifier, data}) =>
+			all.every(({ modifier, data }) =>
 				modifier.isHighestPossibleBreakpoint(data),
 			)
 		) {
-			return {enabled: true, amount: all.length * 6};
+			return { enabled: true, amount: all.length * 6 };
 		}
-		return {enabled: false, amount: 0};
+		return { enabled: false, amount: 0 };
 	};
 }

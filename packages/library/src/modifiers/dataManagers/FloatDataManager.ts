@@ -39,10 +39,7 @@ export class FloatDataManager<
 		if (this.breakpoints.length === 0) {
 			return false;
 		}
-		return (
-			this.getBreakpoint(data).min ===
-			this.breakpoints[0].min
-		);
+		return this.getBreakpoint(data).min === this.breakpoints[0].min;
 	};
 
 	public getBreakpoint = (data: unknown): Breakpoint<Data> => {

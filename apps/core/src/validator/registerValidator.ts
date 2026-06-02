@@ -8,7 +8,7 @@ const validator = new Validator();
 
 const isMagicItem = (item: Item5e): boolean => {
 	return item.flags[namespace.core.id]?.type === ItemType.MagicItem;
-}
+};
 
 export const registerValidator = () => {
 	Hooks.on(
