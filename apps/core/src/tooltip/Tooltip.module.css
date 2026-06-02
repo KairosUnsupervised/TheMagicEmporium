@@ -17,6 +17,16 @@
 		visibility 0.2s ease-out;
 }
 
+.pinned {
+	cursor: grab;
+	pointer-events: auto;
+}
+
+.dragging {
+	cursor: grabbing !important;
+	user-select: none;
+}
+
 .content {
 	pointer-events: none;
 }

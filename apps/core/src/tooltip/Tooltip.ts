@@ -11,9 +11,13 @@ export class Tooltip {
 	private pinned: boolean = false;
 	private shown: boolean = false;
 	private mouseOver: boolean = false;
+	private isDragging: boolean = false;
+	private dragOffsetX: number = 0;
+	private dragOffsetY: number = 0;
 	private showTimer: ReturnType<typeof setTimeout> | null = null;
 	private scrollTimer: ReturnType<typeof setTimeout> | null = null;
 	private currentTop: number = 0;
+	private currentLeft: number = 0;
 	private currentScale: number = 1;
 	private readonly container: HTMLDivElement;
 	private readonly contentDiv: HTMLDivElement;
@@ -28,6 +32,43 @@ export class Tooltip {
 		this.container.appendChild(this.contentDiv);
 
 		document.body.appendChild(this.container);
+
+		let dragPending = false;
+		let dragStartX = 0;
+		let dragStartY = 0;
+
+		this.container.addEventListener("mousedown", (e: MouseEvent) => {
+			if (e.button !== 0 || !this.pinned) return;
+			dragPending = true;
+			dragStartX = e.clientX;
+			dragStartY = e.clientY;
+			this.dragOffsetX = e.clientX - this.currentLeft;
+			this.dragOffsetY = e.clientY - this.currentTop;
+		});
+
+		document.addEventListener("mousemove", (e: MouseEvent) => {
+			if (dragPending && !this.isDragging) {
+				if (
+					Math.abs(e.clientX - dragStartX) > 4 ||
+					Math.abs(e.clientY - dragStartY) > 4
+				) {
+					this.isDragging = true;
+					this.container.classList.add(styles["dragging"]);
+				}
+			}
+			if (!this.isDragging) return;
+			this.currentLeft = e.clientX - this.dragOffsetX;
+			this.currentTop = e.clientY - this.dragOffsetY;
+			this.container.style.left = `${this.currentLeft}px`;
+			this.container.style.top = `${this.currentTop}px`;
+		});
+
+		document.addEventListener("mouseup", (e: MouseEvent) => {
+			dragPending = false;
+			if (!this.isDragging || e.button !== 0) return;
+			this.isDragging = false;
+			this.container.classList.remove(styles["dragging"]);
+		});
 
 		this.container.addEventListener("mouseenter", () => {
 			this.mouseOver = true;
@@ -69,7 +110,7 @@ export class Tooltip {
 				return;
 			}
 			if (this.pinned) {
-				const rect = this.contentDiv.getBoundingClientRect();
+				const rect = this.container.getBoundingClientRect();
 				const inside =
 					e.clientX >= rect.left &&
 					e.clientX <= rect.right &&
@@ -94,7 +135,8 @@ export class Tooltip {
 				: left - TOOLTIP_WIDTH - GAP;
 
 		this.currentTop = top;
-		this.container.style.left = `${Math.max(0, x)}px`;
+		this.currentLeft = Math.max(0, x);
+		this.container.style.left = `${this.currentLeft}px`;
 		this.container.style.top = `${this.currentTop}px`;
 	};
 
@@ -136,6 +178,7 @@ export class Tooltip {
 	public pin = (): void => {
 		if (!this.shown) return;
 		this.pinned = true;
+		this.container.classList.add(styles["pinned"]);
 		this.contentDiv.style.pointerEvents = "auto";
 		this.contentDiv.style.outline = "1px solid rgba(212,166,74,.5)";
 	};
@@ -143,6 +186,7 @@ export class Tooltip {
 	public unpin = (): void => {
 		this.pinned = false;
 		this.shown = false;
+		this.container.classList.remove(styles["pinned"]);
 		this.contentDiv.style.pointerEvents = "none";
 		this.contentDiv.style.outline = "none";
 		this.container.style.opacity = "0";
