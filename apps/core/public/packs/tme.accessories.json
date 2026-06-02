@@ -10,10 +10,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -73,10 +70,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"WEAPON",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["WEAPON", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -372,10 +366,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -398,9 +389,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -436,10 +425,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ACCESSORY",
-					"ARMOR_CLOTHES"
-				],
+				"whitelistedBy": ["ACCESSORY", "ARMOR_CLOTHES"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -499,10 +485,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -654,9 +637,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -689,9 +670,7 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": [
-												"temphp"
-											],
+											"types": ["temphp"],
 											"custom": {
 												"enabled": true,
 												"formula": "@attributes.hp.value - 1"
@@ -718,10 +697,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"WEAPON",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["WEAPON", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -745,10 +721,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"WEAPON"
-				],
+				"whitelistedBy": ["ARMOR", "WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -772,10 +745,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -799,10 +769,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -880,10 +847,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -918,10 +882,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -967,10 +928,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},

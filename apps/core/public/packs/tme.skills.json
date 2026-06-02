@@ -11,12 +11,8 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"CHARISMA_SKILL"
-				],
-				"applies": [
-					"CHARISMA_SKILL"
-				]
+				"blacklistedBy": ["CHARISMA_SKILL"],
+				"applies": ["CHARISMA_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -153,12 +149,8 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"CHARISMA_SKILL"
-				],
-				"applies": [
-					"CHARISMA_SKILL"
-				]
+				"blacklistedBy": ["CHARISMA_SKILL"],
+				"applies": ["CHARISMA_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -267,9 +259,7 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": [
-												"temphp"
-											],
+											"types": ["temphp"],
 											"custom": {
 												"enabled": true,
 												"formula": "D20 + @skills.prf.total"
@@ -311,12 +301,8 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"CHARISMA_SKILL"
-				],
-				"applies": [
-					"CHARISMA_SKILL"
-				]
+				"blacklistedBy": ["CHARISMA_SKILL"],
+				"applies": ["CHARISMA_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -453,12 +439,8 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"CHARISMA_SKILL"
-				],
-				"applies": [
-					"CHARISMA_SKILL"
-				]
+				"blacklistedBy": ["CHARISMA_SKILL"],
+				"applies": ["CHARISMA_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -562,12 +544,8 @@
 				"weight": 512,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"DEXTERITY_SKILL"
-				],
-				"applies": [
-					"DEXTERITY_SKILL"
-				]
+				"blacklistedBy": ["DEXTERITY_SKILL"],
+				"applies": ["DEXTERITY_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -708,12 +686,8 @@
 				"weight": 512,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"DEXTERITY_SKILL"
-				],
-				"applies": [
-					"DEXTERITY_SKILL"
-				]
+				"blacklistedBy": ["DEXTERITY_SKILL"],
+				"applies": ["DEXTERITY_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -818,12 +792,8 @@
 				"weight": 512,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"DEXTERITY_SKILL"
-				],
-				"applies": [
-					"DEXTERITY_SKILL"
-				]
+				"blacklistedBy": ["DEXTERITY_SKILL"],
+				"applies": ["DEXTERITY_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -961,12 +931,8 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"INTELLIGENCE_SKILL"
-				],
-				"applies": [
-					"INTELLIGENCE_SKILL"
-				]
+				"blacklistedBy": ["INTELLIGENCE_SKILL"],
+				"applies": ["INTELLIGENCE_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -1103,12 +1069,8 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"INTELLIGENCE_SKILL"
-				],
-				"applies": [
-					"INTELLIGENCE_SKILL"
-				]
+				"blacklistedBy": ["INTELLIGENCE_SKILL"],
+				"applies": ["INTELLIGENCE_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -1217,9 +1179,7 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": [
-												"healing"
-											],
+											"types": ["healing"],
 											"custom": {
 												"enabled": true,
 												"formula": "4d12"
@@ -1254,12 +1214,8 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"INTELLIGENCE_SKILL"
-				],
-				"applies": [
-					"INTELLIGENCE_SKILL"
-				]
+				"blacklistedBy": ["INTELLIGENCE_SKILL"],
+				"applies": ["INTELLIGENCE_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -1396,12 +1352,8 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"INTELLIGENCE_SKILL"
-				],
-				"applies": [
-					"INTELLIGENCE_SKILL"
-				]
+				"blacklistedBy": ["INTELLIGENCE_SKILL"],
+				"applies": ["INTELLIGENCE_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -1505,12 +1457,8 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"INTELLIGENCE_SKILL"
-				],
-				"applies": [
-					"INTELLIGENCE_SKILL"
-				]
+				"blacklistedBy": ["INTELLIGENCE_SKILL"],
+				"applies": ["INTELLIGENCE_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -1614,12 +1562,8 @@
 				"weight": 1024,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"STRENGTH_SKILL"
-				],
-				"applies": [
-					"STRENGTH_SKILL"
-				]
+				"blacklistedBy": ["STRENGTH_SKILL"],
+				"applies": ["STRENGTH_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -1723,12 +1667,8 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"WISDOM_SKILL"
-				],
-				"applies": [
-					"WISDOM_SKILL"
-				]
+				"blacklistedBy": ["WISDOM_SKILL"],
+				"applies": ["WISDOM_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -1865,12 +1805,8 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"WISDOM_SKILL"
-				],
-				"applies": [
-					"WISDOM_SKILL"
-				]
+				"blacklistedBy": ["WISDOM_SKILL"],
+				"applies": ["WISDOM_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -1975,12 +1911,8 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"WISDOM_SKILL"
-				],
-				"applies": [
-					"WISDOM_SKILL"
-				]
+				"blacklistedBy": ["WISDOM_SKILL"],
+				"applies": ["WISDOM_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -2085,12 +2017,8 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"WISDOM_SKILL"
-				],
-				"applies": [
-					"WISDOM_SKILL"
-				]
+				"blacklistedBy": ["WISDOM_SKILL"],
+				"applies": ["WISDOM_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -2194,12 +2122,8 @@
 				"weight": 256,
 				"restriction": "SECONDARY",
 				"whitelistedBy": [],
-				"blacklistedBy": [
-					"WISDOM_SKILL"
-				],
-				"applies": [
-					"WISDOM_SKILL"
-				]
+				"blacklistedBy": ["WISDOM_SKILL"],
+				"applies": ["WISDOM_SKILL"]
 			},
 			"breakpoints": [
 				{
@@ -2308,9 +2232,7 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": [
-												"healing"
-											],
+											"types": ["healing"],
 											"custom": {
 												"enabled": true,
 												"formula": "d12"

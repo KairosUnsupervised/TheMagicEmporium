@@ -10,9 +10,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -109,9 +107,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -144,9 +140,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -193,9 +187,7 @@
 									"condition": "on direct creature kill"
 								},
 								"healing": {
-									"types": [
-										"temphp"
-									],
+									"types": ["temphp"],
 									"custom": {
 										"enabled": false
 									},
@@ -218,9 +210,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -264,9 +254,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -301,9 +289,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -339,9 +325,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -376,9 +360,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -413,9 +395,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -438,9 +418,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -521,9 +499,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -556,9 +532,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -618,9 +592,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -653,9 +625,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -716,9 +686,7 @@
 											"prompt": true
 										},
 										"healing": {
-											"types": [
-												"healing"
-											],
+											"types": ["healing"],
 											"custom": {
 												"enabled": false
 											},
@@ -777,9 +745,7 @@
 											"prompt": true
 										},
 										"healing": {
-											"types": [
-												"healing"
-											],
+											"types": ["healing"],
 											"custom": {
 												"enabled": false
 											},
@@ -838,9 +804,7 @@
 											"prompt": true
 										},
 										"healing": {
-											"types": [
-												"healing"
-											],
+											"types": ["healing"],
 											"custom": {
 												"enabled": false
 											},
@@ -865,9 +829,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -890,9 +852,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -956,9 +916,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON_MELEE"
-				],
+				"whitelistedBy": ["WEAPON_MELEE"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -986,9 +944,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1024,15 +980,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
-				"blacklistedBy": [
-					"PROPERTY_CHANGE"
-				],
-				"applies": [
-					"PROPERTY_CHANGE"
-				]
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": ["PROPERTY_CHANGE"],
+				"applies": ["PROPERTY_CHANGE"]
 			},
 			"breakpoints": [
 				{
@@ -1053,15 +1003,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
-				"blacklistedBy": [
-					"PROPERTY_CHANGE"
-				],
-				"applies": [
-					"PROPERTY_CHANGE"
-				]
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": ["PROPERTY_CHANGE"],
+				"applies": ["PROPERTY_CHANGE"]
 			},
 			"breakpoints": [
 				{
@@ -1082,15 +1026,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
-				"blacklistedBy": [
-					"PROPERTY_CHANGE"
-				],
-				"applies": [
-					"PROPERTY_CHANGE"
-				]
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": ["PROPERTY_CHANGE"],
+				"applies": ["PROPERTY_CHANGE"]
 			},
 			"breakpoints": [
 				{
@@ -1111,9 +1049,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1136,9 +1072,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1161,9 +1095,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1200,9 +1132,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1225,9 +1155,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1251,9 +1179,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1276,9 +1202,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1314,9 +1238,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"WEAPON_MELEE"
-				],
+				"whitelistedBy": ["WEAPON_MELEE"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1353,9 +1275,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1388,9 +1308,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1422,9 +1340,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1452,9 +1368,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1492,9 +1406,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1530,9 +1442,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1587,9 +1497,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1617,9 +1525,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"WEAPON"
-				],
+				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
 			},

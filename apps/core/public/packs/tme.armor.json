@@ -10,15 +10,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"ARMOR_WITH_ARMOR_CLASS"
-				],
-				"blacklistedBy": [
-					"PROPERTY_CHANGE"
-				],
-				"applies": [
-					"PROPERTY_CHANGE"
-				]
+				"whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
+				"blacklistedBy": ["PROPERTY_CHANGE"],
+				"applies": ["PROPERTY_CHANGE"]
 			},
 			"breakpoints": [
 				{
@@ -45,9 +39,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"ARMOR"
-				],
+				"whitelistedBy": ["ARMOR"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -120,9 +112,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ARMOR"
-				],
+				"whitelistedBy": ["ARMOR"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -168,9 +158,7 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": [
-												"hp"
-											],
+											"types": ["hp"],
 											"custom": {
 												"enabled": false
 											},
@@ -214,9 +202,7 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": [
-												"hp"
-											],
+											"types": ["hp"],
 											"custom": {
 												"enabled": false
 											},
@@ -260,9 +246,7 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": [
-												"hp"
-											],
+											"types": ["hp"],
 											"custom": {
 												"enabled": false
 											},
@@ -306,9 +290,7 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": [
-												"hp"
-											],
+											"types": ["hp"],
 											"custom": {
 												"enabled": false
 											},
@@ -333,9 +315,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ARMOR"
-				],
+				"whitelistedBy": ["ARMOR"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -381,9 +361,7 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": [
-												"temphp"
-											],
+											"types": ["temphp"],
 											"custom": {
 												"enabled": true,
 												"formula": "@attributes.hd.largest"
@@ -428,9 +406,7 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": [
-												"temphp"
-											],
+											"types": ["temphp"],
 											"custom": {
 												"enabled": true,
 												"formula": "@attributes.hd.largest + @attributes.hd.largest"
@@ -476,9 +452,7 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": [
-												"temphp"
-											],
+											"types": ["temphp"],
 											"custom": {
 												"enabled": true,
 												"formula": "@attributes.hd.largest + @attributes.hd.largest + @attributes.hd.largest"
@@ -504,9 +478,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ARMOR"
-				],
+				"whitelistedBy": ["ARMOR"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -637,9 +609,7 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": [
-												"temphp"
-											],
+											"types": ["temphp"],
 											"custom": {
 												"enabled": true,
 												"formula": "@attributes.hp.max"
@@ -679,9 +649,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ARMOR"
-				],
+				"whitelistedBy": ["ARMOR"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -802,9 +770,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"ARMOR_WITH_ARMOR_CLASS"
-				],
+				"whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -827,15 +793,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ARMOR"
-				],
-				"blacklistedBy": [
-					"SELF_IMMOLATION"
-				],
-				"applies": [
-					"SELF_IMMOLATION"
-				]
+				"whitelistedBy": ["ARMOR"],
+				"blacklistedBy": ["SELF_IMMOLATION"],
+				"applies": ["SELF_IMMOLATION"]
 			},
 			"breakpoints": [
 				{
@@ -902,9 +862,7 @@
 													"number": 2,
 													"denomination": 8,
 													"bonus": "",
-													"types": [
-														"fire"
-													]
+													"types": ["fire"]
 												}
 											]
 										}
@@ -964,9 +922,7 @@
 													"number": 3,
 													"denomination": 8,
 													"bonus": "",
-													"types": [
-														"fire"
-													]
+													"types": ["fire"]
 												}
 											]
 										}
@@ -1026,9 +982,7 @@
 													"number": 4,
 													"denomination": 8,
 													"bonus": "",
-													"types": [
-														"fire"
-													]
+													"types": ["fire"]
 												}
 											]
 										}
@@ -1046,15 +1000,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ARMOR"
-				],
-				"blacklistedBy": [
-					"SELF_IMMOLATION"
-				],
-				"applies": [
-					"SELF_IMMOLATION"
-				]
+				"whitelistedBy": ["ARMOR"],
+				"blacklistedBy": ["SELF_IMMOLATION"],
+				"applies": ["SELF_IMMOLATION"]
 			},
 			"breakpoints": [
 				{
@@ -1122,9 +1070,7 @@
 													"number": 2,
 													"denomination": 8,
 													"bonus": "",
-													"types": [
-														"fire"
-													]
+													"types": ["fire"]
 												}
 											]
 										}
@@ -1185,9 +1131,7 @@
 													"number": 3,
 													"denomination": 8,
 													"bonus": "",
-													"types": [
-														"fire"
-													]
+													"types": ["fire"]
 												}
 											]
 										}
@@ -1248,9 +1192,7 @@
 													"number": 4,
 													"denomination": 8,
 													"bonus": "",
-													"types": [
-														"fire"
-													]
+													"types": ["fire"]
 												}
 											]
 										}
@@ -1268,9 +1210,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ARMOR_WITH_ARMOR_CLASS"
-				],
+				"whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1334,9 +1274,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "TERTIARY",
-				"whitelistedBy": [
-					"ARMOR"
-				],
+				"whitelistedBy": ["ARMOR"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1373,9 +1311,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"ARMOR"
-				],
+				"whitelistedBy": ["ARMOR"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1398,9 +1334,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "PRIMARY",
-				"whitelistedBy": [
-					"ARMOR_STEALTH_DISADVANTAGE"
-				],
+				"whitelistedBy": ["ARMOR_STEALTH_DISADVANTAGE"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1429,9 +1363,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ARMOR"
-				],
+				"whitelistedBy": ["ARMOR"],
 				"blacklistedBy": [],
 				"applies": []
 			},
@@ -1543,10 +1475,7 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ARMOR",
-					"ACCESSORY"
-				],
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
 				"blacklistedBy": [],
 				"applies": []
 			},

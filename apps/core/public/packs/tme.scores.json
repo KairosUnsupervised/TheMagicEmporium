@@ -10,15 +10,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ACCESSORY"
-				],
-				"blacklistedBy": [
-					"SCORE"
-				],
-				"applies": [
-					"SCORE"
-				]
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
 			},
 			"breakpoints": [
 				{
@@ -174,15 +168,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ACCESSORY"
-				],
-				"blacklistedBy": [
-					"SCORE"
-				],
-				"applies": [
-					"SCORE"
-				]
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
 			},
 			"breakpoints": [
 				{
@@ -310,9 +298,7 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": [
-												"temphp"
-											],
+											"types": ["temphp"],
 											"custom": {
 												"enabled": true,
 												"formula": "@abilities.con.value"
@@ -346,15 +332,9 @@
 			"application": {
 				"weight": 1024,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ACCESSORY"
-				],
-				"blacklistedBy": [
-					"SCORE"
-				],
-				"applies": [
-					"SCORE"
-				]
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
 			},
 			"breakpoints": [
 				{
@@ -483,9 +463,7 @@
 											"condition": ""
 										},
 										"healing": {
-											"types": [
-												"healing"
-											],
+											"types": ["healing"],
 											"custom": {
 												"enabled": true,
 												"formula": "@abilities.con.value"
@@ -519,15 +497,9 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ACCESSORY"
-				],
-				"blacklistedBy": [
-					"SCORE"
-				],
-				"applies": [
-					"SCORE"
-				]
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
 			},
 			"breakpoints": [
 				{
@@ -653,9 +625,7 @@
 														"enabled": true,
 														"formula": "@attributes.hd.largest"
 													},
-													"types": [
-														""
-													]
+													"types": [""]
 												}
 											]
 										},
@@ -680,15 +650,9 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ACCESSORY"
-				],
-				"blacklistedBy": [
-					"SCORE"
-				],
-				"applies": [
-					"SCORE"
-				]
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
 			},
 			"breakpoints": [
 				{
@@ -811,15 +775,9 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ACCESSORY"
-				],
-				"blacklistedBy": [
-					"SCORE"
-				],
-				"applies": [
-					"SCORE"
-				]
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
 			},
 			"breakpoints": [
 				{
@@ -963,15 +921,9 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ACCESSORY"
-				],
-				"blacklistedBy": [
-					"SCORE"
-				],
-				"applies": [
-					"SCORE"
-				]
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
 			},
 			"breakpoints": [
 				{
@@ -1123,9 +1075,7 @@
 														"enabled": true,
 														"formula": "@details.level * 4"
 													},
-													"types": [
-														"force"
-													]
+													"types": ["force"]
 												}
 											]
 										},
@@ -1157,15 +1107,9 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ACCESSORY"
-				],
-				"blacklistedBy": [
-					"SCORE"
-				],
-				"applies": [
-					"SCORE"
-				]
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
 			},
 			"breakpoints": [
 				{
@@ -1320,15 +1264,9 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ACCESSORY"
-				],
-				"blacklistedBy": [
-					"SCORE"
-				],
-				"applies": [
-					"SCORE"
-				]
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
 			},
 			"breakpoints": [
 				{
@@ -1499,15 +1437,9 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ACCESSORY"
-				],
-				"blacklistedBy": [
-					"SCORE"
-				],
-				"applies": [
-					"SCORE"
-				]
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
 			},
 			"breakpoints": [
 				{
@@ -1677,15 +1609,9 @@
 			"application": {
 				"weight": 512,
 				"restriction": "SECONDARY",
-				"whitelistedBy": [
-					"ACCESSORY"
-				],
-				"blacklistedBy": [
-					"SCORE"
-				],
-				"applies": [
-					"SCORE"
-				]
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": ["SCORE"],
+				"applies": ["SCORE"]
 			},
 			"breakpoints": [
 				{
