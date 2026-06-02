@@ -3,9 +3,7 @@
  */
 export enum Icon {
 	// Misc
-	Effect = "effect.jpg",
-	FeatActive = "featActive.jpg",
-	FeatPassive = "featPassive.jpg",
+	Fallback = "fallback.jpg",
 
 	// Modifiers
 	Independent = "modifiers/independent.png",

@@ -65,7 +65,7 @@ export class ActiveEffect {
 		name: "Unnamed Effect",
 		type: "base",
 		description: "",
-		img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Effect}`,
+		img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Fallback}`,
 		transfer: true,
 		changes: [],
 		flags: {

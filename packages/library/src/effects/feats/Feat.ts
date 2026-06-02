@@ -30,7 +30,7 @@ export class Feat {
 	public document: Document = {
 		name: "Unnamed Feat",
 		type: "feat",
-		img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.FeatPassive}`,
+		img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Fallback}`,
 		system: {
 			type: { value: "feat" },
 		},
