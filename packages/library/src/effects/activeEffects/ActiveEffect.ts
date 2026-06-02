@@ -1,6 +1,7 @@
 import { namespace } from "@tme/shared/src/namespaceConfig";
 import { ItemType } from "@tme/shared/src/types/item5e";
 import { Icon } from "../../item/icon";
+import { generateIconUrl } from "../../misc/generateIconUrl";
 import { Logger } from "../../misc/Logger";
 import type { Flavor } from "../../modifiers/modifier.schema";
 import {
@@ -65,7 +66,7 @@ export class ActiveEffect {
 		name: "Unnamed Effect",
 		type: "base",
 		description: "",
-		img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Fallback}`,
+		img: generateIconUrl(Icon.Fallback),
 		transfer: true,
 		changes: [],
 		flags: {
@@ -119,7 +120,7 @@ export class ActiveEffect {
 			name: definition.title,
 			description,
 			changes,
-			img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${icon}`,
+			img: generateIconUrl(icon),
 		});
 	};
 

@@ -1,15 +1,15 @@
-import { namespace } from "@tme/shared/src/namespaceConfig";
 import { merge } from "ts-deepmerge";
 import { Icon } from "../../item/icon";
+import { generateIconUrl } from "../../misc/generateIconUrl";
 import { Logger } from "../../misc/Logger";
 import type { Flavor } from "../../modifiers/modifier.schema";
-import { Activity } from "../activity/Activity";
 import type { ActivitySchema } from "../../schemas/parts/activity.schema";
 import {
 	type FeatSchema,
 	type FeatSystem,
 	validateFeatSchema,
 } from "../../schemas/parts/feat.schema";
+import { Activity } from "../activity/Activity";
 
 type DocumentSystem = Omit<FeatSystem, "activities"> & {
 	type: { value: "feat" };
@@ -30,7 +30,7 @@ export class Feat {
 	public document: Document = {
 		name: "Unnamed Feat",
 		type: "feat",
-		img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Fallback}`,
+		img: generateIconUrl(Icon.Fallback),
 		system: {
 			type: { value: "feat" },
 		},
@@ -73,7 +73,7 @@ export class Feat {
 
 		const base: Partial<Document> = {
 			name: definition.title,
-			img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${icon}`,
+			img: generateIconUrl(icon),
 		};
 
 		if (definition.system) {

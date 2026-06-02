@@ -1,5 +1,8 @@
 import { Logger } from "../../misc/Logger";
-import { type ActivitySchema, validateActivitySchema } from "../../schemas/parts/activity.schema";
+import {
+	type ActivitySchema,
+	validateActivitySchema,
+} from "../../schemas/parts/activity.schema";
 
 type ActivityDocument = ActivitySchema & { _id: string };
 

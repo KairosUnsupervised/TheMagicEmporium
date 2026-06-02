@@ -40,15 +40,18 @@ export const validateActiveEffectSchema = ajv.compile<ActiveEffectSchema>({
 	required: ["changes"],
 	properties: {
 		title: {
-			description: "Name shown on the effect entry. Defaults to the modifier's title",
+			description:
+				"Name shown on the effect entry. Defaults to the modifier's title",
 			type: "string",
 		},
 		description: {
-			description: "Description shown on the effect entry. Defaults to the modifier's description",
+			description:
+				"Description shown on the effect entry. Defaults to the modifier's description",
 			type: "string",
 		},
 		disclaimer: {
-			description: "Small print shown below the description. Defaults to the modifier's disclaimer",
+			description:
+				"Small print shown below the description. Defaults to the modifier's disclaimer",
 			type: ["string", "null"],
 		},
 		changes: {
@@ -71,7 +74,8 @@ export const validateActiveEffectSchema = ajv.compile<ActiveEffectSchema>({
 						enum: Object.values(ModeSchema),
 					},
 					value: {
-						description: "The value to apply, always written as a string even when numeric",
+						description:
+							"The value to apply, always written as a string even when numeric",
 						type: "string",
 					},
 				},

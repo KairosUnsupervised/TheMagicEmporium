@@ -1,10 +1,10 @@
 import { namespace } from "@tme/shared/src/namespaceConfig";
 import { type Item5e, ItemType } from "@tme/shared/src/types/item5e";
+import { generateBackgroundUrl } from "../misc/generateBackgroundUrl";
 import type { AppliedModifier } from "../modifiers/Modifier";
 import { registry } from "../registry/Registry";
 import { Equipment } from "./equipment/equipment.types";
 import { Rarity } from "./item.types";
-import {generateBackgroundUrl} from "../misc/generateBackgroundUrl";
 
 /**
  * Represents an abstracted magic item, no fluff
@@ -95,7 +95,7 @@ export class AbstractItem {
 		})();
 
 		if (background) {
-			return generateBackgroundUrl(background)
+			return generateBackgroundUrl(background);
 		}
 		return null;
 	};

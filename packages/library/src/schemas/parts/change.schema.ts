@@ -41,7 +41,8 @@ export const changeSchema = {
 			enum: Object.values(ChangeOperation),
 		},
 		value: {
-			description: "The value to apply — string, number, or boolean depending on the target field",
+			description:
+				"The value to apply — string, number, or boolean depending on the target field",
 			type: ["string", "number", "boolean"],
 		},
 	},
@@ -49,7 +50,8 @@ export const changeSchema = {
 
 export const changesSchema = {
 	title: "Changes",
-	description: "Item document patches applied by an INDEPENDENT modifier breakpoint",
+	description:
+		"Item document patches applied by an INDEPENDENT modifier breakpoint",
 	type: "array",
 	default: [],
 	items: changeSchema,
