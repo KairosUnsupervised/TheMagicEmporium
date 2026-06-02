@@ -1,5 +1,6 @@
 import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
-import { type CSSProperties, useMemo } from "react";
+import { animate } from "animejs";
+import { type CSSProperties, useEffect, useMemo, useRef } from "react";
 import { Header } from "./header/Header";
 import styles from "./ItemDisplay.module.css";
 import { Section } from "./section/Section";
@@ -100,6 +101,21 @@ const Corner = (props: CornerProps) => (
 
 export const ItemDisplay = (props: ItemDisplayProps) => {
 	const sparkles = props.item.getSparkles();
+	const cardRef = useRef<HTMLDivElement | null>(null);
+
+	// Clip-path Iris reveal
+	useEffect(() => {
+		if (!sparkles.enabled || !cardRef.current) return;
+		const anim = animate(cardRef.current, {
+			clipPath: ["circle(0% at 50% 50%)", "circle(150% at 50% 50%)"],
+			scale: [0.94, 1],
+			duration: 1100,
+			ease: "outQuart",
+		});
+		return () => {
+			anim.pause();
+		};
+	}, [sparkles.enabled]);
 
 	const background = useMemo(() => {
 		const bg = props.item.getBackground();
@@ -126,7 +142,7 @@ export const ItemDisplay = (props: ItemDisplayProps) => {
 				>
 					<rect width="100%" height="100%" fill="url(#tme-hex-lat)" />
 				</svg>
-				<div className={styles.card}>
+				<div ref={cardRef} className={styles.card}>
 					{background}
 					{sparkles.enabled && <Sparkles amount={sparkles.amount} />}
 					<Corner rotation={0} className={styles.cornerTL} />
