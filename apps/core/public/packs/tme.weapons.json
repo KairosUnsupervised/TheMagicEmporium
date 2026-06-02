@@ -1520,7 +1520,7 @@
 			"feats": []
 		},
 		{
-			"identifier": "TME.CORNERED",
+			"identifier": "TME.DESPERATE",
 			"type": "UNIQUE",
 			"application": {
 				"weight": 1024,
@@ -1533,7 +1533,7 @@
 				{
 					"min": 0,
 					"flavor": {
-						"title": "Cornered",
+						"title": "Desperate",
 						"description": "While at 25% or fewer of your maximum HP, your attacks deal +3 bonus damage",
 						"disclaimer": null
 					},
