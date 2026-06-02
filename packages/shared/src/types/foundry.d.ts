@@ -15,7 +15,7 @@ declare const game: {
 	modules: {
 		get(id: string): { api: unknown } | undefined;
 	};
-	user: {
+	user?: {
 		role: number;
 	};
 };

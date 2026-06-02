@@ -1,30 +1,46 @@
-export class Logger {
+export class NotificationLogger {
 	private readonly prefix: string;
 
 	/**
-	 * We abuse FoundryVTTs permission system here, 4 = Gamemaster, 1 = Player
+	 * We abuse FoundryVTTs permission system here, 4 = Gamemaster, 0 = All
 	 */
 	private readonly notificationLevel: number;
 
-	public notification: {
-		gm: Logger;
-		all: Logger;
-	};
-
-	constructor(prefix: string, notificationLevel: number = 5) {
+	constructor(prefix: string, notificationLevel: number) {
 		this.prefix = prefix;
 		this.notificationLevel = notificationLevel;
+	}
 
+	warn(message: string): void {
+		if (game.user && this.notificationLevel <= game.user.role) {
+			ui.notifications.warn(`${this.prefix} | ${message}`);
+		}
+	}
+
+	error(message: string): void {
+		if (game.user && this.notificationLevel <= game.user.role) {
+			ui.notifications.error(`${this.prefix} | ${message}`);
+		}
+	}
+}
+
+export class Logger {
+	readonly prefix: string;
+
+	public readonly notification: {
+		gm: NotificationLogger;
+		all: NotificationLogger;
+	};
+
+	constructor(prefix: string) {
+		this.prefix = prefix;
 		this.notification = {
-			gm: new Logger(prefix, 4),
-			all: new Logger(prefix, 0),
+			gm: new NotificationLogger(prefix, 4),
+			all: new NotificationLogger(prefix, 0),
 		};
 	}
 
 	log(message: string, meta?: object): void {
-		if (this.notificationLevel <= game.user.role) {
-			ui.notifications.info(`${this.prefix} | ${message}`);
-		}
 		if (meta !== undefined) {
 			console.log(`${this.prefix} | ${message}`, meta);
 		} else {
@@ -33,9 +49,6 @@ export class Logger {
 	}
 
 	warn(message: string, meta?: object): void {
-		if (this.notificationLevel <= game.user.role) {
-			ui.notifications.warn(`${this.prefix} | ${message}`);
-		}
 		if (meta !== undefined) {
 			console.warn(`${this.prefix} | ${message}`, meta);
 		} else {
@@ -44,9 +57,6 @@ export class Logger {
 	}
 
 	error(message: string, meta?: object): void {
-		if (this.notificationLevel <= game.user.role) {
-			ui.notifications.error(`${this.prefix} | ${message}`);
-		}
 		if (meta !== undefined) {
 			console.error(`${this.prefix} | ${message}`, meta);
 		} else {
