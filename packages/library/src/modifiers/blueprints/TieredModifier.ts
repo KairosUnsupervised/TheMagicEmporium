@@ -97,4 +97,8 @@ export class TieredModifier extends Modifier<TieredSchema> {
 				.background ?? null
 		);
 	};
+
+	public isHighestPossibleBreakpoint = (data: unknown): boolean => {
+		return this.dataManager.isHighestBreakpoint(data);
+	};
 }

@@ -21,6 +21,10 @@ const validateData = ajv.compile<FloatData>({
 export class FloatDataManager<
 	Data extends object = object,
 > extends DataManager {
+	/**
+	 * Sorted ascending by min value
+	 * @private
+	 */
 	private breakpoints: Breakpoint<Data>[] = [];
 
 	public static create = <Data extends object = object>() => {
@@ -29,6 +33,16 @@ export class FloatDataManager<
 
 	public setBreakpoints = (breakpoints: Breakpoint<Data>[]) => {
 		this.breakpoints = [...breakpoints].sort((a, b) => b.min - a.min);
+	};
+
+	public isHighestBreakpoint = (data: unknown): boolean => {
+		if (this.breakpoints.length === 0) {
+			return false;
+		}
+		return (
+			this.getBreakpoint(data).min ===
+			this.breakpoints[this.breakpoints.length - 1].min
+		);
 	};
 
 	public getBreakpoint = (data: unknown): Breakpoint<Data> => {

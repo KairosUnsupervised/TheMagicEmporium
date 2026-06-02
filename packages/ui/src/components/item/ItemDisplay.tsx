@@ -3,6 +3,7 @@ import { type CSSProperties, useMemo } from "react";
 import { Header } from "./header/Header";
 import styles from "./ItemDisplay.module.css";
 import { Section } from "./section/Section";
+import { Sparkles } from "./sparkles/Sparkles";
 
 export interface ItemDisplayProps {
 	item: AbstractItem;
@@ -98,6 +99,8 @@ const Corner = (props: CornerProps) => (
 );
 
 export const ItemDisplay = (props: ItemDisplayProps) => {
+	const sparkles = props.item.getSparkles();
+
 	const background = useMemo(() => {
 		const bg = props.item.getBackground();
 		if (!bg) return null;
@@ -125,6 +128,7 @@ export const ItemDisplay = (props: ItemDisplayProps) => {
 				</svg>
 				<div className={styles.card}>
 					{background}
+					{sparkles.enabled && <Sparkles amount={sparkles.amount} />}
 					<Corner rotation={0} className={styles.cornerTL} />
 					<Corner rotation={90} className={styles.cornerTR} />
 					<Corner rotation={180} className={styles.cornerBR} />

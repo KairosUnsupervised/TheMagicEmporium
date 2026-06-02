@@ -11,6 +11,7 @@
 		"@storybook/addon-docs": "^10.3.6",
 		"@tme/library": "workspace:*",
 		"@tme/shared": "workspace:*",
+		"animejs": "^4.4.1",
 		"react": "canary",
 		"react-dom": "canary"
 	},

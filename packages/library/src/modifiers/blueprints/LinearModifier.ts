@@ -75,4 +75,8 @@ export class LinearModifier extends Modifier<LinearSchema> {
 		const breakpoint = this.dataManager.getBreakpoint(data);
 		return breakpoint.background ?? this.schema.flavor.background ?? null;
 	};
+
+	public isHighestPossibleBreakpoint = (data: unknown): boolean => {
+		return this.dataManager.isHighestBreakpoint(data);
+	};
 }

@@ -101,4 +101,6 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
 		}
 		return JSON.parse(json);
 	};
+
+	public abstract isHighestPossibleBreakpoint: (_data: unknown) => boolean;
 }

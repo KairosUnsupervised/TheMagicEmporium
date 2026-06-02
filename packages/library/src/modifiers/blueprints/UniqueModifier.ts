@@ -67,4 +67,8 @@ export class UniqueModifier extends Modifier<UniqueSchema> {
 	public override getBackground = (data: unknown): string | null => {
 		return this.dataManager.getBreakpoint(data).flavor.background ?? null;
 	};
+
+	public isHighestPossibleBreakpoint = (data: unknown): boolean => {
+		return this.dataManager.isHighestBreakpoint(data);
+	};
 }

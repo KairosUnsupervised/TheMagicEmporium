@@ -58,4 +58,8 @@ export class IndependentModifier extends Modifier<IndependentSchema> {
 	public override getBackground = (data: unknown): string | null => {
 		return this.dataManager.getBreakpoint(data).flavor.background ?? null;
 	};
+
+	public isHighestPossibleBreakpoint = (data: unknown): boolean => {
+		return this.dataManager.isHighestBreakpoint(data);
+	};
 }

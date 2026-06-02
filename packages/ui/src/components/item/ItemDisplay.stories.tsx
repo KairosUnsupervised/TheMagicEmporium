@@ -6,6 +6,7 @@ import { legendaryOverrideBackgroundFixture } from "../../fixtures/items/legenda
 import { rareFixture } from "../../fixtures/items/rareFixture";
 import { uncommonFixture } from "../../fixtures/items/uncommonFixture";
 import { veryRareFixture } from "../../fixtures/items/veryRareFixture";
+import { veryRarePerfectFixture } from "../../fixtures/items/veryRarePerfectFixture";
 import { ItemDisplay, type ItemDisplayProps } from "./ItemDisplay";
 
 const meta = {
@@ -47,6 +48,10 @@ export const LegendaryModifierBackground: Story = {
 
 export const VeryRare: Story = {
 	args: { item: veryRareFixture },
+};
+
+export const VeryRarePerfect: Story = {
+	args: { item: veryRarePerfectFixture },
 };
 
 export const Rare: Story = {
