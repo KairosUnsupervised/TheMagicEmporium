@@ -1,4 +1,4 @@
-import { Logger } from "../../misc/Logger";
+import { logger } from "../../logger";
 import {
 	type ActivitySchema,
 	validateActivitySchema,
@@ -23,7 +23,7 @@ export class Activity {
 	public static createMultiple = (definitions: unknown[]): Activity[] => {
 		return definitions.map((definition, index) => {
 			if (!validateActivitySchema(definition)) {
-				Logger.warn(`Activity at index ${index} has schema mismatches`, {
+				logger.notification.all.warn(`Activity at index ${index} has schema mismatches, proceeding anyway`, {
 					definition,
 					errors: validateActivitySchema.errors,
 				});

@@ -1,7 +1,7 @@
 import { merge } from "ts-deepmerge";
 import { Icon } from "../../item/icon";
 import { generateIconUrl } from "../../misc/generateIconUrl";
-import { Logger } from "../../misc/Logger";
+import { logger } from "../../logger";
 import type { Flavor } from "../../modifiers/modifier.schema";
 import type { ActivitySchema } from "../../schemas/parts/activity.schema";
 import {
@@ -50,8 +50,8 @@ export class Feat {
 	): Feat[] => {
 		return definitions.map((definition) => {
 			if (!validateFeatSchema(definition)) {
-				Logger.warn(
-					"Feat definition has mismatched properties — importing anyway",
+				logger.warn(
+					"Feat definition has mismatched properties, proceeding anyway",
 					{
 						definition,
 						errors: validateFeatSchema.errors,
@@ -106,7 +106,6 @@ export class Feat {
 	}
 
 	public export = (): object => {
-		console.log(this.document);
 		return this.document;
 	};
 }

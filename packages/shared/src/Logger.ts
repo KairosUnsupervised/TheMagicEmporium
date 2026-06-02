@@ -1,12 +1,10 @@
 export class Logger {
-	readonly prefix: string;
+	private readonly prefix: string;
+
 	/**
-	 * 0 = All
-	 * 1 = Player
-	 * 4 = Gamemaster
-	 * 5 = None
+	 * We abuse FoundryVTTs permission system here, 4 = Gamemaster, 1 = Player
 	 */
-	readonly notificationLevel: number;
+	private readonly notificationLevel: number;
 
 	public notification: {
 		gm: Logger;

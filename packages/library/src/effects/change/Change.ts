@@ -1,4 +1,4 @@
-import { Logger } from "../../misc/Logger";
+import { logger } from "../../logger";
 import {
 	ChangeOperation,
 	type ChangeSchema,
@@ -21,7 +21,7 @@ export class Change {
 		return definitions
 			.map((definition, index) => {
 				if (!validateChangeSchema(definition)) {
-					Logger.error(`Change at index ${index} has schema mismatches`, {
+					logger.notification.all.error(`Change at index ${index} has schema mismatches, skipping entry`, {
 						definition,
 						errors: validateChangeSchema.errors,
 					});

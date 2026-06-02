@@ -1,7 +1,7 @@
 import { ActiveEffect } from "../../effects/activeEffects/ActiveEffect";
 import { Feat } from "../../effects/feats/Feat";
 import { Icon } from "../../item/icon";
-import { Logger } from "../../misc/Logger";
+import { logger } from "../../logger";
 import {
 	type TieredBreakpoint,
 	type TieredSchema,
@@ -25,7 +25,7 @@ export class TieredModifier extends Modifier<TieredSchema> {
 
 	static create(props: CreateProps): TieredModifier | null {
 		if (!validateTiered(props.definition)) {
-			Logger.error("Invalid modifier definition for TieredModifier", {
+			logger.notification.gm.error("Invalid modifier definition for TieredModifier, skipping entry", {
 				definition: props.definition,
 				errors: validateTiered.errors,
 			});

@@ -1,6 +1,6 @@
 import { Activity } from "../../effects/activity/Activity";
 import { Change } from "../../effects/change/Change";
-import { Logger } from "../../misc/Logger";
+import { logger } from "../../logger";
 import {
 	type IndependentBreakpoint,
 	type IndependentSchema,
@@ -16,7 +16,7 @@ export class IndependentModifier extends Modifier<IndependentSchema> {
 
 	static create(props: CreateProps): IndependentModifier | null {
 		if (!validateIndependent(props.definition)) {
-			Logger.error("Invalid modifier definition for IndependentModifier", {
+			logger.notification.gm.error("Invalid modifier definition for IndependentModifier, skipping entry", {
 				definition: props.definition,
 				errors: validateIndependent.errors,
 			});

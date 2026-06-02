@@ -1,7 +1,7 @@
 import { ActiveEffect } from "../../effects/activeEffects/ActiveEffect";
 import { Feat } from "../../effects/feats/Feat";
 import { Icon } from "../../item/icon";
-import { Logger } from "../../misc/Logger";
+import { logger } from "../../logger";
 import {
 	type UniqueBreakpoint,
 	type UniqueSchema,
@@ -19,7 +19,7 @@ export class UniqueModifier extends Modifier<UniqueSchema> {
 
 	static create(props: CreateProps): UniqueModifier | null {
 		if (!validateUnique(props.definition)) {
-			Logger.error("Invalid modifier definition for UniqueModifier", {
+			logger.notification.gm.error("Invalid modifier definition for UniqueModifier, skipping entry", {
 				definition: props.definition,
 				errors: validateUnique.errors,
 			});

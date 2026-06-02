@@ -46,7 +46,6 @@ export class Item {
 		this.addDescription();
 
 		this.mergeItemChanges();
-		// TODO Retroactive activity updates
 		this.mergeItemActivities();
 	}
 

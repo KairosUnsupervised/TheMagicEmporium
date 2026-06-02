@@ -1,4 +1,4 @@
-import { Logger } from "../misc/Logger";
+import { logger } from "../logger";
 import { IndependentModifier } from "../modifiers/blueprints/IndependentModifier";
 import { LinearModifier } from "../modifiers/blueprints/LinearModifier";
 import { TieredModifier } from "../modifiers/blueprints/TieredModifier";
@@ -56,7 +56,7 @@ export class Registry {
 		enabled: boolean,
 	): Modifier | null => {
 		if (!validateModifierTypeSchema(definition)) {
-			Logger.error("Invalid modifier type", {
+			logger.notification.gm.error("Invalid modifier type, skipping entry", {
 				errors: validateModifierTypeSchema.errors,
 			});
 			return null;
@@ -69,8 +69,8 @@ export class Registry {
 		}
 
 		if (this.mapped[modifier.identifier]) {
-			Logger.error(
-				"Duplicate modifier identifier, the duplicate will not be added to the registry",
+			logger.notification.gm.error(
+				"Duplicate modifier identifier, skipping entry",
 				{ identifier: modifier.identifier },
 			);
 			return null;
@@ -88,7 +88,7 @@ export class Registry {
 		if (this.mapped[identifier]) {
 			return this.mapped[identifier];
 		}
-		Logger.error(`No modifier found with identifier ${identifier}`);
+		logger.notification.all.error(`No modifier found with identifier ${identifier}`);
 		return null;
 	};
 }

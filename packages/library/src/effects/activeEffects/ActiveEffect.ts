@@ -2,7 +2,7 @@ import { namespace } from "@tme/shared/src/namespaceConfig";
 import { ItemType } from "@tme/shared/src/types/item5e";
 import { Icon } from "../../item/icon";
 import { generateIconUrl } from "../../misc/generateIconUrl";
-import { Logger } from "../../misc/Logger";
+import { logger } from "../../logger";
 import type { Flavor } from "../../modifiers/modifier.schema";
 import {
 	type ActiveEffectSchema,
@@ -92,7 +92,7 @@ export class ActiveEffect {
 		return definitions
 			.map((definition, index) => {
 				if (!validateActiveEffectSchema(definition)) {
-					Logger.error(`ActiveEffect at index ${index} has schema mismatches`, {
+					logger.notification.all.error(`ActiveEffect at index ${index} has schema mismatches, skipping entry`, {
 						definition,
 						errors: validateActiveEffectSchema.errors,
 					});

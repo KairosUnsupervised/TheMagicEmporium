@@ -2,7 +2,7 @@ import { equipmentRarity } from "../item/equipment/equipment.adjectives";
 import { equipmentDetails } from "../item/equipment/equipment.details";
 import { Equipment } from "../item/equipment/equipment.types";
 import type { Rarity } from "../item/item.types";
-import { Logger } from "../misc/Logger";
+import { logger } from "../logger";
 import { FloatDataManager } from "../modifiers/dataManagers/FloatDataManager";
 import type { Modifier } from "../modifiers/Modifier";
 import type { Restriction } from "../modifiers/modifier.schema";
@@ -83,7 +83,7 @@ export class Forge {
 			}
 		}
 
-		Logger.error("Could not find a valid modifier after 10000 attempts", {
+		logger.notification.all.error("Could not find a valid modifier for slot after 10000 attempts", {
 			process,
 		});
 		return registry.mapped["INTERNAL_EXHAUSTED"];

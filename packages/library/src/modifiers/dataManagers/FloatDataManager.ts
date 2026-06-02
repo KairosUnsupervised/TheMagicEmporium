@@ -1,5 +1,5 @@
 import Ajv from "ajv";
-import { Logger } from "../../misc/Logger";
+import { logger } from "../../logger";
 import { DataManager } from "./DataManager";
 
 export type Breakpoint<Data extends object = object> = { min: number } & Data;
@@ -58,7 +58,7 @@ export class FloatDataManager<
 
 	private resolveFloat = (data: unknown): number => {
 		if (!validateData(data)) {
-			Logger.error("Invalid data for FloatDataManager", {
+			logger.notification.all.error("Invalid data for FloatDataManager, defaulting to 0", {
 				data,
 				errors: validateData.errors,
 			});

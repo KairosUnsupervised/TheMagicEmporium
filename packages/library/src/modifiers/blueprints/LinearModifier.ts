@@ -1,7 +1,7 @@
 import { ActiveEffect } from "../../effects/activeEffects/ActiveEffect";
 import { Feat } from "../../effects/feats/Feat";
 import { Icon } from "../../item/icon";
-import { Logger } from "../../misc/Logger";
+import { logger } from "../../logger";
 import {
 	type LinearBreakpoint,
 	type LinearSchema,
@@ -16,7 +16,7 @@ export class LinearModifier extends Modifier<LinearSchema> {
 
 	static create(props: CreateProps): LinearModifier | null {
 		if (!validateLinear(props.definition)) {
-			Logger.error("Invalid modifier definition for UniqueModifier", {
+			logger.notification.gm.error("Invalid modifier definition for UniqueModifier, skipping entry", {
 				definition: props.definition,
 				errors: validateLinear.errors,
 			});
