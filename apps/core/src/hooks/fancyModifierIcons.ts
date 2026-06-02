@@ -17,7 +17,7 @@ export const registerFancyModifierIcons = () => {
 			img.forEach((img) => {
 				if (
 					img.src.includes(
-						`worlds/${game.world.id}/data/${namespace.core.id}/icons/modifiers`,
+						`modules/${namespace.core.id}/icons`,
 					)
 				) {
 					img.classList.remove("gold-icon");
