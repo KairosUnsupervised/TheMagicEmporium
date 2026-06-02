@@ -18,6 +18,21 @@ export const MyComponent = (props: MyComponentProps) => { ... }
 
 - Create a Storybook story for every component. See `src/components/layout/Sidebar.stories.tsx` for an example.
 - Do not use object destructuring
+- Always use braces for if statements:
+
+```ts
+if (condition) {
+    doSomething();
+}
+```
+
+- Always provide explicit return types on functions:
+
+```ts
+const isMagicItem = (item: Item5e): boolean => {
+    return item.flags[namespace.core.id]?.type === ItemType.MagicItem;
+}
+```
 
 ---
 

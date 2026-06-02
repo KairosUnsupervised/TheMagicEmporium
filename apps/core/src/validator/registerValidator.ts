@@ -1,9 +1,14 @@
 import type { DeepPartial } from "@tme/shared/src/helpers/deepPartial.types.ts";
+import { namespace } from "@tme/shared/src/namespaceConfig.ts";
 import type { Item5e } from "@tme/shared/src/types/item5e.ts";
-import { Logger } from "../misc/Logger.ts";
+import { ItemType } from "@tme/shared/src/types/item5e.ts";
 import { Validator } from "./Validator.ts";
 
 const validator = new Validator();
+
+const isMagicItem = (item: Item5e): boolean => {
+	return item.flags[namespace.core.id]?.type === ItemType.MagicItem;
+}
 
 export const registerValidator = () => {
 	Hooks.on(
@@ -15,23 +20,38 @@ export const registerValidator = () => {
 			userId: string,
 		) => {
 			if (userId !== game.userId) {
-				Logger.log("updateItem hook: userId and game user do not match", {
-					hookUserId: userId,
-					gameUserId: game.userId,
-				});
 				return;
 			}
 			if (
 				!update.system ||
 				!("attuned" in update.system || "equipped" in update.system)
 			) {
-				Logger.log(
-					"updateItem hook: attuned or equipped state was not updated",
-				);
 				return;
 			}
 
-			validator.validate(item.actor);
+			void validator.validate(item.actor);
 		},
 	);
+
+	Hooks.on("createItem", (item: Item5e, _options: unknown, userId: string) => {
+		if (userId !== game.userId) {
+			return;
+		}
+		if (!isMagicItem(item)) {
+			return;
+		}
+
+		void validator.validate(item.actor);
+	});
+
+	Hooks.on("deleteItem", (item: Item5e, _options: unknown, userId: string) => {
+		if (userId !== game.userId) {
+			return;
+		}
+		if (!isMagicItem(item)) {
+			return;
+		}
+
+		void validator.validate(item.actor);
+	});
 };
