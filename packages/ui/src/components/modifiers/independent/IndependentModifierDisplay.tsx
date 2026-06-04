@@ -52,6 +52,7 @@ export const IndependentModifierDisplay = (
 
 	return (
 		<BreakpointSwap
+			key={props.modifier.identifier}
 			items={items}
 			defaultActiveIndex={activeIndex}
 			type={ModifierType.Independent}

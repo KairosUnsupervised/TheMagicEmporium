@@ -50,6 +50,7 @@ export const UniqueModifierDisplay = (props: UniqueModifierDisplayProps) => {
 
 	return (
 		<BreakpointSwap
+			key={props.modifier.identifier}
 			items={items}
 			defaultActiveIndex={activeIndex}
 			type={ModifierType.Unique}
