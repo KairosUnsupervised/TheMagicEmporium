@@ -39,6 +39,5 @@ Hooks.once("ready", async () => {
 // @ts-expect-error
 window.debug = Forge;
 // TODO FORGE API
-// TODO Let people zoom the ui in / out
 // TODO TEMPLATE CONFIG, at least 2 primary
 // TODO TEMPLATE FLOAT LUCK

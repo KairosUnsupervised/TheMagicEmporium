@@ -10,4 +10,19 @@ export interface Template {
 	nonFloatCost: number;
 	floatBias: FloatBias;
 	backgroundEligible: boolean;
+
+	gold: {
+		/**
+		 * Guaranteed gold
+		 */
+		min: number;
+		/**
+		 * Random additional gold
+		 */
+		additional: number;
+		/**
+		 * Impact factor for the base equipment value
+		 */
+		equipmentValueImpact: number;
+	};
 }

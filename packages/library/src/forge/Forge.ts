@@ -1,16 +1,16 @@
-import { equipmentRarity } from "../item/equipment/equipment.adjectives";
-import { equipmentDetails } from "../item/equipment/equipment.details";
-import { Equipment } from "../item/equipment/equipment.types";
-import type { Rarity } from "../item/item.types";
-import { logger } from "../logger";
-import { FloatDataManager } from "../modifiers/dataManagers/FloatDataManager";
-import type { Modifier } from "../modifiers/Modifier";
-import type { Restriction } from "../modifiers/modifier.schema";
-import { registry } from "../registry/Registry";
-import { ForgeProcess } from "./ForgeProcess";
-import { getRandomRarity } from "./forge.rarity";
-import { getRandomTemplate } from "./forge.templates";
-import type { FloatBias, Template } from "./forge.types";
+import {equipmentRarity} from "../item/equipment/equipment.adjectives";
+import {equipmentDetails} from "../item/equipment/equipment.details";
+import {Equipment} from "../item/equipment/equipment.types";
+import type {Rarity} from "../item/item.types";
+import {logger} from "../logger";
+import {FloatDataManager} from "../modifiers/dataManagers/FloatDataManager";
+import type {Modifier} from "../modifiers/Modifier";
+import type {Restriction} from "../modifiers/modifier.schema";
+import {registry} from "../registry/Registry";
+import {ForgeProcess} from "./ForgeProcess";
+import {getRandomRarity} from "./forge.rarity";
+import {getRandomTemplate} from "./forge.templates";
+import type {FloatBias, Template} from "./forge.types";
 
 export class Forge {
 	/**
@@ -26,7 +26,7 @@ export class Forge {
 		process.abstractItem.backgroundEligible = template.backgroundEligible;
 
 		process.setBase(equipment ?? Forge.pickRandomEquipment());
-		Forge.generateEconomy(process, template);
+		Forge.generateGoldValue(process, template);
 		Forge.generateModifiers(process, template);
 		process.setRarity(template.rarity);
 		Forge.generateName(process);
@@ -51,7 +51,7 @@ export class Forge {
 			const modifier = Forge.getRandomModifier(process, slot);
 			const hasFloat = modifier.dataManager instanceof FloatDataManager;
 			const data = hasFloat
-				? { float: Forge.generateFloat(template.floatBias) }
+				? {float: Forge.generateFloat(template.floatBias)}
 				: null;
 
 			process.addModifier(slot, modifier, data);
@@ -83,9 +83,12 @@ export class Forge {
 			}
 		}
 
-		logger.notification.all.error("Could not find a valid modifier for slot after 10000 attempts", {
-			process,
-		});
+		logger.notification.all.error(
+			"Could not find a valid modifier for slot after 10000 attempts",
+			{
+				process,
+			},
+		);
 		return registry.mapped["INTERNAL_EXHAUSTED"];
 	};
 
@@ -99,16 +102,16 @@ export class Forge {
 		return Math.random();
 	};
 
-	// TODO REFACTOR ECONOMY GENERATION
-	private static generateEconomy = (
+	private static generateGoldValue = (
 		process: ForgeProcess,
 		template: Template,
 	): void => {
-		let currency = equipmentDetails[process.abstractItem.base].value;
-		template.slots.forEach(() => {
-			currency *= 1.25;
-		});
-		process.abstractItem.currency = Math.floor(currency);
+		const equipmentValue = equipmentDetails[process.abstractItem.base].value;
+		process.abstractItem.currency = Math.floor(
+			template.gold.min +
+			Math.random() * template.gold.additional +
+			equipmentValue * template.gold.equipmentValueImpact,
+		);
 	};
 
 	private static generateName = (process: ForgeProcess): void => {
@@ -118,7 +121,7 @@ export class Forge {
 			: details.title;
 		const adjective = details.adjectives?.length
 			? details.adjectives[
-					Math.floor(Math.random() * details.adjectives.length)
+				Math.floor(Math.random() * details.adjectives.length)
 				]
 			: "";
 		const rarity = equipmentRarity[process.abstractItem.rarity];

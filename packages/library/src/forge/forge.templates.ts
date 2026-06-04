@@ -11,6 +11,7 @@ export const templates: Template[] = [
 		floatBias: "NORMAL",
 		nonFloatCost: 0.5,
 		backgroundEligible: false,
+		gold: {min: 20, additional: 40, equipmentValueImpact: 0.25},
 	},
 	{
 		rarity: Rarity.Common,
@@ -19,6 +20,7 @@ export const templates: Template[] = [
 		floatBias: "NORMAL",
 		nonFloatCost: 0.5,
 		backgroundEligible: true,
+		gold: {min: 20, additional: 40, equipmentValueImpact: 0.25},
 	},
 	{
 		rarity: Rarity.Common,
@@ -27,6 +29,7 @@ export const templates: Template[] = [
 		floatBias: "UNLUCKY",
 		nonFloatCost: 0.5,
 		backgroundEligible: false,
+		gold: {min: 20, additional: 40, equipmentValueImpact: 0.25},
 	},
 	{
 		rarity: Rarity.Common,
@@ -35,6 +38,7 @@ export const templates: Template[] = [
 		floatBias: "UNLUCKY",
 		nonFloatCost: 0.5,
 		backgroundEligible: true,
+		gold: {min: 20, additional: 40, equipmentValueImpact: 0.25},
 	},
 
 	// ── Uncommon ──────────────────────────────────────────────────────────────
@@ -45,6 +49,7 @@ export const templates: Template[] = [
 		floatBias: "NORMAL",
 		nonFloatCost: 0.5,
 		backgroundEligible: false,
+		gold: {min: 40, additional: 80, equipmentValueImpact: 0.25},
 	},
 	{
 		rarity: Rarity.Uncommon,
@@ -53,6 +58,7 @@ export const templates: Template[] = [
 		floatBias: "NORMAL",
 		nonFloatCost: 0.5,
 		backgroundEligible: true,
+		gold: {min: 40, additional: 80, equipmentValueImpact: 0.25},
 	},
 	{
 		rarity: Rarity.Uncommon,
@@ -61,6 +67,7 @@ export const templates: Template[] = [
 		floatBias: "UNLUCKY",
 		nonFloatCost: 0.5,
 		backgroundEligible: false,
+		gold: {min: 40, additional: 80, equipmentValueImpact: 0.25},
 	},
 	{
 		rarity: Rarity.Uncommon,
@@ -69,6 +76,7 @@ export const templates: Template[] = [
 		floatBias: "UNLUCKY",
 		nonFloatCost: 0.5,
 		backgroundEligible: true,
+		gold: {min: 40, additional: 80, equipmentValueImpact: 0.25},
 	},
 
 	// ── Rare ──────────────────────────────────────────────────────────────────
@@ -86,6 +94,7 @@ export const templates: Template[] = [
 		floatBias: "UNLUCKY",
 		nonFloatCost: 0.4,
 		backgroundEligible: false,
+		gold: {min: 100, additional: 150, equipmentValueImpact: 0.5},
 	},
 	{
 		rarity: Rarity.Rare,
@@ -101,6 +110,7 @@ export const templates: Template[] = [
 		floatBias: "UNLUCKY",
 		nonFloatCost: 0.4,
 		backgroundEligible: true,
+		gold: {min: 100, additional: 150, equipmentValueImpact: 0.5},
 	},
 	{
 		rarity: Rarity.Rare,
@@ -114,6 +124,7 @@ export const templates: Template[] = [
 		floatBias: "NORMAL",
 		nonFloatCost: 0.4,
 		backgroundEligible: false,
+		gold: {min: 100, additional: 150, equipmentValueImpact: 0.5},
 	},
 	{
 		rarity: Rarity.Rare,
@@ -127,6 +138,7 @@ export const templates: Template[] = [
 		floatBias: "NORMAL",
 		nonFloatCost: 0.4,
 		backgroundEligible: true,
+		gold: {min: 100, additional: 150, equipmentValueImpact: 0.5},
 	},
 	{
 		rarity: Rarity.Rare,
@@ -135,6 +147,7 @@ export const templates: Template[] = [
 		floatBias: "LUCKY",
 		nonFloatCost: 0.4,
 		backgroundEligible: false,
+		gold: {min: 100, additional: 150, equipmentValueImpact: 0.5},
 	},
 	{
 		rarity: Rarity.Rare,
@@ -143,6 +156,7 @@ export const templates: Template[] = [
 		floatBias: "LUCKY",
 		nonFloatCost: 0.4,
 		backgroundEligible: true,
+		gold: {min: 100, additional: 150, equipmentValueImpact: 0.5},
 	},
 
 	// ── Very Rare ─────────────────────────────────────────────────────────────
@@ -160,6 +174,7 @@ export const templates: Template[] = [
 		floatBias: "NORMAL",
 		nonFloatCost: 0.3,
 		backgroundEligible: false,
+		gold: {min: 200, additional: 600, equipmentValueImpact: 1},
 	},
 	{
 		rarity: Rarity.VeryRare,
@@ -175,6 +190,7 @@ export const templates: Template[] = [
 		floatBias: "NORMAL",
 		nonFloatCost: 0.3,
 		backgroundEligible: true,
+		gold: {min: 200, additional: 600, equipmentValueImpact: 1},
 	},
 	{
 		rarity: Rarity.VeryRare,
@@ -188,6 +204,7 @@ export const templates: Template[] = [
 		floatBias: "LUCKY",
 		nonFloatCost: 0.3,
 		backgroundEligible: false,
+		gold: {min: 200, additional: 600, equipmentValueImpact: 1},
 	},
 	{
 		rarity: Rarity.VeryRare,
@@ -201,6 +218,7 @@ export const templates: Template[] = [
 		floatBias: "LUCKY",
 		nonFloatCost: 0.3,
 		backgroundEligible: true,
+		gold: {min: 200, additional: 600, equipmentValueImpact: 1},
 	},
 	{
 		rarity: Rarity.VeryRare,
@@ -216,6 +234,7 @@ export const templates: Template[] = [
 		floatBias: "UNLUCKY",
 		nonFloatCost: 0.3,
 		backgroundEligible: false,
+		gold: {min: 200, additional: 600, equipmentValueImpact: 1},
 	},
 	{
 		rarity: Rarity.VeryRare,
@@ -231,6 +250,7 @@ export const templates: Template[] = [
 		floatBias: "UNLUCKY",
 		nonFloatCost: 0.3,
 		backgroundEligible: true,
+		gold: {min: 200, additional: 600, equipmentValueImpact: 1},
 	},
 
 	// ── Legendary ─────────────────────────────────────────────────────────────
@@ -249,6 +269,7 @@ export const templates: Template[] = [
 		floatBias: "NORMAL",
 		nonFloatCost: 0.3,
 		backgroundEligible: false,
+		gold: {min: 600, additional: 1200, equipmentValueImpact: 1},
 	},
 	{
 		rarity: Rarity.Legendary,
@@ -265,6 +286,7 @@ export const templates: Template[] = [
 		floatBias: "NORMAL",
 		nonFloatCost: 0.3,
 		backgroundEligible: true,
+		gold: {min: 600, additional: 1200, equipmentValueImpact: 1},
 	},
 	{
 		rarity: Rarity.Legendary,
@@ -279,6 +301,7 @@ export const templates: Template[] = [
 		floatBias: "LUCKY",
 		nonFloatCost: 0.3,
 		backgroundEligible: false,
+		gold: {min: 600, additional: 1200, equipmentValueImpact: 1},
 	},
 	{
 		rarity: Rarity.Legendary,
@@ -293,6 +316,7 @@ export const templates: Template[] = [
 		floatBias: "LUCKY",
 		nonFloatCost: 0.3,
 		backgroundEligible: true,
+		gold: {min: 600, additional: 1200, equipmentValueImpact: 1},
 	},
 ];
 
