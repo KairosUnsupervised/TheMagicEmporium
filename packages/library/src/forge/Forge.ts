@@ -8,7 +8,6 @@ import type {Modifier} from "../modifiers/Modifier";
 import type {Restriction} from "../modifiers/modifier.schema";
 import {registry} from "../registry/Registry";
 import {ForgeProcess} from "./ForgeProcess";
-import {getRandomRarity} from "./forge.rarity";
 import {getRandomTemplate} from "./forge.templates";
 import type {FloatBias, Template} from "./forge.types";
 
@@ -20,7 +19,7 @@ export class Forge {
 		equipment?: Equipment,
 		rarity?: Rarity,
 	): ForgeProcess => {
-		const template = getRandomTemplate(rarity ?? getRandomRarity());
+		const template = getRandomTemplate(rarity);
 		const process = new ForgeProcess();
 
 		process.abstractItem.backgroundEligible = template.backgroundEligible;

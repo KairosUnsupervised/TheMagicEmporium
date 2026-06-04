@@ -5,6 +5,8 @@ export type FloatBias = "NORMAL" | "LUCKY" | "UNLUCKY";
 
 export interface Template {
 	rarity: Rarity;
+	weight: number;
+
 	slots: Restriction[];
 	points: number;
 	nonFloatCost: number;
