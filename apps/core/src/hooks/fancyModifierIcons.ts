@@ -17,7 +17,7 @@ export const registerFancyModifierIcons = () => {
 			img.forEach((img) => {
 				if (
 					img.src.includes(
-						`modules/${namespace.core.id}/icons`,
+						`modules/${namespace.core.id}/icons/modifiers`,
 					)
 				) {
 					img.classList.remove("gold-icon");

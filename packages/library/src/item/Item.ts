@@ -8,6 +8,7 @@ import type { AppliedModifier } from "../modifiers/Modifier";
 import type { AbstractItem } from "./AbstractItem";
 import { equipmentDetails } from "./equipment/equipment.details";
 import { generateDescriptionV3 } from "./generateDescription";
+import {generateIconUrl} from "../misc/generateIconUrl";
 
 /**
  * Represent a magic item from the 5e system view
@@ -57,7 +58,7 @@ export class Item {
 		});
 
 		this.merge({
-			img: `worlds/${game.world.id}/data/${namespace.core.id}/icons/${details.icon}`,
+			img: generateIconUrl(details.icon),
 			system: {
 				price: {
 					value: this.abstractItem.currency + details.value,
