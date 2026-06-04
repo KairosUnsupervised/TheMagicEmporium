@@ -50,7 +50,7 @@ export class Feat {
 	): Feat[] => {
 		return definitions.map((definition) => {
 			if (!validateFeatSchema(definition)) {
-				logger.warn(
+				void logger.notification.gm.warn(
 					"Feat definition has mismatched properties, proceeding anyway",
 					{
 						definition,

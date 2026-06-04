@@ -75,7 +75,11 @@ export interface FeatSystem {
 		value?: number;
 		max?: string | number;
 		per?: "sr" | "lr" | "day" | "charges" | "dawn" | "dusk" | null;
-		recovery?: string;
+		recovery?: {
+			period: "sr" | "lr" | "dawn" | "dusk" | "charges" | "day";
+			type: "recoverAll" | "loseAll" | "formula";
+			formula?: string;
+		}[];
 		prompt?: boolean;
 	};
 	type?: {
@@ -167,7 +171,23 @@ const systemSchema = {
 				value: { type: "number" },
 				max: { type: ["string", "number"] },
 				per: { type: ["string", "null"] },
-				recovery: { type: "string" },
+				recovery: {
+					type: "array",
+					items: {
+						type: "object",
+						properties: {
+							period: {
+								type: "string",
+								enum: ["sr", "lr", "dawn", "dusk", "charges", "day"],
+							},
+							type: {
+								type: "string",
+								enum: ["recoverAll", "loseAll", "formula"],
+							},
+							formula: { type: "string" },
+						},
+					},
+				},
 				prompt: { type: "boolean" },
 			},
 		},
