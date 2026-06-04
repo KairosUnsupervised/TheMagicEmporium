@@ -1,17 +1,38 @@
 import type { Rarity } from "../item/item.types";
 import type { Restriction } from "../modifiers/modifier.schema";
 
-export type FloatBias = "NORMAL" | "LUCKY" | "UNLUCKY";
-
 export interface Template {
+	/**
+	 * Item output rarity
+	 */
 	rarity: Rarity;
+	/**
+	 * Weight of this specific template to be rolled
+	 */
 	weight: number;
 
+	/**
+	 * Max amount of specific slots that can be rolled
+	 */
 	slots: Restriction[];
+	/**
+	 * Max amount of points for this item, each float reduced its value from remaining points until none are left
+	 */
 	points: number;
 	nonFloatCost: number;
-	floatBias: FloatBias;
+
+	/**
+	 * Allows the item to have a background provided by a modifier
+	 */
 	backgroundEligible: boolean;
+	/**
+	 * Luck of the rolled floats, supports decimals
+	 * @example 0 = neutral
+	 * @example 1 = lucky
+	 * @example 2 = double lucky
+	 * @example -1 = unlucky
+	 */
+	luck: number;
 
 	gold: {
 		/**

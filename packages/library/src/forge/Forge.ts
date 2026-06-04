@@ -1,15 +1,15 @@
-import {equipmentRarity} from "../item/equipment/equipment.adjectives";
-import {equipmentDetails} from "../item/equipment/equipment.details";
-import {Equipment} from "../item/equipment/equipment.types";
-import type {Rarity} from "../item/item.types";
-import {logger} from "../logger";
-import {FloatDataManager} from "../modifiers/dataManagers/FloatDataManager";
-import type {Modifier} from "../modifiers/Modifier";
-import type {Restriction} from "../modifiers/modifier.schema";
-import {registry} from "../registry/Registry";
-import {ForgeProcess} from "./ForgeProcess";
-import {getRandomTemplate} from "./forge.templates";
-import type {FloatBias, Template} from "./forge.types";
+import { equipmentRarity } from "../item/equipment/equipment.adjectives";
+import { equipmentDetails } from "../item/equipment/equipment.details";
+import { Equipment } from "../item/equipment/equipment.types";
+import type { Rarity } from "../item/item.types";
+import { logger } from "../logger";
+import { FloatDataManager } from "../modifiers/dataManagers/FloatDataManager";
+import type { Modifier } from "../modifiers/Modifier";
+import type { Restriction } from "../modifiers/modifier.schema";
+import { registry } from "../registry/Registry";
+import { ForgeProcess } from "./ForgeProcess";
+import { getRandomTemplate } from "./forge.templates";
+import type { Template } from "./forge.types";
 
 export class Forge {
 	/**
@@ -50,7 +50,7 @@ export class Forge {
 			const modifier = Forge.getRandomModifier(process, slot);
 			const hasFloat = modifier.dataManager instanceof FloatDataManager;
 			const data = hasFloat
-				? {float: Forge.generateFloat(template.floatBias)}
+				? { float: Forge.generateFloat(template.luck) }
 				: null;
 
 			process.addModifier(slot, modifier, data);
@@ -91,14 +91,17 @@ export class Forge {
 		return registry.mapped["INTERNAL_EXHAUSTED"];
 	};
 
-	private static generateFloat = (bias: FloatBias): number => {
-		if (bias === "LUCKY") {
-			return Math.max(Math.random(), Math.random());
+	private static generateFloat = (luck: number): number => {
+		const floor = Math.trunc(luck);
+		const fraction = Math.abs(luck - floor);
+		const sign = luck >= 0 ? 1 : -1;
+		const amountRolled = Math.random() < fraction ? floor + sign : floor;
+
+		if (amountRolled === 0) {
+			return Math.random();
 		}
-		if (bias === "UNLUCKY") {
-			return Math.min(Math.random(), Math.random());
-		}
-		return Math.random();
+		const rolls = Array.from({ length: Math.abs(amountRolled) + 1 }, Math.random);
+		return amountRolled > 0 ? Math.max(...rolls) : Math.min(...rolls);
 	};
 
 	private static generateGoldValue = (
@@ -108,8 +111,8 @@ export class Forge {
 		const equipmentValue = equipmentDetails[process.abstractItem.base].value;
 		process.abstractItem.currency = Math.floor(
 			template.gold.min +
-			Math.random() * template.gold.additional +
-			equipmentValue * template.gold.equipmentValueImpact,
+				Math.random() * template.gold.additional +
+				equipmentValue * template.gold.equipmentValueImpact,
 		);
 	};
 
@@ -120,7 +123,7 @@ export class Forge {
 			: details.title;
 		const adjective = details.adjectives?.length
 			? details.adjectives[
-				Math.floor(Math.random() * details.adjectives.length)
+					Math.floor(Math.random() * details.adjectives.length)
 				]
 			: "";
 		const rarity = equipmentRarity[process.abstractItem.rarity];
