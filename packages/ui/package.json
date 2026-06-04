@@ -12,6 +12,7 @@
 		"@tme/library": "workspace:*",
 		"@tme/shared": "workspace:*",
 		"animejs": "^4.4.1",
+		"framer-motion": "^12.40.0",
 		"react": "canary",
 		"react-dom": "canary"
 	},
