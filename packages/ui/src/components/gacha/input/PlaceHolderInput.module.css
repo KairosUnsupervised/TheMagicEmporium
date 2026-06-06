@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap");
+
+.root {
+	position: relative;
+	width: 150px;
+	height: 150px;
+	background: linear-gradient(160deg, rgba(14, 17, 36, 0.88) 0%, rgba(7, 9, 26, 0.94) 100%);
+	border: 1px solid rgba(212, 166, 74, 0.3);
+	clip-path: polygon(
+		0 0,
+		calc(100% - 14px) 0,
+		100% 14px,
+		100% 100%,
+		14px 100%,
+		0 calc(100% - 14px)
+	);
+	cursor: pointer;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition:
+		border-color 0.3s,
+		box-shadow 0.3s;
+}
+
+/* shimmer sweep */
+.root::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		105deg,
+		transparent 30%,
+		rgba(255, 255, 255, 0.07) 50%,
+		transparent 70%
+	);
+	transform: translateX(-100%);
+	transition: transform 0.6s ease;
+	pointer-events: none;
+	z-index: 1;
+}
+
+.root:hover::before {
+	transform: translateX(160%);
+}
+
+/* top gold strip */
+.root::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 18%;
+	right: 18%;
+	height: 1px;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(212, 166, 74, 0.45),
+		transparent
+	);
+	pointer-events: none;
+}
+
+.root:hover {
+	border-color: rgba(212, 166, 74, 0.6);
+	box-shadow:
+		0 0 22px rgba(212, 166, 74, 0.1),
+		inset 0 0 22px rgba(212, 166, 74, 0.04);
+}
+
+/* CSS corner L-marks */
+.corner {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	pointer-events: none;
+}
+
+.corner::before,
+.corner::after {
+	content: "";
+	position: absolute;
+	background: rgba(212, 166, 74, 0.5);
+}
+
+.corner::before {
+	width: 100%;
+	height: 1px;
+	top: 0;
+	left: 0;
+}
+
+.corner::after {
+	width: 1px;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.cornerTL {
+	top: 8px;
+	left: 8px;
+}
+
+.cornerTR {
+	top: 8px;
+	right: 8px;
+	transform: scaleX(-1);
+}
+
+.cornerBL {
+	bottom: 8px;
+	left: 8px;
+	transform: scaleY(-1);
+}
+
+.cornerBR {
+	bottom: 8px;
+	right: 8px;
+	transform: scale(-1);
+}
+
+.inner {
+	position: relative;
+	z-index: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.iconWrap {
+	width: 44px;
+	height: 44px;
+	border: 1px solid rgba(212, 166, 74, 0.18);
+	background: rgba(212, 166, 74, 0.03);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition:
+		border-color 0.3s,
+		box-shadow 0.3s;
+}
+
+.root:hover .iconWrap {
+	border-color: rgba(212, 166, 74, 0.38);
+	box-shadow: 0 0 14px rgba(212, 166, 74, 0.12);
+}
+
+.icon {
+	font-size: 17px;
+	color: rgba(212, 166, 74, 0.3);
+	transition: color 0.3s;
+	line-height: 1;
+}
+
+.root:hover .icon {
+	color: rgba(212, 166, 74, 0.6);
+}
+
+.label {
+	font-family: "Cinzel Decorative", serif;
+	font-size: 6px;
+	letter-spacing: 3px;
+	color: rgba(212, 166, 74, 0.22);
+	text-transform: uppercase;
+	transition: color 0.3s;
+}
+
+.root:hover .label {
+	color: rgba(212, 166, 74, 0.45);
+}

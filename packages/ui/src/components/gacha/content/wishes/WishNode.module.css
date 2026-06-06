@@ -1,0 +1,31 @@
+.root {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.planetTag {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	padding-left: 10px;
+	white-space: nowrap;
+	font-family: "Cinzel Decorative", serif;
+	font-size: 11px;
+	font-weight: 400;
+	letter-spacing: 4px;
+	color: rgba(212, 166, 74, 0.85);
+	text-transform: uppercase;
+	pointer-events: none;
+}
+
+.planetTag::before {
+	content: "";
+	position: absolute;
+	right: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 8px;
+	height: 1px;
+	background: linear-gradient(to right, transparent, rgba(212, 166, 74, 0.35));
+}

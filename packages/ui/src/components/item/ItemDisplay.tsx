@@ -11,6 +11,8 @@ export interface ItemDisplayProps {
 	item: AbstractItem;
 }
 
+// TODO Improve ItemDisplay with learned from gacha | fancy star background | animations
+
 const Defs = () => (
 	<svg
 		width="0"

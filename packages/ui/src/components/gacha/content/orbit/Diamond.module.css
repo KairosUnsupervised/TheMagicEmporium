@@ -1,0 +1,9 @@
+.root {
+	flex-shrink: 0;
+}
+
+.bright {
+	box-shadow:
+		0 0 6px rgba(212, 166, 74, 0.8),
+		0 0 14px rgba(212, 166, 74, 0.35);
+}

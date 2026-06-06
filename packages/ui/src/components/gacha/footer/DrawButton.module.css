@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;600&display=swap");
+
+.wrap {
+	position: relative;
+	min-width: max-content;
+}
+
+.wrap::before {
+	content: "";
+	position: absolute;
+	inset: -6px;
+	border: 1px solid rgba(201, 168, 76, 0.2);
+	clip-path: polygon(
+		0 0,
+		calc(100% - 22px) 0,
+		100% 22px,
+		100% 100%,
+		22px 100%,
+		0 calc(100% - 22px)
+	);
+	pointer-events: none;
+}
+
+.wrap::after {
+	content: "";
+	position: absolute;
+	inset: -12px;
+	border: 1px solid rgba(201, 168, 76, 0.08);
+	clip-path: polygon(
+		0 0,
+		calc(100% - 28px) 0,
+		100% 28px,
+		100% 100%,
+		28px 100%,
+		0 calc(100% - 28px)
+	);
+	pointer-events: none;
+}
+
+.button {
+	position: relative;
+	width: 100%;
+	cursor: pointer;
+}
+
+.inner {
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 22px 36px;
+	background: linear-gradient(160deg, #1a1208, #0e0b04, #1a1208);
+	border: 1px solid #c9a84c;
+	clip-path: polygon(
+		0 0,
+		calc(100% - 20px) 0,
+		100% 20px,
+		100% 100%,
+		20px 100%,
+		0 calc(100% - 20px)
+	);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
+	overflow: hidden;
+	transition: all 0.4s;
+	box-shadow:
+		0 0 30px rgba(201, 168, 76, 0.2),
+		inset 0 0 40px rgba(201, 168, 76, 0.04);
+}
+
+.button:hover .inner {
+	background: linear-gradient(160deg, #2a1e0a, #1a1208, #2a1e0a);
+	box-shadow:
+		0 0 60px rgba(201, 168, 76, 0.45),
+		0 0 120px rgba(201, 168, 76, 0.15),
+		inset 0 0 60px rgba(201, 168, 76, 0.08);
+	transform: translateY(-2px);
+}
+
+.inner::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		105deg,
+		transparent 30%,
+		rgba(255, 255, 255, 0.12) 50%,
+		transparent 70%
+	);
+	transform: translateX(-100%);
+	transition: transform 0.7s ease;
+	pointer-events: none;
+}
+
+.button:hover .inner::before {
+	transform: translateX(160%);
+}
+
+.inner::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 10%;
+	right: 10%;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, #f3dca0, transparent);
+	opacity: 0.7;
+}
+
+.corner {
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	pointer-events: none;
+}
+
+.corner::before,
+.corner::after {
+	content: "";
+	position: absolute;
+	background: #f3dca0;
+}
+
+.corner::before {
+	width: 100%;
+	height: 1px;
+	top: 0;
+	left: 0;
+}
+
+.corner::after {
+	width: 1px;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.cornerTl {
+	top: 6px;
+	left: 6px;
+}
+
+.cornerBr {
+	bottom: 6px;
+	right: 6px;
+	transform: scale(-1);
+}
+
+.kanji {
+	font-family: "Noto Serif JP", serif;
+	font-size: 10px;
+	letter-spacing: 8px;
+	color: #8a6a1f;
+	transition: color 0.3s;
+}
+
+.button:hover .kanji {
+	color: #c9a84c;
+}
+
+.label {
+	font-family: "Cinzel Decorative", serif;
+	font-size: 18px;
+	font-weight: 900;
+	letter-spacing: 6px;
+	text-align: center;
+	color: #f3dca0;
+	text-shadow:
+		0 0 20px rgba(201, 168, 76, 0.6),
+		0 0 40px rgba(201, 168, 76, 0.3);
+	transition: text-shadow 0.4s;
+	line-height: 1;
+}
+
+.button:hover .label {
+	text-shadow:
+		0 0 30px rgba(232, 201, 122, 0.9),
+		0 0 60px rgba(201, 168, 76, 0.5),
+		0 0 100px rgba(201, 168, 76, 0.2);
+}
+
+.divider {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	width: 70%;
+}
+
+.dividerLine {
+	flex: 1;
+	height: 1px;
+	background: rgba(201, 168, 76, 0.3);
+}
+
+.dividerDiamond {
+	width: 5px;
+	height: 5px;
+	background: #8a6a1f;
+	transform: rotate(45deg);
+}

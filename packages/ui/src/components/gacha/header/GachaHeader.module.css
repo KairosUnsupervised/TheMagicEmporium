@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;600&display=swap");
+
+.header {
+	position: relative;
+	z-index: 10;
+	text-align: center;
+	padding: 28px 40px 20px;
+	border-bottom: 1px solid rgba(212, 166, 74, 0.2);
+	pointer-events: none;
+	flex-shrink: 0;
+}
+
+.header::after {
+	content: "";
+	position: absolute;
+	bottom: -1px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 300px;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, #d4a64a, transparent);
+}
+
+.decoRow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	margin-bottom: 8px;
+}
+
+.decoLine {
+	flex: 1;
+	max-width: 180px;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, #8a6a1f, #d4a64a);
+}
+
+.decoLineRight {
+	flex: 1;
+	max-width: 180px;
+	height: 1px;
+	background: linear-gradient(90deg, #d4a64a, #8a6a1f, transparent);
+}
+
+.decoDiamond {
+	width: 7px;
+	height: 7px;
+	background: #d4a64a;
+	transform: rotate(45deg);
+	box-shadow: 0 0 10px #d4a64a;
+}
+
+.decoDiamondSmall {
+	width: 7px;
+	height: 7px;
+	background: #d4a64a;
+	transform: rotate(45deg) scale(0.55);
+	opacity: 0.55;
+}
+
+.titleJp {
+	font-family: "Noto Serif JP", serif;
+	font-size: 11px;
+	letter-spacing: 8px;
+	color: #8a6a1f;
+	margin-bottom: 5px;
+}
+
+.titleMain {
+	font-family: "Cinzel Decorative", serif;
+	font-size: 32px;
+	font-weight: 900;
+	letter-spacing: 6px;
+	color: #f3dca0;
+	text-shadow:
+		0 0 40px rgba(212, 166, 74, 0.4),
+		0 0 80px rgba(212, 166, 74, 0.15);
+	line-height: 1;
+}
+
+.titleSub {
+	font-family: "Cormorant Garamond", serif;
+	font-style: italic;
+	font-size: 13px;
+	color: #5a4a28;
+	letter-spacing: 4px;
+	margin-top: 5px;
+}
