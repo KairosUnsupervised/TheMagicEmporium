@@ -23,7 +23,7 @@ export interface GachaItem5e<Flag = EnvelopeFlag | WishFlag> {
         quantity: number;
     }
     flags: {
-        [namespace.core.id]: Flag
+        [namespace.gacha.id]: Flag
     };
     update: (data: DeepPartial<GachaItem5e>) => Promise<void>;
     delete: () => Promise<void>;

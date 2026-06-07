@@ -1,6 +1,7 @@
 import {
 	GachaItemType,
-	type GachaItem5e, WishFlag,
+	type GachaItem5e,
+	WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
 import { namespace } from "@tme/shared/src/namespaceConfig";
 import img from "./BlessingWish.jpg";
@@ -11,7 +12,7 @@ export const blessingWishFixture: GachaItem5e<WishFlag> = {
 	name: "Blessing Wish",
 	system: { quantity: 4 },
 	flags: {
-		[namespace.core.id]: {
+		[namespace.gacha.id]: {
 			type: GachaItemType.Wish,
 			id: "blessing-wish",
 		},

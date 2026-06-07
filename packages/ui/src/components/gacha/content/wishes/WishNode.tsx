@@ -1,6 +1,6 @@
 import type { JSX } from "react";
 import { motion } from "framer-motion";
-import { PlaceHolderInput } from "../../input/PlaceHolderInput";
+import { WishInput } from "../../input/WishInput";
 import { animationDelay } from "../../animationDelay";
 import styles from "./WishNode.module.css";
 
@@ -32,7 +32,7 @@ export const WishNode = (props: WishNodeProps): JSX.Element => {
 					ease: [0.34, 1.56, 0.64, 1],
 				}}
 			>
-				<PlaceHolderInput />
+				<WishInput index={props.index} />
 			</motion.div>
 		</div>
 	);
