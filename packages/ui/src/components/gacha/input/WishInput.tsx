@@ -1,9 +1,11 @@
+import type { JSX } from "react";
 import { AnimatePresence, motion, useAnimate } from "framer-motion";
 import { useCallback, useState } from "react";
 import { observer } from "mobx-react-lite";
 import { useGachaContext } from "../../../context/gacha/useGachaContext";
 import type { GachaItem5e, WishFlag } from "@tme/shared/src/types/GachaItem5e";
 import type { AvailableWish } from "../../../context/gacha/library/Inventory";
+import { Tooltip } from "./Tooltip";
 import styles from "./EnvelopeInput.module.css";
 
 const ORBIT_RADIUS = 160;
@@ -24,13 +26,25 @@ interface WishInputProps {
 	index: number;
 }
 
-export const WishInput = observer((props: WishInputProps) => {
+export const WishInput = observer((props: WishInputProps): JSX.Element => {
 	const [open, setOpen] = useState(false);
+	const [hoveredId, setHoveredId] = useState<string | null>(null);
 	const [tileRef, animateTile] = useAnimate<HTMLDivElement>();
 
 	const context = useGachaContext();
 	const selected = context.inventory.getWish(props.index);
 	const all = context.inventory.getAvailableWishes(props.index);
+
+	const hoveredWish =
+		hoveredId !== null
+			? (all.find((w) => w.item.id === hoveredId) ?? null)
+			: null;
+	const hoveredIndex =
+		hoveredWish !== null
+			? all.findIndex((w) => w.item.id === hoveredWish.item.id)
+			: -1;
+	const hoveredPos =
+		hoveredIndex !== -1 ? computeOrbitPosition(hoveredIndex, all.length) : null;
 
 	const handleTileClick = useCallback((): void => {
 		if (all.length > 0) {
@@ -170,6 +184,12 @@ export const WishInput = observer((props: WishInputProps) => {
 													},
 												}
 									}
+									onHoverStart={() => {
+										if (!wish.locked) {
+											setHoveredId(wish.item.id);
+										}
+									}}
+									onHoverEnd={() => setHoveredId(null)}
 									onClick={(e) => {
 										e.stopPropagation();
 										if (!wish.locked) {
@@ -200,6 +220,19 @@ export const WishInput = observer((props: WishInputProps) => {
 								</motion.div>
 							);
 						})}
+				</AnimatePresence>
+
+				<AnimatePresence>
+					{open && hoveredWish !== null && hoveredPos !== null && (
+						<Tooltip
+							key={`${hoveredWish.item.id}-tooltip`}
+							name={hoveredWish.item.name}
+							description={hoveredWish.item.system.description.value}
+							x={hoveredPos.x + (hoveredPos.x / ORBIT_RADIUS) * 117}
+							y={hoveredPos.y + (hoveredPos.y / ORBIT_RADIUS) * 117}
+							scaleFactor={1.3}
+						/>
+					)}
 				</AnimatePresence>
 			</div>
 			<motion.div

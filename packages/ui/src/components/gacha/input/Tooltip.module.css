@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap");
+
+.anchor {
+	position: absolute;
+	pointer-events: none;
+	z-index: 53;
+	filter: drop-shadow(0 2px 10px rgba(20, 40, 160, 0.28))
+		drop-shadow(0 0 4px rgba(212, 166, 74, 0.08));
+}
+
+.card {
+	position: relative;
+	width: 148px;
+	background: linear-gradient(
+		150deg,
+		rgba(6, 10, 28, 0.98),
+		rgba(10, 16, 42, 0.98)
+	);
+	border: 1px solid rgba(212, 166, 74, 0.35);
+	padding: 10px 12px;
+	clip-path: polygon(
+		0 0,
+		calc(100% - 8px) 0,
+		100% 8px,
+		100% 100%,
+		8px 100%,
+		0 calc(100% - 8px)
+	);
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.card::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 15%;
+	right: 15%;
+	height: 1px;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(212, 166, 74, 0.45),
+		transparent
+	);
+	pointer-events: none;
+}
+
+.corner {
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	pointer-events: none;
+}
+
+.corner::before,
+.corner::after {
+	content: "";
+	position: absolute;
+	background: rgba(212, 166, 74, 0.65);
+}
+
+.corner::before {
+	width: 100%;
+	height: 1px;
+	top: 0;
+	left: 0;
+}
+
+.corner::after {
+	width: 1px;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.cornerTL {
+	top: 6px;
+	left: 6px;
+}
+
+.cornerTR {
+	top: 6px;
+	right: 6px;
+	transform: scaleX(-1);
+}
+
+.cornerBL {
+	bottom: 6px;
+	left: 6px;
+	transform: scaleY(-1);
+}
+
+.cornerBR {
+	bottom: 6px;
+	right: 6px;
+	transform: scale(-1);
+}
+
+.name {
+	font-family: "Cinzel Decorative", serif;
+	font-size: 10px;
+	letter-spacing: 2px;
+	color: rgba(212, 166, 74, 0.95);
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.divider {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.dividerLine {
+	flex: 1;
+	height: 1px;
+	background: rgba(212, 166, 74, 0.25);
+}
+
+.dividerDiamond {
+	width: 4px;
+	height: 4px;
+	background: rgba(212, 166, 74, 0.55);
+	transform: rotate(45deg);
+}
+
+.desc {
+	font-size: 14px;
+	font-style: italic;
+	color: rgba(220, 225, 240, 0.7);
+	line-height: 1.5;
+	margin: 0;
+	text-align: center;
+}

@@ -3,6 +3,7 @@ import { useCallback, useState } from "react";
 import { observer } from "mobx-react-lite";
 import { useGachaContext } from "../../../context/gacha/useGachaContext";
 import type { Envelope } from "../../../context/gacha/library/Inventory";
+import { Tooltip } from "./Tooltip";
 import styles from "./EnvelopeInput.module.css";
 
 const ORBIT_RADIUS = 160;
@@ -21,11 +22,21 @@ const computeOrbitPosition = (
 
 export const EnvelopeInput = observer(() => {
 	const [open, setOpen] = useState(false);
+	const [hoveredId, setHoveredId] = useState<string | null>(null);
 	const [tileRef, animateTile] = useAnimate<HTMLDivElement>();
 
 	const context = useGachaContext();
 	const selected = context.inventory.envelopeSelected;
 	const all = context.inventory.envelopes;
+
+	const hoveredEnvelope =
+		hoveredId !== null ? (all.find((e) => e.id === hoveredId) ?? null) : null;
+	const hoveredIndex =
+		hoveredEnvelope !== null
+			? all.findIndex((e) => e.id === hoveredEnvelope.id)
+			: -1;
+	const hoveredPos =
+		hoveredIndex !== -1 ? computeOrbitPosition(hoveredIndex, all.length) : null;
 
 	const handleTileClick = useCallback((): void => {
 		if (all.length > 0) {
@@ -161,6 +172,8 @@ export const EnvelopeInput = observer(() => {
 											damping: 26,
 										},
 									}}
+									onHoverStart={() => setHoveredId(envelope.id)}
+									onHoverEnd={() => setHoveredId(null)}
 									onClick={(e) => {
 										e.stopPropagation();
 										handleSelect(envelope);
@@ -177,6 +190,18 @@ export const EnvelopeInput = observer(() => {
 								</motion.div>
 							);
 						})}
+				</AnimatePresence>
+
+				<AnimatePresence>
+					{open && hoveredEnvelope !== null && hoveredPos !== null && (
+						<Tooltip
+							key={`${hoveredEnvelope.id}-tooltip`}
+							name={hoveredEnvelope.name}
+							description={hoveredEnvelope.system.description.value}
+							x={hoveredPos.x + (hoveredPos.x / ORBIT_RADIUS) * 117}
+							y={hoveredPos.y + (hoveredPos.y / ORBIT_RADIUS) * 117}
+						/>
+					)}
 				</AnimatePresence>
 			</div>
 			<motion.div

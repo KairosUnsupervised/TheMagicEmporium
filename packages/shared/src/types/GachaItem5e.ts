@@ -57,6 +57,9 @@ export interface GachaItem5e<Flag = EnvelopeFlag | WishFlag> {
     name: string;
     system: {
         quantity: number;
+        description: {
+            value: string;
+        };
     };
     flags: {
         [namespace.gacha.id]: Flag;

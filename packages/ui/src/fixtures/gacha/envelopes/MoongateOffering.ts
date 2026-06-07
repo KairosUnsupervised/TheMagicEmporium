@@ -1,6 +1,7 @@
 import {
 	GachaItemType,
-	type GachaItem5e, EnvelopeFlag,
+	type GachaItem5e,
+	EnvelopeFlag,
 } from "@tme/shared/src/types/GachaItem5e";
 import { namespace } from "@tme/shared/src/namespaceConfig";
 import img from "./MoongateOffering.jpg";
@@ -9,11 +10,17 @@ export const moongateOfferingFixture: GachaItem5e<EnvelopeFlag> = {
 	id: "fixture-envelope-moongate-offering",
 	img,
 	name: "Moongate Offering",
-	system: { quantity: 4 },
+	system: {
+		quantity: 4,
+		description: {
+			value:
+				"Left at the threshold of the moongate when the stars align. The veil between worlds grows thin for those who offer it.",
+		},
+	},
 	flags: {
 		[namespace.gacha.id]: {
 			type: GachaItemType.Envelope,
-			operations: []
+			operations: [],
 		},
 	},
 	update: async (data) => {

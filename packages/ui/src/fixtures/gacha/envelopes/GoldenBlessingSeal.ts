@@ -1,6 +1,7 @@
 import {
 	GachaItemType,
-	type GachaItem5e, EnvelopeFlag,
+	type GachaItem5e,
+	EnvelopeFlag,
 } from "@tme/shared/src/types/GachaItem5e";
 import { namespace } from "@tme/shared/src/namespaceConfig";
 import img from "./GoldenBlessingSeal.jpg";
@@ -9,11 +10,17 @@ export const goldenBlessingSealFixture: GachaItem5e<EnvelopeFlag> = {
 	id: "fixture-envelope-golden-blessing-seal",
 	img,
 	name: "Golden Blessing Seal",
-	system: { quantity: 4 },
+	system: {
+		quantity: 4,
+		description: {
+			value:
+				"Pressed in gold leaf and sealed with a prayer. A vessel for the most auspicious of draws.",
+		},
+	},
 	flags: {
 		[namespace.gacha.id]: {
 			type: GachaItemType.Envelope,
-			operations: []
+			operations: [],
 		},
 	},
 	update: async (data) => {
