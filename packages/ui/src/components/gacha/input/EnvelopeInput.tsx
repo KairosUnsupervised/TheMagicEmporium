@@ -127,10 +127,10 @@ export const EnvelopeInput = observer(() => {
 					{open &&
 						all.map((envelope, i) => {
 							const { x, y } = computeOrbitPosition(i, all.length);
-							const isSelected = envelope.item.id === selected?.item.id;
+							const isSelected = envelope.id === selected?.id;
 							return (
 								<motion.div
-									key={envelope.item.id}
+									key={envelope.id}
 									className={`${styles.orbitItem} ${isSelected ? styles.orbitItemSelected : ""}`}
 									initial={{ x, y, scale: 0, opacity: 0 }}
 									animate={{ x, y, scale: 1, opacity: 1 }}
@@ -169,11 +169,11 @@ export const EnvelopeInput = observer(() => {
 									<div className={styles.orbitThumb}>
 										<img
 											className={styles.orbitImage}
-											src={envelope.item.img}
-											alt={envelope.item.name}
+											src={envelope.img}
+											alt={envelope.name}
 										/>
 									</div>
-									<span className={styles.orbitName}>{envelope.item.name}</span>
+									<span className={styles.orbitName}>{envelope.name}</span>
 								</motion.div>
 							);
 						})}
@@ -197,7 +197,10 @@ export const EnvelopeInput = observer(() => {
 					className={styles.shimmer}
 					variants={{
 						rest: { x: "-100%" },
-						hover: { x: "160%", transition: { duration: 0.6, ease: "easeOut" } },
+						hover: {
+							x: "160%",
+							transition: { duration: 0.6, ease: "easeOut" },
+						},
 					}}
 				/>
 				<div className={`${styles.corner} ${styles.cornerTL}`} />
@@ -207,23 +210,21 @@ export const EnvelopeInput = observer(() => {
 				<AnimatePresence>
 					{selected && (
 						<motion.div
-							key={selected.item.id}
+							key={selected.id}
 							className={styles.selectedContent}
 							exit={{ opacity: 0, scale: 1.06, filter: "blur(3px)" }}
 							transition={{ duration: 0.28, ease: "easeIn" }}
 						>
 							<motion.img
 								className={styles.selectedImage}
-								src={selected.item.img}
-								alt={selected.item.name}
+								src={selected.img}
+								alt={selected.name}
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 0.85 }}
 								transition={{ duration: 0.35, ease: "easeOut" }}
 							/>
 							<div className={styles.selectedOverlay}>
-								<span className={styles.selectedLabel}>
-									{selected.item.name}
-								</span>
+								<span className={styles.selectedLabel}>{selected.name}</span>
 							</div>
 						</motion.div>
 					)}

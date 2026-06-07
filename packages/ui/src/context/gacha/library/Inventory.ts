@@ -13,9 +13,7 @@ import { goldenBlessingSealFixture } from "../../../fixtures/gacha/envelopes/Gol
 import { moongateOfferingFixture } from "../../../fixtures/gacha/envelopes/MoongateOffering";
 import { silkRoadSealFixture } from "../../../fixtures/gacha/envelopes/SilkRoadSeal";
 
-export interface Envelope {
-	item: GachaItem5e<EnvelopeFlag>;
-}
+export type Envelope = GachaItem5e<EnvelopeFlag>;
 
 export interface AvailableWish {
 	item: GachaItem5e<WishFlag>;
@@ -31,11 +29,11 @@ export class Inventory {
 	}
 
 	public envelopes: Envelope[] = [
-		{ item: crimsonLuckFoldFixture },
-		{ item: festivalSleeveFixture },
-		{ item: goldenBlessingSealFixture },
-		{ item: moongateOfferingFixture },
-		{ item: silkRoadSealFixture },
+		crimsonLuckFoldFixture,
+		festivalSleeveFixture,
+		goldenBlessingSealFixture,
+		moongateOfferingFixture,
+		silkRoadSealFixture,
 	];
 
 	// Only allow wishes with amount > 0 here! PROBLEM FOR LATER
