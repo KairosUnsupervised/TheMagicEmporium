@@ -11,8 +11,9 @@ export const moongateOfferingFixture: GachaItem5e<EnvelopeFlag> = {
 	name: "Moongate Offering",
 	system: { quantity: 4 },
 	flags: {
-		[namespace.core.id]: {
+		[namespace.gacha.id]: {
 			type: GachaItemType.Envelope,
+			operations: []
 		},
 	},
 	update: async (data) => {

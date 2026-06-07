@@ -8,10 +8,12 @@
 **Reveal** Number // How many items to reveal to the player
 **Pick** Number // How many items the user can pick in total
 
-**Hidden Rarity** Boolean // User can see the rarity of the item before picking
-**Hidden Name** Boolean // User can see the name of the item before picking
-**Hidden Type** Boolean // User can see the type of the item before picking
-**Hidden Image** Boolean // User can see the image of the item before picking
+This is now a number, 0 | 1 | 2 | 3 | 4
+**Nothing Visible**
+**Shown Image** User can see the image of the item before picking
+**Shown Name** User can see the name of the item before picking
+**Shown Type** User can see the type of the item before picking
+**Shown Rarity** User can see the rarity of the item before picking
 
 # Operations
 

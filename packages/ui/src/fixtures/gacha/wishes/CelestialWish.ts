@@ -15,6 +15,7 @@ export const celestialWishFixture: GachaItem5e<WishFlag> = {
 		[namespace.gacha.id]: {
 			type: GachaItemType.Wish,
 			id: "celestial-wish",
+			operations: []
 		},
 	},
 	update: async (data) => {

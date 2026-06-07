@@ -11,8 +11,9 @@ export const goldenBlessingSealFixture: GachaItem5e<EnvelopeFlag> = {
 	name: "Golden Blessing Seal",
 	system: { quantity: 4 },
 	flags: {
-		[namespace.core.id]: {
+		[namespace.gacha.id]: {
 			type: GachaItemType.Envelope,
+			operations: []
 		},
 	},
 	update: async (data) => {

@@ -136,6 +136,14 @@
 	left: 0;
 }
 
+.veil {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(160deg, rgba(4, 2, 0, 0.72), rgba(0, 0, 0, 0.6));
+	pointer-events: none;
+	z-index: 10;
+}
+
 .cornerTl {
 	top: 6px;
 	left: 6px;
