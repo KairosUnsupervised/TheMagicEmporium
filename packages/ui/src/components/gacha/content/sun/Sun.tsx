@@ -2,7 +2,7 @@ import type { JSX } from "react";
 import { motion } from "framer-motion";
 import styles from "./Sun.module.css";
 import { Orbit } from "../orbit/Orbit";
-import { PlaceHolderInput } from "../../input/PlaceHolderInput";
+import { EnvelopeInput } from "../../input/EnvelopeInput";
 import { animationDelay } from "../../animationDelay";
 import { Circles } from "./Circles";
 import { Sunburst } from "./Sunburst";
@@ -51,7 +51,7 @@ export const Sun = (props: SunProps): JSX.Element => (
 					ease: [0.34, 1.56, 0.64, 1],
 				}}
 			>
-				<PlaceHolderInput />
+				<EnvelopeInput />
 			</motion.div>
 		</div>
 	</div>
