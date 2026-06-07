@@ -22,7 +22,7 @@ export class Gacha {
             this.pullProcess.applyOperation(operation)
         })
 
-        console.log(this.pullProcess)
+        this.orbiter.adjustOrbiters(this.pullProcess.pickAmount.getValue(), this.pullProcess.revealAmount.getValue())
     }
 
 }

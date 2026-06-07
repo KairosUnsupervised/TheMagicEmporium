@@ -52,7 +52,7 @@ const OrbitItem = (props: OrbitItemProps): JSX.Element => {
 	);
 };
 
-export const Orbit = observer(() => {
+export const Orbit = observer((): JSX.Element => {
 	const context = useGachaContext();
 
 	return (

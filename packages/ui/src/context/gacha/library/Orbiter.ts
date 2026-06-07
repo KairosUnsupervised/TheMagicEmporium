@@ -16,7 +16,7 @@ export class Orbiter {
 		makeAutoObservable(this);
 	}
 
-	public add = (type: DiamondType, delay: number = 0): void => {
+	private add = (type: DiamondType, delay: number = 0): void => {
 		const angle = Math.random() * 2 * Math.PI;
 		const radius = Math.random() * 200 + 100;
 		this.all.push({
@@ -28,13 +28,33 @@ export class Orbiter {
 		});
 	};
 
-	public addBatch = (types: DiamondType[]): void => {
-		types.forEach((type, i) => {
-			this.add(type, i * 0.1);
-		});
+	public adjustOrbiters = (bright: number, dim: number): void => {
+		const brightAdded = this.adjustType(DiamondType.Bright, bright, 0);
+		this.adjustType(DiamondType.Dim, dim, brightAdded);
 	};
 
-	public clear = () => {
-		this.all = [];
+	private adjustType = (
+		type: DiamondType,
+		desired: number,
+		offset: number,
+	): number => {
+		const current = this.all.filter((o) => o.type === type).length;
+		if (desired > current) {
+			const toAdd = desired - current;
+			for (let i = 0; i < toAdd; i++) {
+				this.add(type, (offset + i) * 0.25);
+			}
+			return toAdd;
+		} else if (desired < current) {
+			let toRemove = current - desired;
+			this.all = this.all.filter((o) => {
+				if (o.type === type && toRemove > 0) {
+					toRemove--;
+					return false;
+				}
+				return true;
+			});
+		}
+		return 0;
 	};
 }

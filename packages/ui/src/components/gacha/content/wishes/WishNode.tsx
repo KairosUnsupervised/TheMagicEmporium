@@ -10,7 +10,6 @@ interface WishNodeProps {
 	scale: number;
 	label: string;
 	index: number;
-	onClick: () => void;
 }
 
 export const WishNode = (props: WishNodeProps): JSX.Element => {
@@ -20,7 +19,6 @@ export const WishNode = (props: WishNodeProps): JSX.Element => {
 			style={{
 				transform: `translate(calc(-50% + ${props.x}px), calc(-50% + ${props.y}px)) scale(${props.scale})`,
 			}}
-			onClick={props.onClick}
 		>
 			<motion.div
 				className={styles.planetTag}
