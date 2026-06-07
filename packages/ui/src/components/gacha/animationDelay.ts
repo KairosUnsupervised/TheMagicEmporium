@@ -4,5 +4,6 @@ export const animationDelay = {
 	placeholder: 1.2,
 	orbits: 2,
 	wishes: 2,
+	wishLabels: 2.2,
 	drawButton: 3,
 } as const;

@@ -22,7 +22,18 @@ export const WishNode = (props: WishNodeProps): JSX.Element => {
 			}}
 			onClick={props.onClick}
 		>
-			<div className={styles.planetTag}>{props.label}</div>
+			<motion.div
+				className={styles.planetTag}
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{
+					delay: animationDelay.wishLabels + props.index * 0.3,
+					duration: 0.4,
+					ease: "easeOut",
+				}}
+			>
+				{props.label}
+			</motion.div>
 			<motion.div
 				initial={{ opacity: 0, scale: 0.85 }}
 				animate={{ opacity: 1, scale: 1 }}
