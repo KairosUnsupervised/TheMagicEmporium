@@ -17,11 +17,18 @@ const meta = {
 			control: { type: "select" },
 			options: [0, 1, 2, 3, 4],
 		},
+		selected: {
+			control: { type: "boolean" },
+		},
 	},
-	render: (args: { visibility: VignetteStage }) => {
+	render: (args: { visibility: VignetteStage; selected: boolean }) => {
 		return (
 			<div className="dark" style={{ padding: "40px", background: "#07091a" }}>
-				<PullItem item={rareFixture} visibility={args.visibility} />
+				<PullItem
+					item={rareFixture}
+					visibility={args.visibility}
+					selected={args.selected}
+				/>
 			</div>
 		);
 	},
@@ -32,7 +39,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: { visibility: 0 },
+	args: { visibility: 0, selected: false },
 };
 
 export const AllStages: Story = {

@@ -270,9 +270,8 @@
 
 .infoArea {
 	position: relative;
-	flex: 1;
-	min-height: 72px;
-	padding: 8px 10px 10px;
+	min-height: 40px;
+	padding: 8px 10px 6px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -354,6 +353,45 @@
 .rarityLegendary {
 	color: rgba(212, 166, 74, 0.95);
 	text-shadow: 0 0 10px rgba(212, 166, 74, 0.65);
+}
+
+/* ── Border trace SVG overlay ──────────────────────── */
+
+.borderTrace {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 6;
+	overflow: visible;
+}
+
+/* ── Selection strip ───────────────────────────────── */
+
+.selectionStrip {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 18px;
+	flex-shrink: 0;
+}
+
+.selectionDiamond {
+	font-size: 10px;
+	line-height: 1;
+	display: block;
+}
+
+.selectionDiamondHollow {
+	color: rgba(212, 166, 74, 0.2);
+}
+
+.selectionDiamondFilled {
+	color: rgba(212, 166, 74, 0.95);
+	text-shadow:
+		0 0 6px rgba(212, 166, 74, 0.8),
+		0 0 16px rgba(212, 166, 74, 0.4);
 }
 
 /* ── Skeleton animation ────────────────────────────── */
