@@ -1,11 +1,11 @@
-import type {JSX} from "react";
+import type { JSX } from "react";
 import styles from "./GachaDisplay.module.css";
-import {DrawButton} from "./footer/DrawButton";
-import {GachaHeader} from "./header/GachaHeader";
-import {StarSystem} from "./content/StarSystem";
-import {Vignette} from "./content/Vignette";
+import { DrawButton } from "./footer/DrawButton";
+import { GachaHeader } from "./header/GachaHeader";
+import { StarSystem } from "./content/StarSystem";
+import { Vignette } from "./content/Vignette";
 import bg from "./content/background.jpg";
-import {GachaContextProvider} from "../../context/gacha/GachaContextProvider";
+import { GachaContextProvider } from "../../context/gacha/GachaContextProvider";
 
 export interface GachaDisplayProps {
 	wishes: unknown[];
@@ -21,15 +21,15 @@ export const GachaDisplay = (props: GachaDisplayProps): JSX.Element => {
 			<div className={styles.root}>
 				<div
 					className={styles.bgImage}
-					style={{backgroundImage: `url(${bg})`}}
+					style={{ backgroundImage: `url(${bg})` }}
 				/>
-				<div className={styles.bgOverlay}/>
-				<Vignette/>
-				<GachaHeader/>
-				<StarSystem wishes={props.wishes}/>
+				<div className={styles.bgOverlay} />
+				<GachaHeader />
+				<StarSystem wishes={props.wishes} />
 				<div className={styles.footer}>
-					<DrawButton/>
+					<DrawButton />
 				</div>
+				<Vignette />
 			</div>
 		</GachaContextProvider>
 	);
