@@ -5,6 +5,15 @@ import type { AppliedModifier } from "../modifiers/Modifier";
 import { registry } from "../registry/Registry";
 import { Equipment } from "./equipment/equipment.types";
 import { Rarity } from "./item.types";
+import {equipmentDetails} from "./equipment/equipment.details";
+
+export const rarityLabel: Record<Rarity, string> = {
+	[Rarity.Common]: "Common",
+	[Rarity.Uncommon]: "Uncommon",
+	[Rarity.Rare]: "Rare",
+	[Rarity.VeryRare]: "Very Rare",
+	[Rarity.Legendary]: "Legendary",
+};
 
 /**
  * Represents an abstracted magic item, no fluff
@@ -73,6 +82,21 @@ export class AbstractItem {
 		return item;
 	};
 
+	public getNameWithoutRarity = (): string => {
+		return this.name.replace(`${rarityLabel[this.rarity]}`, "");
+	};
+
+	public getRarityLabel = (): string => {
+		return rarityLabel[this.rarity];
+	}
+
+	public getEquipmentLabel = (): string => {
+		return equipmentDetails[this.base].title;
+	}
+
+	/**
+	 * Returns an optional item background and not the icon of the equipment itself
+	 */
 	public getBackground = (): string | null => {
 		if (this.backgroundOverride) {
 			return this.backgroundOverride;

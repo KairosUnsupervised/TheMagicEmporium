@@ -11,11 +11,13 @@
 This is now a number, 0 | 1 | 2 | 3 | 4 => Blind | Low | Moderate | High | Perfect Visibility
 **Nothing Visible**
 **Shown Image** User can see the image of the item before picking
-**Shown Name** User can see the name of the item before picking
-**Shown Type** User can see the type of the item before picking
+**Shown Name + Type** User can see the name of the item before picking
 **Shown Rarity** User can see the rarity of the item before picking
+**Shown Modifiers**
 
 Wording for locked: locked in, locked, forced
+
+// TODO envelope of potential, 6 pulls, 1 reveal
 
 # Operations
 
