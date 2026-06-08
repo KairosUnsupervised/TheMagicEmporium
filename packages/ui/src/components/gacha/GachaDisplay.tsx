@@ -6,6 +6,7 @@ import { StarSystem } from "./content/StarSystem";
 import { Vignette } from "./content/Vignette";
 import bg from "./content/background.jpg";
 import { GachaContextProvider } from "../../context/gacha/GachaContextProvider";
+import { PullOverlay } from "./pull/PullOverlay";
 
 export interface GachaDisplayProps {
 	wishes: unknown[];
@@ -30,6 +31,7 @@ export const GachaDisplay = (props: GachaDisplayProps): JSX.Element => {
 					<DrawButton />
 				</div>
 				<Vignette />
+				<PullOverlay />
 			</div>
 		</GachaContextProvider>
 	);

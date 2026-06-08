@@ -16,7 +16,7 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 32px;
-	max-width: 460px;
+	max-width: 940px;
 }
 
 /* ── Item wrapper (button reset + selection states) ── */

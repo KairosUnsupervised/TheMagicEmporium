@@ -25,6 +25,7 @@ export interface DrawButtonProps {
 export const DrawButton = observer((props: DrawButtonProps): JSX.Element => {
 	const context = useGachaContext();
 	const isDisabled = !context.pullProcess.isPossible();
+	const handleClick = props.onClick ?? context.onConfirm;
 
 	const [label] = useState<string>(
 		() => LABELS[Math.floor(Math.random() * LABELS.length)],
@@ -79,7 +80,7 @@ export const DrawButton = observer((props: DrawButtonProps): JSX.Element => {
 			>
 				<div
 					className={styles.button}
-					onClick={isDisabled ? undefined : props.onClick}
+					onClick={isDisabled ? undefined : handleClick}
 				>
 					<div className={styles.inner}>
 						<AnimatePresence>

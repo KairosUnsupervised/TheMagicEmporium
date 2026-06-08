@@ -47,6 +47,28 @@ const rarityTraceRgb: Record<Rarity, string> = {
 
 const goldRgb = "212, 166, 74";
 
+interface RaritySpringConfig {
+	damping: number;
+	stiffness: number;
+	mass: number;
+}
+
+const raritySpring: Record<Rarity, RaritySpringConfig> = {
+	[Rarity.Common]: { damping: 11, stiffness: 170, mass: 0.85 },
+	[Rarity.Uncommon]: { damping: 11, stiffness: 170, mass: 0.85 },
+	[Rarity.Rare]: { damping: 11, stiffness: 170, mass: 0.85 },
+	[Rarity.VeryRare]: { damping: 11, stiffness: 170, mass: 0.85 },
+	[Rarity.Legendary]: { damping: 11, stiffness: 170, mass: 0.85 },
+};
+
+const rarityFlashColor: Record<Rarity, string> = {
+	[Rarity.Common]: "rgba(200, 200, 200, 0.15)",
+	[Rarity.Uncommon]: "rgba(80, 200, 110, 0.28)",
+	[Rarity.Rare]: "rgba(90, 150, 240, 0.38)",
+	[Rarity.VeryRare]: "rgba(170, 100, 240, 0.48)",
+	[Rarity.Legendary]: "rgba(212, 166, 74, 0.65)",
+};
+
 const formatBase = (base: string): string =>
 	base
 		.toLowerCase()
@@ -59,6 +81,7 @@ export const PullItem = (props: PullItemProps): JSX.Element => {
 	const showName = props.visibility >= 2;
 	const showRarity = props.visibility >= 3;
 	const delay = props.delay ?? 0;
+	const spring = raritySpring[props.item.rarity];
 
 	const traceRgb = showRarity ? rarityTraceRgb[props.item.rarity] : goldRgb;
 	const glowStroke = `rgba(${traceRgb}, 0.4)`;
@@ -81,17 +104,12 @@ export const PullItem = (props: PullItemProps): JSX.Element => {
 				opacity: { duration: 0.18, delay },
 				scale: {
 					type: "spring",
-					damping: 11,
-					stiffness: 170,
-					mass: 0.85,
+					damping: spring.damping,
+					stiffness: spring.stiffness,
+					mass: spring.mass,
 					delay,
 				},
-				y: {
-					type: "spring",
-					damping: 14,
-					stiffness: 200,
-					delay,
-				},
+				y: { type: "spring", damping: 14, stiffness: 200, delay },
 				filter: {
 					duration: 0.6,
 					times: [0, 0.22, 1],
@@ -103,6 +121,22 @@ export const PullItem = (props: PullItemProps): JSX.Element => {
 			<div
 				className={`${styles.root} ${showRarity ? rarityRootStyle[props.item.rarity] : ""}`}
 			>
+				<motion.div
+					className={styles.rarityFlash}
+					style={{
+						background: showRarity
+							? rarityFlashColor[props.item.rarity]
+							: "rgba(199,14,227,0.18)",
+					}}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: [0, 1, 0] }}
+					transition={{
+						duration: 0.45,
+						times: [0, 0.18, 1],
+						ease: "easeOut",
+						delay: delay + 0.06,
+					}}
+				/>
 				<div className={`${styles.corner} ${styles.cornerTL}`} />
 				<div className={`${styles.corner} ${styles.cornerTR}`} />
 				<div className={`${styles.corner} ${styles.cornerBL}`} />

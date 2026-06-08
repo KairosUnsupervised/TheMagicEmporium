@@ -2,12 +2,14 @@ import {Orbiter} from "./Orbiter";
 import {Inventory} from "./Inventory";
 import {PullProcess} from "./PullProcess";
 import {makeAutoObservable} from "mobx";
+import {PullSelect} from "./PullSelect";
 
 export class Gacha {
 
     public orbiter: Orbiter = new Orbiter();
     public inventory: Inventory = new Inventory(this);
     public pullProcess = new PullProcess();
+    public pullSelect = new PullSelect()
 
     constructor() {
         makeAutoObservable(this);
@@ -42,6 +44,10 @@ export class Gacha {
     public getLuck = () => {
         const totalLuck = this.pullProcess.floatLuck.getValue() + this.pullProcess.rarityLuck.getValue();
         return Math.min(1, Math.max(-1, totalLuck * 0.25)); // Internally cap it at -4 and +4 combined luck
+    }
+
+    public onConfirm = () => {
+        this.pullSelect.startProcess(this.pullProcess)
     }
 
     // TODO onConfirm close all open selects => Move select open state to library

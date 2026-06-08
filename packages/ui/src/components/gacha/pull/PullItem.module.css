@@ -29,7 +29,7 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 2px;
+	height: 3px;
 	z-index: 5;
 	opacity: 0;
 	transition: opacity 0.6s ease;
@@ -42,7 +42,7 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 48px;
+	height: 80px;
 	z-index: 4;
 	opacity: 0;
 	transition: opacity 0.6s ease;
@@ -52,7 +52,8 @@
 /* ── Rarity root glow ─────────────────────────────── */
 
 .rootCommon {
-	filter: drop-shadow(0 0 6px rgba(180, 180, 180, 0.2));
+	filter: drop-shadow(0 0 10px rgba(180, 180, 180, 0.35))
+		drop-shadow(0 0 24px rgba(180, 180, 180, 0.12));
 }
 .rootCommon::before {
 	background: linear-gradient(
@@ -73,7 +74,8 @@
 }
 
 .rootUncommon {
-	filter: drop-shadow(0 0 8px rgba(80, 200, 110, 0.3));
+	filter: drop-shadow(0 0 12px rgba(80, 200, 110, 0.45))
+		drop-shadow(0 0 28px rgba(80, 200, 110, 0.15));
 }
 .rootUncommon::before {
 	background: linear-gradient(
@@ -94,7 +96,8 @@
 }
 
 .rootRare {
-	filter: drop-shadow(0 0 10px rgba(90, 150, 240, 0.4));
+	filter: drop-shadow(0 0 14px rgba(90, 150, 240, 0.55))
+		drop-shadow(0 0 32px rgba(90, 150, 240, 0.2));
 }
 .rootRare::before {
 	background: linear-gradient(
@@ -115,7 +118,8 @@
 }
 
 .rootVeryRare {
-	filter: drop-shadow(0 0 12px rgba(170, 100, 240, 0.45));
+	filter: drop-shadow(0 0 16px rgba(170, 100, 240, 0.6))
+		drop-shadow(0 0 36px rgba(170, 100, 240, 0.22));
 }
 .rootVeryRare::before {
 	background: linear-gradient(
@@ -136,7 +140,8 @@
 }
 
 .rootLegendary {
-	filter: drop-shadow(0 0 16px rgba(212, 166, 74, 0.55));
+	filter: drop-shadow(0 0 20px rgba(212, 166, 74, 0.7))
+		drop-shadow(0 0 44px rgba(212, 166, 74, 0.28));
 }
 .rootLegendary::before {
 	background: linear-gradient(
@@ -353,6 +358,15 @@
 .rarityLegendary {
 	color: rgba(212, 166, 74, 0.95);
 	text-shadow: 0 0 10px rgba(212, 166, 74, 0.65);
+}
+
+/* ── Rarity flash overlay ──────────────────────────── */
+
+.rarityFlash {
+	position: absolute;
+	inset: 0;
+	z-index: 10;
+	pointer-events: none;
 }
 
 /* ── Border trace SVG overlay ──────────────────────── */
