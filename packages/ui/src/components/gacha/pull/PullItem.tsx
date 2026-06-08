@@ -4,7 +4,8 @@ import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
 import { Rarity } from "@tme/library/src/item/item.types";
 import type { VignetteStage } from "../content/Vignette";
 import styles from "./PullItem.module.css";
-import placeholder from "./placeholder.jpg";
+import {equipmentDetails} from "@tme/library/src/item/equipment/equipment.details";
+import {generateIconUrl} from "@tme/library/src/misc/generateIconUrl";
 
 interface PullItemProps {
 	item: AbstractItem;
@@ -76,7 +77,7 @@ const formatBase = (base: string): string =>
 		.replace(/\b\w/g, (c) => c.toUpperCase());
 
 export const PullItem = (props: PullItemProps): JSX.Element => {
-	const background = placeholder; // TODO equipmentDetails[props.item.base].icon;
+	const background = generateIconUrl(equipmentDetails[props.item.base].icon);
 	const showImage = props.visibility >= 1 && background !== null;
 	const showName = props.visibility >= 2;
 	const showRarity = props.visibility >= 3;

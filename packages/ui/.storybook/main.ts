@@ -13,5 +13,11 @@ const config: StorybookConfig = {
 	stories: ["../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
 	addons: ["@storybook/addon-docs"],
 	framework: getAbsolutePath("@storybook/react-vite"),
+	staticDirs: [
+		{
+			from: "../../../apps/core/public",
+			to: "/modules/the-magic-emporium",
+		},
+	],
 };
 export default config;

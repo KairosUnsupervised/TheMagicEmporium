@@ -57,5 +57,4 @@ export class Gacha {
     // TODO Documentation for wording
     // TODO Whitelist
     // TODO REFACTOR PACKS TO LIVE IN MODULE PATH
-    // TODO DEPENDENCY INJECT REGISTRY
 }
