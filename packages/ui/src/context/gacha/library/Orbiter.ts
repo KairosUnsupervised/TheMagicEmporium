@@ -30,7 +30,7 @@ export class Orbiter {
 
 	public adjustOrbiters = (bright: number, dim: number): void => {
 		const brightAdded = this.adjustType(DiamondType.Bright, bright, 0);
-		this.adjustType(DiamondType.Dim, dim, brightAdded);
+		this.adjustType(DiamondType.Dim, dim - bright, brightAdded);
 	};
 
 	private adjustType = (

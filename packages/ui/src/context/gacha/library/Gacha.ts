@@ -29,4 +29,8 @@ export class Gacha {
 
     // TODO onConfirm close all open selects => Move select open state to library
     // TODO onConfirm consume all orbiters?
+    // TODO Add indicator for visibility? => Like a sepa effect
+    // TODO Add indicator for luck?
+    // TODO Documentation for wording
+    // TODO Whitelist
 }
