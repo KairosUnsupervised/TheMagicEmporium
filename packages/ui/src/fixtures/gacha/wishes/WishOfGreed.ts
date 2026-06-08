@@ -6,31 +6,31 @@ import {
 	WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
 import { namespace } from "@tme/shared/src/namespaceConfig";
-import img from "./BlessingWish.jpg";
+import img from "./WishOfGreed.jpg";
 
-export const blessingWishFixture: GachaItem5e<WishFlag> = {
-	id: "fixture-wish-blessing",
+export const wishOfGreedFixture: GachaItem5e<WishFlag> = {
+	id: "fixture-wish-greed",
 	img,
-	name: "Wish of Blessing",
+	name: "Wish of Greed",
 	system: {
 		quantity: 4,
 		description: {
-			value:
-				"A wish woven from gratitude and grace. Provides perfect visibility",
+			value: "More. Always more. +2 Pulls, -2 Luck to Rarity",
 		},
 	},
 	flags: {
 		[namespace.gacha.id]: {
 			type: GachaItemType.Wish,
-			id: "blessing-wish",
+			id: "wish-of-greed",
 			operations: [
-				{ field: Field.VisibilityLevel, op: NumberOperation.Set, value: 4 },
+				{ field: Field.PickAmount, op: NumberOperation.Add, value: 2 },
+				{ field: Field.RarityLuck, op: NumberOperation.Subtract, value: 2 },
 			],
 		},
 	},
 	update: async (data) => {
 		if (data.system?.quantity !== undefined) {
-			blessingWishFixture.system.quantity = data.system.quantity;
+			wishOfGreedFixture.system.quantity = data.system.quantity;
 		}
 	},
 	delete: async () => {},

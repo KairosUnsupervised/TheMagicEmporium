@@ -38,7 +38,8 @@ export class PullProcess {
 		}
 	};
 
+	// TODO currently we don't account for a envelope to be present
     public isPossible = () => {
-        return this.revealAmount.getValue() > 0 && this.pickAmount.getValue() > 0;
+        return this.revealAmount.getValue() >= 1 && this.pickAmount.getValue() >= 1;
     }
 }

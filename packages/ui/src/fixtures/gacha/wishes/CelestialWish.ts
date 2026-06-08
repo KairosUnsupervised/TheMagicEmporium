@@ -5,7 +5,7 @@ import img from "./CelestialWish.jpg";
 export const celestialWishFixture: GachaItem5e<WishFlag> = {
 	id: "fixture-wish-celestial",
 	img,
-	name: "Celestial Wish",
+	name: "Wish of Celestials",
 	system: {
 		quantity: 4,
 		description: {

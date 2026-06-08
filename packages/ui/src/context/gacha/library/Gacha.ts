@@ -27,4 +27,6 @@ export class Gacha {
         console.log(this.pullProcess)
     }
 
+    // TODO onConfirm close all open selects => Move select open state to library
+    // TODO onConfirm consume all orbiters?
 }

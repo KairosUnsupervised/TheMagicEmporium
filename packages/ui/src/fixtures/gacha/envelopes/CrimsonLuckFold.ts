@@ -17,7 +17,7 @@ export const crimsonLuckFoldFixture: GachaItem5e<EnvelopeFlag> = {
 		quantity: 4,
 		description: {
 			value:
-				"A crimson paper fold soaked in fortune's favour. +8 Items, +2 Pulls, Low Visibility, Locks Visibility",
+				"A crimson paper fold soaked in fortune's favour. +8 Reveals, +2 Pulls, Locks to low Visibility",
 		},
 	},
 	flags: {

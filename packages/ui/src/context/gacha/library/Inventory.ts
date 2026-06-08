@@ -1,14 +1,24 @@
-import {makeAutoObservable} from "mobx";
-import {AllNumberOperations, EnvelopeFlag, GachaItem5e, WishFlag,} from "@tme/shared/src/types/GachaItem5e";
-import {namespace} from "@tme/shared/src/namespaceConfig";
-import {crimsonLuckFoldFixture} from "../../../fixtures/gacha/envelopes/CrimsonLuckFold";
-import {blessingWishFixture} from "../../../fixtures/gacha/wishes/BlessingWish";
-import {celestialWishFixture} from "../../../fixtures/gacha/wishes/CelestialWish";
-import {festivalSleeveFixture} from "../../../fixtures/gacha/envelopes/FestivalSleeve";
-import {goldenBlessingSealFixture} from "../../../fixtures/gacha/envelopes/GoldenBlessingSeal";
-import {moongateOfferingFixture} from "../../../fixtures/gacha/envelopes/MoongateOffering";
-import {silkRoadSealFixture} from "../../../fixtures/gacha/envelopes/SilkRoadSeal";
-import {Gacha} from "./Gacha";
+import { makeAutoObservable } from "mobx";
+import {
+	AllNumberOperations,
+	EnvelopeFlag,
+	GachaItem5e,
+	WishFlag,
+} from "@tme/shared/src/types/GachaItem5e";
+import { namespace } from "@tme/shared/src/namespaceConfig";
+import { crimsonLuckFoldFixture } from "../../../fixtures/gacha/envelopes/CrimsonLuckFold";
+import { blessingWishFixture } from "../../../fixtures/gacha/wishes/BlessingWish";
+import { celestialWishFixture } from "../../../fixtures/gacha/wishes/CelestialWish";
+import { wishOfBlindnessFixture } from "../../../fixtures/gacha/wishes/WishOfBlindness";
+import { wishOfEmbracementFixture } from "../../../fixtures/gacha/wishes/WishOfEmbracement";
+import { wishOfFortuneFixture } from "../../../fixtures/gacha/wishes/WishOfFortune";
+import { wishOfGreedFixture } from "../../../fixtures/gacha/wishes/WishOfGreed";
+import { wishOfShatteringFixture } from "../../../fixtures/gacha/wishes/WishOfShattering";
+import { festivalSleeveFixture } from "../../../fixtures/gacha/envelopes/FestivalSleeve";
+import { goldenBlessingSealFixture } from "../../../fixtures/gacha/envelopes/GoldenBlessingSeal";
+import { moongateOfferingFixture } from "../../../fixtures/gacha/envelopes/MoongateOffering";
+import { silkRoadSealFixture } from "../../../fixtures/gacha/envelopes/SilkRoadSeal";
+import { Gacha } from "./Gacha";
 
 export type Envelope = GachaItem5e<EnvelopeFlag>;
 
@@ -27,6 +37,8 @@ export class Inventory {
 		this.gacha = gacha;
 	}
 
+	// TODO Unresolved inventory issue: How to deal with zero amount stakcs
+	// TODO Unresolved inventory issue: How to deal with multiple stacks of the same item
 	public envelopes: Envelope[] = [
 		crimsonLuckFoldFixture,
 		festivalSleeveFixture,
@@ -35,16 +47,19 @@ export class Inventory {
 		silkRoadSealFixture,
 	];
 
-	// Only allow wishes with amount > 0 here! PROBLEM FOR LATER
 	private wishes: GachaItem5e<WishFlag>[] = [
 		blessingWishFixture,
 		celestialWishFixture,
-		celestialWishFixture,
+		wishOfBlindnessFixture,
+		wishOfEmbracementFixture,
+		wishOfFortuneFixture,
+		wishOfGreedFixture,
+		wishOfShatteringFixture,
 	];
 
 	public setEnvelope(envelope: Envelope | null): void {
 		this.envelopeSelected = envelope;
-		this.gacha.onInputUpdate()
+		this.gacha.onInputUpdate();
 	}
 
 	public setWish = (
@@ -54,7 +69,7 @@ export class Inventory {
 		this.wishesSelected[index] = item
 			? item.flags[namespace.gacha.id].id
 			: null;
-		this.gacha.onInputUpdate()
+		this.gacha.onInputUpdate();
 	};
 
 	public getWish = (index: number): GachaItem5e<WishFlag> | null => {
