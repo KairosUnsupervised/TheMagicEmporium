@@ -30,15 +30,20 @@ export interface AvailableWish {
 export class Inventory {
 	private gacha: Gacha;
 	public envelopeSelected: Envelope | null = null;
-	public wishesSelected: (string | null)[] = [null, null, null, null];
+	public wishesSelected: (GachaItem5e<WishFlag> | null)[] = [
+		null,
+		null,
+		null,
+		null,
+	];
 
 	constructor(gacha: Gacha) {
 		makeAutoObservable(this);
 		this.gacha = gacha;
 	}
 
-	// TODO Unresolved inventory issue: How to deal with zero amount stakcs
-	// TODO Unresolved inventory issue: How to deal with multiple stacks of the same item
+	// TODO Unresolved inventory issue: How to deal with zero amount stacks => onLoad inventory, filter out 0 amount stacks
+	// TODO Unresolved inventory issue: How to deal with multiple stacks of the same item => onLoad inventory take first stack only
 	public envelopes: Envelope[] = [
 		crimsonLuckFoldFixture,
 		festivalSleeveFixture,
@@ -66,33 +71,19 @@ export class Inventory {
 		index: number,
 		item: GachaItem5e<WishFlag> | null,
 	): void => {
-		this.wishesSelected[index] = item
-			? item.flags[namespace.gacha.id].id
-			: null;
+		this.wishesSelected[index] = item;
 		this.gacha.onInputUpdate();
 	};
 
 	public getWish = (index: number): GachaItem5e<WishFlag> | null => {
-		const id = this.wishesSelected[index];
-		if (id === null) {
-			return null;
-		}
-		return (
-			this.wishes.find((item) => {
-				if (item.flags[namespace.gacha.id].id === id) {
-					return item.flags[namespace.gacha.id].id === id;
-				}
-				return false;
-			}) ?? null
-		);
+		return this.wishesSelected[index] ?? null;
 	};
 
 	public getAvailableWishes = (index: number): AvailableWish[] => {
 		return this.wishes.map((wish) => ({
 			item: wish,
 			locked: this.wishesSelected.some(
-				(id, slotIndex) =>
-					id === wish.flags[namespace.gacha.id].id && slotIndex !== index,
+				(selected, slotIndex) => selected === wish && slotIndex !== index,
 			),
 		}));
 	};
