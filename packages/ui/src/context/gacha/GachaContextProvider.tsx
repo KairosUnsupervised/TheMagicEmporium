@@ -9,7 +9,7 @@ export const GachaContext = React.createContext<Gacha>(new Gacha());
 
 export const GachaContextProvider = (props: GachaContextProviderProps) => {
 
-	// Implement context once needed
+	// TODO Implement context once needed
 	return (
 		<>
 			{props.children}

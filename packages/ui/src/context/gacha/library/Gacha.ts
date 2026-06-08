@@ -3,6 +3,7 @@ import {Inventory} from "./Inventory";
 import {PullProcess} from "./PullProcess";
 import {makeAutoObservable} from "mobx";
 import {PullSelect} from "./PullSelect";
+import {registry} from "@tme/library/src/registry/Registry";
 
 export class Gacha {
 
@@ -13,6 +14,7 @@ export class Gacha {
 
     constructor() {
         makeAutoObservable(this);
+        console.log(registry)
     }
 
     public onInputUpdate = () => {
@@ -54,4 +56,6 @@ export class Gacha {
     // TODO onConfirm consume all orbiters?
     // TODO Documentation for wording
     // TODO Whitelist
+    // TODO REFACTOR PACKS TO LIVE IN MODULE PATH
+    // TODO DEPENDENCY INJECT REGISTRY
 }

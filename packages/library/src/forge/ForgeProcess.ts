@@ -82,6 +82,7 @@ export class ForgeProcess {
 		}
 	};
 
+	// TODO This should rather be part of AbstractItem or item class
 	public addToFolder = async (): Promise<void> => {
 		const folder = await getFolder();
 		const document = Item.create(this.abstractItem).export(folder.id);

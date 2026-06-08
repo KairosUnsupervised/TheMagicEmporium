@@ -6,6 +6,9 @@ import { uncommonFixture } from "../../../fixtures/items/uncommonFixture";
 import { rareFixture } from "../../../fixtures/items/rareFixture";
 import { veryRareFixture } from "../../../fixtures/items/veryRareFixture";
 import { legendaryModifierBackgroundFixture } from "../../../fixtures/items/legendaryModifierBackgroundFixture";
+import {Forge} from "@tme/library/src/forge/Forge";
+import {equipmentDetails} from "@tme/library/src/item/equipment/equipment.details";
+import {Equipment} from "@tme/library/src/item/equipment/equipment.types";
 
 const dummyPool: AbstractItem[] = [
 	commonFixture,
@@ -14,6 +17,8 @@ const dummyPool: AbstractItem[] = [
 	veryRareFixture,
 	legendaryModifierBackgroundFixture,
 ];
+
+const forge = new Forge()
 
 export class PullSelect {
 	public isOpen: boolean = false;
@@ -39,8 +44,13 @@ export class PullSelect {
 		this.items = [];
 		const count = this.process.revealAmount.getValue();
 		for (let i = 0; i < count; i++) {
-			const pick = dummyPool[Math.floor(Math.random() * dummyPool.length)];
-			this.items.push(pick);
+			this.items.push(Forge.getGachaAbstractItem({
+				modifierLuck: this.process.floatLuck.getValue(),
+				rarityLuck: this.process.rarityLuck.getValue(),
+				// TODO Equipment whitelist
+				equipmentWhitelist: Object.keys(equipmentDetails) as Equipment[],
+				forcedRarity: undefined,
+			}));
 		}
 	};
 }

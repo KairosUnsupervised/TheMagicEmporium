@@ -1,7 +1,7 @@
 import { equipmentRarity } from "../item/equipment/equipment.adjectives";
 import { equipmentDetails } from "../item/equipment/equipment.details";
 import { Equipment } from "../item/equipment/equipment.types";
-import type { Rarity } from "../item/item.types";
+import { Rarity } from "../item/item.types";
 import { logger } from "../logger";
 import { FloatDataManager } from "../modifiers/dataManagers/FloatDataManager";
 import type { Modifier } from "../modifiers/Modifier";
@@ -11,6 +11,14 @@ import { ForgeProcess } from "./ForgeProcess";
 import { getRandomTemplate } from "./forge.templates";
 import type { Template } from "./forge.types";
 
+export interface GachaRevealProps {
+	equipmentWhitelist: Equipment[];
+	rarityLuck: number;
+	modifierLuck: number;
+	forcedRarity?: Rarity;
+}
+
+// TODO The forge is in a desperate need of a rework
 export class Forge {
 	/**
 	 * Generate a complete random magic item, optionally forcing equipment type or rarity.
@@ -18,8 +26,9 @@ export class Forge {
 	public static random = (
 		equipment?: Equipment,
 		rarity?: Rarity,
+		luck = 0,
 	): ForgeProcess => {
-		const template = getRandomTemplate(rarity);
+		const template = Forge.getTemplate(luck, rarity);
 		const process = new ForgeProcess();
 
 		process.abstractItem.backgroundEligible = template.backgroundEligible;
@@ -31,6 +40,62 @@ export class Forge {
 		Forge.generateName(process);
 
 		return process;
+	};
+
+	public static getGachaAbstractItem = (props: GachaRevealProps) => {
+		const process = new ForgeProcess();
+		const template = this.getTemplate(props.rarityLuck,  props.forcedRarity);
+		const internalTemplate = {...template, luck: template.luck + props.modifierLuck}
+
+		process.abstractItem.backgroundEligible = internalTemplate.backgroundEligible;
+		process.setBase(
+			props.equipmentWhitelist[Math.floor(Math.random() * props.equipmentWhitelist.length)],
+		);
+		Forge.generateGoldValue(process, internalTemplate);
+		Forge.generateModifiers(process, internalTemplate);
+		process.setRarity(internalTemplate.rarity);
+		Forge.generateName(process);
+
+		return process.abstractItem;
+	};
+
+	private static rarityOrder = [
+		Rarity.Common,
+		Rarity.Uncommon,
+		Rarity.Rare,
+		Rarity.VeryRare,
+		Rarity.Legendary,
+	];
+
+	private static getTemplate = (
+		luck: number,
+		forcedRarity?: Rarity,
+	): Template => {
+		const absLuck = Math.abs(luck);
+		const floor = Math.trunc(absLuck);
+		const fraction = absLuck - floor;
+		const extraRolls = Math.random() < fraction ? floor + 1 : floor;
+		const count = extraRolls + 1;
+
+		const candidates = Array.from({ length: count }, () =>
+			getRandomTemplate(forcedRarity),
+		);
+
+		if (count === 1) {
+			return candidates[0];
+		}
+
+		return candidates.reduce((best, current) => {
+			const bestRank = Forge.rarityOrder.indexOf(best.rarity);
+			const currentRank = Forge.rarityOrder.indexOf(current.rarity);
+			return luck > 0
+				? currentRank > bestRank
+					? current
+					: best
+				: currentRank < bestRank
+					? current
+					: best;
+		});
 	};
 
 	// ── Private generation steps ──────────────────────────────────────────────
@@ -100,7 +165,10 @@ export class Forge {
 		if (amountRolled === 0) {
 			return Math.random();
 		}
-		const rolls = Array.from({ length: Math.abs(amountRolled) + 1 }, Math.random);
+		const rolls = Array.from(
+			{ length: Math.abs(amountRolled) + 1 },
+			Math.random,
+		);
 		return amountRolled > 0 ? Math.max(...rolls) : Math.min(...rolls);
 	};
 
