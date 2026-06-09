@@ -21,6 +21,8 @@ import { moongateOfferingFixture } from "../../../fixtures/gacha/envelopes/Moong
 import { silkRoadSealFixture } from "../../../fixtures/gacha/envelopes/SilkRoadSeal";
 import { Gacha } from "./Gacha";
 import { Actor5e } from "@tme/shared/src/types/actor5e";
+import {AbstractItem} from "@tme/library/src/item/AbstractItem";
+import {Item as RealItem} from "@tme/library/src/item/Item";
 
 export type Envelope = GachaItem5e<EnvelopeFlag>;
 
@@ -203,4 +205,17 @@ export class Inventory {
 
 		await delay();
 	};
+
+	public awardItems = async (items: AbstractItem[]): Promise<void> => {
+		if (!this.actor) {
+			return;
+		}
+
+		const toCreate = items.map((item) => {
+			return RealItem.create(item).export()
+		})
+
+		await this.actor.createEmbeddedDocuments("Item", toCreate)
+		return;
+	}
 }

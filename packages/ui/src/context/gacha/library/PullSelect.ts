@@ -1,35 +1,24 @@
-import { makeAutoObservable } from "mobx";
-import { AbstractItem } from "@tme/library/src/item/AbstractItem";
-import { PullProcess } from "./PullProcess";
-import { commonFixture } from "../../../fixtures/items/commonFixture";
-import { uncommonFixture } from "../../../fixtures/items/uncommonFixture";
-import { rareFixture } from "../../../fixtures/items/rareFixture";
-import { veryRareFixture } from "../../../fixtures/items/veryRareFixture";
-import { legendaryModifierBackgroundFixture } from "../../../fixtures/items/legendaryModifierBackgroundFixture";
+import {makeAutoObservable} from "mobx";
+import {AbstractItem} from "@tme/library/src/item/AbstractItem";
+import {PullProcess} from "./PullProcess";
 import {Forge} from "@tme/library/src/forge/Forge";
 import {equipmentDetails} from "@tme/library/src/item/equipment/equipment.details";
 import {Equipment} from "@tme/library/src/item/equipment/equipment.types";
-
-const dummyPool: AbstractItem[] = [
-	commonFixture,
-	uncommonFixture,
-	rareFixture,
-	veryRareFixture,
-	legendaryModifierBackgroundFixture,
-];
-
-const forge = new Forge()
+import {Gacha} from "./Gacha";
 
 export class PullSelect {
+	private gacha: Gacha;
 	public isOpen: boolean = false;
 	public items: AbstractItem[] = [];
 	public process: PullProcess = new PullProcess();
 
-	constructor() {
+	constructor(gacha: Gacha) {
 		makeAutoObservable(this);
+		this.gacha = gacha;
 	}
 
-	public close = (): void => {
+	public close = (selected: AbstractItem[]): void => {
+		this.gacha.inventory.awardItems(selected);
 		this.isOpen = false;
 		this.items = [];
 	};

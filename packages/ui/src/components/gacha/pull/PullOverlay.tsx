@@ -11,8 +11,7 @@ export const PullOverlay = observer((): JSX.Element => {
 	const { pullSelect } = context;
 
 	const handleConfirm = (selected: AbstractItem[]): void => {
-		console.log("Selected items:", selected);
-		pullSelect.close();
+		pullSelect.close(selected);
 	};
 
 	return (

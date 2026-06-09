@@ -12,28 +12,24 @@ export class Gacha {
     public orbiter: Orbiter = new Orbiter();
     public inventory: Inventory = new Inventory(this);
     public pullProcess = new PullProcess();
-    public pullSelect = new PullSelect()
+    public pullSelect = new PullSelect(this)
 
     public isOpen: boolean = true;
 
     constructor() {
         makeAutoObservable(this);
-        console.log(registry)
     }
 
     public onInputUpdate = () => {
         this.pullProcess = new PullProcess()
 
         const operations = this.inventory.getAllOperations()
-        console.log(operations)
 
         operations.forEach((operation) => {
             this.pullProcess.applyOperation(operation)
         })
 
         this.orbiter.adjustOrbiters(this.pullProcess.pickAmount.getValue(), this.pullProcess.revealAmount.getValue())
-
-        console.log(this.pullProcess)
     }
 
     public getVisibility = (): 0 | 1 | 2 | 3 | 4 => {
@@ -73,8 +69,6 @@ export class Gacha {
         this.isOpen = false;
     }
 
-    // TODO onConfirm close all open selects => Move select open state to library
-    // TODO onConfirm consume all orbiters?
     // TODO Documentation for wording
     // TODO Whitelist
     // TODO REFACTOR PACKS TO LIVE IN MODULE PATH
