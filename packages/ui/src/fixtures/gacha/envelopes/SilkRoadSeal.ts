@@ -1,12 +1,12 @@
+import { namespace } from "@tme/shared/src/namespaceConfig";
 import {
-	GachaItemType,
-	type GachaItem5e,
-	EnvelopeFlag,
+	type EnvelopeFlag,
 	Field,
+	type GachaItem5e,
+	GachaItemType,
 	LockOperation,
 	NumberOperation,
 } from "@tme/shared/src/types/GachaItem5e";
-import { namespace } from "@tme/shared/src/namespaceConfig";
 import img from "./SilkRoadSeal.jpg";
 
 export const silkRoadSealFixture: GachaItem5e<EnvelopeFlag> = {
@@ -16,7 +16,8 @@ export const silkRoadSealFixture: GachaItem5e<EnvelopeFlag> = {
 	system: {
 		quantity: 4,
 		description: {
-			value: "Traded across a thousand leagues of silk and sand. 12 Items, Locked to 1 Pull, Locked to Moderate Visibility",
+			value:
+				"Traded across a thousand leagues of silk and sand. 12 Items, Locked to 1 Pull, Locked to Moderate Visibility",
 		},
 	},
 	flags: {

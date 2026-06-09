@@ -1,12 +1,12 @@
-import type { JSX } from "react";
-import { AnimatePresence, motion, useAnimate } from "framer-motion";
-import { useCallback, useState } from "react";
-import { observer } from "mobx-react-lite";
-import { useGachaContext } from "../../../context/gacha/useGachaContext";
 import type { GachaItem5e, WishFlag } from "@tme/shared/src/types/GachaItem5e";
+import { AnimatePresence, motion, useAnimate } from "framer-motion";
+import { observer } from "mobx-react-lite";
+import type { JSX } from "react";
+import { useCallback, useState } from "react";
 import type { AvailableWish } from "../../../context/gacha/library/Inventory";
-import { Tooltip } from "./Tooltip";
+import { useGachaContext } from "../../../context/gacha/useGachaContext";
 import styles from "./EnvelopeInput.module.css";
+import { Tooltip } from "./Tooltip";
 
 const ORBIT_RADIUS = 160;
 const SVG_HALF = ORBIT_RADIUS + 20;
@@ -27,12 +27,11 @@ interface WishInputProps {
 }
 
 export const WishInput = observer((props: WishInputProps): JSX.Element => {
-
 	const context = useGachaContext();
 	const [hoveredId, setHoveredId] = useState<string | null>(null);
 	const [tileRef, animateTile] = useAnimate<HTMLDivElement>();
 
-	const open = context.inventory.isWishSelectOpen[props.index]
+	const open = context.inventory.isWishSelectOpen[props.index];
 	const selected = context.inventory.getWish(props.index);
 	const all = context.inventory.getAvailableWishes(props.index);
 
@@ -48,7 +47,8 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 		hoveredIndex !== -1 ? computeOrbitPosition(hoveredIndex, all.length) : null;
 
 	const handleTileClick = useCallback((): void => {
-		context.inventory.isWishSelectOpen[props.index] = !context.inventory.isWishSelectOpen[props.index];
+		context.inventory.isWishSelectOpen[props.index] =
+			!context.inventory.isWishSelectOpen[props.index];
 	}, [all.length]);
 
 	const handleSelect = useCallback(

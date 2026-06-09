@@ -1,9 +1,9 @@
-import type { JSX } from "react";
 import { motion } from "framer-motion";
 import { observer } from "mobx-react-lite";
-import styles from "./Sun.module.css";
-import { animationDelay } from "../../animationDelay";
+import type { JSX } from "react";
 import { useGachaContext } from "../../../../context/gacha/useGachaContext";
+import { animationDelay } from "../../animationDelay";
+import styles from "./Sun.module.css";
 
 interface RayData {
 	x1: number;

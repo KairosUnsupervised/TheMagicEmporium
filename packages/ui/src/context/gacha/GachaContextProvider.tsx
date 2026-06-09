@@ -1,5 +1,5 @@
-import {gacha, type Gacha} from "./library/Gacha";
-import {createContext, ReactNode} from "react";
+import { createContext, type ReactNode } from "react";
+import { type Gacha, gacha } from "./library/Gacha";
 
 interface GachaContextProviderProps {
 	children: ReactNode;
@@ -9,10 +9,5 @@ interface GachaContextProviderProps {
 export const GachaContext = createContext<Gacha>(gacha);
 
 export const GachaContextProvider = (props: GachaContextProviderProps) => {
-
-	return (
-		<>
-			{props.children}
-		</>
-	);
+	return <>{props.children}</>;
 };

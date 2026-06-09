@@ -1,5 +1,5 @@
+import { CloseButton } from "./CloseButton";
 import styles from "./GachaHeader.module.css";
-import {CloseButton} from "./CloseButton";
 
 export const GachaHeader = () => {
 	return (
@@ -17,7 +17,7 @@ export const GachaHeader = () => {
 				<div className={styles.titleSub}>The Sacred Draw</div>
 			</div>
 			<div className={styles.close}>
-				<CloseButton disabled={false}/>
+				<CloseButton disabled={false} />
 			</div>
 		</header>
 	);

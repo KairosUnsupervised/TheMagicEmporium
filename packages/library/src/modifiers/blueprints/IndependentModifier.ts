@@ -16,10 +16,13 @@ export class IndependentModifier extends Modifier<IndependentSchema> {
 
 	static create(props: CreateProps): IndependentModifier | null {
 		if (!validateIndependent(props.definition)) {
-			logger.notification.gm.error("Invalid modifier definition for IndependentModifier, skipping entry", {
-				definition: props.definition,
-				errors: validateIndependent.errors,
-			});
+			logger.notification.gm.error(
+				"Invalid modifier definition for IndependentModifier, skipping entry",
+				{
+					definition: props.definition,
+					errors: validateIndependent.errors,
+				},
+			);
 			return null;
 		}
 

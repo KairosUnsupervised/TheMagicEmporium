@@ -11,5 +11,5 @@ export const namespace = {
 	gacha: {
 		name: "The Magic Emporium Gacha",
 		id: "the-magic-emporium-gacha",
-	}
+	},
 };

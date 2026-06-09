@@ -1,5 +1,5 @@
-import type {Meta, StoryObj} from "@storybook/react-vite";
-import {CloseButton} from "./CloseButton";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { CloseButton } from "./CloseButton";
 
 const meta = {
 	title: "Components/Gacha/Header/CloseButton",
@@ -9,7 +9,10 @@ const meta = {
 	},
 	render: (args) => {
 		return (
-			<div className="dark" style={{padding: "40px", background: "rgba(7, 9, 26, 1)"}}>
+			<div
+				className="dark"
+				style={{ padding: "40px", background: "rgba(7, 9, 26, 1)" }}
+			>
 				<CloseButton {...args} />
 			</div>
 		);

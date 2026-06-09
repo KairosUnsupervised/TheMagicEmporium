@@ -1,5 +1,9 @@
-import {AllOperations, LockOperation, NumberOperation} from "@tme/shared/src/types/GachaItem5e";
-import {makeAutoObservable} from "mobx";
+import {
+	type AllOperations,
+	LockOperation,
+	NumberOperation,
+} from "@tme/shared/src/types/GachaItem5e";
+import { makeAutoObservable } from "mobx";
 
 export interface NumberInputProps {
 	default?: number;

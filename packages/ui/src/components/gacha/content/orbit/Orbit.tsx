@@ -1,15 +1,15 @@
-import type { JSX } from "react";
-import { useRef } from "react";
 import {
 	AnimatePresence,
 	motion,
 	useAnimationFrame,
 	useMotionValue,
 } from "framer-motion";
-import styles from "./Orbit.module.css";
-import { Diamond, DiamondType } from "./Diamond";
-import { useGachaContext } from "../../../../context/gacha/useGachaContext";
 import { observer } from "mobx-react-lite";
+import type { JSX } from "react";
+import { useRef } from "react";
+import { useGachaContext } from "../../../../context/gacha/useGachaContext";
+import { Diamond, type DiamondType } from "./Diamond";
+import styles from "./Orbit.module.css";
 
 const ORBIT_SPEED = 0.03;
 

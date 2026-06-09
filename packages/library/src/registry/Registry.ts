@@ -88,7 +88,9 @@ export class Registry {
 		if (this.mapped[identifier]) {
 			return this.mapped[identifier];
 		}
-		logger.notification.all.error(`No modifier found with identifier ${identifier}`);
+		logger.notification.all.error(
+			`No modifier found with identifier ${identifier}`,
+		);
 		return null;
 	};
 }

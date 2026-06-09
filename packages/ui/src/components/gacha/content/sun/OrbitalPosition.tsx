@@ -1,5 +1,5 @@
-import type { JSX } from "react";
 import { motion } from "framer-motion";
+import type { JSX } from "react";
 import { animationDelay } from "../../animationDelay";
 
 const TRAIL_SWEEP_DEG = 260;
@@ -63,7 +63,11 @@ export const OrbitalPosition = (props: OrbitalPositionProps): JSX.Element => {
 				initial={{ pathLength: 0, opacity: 0 }}
 				animate={{ pathLength: 1, opacity: 1 }}
 				transition={{
-					pathLength: { duration: 2.0, delay: baseDelay + 0.2, ease: "easeOut" },
+					pathLength: {
+						duration: 2.0,
+						delay: baseDelay + 0.2,
+						ease: "easeOut",
+					},
 					opacity: { duration: 0.6, delay: baseDelay + 0.2 },
 				}}
 			/>

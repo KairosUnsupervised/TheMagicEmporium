@@ -1,8 +1,8 @@
-import {makeAutoObservable} from "mobx";
-import {AbstractItem} from "@tme/library/src/item/AbstractItem";
-import {PullProcess} from "./PullProcess";
-import {Forge} from "@tme/library/src/forge/Forge";
-import type {Gacha} from "./Gacha";
+import { Forge } from "@tme/library/src/forge/Forge";
+import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
+import { makeAutoObservable } from "mobx";
+import type { Gacha } from "./Gacha";
+import { PullProcess } from "./PullProcess";
 
 export class PullSelect {
 	private gacha: Gacha;
@@ -32,12 +32,14 @@ export class PullSelect {
 		this.items = [];
 		const count = this.process.revealAmount.getValue();
 		for (let i = 0; i < count; i++) {
-			this.items.push(Forge.getGachaAbstractItem({
-				modifierLuck: this.process.floatLuck.getValue(),
-				rarityLuck: this.process.rarityLuck.getValue(),
-				equipmentWhitelist: this.process.equipmentWhitelist.getValue(),
-				forcedRarity: undefined,
-			}));
+			this.items.push(
+				Forge.getGachaAbstractItem({
+					modifierLuck: this.process.floatLuck.getValue(),
+					rarityLuck: this.process.rarityLuck.getValue(),
+					equipmentWhitelist: this.process.equipmentWhitelist.getValue(),
+					forcedRarity: undefined,
+				}),
+			);
 		}
 	};
 }

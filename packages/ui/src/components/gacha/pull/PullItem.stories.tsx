@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { PullItem } from "./PullItem";
-import type { VignetteStage } from "../content/Vignette";
 import { commonFixture } from "../../../fixtures/items/commonFixture";
-import { rareFixture } from "../../../fixtures/items/rareFixture";
 import { legendaryModifierBackgroundFixture } from "../../../fixtures/items/legendaryModifierBackgroundFixture";
+import { rareFixture } from "../../../fixtures/items/rareFixture";
+import type { VignetteStage } from "../content/Vignette";
+import { PullItem } from "./PullItem";
 
 const meta = {
 	title: "Components/Gacha/Pull/PullItem",

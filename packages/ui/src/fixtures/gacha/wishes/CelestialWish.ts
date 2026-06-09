@@ -1,5 +1,11 @@
-import {Field, type GachaItem5e, GachaItemType, LockOperation, WishFlag,} from "@tme/shared/src/types/GachaItem5e";
-import {namespace} from "@tme/shared/src/namespaceConfig";
+import { namespace } from "@tme/shared/src/namespaceConfig";
+import {
+	Field,
+	type GachaItem5e,
+	GachaItemType,
+	LockOperation,
+	type WishFlag,
+} from "@tme/shared/src/types/GachaItem5e";
 import img from "./CelestialWish.jpg";
 
 export const celestialWishFixture: GachaItem5e<WishFlag> = {
@@ -18,11 +24,11 @@ export const celestialWishFixture: GachaItem5e<WishFlag> = {
 			type: GachaItemType.Wish,
 			id: "celestial-wish",
 			operations: [
-				{field: Field.PickAmount, op: LockOperation.Unlock},
-				{field: Field.RevealAmount, op: LockOperation.Unlock},
-				{field: Field.FloatLuck, op: LockOperation.Unlock},
-				{field: Field.RarityLuck, op: LockOperation.Unlock},
-				{field: Field.VisibilityLevel, op: LockOperation.Unlock},
+				{ field: Field.PickAmount, op: LockOperation.Unlock },
+				{ field: Field.RevealAmount, op: LockOperation.Unlock },
+				{ field: Field.FloatLuck, op: LockOperation.Unlock },
+				{ field: Field.RarityLuck, op: LockOperation.Unlock },
+				{ field: Field.VisibilityLevel, op: LockOperation.Unlock },
 			],
 		},
 	},
@@ -31,6 +37,5 @@ export const celestialWishFixture: GachaItem5e<WishFlag> = {
 			celestialWishFixture.system.quantity = data.system.quantity;
 		}
 	},
-	delete: async () => {
-	},
+	delete: async () => {},
 };

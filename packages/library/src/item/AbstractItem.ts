@@ -3,9 +3,9 @@ import { type Item5e, ItemType } from "@tme/shared/src/types/item5e";
 import { generateBackgroundUrl } from "../misc/generateBackgroundUrl";
 import type { AppliedModifier } from "../modifiers/Modifier";
 import { registry } from "../registry/Registry";
+import { equipmentDetails } from "./equipment/equipment.details";
 import { Equipment } from "./equipment/equipment.types";
 import { Rarity } from "./item.types";
-import {equipmentDetails} from "./equipment/equipment.details";
 
 export const rarityLabel: Record<Rarity, string> = {
 	[Rarity.Common]: "Common",
@@ -88,11 +88,11 @@ export class AbstractItem {
 
 	public getRarityLabel = (): string => {
 		return rarityLabel[this.rarity];
-	}
+	};
 
 	public getEquipmentLabel = (): string => {
 		return equipmentDetails[this.base].title;
-	}
+	};
 
 	/**
 	 * Returns an optional item background and not the icon of the equipment itself

@@ -25,10 +25,13 @@ export class TieredModifier extends Modifier<TieredSchema> {
 
 	static create(props: CreateProps): TieredModifier | null {
 		if (!validateTiered(props.definition)) {
-			logger.notification.gm.error("Invalid modifier definition for TieredModifier, skipping entry", {
-				definition: props.definition,
-				errors: validateTiered.errors,
-			});
+			logger.notification.gm.error(
+				"Invalid modifier definition for TieredModifier, skipping entry",
+				{
+					definition: props.definition,
+					errors: validateTiered.errors,
+				},
+			);
 			return null;
 		}
 		if (props.enabled) {

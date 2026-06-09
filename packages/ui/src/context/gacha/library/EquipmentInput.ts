@@ -1,10 +1,13 @@
 import { Equipment } from "@tme/library/src/item/equipment/equipment.types";
-import type {AllArrayOperations, AllOperations} from "@tme/shared/src/types/GachaItem5e";
+import type {
+	AllArrayOperations,
+	AllOperations,
+} from "@tme/shared/src/types/GachaItem5e";
 import {
 	ArrayOperation,
 	LockOperation,
 } from "@tme/shared/src/types/GachaItem5e";
-import {makeAutoObservable} from "mobx";
+import { makeAutoObservable } from "mobx";
 
 export class EquipmentInput {
 	private whitelist: Set<Equipment> = new Set(Object.values(Equipment));
@@ -46,7 +49,7 @@ export class EquipmentInput {
 		}
 	}
 
-    public getValue = (): Equipment[] => {
-        return [...this.whitelist];
-    };
+	public getValue = (): Equipment[] => {
+		return [...this.whitelist];
+	};
 }

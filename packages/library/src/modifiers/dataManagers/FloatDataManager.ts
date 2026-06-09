@@ -58,10 +58,13 @@ export class FloatDataManager<
 
 	private resolveFloat = (data: unknown): number => {
 		if (!validateData(data)) {
-			logger.notification.all.error("Invalid data for FloatDataManager, defaulting to 0", {
-				data,
-				errors: validateData.errors,
-			});
+			logger.notification.all.error(
+				"Invalid data for FloatDataManager, defaulting to 0",
+				{
+					data,
+					errors: validateData.errors,
+				},
+			);
 			return 0;
 		}
 		return data.float;

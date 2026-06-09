@@ -1,12 +1,12 @@
-import type { JSX } from "react";
 import { motion } from "framer-motion";
-import styles from "./Sun.module.css";
-import { Orbit } from "../orbit/Orbit";
-import { EnvelopeInput } from "../../input/EnvelopeInput";
+import type { JSX } from "react";
 import { animationDelay } from "../../animationDelay";
+import { EnvelopeInput } from "../../input/EnvelopeInput";
+import { Orbit } from "../orbit/Orbit";
 import { Circles } from "./Circles";
-import { Sunburst } from "./Sunburst";
 import { OrbitalPosition } from "./OrbitalPosition";
+import styles from "./Sun.module.css";
+import { Sunburst } from "./Sunburst";
 
 export interface OrbitalCoord {
 	readonly x: number;

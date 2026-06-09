@@ -1,10 +1,10 @@
-import type { JSX } from "react";
-import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { observer } from "mobx-react-lite";
-import styles from "./DrawButton.module.css";
-import { animationDelay } from "../animationDelay";
+import type { JSX } from "react";
+import { useState } from "react";
 import { useGachaContext } from "../../../context/gacha/useGachaContext";
+import { animationDelay } from "../animationDelay";
+import styles from "./DrawButton.module.css";
 
 const LABELS = [
 	"SURRENDER YOUR\nWISHES\nTO THE STARS",
@@ -24,7 +24,9 @@ export interface DrawButtonProps {
 
 export const DrawButton = observer((props: DrawButtonProps): JSX.Element => {
 	const context = useGachaContext();
-	const isDisabled = !(context.inventory.envelopeSelected || context.pullProcess.isPossible());
+	const isDisabled = !(
+		context.inventory.envelopeSelected || context.pullProcess.isPossible()
+	);
 	const handleClick = props.onClick ?? context.onConfirm;
 
 	const [label] = useState<string>(

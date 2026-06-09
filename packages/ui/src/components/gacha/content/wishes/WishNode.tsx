@@ -1,7 +1,7 @@
-import type { JSX } from "react";
 import { motion } from "framer-motion";
-import { WishInput } from "../../input/WishInput";
+import type { JSX } from "react";
 import { animationDelay } from "../../animationDelay";
+import { WishInput } from "../../input/WishInput";
 import styles from "./WishNode.module.css";
 
 interface WishNodeProps {

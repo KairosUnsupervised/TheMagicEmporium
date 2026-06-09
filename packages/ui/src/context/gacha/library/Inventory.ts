@@ -1,13 +1,21 @@
-import { makeAutoObservable } from "mobx";
-import {
-	AllNumberOperations, AllOperations,
-	EnvelopeFlag,
-	GachaItem5e,
-	GachaItemType,
-	WishFlag,
-} from "@tme/shared/src/types/GachaItem5e";
+import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
+import { Item as RealItem } from "@tme/library/src/item/Item";
 import { namespace } from "@tme/shared/src/namespaceConfig";
+import type { Actor5e } from "@tme/shared/src/types/actor5e";
+import {
+	AllNumberOperations,
+	type AllOperations,
+	type EnvelopeFlag,
+	type GachaItem5e,
+	GachaItemType,
+	type WishFlag,
+} from "@tme/shared/src/types/GachaItem5e";
+import { makeAutoObservable } from "mobx";
 import { crimsonLuckFoldFixture } from "../../../fixtures/gacha/envelopes/CrimsonLuckFold";
+import { festivalSleeveFixture } from "../../../fixtures/gacha/envelopes/FestivalSleeve";
+import { goldenBlessingSealFixture } from "../../../fixtures/gacha/envelopes/GoldenBlessingSeal";
+import { moongateOfferingFixture } from "../../../fixtures/gacha/envelopes/MoongateOffering";
+import { silkRoadSealFixture } from "../../../fixtures/gacha/envelopes/SilkRoadSeal";
 import { blessingWishFixture } from "../../../fixtures/gacha/wishes/BlessingWish";
 import { celestialWishFixture } from "../../../fixtures/gacha/wishes/CelestialWish";
 import { wishOfBlindnessFixture } from "../../../fixtures/gacha/wishes/WishOfBlindness";
@@ -15,15 +23,8 @@ import { wishOfEmbracementFixture } from "../../../fixtures/gacha/wishes/WishOfE
 import { wishOfFortuneFixture } from "../../../fixtures/gacha/wishes/WishOfFortune";
 import { wishOfGreedFixture } from "../../../fixtures/gacha/wishes/WishOfGreed";
 import { wishOfShatteringFixture } from "../../../fixtures/gacha/wishes/WishOfShattering";
-import { festivalSleeveFixture } from "../../../fixtures/gacha/envelopes/FestivalSleeve";
-import { goldenBlessingSealFixture } from "../../../fixtures/gacha/envelopes/GoldenBlessingSeal";
-import { moongateOfferingFixture } from "../../../fixtures/gacha/envelopes/MoongateOffering";
-import { silkRoadSealFixture } from "../../../fixtures/gacha/envelopes/SilkRoadSeal";
-import { Gacha } from "./Gacha";
-import { Actor5e } from "@tme/shared/src/types/actor5e";
-import {AbstractItem} from "@tme/library/src/item/AbstractItem";
-import {Item as RealItem} from "@tme/library/src/item/Item";
-import {wishOfTheBlade} from "../../../fixtures/gacha/wishes/WishOfTheBlade";
+import { wishOfTheBlade } from "../../../fixtures/gacha/wishes/WishOfTheBlade";
+import type { Gacha } from "./Gacha";
 
 export type Envelope = GachaItem5e<EnvelopeFlag>;
 
@@ -85,7 +86,7 @@ export class Inventory {
 				wishOfFortuneFixture,
 				wishOfGreedFixture,
 				wishOfShatteringFixture,
-				wishOfTheBlade
+				wishOfTheBlade,
 			];
 		}
 		return this.actor.items.filter((item) => {
@@ -200,7 +201,7 @@ export class Inventory {
 		const delay = (): Promise<void> =>
 			new Promise((resolve) => setTimeout(resolve, 200));
 
-		for (const action of closingActions.reverse()){
+		for (const action of closingActions.reverse()) {
 			await delay();
 			action();
 		}
@@ -214,10 +215,10 @@ export class Inventory {
 		}
 
 		const toCreate = items.map((item) => {
-			return RealItem.create(item).export()
-		})
+			return RealItem.create(item).export();
+		});
 
-		await this.actor.createEmbeddedDocuments("Item", toCreate)
+		await this.actor.createEmbeddedDocuments("Item", toCreate);
 		return;
-	}
+	};
 }

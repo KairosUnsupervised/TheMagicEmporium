@@ -1,8 +1,8 @@
 import { namespace } from "@tme/shared/src/namespaceConfig";
 import { ItemType } from "@tme/shared/src/types/item5e";
 import { Icon } from "../../item/icon";
-import { generateIconUrl } from "../../misc/generateIconUrl";
 import { logger } from "../../logger";
+import { generateIconUrl } from "../../misc/generateIconUrl";
 import type { Flavor } from "../../modifiers/modifier.schema";
 import {
 	type ActiveEffectSchema,
@@ -92,10 +92,13 @@ export class ActiveEffect {
 		return definitions
 			.map((definition, index) => {
 				if (!validateActiveEffectSchema(definition)) {
-					logger.notification.all.error(`ActiveEffect at index ${index} has schema mismatches, skipping entry`, {
-						definition,
-						errors: validateActiveEffectSchema.errors,
-					});
+					logger.notification.all.error(
+						`ActiveEffect at index ${index} has schema mismatches, skipping entry`,
+						{
+							definition,
+							errors: validateActiveEffectSchema.errors,
+						},
+					);
 					return null;
 				}
 				return ActiveEffect.create({ ...defaultFlavor, ...definition }, icon);

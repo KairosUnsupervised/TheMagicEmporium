@@ -1,9 +1,12 @@
+import type { Actor5e } from "@tme/shared/src/types/actor5e.ts";
+import type {
+	EnvelopeFlag,
+	GachaItem5e,
+} from "@tme/shared/src/types/GachaItem5e.ts";
 import { GachaReveal } from "@tme/ui/src/components/gacha/GachaReveal.tsx";
+import { gacha } from "@tme/ui/src/context/gacha/library/Gacha.ts";
 import { createElement } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { gacha } from "@tme/ui/src/context/gacha/library/Gacha.ts";
-import {Actor5e} from "@tme/shared/src/types/actor5e.ts";
-import {EnvelopeFlag, GachaItem5e} from "@tme/shared/src/types/GachaItem5e.ts";
 
 const TAG = "tme-gacha-overlay";
 
@@ -70,7 +73,10 @@ export class GachaOverlay {
 	private element: TmeGachaOverlayElement | null = null;
 	private root: Root | null = null;
 
-	public open = (actor: Actor5e, initialEnvelope?: GachaItem5e<EnvelopeFlag>): void => {
+	public open = (
+		actor: Actor5e,
+		initialEnvelope?: GachaItem5e<EnvelopeFlag>,
+	): void => {
 		if (this.element !== null) {
 			return;
 		}

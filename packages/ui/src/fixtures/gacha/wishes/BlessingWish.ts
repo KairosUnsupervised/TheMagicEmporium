@@ -1,11 +1,11 @@
+import { namespace } from "@tme/shared/src/namespaceConfig";
 import {
 	Field,
 	type GachaItem5e,
 	GachaItemType,
 	NumberOperation,
-	WishFlag,
+	type WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
-import { namespace } from "@tme/shared/src/namespaceConfig";
 import img from "./BlessingWish.jpg";
 
 export const blessingWishFixture: GachaItem5e<WishFlag> = {

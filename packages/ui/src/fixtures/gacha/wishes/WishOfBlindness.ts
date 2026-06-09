@@ -1,12 +1,12 @@
+import { namespace } from "@tme/shared/src/namespaceConfig";
 import {
 	Field,
 	type GachaItem5e,
 	GachaItemType,
 	LockOperation,
 	NumberOperation,
-	WishFlag,
+	type WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
-import { namespace } from "@tme/shared/src/namespaceConfig";
 import img from "./WishOfBlindness.jpg";
 
 export const wishOfBlindnessFixture: GachaItem5e<WishFlag> = {
@@ -16,7 +16,8 @@ export const wishOfBlindnessFixture: GachaItem5e<WishFlag> = {
 	system: {
 		quantity: 4,
 		description: {
-			value: "You surrender your sight to fate. +1 Luck to Rarity, you are forced to be blind",
+			value:
+				"You surrender your sight to fate. +1 Luck to Rarity, you are forced to be blind",
 		},
 	},
 	flags: {

@@ -1,4 +1,5 @@
 import { Equipment } from "@tme/library/src/item/equipment/equipment.types";
+import { namespace } from "@tme/shared/src/namespaceConfig";
 import {
 	ArrayOperation,
 	Field,
@@ -6,7 +7,6 @@ import {
 	GachaItemType,
 	type WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
-import { namespace } from "@tme/shared/src/namespaceConfig";
 import img from "./WishOfTheBlade.jpg";
 
 export const wishOfTheBlade: GachaItem5e<WishFlag> = {
@@ -17,7 +17,8 @@ export const wishOfTheBlade: GachaItem5e<WishFlag> = {
 	system: {
 		quantity: 1,
 		description: {
-			value: "Only the dagger finds its mark. Restricts the equipment pool to daggers alone",
+			value:
+				"Only the dagger finds its mark. Restricts the equipment pool to daggers alone",
 		},
 	},
 	flags: {

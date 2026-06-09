@@ -1,11 +1,11 @@
-import type { JSX } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { observer } from "mobx-react-lite";
+import type { JSX } from "react";
 import { useEffect, useState } from "react";
-import { GachaDisplay} from "./GachaDisplay";
-import { GachaIntroHeader } from "./header/GachaIntroHeader";
 import { useGachaContext } from "../../context/gacha/useGachaContext";
+import { GachaDisplay } from "./GachaDisplay";
 import styles from "./GachaReveal.module.css";
+import { GachaIntroHeader } from "./header/GachaIntroHeader";
 
 export interface GachaRevealProps {
 	onClosed?: () => void;
@@ -82,9 +82,7 @@ export const GachaReveal = observer((props: GachaRevealProps) => {
 				transition={clipTransition}
 				onAnimationComplete={handleAnimationComplete}
 			>
-				{phase !== "intro" && (
-					<GachaDisplay/>
-				)}
+				{phase !== "intro" && <GachaDisplay />}
 			</motion.div>
 		</div>
 	);

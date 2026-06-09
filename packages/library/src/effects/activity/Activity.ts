@@ -23,10 +23,13 @@ export class Activity {
 	public static createMultiple = (definitions: unknown[]): Activity[] => {
 		return definitions.map((definition, index) => {
 			if (!validateActivitySchema(definition)) {
-				logger.notification.all.warn(`Activity at index ${index} has schema mismatches, proceeding anyway`, {
-					definition,
-					errors: validateActivitySchema.errors,
-				});
+				logger.notification.all.warn(
+					`Activity at index ${index} has schema mismatches, proceeding anyway`,
+					{
+						definition,
+						errors: validateActivitySchema.errors,
+					},
+				);
 			}
 			return new Activity(definition as ActivitySchema);
 		});

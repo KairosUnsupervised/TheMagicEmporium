@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/react-vite";
-import { themes } from "storybook/theming";
 import { registry } from "@tme/library/src/registry/Registry";
+import { themes } from "storybook/theming";
 
 import accessoriesPack from "../../../apps/core/public/packs/tme.accessories.json";
 import armorPack from "../../../apps/core/public/packs/tme.armor.json";

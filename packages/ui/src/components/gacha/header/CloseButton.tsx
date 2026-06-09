@@ -1,15 +1,14 @@
-import type { JSX } from "react";
 import { motion } from "framer-motion";
+import { observer } from "mobx-react-lite";
+import type { JSX } from "react";
+import { useGachaContext } from "../../../context/gacha/useGachaContext";
 import styles from "./CloseButton.module.css";
-import {observer} from "mobx-react-lite";
-import {useGachaContext} from "../../../context/gacha/useGachaContext";
 
 interface CloseButtonProps {
 	disabled?: boolean;
 }
 
 export const CloseButton = observer((props: CloseButtonProps): JSX.Element => {
-
 	const context = useGachaContext();
 
 	return (

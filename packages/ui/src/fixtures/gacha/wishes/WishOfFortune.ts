@@ -1,11 +1,11 @@
+import { namespace } from "@tme/shared/src/namespaceConfig";
 import {
 	Field,
 	type GachaItem5e,
 	GachaItemType,
 	NumberOperation,
-	WishFlag,
+	type WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
-import { namespace } from "@tme/shared/src/namespaceConfig";
 import img from "./WishOfFortune.jpg";
 
 export const wishOfFortuneFixture: GachaItem5e<WishFlag> = {
@@ -15,7 +15,8 @@ export const wishOfFortuneFixture: GachaItem5e<WishFlag> = {
 	system: {
 		quantity: 4,
 		description: {
-			value: "Call upon the luck that lies dormant in all things. +0.5 Luck to Rarity, +1 Reveals",
+			value:
+				"Call upon the luck that lies dormant in all things. +0.5 Luck to Rarity, +1 Reveals",
 		},
 	},
 	flags: {

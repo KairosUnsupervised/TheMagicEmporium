@@ -1,9 +1,9 @@
-import type {Meta, StoryObj} from "@storybook/react-vite";
-import {commonFixture} from "../../fixtures/items/commonFixture";
-import {rareFixture} from "../../fixtures/items/rareFixture";
-import {uncommonFixture} from "../../fixtures/items/uncommonFixture";
-import {veryRareFixture} from "../../fixtures/items/veryRareFixture";
-import {GachaReveal, type GachaRevealProps} from "./GachaReveal";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { commonFixture } from "../../fixtures/items/commonFixture";
+import { rareFixture } from "../../fixtures/items/rareFixture";
+import { uncommonFixture } from "../../fixtures/items/uncommonFixture";
+import { veryRareFixture } from "../../fixtures/items/veryRareFixture";
+import { GachaReveal, type GachaRevealProps } from "./GachaReveal";
 
 const meta = {
 	title: "Components/Gacha/Reveal",
@@ -12,20 +12,20 @@ const meta = {
 		layout: "fullscreen",
 		backgrounds: {
 			default: "dark",
-			values: [{name: "dark", value: "#040510"}],
+			values: [{ name: "dark", value: "#040510" }],
 		},
 		viewport: {
 			defaultViewport: "custom",
 			viewports: {
 				custom: {
 					name: "1920x1080",
-					styles: {width: "1920px", height: "1080px"},
+					styles: { width: "1920px", height: "1080px" },
 				},
 			},
 		},
 	},
 	render: (props: GachaRevealProps) => (
-		<div style={{width: "1920px", height: "1080px", background: "#040510"}}>
+		<div style={{ width: "1920px", height: "1080px", background: "#040510" }}>
 			<GachaReveal
 				wishes={props.wishes}
 				hiddenRarity={props.hiddenRarity}

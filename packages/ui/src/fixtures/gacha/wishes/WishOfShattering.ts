@@ -1,11 +1,12 @@
+import { namespace } from "@tme/shared/src/namespaceConfig";
 import {
 	Field,
 	type GachaItem5e,
-	GachaItemType, LockOperation,
+	GachaItemType,
+	LockOperation,
 	NumberOperation,
-	WishFlag,
+	type WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
-import { namespace } from "@tme/shared/src/namespaceConfig";
 import img from "./WishOfShattering.jpg";
 
 export const wishOfShatteringFixture: GachaItem5e<WishFlag> = {
@@ -15,7 +16,8 @@ export const wishOfShatteringFixture: GachaItem5e<WishFlag> = {
 	system: {
 		quantity: 4,
 		description: {
-			value: "Fate itself cracks open. Locks to one reveal and one pull. +2 to Luck for Rarity",
+			value:
+				"Fate itself cracks open. Locks to one reveal and one pull. +2 to Luck for Rarity",
 		},
 	},
 	flags: {

@@ -44,12 +44,18 @@ export class Forge {
 
 	public static getGachaAbstractItem = (props: GachaRevealProps) => {
 		const process = new ForgeProcess();
-		const template = this.getTemplate(props.rarityLuck,  props.forcedRarity);
-		const internalTemplate = {...template, luck: template.luck + props.modifierLuck}
+		const template = this.getTemplate(props.rarityLuck, props.forcedRarity);
+		const internalTemplate = {
+			...template,
+			luck: template.luck + props.modifierLuck,
+		};
 
-		process.abstractItem.backgroundEligible = internalTemplate.backgroundEligible;
+		process.abstractItem.backgroundEligible =
+			internalTemplate.backgroundEligible;
 		process.setBase(
-			props.equipmentWhitelist[Math.floor(Math.random() * props.equipmentWhitelist.length)],
+			props.equipmentWhitelist[
+				Math.floor(Math.random() * props.equipmentWhitelist.length)
+			],
 		);
 		Forge.generateGoldValue(process, internalTemplate);
 		Forge.generateModifiers(process, internalTemplate);

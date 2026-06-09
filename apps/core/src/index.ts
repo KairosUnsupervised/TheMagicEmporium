@@ -2,13 +2,13 @@ import { Forge } from "@tme/library/src/forge/Forge.ts";
 import { registry } from "@tme/library/src/registry/Registry.ts";
 import { namespace } from "@tme/shared/src/namespaceConfig";
 import { registerFancyModifierIcons } from "./hooks/registerFancyModifierIcons.ts";
+import { registerGacha } from "./hooks/registerGacha.ts";
 import { registerRarityBorderColors } from "./hooks/registerRarityBorderColors.ts";
 import { registerTooltip } from "./hooks/registerTooltip.ts";
+import { registerValidator } from "./hooks/registerValidator.ts";
 import { logger } from "./logger.ts";
 import { packLoader } from "./packLoader/PackLoader.ts";
 import { Utility } from "./utility/Utility.ts";
-import { registerValidator } from "./hooks/registerValidator.ts";
-import {registerGacha} from "./hooks/registerGacha.ts";
 
 Hooks.once("init", async () => {
 	logger.log("Initializing");
@@ -35,7 +35,7 @@ Hooks.once("ready", async () => {
 	registerFancyModifierIcons();
 	registerRarityBorderColors();
 	registerTooltip();
-	registerGacha()
+	registerGacha();
 });
 
 // @ts-expect-error

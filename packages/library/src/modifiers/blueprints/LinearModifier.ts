@@ -16,10 +16,13 @@ export class LinearModifier extends Modifier<LinearSchema> {
 
 	static create(props: CreateProps): LinearModifier | null {
 		if (!validateLinear(props.definition)) {
-			logger.notification.gm.error("Invalid modifier definition for UniqueModifier, skipping entry", {
-				definition: props.definition,
-				errors: validateLinear.errors,
-			});
+			logger.notification.gm.error(
+				"Invalid modifier definition for UniqueModifier, skipping entry",
+				{
+					definition: props.definition,
+					errors: validateLinear.errors,
+				},
+			);
 			return null;
 		}
 		if (props.enabled) {

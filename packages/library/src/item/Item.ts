@@ -4,11 +4,11 @@ import { type Item5e, ItemType } from "@tme/shared/src/types/item5e";
 import { merge } from "ts-deepmerge";
 import { Activity } from "../effects/activity/Activity";
 import { Change } from "../effects/change/Change";
+import { generateIconUrl } from "../misc/generateIconUrl";
 import type { AppliedModifier } from "../modifiers/Modifier";
 import type { AbstractItem } from "./AbstractItem";
 import { equipmentDetails } from "./equipment/equipment.details";
 import { generateDescriptionV3 } from "./generateDescription";
-import {generateIconUrl} from "../misc/generateIconUrl";
 
 /**
  * Represent a magic item from the 5e system view

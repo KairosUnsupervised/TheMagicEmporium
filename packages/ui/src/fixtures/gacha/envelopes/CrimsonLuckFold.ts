@@ -1,12 +1,12 @@
-import {
-	GachaItemType,
-	type GachaItem5e,
-	EnvelopeFlag,
-	Field,
-	NumberOperation,
-	LockOperation,
-} from "@tme/shared/src/types/GachaItem5e";
 import { namespace } from "@tme/shared/src/namespaceConfig";
+import {
+	type EnvelopeFlag,
+	Field,
+	type GachaItem5e,
+	GachaItemType,
+	LockOperation,
+	NumberOperation,
+} from "@tme/shared/src/types/GachaItem5e";
 import img from "./CrimsonLuckFold.jpg";
 
 export const crimsonLuckFoldFixture: GachaItem5e<EnvelopeFlag> = {

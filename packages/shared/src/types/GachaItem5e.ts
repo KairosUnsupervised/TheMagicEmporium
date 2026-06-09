@@ -1,6 +1,6 @@
-import { DeepPartial } from "../helpers/deepPartial.types";
+import type { DeepPartial } from "../helpers/deepPartial.types";
 import { namespace } from "../namespaceConfig";
-import { Actor5e } from "./actor5e";
+import type { Actor5e } from "./actor5e";
 
 export enum Field {
 	RarityLuck = "RARITY_LUCK",

@@ -1,11 +1,11 @@
-import type {AbstractItem} from "@tme/library/src/item/AbstractItem";
-import {animate} from "animejs";
-import {type CSSProperties, useEffect, useMemo, useRef} from "react";
-import {Header} from "./header/Header";
+import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
+import { animate } from "animejs";
+import { motion } from "framer-motion";
+import { type CSSProperties, useEffect, useMemo, useRef } from "react";
+import { Header } from "./header/Header";
 import styles from "./ItemDisplay.module.css";
-import {Section} from "./section/Section";
-import {Sparkles} from "./sparkles/Sparkles";
-import {motion} from "framer-motion";
+import { Section } from "./section/Section";
+import { Sparkles } from "./sparkles/Sparkles";
 
 export interface ItemDisplayProps {
 	item: AbstractItem;
@@ -16,7 +16,7 @@ const Defs = () => (
 		width="0"
 		height="0"
 		aria-hidden="true"
-		style={{position: "absolute", overflow: "hidden"}}
+		style={{ position: "absolute", overflow: "hidden" }}
 	>
 		<defs>
 			<pattern
@@ -48,7 +48,7 @@ const Corner = (props: CornerProps) => (
 		viewBox="0 0 64 64"
 		aria-hidden="true"
 		className={`${styles.corner} ${props.className}`}
-		style={{"--rotation": `${props.rotation}deg`} as CSSProperties}
+		style={{ "--rotation": `${props.rotation}deg` } as CSSProperties}
 	>
 		<path
 			d="M2 26 L2 2 L26 2"
@@ -86,7 +86,7 @@ const Corner = (props: CornerProps) => (
 			stroke="#f3dca0"
 			strokeWidth="0.7"
 		/>
-		<circle cx="2" cy="2" r="0.8" fill="#f3dca0"/>
+		<circle cx="2" cy="2" r="0.8" fill="#f3dca0" />
 		<circle
 			cx="13"
 			cy="13"
@@ -95,8 +95,8 @@ const Corner = (props: CornerProps) => (
 			stroke="#d4a64a"
 			strokeWidth="0.6"
 		/>
-		<polygon points="22,2 24,4 22,6 20,4" fill="#d4a64a" opacity="0.9"/>
-		<polygon points="2,22 4,20 6,22 4,24" fill="#d4a64a" opacity="0.9"/>
+		<polygon points="22,2 24,4 22,6 20,4" fill="#d4a64a" opacity="0.9" />
+		<polygon points="2,22 4,20 6,22 4,24" fill="#d4a64a" opacity="0.9" />
 	</svg>
 );
 
@@ -125,46 +125,46 @@ export const ItemDisplay = (props: ItemDisplayProps) => {
 		return (
 			<div
 				className={styles.background}
-				style={{backgroundImage: `url(${bg})`}}
+				style={{ backgroundImage: `url(${bg})` }}
 			>
-				<div className={styles.backgroundFilter}/>
+				<div className={styles.backgroundFilter} />
 			</div>
 		);
 	}, [props.item]);
 
 	return (
 		<div>
-			<Defs/>
+			<Defs />
 			<div className={styles.frame}>
 				<svg
 					aria-hidden="true"
 					className={styles.lattice}
 					preserveAspectRatio="xMidYMid slice"
 				>
-					<rect width="100%" height="100%" fill="url(#tme-hex-lat)"/>
+					<rect width="100%" height="100%" fill="url(#tme-hex-lat)" />
 				</svg>
 				<motion.div
 					key={props.item.name}
-					initial={{opacity: 0}}
-					animate={{opacity: 1}}
-					transition={{duration: 0.2, ease: "easeOut"}}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ duration: 0.2, ease: "easeOut" }}
 				>
 					<div ref={cardRef} className={styles.card}>
 						{background}
-						{sparkles.enabled && <Sparkles amount={sparkles.amount}/>}
-						<Corner rotation={0} className={styles.cornerTL}/>
-						<Corner rotation={90} className={styles.cornerTR}/>
-						<Corner rotation={180} className={styles.cornerBR}/>
-						<Corner rotation={270} className={styles.cornerBL}/>
+						{sparkles.enabled && <Sparkles amount={sparkles.amount} />}
+						<Corner rotation={0} className={styles.cornerTL} />
+						<Corner rotation={90} className={styles.cornerTR} />
+						<Corner rotation={180} className={styles.cornerBR} />
+						<Corner rotation={270} className={styles.cornerBL} />
 						<Header
 							name={props.item.name}
 							rarity={props.item.rarity}
 							base={props.item.base}
 							currency={props.item.currency}
 						/>
-						<Section title="PRIMARY" modifiers={props.item.primary}/>
-						<Section title="SECONDARY" modifiers={props.item.secondary}/>
-						<Section title="TERTIARY" modifiers={props.item.tertiary}/>
+						<Section title="PRIMARY" modifiers={props.item.primary} />
+						<Section title="SECONDARY" modifiers={props.item.secondary} />
+						<Section title="TERTIARY" modifiers={props.item.tertiary} />
 					</div>
 				</motion.div>
 			</div>

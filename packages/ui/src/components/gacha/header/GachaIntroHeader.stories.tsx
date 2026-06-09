@@ -1,6 +1,6 @@
-import type {Meta, StoryObj} from "@storybook/react-vite";
-import {GachaIntroHeader} from "./GachaIntroHeader";
-import background from "./background.png"
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import background from "./background.png";
+import { GachaIntroHeader } from "./GachaIntroHeader";
 
 const meta = {
 	title: "Components/Gacha/Header/GachaIntroHeader",
@@ -9,12 +9,15 @@ const meta = {
 		layout: "centered",
 		backgrounds: {
 			default: "dark",
-			values: [{name: "dark", value: "#040510"}],
+			values: [{ name: "dark", value: "#040510" }],
 		},
 	},
 	render: () => (
-		<div className="dark" style={{padding: "80px 120px", backgroundImage: `url("${background}")`}}>
-			<GachaIntroHeader/>
+		<div
+			className="dark"
+			style={{ padding: "80px 120px", backgroundImage: `url("${background}")` }}
+		>
+			<GachaIntroHeader />
 		</div>
 	),
 } satisfies Meta<typeof GachaIntroHeader>;

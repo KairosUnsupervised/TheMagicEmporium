@@ -19,10 +19,13 @@ export class UniqueModifier extends Modifier<UniqueSchema> {
 
 	static create(props: CreateProps): UniqueModifier | null {
 		if (!validateUnique(props.definition)) {
-			logger.notification.gm.error("Invalid modifier definition for UniqueModifier, skipping entry", {
-				definition: props.definition,
-				errors: validateUnique.errors,
-			});
+			logger.notification.gm.error(
+				"Invalid modifier definition for UniqueModifier, skipping entry",
+				{
+					definition: props.definition,
+					errors: validateUnique.errors,
+				},
+			);
 			return null;
 		}
 		if (props.enabled) {

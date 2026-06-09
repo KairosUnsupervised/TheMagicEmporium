@@ -1,11 +1,11 @@
+import { namespace } from "@tme/shared/src/namespaceConfig";
 import {
-	GachaItemType,
-	type GachaItem5e,
-	EnvelopeFlag,
+	type EnvelopeFlag,
 	Field,
+	type GachaItem5e,
+	GachaItemType,
 	NumberOperation,
 } from "@tme/shared/src/types/GachaItem5e";
-import { namespace } from "@tme/shared/src/namespaceConfig";
 import img from "./FestivalSleeve.jpg";
 
 export const festivalSleeveFixture: GachaItem5e<EnvelopeFlag> = {

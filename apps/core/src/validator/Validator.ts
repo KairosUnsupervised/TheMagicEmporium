@@ -104,7 +104,9 @@ export class Validator {
 				const modifier = registry.get(identifier);
 
 				if (!modifier) {
-					logger.notification.all.error(`Could not find modifier ${identifier} in registry`);
+					logger.notification.all.error(
+						`Could not find modifier ${identifier} in registry`,
+					);
 					return;
 				}
 

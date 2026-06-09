@@ -21,10 +21,13 @@ export class Change {
 		return definitions
 			.map((definition, index) => {
 				if (!validateChangeSchema(definition)) {
-					logger.notification.all.error(`Change at index ${index} has schema mismatches, skipping entry`, {
-						definition,
-						errors: validateChangeSchema.errors,
-					});
+					logger.notification.all.error(
+						`Change at index ${index} has schema mismatches, skipping entry`,
+						{
+							definition,
+							errors: validateChangeSchema.errors,
+						},
+					);
 					return null;
 				}
 				return new Change(definition as ChangeSchema);

@@ -1,6 +1,6 @@
-import { useMemo } from "react";
-import type { JSX } from "react";
 import { motion, type Variants } from "framer-motion";
+import type { JSX } from "react";
+import { useMemo } from "react";
 import styles from "./Diamond.module.css";
 
 export enum DiamondType {

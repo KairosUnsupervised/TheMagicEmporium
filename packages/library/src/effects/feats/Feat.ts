@@ -1,7 +1,7 @@
 import { merge } from "ts-deepmerge";
 import { Icon } from "../../item/icon";
-import { generateIconUrl } from "../../misc/generateIconUrl";
 import { logger } from "../../logger";
+import { generateIconUrl } from "../../misc/generateIconUrl";
 import type { Flavor } from "../../modifiers/modifier.schema";
 import type { ActivitySchema } from "../../schemas/parts/activity.schema";
 import {
