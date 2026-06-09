@@ -1,5 +1,6 @@
 import type { DeepPartial } from "@tme/shared/src/helpers/deepPartial.types.ts";
 import { namespace } from "@tme/shared/src/namespaceConfig.ts";
+import type { Actor5e } from "@tme/shared/src/types/actor5e.ts";
 import type { Item5e } from "@tme/shared/src/types/item5e.ts";
 import { ItemType } from "@tme/shared/src/types/item5e.ts";
 import { Validator } from "../validator/Validator.ts";
@@ -10,12 +11,29 @@ const isMagicItem = (item: Item5e): boolean => {
 	return item.flags[namespace.core.id]?.type === ItemType.MagicItem;
 };
 
+const debounceTimers = new WeakMap<Actor5e, ReturnType<typeof setTimeout>>();
+
+const scheduleValidation = (actor: Actor5e): void => {
+	const existing = debounceTimers.get(actor);
+	if (existing) {
+		clearTimeout(existing);
+	}
+	debounceTimers.set(
+		actor,
+		setTimeout(() => {
+			debounceTimers.delete(actor);
+			void validator.validate(actor);
+		}, 50),
+	);
+};
+
 export const registerValidator = () => {
 	Hooks.on(
 		"updateItem",
 		(
 			item: Item5e,
 			update: DeepPartial<Item5e>,
+			// biome-ignore lint/suspicious/noExplicitAny: FoundryVTT
 			_context: any,
 			userId: string,
 		) => {
@@ -29,7 +47,7 @@ export const registerValidator = () => {
 				return;
 			}
 
-			void validator.validate(item.actor);
+			scheduleValidation(item.actor);
 		},
 	);
 
@@ -40,11 +58,11 @@ export const registerValidator = () => {
 		if (!isMagicItem(item)) {
 			return;
 		}
-		if(!item.actor){
+		if (!item.actor) {
 			return;
 		}
 
-		void validator.validate(item.actor);
+		scheduleValidation(item.actor);
 	});
 
 	Hooks.on("deleteItem", (item: Item5e, _options: unknown, userId: string) => {
@@ -54,10 +72,10 @@ export const registerValidator = () => {
 		if (!isMagicItem(item)) {
 			return;
 		}
-		if(!item.actor){
+		if (!item.actor) {
 			return;
 		}
 
-		void validator.validate(item.actor);
+		scheduleValidation(item.actor);
 	});
 };
