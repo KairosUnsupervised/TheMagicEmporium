@@ -1,5 +1,6 @@
 import {DeepPartial} from "../helpers/deepPartial.types";
 import {namespace} from "../namespaceConfig";
+import {Actor5e} from "./actor5e";
 
 export enum Field {
     RarityLuck = "RARITY_LUCK",
@@ -67,4 +68,5 @@ export interface GachaItem5e<Flag = EnvelopeFlag | WishFlag> {
     };
     update: (data: DeepPartial<GachaItem5e>) => Promise<void>;
     delete: () => Promise<void>;
+    actor?: Actor5e;
 }

@@ -5,5 +5,5 @@ export enum GachaImage {
 }
 
 export const generateGachaImageUrl = (image: GachaImage) => {
-    return `/modules/${namespace.core.id}/gacha/${image}`;
+    return `modules/${namespace.core.id}/gacha/${image}`;
 };

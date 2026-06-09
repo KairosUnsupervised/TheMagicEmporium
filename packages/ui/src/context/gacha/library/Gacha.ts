@@ -4,6 +4,8 @@ import {PullProcess} from "./PullProcess";
 import {makeAutoObservable} from "mobx";
 import {PullSelect} from "./PullSelect";
 import {registry} from "@tme/library/src/registry/Registry";
+import {Actor5e} from "@tme/shared/src/types/actor5e";
+import {EnvelopeFlag, GachaItem5e} from "@tme/shared/src/types/GachaItem5e";
 
 export class Gacha {
 
@@ -23,6 +25,7 @@ export class Gacha {
         this.pullProcess = new PullProcess()
 
         const operations = this.inventory.getAllOperations()
+        console.log(operations)
 
         operations.forEach((operation) => {
             this.pullProcess.applyOperation(operation)
@@ -54,7 +57,13 @@ export class Gacha {
         this.pullSelect.startProcess(this.pullProcess)
     }
 
-    public setOpen = () => {
+    public setOpen = (actor?: Actor5e, initialEnvelope?: GachaItem5e<EnvelopeFlag>) => {
+        this.inventory = new Inventory(this, actor);
+        if(initialEnvelope) {
+            if(this.inventory.getActorEnvelopes().includes(initialEnvelope)) {
+                this.inventory.setEnvelope(initialEnvelope);
+            }
+        }
         this.isOpen = true;
     }
 

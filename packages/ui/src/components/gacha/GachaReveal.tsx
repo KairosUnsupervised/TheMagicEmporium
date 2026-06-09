@@ -2,12 +2,12 @@ import type { JSX } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { observer } from "mobx-react-lite";
 import { useEffect, useState } from "react";
-import { GachaDisplay, type GachaDisplayProps } from "./GachaDisplay";
+import { GachaDisplay} from "./GachaDisplay";
 import { GachaIntroHeader } from "./header/GachaIntroHeader";
 import { useGachaContext } from "../../context/gacha/useGachaContext";
 import styles from "./GachaReveal.module.css";
 
-export interface GachaRevealProps extends GachaDisplayProps {
+export interface GachaRevealProps {
 	onClosed?: () => void;
 }
 
@@ -16,7 +16,7 @@ type IntroPhase = "intro" | "iris" | "open" | "closing";
 const irisTransition = { duration: 1.2, ease: [0.85, 0, 0.25, 1] } as const;
 const closeTransition = { duration: 0.9, ease: [0.85, 0, 0.25, 1] } as const;
 
-export const GachaReveal = observer((props: GachaRevealProps): JSX.Element => {
+export const GachaReveal = observer((props: GachaRevealProps) => {
 	const context = useGachaContext();
 	const [phase, setPhase] = useState<IntroPhase>("intro");
 
@@ -83,13 +83,7 @@ export const GachaReveal = observer((props: GachaRevealProps): JSX.Element => {
 				onAnimationComplete={handleAnimationComplete}
 			>
 				{phase !== "intro" && (
-					<GachaDisplay
-						wishes={props.wishes}
-						hiddenRarity={props.hiddenRarity}
-						hiddenName={props.hiddenName}
-						hiddenType={props.hiddenType}
-						hiddenImage={props.hiddenImage}
-					/>
+					<GachaDisplay/>
 				)}
 			</motion.div>
 		</div>

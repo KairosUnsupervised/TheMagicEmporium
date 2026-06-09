@@ -1,24 +1,26 @@
-import { makeAutoObservable } from "mobx";
+import {makeAutoObservable} from "mobx";
 import {
 	AllNumberOperations,
 	EnvelopeFlag,
 	GachaItem5e,
+	GachaItemType,
 	WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
-import { namespace } from "@tme/shared/src/namespaceConfig";
-import { crimsonLuckFoldFixture } from "../../../fixtures/gacha/envelopes/CrimsonLuckFold";
-import { blessingWishFixture } from "../../../fixtures/gacha/wishes/BlessingWish";
-import { celestialWishFixture } from "../../../fixtures/gacha/wishes/CelestialWish";
-import { wishOfBlindnessFixture } from "../../../fixtures/gacha/wishes/WishOfBlindness";
-import { wishOfEmbracementFixture } from "../../../fixtures/gacha/wishes/WishOfEmbracement";
-import { wishOfFortuneFixture } from "../../../fixtures/gacha/wishes/WishOfFortune";
-import { wishOfGreedFixture } from "../../../fixtures/gacha/wishes/WishOfGreed";
-import { wishOfShatteringFixture } from "../../../fixtures/gacha/wishes/WishOfShattering";
-import { festivalSleeveFixture } from "../../../fixtures/gacha/envelopes/FestivalSleeve";
-import { goldenBlessingSealFixture } from "../../../fixtures/gacha/envelopes/GoldenBlessingSeal";
-import { moongateOfferingFixture } from "../../../fixtures/gacha/envelopes/MoongateOffering";
-import { silkRoadSealFixture } from "../../../fixtures/gacha/envelopes/SilkRoadSeal";
-import { Gacha } from "./Gacha";
+import {namespace} from "@tme/shared/src/namespaceConfig";
+import {crimsonLuckFoldFixture} from "../../../fixtures/gacha/envelopes/CrimsonLuckFold";
+import {blessingWishFixture} from "../../../fixtures/gacha/wishes/BlessingWish";
+import {celestialWishFixture} from "../../../fixtures/gacha/wishes/CelestialWish";
+import {wishOfBlindnessFixture} from "../../../fixtures/gacha/wishes/WishOfBlindness";
+import {wishOfEmbracementFixture} from "../../../fixtures/gacha/wishes/WishOfEmbracement";
+import {wishOfFortuneFixture} from "../../../fixtures/gacha/wishes/WishOfFortune";
+import {wishOfGreedFixture} from "../../../fixtures/gacha/wishes/WishOfGreed";
+import {wishOfShatteringFixture} from "../../../fixtures/gacha/wishes/WishOfShattering";
+import {festivalSleeveFixture} from "../../../fixtures/gacha/envelopes/FestivalSleeve";
+import {goldenBlessingSealFixture} from "../../../fixtures/gacha/envelopes/GoldenBlessingSeal";
+import {moongateOfferingFixture} from "../../../fixtures/gacha/envelopes/MoongateOffering";
+import {silkRoadSealFixture} from "../../../fixtures/gacha/envelopes/SilkRoadSeal";
+import {Gacha} from "./Gacha";
+import {Actor5e} from "@tme/shared/src/types/actor5e";
 
 export type Envelope = GachaItem5e<EnvelopeFlag>;
 
@@ -29,6 +31,7 @@ export interface AvailableWish {
 
 export class Inventory {
 	private gacha: Gacha;
+	private readonly actor: Actor5e | null = null;
 	public envelopeSelected: Envelope | null = null;
 	public wishesSelected: (GachaItem5e<WishFlag> | null)[] = [
 		null,
@@ -37,30 +40,55 @@ export class Inventory {
 		null,
 	];
 
-	constructor(gacha: Gacha) {
+	constructor(gacha: Gacha, actor?: Actor5e) {
 		makeAutoObservable(this);
 		this.gacha = gacha;
+		this.actor = actor;
 	}
 
-	// TODO Unresolved inventory issue: How to deal with zero amount stacks => onLoad inventory, filter out 0 amount stacks
-	// TODO Unresolved inventory issue: How to deal with multiple stacks of the same item => onLoad inventory take first stack only
-	public envelopes: Envelope[] = [
-		crimsonLuckFoldFixture,
-		festivalSleeveFixture,
-		goldenBlessingSealFixture,
-		moongateOfferingFixture,
-		silkRoadSealFixture,
-	];
+	public getActorEnvelopes = (): GachaItem5e<EnvelopeFlag>[] => {
+		if (!this.actor) {
+			return [
+				crimsonLuckFoldFixture,
+				festivalSleeveFixture,
+				goldenBlessingSealFixture,
+				moongateOfferingFixture,
+				silkRoadSealFixture,
+			];
+		}
+		return this.actor.items.filter((item) => {
 
-	private wishes: GachaItem5e<WishFlag>[] = [
-		blessingWishFixture,
-		celestialWishFixture,
-		wishOfBlindnessFixture,
-		wishOfEmbracementFixture,
-		wishOfFortuneFixture,
-		wishOfGreedFixture,
-		wishOfShatteringFixture,
-	];
+			if (item.system.quantity <= 0) {
+				return false;
+			}
+
+			return (item as unknown as GachaItem5e).flags[namespace.gacha.id]?.type === GachaItemType.Envelope
+		}) as unknown as GachaItem5e<EnvelopeFlag>[]
+	}
+
+	public getActorWishes = (): GachaItem5e<WishFlag>[] => {
+		if (!this.actor) {
+			return [
+				blessingWishFixture,
+				celestialWishFixture,
+				wishOfBlindnessFixture,
+				wishOfEmbracementFixture,
+				wishOfFortuneFixture,
+				wishOfGreedFixture,
+				wishOfShatteringFixture,
+			];
+		}
+		return this.actor.items.filter((item) => {
+
+			if (item.system.quantity <= 0) {
+				return false;
+			}
+
+			return (item as unknown as GachaItem5e).flags[namespace.gacha.id]?.type === GachaItemType.Wish
+		}) as unknown as GachaItem5e<WishFlag>[]
+	}
+
+	// TODO Unresolved inventory issue: How to deal with multiple stacks of the same item => onLoad inventory take first stack only
 
 	public setEnvelope(envelope: Envelope | null): void {
 		this.envelopeSelected = envelope;
@@ -80,10 +108,17 @@ export class Inventory {
 	};
 
 	public getAvailableWishes = (index: number): AvailableWish[] => {
-		return this.wishes.map((wish) => ({
+		return this.getActorWishes().map((wish) => ({
 			item: wish,
 			locked: this.wishesSelected.some(
-				(selected, slotIndex) => selected === wish && slotIndex !== index,
+				(selected, slotIndex) => {
+
+					if(!selected || !wish){
+						return false;
+					}
+
+					return selected.flags[namespace.gacha.id].id === wish.flags[namespace.gacha.id].id && slotIndex !== index
+				},
 			),
 		}));
 	};

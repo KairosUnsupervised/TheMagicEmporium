@@ -2,6 +2,8 @@ import { GachaReveal } from "@tme/ui/src/components/gacha/GachaReveal.tsx";
 import { createElement } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { gacha } from "@tme/ui/src/context/gacha/library/Gacha.ts";
+import {Actor5e} from "@tme/shared/src/types/actor5e.ts";
+import {EnvelopeFlag, GachaItem5e} from "@tme/shared/src/types/GachaItem5e.ts";
 
 const TAG = "tme-gacha-overlay";
 
@@ -68,7 +70,7 @@ export class GachaOverlay {
 	private element: TmeGachaOverlayElement | null = null;
 	private root: Root | null = null;
 
-	public open = (wishes: unknown[]): void => {
+	public open = (actor: Actor5e, initialEnvelope?: GachaItem5e<EnvelopeFlag>): void => {
 		if (this.element !== null) {
 			return;
 		}
@@ -80,9 +82,9 @@ export class GachaOverlay {
 		document.body.appendChild(this.element);
 		this.root = createRoot(this.element.getMountPoint());
 
-		gacha.setOpen();
+		gacha.setOpen(actor, initialEnvelope);
 
-		this.root.render(createElement(GachaReveal, { wishes, onClosed: this.close }));
+		this.root.render(createElement(GachaReveal, { onClosed: this.close }));
 	};
 
 	public close = (): void => {

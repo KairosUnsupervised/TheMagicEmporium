@@ -27,7 +27,7 @@ export const EnvelopeInput = observer(() => {
 
 	const context = useGachaContext();
 	const selected = context.inventory.envelopeSelected;
-	const all = context.inventory.envelopes;
+	const all = context.inventory.getActorEnvelopes();
 
 	const hoveredEnvelope =
 		hoveredId !== null ? (all.find((e) => e.id === hoveredId) ?? null) : null;

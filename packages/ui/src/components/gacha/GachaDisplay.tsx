@@ -5,18 +5,8 @@ import {StarSystem} from "./content/StarSystem";
 import {Vignette} from "./content/Vignette";
 import {PullOverlay} from "./pull/PullOverlay";
 import {GachaImage, generateGachaImageUrl} from "@tme/library/src/misc/generateGachaImageUrl";
-import {useGachaContext} from "../../context/gacha/useGachaContext";
 
-export interface GachaDisplayProps {
-	wishes: unknown[];
-	hiddenRarity?: boolean;
-	hiddenName?: boolean;
-	hiddenType?: boolean;
-	hiddenImage?: boolean;
-}
-
-export const GachaDisplay = (props: GachaDisplayProps) => {
-	useGachaContext();
+export const GachaDisplay = () => {
 
 	return (
 		<div className={styles.root}>
@@ -26,7 +16,7 @@ export const GachaDisplay = (props: GachaDisplayProps) => {
 			/>
 			<div className={styles.bgOverlay}/>
 			<GachaHeader/>
-			<StarSystem wishes={props.wishes}/>
+			<StarSystem/>
 			<div className={styles.footer}>
 				<DrawButton/>
 			</div>

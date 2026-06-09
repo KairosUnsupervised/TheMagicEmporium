@@ -41,11 +41,7 @@ const StarField = (): JSX.Element => (
 	</svg>
 );
 
-export interface StarSystemProps {
-	wishes: unknown[];
-}
-
-export const StarSystem = (_props: StarSystemProps): JSX.Element => {
+export const StarSystem = () => {
 	return (
 		<div className={styles.root}>
 			<StarField/>
