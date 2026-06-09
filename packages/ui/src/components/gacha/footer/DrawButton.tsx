@@ -24,7 +24,7 @@ export interface DrawButtonProps {
 
 export const DrawButton = observer((props: DrawButtonProps): JSX.Element => {
 	const context = useGachaContext();
-	const isDisabled = !context.pullProcess.isPossible();
+	const isDisabled = !(context.inventory.envelopeSelected && context.pullProcess.isPossible());
 	const handleClick = props.onClick ?? context.onConfirm;
 
 	const [label] = useState<string>(

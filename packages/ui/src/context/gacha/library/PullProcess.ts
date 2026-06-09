@@ -38,7 +38,9 @@ export class PullProcess {
 		}
 	};
 
-	// TODO currently we don't account for a envelope to be present
+	/**
+	 * Checks if a pull process is possible, doesnt account for a envelope to be required
+	 */
     public isPossible = () => {
         return this.revealAmount.getValue() >= 1 && this.pickAmount.getValue() >= 1;
     }
