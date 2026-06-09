@@ -53,7 +53,8 @@ export class Gacha {
         return Math.min(1, Math.max(-1, totalLuck * 0.25)); // Internally cap it at -4 and +4 combined luck
     }
 
-    public onConfirm = () => {
+    public onConfirm = async () => {
+        await this.inventory.closeAll()
         this.pullSelect.startProcess(this.pullProcess)
         this.inventory.consumeItems()
     }

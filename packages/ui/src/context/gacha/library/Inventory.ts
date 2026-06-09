@@ -1,4 +1,4 @@
-import {makeAutoObservable} from "mobx";
+import { makeAutoObservable } from "mobx";
 import {
 	AllNumberOperations,
 	EnvelopeFlag,
@@ -6,21 +6,21 @@ import {
 	GachaItemType,
 	WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
-import {namespace} from "@tme/shared/src/namespaceConfig";
-import {crimsonLuckFoldFixture} from "../../../fixtures/gacha/envelopes/CrimsonLuckFold";
-import {blessingWishFixture} from "../../../fixtures/gacha/wishes/BlessingWish";
-import {celestialWishFixture} from "../../../fixtures/gacha/wishes/CelestialWish";
-import {wishOfBlindnessFixture} from "../../../fixtures/gacha/wishes/WishOfBlindness";
-import {wishOfEmbracementFixture} from "../../../fixtures/gacha/wishes/WishOfEmbracement";
-import {wishOfFortuneFixture} from "../../../fixtures/gacha/wishes/WishOfFortune";
-import {wishOfGreedFixture} from "../../../fixtures/gacha/wishes/WishOfGreed";
-import {wishOfShatteringFixture} from "../../../fixtures/gacha/wishes/WishOfShattering";
-import {festivalSleeveFixture} from "../../../fixtures/gacha/envelopes/FestivalSleeve";
-import {goldenBlessingSealFixture} from "../../../fixtures/gacha/envelopes/GoldenBlessingSeal";
-import {moongateOfferingFixture} from "../../../fixtures/gacha/envelopes/MoongateOffering";
-import {silkRoadSealFixture} from "../../../fixtures/gacha/envelopes/SilkRoadSeal";
-import {Gacha} from "./Gacha";
-import {Actor5e} from "@tme/shared/src/types/actor5e";
+import { namespace } from "@tme/shared/src/namespaceConfig";
+import { crimsonLuckFoldFixture } from "../../../fixtures/gacha/envelopes/CrimsonLuckFold";
+import { blessingWishFixture } from "../../../fixtures/gacha/wishes/BlessingWish";
+import { celestialWishFixture } from "../../../fixtures/gacha/wishes/CelestialWish";
+import { wishOfBlindnessFixture } from "../../../fixtures/gacha/wishes/WishOfBlindness";
+import { wishOfEmbracementFixture } from "../../../fixtures/gacha/wishes/WishOfEmbracement";
+import { wishOfFortuneFixture } from "../../../fixtures/gacha/wishes/WishOfFortune";
+import { wishOfGreedFixture } from "../../../fixtures/gacha/wishes/WishOfGreed";
+import { wishOfShatteringFixture } from "../../../fixtures/gacha/wishes/WishOfShattering";
+import { festivalSleeveFixture } from "../../../fixtures/gacha/envelopes/FestivalSleeve";
+import { goldenBlessingSealFixture } from "../../../fixtures/gacha/envelopes/GoldenBlessingSeal";
+import { moongateOfferingFixture } from "../../../fixtures/gacha/envelopes/MoongateOffering";
+import { silkRoadSealFixture } from "../../../fixtures/gacha/envelopes/SilkRoadSeal";
+import { Gacha } from "./Gacha";
+import { Actor5e } from "@tme/shared/src/types/actor5e";
 
 export type Envelope = GachaItem5e<EnvelopeFlag>;
 
@@ -32,13 +32,17 @@ export interface AvailableWish {
 export class Inventory {
 	private gacha: Gacha;
 	private readonly actor: Actor5e | null = null;
+
 	public envelopeSelected: Envelope | null = null;
+	public isEnvelopeSelectOpen: boolean = false;
+
 	public wishesSelected: (GachaItem5e<WishFlag> | null)[] = [
 		null,
 		null,
 		null,
 		null,
 	];
+	public isWishSelectOpen: boolean[] = [false, false, false, false];
 
 	constructor(gacha: Gacha, actor?: Actor5e) {
 		makeAutoObservable(this);
@@ -57,14 +61,16 @@ export class Inventory {
 			];
 		}
 		return this.actor.items.filter((item) => {
-
 			if (item.system.quantity <= 0) {
 				return false;
 			}
 
-			return (item as unknown as GachaItem5e).flags[namespace.gacha.id]?.type === GachaItemType.Envelope
-		}) as unknown as GachaItem5e<EnvelopeFlag>[]
-	}
+			return (
+				(item as unknown as GachaItem5e).flags[namespace.gacha.id]?.type ===
+				GachaItemType.Envelope
+			);
+		}) as unknown as GachaItem5e<EnvelopeFlag>[];
+	};
 
 	public getActorWishes = (): GachaItem5e<WishFlag>[] => {
 		if (!this.actor) {
@@ -79,16 +85,16 @@ export class Inventory {
 			];
 		}
 		return this.actor.items.filter((item) => {
-
 			if (item.system.quantity <= 0) {
 				return false;
 			}
 
-			return (item as unknown as GachaItem5e).flags[namespace.gacha.id]?.type === GachaItemType.Wish
-		}) as unknown as GachaItem5e<WishFlag>[]
-	}
-
-	// TODO Unresolved inventory issue: How to deal with multiple stacks of the same item => onLoad inventory take first stack only
+			return (
+				(item as unknown as GachaItem5e).flags[namespace.gacha.id]?.type ===
+				GachaItemType.Wish
+			);
+		}) as unknown as GachaItem5e<WishFlag>[];
+	};
 
 	public setEnvelope(envelope: Envelope | null): void {
 		this.envelopeSelected = envelope;
@@ -110,16 +116,16 @@ export class Inventory {
 	public getAvailableWishes = (index: number): AvailableWish[] => {
 		return this.getActorWishes().map((wish) => ({
 			item: wish,
-			locked: this.wishesSelected.some(
-				(selected, slotIndex) => {
+			locked: this.wishesSelected.some((selected, slotIndex) => {
+				if (!selected || !wish) {
+					return false;
+				}
 
-					if(!selected || !wish){
-						return false;
-					}
-
-					return selected.flags[namespace.gacha.id].id === wish.flags[namespace.gacha.id].id && slotIndex !== index
-				},
-			),
+				return (
+					selected.flags[namespace.gacha.id].id ===
+						wish.flags[namespace.gacha.id].id && slotIndex !== index
+				);
+			}),
 		}));
 	};
 
@@ -133,30 +139,68 @@ export class Inventory {
 	};
 
 	public consumeItems = async (): Promise<void> => {
-
-		if(!this.actor){
+		if (!this.actor) {
 			return;
 		}
 
-		await Promise.all([...this.wishesSelected, this.envelopeSelected].map(async (item) => {
-			if(!item){
-				return;
-			}
+		await Promise.all(
+			[...this.wishesSelected, this.envelopeSelected].map(async (item) => {
+				if (!item) {
+					return;
+				}
 
-			if(item.system.quantity >= 2){
-				return item.update({system: {quantity: item.system.quantity - 1}})
-			}
+				if (item.system.quantity >= 2) {
+					return item.update({
+						system: { quantity: item.system.quantity - 1 },
+					});
+				}
 
-			if(this.envelopeSelected === item){
-				this.setEnvelope(null);
-				return item.delete()
-			}
+				if (this.envelopeSelected === item) {
+					this.setEnvelope(null);
+					return item.delete();
+				}
 
-			if(this.wishesSelected.includes(item as GachaItem5e<WishFlag>)){
-				this.setWish(this.wishesSelected.indexOf(item as GachaItem5e<WishFlag>), null);
-			}
+				if (this.wishesSelected.includes(item as GachaItem5e<WishFlag>)) {
+					this.setWish(
+						this.wishesSelected.indexOf(item as GachaItem5e<WishFlag>),
+						null,
+					);
+				}
 
-			return item.delete()
-		}))
-	}
+				return item.delete();
+			}),
+		);
+	};
+
+	public closeAll = async (): Promise<void> => {
+		const closingActions: (() => void)[] = [];
+
+		if (this.isEnvelopeSelectOpen) {
+			closingActions.push(() => {
+				this.isEnvelopeSelectOpen = false;
+			});
+		}
+
+		this.isWishSelectOpen.forEach((isOpen, index) => {
+			if (isOpen) {
+				closingActions.push(() => {
+					this.isWishSelectOpen[index] = false;
+				});
+			}
+		});
+
+		if (closingActions.length === 0) {
+			return;
+		}
+
+		const delay = (): Promise<void> =>
+			new Promise((resolve) => setTimeout(resolve, 200));
+
+		for (const action of closingActions.reverse()){
+			await delay();
+			action();
+		}
+
+		await delay();
+	};
 }

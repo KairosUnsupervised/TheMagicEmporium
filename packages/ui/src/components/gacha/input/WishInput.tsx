@@ -27,11 +27,12 @@ interface WishInputProps {
 }
 
 export const WishInput = observer((props: WishInputProps): JSX.Element => {
-	const [open, setOpen] = useState(false);
+
+	const context = useGachaContext();
 	const [hoveredId, setHoveredId] = useState<string | null>(null);
 	const [tileRef, animateTile] = useAnimate<HTMLDivElement>();
 
-	const context = useGachaContext();
+	const open = context.inventory.isWishSelectOpen[props.index]
 	const selected = context.inventory.getWish(props.index);
 	const all = context.inventory.getAvailableWishes(props.index);
 
@@ -48,14 +49,14 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 
 	const handleTileClick = useCallback((): void => {
 		if (all.length > 0) {
-			setOpen((prev) => !prev);
+			context.inventory.isWishSelectOpen[props.index] = !open;
 		}
 	}, [all.length]);
 
 	const handleSelect = useCallback(
 		(wish: GachaItem5e<WishFlag>): void => {
 			context.inventory.setWish(props.index, wish);
-			setOpen(false);
+			context.inventory.isWishSelectOpen[props.index] = false;
 			animateTile(
 				tileRef.current,
 				{ scale: [1, 1.1, 1] },
@@ -76,7 +77,7 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 	);
 
 	const handleClose = useCallback((): void => {
-		setOpen(false);
+		context.inventory.isWishSelectOpen[props.index] = false;
 	}, []);
 
 	return (

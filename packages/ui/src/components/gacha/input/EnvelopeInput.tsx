@@ -1,9 +1,9 @@
-import { AnimatePresence, motion, useAnimate } from "framer-motion";
-import { useCallback, useState } from "react";
-import { observer } from "mobx-react-lite";
-import { useGachaContext } from "../../../context/gacha/useGachaContext";
-import type { Envelope } from "../../../context/gacha/library/Inventory";
-import { Tooltip } from "./Tooltip";
+import {AnimatePresence, motion, useAnimate} from "framer-motion";
+import {useCallback, useState} from "react";
+import {observer} from "mobx-react-lite";
+import {useGachaContext} from "../../../context/gacha/useGachaContext";
+import type {Envelope} from "../../../context/gacha/library/Inventory";
+import {Tooltip} from "./Tooltip";
 import styles from "./EnvelopeInput.module.css";
 
 const ORBIT_RADIUS = 160;
@@ -21,11 +21,10 @@ const computeOrbitPosition = (
 };
 
 export const EnvelopeInput = observer(() => {
-	const [open, setOpen] = useState(false);
-	const [hoveredId, setHoveredId] = useState<string | null>(null);
-	const [tileRef, animateTile] = useAnimate<HTMLDivElement>();
 
 	const context = useGachaContext();
+	const [hoveredId, setHoveredId] = useState<string | null>(null);
+	const [tileRef, animateTile] = useAnimate<HTMLDivElement>();
 	const selected = context.inventory.envelopeSelected;
 	const all = context.inventory.getActorEnvelopes();
 
@@ -40,23 +39,23 @@ export const EnvelopeInput = observer(() => {
 
 	const handleTileClick = useCallback((): void => {
 		if (all.length > 0) {
-			setOpen((prev) => !prev);
+			context.inventory.isEnvelopeSelectOpen = !context.inventory.isEnvelopeSelectOpen;
 		}
 	}, [all.length]);
 
 	const handleSelect = useCallback(
 		(envelope: Envelope): void => {
 			context.inventory.setEnvelope(envelope);
-			setOpen(false);
+			context.inventory.isEnvelopeSelectOpen = false;
 			animateTile(
 				tileRef.current,
-				{ scale: [1, 1.1, 1] },
-				{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] },
+				{scale: [1, 1.1, 1]},
+				{duration: 0.4, ease: [0.34, 1.56, 0.64, 1]},
 			);
 			animateTile(
 				tileRef.current,
-				{ filter: ["brightness(1)", "brightness(2)", "brightness(1)"] },
-				{ duration: 0.5, times: [0, 0.15, 1], ease: "easeOut", delay: 0.1 },
+				{filter: ["brightness(1)", "brightness(2)", "brightness(1)"]},
+				{duration: 0.5, times: [0, 0.15, 1], ease: "easeOut", delay: 0.1},
 			).then(() => {
 				if (tileRef.current) {
 					tileRef.current.style.transform = "";
@@ -68,11 +67,11 @@ export const EnvelopeInput = observer(() => {
 	);
 
 	const handleClose = useCallback((): void => {
-		setOpen(false);
+		context.inventory.isEnvelopeSelectOpen = false;
 	}, []);
 
 	return (
-		<div className={`${styles.wrapper} ${open ? styles.wrapperOpen : ""}`}>
+		<div className={`${styles.wrapper} ${context.inventory.isEnvelopeSelectOpen ? styles.wrapperOpen : ""}`}>
 			<AnimatePresence>
 				{selected && (
 					<motion.button
@@ -82,23 +81,23 @@ export const EnvelopeInput = observer(() => {
 							e.stopPropagation();
 							context.inventory.setEnvelope(null);
 						}}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-						transition={{ duration: 0.2 }}
+						initial={{opacity: 0}}
+						animate={{opacity: 1}}
+						exit={{opacity: 0}}
+						transition={{duration: 0.2}}
 					>
 						✕
 					</motion.button>
 				)}
 			</AnimatePresence>
 			<AnimatePresence>
-				{open && (
+				{context.inventory.isEnvelopeSelectOpen && (
 					<motion.div
 						className={styles.backdrop}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-						transition={{ duration: 0.15 }}
+						initial={{opacity: 0}}
+						animate={{opacity: 1}}
+						exit={{opacity: 0}}
+						transition={{duration: 0.15}}
 						onClick={handleClose}
 					/>
 				)}
@@ -106,7 +105,7 @@ export const EnvelopeInput = observer(() => {
 
 			<div className={styles.orbitContainer}>
 				<AnimatePresence>
-					{open && (
+					{context.inventory.isEnvelopeSelectOpen && (
 						<motion.svg
 							className={styles.ringSvg}
 							viewBox={`${-SVG_HALF} ${-SVG_HALF} ${SVG_HALF * 2} ${SVG_HALF * 2}`}
@@ -125,26 +124,26 @@ export const EnvelopeInput = observer(() => {
 								stroke="rgba(212, 166, 74, 0.4)"
 								strokeWidth={1}
 								transform="rotate(-90)"
-								initial={{ pathLength: 0, opacity: 0 }}
-								animate={{ pathLength: 1, opacity: 1 }}
-								exit={{ pathLength: 0, opacity: 0 }}
-								transition={{ duration: 0.5, ease: "easeInOut" }}
+								initial={{pathLength: 0, opacity: 0}}
+								animate={{pathLength: 1, opacity: 1}}
+								exit={{pathLength: 0, opacity: 0}}
+								transition={{duration: 0.5, ease: "easeInOut"}}
 							/>
 						</motion.svg>
 					)}
 				</AnimatePresence>
 
 				<AnimatePresence>
-					{open &&
+					{context.inventory.isEnvelopeSelectOpen &&
 						all.map((envelope, i) => {
-							const { x, y } = computeOrbitPosition(i, all.length);
+							const {x, y} = computeOrbitPosition(i, all.length);
 							const isSelected = envelope.id === selected?.id;
 							return (
 								<motion.div
 									key={envelope.id}
 									className={`${styles.orbitItem} ${isSelected ? styles.orbitItemSelected : ""}`}
-									initial={{ x, y, scale: 0, opacity: 0 }}
-									animate={{ x, y, scale: 1, opacity: 1 }}
+									initial={{x, y, scale: 0, opacity: 0}}
+									animate={{x, y, scale: 1, opacity: 1}}
 									exit={{
 										x,
 										y,
@@ -193,7 +192,7 @@ export const EnvelopeInput = observer(() => {
 				</AnimatePresence>
 
 				<AnimatePresence>
-					{open && hoveredEnvelope !== null && hoveredPos !== null && (
+					{context.inventory.isEnvelopeSelectOpen && hoveredEnvelope !== null && hoveredPos !== null && (
 						<Tooltip
 							key={`${hoveredEnvelope.id}-tooltip`}
 							name={hoveredEnvelope.name}
@@ -206,47 +205,47 @@ export const EnvelopeInput = observer(() => {
 			</div>
 			<motion.div
 				ref={tileRef}
-				className={`${styles.root} ${open ? styles.rootOpen : ""}`}
+				className={`${styles.root} ${context.inventory.isEnvelopeSelectOpen ? styles.rootOpen : ""}`}
 				onClick={handleTileClick}
 				initial="rest"
 				whileHover="hover"
 				variants={{
-					rest: { scale: 1 },
+					rest: {scale: 1},
 					hover: {
 						scale: 1.05,
-						transition: { type: "spring", stiffness: 350, damping: 28 },
+						transition: {type: "spring", stiffness: 350, damping: 28},
 					},
 				}}
 			>
 				<motion.div
 					className={styles.shimmer}
 					variants={{
-						rest: { x: "-100%" },
+						rest: {x: "-100%"},
 						hover: {
 							x: "160%",
-							transition: { duration: 0.6, ease: "easeOut" },
+							transition: {duration: 0.6, ease: "easeOut"},
 						},
 					}}
 				/>
-				<div className={`${styles.corner} ${styles.cornerTL}`} />
-				<div className={`${styles.corner} ${styles.cornerTR}`} />
-				<div className={`${styles.corner} ${styles.cornerBL}`} />
-				<div className={`${styles.corner} ${styles.cornerBR}`} />
+				<div className={`${styles.corner} ${styles.cornerTL}`}/>
+				<div className={`${styles.corner} ${styles.cornerTR}`}/>
+				<div className={`${styles.corner} ${styles.cornerBL}`}/>
+				<div className={`${styles.corner} ${styles.cornerBR}`}/>
 				<AnimatePresence>
 					{selected && (
 						<motion.div
 							key={selected.id}
 							className={styles.selectedContent}
-							exit={{ opacity: 0, scale: 1.06, filter: "blur(3px)" }}
-							transition={{ duration: 0.28, ease: "easeIn" }}
+							exit={{opacity: 0, scale: 1.06, filter: "blur(3px)"}}
+							transition={{duration: 0.28, ease: "easeIn"}}
 						>
 							<motion.img
 								className={styles.selectedImage}
 								src={selected.img}
 								alt={selected.name}
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 0.85 }}
-								transition={{ duration: 0.35, ease: "easeOut" }}
+								initial={{opacity: 0}}
+								animate={{opacity: 0.85}}
+								transition={{duration: 0.35, ease: "easeOut"}}
 							/>
 							<div className={styles.selectedOverlay}>
 								<span className={styles.selectedLabel}>{selected.name}</span>
