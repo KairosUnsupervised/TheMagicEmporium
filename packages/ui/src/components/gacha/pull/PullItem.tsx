@@ -4,8 +4,8 @@ import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
 import { Rarity } from "@tme/library/src/item/item.types";
 import type { VignetteStage } from "../content/Vignette";
 import styles from "./PullItem.module.css";
-import {equipmentDetails} from "@tme/library/src/item/equipment/equipment.details";
-import {generateIconUrl} from "@tme/library/src/misc/generateIconUrl";
+import { equipmentDetails } from "@tme/library/src/item/equipment/equipment.details";
+import { generateIconUrl } from "@tme/library/src/misc/generateIconUrl";
 
 interface PullItemProps {
 	item: AbstractItem;
@@ -70,6 +70,9 @@ const rarityFlashColor: Record<Rarity, string> = {
 	[Rarity.Legendary]: "rgba(212, 166, 74, 0.65)",
 };
 
+// TODO fix the display
+
+// TODO Get the correct base name from equipmentDetails
 const formatBase = (base: string): string =>
 	base
 		.toLowerCase()
@@ -199,79 +202,53 @@ export const PullItem = (props: PullItemProps): JSX.Element => {
 
 				<div className={styles.divider} />
 
-				<div className={styles.infoArea}>
-					<AnimatePresence>
-						{showName && (
-							<motion.div
-								key="detail"
-								className={styles.detailRow}
-								initial={{ opacity: 0, y: 4 }}
-								animate={{ opacity: 1, y: 0 }}
-								exit={{ opacity: 0 }}
-								transition={{ duration: 0.4, ease: "easeOut" }}
-							>
-								<span className={styles.typeBadge}>
-									{formatBase(props.item.base)}
-								</span>
-								<AnimatePresence mode="wait">
-									{showRarity ? (
-										<motion.span
-											key="rarity-part"
-											className={styles.rarityPart}
-											initial={{ opacity: 0, x: -4 }}
-											animate={{ opacity: 1, x: 0 }}
-											exit={{ opacity: 0 }}
-											transition={{ duration: 0.35, ease: "easeOut" }}
-										>
-											<span className={styles.diamond}>◆</span>
-											<span
-												className={`${styles.rarityBadge} ${rarityStyle[props.item.rarity]}`}
-											>
-												{rarityLabel[props.item.rarity]}
-											</span>
-										</motion.span>
-									) : (
-										<motion.span
-											key="rarity-skeleton"
-											className={styles.raritySkeleton}
-											initial={{ opacity: 0 }}
-											animate={{ opacity: 1 }}
-											exit={{ opacity: 0 }}
-											transition={{ duration: 0.3 }}
-										/>
-									)}
-								</AnimatePresence>
-							</motion.div>
-						)}
-					</AnimatePresence>
+				<div className={styles.infoColumn}>
+					{showName ? (
+						<>
+							<AnimatePresence mode="wait">
+								{showRarity ? (
+									<motion.span
+										key="rarity"
+										className={`${styles.rarityBadge} ${rarityStyle[props.item.rarity]}`}
+										initial={{ opacity: 0, y: 2 }}
+										animate={{ opacity: 1, y: 0 }}
+										exit={{ opacity: 0 }}
+										transition={{ duration: 0.35, ease: "easeOut" }}
+									>
+										{rarityLabel[props.item.rarity]}
+									</motion.span>
+								) : (
+									<motion.span
+										key="rarity-skeleton"
+										className={styles.raritySkeleton}
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1 }}
+										exit={{ opacity: 0 }}
+										transition={{ duration: 0.3 }}
+									/>
+								)}
+							</AnimatePresence>
 
-					<AnimatePresence>
-						{showName && (
-							<motion.div
-								key="name"
-								className={styles.nameRow}
+							<span className={styles.typeBadge}>
+								{formatBase(props.item.base)}
+							</span>
+
+							<motion.span
+								className={styles.name}
 								initial={{ opacity: 0, y: 5 }}
 								animate={{ opacity: 1, y: 0 }}
-								exit={{ opacity: 0 }}
-								transition={{ duration: 0.4, ease: "easeOut", delay: 0.08 }}
+								transition={{
+									duration: 0.4,
+									ease: "easeOut",
+									delay: 0.08,
+								}}
 							>
-								<span className={styles.name}>
-									{props.item.getNameWithoutRarity()}
-								</span>
-							</motion.div>
-						)}
-					</AnimatePresence>
-
-					<AnimatePresence>
-						{!showName && (
-							<motion.div
-								key="sealed-info"
-								className={styles.sealedInfo}
-								exit={{ opacity: 0 }}
-								transition={{ duration: 0.3 }}
-							/>
-						)}
-					</AnimatePresence>
+								{props.item.getNameWithoutRarity()}
+							</motion.span>
+						</>
+					) : (
+						<div className={styles.sealedInfo} />
+					)}
 				</div>
 
 				<div className={styles.selectionStrip}>
