@@ -55,6 +55,7 @@ export interface GachaItem5e<Flag = EnvelopeFlag | WishFlag> {
     id: string;
     img: string;
     name: string;
+    isOwner: boolean;
     system: {
         quantity: number;
         description: {
