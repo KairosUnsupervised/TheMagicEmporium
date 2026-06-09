@@ -6,7 +6,7 @@
 	"name": "Golden Blessing Seal",
 	"system": {
 		"description": {
-			"value": "Pressed in gold leaf and sealed with a prayer. 3 Items, 1 Pull, Moderate Visibility, +0.5 Luck to Rarity"
+			"value": "Pressed in gold leaf and sealed with a prayer. 3 Items, 1 Pull, High Visibility, +0.5 Luck to Rarity"
 		}
 	},
 	"flags": {

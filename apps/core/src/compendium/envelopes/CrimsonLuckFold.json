@@ -11,7 +11,7 @@
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {
-			"type": "envelope",
+			"type": "ENVELOPE",
 			"operations": [
 				{
 					"field": "REVEAL_AMOUNT",
