@@ -1,12 +1,11 @@
-import type { JSX } from "react";
 import styles from "./GachaDisplay.module.css";
-import { DrawButton } from "./footer/DrawButton";
-import { GachaHeader } from "./header/GachaHeader";
-import { StarSystem } from "./content/StarSystem";
-import { Vignette } from "./content/Vignette";
-import bg from "./content/background.jpg";
-import { GachaContextProvider } from "../../context/gacha/GachaContextProvider";
-import { PullOverlay } from "./pull/PullOverlay";
+import {DrawButton} from "./footer/DrawButton";
+import {GachaHeader} from "./header/GachaHeader";
+import {StarSystem} from "./content/StarSystem";
+import {Vignette} from "./content/Vignette";
+import {PullOverlay} from "./pull/PullOverlay";
+import {GachaImage, generateGachaImageUrl} from "@tme/library/src/misc/generateGachaImageUrl";
+import {useGachaContext} from "../../context/gacha/useGachaContext";
 
 export interface GachaDisplayProps {
 	wishes: unknown[];
@@ -16,23 +15,23 @@ export interface GachaDisplayProps {
 	hiddenImage?: boolean;
 }
 
-export const GachaDisplay = (props: GachaDisplayProps): JSX.Element => {
+export const GachaDisplay = (props: GachaDisplayProps) => {
+	useGachaContext();
+
 	return (
-		<GachaContextProvider>
-			<div className={styles.root}>
-				<div
-					className={styles.bgImage}
-					style={{ backgroundImage: `url(${bg})` }}
-				/>
-				<div className={styles.bgOverlay} />
-				<GachaHeader />
-				<StarSystem wishes={props.wishes} />
-				<div className={styles.footer}>
-					<DrawButton />
-				</div>
-				<Vignette />
-				<PullOverlay />
+		<div className={styles.root}>
+			<div
+				className={styles.bgImage}
+				style={{backgroundImage: `url(${generateGachaImageUrl(GachaImage.Background)})`}}
+			/>
+			<div className={styles.bgOverlay}/>
+			<GachaHeader/>
+			<StarSystem wishes={props.wishes}/>
+			<div className={styles.footer}>
+				<DrawButton/>
 			</div>
-		</GachaContextProvider>
+			<Vignette/>
+			<PullOverlay/>
+		</div>
 	);
 };

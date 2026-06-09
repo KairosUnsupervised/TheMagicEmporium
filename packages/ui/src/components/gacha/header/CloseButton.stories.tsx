@@ -21,14 +21,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: {
-		onClick: () => {},
-	},
+	args: {},
 };
 
 export const Disabled: Story = {
 	args: {
-		onClick: () => {},
 		disabled: true,
 	},
 };

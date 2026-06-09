@@ -8,6 +8,7 @@ import { logger } from "./logger.ts";
 import { packLoader } from "./packLoader/PackLoader.ts";
 import { Utility } from "./utility/Utility.ts";
 import { registerValidator } from "./hooks/registerValidator.ts";
+import {registerGacha} from "./hooks/registerGacha.ts";
 
 Hooks.once("init", async () => {
 	logger.log("Initializing");
@@ -34,6 +35,7 @@ Hooks.once("ready", async () => {
 	registerFancyModifierIcons();
 	registerRarityBorderColors();
 	registerTooltip();
+	registerGacha()
 });
 
 // @ts-expect-error

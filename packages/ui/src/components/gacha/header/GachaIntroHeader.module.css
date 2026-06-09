@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;600&display=swap");
+
+.root {
+	text-align: center;
+	padding: 44px 80px 40px;
+}
+
+.titleJp {
+	font-family: "Noto Serif JP", serif;
+	font-size: 11px;
+	letter-spacing: 8px;
+	color: #c4953a;
+	margin-bottom: 8px;
+	text-shadow:
+		0 0 20px rgba(212, 166, 74, 0.35),
+		0 0 60px rgba(4, 5, 16, 0.98),
+		0 0 110px rgba(4, 5, 16, 0.9);
+}
+
+.titleMain {
+	font-family: "Cinzel Decorative", serif;
+	font-size: 40px;
+	font-weight: 900;
+	letter-spacing: 6px;
+	color: #f3dca0;
+	text-shadow:
+		0 0 40px rgba(212, 166, 74, 0.55),
+		0 0 90px rgba(212, 166, 74, 0.2),
+		0 0 100px rgba(4, 5, 16, 0.98),
+		0 0 160px rgba(4, 5, 16, 0.9);
+	line-height: 1;
+}
+
+.titleSub {
+	font-family: "Cormorant Garamond", serif;
+	font-style: italic;
+	font-size: 14px;
+	color: #b08840;
+	letter-spacing: 4px;
+	margin-top: 8px;
+	text-shadow:
+		0 0 20px rgba(212, 166, 74, 0.28),
+		0 0 60px rgba(4, 5, 16, 0.98),
+		0 0 110px rgba(4, 5, 16, 0.9);
+}

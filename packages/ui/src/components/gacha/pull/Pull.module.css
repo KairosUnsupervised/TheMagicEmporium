@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&display=swap");
 
 /* ── Root ──────────────────────────────────────────── */
 
@@ -103,8 +104,6 @@
 }
 
 /* ── Seal Your Fate button ─────────────────────────── */
-
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&display=swap");
 
 .sealWrap {
 	position: relative;

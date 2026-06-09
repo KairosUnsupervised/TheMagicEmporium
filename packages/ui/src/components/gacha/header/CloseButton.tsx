@@ -1,17 +1,21 @@
 import type { JSX } from "react";
 import { motion } from "framer-motion";
 import styles from "./CloseButton.module.css";
+import {observer} from "mobx-react-lite";
+import {useGachaContext} from "../../../context/gacha/useGachaContext";
 
 interface CloseButtonProps {
-	onClick: () => void;
 	disabled?: boolean;
 }
 
-export const CloseButton = (props: CloseButtonProps): JSX.Element => {
+export const CloseButton = observer((props: CloseButtonProps): JSX.Element => {
+
+	const context = useGachaContext();
+
 	return (
 		<motion.button
 			className={styles.root}
-			onClick={props.onClick}
+			onClick={context.setClosed}
 			disabled={props.disabled}
 			whileHover={props.disabled ? undefined : "hover"}
 			whileTap={props.disabled ? undefined : "tap"}
@@ -38,4 +42,4 @@ export const CloseButton = (props: CloseButtonProps): JSX.Element => {
 			</svg>
 		</motion.button>
 	);
-};
+});

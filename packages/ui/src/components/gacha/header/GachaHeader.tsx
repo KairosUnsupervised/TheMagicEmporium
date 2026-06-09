@@ -1,4 +1,3 @@
-import type { JSX } from "react";
 import styles from "./GachaHeader.module.css";
 import {CloseButton} from "./CloseButton";
 
@@ -18,7 +17,7 @@ export const GachaHeader = () => {
 				<div className={styles.titleSub}>The Sacred Draw</div>
 			</div>
 			<div className={styles.close}>
-				<CloseButton onClick={() => {}} disabled={false}/>
+				<CloseButton disabled={false}/>
 			</div>
 		</header>
 	);

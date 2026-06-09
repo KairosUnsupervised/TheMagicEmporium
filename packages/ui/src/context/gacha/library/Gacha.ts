@@ -12,6 +12,8 @@ export class Gacha {
     public pullProcess = new PullProcess();
     public pullSelect = new PullSelect()
 
+    public isOpen: boolean = true;
+
     constructor() {
         makeAutoObservable(this);
         console.log(registry)
@@ -52,9 +54,19 @@ export class Gacha {
         this.pullSelect.startProcess(this.pullProcess)
     }
 
+    public setOpen = () => {
+        this.isOpen = true;
+    }
+
+    public setClosed = () => {
+        this.isOpen = false;
+    }
+
     // TODO onConfirm close all open selects => Move select open state to library
     // TODO onConfirm consume all orbiters?
     // TODO Documentation for wording
     // TODO Whitelist
     // TODO REFACTOR PACKS TO LIVE IN MODULE PATH
 }
+
+export const gacha = new Gacha();

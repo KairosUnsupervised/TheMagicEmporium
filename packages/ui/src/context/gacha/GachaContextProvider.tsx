@@ -1,15 +1,15 @@
-import * as React from "react";
-import {Gacha} from "./library/Gacha";
+import {gacha, type Gacha} from "./library/Gacha";
+import {createContext, ReactNode} from "react";
 
 interface GachaContextProviderProps {
-	children: React.ReactNode;
+	children: ReactNode;
 }
 
-export const GachaContext = React.createContext<Gacha>(new Gacha());
+// Having gacha as context isn't really needed but its useful for testing
+export const GachaContext = createContext<Gacha>(gacha);
 
 export const GachaContextProvider = (props: GachaContextProviderProps) => {
 
-	// TODO Implement context once needed
 	return (
 		<>
 			{props.children}
