@@ -48,9 +48,7 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 		hoveredIndex !== -1 ? computeOrbitPosition(hoveredIndex, all.length) : null;
 
 	const handleTileClick = useCallback((): void => {
-		if (all.length > 0) {
-			context.inventory.isWishSelectOpen[props.index] = !open;
-		}
+		context.inventory.isWishSelectOpen[props.index] = !context.inventory.isWishSelectOpen[props.index];
 	}, [all.length]);
 
 	const handleSelect = useCallback(

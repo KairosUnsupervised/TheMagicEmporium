@@ -38,9 +38,7 @@ export const EnvelopeInput = observer(() => {
 		hoveredIndex !== -1 ? computeOrbitPosition(hoveredIndex, all.length) : null;
 
 	const handleTileClick = useCallback((): void => {
-		if (all.length > 0) {
-			context.inventory.isEnvelopeSelectOpen = !context.inventory.isEnvelopeSelectOpen;
-		}
+		context.inventory.isEnvelopeSelectOpen = !context.inventory.isEnvelopeSelectOpen;
 	}, [all.length]);
 
 	const handleSelect = useCallback(
