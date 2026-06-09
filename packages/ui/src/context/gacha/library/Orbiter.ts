@@ -23,7 +23,7 @@ export class Orbiter {
 			x: Math.cos(angle) * radius,
 			y: Math.sin(angle) * radius,
 			type,
-			key: crypto.randomUUID(),
+			key: Math.random().toString(36).slice(2),
 			delay,
 		});
 	};
