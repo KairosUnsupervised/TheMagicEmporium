@@ -5,6 +5,7 @@ import { gacha } from "@tme/ui/src/context/gacha/library/Gacha.ts";
 
 const TAG = "tme-gacha-overlay";
 
+// Use a shadow root to properly encapsulate us from the foundry styles
 class TmeGachaOverlayElement extends HTMLElement {
 	private readonly mountPoint: HTMLDivElement;
 	private observer: MutationObserver | null = null;
