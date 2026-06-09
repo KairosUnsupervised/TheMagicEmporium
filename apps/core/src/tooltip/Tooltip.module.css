@@ -8,6 +8,9 @@
 		opacity 0.2s ease-out,
 		visibility 0.2s ease-out,
 		transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+	will-change: opacity;
+	transform: translateZ(0);
 }
 
 .scrolling {
