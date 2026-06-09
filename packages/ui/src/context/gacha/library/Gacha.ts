@@ -68,7 +68,6 @@ export class Gacha {
         this.isOpen = false;
     }
 
-    // TODO Documentation for wording
     // TODO Whitelist
 }
 

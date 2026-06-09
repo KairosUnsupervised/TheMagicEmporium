@@ -26,7 +26,7 @@ A numeric value (`0`–`4`) controlling how much information is shown to the pla
 
 ## Locking
 
-`force` writes a value and locks the field.
+`force` writes a value and locks the field. It's important to use force only for low values, and unlock before setting the value and locking again.
 
 Accepted terms: *locked in*, *locked*, *forced*.
 

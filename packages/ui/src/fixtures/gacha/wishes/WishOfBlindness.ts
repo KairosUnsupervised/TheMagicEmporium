@@ -24,7 +24,6 @@ export const wishOfBlindnessFixture: GachaItem5e<WishFlag> = {
 			type: GachaItemType.Wish,
 			id: "wish-of-blindness",
 			operations: [
-				// TODO Important for forces is to unlock before setting
 				{ field: Field.VisibilityLevel, op: LockOperation.Unlock },
 				{ field: Field.VisibilityLevel, op: NumberOperation.Set, value: 0 },
 				{ field: Field.VisibilityLevel, op: LockOperation.Lock },
