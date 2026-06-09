@@ -70,15 +70,6 @@ const rarityFlashColor: Record<Rarity, string> = {
 	[Rarity.Legendary]: "rgba(212, 166, 74, 0.65)",
 };
 
-// TODO fix the display
-
-// TODO Get the correct base name from equipmentDetails
-const formatBase = (base: string): string =>
-	base
-		.toLowerCase()
-		.replace(/_/g, " ")
-		.replace(/\b\w/g, (c) => c.toUpperCase());
-
 export const PullItem = (props: PullItemProps): JSX.Element => {
 	const background = generateIconUrl(equipmentDetails[props.item.base].icon);
 	const showImage = props.visibility >= 1 && background !== null;
@@ -230,7 +221,7 @@ export const PullItem = (props: PullItemProps): JSX.Element => {
 							</AnimatePresence>
 
 							<span className={styles.typeBadge}>
-								{formatBase(props.item.base)}
+								{props.item.getEquipmentLabel()}
 							</span>
 
 							<motion.span
