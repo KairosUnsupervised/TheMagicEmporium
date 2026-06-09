@@ -1,0 +1,25 @@
+{
+	"_id": "WishOfLuminousS1",
+	"_key": "!items!WishOfLuminousS1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfLuminousSky.jpg",
+	"name": "Wish of Luminous Sky",
+	"system": {
+		"description": {
+			"value": "The sky opens and hides nothing. Provides perfect visibility"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-luminous-sky",
+			"operations": [
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "SET",
+					"value": 4
+				}
+			]
+		}
+	}
+}

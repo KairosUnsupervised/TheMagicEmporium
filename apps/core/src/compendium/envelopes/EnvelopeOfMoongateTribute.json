@@ -1,0 +1,34 @@
+{
+	"_id": "EnvelopeOfMoong1",
+	"_key": "!items!EnvelopeOfMoong1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfMoongateTribute.jpg",
+	"name": "Envelope of Moongate Tribute",
+	"system": {
+		"description": {
+			"value": "Left at the threshold of the moongate when the stars align. 5 Items, 3 Pulls, -1 to Luck to Rarity"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ENVELOPE",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 5
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 3
+				},
+				{
+					"field": "RARITY_LUCK",
+					"op": "SUBTRACT",
+					"value": 1
+				}
+			]
+		}
+	}
+}

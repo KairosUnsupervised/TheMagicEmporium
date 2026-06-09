@@ -1,0 +1,25 @@
+{
+	"_id": "WishOfOpenHands1",
+	"_key": "!items!WishOfOpenHands1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfOpenHands.jpg",
+	"name": "Wish of Open Hands",
+	"system": {
+		"description": {
+			"value": "Open arms, open fate. +1 Pull"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-open-hands",
+			"operations": [
+				{
+					"field": "PICK_AMOUNT",
+					"op": "ADD",
+					"value": 1
+				}
+			]
+		}
+	}
+}

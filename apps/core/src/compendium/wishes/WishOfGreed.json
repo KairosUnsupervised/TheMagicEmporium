@@ -6,7 +6,7 @@
 	"name": "Wish of Greed",
 	"system": {
 		"description": {
-			"value": "More. Always more. +2 Pulls, -2 Luck to Rarity"
+			"value": "More. Always more. +2 Pulls, -1 Luck to Rarity"
 		}
 	},
 	"flags": {
@@ -22,7 +22,7 @@
 				{
 					"field": "RARITY_LUCK",
 					"op": "SUBTRACT",
-					"value": 2
+					"value": 1
 				}
 			]
 		}

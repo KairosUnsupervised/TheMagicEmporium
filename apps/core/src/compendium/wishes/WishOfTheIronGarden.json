@@ -1,0 +1,36 @@
+{
+	"_id": "WishOfTheIronGa1",
+	"_key": "!items!WishOfTheIronGa1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfTheIronGarden.jpg",
+	"name": "Wish of the Iron Garden",
+	"system": {
+		"description": {
+			"value": "A wish honed to a razor's edge. Restricts to slashing weapons only"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-the-iron-garden",
+			"operations": [
+				{
+					"field": "EQUIPMENT_WHITELIST",
+					"op": "SET",
+					"value": [
+						"HANDAXE",
+						"SICKLE",
+						"BATTLEAXE",
+						"GLAIVE",
+						"GREATAXE",
+						"GREATSWORD",
+						"HALBERD",
+						"LONGSWORD",
+						"SCIMITAR",
+						"WHIP"
+					]
+				}
+			]
+		}
+	}
+}

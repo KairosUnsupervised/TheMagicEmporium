@@ -1,0 +1,30 @@
+{
+	"_id": "WishOfDewdrop001",
+	"_key": "!items!WishOfDewdrop001",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfDewdrop.jpg",
+	"name": "Wish of Dewdrop",
+	"system": {
+		"description": {
+			"value": "A single dewdrop catches the light. +0.2 Luck to Rarity, +0.2 Luck to Modifier"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-dewdrop",
+			"operations": [
+				{
+					"field": "RARITY_LUCK",
+					"op": "ADD",
+					"value": 0.2
+				},
+				{
+					"field": "FLOAT_LUCK",
+					"op": "ADD",
+					"value": 0.2
+				}
+			]
+		}
+	}
+}

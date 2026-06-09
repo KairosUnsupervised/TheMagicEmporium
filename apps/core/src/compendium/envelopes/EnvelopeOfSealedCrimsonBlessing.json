@@ -1,0 +1,43 @@
+{
+	"_id": "EnvelopeOfSeale1",
+	"_key": "!items!EnvelopeOfSeale1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfSealedCrimsonBlessing.jpg",
+	"name": "Envelope of Sealed Crimson Blessing",
+	"system": {
+		"description": {
+			"value": "A crimson envelope sealed by fortune's hand. 6 Reveals, 2 Pulls, +0.5 Luck to Rarity, Forced to be blind"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ENVELOPE",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 6
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 2
+				},
+				{
+					"field": "RARITY_LUCK",
+					"op": "ADD",
+					"value": 0.5
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "SET",
+					"value": 0
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "LOCK"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,42 @@
+{
+	"_id": "EnvelopeOfComFo1",
+	"_key": "!items!EnvelopeOfComFo1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfCommonFolk.jpg",
+	"name": "Envelope of Common Folk",
+	"system": {
+		"description": {
+			"value": "A humble envelope tied with plain thread. 5 Reveals, 2 Pulls, restricts to accessories and everyday wear"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ENVELOPE",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 5
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 2
+				},
+				{
+					"field": "EQUIPMENT_WHITELIST",
+					"op": "SET",
+					"value": [
+						"RING",
+						"AMULET",
+						"RELIC",
+						"COMMONER_CLOTHES",
+						"FINE_CLOTHES",
+						"NOBLE_CLOTHES",
+						"ROYAL_CLOTHES"
+					]
+				}
+			]
+		}
+	}
+}

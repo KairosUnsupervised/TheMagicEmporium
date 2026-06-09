@@ -1,0 +1,30 @@
+{
+	"_id": "WishOfCertainty1",
+	"_key": "!items!WishOfCertainty1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfCertainty.jpg",
+	"name": "Wish of Certainty",
+	"system": {
+		"description": {
+			"value": "A wish that trades quantity for quality. -2 Pulls, +1 Luck to Rarity"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-certainty",
+			"operations": [
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SUBTRACT",
+					"value": 2
+				},
+				{
+					"field": "RARITY_LUCK",
+					"op": "ADD",
+					"value": 1
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,25 @@
+{
+	"_id": "WishOfDisciplin1",
+	"_key": "!items!WishOfDisciplin1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfDiscipline.jpg",
+	"name": "Wish of Discipline",
+	"system": {
+		"description": {
+			"value": "A wish forged through patience and focus. +3 Reveals"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-discipline",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "ADD",
+					"value": 3
+				}
+			]
+		}
+	}
+}

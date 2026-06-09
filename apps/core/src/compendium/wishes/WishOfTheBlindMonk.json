@@ -1,9 +1,9 @@
 {
-	"_id": "WishOfBlindness1",
-	"_key": "!items!WishOfBlindness1",
+	"_id": "WishOfTheBlindM1",
+	"_key": "!items!WishOfTheBlindM1",
 	"type": "loot",
-	"img": "modules/the-magic-emporium/gacha/wishes/wishOfBlindness.jpg",
-	"name": "Wish of Blindness",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfTheBlindMonk.jpg",
+	"name": "Wish of the Blind Monk",
 	"system": {
 		"description": {
 			"value": "You surrender your sight to fate. +1 Luck to Rarity, you are forced to be blind"
@@ -12,7 +12,7 @@
 	"flags": {
 		"the-magic-emporium-gacha": {
 			"type": "ITEM",
-			"id": "wish-of-blindness",
+			"id": "wish-of-the-blind-monk",
 			"operations": [
 				{
 					"field": "VISIBILITY_LEVEL",

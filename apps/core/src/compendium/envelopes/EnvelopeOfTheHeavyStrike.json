@@ -1,0 +1,49 @@
+{
+	"_id": "EnvelopeOfHeavy1",
+	"_key": "!items!EnvelopeOfHeavy1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfTheHeavyStrike.jpg",
+	"name": "Envelope of the Heavy Strike",
+	"system": {
+		"description": {
+			"value": "A battered envelope that hits hard and leaves a mark. 6 Reveals, 1 Pull, Medium Visibility, restricts to bludgeoning weapons only"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ENVELOPE",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 6
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 1
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "SET",
+					"value": 2
+				},
+				{
+					"field": "EQUIPMENT_WHITELIST",
+					"op": "SET",
+					"value": [
+						"CLUB",
+						"GREATCLUB",
+						"LIGHT_HAMMER",
+						"MACE",
+						"QUARTERSTAFF",
+						"SLING",
+						"FLAIL",
+						"MAUL",
+						"WARHAMMER"
+					]
+				}
+			]
+		}
+	}
+}

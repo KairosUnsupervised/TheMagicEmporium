@@ -1,0 +1,33 @@
+{
+	"_id": "EnvelopeOfSilkR1",
+	"_key": "!items!EnvelopeOfSilkR1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfTheSilkRoad.jpg",
+	"name": "Envelope of the Silk Road",
+	"system": {
+		"description": {
+			"value": "Traded across a thousand leagues of silk and sand. 12 Reveals, Locked to 1 Pull"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ENVELOPE",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 12
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 1
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "LOCK"
+				}
+			]
+		}
+	}
+}

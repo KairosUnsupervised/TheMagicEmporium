@@ -1,0 +1,34 @@
+{
+	"_id": "EnvelopeOfGolde1",
+	"_key": "!items!EnvelopeOfGolde1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfGoldenBlessing.jpg",
+	"name": "Envelope of Golden Blessing",
+	"system": {
+		"description": {
+			"value": "Pressed in gold leaf and sealed with a prayer. 3 Items, 1 Pull, Medium Visibility"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ENVELOPE",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 3
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 1
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "SET",
+					"value": 2
+				}
+			]
+		}
+	}
+}

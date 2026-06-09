@@ -1,9 +1,9 @@
 {
-	"_id": "EnvelopeOfPoten1",
-	"_key": "!items!EnvelopeOfPoten1",
+	"_id": "EnvelopeOfUnfou1",
+	"_key": "!items!EnvelopeOfUnfou1",
 	"type": "loot",
-	"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfPotential.jpg",
-	"name": "Envelope of Potential",
+	"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfUnfoundPotential.jpg",
+	"name": "Envelope of Unfound Potential",
 	"system": {
 		"description": {
 			"value": "Wax-sealed against the light. What lies within could be anything, and that is precisely the point. 6 Pulls, 0 Reveals"

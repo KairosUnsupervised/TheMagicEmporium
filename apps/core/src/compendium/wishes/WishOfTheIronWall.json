@@ -1,0 +1,39 @@
+{
+	"_id": "WishOfTheIronWa1",
+	"_key": "!items!WishOfTheIronWa1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfTheIronWall.jpg",
+	"name": "Wish of the Iron Wall",
+	"system": {
+		"description": {
+			"value": "A wish forged in iron and resolve. Restricts to armor only"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-the-iron-wall",
+			"operations": [
+				{
+					"field": "EQUIPMENT_WHITELIST",
+					"op": "SET",
+					"value": [
+						"PADDED_ARMOR",
+						"LEATHER_ARMOR",
+						"STUDDED_LEATHER_ARMOR",
+						"HIDE_ARMOR",
+						"CHAIN_SHIRT",
+						"SCALE_MAIL",
+						"BREASTPLATE",
+						"HALF_PLATE",
+						"RING_MAIL",
+						"CHAIN_MAIL",
+						"SPLINT_ARMOR",
+						"PLATE_ARMOR",
+						"SHIELD"
+					]
+				}
+			]
+		}
+	}
+}
