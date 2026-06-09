@@ -9,55 +9,24 @@ import { createElement } from "react";
 import { createRoot, type Root } from "react-dom/client";
 
 const TAG = "tme-gacha-overlay";
+const STYLESHEET = "modules/the-magic-emporium/index.css";
 
-// Use a shadow root to properly encapsulate us from the foundry styles
 class TmeGachaOverlayElement extends HTMLElement {
 	private readonly mountPoint: HTMLDivElement;
-	private observer: MutationObserver | null = null;
-	private readonly mirrored = new WeakSet<Node>();
 
 	constructor() {
 		super();
 		const shadow = this.attachShadow({ mode: "open" });
+
+		const link = document.createElement("link");
+		link.rel = "stylesheet";
+		link.href = STYLESHEET;
+
 		this.mountPoint = document.createElement("div");
 		this.mountPoint.style.cssText = "position:absolute;inset:0;";
+
+		shadow.appendChild(link);
 		shadow.appendChild(this.mountPoint);
-	}
-
-	connectedCallback(): void {
-		// Mirror styles already in <head> then watch for new ones injected by Vite.
-		// Only inline <style> tags are copied — <link> stylesheet tags (FoundryVTT)
-		// stay outside the shadow boundary.
-		this.mirrorStyles();
-		this.observer = new MutationObserver((mutations) => {
-			for (const mutation of mutations) {
-				mutation.addedNodes.forEach((node) => {
-					if (node.nodeName === "STYLE") {
-						this.adoptStyleNode(node);
-					}
-				});
-			}
-		});
-		this.observer.observe(document.head, { childList: true });
-	}
-
-	disconnectedCallback(): void {
-		this.observer?.disconnect();
-		this.observer = null;
-	}
-
-	private mirrorStyles(): void {
-		document.head
-			.querySelectorAll("style")
-			.forEach((node) => this.adoptStyleNode(node));
-	}
-
-	private adoptStyleNode(node: Node): void {
-		if (this.mirrored.has(node)) {
-			return;
-		}
-		this.mirrored.add(node);
-		this.shadowRoot!.insertBefore(node.cloneNode(true), this.mountPoint);
 	}
 
 	getMountPoint(): HTMLDivElement {
