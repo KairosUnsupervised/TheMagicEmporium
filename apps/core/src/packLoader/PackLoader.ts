@@ -19,7 +19,7 @@ export class PackLoader {
 		try {
 			const result = await foundry.applications.apps.FilePicker.browse(
 				"data",
-				`worlds/${game.world.id}/data/${namespace.core.id}/packs`,
+				`modules/${namespace.core.id}/packs`,
 			);
 
 			return result.files.filter((file: string) => {
@@ -27,7 +27,7 @@ export class PackLoader {
 			});
 		} catch {
 			logger.notification.gm.error(
-				`No modifier pack directory found at worlds/${game.world.id}/data/${namespace.core.id}/packs`,
+				`No modifier pack directory found at modules/${namespace.core.id}/packs`,
 			);
 			return [];
 		}

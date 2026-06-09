@@ -71,7 +71,6 @@ export class Gacha {
 
     // TODO Documentation for wording
     // TODO Whitelist
-    // TODO REFACTOR PACKS TO LIVE IN MODULE PATH
 }
 
 export const gacha = new Gacha();
