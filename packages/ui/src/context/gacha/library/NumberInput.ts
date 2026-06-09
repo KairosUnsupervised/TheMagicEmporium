@@ -1,5 +1,4 @@
-import { LockOperation, NumberOperation } from "@tme/shared/src/types/GachaItem5e";
-import type { AllNumberOperations } from "@tme/shared/src/types/GachaItem5e";
+import {AllOperations, LockOperation, NumberOperation} from "@tme/shared/src/types/GachaItem5e";
 
 export interface NumberInputProps {
 	default?: number;
@@ -13,7 +12,7 @@ export class NumberInput {
 		this.value = props.default ?? 0;
 	}
 
-	public doOperation(operation: AllNumberOperations): void {
+	public doOperation(operation: AllOperations): void {
 		if (operation.op !== LockOperation.Unlock && this.locked) {
 			return;
 		}

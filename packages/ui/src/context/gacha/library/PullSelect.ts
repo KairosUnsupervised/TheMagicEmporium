@@ -2,9 +2,7 @@ import {makeAutoObservable} from "mobx";
 import {AbstractItem} from "@tme/library/src/item/AbstractItem";
 import {PullProcess} from "./PullProcess";
 import {Forge} from "@tme/library/src/forge/Forge";
-import {equipmentDetails} from "@tme/library/src/item/equipment/equipment.details";
-import {Equipment} from "@tme/library/src/item/equipment/equipment.types";
-import {Gacha} from "./Gacha";
+import type {Gacha} from "./Gacha";
 
 export class PullSelect {
 	private gacha: Gacha;
@@ -36,8 +34,7 @@ export class PullSelect {
 			this.items.push(Forge.getGachaAbstractItem({
 				modifierLuck: this.process.floatLuck.getValue(),
 				rarityLuck: this.process.rarityLuck.getValue(),
-				// TODO Equipment whitelist
-				equipmentWhitelist: Object.keys(equipmentDetails) as Equipment[],
+				equipmentWhitelist: this.process.equipmentWhitelist.getValue(),
 				forcedRarity: undefined,
 			}));
 		}

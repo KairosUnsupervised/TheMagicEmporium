@@ -1,20 +1,21 @@
-import { Field } from "@tme/shared/src/types/GachaItem5e";
-import type { AllNumberOperations } from "@tme/shared/src/types/GachaItem5e";
-import { NumberInput } from "./NumberInput";
+import {AllOperations, Field} from "@tme/shared/src/types/GachaItem5e";
+import {NumberInput} from "./NumberInput";
 import {makeAutoObservable} from "mobx";
+import {EquipmentInput} from "./EquipmentInput";
 
 export class PullProcess {
+	public equipmentWhitelist = new EquipmentInput();
 	public rarityLuck = new NumberInput({});
 	public floatLuck = new NumberInput({});
 	public revealAmount = new NumberInput({});
 	public pickAmount = new NumberInput({});
 	public visibilityLevel = new NumberInput({default: 1});
 
-    constructor() {
-        makeAutoObservable(this);
-    }
+	constructor() {
+		makeAutoObservable(this);
+	}
 
-	public applyOperation = (operation: AllNumberOperations): void => {
+	public applyOperation = (operation: AllOperations): void => {
 		switch (operation.field) {
 			case Field.RarityLuck:
 				this.rarityLuck.doOperation(operation);
@@ -35,13 +36,17 @@ export class PullProcess {
 			case Field.VisibilityLevel:
 				this.visibilityLevel.doOperation(operation);
 				break;
+
+			case Field.EquipmentWhitelist:
+				this.equipmentWhitelist.doOperation(operation)
+				break;
 		}
 	};
 
 	/**
-	 * Checks if a pull process is possible, doesnt account for a envelope to be required
+	 * Checks if a pull process is possible, doesn't account for an envelope to be required
 	 */
-    public isPossible = () => {
-        return this.revealAmount.getValue() >= 1 && this.pickAmount.getValue() >= 1;
-    }
+	public isPossible = () => {
+		return this.revealAmount.getValue() >= 1 && this.pickAmount.getValue() >= 1;
+	}
 }

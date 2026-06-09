@@ -67,8 +67,6 @@ export class Gacha {
     public setClosed = () => {
         this.isOpen = false;
     }
-
-    // TODO Whitelist
 }
 
 export const gacha = new Gacha();

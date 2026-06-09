@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import {
-	AllNumberOperations,
+	AllNumberOperations, AllOperations,
 	EnvelopeFlag,
 	GachaItem5e,
 	GachaItemType,
@@ -23,6 +23,7 @@ import { Gacha } from "./Gacha";
 import { Actor5e } from "@tme/shared/src/types/actor5e";
 import {AbstractItem} from "@tme/library/src/item/AbstractItem";
 import {Item as RealItem} from "@tme/library/src/item/Item";
+import {wishOfTheBlade} from "../../../fixtures/gacha/wishes/WishOfTheBlade";
 
 export type Envelope = GachaItem5e<EnvelopeFlag>;
 
@@ -84,6 +85,7 @@ export class Inventory {
 				wishOfFortuneFixture,
 				wishOfGreedFixture,
 				wishOfShatteringFixture,
+				wishOfTheBlade
 			];
 		}
 		return this.actor.items.filter((item) => {
@@ -131,7 +133,7 @@ export class Inventory {
 		}));
 	};
 
-	public getAllOperations = (): AllNumberOperations[] => {
+	public getAllOperations = (): AllOperations[] => {
 		const envelopeOps =
 			this.envelopeSelected?.flags[namespace.gacha.id].operations ?? [];
 		const wishOps = [0, 1, 2, 3].flatMap(
