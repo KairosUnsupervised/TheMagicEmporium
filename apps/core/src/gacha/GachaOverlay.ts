@@ -23,7 +23,8 @@ class TmeGachaOverlayElement extends HTMLElement {
 		link.href = STYLESHEET;
 
 		this.mountPoint = document.createElement("div");
-		this.mountPoint.style.cssText = "position:absolute;inset:0;";
+		this.mountPoint.style.cssText =
+			"position:absolute;inset:0;will-change:transform;transform:translateZ(0);";
 
 		shadow.appendChild(link);
 		shadow.appendChild(this.mountPoint);
