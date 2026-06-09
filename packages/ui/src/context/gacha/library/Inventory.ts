@@ -3,14 +3,13 @@ import { Item as RealItem } from "@tme/library/src/item/Item";
 import { namespace } from "@tme/shared/src/namespaceConfig";
 import type { Actor5e } from "@tme/shared/src/types/actor5e";
 import {
-	AllNumberOperations,
 	type AllOperations,
 	type EnvelopeFlag,
 	type GachaItem5e,
 	GachaItemType,
 	type WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 import { crimsonLuckFoldFixture } from "../../../fixtures/gacha/envelopes/CrimsonLuckFold";
 import { festivalSleeveFixture } from "../../../fixtures/gacha/envelopes/FestivalSleeve";
 import { goldenBlessingSealFixture } from "../../../fixtures/gacha/envelopes/GoldenBlessingSeal";
@@ -36,6 +35,14 @@ export interface AvailableWish {
 export class Inventory {
 	private gacha: Gacha;
 	private readonly actor: Actor5e | null = null;
+
+	/**
+	 * Doing any sort of animation during foundry document updates causes them to massively lag <br/>
+	 * We queue up all updates and push them during artificial downtime where no animation is running <br/>
+	 * Currently there is no safeguard against abuse, the user can reload the page before confirming for free previews
+	 */
+	private foundryQueue: (() => Promise<unknown>)[] = [];
+	public isSyncing: boolean = false;
 
 	public envelopeSelected: Envelope | null = null;
 	public isEnvelopeSelectOpen: boolean = false;
@@ -143,38 +150,76 @@ export class Inventory {
 		return [...envelopeOps, ...wishOps];
 	};
 
-	public consumeItems = async (): Promise<void> => {
+	public queueConsumeItem = (): void => {
 		if (!this.actor) {
 			return;
 		}
 
-		await Promise.all(
-			[...this.wishesSelected, this.envelopeSelected].map(async (item) => {
-				if (!item) {
-					return;
-				}
+		const items = [...this.wishesSelected, this.envelopeSelected];
+		const toUpdate: { _id: string; system: { quantity: number } }[] = [];
+		const toDelete: string[] = [];
 
-				if (item.system.quantity >= 2) {
-					return item.update({
-						system: { quantity: item.system.quantity - 1 },
-					});
-				}
+		for (const item of items) {
+			if (!item) {
+				continue;
+			}
+			if (item.system.quantity >= 2) {
+				toUpdate.push({
+					_id: item.id,
+					system: { quantity: item.system.quantity - 1 },
+				});
+			} else {
+				toDelete.push(item.id);
+			}
+		}
 
-				if (this.envelopeSelected === item) {
-					this.setEnvelope(null);
-					return item.delete();
+		runInAction(() => {
+			if (
+				this.envelopeSelected !== null &&
+				toDelete.includes(this.envelopeSelected.id)
+			) {
+				this.envelopeSelected = null;
+			}
+			this.wishesSelected.forEach((wish, i) => {
+				if (wish !== null && toDelete.includes(wish.id)) {
+					this.wishesSelected[i] = null;
 				}
+			});
+		});
+		this.gacha.onInputUpdate();
 
-				if (this.wishesSelected.includes(item as GachaItem5e<WishFlag>)) {
-					this.setWish(
-						this.wishesSelected.indexOf(item as GachaItem5e<WishFlag>),
-						null,
-					);
-				}
+		const actor = this.actor;
+		if (toUpdate.length > 0) {
+			this.foundryQueue.push(() =>
+				actor.updateEmbeddedDocuments("Item", toUpdate),
+			);
+		}
+		if (toDelete.length > 0) {
+			this.foundryQueue.push(() =>
+				actor.deleteEmbeddedDocuments("Item", toDelete),
+			);
+		}
+	};
 
-				return item.delete();
-			}),
-		);
+	public flushQueue = async (): Promise<void> => {
+		return new Promise((resolve) => {
+			if (this.foundryQueue.length === 0) {
+				resolve();
+			}
+			runInAction(() => {
+				this.isSyncing = true;
+			});
+			Promise.all(this.foundryQueue.map((op) => op())).then(() => {
+				runInAction(() => {
+					this.foundryQueue = [];
+
+					setTimeout(() => {
+						this.isSyncing = false;
+						resolve();
+					}, 700);
+				});
+			});
+		});
 	};
 
 	public closeAll = async (): Promise<void> => {
@@ -209,16 +254,15 @@ export class Inventory {
 		await delay();
 	};
 
-	public awardItems = async (items: AbstractItem[]): Promise<void> => {
+	public queueAwardItems = (items: AbstractItem[]): void => {
 		if (!this.actor) {
 			return;
 		}
 
-		const toCreate = items.map((item) => {
-			return RealItem.create(item).export();
-		});
-
-		await this.actor.createEmbeddedDocuments("Item", toCreate);
-		return;
+		const toCreate = items.map((item) => RealItem.create(item).export());
+		const actor = this.actor;
+		this.foundryQueue.push(() =>
+			actor.createEmbeddedDocuments("Item", toCreate),
+		);
 	};
 }

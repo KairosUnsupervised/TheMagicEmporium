@@ -1,17 +1,14 @@
-import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
-import { type JSX, useState } from "react";
-import type { VignetteStage } from "../content/Vignette";
+import { observer } from "mobx-react-lite";
+import { useState } from "react";
+import { useGachaContext } from "../../../context/gacha/useGachaContext";
 import styles from "./Pull.module.css";
 import { PullItem } from "./PullItem";
 
-interface PullProps {
-	items: AbstractItem[];
-	picks: number;
-	visibility: VignetteStage;
-	onConfirm: (selected: AbstractItem[]) => void;
-}
+export const Pull = observer(() => {
+	const context = useGachaContext();
+	const isSyncing = context.inventory.isSyncing;
+	const picks = context.pullSelect.process.pickAmount.getValue();
 
-export const Pull = (props: PullProps): JSX.Element => {
 	const [selectedIndices, setSelectedIndices] = useState<number[]>([]);
 
 	const handleSelect = (index: number): void => {
@@ -19,27 +16,29 @@ export const Pull = (props: PullProps): JSX.Element => {
 			if (prev.includes(index)) {
 				return prev.filter((i) => i !== index);
 			}
-			if (prev.length >= props.picks) {
+			if (prev.length >= picks) {
 				return prev;
 			}
 			return [...prev, index];
 		});
 	};
 
-	const picksRemaining = props.picks - selectedIndices.length;
+	const picksRemaining = picks - selectedIndices.length;
 	const isExhausted = picksRemaining === 0;
 
 	const handleConfirm = (): void => {
 		if (selectedIndices.length === 0) {
 			return;
 		}
-		props.onConfirm(selectedIndices.map((i) => props.items[i]));
+		context.pullSelect.onPullConfirm(
+			selectedIndices.map((i) => context.pullSelect.items[i]),
+		);
 	};
 
 	return (
 		<div className={styles.root}>
 			<div className={styles.grid}>
-				{props.items.map((item, index) => {
+				{context.pullSelect.items.map((item, index) => {
 					const isSelected = selectedIndices.includes(index);
 					const isDisabled = isExhausted && !isSelected;
 					return (
@@ -48,10 +47,11 @@ export const Pull = (props: PullProps): JSX.Element => {
 							className={`${styles.itemWrapper} ${isSelected ? styles.selected : ""} ${isDisabled ? styles.itemDisabled : ""}`}
 							onClick={() => handleSelect(index)}
 							disabled={isDisabled}
+							type={"submit"}
 						>
 							<PullItem
 								item={item}
-								visibility={props.visibility}
+								visibility={context.getVisibility()}
 								selected={isSelected}
 								delay={index * 0.07}
 							/>
@@ -62,7 +62,7 @@ export const Pull = (props: PullProps): JSX.Element => {
 
 			<div className={styles.hud}>
 				<div className={styles.diamonds}>
-					{Array.from({ length: props.picks }, (_, i) => (
+					{Array.from({ length: picks }, (_, i) => (
 						<span
 							key={i}
 							className={`${styles.diamond} ${i < selectedIndices.length ? styles.diamondFilled : styles.diamondHollow}`}
@@ -72,7 +72,7 @@ export const Pull = (props: PullProps): JSX.Element => {
 					))}
 				</div>
 				<span className={styles.hudLabel}>
-					Select up to {props.picks} items to keep
+					Select up to {picks} items to keep
 				</span>
 			</div>
 
@@ -83,12 +83,16 @@ export const Pull = (props: PullProps): JSX.Element => {
 					type="button"
 					className={`${styles.sealBtn} ${selectedIndices.length > 0 ? styles.sealActive : ""}`}
 					onClick={handleConfirm}
-					disabled={selectedIndices.length === 0}
+					disabled={selectedIndices.length === 0 || isSyncing}
 				>
 					<div className={`${styles.sealCorner} ${styles.sealCornerTL}`} />
 					<div className={`${styles.sealCorner} ${styles.sealCornerBR}`} />
 					<div className={styles.sealKanji}>封印せよ</div>
-					<span className={styles.sealText}>Seal Your Fate</span>
+					<span className={styles.sealText}>
+						{isSyncing || !context.pullSelect.isOpen
+							? "Sealing…"
+							: "Seal Your Fate"}
+					</span>
 					<div className={styles.sealDivider}>
 						<div className={styles.sealDividerLine} />
 						<span className={styles.sealDividerDiamond}>◆</span>
@@ -98,4 +102,4 @@ export const Pull = (props: PullProps): JSX.Element => {
 			</div>
 		</div>
 	);
-};
+});

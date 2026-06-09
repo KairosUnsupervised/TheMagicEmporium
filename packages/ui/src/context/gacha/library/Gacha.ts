@@ -59,7 +59,7 @@ export class Gacha {
 
 	public onConfirm = async () => {
 		await this.inventory.closeAll();
-		await this.inventory.consumeItems();
+		this.inventory.queueConsumeItem();
 		this.pullSelect.startProcess(this.pullProcess);
 	};
 

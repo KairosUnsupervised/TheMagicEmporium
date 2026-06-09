@@ -15,10 +15,10 @@ export class PullSelect {
 		this.gacha = gacha;
 	}
 
-	public close = async (selected: AbstractItem[]) => {
-		await this.gacha.inventory.awardItems(selected);
+	public onPullConfirm = async (selected: AbstractItem[]) => {
+		this.gacha.inventory.queueAwardItems(selected);
+		await this.gacha.inventory.flushQueue();
 		this.isOpen = false;
-		this.items = [];
 	};
 
 	public startProcess = (pullProcess: PullProcess) => {

@@ -47,6 +47,7 @@ export const registerValidator = () => {
 				return;
 			}
 
+			console.log("VALIDATION - UPDATE ITEM")
 			scheduleValidation(item.actor);
 		},
 	);
@@ -62,6 +63,7 @@ export const registerValidator = () => {
 			return;
 		}
 
+		console.log("VALIDATION - CREATE ITEM")
 		scheduleValidation(item.actor);
 	});
 
@@ -76,6 +78,7 @@ export const registerValidator = () => {
 			return;
 		}
 
+		console.log("VALIDATION - DELETE ITEM")
 		scheduleValidation(item.actor);
 	});
 };

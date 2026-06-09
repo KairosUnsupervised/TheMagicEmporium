@@ -15,6 +15,7 @@ export const registerTooltip = () => {
 				return item.flags[namespace.core.id].type === ItemType.MagicItem;
 			});
 
+			// TODO OPTIMIZE
 			html.querySelectorAll(".item").forEach((_element: Element) => {
 				const element = _element as HTMLElement;
 				const uuid = element.dataset["uuid"];
