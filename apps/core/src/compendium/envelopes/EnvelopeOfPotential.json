@@ -1,0 +1,29 @@
+{
+	"_id": "EnvelopeOfPoten1",
+	"_key": "!items!EnvelopeOfPoten1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfPotential.jpg",
+	"name": "Envelope of Potential",
+	"system": {
+		"description": {
+			"value": "Wax-sealed against the light. What lies within could be anything, and that is precisely the point. 6 Pulls, 0 Reveals"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ENVELOPE",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 0
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 6
+				}
+			]
+		}
+	}
+}
