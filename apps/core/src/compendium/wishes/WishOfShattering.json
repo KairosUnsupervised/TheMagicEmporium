@@ -1,0 +1,43 @@
+{
+	"_id": "WishShattering01",
+	"_key": "!items!WishShattering01",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfShattering.jpg",
+	"name": "Wish of Shattering",
+	"system": {
+		"description": {
+			"value": "Fate itself cracks open. Locks to one reveal and one pull. +2 to Luck for Rarity"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-shattering",
+			"operations": [
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 1
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "LOCK"
+				},
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 1
+				},
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "LOCK"
+				},
+				{
+					"field": "RARITY_LUCK",
+					"op": "ADD",
+					"value": 2
+				}
+			]
+		}
+	}
+}

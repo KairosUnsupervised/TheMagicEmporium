@@ -1,0 +1,39 @@
+{
+	"_id": "GoldenBlessSeal1",
+	"_key": "!items!GoldenBlessSeal1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/envelopes/goldenBlessingSeal.jpg",
+	"name": "Golden Blessing Seal",
+	"system": {
+		"description": {
+			"value": "Pressed in gold leaf and sealed with a prayer. 3 Items, 1 Pull, Moderate Visibility, +0.5 Luck to Rarity"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ENVELOPE",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 3
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 1
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "SET",
+					"value": 3
+				},
+				{
+					"field": "RARITY_LUCK",
+					"op": "ADD",
+					"value": 0.5
+				}
+			]
+		}
+	}
+}

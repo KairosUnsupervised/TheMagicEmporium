@@ -1,0 +1,34 @@
+{
+	"_id": "FestivalSleeve001",
+	"_key": "!items!FestivalSleeve001",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/envelopes/festivalSleeve.jpg",
+	"name": "Festival Sleeve",
+	"system": {
+		"description": {
+			"value": "Stitched with lantern-thread and offered at the height of the harvest moon. 3 Items, 3 Pulls, Moderate Visibility"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ENVELOPE",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 3
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 3
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "SET",
+					"value": 3
+				}
+			]
+		}
+	}
+}

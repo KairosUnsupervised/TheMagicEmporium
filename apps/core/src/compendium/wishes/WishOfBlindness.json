@@ -1,0 +1,38 @@
+{
+	"_id": "WishOfBlindness1",
+	"_key": "!items!WishOfBlindness1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfBlindness.jpg",
+	"name": "Wish of Blindness",
+	"system": {
+		"description": {
+			"value": "You surrender your sight to fate. +1 Luck to Rarity, you are forced to be blind"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-blindness",
+			"operations": [
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "UNLOCK"
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "SET",
+					"value": 0
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "LOCK"
+				},
+				{
+					"field": "RARITY_LUCK",
+					"op": "ADD",
+					"value": 1
+				}
+			]
+		}
+	}
+}

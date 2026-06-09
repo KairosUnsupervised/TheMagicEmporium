@@ -1,0 +1,30 @@
+{
+	"_id": "WishOfGreed00001",
+	"_key": "!items!WishOfGreed00001",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfGreed.jpg",
+	"name": "Wish of Greed",
+	"system": {
+		"description": {
+			"value": "More. Always more. +2 Pulls, -2 Luck to Rarity"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-greed",
+			"operations": [
+				{
+					"field": "PICK_AMOUNT",
+					"op": "ADD",
+					"value": 2
+				},
+				{
+					"field": "RARITY_LUCK",
+					"op": "SUBTRACT",
+					"value": 2
+				}
+			]
+		}
+	}
+}

@@ -12,6 +12,7 @@
 	"keywords": [],
 	"type": "module",
 	"dependencies": {
+		"@foundryvtt/foundryvtt-cli": "^3.0.3",
 		"@tme/library": "workspace:*",
 		"@tme/shared": "workspace:*",
 		"@tme/ui": "workspace:*",

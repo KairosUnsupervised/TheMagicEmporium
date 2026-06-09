@@ -1,0 +1,40 @@
+{
+	"_id": "CelestialWish001",
+	"_key": "!items!CelestialWish001",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/celestialWish.jpg",
+	"name": "Wish of Celestials",
+	"system": {
+		"description": {
+			"value": "Spoken into the void between stars. Unlocks all possibilities again"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "celestial-wish",
+			"operations": [
+				{
+					"field": "PICK_AMOUNT",
+					"op": "UNLOCK"
+				},
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "UNLOCK"
+				},
+				{
+					"field": "FLOAT_LUCK",
+					"op": "UNLOCK"
+				},
+				{
+					"field": "RARITY_LUCK",
+					"op": "UNLOCK"
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "UNLOCK"
+				}
+			]
+		}
+	}
+}

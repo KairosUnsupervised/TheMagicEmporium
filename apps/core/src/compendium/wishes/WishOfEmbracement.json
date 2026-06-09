@@ -1,0 +1,30 @@
+{
+	"_id": "WishEmbracement1",
+	"_key": "!items!WishEmbracement1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfEmbracement.jpg",
+	"name": "Wish of Embracement",
+	"system": {
+		"description": {
+			"value": "Open arms, open fate. +1 Pull, +1 Level of Visibility"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-embracement",
+			"operations": [
+				{
+					"field": "PICK_AMOUNT",
+					"op": "ADD",
+					"value": 1
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "ADD",
+					"value": 1
+				}
+			]
+		}
+	}
+}

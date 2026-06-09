@@ -13,6 +13,22 @@
 	],
 	"esmodules": ["index.js"],
 	"styles": ["index.css"],
+	"packs": [
+		{
+			"name": "envelopes",
+			"label": "Envelopes",
+			"path": "compendium/envelopes",
+			"type": "Item",
+			"system": "dnd5e"
+		},
+		{
+			"name": "wishes",
+			"label": "Wishes",
+			"path": "compendium/wishes",
+			"type": "Item",
+			"system": "dnd5e"
+		}
+	],
 	"languages": [],
 	"compatibility": {
 		"minimum": "13",

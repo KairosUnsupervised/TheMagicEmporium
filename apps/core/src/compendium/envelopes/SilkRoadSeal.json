@@ -1,0 +1,42 @@
+{
+	"_id": "SilkRoadSeal0001",
+	"_key": "!items!SilkRoadSeal0001",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/envelopes/silkRoadSeal.jpg",
+	"name": "Silk Road Seal",
+	"system": {
+		"description": {
+			"value": "Traded across a thousand leagues of silk and sand. 12 Items, Locked to 1 Pull, Locked to Moderate Visibility"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ENVELOPE",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 12
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 1
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "LOCK"
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "SET",
+					"value": 3
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "LOCK"
+				}
+			]
+		}
+	}
+}

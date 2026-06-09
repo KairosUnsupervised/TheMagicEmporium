@@ -1,0 +1,30 @@
+{
+	"_id": "WishOfFortune001",
+	"_key": "!items!WishOfFortune001",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfFortune.jpg",
+	"name": "Wish of Fortune",
+	"system": {
+		"description": {
+			"value": "Call upon the luck that lies dormant in all things. +0.5 Luck to Rarity, +1 Reveals"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-fortune",
+			"operations": [
+				{
+					"field": "RARITY_LUCK",
+					"op": "ADD",
+					"value": 0.5
+				},
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "ADD",
+					"value": 1
+				}
+			]
+		}
+	}
+}
