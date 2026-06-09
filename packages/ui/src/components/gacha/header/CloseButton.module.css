@@ -1,0 +1,137 @@
+.root {
+	position: relative;
+	width: 38px;
+	height: 38px;
+	background: linear-gradient(
+		160deg,
+		rgba(14, 17, 36, 0.95) 0%,
+		rgba(7, 9, 26, 1) 100%
+	);
+	border: 1px solid rgba(212, 166, 74, 0.3);
+	clip-path: polygon(
+		0 0,
+		100% 0,
+		100% calc(100% - 10px),
+		calc(100% - 10px) 100%,
+		10px 100%,
+		0 calc(100% - 10px)
+	);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	transition:
+		border-color 0.25s ease,
+		filter 0.25s ease;
+}
+
+.root::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 15%;
+	right: 15%;
+	height: 1px;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(212, 166, 74, 0.5),
+		transparent
+	);
+	pointer-events: none;
+	opacity: 0.7;
+	transition: opacity 0.25s ease;
+}
+
+.root:hover {
+	border-color: rgba(212, 166, 74, 0.65);
+	filter: drop-shadow(0 0 8px rgba(212, 166, 74, 0.4))
+		drop-shadow(0 0 22px rgba(212, 166, 74, 0.15));
+}
+
+.root:hover::before {
+	opacity: 1;
+}
+
+.root:disabled {
+	opacity: 0.35;
+	cursor: not-allowed;
+}
+
+/* ── Corner decorations ───────────────────────────── */
+
+.corner {
+	position: absolute;
+	width: 7px;
+	height: 7px;
+	pointer-events: none;
+}
+
+.corner::before,
+.corner::after {
+	content: "";
+	position: absolute;
+	background: rgba(212, 166, 74, 0.4);
+	transition: background 0.25s ease;
+}
+
+.corner::before {
+	width: 100%;
+	height: 1px;
+	top: 0;
+	left: 0;
+}
+
+.corner::after {
+	width: 1px;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.root:hover .corner::before,
+.root:hover .corner::after {
+	background: rgba(212, 166, 74, 0.9);
+}
+
+.cornerTL {
+	top: 5px;
+	left: 5px;
+}
+
+.cornerTR {
+	top: 5px;
+	right: 5px;
+	transform: scaleX(-1);
+}
+
+.cornerBL {
+	bottom: 5px;
+	left: 5px;
+	transform: scaleY(-1);
+}
+
+.cornerBR {
+	bottom: 5px;
+	right: 5px;
+	transform: scale(-1);
+}
+
+/* ── X icon ───────────────────────────────────────── */
+
+.icon {
+	width: 14px;
+	height: 14px;
+	stroke: rgba(212, 166, 74, 0.6);
+	stroke-width: 1.5;
+	transition:
+		stroke 0.25s ease,
+		filter 0.25s ease;
+	flex-shrink: 0;
+}
+
+.root:hover .icon {
+	stroke: rgba(212, 166, 74, 0.95);
+	filter: drop-shadow(0 0 3px rgba(212, 166, 74, 0.75));
+}

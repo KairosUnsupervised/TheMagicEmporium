@@ -6,8 +6,15 @@
 	text-align: center;
 	padding: 28px 40px 20px;
 	border-bottom: 1px solid rgba(212, 166, 74, 0.2);
-	pointer-events: none;
 	flex-shrink: 0;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.main {
+	flex-grow: 2;
 }
 
 .header::after {
@@ -83,7 +90,12 @@
 	font-family: "Cormorant Garamond", serif;
 	font-style: italic;
 	font-size: 13px;
-	color: #5a4a28;
+	color: #6c582f;
 	letter-spacing: 4px;
 	margin-top: 5px;
+}
+
+.close {
+	width: 0;
+	transform: translateX(-48px);
 }
