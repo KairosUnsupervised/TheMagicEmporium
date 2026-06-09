@@ -15,8 +15,8 @@ export class PullSelect {
 		this.gacha = gacha;
 	}
 
-	public close = (selected: AbstractItem[]): void => {
-		this.gacha.inventory.awardItems(selected);
+	public close = async (selected: AbstractItem[]) => {
+		await this.gacha.inventory.awardItems(selected);
 		this.isOpen = false;
 		this.items = [];
 	};

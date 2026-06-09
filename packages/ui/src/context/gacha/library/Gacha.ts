@@ -50,8 +50,8 @@ export class Gacha {
 
     public onConfirm = async () => {
         await this.inventory.closeAll()
+        await this.inventory.consumeItems()
         this.pullSelect.startProcess(this.pullProcess)
-        this.inventory.consumeItems()
     }
 
     public setOpen = (actor?: Actor5e, initialEnvelope?: GachaItem5e<EnvelopeFlag>) => {
