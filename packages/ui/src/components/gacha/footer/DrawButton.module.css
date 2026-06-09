@@ -179,6 +179,7 @@
 		0 0 40px rgba(201, 168, 76, 0.3);
 	transition: text-shadow 0.4s;
 	line-height: 1;
+	min-width: 250px;
 }
 
 .button:hover .label {
