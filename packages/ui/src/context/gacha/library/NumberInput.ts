@@ -1,4 +1,5 @@
 import {AllOperations, LockOperation, NumberOperation} from "@tme/shared/src/types/GachaItem5e";
+import {makeAutoObservable} from "mobx";
 
 export interface NumberInputProps {
 	default?: number;
@@ -9,6 +10,7 @@ export class NumberInput {
 	private locked: boolean = false;
 
 	public constructor(props: NumberInputProps) {
+		makeAutoObservable(this);
 		this.value = props.default ?? 0;
 	}
 

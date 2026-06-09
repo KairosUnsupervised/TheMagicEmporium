@@ -4,10 +4,15 @@ import {
 	ArrayOperation,
 	LockOperation,
 } from "@tme/shared/src/types/GachaItem5e";
+import {makeAutoObservable} from "mobx";
 
 export class EquipmentInput {
 	private whitelist: Set<Equipment> = new Set(Object.values(Equipment));
 	private locked: boolean = false;
+
+	constructor() {
+		makeAutoObservable(this);
+	}
 
 	public doOperation(operation: AllOperations): void {
 		if (operation.op !== LockOperation.Unlock && this.locked) {

@@ -22,6 +22,7 @@ export class PullSelect {
 	};
 
 	public startProcess = (pullProcess: PullProcess) => {
+		console.log("Starting pull select process", pullProcess);
 		this.process = pullProcess;
 		this.populateItems();
 		this.isOpen = true;
