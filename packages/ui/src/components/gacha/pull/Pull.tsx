@@ -12,6 +12,11 @@ export const Pull = observer(() => {
 	const [selectedIndices, setSelectedIndices] = useState<number[]>([]);
 
 	const handleSelect = (index: number): void => {
+
+		if(isSyncing){
+			return;
+		}
+
 		setSelectedIndices((prev) => {
 			if (prev.includes(index)) {
 				return prev.filter((i) => i !== index);
