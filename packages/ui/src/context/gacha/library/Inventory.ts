@@ -131,4 +131,32 @@ export class Inventory {
 		);
 		return [...envelopeOps, ...wishOps];
 	};
+
+	public consumeItems = async (): Promise<void> => {
+
+		if(!this.actor){
+			return;
+		}
+
+		await Promise.all([...this.wishesSelected, this.envelopeSelected].map(async (item) => {
+			if(!item){
+				return;
+			}
+
+			if(item.system.quantity >= 2){
+				return item.update({system: {quantity: item.system.quantity - 1}})
+			}
+
+			if(this.envelopeSelected === item){
+				this.setEnvelope(null);
+				return item.delete()
+			}
+
+			if(this.wishesSelected.includes(item as GachaItem5e<WishFlag>)){
+				this.setWish(this.wishesSelected.indexOf(item as GachaItem5e<WishFlag>), null);
+			}
+
+			return item.delete()
+		}))
+	}
 }
