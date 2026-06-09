@@ -7,7 +7,7 @@ export interface Effect5e {
 	flags: {
 		[namespace.core.id]?: {
 			type: ItemType.TemporaryItem;
-			id: string;
+			hash: string;
 		};
 	};
 }
@@ -30,6 +30,8 @@ export interface Actor5e {
 	update: (data: DeepPartial<Actor5e>) => Promise<void>;
 	// biome-ignore lint/suspicious/noExplicitAny: FoundryVTT
 	createEmbeddedDocuments: (type: string, data: any) => Promise<Item5e[]>;
+	// biome-ignore lint/suspicious/noExplicitAny: FoundryVTT
+	updateEmbeddedDocuments: (type: string, data: any[]) => Promise<Item5e[]>;
 	deleteEmbeddedDocuments: (type: string, ids: string[]) => Promise<void>;
 	// biome-ignore lint/suspicious/noExplicitAny: FoundryVTT
 	setFlag: (module: string, key: string, data: any) => Promise<Actor5e>;

@@ -152,37 +152,30 @@ export class Validator {
 		let remaining = this.getMagicFeats(actor);
 
 		const creation = feats.map((feat, index) => {
-			const id =
+			// TODO REAL HASH
+			const hash =
 				feat.document.name + index + feat.document.system.description?.value;
 
 			/**
 			 * If the feat exists, remove it from the remaining array
 			 */
 			const exists = remaining.find((item) => {
-				return item.flags[namespace.core.id].id === id;
+				return item.flags[namespace.core.id].hash === hash;
 			});
 
 			if (exists) {
 				remaining = remaining.filter((item) => {
-					return item.flags[namespace.core.id].id !== id;
+					return item.flags[namespace.core.id].hash !== hash;
 				});
 				return null;
 			}
 
 			logger.log("Creating feat", {
-				id,
+				id: hash,
 			});
 
 			return actor.createEmbeddedDocuments("Item", [
-				{
-					...feat.export(),
-					flags: {
-						[namespace.core.id]: {
-							type: ItemType.TemporaryItem,
-							id,
-						},
-					},
-				},
+				feat.export(hash),
 			]);
 		});
 		await Promise.all(creation);
@@ -226,18 +219,19 @@ export class Validator {
 		let remaining = this.getExistingActiveEffects(actor);
 
 		const creation = wantActiveEffects.map((effect, index) => {
-			const id = effect.document.name + index + effect.document.description;
+			// TODO REAL HASH
+			const hash = effect.document.name + index + effect.document.description;
 
 			/**
 			 * If the effect exists, remove it from the remaining array
 			 */
 			const exists = remaining.find((effect) => {
-				return effect.flags[namespace.core.id]?.id === id;
+				return effect.flags[namespace.core.id]?.hash === hash;
 			});
 
 			if (exists) {
 				remaining = remaining.filter((effect) => {
-					return effect.flags[namespace.core.id]?.id !== id;
+					return effect.flags[namespace.core.id]?.hash !== hash;
 				});
 				return null;
 			}
@@ -246,10 +240,10 @@ export class Validator {
 			 * Otherwise create a new activeEffect
 			 */
 			logger.log("Creating activeEffect", {
-				id,
+				id: hash,
 			});
 
-			return actor.createEmbeddedDocuments("ActiveEffect", [effect.export(id)]);
+			return actor.createEmbeddedDocuments("ActiveEffect", [effect.export(hash)]);
 		});
 		await Promise.all(creation);
 

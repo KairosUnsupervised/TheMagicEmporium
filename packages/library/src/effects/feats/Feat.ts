@@ -10,6 +10,8 @@ import {
 	validateFeatSchema,
 } from "../../schemas/parts/feat.schema";
 import { Activity } from "../activity/Activity";
+import {namespace} from "@tme/shared/src/namespaceConfig";
+import {ItemType} from "@tme/shared/src/types/item5e";
 
 type DocumentSystem = Omit<FeatSystem, "activities"> & {
 	type: { value: "feat" };
@@ -21,6 +23,12 @@ interface Document {
 	type: "feat";
 	img: string;
 	system: DocumentSystem;
+	flags: {
+		[namespace.core.id]: {
+			hash: string;
+			type: ItemType;
+		};
+	};
 }
 
 type CreateDefinition = FeatSchema &
@@ -33,6 +41,12 @@ export class Feat {
 		img: generateIconUrl(Icon.Fallback),
 		system: {
 			type: { value: "feat" },
+		},
+		flags: {
+			[namespace.core.id]: {
+				hash: "identifier",
+				type: ItemType.TemporaryItem,
+			},
 		},
 	};
 
@@ -105,7 +119,8 @@ export class Feat {
 		this.document = merge(this.document, props) as Document;
 	}
 
-	public export = (): object => {
+	public export = (hash: string): object => {
+		this.document.flags[namespace.core.id].hash = hash;
 		return this.document;
 	};
 }

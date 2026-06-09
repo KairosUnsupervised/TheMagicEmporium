@@ -23,7 +23,7 @@ export enum ItemType {
 
 export interface SubItem {
 	type: ItemType.TemporaryItem;
-	id: string;
+	hash: string;
 }
 
 export interface BaseItem {

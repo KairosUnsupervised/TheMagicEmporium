@@ -52,7 +52,7 @@ interface Document {
 	changes: Change[];
 	flags: {
 		[namespace.core.id]: {
-			identifier: string;
+			hash: string;
 			type: ItemType;
 		};
 	};
@@ -71,7 +71,7 @@ export class ActiveEffect {
 		changes: [],
 		flags: {
 			[namespace.core.id]: {
-				identifier: "identifier",
+				hash: "identifier",
 				type: ItemType.TemporaryItem,
 			},
 		},
@@ -131,8 +131,8 @@ export class ActiveEffect {
 		this.document = { ...this.document, ...props };
 	}
 
-	public export = (identifier: string): object => {
-		this.document.flags[namespace.core.id].identifier = identifier;
+	public export = (hash: string): object => {
+		this.document.flags[namespace.core.id].hash = hash;
 		return this.document;
 	};
 
