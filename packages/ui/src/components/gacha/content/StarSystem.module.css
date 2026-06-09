@@ -16,7 +16,7 @@
 /* Coordinate origin — sun's center is (0, 0) */
 .origin {
 	position: absolute;
-	left: 460px;
+	left: calc(50% - 560px);
 	top: 50%;
 }
 
