@@ -15,7 +15,6 @@ export const registerTooltip = () => {
 				return item.flags[namespace.core.id].type === ItemType.MagicItem;
 			});
 
-			// TODO OPTIMIZE
 			html.querySelectorAll(".item").forEach((_element: Element) => {
 				const element = _element as HTMLElement;
 				const uuid = element.dataset["uuid"];
@@ -31,11 +30,20 @@ export const registerTooltip = () => {
 				delete tooltipElement.dataset["tooltip-class"];
 				delete tooltipElement.dataset["tooltip-direction"];
 
-				const abstract = AbstractItem.createFromDocument(data);
-				if (!abstract) return;
+				let abstract : AbstractItem | null = null;
 
-				tooltipElement.addEventListener("mouseenter", (e: MouseEvent) =>
-					tooltip.showNextTo(e, abstract),
+				tooltipElement.addEventListener("mouseenter", (e: MouseEvent) => {
+
+						if (!abstract) {
+							abstract = AbstractItem.createFromDocument(data);
+						}
+
+						if(!abstract){
+							return
+						}
+
+						tooltip.showNextTo(e, abstract);
+					},
 				);
 
 				tooltipElement.addEventListener("mouseleave", () => tooltip.hide());
