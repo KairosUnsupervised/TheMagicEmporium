@@ -2,19 +2,15 @@ import { LockOperation, NumberOperation } from "@tme/shared/src/types/GachaItem5
 import type { AllNumberOperations } from "@tme/shared/src/types/GachaItem5e";
 
 export interface NumberInputProps {
-	clampLow?: number;
-	clampHigh?: number;
+	default?: number;
 }
 
 export class NumberInput {
 	private value: number = 0;
 	private locked: boolean = false;
-	private readonly clampLow: number | null = null;
-	private readonly clampHigh: number | null = null;
 
 	public constructor(props: NumberInputProps) {
-		this.clampLow = props.clampLow ?? null;
-		this.clampHigh = props.clampHigh ?? null;
+		this.value = props.default ?? 0;
 	}
 
 	public doOperation(operation: AllNumberOperations): void {
@@ -56,13 +52,6 @@ export class NumberInput {
 	}
 
 	public getValue = (): number => {
-		let result = this.value;
-		if (this.clampLow !== null) {
-			result = Math.max(this.clampLow, result);
-		}
-		if (this.clampHigh !== null) {
-			result = Math.min(this.clampHigh, result);
-		}
-		return result;
+		return this.value;
 	};
 }

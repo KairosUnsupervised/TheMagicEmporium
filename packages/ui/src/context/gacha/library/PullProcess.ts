@@ -8,7 +8,7 @@ export class PullProcess {
 	public floatLuck = new NumberInput({});
 	public revealAmount = new NumberInput({});
 	public pickAmount = new NumberInput({});
-	public visibilityLevel = new NumberInput({});
+	public visibilityLevel = new NumberInput({default: 1});
 
     constructor() {
         makeAutoObservable(this);
