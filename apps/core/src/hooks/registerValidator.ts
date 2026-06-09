@@ -2,7 +2,7 @@ import type { DeepPartial } from "@tme/shared/src/helpers/deepPartial.types.ts";
 import { namespace } from "@tme/shared/src/namespaceConfig.ts";
 import type { Item5e } from "@tme/shared/src/types/item5e.ts";
 import { ItemType } from "@tme/shared/src/types/item5e.ts";
-import { Validator } from "./Validator.ts";
+import { Validator } from "../validator/Validator.ts";
 
 const validator = new Validator();
 

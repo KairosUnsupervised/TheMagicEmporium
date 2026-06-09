@@ -6,7 +6,7 @@ import { Tooltip } from "../tooltip/Tooltip.ts";
 
 const tooltip = new Tooltip();
 
-export const registerTooltips = () => {
+export const registerTooltip = () => {
 	Hooks.on(
 		"renderActorSheetV2",
 		(_sheet: unknown, html: HTMLElement, actor: Actor5e, _token: unknown) => {
