@@ -166,13 +166,19 @@ export class Tooltip {
 
 	public showNextTo = (e: MouseEvent, item: AbstractItem): void => {
 		if (this.showTimer) clearTimeout(this.showTimer);
+		if (this.shown) {
+			this.setContent(item);
+			const height = this.contentDiv.getBoundingClientRect().height;
+			this.movePosition(e.clientY - height / 2, e.clientX);
+			return;
+		}
 		this.showTimer = setTimeout(() => {
 			this.setContent(item);
 			const height = this.contentDiv.getBoundingClientRect().height;
 			this.movePosition(e.clientY - height / 2, e.clientX);
 			this.show();
 			this.showTimer = null;
-		}, 500);
+		}, 400);
 	};
 
 	public pin = (): void => {
