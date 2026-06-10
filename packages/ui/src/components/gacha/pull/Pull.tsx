@@ -4,6 +4,7 @@ import { useGachaContext } from "../../../context/gacha/useGachaContext";
 import styles from "./Pull.module.css";
 import { PullItem } from "./PullItem";
 
+// TODO Having the Envelope of Potential causes a soft lock on LIVE environment
 export const Pull = observer(() => {
 	const context = useGachaContext();
 	const isSyncing = context.inventory.isSyncing;
@@ -12,8 +13,7 @@ export const Pull = observer(() => {
 	const [selectedIndices, setSelectedIndices] = useState<number[]>([]);
 
 	const handleSelect = (index: number): void => {
-
-		if(isSyncing){
+		if (isSyncing) {
 			return;
 		}
 
@@ -52,7 +52,7 @@ export const Pull = observer(() => {
 							className={`${styles.itemWrapper} ${isSelected ? styles.selected : ""} ${isDisabled ? styles.itemDisabled : ""}`}
 							onClick={() => handleSelect(index)}
 							disabled={isDisabled}
-							type={"submit"}
+							type={"button"}
 						>
 							<PullItem
 								item={item}

@@ -1,13 +1,9 @@
-import { Icon } from "@tme/library/src/item/icon";
-import type { TieredModifier } from "@tme/library/src/modifiers/blueprints/TieredModifier";
-import {
-	type Flavor,
-	ModifierType,
-} from "@tme/library/src/modifiers/modifier.schema";
-import { namespace } from "@tme/shared/src/namespaceConfig";
-import { BreakpointSwap } from "../BreakpointSwap";
-import icon from "./Icon.svg";
+import {Icon} from "@tme/library/src/item/icon";
+import type {TieredModifier} from "@tme/library/src/modifiers/blueprints/TieredModifier";
+import {type Flavor, ModifierType,} from "@tme/library/src/modifiers/modifier.schema";
+import {BreakpointSwap} from "../BreakpointSwap";
 import styles from "./TieredModifierDisplay.module.css";
+import {generateIconUrl} from "@tme/library/src/misc/generateIconUrl";
 
 const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 
@@ -23,15 +19,11 @@ interface TieredBodyProps {
 }
 
 const TieredBody = (props: TieredBodyProps) => {
-	const iconSrc =
-		typeof game !== "undefined" && game?.world?.id
-			? `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Tiered}`
-			: icon;
 
 	return (
 		<div className={styles.grid}>
 			<div className={styles.iconWrapper}>
-				<img src={iconSrc} alt="Icon" />
+				<img src={generateIconUrl(Icon.Tiered)} alt="Icon"/>
 			</div>
 			<div>
 				<div className={styles.labelRow}>
@@ -67,7 +59,7 @@ export const TieredModifierDisplay = (props: TieredModifierDisplayProps) => {
 	);
 
 	const items = tiers.map((tier, i) => (
-		<TieredBody flavor={tier.flavor} tierIndex={i} tierTotal={tiers.length} />
+		<TieredBody flavor={tier.flavor} tierIndex={i} tierTotal={tiers.length}/>
 	));
 
 	return (

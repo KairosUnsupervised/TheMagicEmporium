@@ -1,10 +1,9 @@
-import { Icon } from "@tme/library/src/item/icon";
-import type { IndependentModifier } from "@tme/library/src/modifiers/blueprints/IndependentModifier";
-import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
-import { namespace } from "@tme/shared/src/namespaceConfig";
-import { BreakpointSwap } from "../BreakpointSwap";
-import icon from "./Icon.svg";
+import {Icon} from "@tme/library/src/item/icon";
+import type {IndependentModifier} from "@tme/library/src/modifiers/blueprints/IndependentModifier";
+import {ModifierType} from "@tme/library/src/modifiers/modifier.schema";
+import {BreakpointSwap} from "../BreakpointSwap";
 import styles from "./IndependentModifierDisplay.module.css";
+import {generateIconUrl} from "@tme/library/src/misc/generateIconUrl";
 
 export interface IndependentModifierDisplayProps {
 	modifier: IndependentModifier;
@@ -13,15 +12,11 @@ export interface IndependentModifierDisplayProps {
 
 const IndependentBody = (props: IndependentModifierDisplayProps) => {
 	const flavor = props.modifier.getDescription(props.data);
-	const iconSrc =
-		typeof game !== "undefined" && game?.world?.id
-			? `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Independent}`
-			: icon;
 
 	return (
 		<div className={styles.grid}>
 			<div className={styles.iconWrapper}>
-				<img src={iconSrc} alt={"Icon"} />
+				<img src={generateIconUrl(Icon.Independent)} alt={"Icon"}/>
 			</div>
 			<div>
 				<div className={styles.label}>INDEPENDENT</div>
@@ -47,7 +42,7 @@ export const IndependentModifierDisplay = (
 	);
 
 	const items = breakpoints.map((bp) => (
-		<IndependentBody modifier={props.modifier} data={{ float: bp.min }} />
+		<IndependentBody modifier={props.modifier} data={{float: bp.min}}/>
 	));
 
 	return (

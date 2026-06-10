@@ -1,10 +1,9 @@
-import { Icon } from "@tme/library/src/item/icon";
-import type { UniqueModifier } from "@tme/library/src/modifiers/blueprints/UniqueModifier";
-import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
-import { namespace } from "@tme/shared/src/namespaceConfig";
-import { BreakpointSwap } from "../BreakpointSwap";
-import icon from "./Icon.svg";
+import {Icon} from "@tme/library/src/item/icon";
+import type {UniqueModifier} from "@tme/library/src/modifiers/blueprints/UniqueModifier";
+import {ModifierType} from "@tme/library/src/modifiers/modifier.schema";
+import {BreakpointSwap} from "../BreakpointSwap";
 import styles from "./UniqueModifierDisplay.module.css";
+import {generateIconUrl} from "@tme/library/src/misc/generateIconUrl";
 
 export interface UniqueModifierDisplayProps {
 	modifier: UniqueModifier;
@@ -13,15 +12,11 @@ export interface UniqueModifierDisplayProps {
 
 const UniqueBody = (props: UniqueModifierDisplayProps) => {
 	const flavor = props.modifier.getDescription(props.data);
-	const iconSrc =
-		typeof game !== "undefined" && game?.world?.id
-			? `worlds/${game.world.id}/data/${namespace.core.id}/icons/${Icon.Unique}`
-			: icon;
 
 	return (
 		<div className={styles.grid}>
 			<div className={styles.iconWrapper}>
-				<img src={iconSrc} alt="Icon" />
+				<img src={generateIconUrl(Icon.Independent)} alt="Icon"/>
 			</div>
 			<div>
 				<div className={styles.label}>UNIQUE</div>
@@ -45,7 +40,7 @@ export const UniqueModifierDisplay = (props: UniqueModifierDisplayProps) => {
 	);
 
 	const items = breakpoints.map((bp) => (
-		<UniqueBody modifier={props.modifier} data={{ float: bp.min }} />
+		<UniqueBody modifier={props.modifier} data={{float: bp.min}}/>
 	));
 
 	return (
