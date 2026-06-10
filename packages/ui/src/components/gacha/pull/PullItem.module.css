@@ -362,6 +362,23 @@
 	pointer-events: none;
 }
 
+/* ── Reveal shimmer sweep ──────────────────────────── */
+
+.revealShimmer {
+	position: absolute;
+	inset: 0;
+	z-index: 11;
+	pointer-events: none;
+	background: linear-gradient(
+		105deg,
+		transparent 32%,
+		rgba(255, 244, 214, 0.14) 44%,
+		rgba(255, 249, 232, 0.5) 50%,
+		rgba(255, 244, 214, 0.14) 56%,
+		transparent 68%
+	);
+}
+
 /* ── Border trace SVG overlay ──────────────────────── */
 
 .borderTrace {

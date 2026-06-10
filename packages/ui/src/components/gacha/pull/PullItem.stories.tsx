@@ -104,3 +104,25 @@ export const Legendary: Story = {
 		</div>
 	),
 };
+
+export const Revealed: Story = {
+	render: () => (
+		<div
+			className="dark"
+			style={{
+				padding: "40px",
+				background: "#07091a",
+				display: "flex",
+				gap: "20px",
+			}}
+		>
+			<PullItem item={rareFixture} visibility={4} revealed={true} />
+			<PullItem
+				item={legendaryModifierBackgroundFixture}
+				visibility={4}
+				revealed={true}
+				revealDelay={0.15}
+			/>
+		</div>
+	),
+};

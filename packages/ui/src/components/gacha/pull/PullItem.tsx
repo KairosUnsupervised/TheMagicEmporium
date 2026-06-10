@@ -12,6 +12,8 @@ interface PullItemProps {
 	visibility: VignetteStage;
 	selected?: boolean;
 	delay?: number;
+	revealed?: boolean;
+	revealDelay?: number;
 }
 
 const rarityLabel: Record<Rarity, string> = {
@@ -76,6 +78,7 @@ export const PullItem = (props: PullItemProps): JSX.Element => {
 	const showName = props.visibility >= 2;
 	const showRarity = props.visibility >= 3;
 	const delay = props.delay ?? 0;
+	const revealDelay = props.revealDelay ?? 0;
 	const spring = raritySpring[props.item.rarity];
 
 	const traceRgb = showRarity ? rarityTraceRgb[props.item.rarity] : goldRgb;
@@ -132,6 +135,32 @@ export const PullItem = (props: PullItemProps): JSX.Element => {
 						delay: delay + 0.06,
 					}}
 				/>
+				{props.revealed && (
+					<>
+						<motion.div
+							className={styles.rarityFlash}
+							style={{ background: rarityFlashColor[props.item.rarity] }}
+							initial={{ opacity: 0 }}
+							animate={{ opacity: [0, 1, 0] }}
+							transition={{
+								duration: 0.7,
+								times: [0, 0.3, 1],
+								ease: "easeOut",
+								delay: revealDelay,
+							}}
+						/>
+						<motion.div
+							className={styles.revealShimmer}
+							initial={{ x: "-130%" }}
+							animate={{ x: "130%" }}
+							transition={{
+								duration: 0.9,
+								ease: "easeInOut",
+								delay: revealDelay + 0.15,
+							}}
+						/>
+					</>
+				)}
 				<div className={`${styles.corner} ${styles.cornerTL}`} />
 				<div className={`${styles.corner} ${styles.cornerTR}`} />
 				<div className={`${styles.corner} ${styles.cornerBL}`} />

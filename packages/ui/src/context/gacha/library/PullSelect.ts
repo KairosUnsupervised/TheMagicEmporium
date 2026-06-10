@@ -7,6 +7,7 @@ import { PullProcess } from "./PullProcess";
 export class PullSelect {
 	private gacha: Gacha;
 	public isOpen: boolean = false;
+	public isRevealing: boolean = false;
 	public items: AbstractItem[] = [];
 	public process: PullProcess = new PullProcess();
 
@@ -15,8 +16,12 @@ export class PullSelect {
 		this.gacha = gacha;
 	}
 
-	public onPullConfirm = async (selected: AbstractItem[]) => {
+	public onSelectConfirm = (selected: AbstractItem[]) => {
 		this.gacha.inventory.queueAwardItems(selected);
+		this.isRevealing = true;
+	};
+
+	public onCompleteConfirm = async (): Promise<void> => {
 		await this.gacha.inventory.flushQueue();
 		this.isOpen = false;
 	};
@@ -25,6 +30,7 @@ export class PullSelect {
 		console.log("Starting pull select process", pullProcess);
 		this.process = pullProcess;
 		this.populateItems();
+		this.isRevealing = false;
 		this.isOpen = true;
 	};
 

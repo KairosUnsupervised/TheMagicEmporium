@@ -207,18 +207,21 @@ export class Inventory {
 				resolve();
 			}
 			runInAction(() => {
+				// Changes trigger animations, so we wait before and after that
 				this.isSyncing = true;
 			});
-			Promise.all(this.foundryQueue.map((op) => op())).then(() => {
-				runInAction(() => {
-					this.foundryQueue = [];
+			setTimeout(() => {
+				Promise.all(this.foundryQueue.map((op) => op())).then(() => {
+					runInAction(() => {
+						this.foundryQueue = [];
 
-					setTimeout(() => {
-						this.isSyncing = false;
-						resolve();
-					}, 700);
+						setTimeout(() => {
+							this.isSyncing = false;
+							resolve();
+						}, 600);
+					});
 				});
-			});
+			}, 600)
 		});
 	};
 
