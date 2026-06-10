@@ -1541,6 +1541,29 @@
 					"feats": []
 				}
 			]
+		},
+		{
+			"identifier": "TME.BLOOD_LUST",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Blood Lust",
+						"description": "On direct creature kill, gain +1 Strength and -1 Intelligence until the end of combat",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
 		}
 	]
 }
