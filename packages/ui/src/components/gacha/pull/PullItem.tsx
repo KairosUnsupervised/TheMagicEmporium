@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import type { JSX } from "react";
 import type { VignetteStage } from "../content/Vignette";
 import styles from "./PullItem.module.css";
+import { goldRgb, rarityTraceRgb } from "./rarityColors";
 
 interface PullItemProps {
 	item: AbstractItem;
@@ -39,16 +40,6 @@ const rarityRootStyle: Record<Rarity, string> = {
 	[Rarity.VeryRare]: styles.rootVeryRare,
 	[Rarity.Legendary]: styles.rootLegendary,
 };
-
-const rarityTraceRgb: Record<Rarity, string> = {
-	[Rarity.Common]: "180, 180, 180",
-	[Rarity.Uncommon]: "80, 200, 110",
-	[Rarity.Rare]: "90, 150, 240",
-	[Rarity.VeryRare]: "170, 100, 240",
-	[Rarity.Legendary]: "212, 166, 74",
-};
-
-const goldRgb = "212, 166, 74";
 
 interface RaritySpringConfig {
 	damping: number;
