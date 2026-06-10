@@ -1,10 +1,6 @@
-import { namespace } from "@tme/shared/src/namespaceConfig.ts";
-import {
-	type EnvelopeFlag,
-	type GachaItem5e,
-	GachaItemType,
-} from "@tme/shared/src/types/GachaItem5e.ts";
-import { gachaOverlay } from "../gacha/GachaOverlay.ts";
+import {namespace} from "@tme/shared/src/namespaceConfig.ts";
+import {type GachaItem5e, GachaItemType,} from "@tme/shared/src/types/GachaItem5e.ts";
+import {gachaOverlay} from "../gacha/GachaOverlay.ts";
 
 interface Option {
 	icon: string;
@@ -34,7 +30,7 @@ export const registerGacha = () => {
 				},
 				callback: () => {
 					if (item.actor) {
-						gachaOverlay.open(item.actor, item as GachaItem5e<EnvelopeFlag>);
+						gachaOverlay.open(item.actor, item as GachaItem5e);
 					}
 				},
 			});
@@ -52,7 +48,7 @@ export const registerGacha = () => {
 				},
 				callback: () => {
 					if (item.actor) {
-						gachaOverlay.open(item.actor);
+						gachaOverlay.open(item.actor, item as GachaItem5e);
 					}
 				},
 			});

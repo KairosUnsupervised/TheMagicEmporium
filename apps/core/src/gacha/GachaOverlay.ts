@@ -1,12 +1,9 @@
-import type { Actor5e } from "@tme/shared/src/types/actor5e.ts";
-import type {
-	EnvelopeFlag,
-	GachaItem5e,
-} from "@tme/shared/src/types/GachaItem5e.ts";
-import { GachaReveal } from "@tme/ui/src/components/gacha/GachaReveal.tsx";
-import { gacha } from "@tme/ui/src/context/gacha/library/Gacha.ts";
-import { createElement } from "react";
-import { createRoot, type Root } from "react-dom/client";
+import type {Actor5e} from "@tme/shared/src/types/actor5e.ts";
+import type {GachaItem5e,} from "@tme/shared/src/types/GachaItem5e.ts";
+import {GachaReveal} from "@tme/ui/src/components/gacha/GachaReveal.tsx";
+import {gacha} from "@tme/ui/src/context/gacha/library/Gacha.ts";
+import {createElement} from "react";
+import {createRoot, type Root} from "react-dom/client";
 
 const TAG = "tme-gacha-overlay";
 const STYLESHEET = "modules/the-magic-emporium/index.css";
@@ -16,7 +13,7 @@ class TmeGachaOverlayElement extends HTMLElement {
 
 	constructor() {
 		super();
-		const shadow = this.attachShadow({ mode: "open" });
+		const shadow = this.attachShadow({mode: "open"});
 
 		const link = document.createElement("link");
 		link.rel = "stylesheet";
@@ -45,7 +42,7 @@ export class GachaOverlay {
 
 	public open = (
 		actor: Actor5e,
-		initialEnvelope?: GachaItem5e<EnvelopeFlag>,
+		initial?: GachaItem5e,
 	): void => {
 		if (this.element !== null) {
 			return;
@@ -58,9 +55,9 @@ export class GachaOverlay {
 		document.body.appendChild(this.element);
 		this.root = createRoot(this.element.getMountPoint());
 
-		gacha.setOpen(actor, initialEnvelope);
+		gacha.setOpen(actor, initial);
 
-		this.root.render(createElement(GachaReveal, { onClosed: this.close }));
+		this.root.render(createElement(GachaReveal, {onClosed: this.close}));
 	};
 
 	public close = (): void => {

@@ -1,13 +1,14 @@
 import type { Actor5e } from "@tme/shared/src/types/actor5e";
-import type {
+import {
 	EnvelopeFlag,
-	GachaItem5e,
+	GachaItem5e, GachaItemType, WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
 import { makeAutoObservable } from "mobx";
 import { Inventory } from "./Inventory";
 import { Orbiter } from "./Orbiter";
 import { PullProcess } from "./PullProcess";
 import { PullSelect } from "./PullSelect";
+import {namespace} from "@tme/shared/src/namespaceConfig";
 
 export class Gacha {
 	public orbiter: Orbiter = new Orbiter();
@@ -67,12 +68,19 @@ export class Gacha {
 
 	public setOpen = (
 		actor?: Actor5e,
-		initialEnvelope?: GachaItem5e<EnvelopeFlag>,
+		initial?: GachaItem5e,
 	) => {
 		this.inventory = new Inventory(this, actor);
-		if (initialEnvelope) {
-			if (this.inventory.getActorEnvelopes().includes(initialEnvelope)) {
-				this.inventory.setEnvelope(initialEnvelope);
+
+		if (initial && initial.flags[namespace.gacha.id].type === GachaItemType.Envelope) {
+			if (this.inventory.getActorEnvelopes().includes(initial as GachaItem5e<EnvelopeFlag>)) {
+				this.inventory.setEnvelope(initial as GachaItem5e<EnvelopeFlag>);
+			}
+		}
+
+		if (initial && initial.flags[namespace.gacha.id].type === GachaItemType.Wish) {
+			if (this.inventory.getActorWishes().includes(initial as GachaItem5e<WishFlag>)) {
+				this.inventory.setWish(0, initial as GachaItem5e<WishFlag>);
 			}
 		}
 		this.isOpen = true;
