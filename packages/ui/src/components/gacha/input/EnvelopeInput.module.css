@@ -220,31 +220,32 @@
 	max-width: 100%;
 }
 
-/* ── Clear button ─────────────────────────────────── */
+/* ── Orbit clear overlay ──────────────────────────── */
 
-.clearBtn {
+.orbitClearOverlay {
 	position: absolute;
-	top: 150px;
-	left: 50%;
-	transform: translateX(-50%);
-	z-index: 3;
-	width: 36px;
-	height: 36px;
-	padding: 0;
-	border: none;
-	background: none;
-	color: rgba(212, 166, 74, 0.75);
-	font-size: 18px;
-	line-height: 1;
-	cursor: pointer;
+	inset: 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transition: color 0.2s;
+	z-index: 2;
 }
 
-.clearBtn:hover {
+.orbitClearX {
+	font-size: 30px;
+	color: rgba(212, 166, 74, 0.85);
+	line-height: 1;
+	filter: drop-shadow(0 0 6px rgba(212, 166, 74, 0.45))
+		drop-shadow(0 2px 5px rgba(0, 0, 0, 0.85));
+	transition:
+		color 0.2s,
+		filter 0.2s;
+}
+
+.orbitItemSelected:hover .orbitClearX {
 	color: rgba(212, 166, 74, 1);
+	filter: drop-shadow(0 0 10px rgba(212, 166, 74, 0.75))
+		drop-shadow(0 2px 5px rgba(0, 0, 0, 0.85));
 }
 
 /* ── Orbit container ──────────────────────────────── */
@@ -338,6 +339,11 @@
 
 .orbitItemDisabled .orbitImage {
 	filter: grayscale(1) brightness(0.45);
+}
+
+.orbitItemSelected .orbitImage {
+	filter: blur(2px) brightness(0.5);
+	transition: filter 0.2s;
 }
 
 .orbitName {

@@ -81,24 +81,6 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 	return (
 		<div className={`${styles.wrapper} ${open ? styles.wrapperOpen : ""}`}>
 			<AnimatePresence>
-				{selected && (
-					<motion.button
-						className={styles.clearBtn}
-						type="button"
-						onClick={(e) => {
-							e.stopPropagation();
-							context.inventory.setWish(props.index, null);
-						}}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-						transition={{ duration: 0.2 }}
-					>
-						✕
-					</motion.button>
-				)}
-			</AnimatePresence>
-			<AnimatePresence>
 				{open && (
 					<motion.div
 						className={styles.backdrop}
@@ -192,7 +174,12 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 									onClick={(e) => {
 										e.stopPropagation();
 										if (!wish.locked) {
-											handleSelect(wish.item);
+											if (isSelected) {
+												context.inventory.setWish(props.index, null);
+												context.inventory.isWishSelectOpen[props.index] = false;
+											} else {
+												handleSelect(wish.item);
+											}
 										}
 									}}
 								>
@@ -202,6 +189,11 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 											src={wish.item.img}
 											alt={wish.item.name}
 										/>
+										{isSelected && !wish.locked && (
+											<div className={styles.orbitClearOverlay}>
+												<span className={styles.orbitClearX}>✕</span>
+											</div>
+										)}
 										{wish.locked && (
 											<div className={styles.lockOverlay}>
 												<svg

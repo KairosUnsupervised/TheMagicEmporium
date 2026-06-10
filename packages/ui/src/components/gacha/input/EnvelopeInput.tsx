@@ -73,24 +73,6 @@ export const EnvelopeInput = observer(() => {
 			className={`${styles.wrapper} ${context.inventory.isEnvelopeSelectOpen ? styles.wrapperOpen : ""}`}
 		>
 			<AnimatePresence>
-				{selected && (
-					<motion.button
-						className={styles.clearBtn}
-						type="button"
-						onClick={(e) => {
-							e.stopPropagation();
-							context.inventory.setEnvelope(null);
-						}}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-						transition={{ duration: 0.2 }}
-					>
-						✕
-					</motion.button>
-				)}
-			</AnimatePresence>
-			<AnimatePresence>
 				{context.inventory.isEnvelopeSelectOpen && (
 					<motion.div
 						className={styles.backdrop}
@@ -175,7 +157,12 @@ export const EnvelopeInput = observer(() => {
 									onHoverEnd={() => setHoveredId(null)}
 									onClick={(e) => {
 										e.stopPropagation();
-										handleSelect(envelope);
+										if (isSelected) {
+											context.inventory.setEnvelope(null);
+											context.inventory.isEnvelopeSelectOpen = false;
+										} else {
+											handleSelect(envelope);
+										}
 									}}
 								>
 									<div className={styles.orbitThumb}>
@@ -184,6 +171,11 @@ export const EnvelopeInput = observer(() => {
 											src={envelope.img}
 											alt={envelope.name}
 										/>
+										{isSelected && (
+											<div className={styles.orbitClearOverlay}>
+												<span className={styles.orbitClearX}>✕</span>
+											</div>
+										)}
 									</div>
 									<span className={styles.orbitName}>{envelope.name}</span>
 								</motion.div>
