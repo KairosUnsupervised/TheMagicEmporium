@@ -1,0 +1,46 @@
+/* ── Panel wrapper (fixed anchor, full height) ─────── */
+
+.wrapper {
+	position: fixed;
+	right: 0px;
+	top: 0;
+	height: 100%;
+	max-height: 100%;
+	display: flex;
+	align-items: center;
+	pointer-events: none;
+	z-index: 100;
+
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+/* ── Sliding panel ─────────────────────────────────── */
+
+.panel {
+	padding: 32px;
+	pointer-events: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: 100%;
+	scrollbar-gutter: stable;
+	scrollbar-color: #151619 #07091a;
+	scrollbar-width: thin;
+}
+
+.panel::-webkit-scrollbar {
+	width: 6px;
+}
+
+.panel::-webkit-scrollbar-track {
+	background: #07091a;
+}
+
+.panel::-webkit-scrollbar-thumb {
+	background: #1a2550;
+	border-radius: 3px;
+}
+
+.panel::-webkit-scrollbar-thumb:hover {
+	background: #253275;
+}
