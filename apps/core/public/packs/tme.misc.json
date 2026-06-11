@@ -2467,6 +2467,74 @@
 					}
 				}
 			]
+		},
+		{
+			"identifier": "TME.GRACEFUL_DESCENT",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Graceful Descent",
+				"description": "Reduce any falling damage you take by {amount}d6",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 3
+				},
+				{
+					"min": 0.95,
+					"value": 4
+				}
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "special",
+							"cost": null,
+							"condition": "when taking falling damage"
+						},
+						"activities": [
+							{
+								"type": "damage",
+								"name": "Graceful Descent",
+								"activation": {
+									"type": "special",
+									"override": false,
+									"condition": "when taking falling damage"
+								},
+								"damage": {
+									"parts": [
+										{
+											"number": "{amount}",
+											"denomination": 6,
+											"bonus": "",
+											"types": []
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
 		}
 	]
 }
