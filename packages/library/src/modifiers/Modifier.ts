@@ -103,4 +103,6 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
 	};
 
 	public abstract isHighestPossibleBreakpoint: (_data: unknown) => boolean;
+
+	public abstract getBreakpointIndex: (_data: unknown) => number;
 }

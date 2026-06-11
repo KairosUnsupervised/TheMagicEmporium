@@ -1,0 +1,13 @@
+.root {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+}
+
+.separator {
+	display: block;
+	width: 1px;
+	height: 5px;
+	background: rgba(212, 166, 74, 0.55);
+	margin: 0 1px;
+}

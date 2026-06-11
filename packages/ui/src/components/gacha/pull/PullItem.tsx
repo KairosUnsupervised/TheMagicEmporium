@@ -2,10 +2,12 @@ import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
 import { equipmentDetails } from "@tme/library/src/item/equipment/equipment.details";
 import { Rarity } from "@tme/library/src/item/item.types";
 import { generateIconUrl } from "@tme/library/src/misc/generateIconUrl";
+import type { AppliedModifier } from "@tme/library/src/modifiers/Modifier";
 import { AnimatePresence, motion } from "framer-motion";
 import type { JSX } from "react";
 import type { VignetteStage } from "../content/Vignette";
 import styles from "./PullItem.module.css";
+import { PipRow } from "./pips/PipRow";
 import { goldRgb, rarityTraceRgb } from "./rarityColors";
 
 interface PullItemProps {
@@ -68,6 +70,7 @@ export const PullItem = (props: PullItemProps): JSX.Element => {
 	const showImage = props.visibility >= 1 && background !== null;
 	const showName = props.visibility >= 2;
 	const showRarity = props.visibility >= 3;
+	const showModifiers = props.visibility >= 4;
 	const delay = props.delay ?? 0;
 	const revealDelay = props.revealDelay ?? 0;
 	const spring = raritySpring[props.item.rarity];
@@ -78,6 +81,16 @@ export const PullItem = (props: PullItemProps): JSX.Element => {
 
 	const tracePath =
 		"M 0 0 L 100 0 L 100 93.5 L 90.8 100 L 9.2 100 L 0 93.5 L 0 0";
+
+	const pipGroups: number[][] = [
+		props.item.primary,
+		props.item.secondary,
+		props.item.tertiary,
+	].map((slot: AppliedModifier[]): number[] => {
+		return slot.map((applied: AppliedModifier): number => {
+			return applied.modifier.getBreakpointIndex(applied.data);
+		});
+	});
 
 	return (
 		<motion.div
@@ -211,7 +224,27 @@ export const PullItem = (props: PullItemProps): JSX.Element => {
 					</AnimatePresence>
 				</div>
 
-				<div className={styles.divider} />
+				<div className={styles.dividerRow}>
+					<div className={styles.divider} />
+					{showName && (
+						<div className={styles.pipStrip}>
+							<AnimatePresence mode="wait">
+								{showModifiers ? (
+									<PipRow key="pips" groups={pipGroups} />
+								) : (
+									<motion.span
+										key="pip-skeleton"
+										className={styles.pipSkeleton}
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1 }}
+										exit={{ opacity: 0 }}
+										transition={{ duration: 0.3 }}
+									/>
+								)}
+							</AnimatePresence>
+						</div>
+					)}
+				</div>
 
 				<div className={styles.infoColumn}>
 					{showName ? (

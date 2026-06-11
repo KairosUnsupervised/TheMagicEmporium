@@ -1,6 +1,6 @@
 import Ajv from "ajv";
-import { logger } from "../../logger";
-import { DataManager } from "./DataManager";
+import {logger} from "../../logger";
+import {DataManager} from "./DataManager";
 
 export type Breakpoint<Data extends object = object> = { min: number } & Data;
 
@@ -14,7 +14,7 @@ const validateData = ajv.compile<FloatData>({
 	type: "object",
 	required: ["float"],
 	properties: {
-		float: { type: "number", minimum: 0 },
+		float: {type: "number", minimum: 0},
 	},
 });
 
@@ -41,6 +41,14 @@ export class FloatDataManager<
 		}
 		return this.getBreakpoint(data).min === this.breakpoints[0].min;
 	};
+
+	public getBreakpointIndex = (data: unknown) => {
+		if (this.breakpoints.length === 0) {
+			return 0;
+		}
+		const current = this.getBreakpoint(data);
+		return this.breakpoints.length - (this.breakpoints.findIndex(b => b.min === current.min) + 1);
+	}
 
 	public getBreakpoint = (data: unknown): Breakpoint<Data> => {
 		const float = this.resolveFloat(data);

@@ -82,4 +82,8 @@ export class LinearModifier extends Modifier<LinearSchema> {
 	public isHighestPossibleBreakpoint = (data: unknown): boolean => {
 		return this.dataManager.isHighestBreakpoint(data);
 	};
+
+	public getBreakpointIndex = (data: unknown): number => {
+		return this.dataManager.getBreakpointIndex(data)
+	}
 }

@@ -260,6 +260,12 @@
 
 /* ── Divider ───────────────────────────────────────── */
 
+.dividerRow {
+	position: relative;
+	flex-shrink: 0;
+	z-index: 3;
+}
+
 .divider {
 	height: 1px;
 	background: linear-gradient(
@@ -268,7 +274,29 @@
 		rgba(212, 166, 74, 0.35),
 		transparent
 	);
-	flex-shrink: 0;
+}
+
+/* ── Modifier pips (centered on the divider) ───────── */
+
+.pipStrip {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	height: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	pointer-events: none;
+}
+
+.pipSkeleton {
+	display: block;
+	width: 26px;
+	height: 3px;
+	border-radius: 2px;
+	background: rgba(212, 166, 74, 0.22);
+	animation: skeletonPulse 1.8s ease-in-out infinite;
 }
 
 /* ── Info area ─────────────────────────────────────── */
@@ -276,7 +304,7 @@
 .infoColumn {
 	position: relative;
 	height: 52px;
-	padding: 4px 8px 8px 8px;
+	padding: 8px 8px 8px 8px;
 	text-align: center;
 
 	display: flex;

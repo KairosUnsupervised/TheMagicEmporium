@@ -1,0 +1,30 @@
+.pip {
+	position: relative;
+	font-size: 8px;
+	line-height: 1;
+	display: block;
+	user-select: none;
+	color: rgba(212, 166, 74, 0.95);
+	text-shadow:
+		0 0 4px rgba(212, 166, 74, 0.8),
+		0 0 10px rgba(212, 166, 74, 0.4);
+}
+
+.chevrons {
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: rgba(212, 166, 74, 0.85);
+	filter: drop-shadow(0 0 3px rgba(212, 166, 74, 0.5));
+}
+
+.chevron {
+	width: 8px;
+	height: 3px;
+	display: block;
+	margin-bottom: 0px;
+}
