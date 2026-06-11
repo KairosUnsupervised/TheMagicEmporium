@@ -13,6 +13,7 @@ export interface Effect5e {
 }
 
 export interface Actor5e {
+	id: string;
 	items: Item5e[];
 	effects: Effect5e[];
 	system: {

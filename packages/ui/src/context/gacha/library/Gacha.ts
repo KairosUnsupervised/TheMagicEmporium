@@ -1,14 +1,16 @@
 import type { Actor5e } from "@tme/shared/src/types/actor5e";
 import {
 	EnvelopeFlag,
-	GachaItem5e, GachaItemType, WishFlag,
+	GachaItem5e,
+	GachaItemType,
+	WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
 import { makeAutoObservable } from "mobx";
 import { Inventory } from "./Inventory";
 import { Orbiter } from "./Orbiter";
 import { PullProcess } from "./PullProcess";
 import { PullSelect } from "./PullSelect";
-import {namespace} from "@tme/shared/src/namespaceConfig";
+import { namespace } from "@tme/shared/src/namespaceConfig";
 
 export class Gacha {
 	public orbiter: Orbiter = new Orbiter();
@@ -63,23 +65,35 @@ export class Gacha {
 		await this.inventory.closeAll();
 		this.pullSelect.startProcess(this.pullProcess);
 		this.inventory.queueConsumeItem();
-		this.onInputUpdate()
+		this.onInputUpdate();
 	};
 
-	public setOpen = (
-		actor?: Actor5e,
-		initial?: GachaItem5e,
-	) => {
+	public setOpen = (actor?: Actor5e, initial?: GachaItem5e) => {
+		this.inventory.dispose();
 		this.inventory = new Inventory(this, actor);
 
-		if (initial && initial.flags[namespace.gacha.id].type === GachaItemType.Envelope) {
-			if (this.inventory.getActorEnvelopes().includes(initial as GachaItem5e<EnvelopeFlag>)) {
+		if (
+			initial &&
+			initial.flags[namespace.gacha.id].type === GachaItemType.Envelope
+		) {
+			if (
+				this.inventory
+					.getActorEnvelopes()
+					.includes(initial as GachaItem5e<EnvelopeFlag>)
+			) {
 				this.inventory.setEnvelope(initial as GachaItem5e<EnvelopeFlag>);
 			}
 		}
 
-		if (initial && initial.flags[namespace.gacha.id].type === GachaItemType.Wish) {
-			if (this.inventory.getActorWishes().includes(initial as GachaItem5e<WishFlag>)) {
+		if (
+			initial &&
+			initial.flags[namespace.gacha.id].type === GachaItemType.Wish
+		) {
+			if (
+				this.inventory
+					.getActorWishes()
+					.includes(initial as GachaItem5e<WishFlag>)
+			) {
 				this.inventory.setWish(0, initial as GachaItem5e<WishFlag>);
 			}
 		}
@@ -87,6 +101,7 @@ export class Gacha {
 	};
 
 	public setClosed = () => {
+		this.inventory.dispose();
 		this.isOpen = false;
 	};
 }

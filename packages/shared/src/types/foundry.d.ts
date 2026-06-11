@@ -1,6 +1,7 @@
 declare const Hooks: {
-	on: (hook: string, any) => void;
+	on: (hook: string, any) => number;
 	once: (hook: string, any) => void;
+	off: (hook: string, id: number) => void;
 };
 
 declare class Item {

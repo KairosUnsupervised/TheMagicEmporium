@@ -55,13 +55,52 @@ export class Inventory {
 	];
 	public isWishSelectOpen: boolean[] = [false, false, false, false];
 
+	/**
+	 * Foundry mutates item documents outside MobX, so observers reading
+	 * item data (e.g. quantities) never re-render on their own. Item getters
+	 * read this counter and Foundry's document hooks bump it, turning every
+	 * item change into a MobX update.
+	 */
+	private itemsVersion: number = 0;
+	private hookIds: { hook: string; id: number }[] = [];
+
 	constructor(gacha: Gacha, actor?: Actor5e) {
 		makeAutoObservable(this);
 		this.gacha = gacha;
-		this.actor = actor;
+		this.actor = actor ?? null;
+		this.registerFoundryHooks();
 	}
 
+	private registerFoundryHooks = (): void => {
+		// No actor means fixture mode (Storybook), where Hooks doesn't exist
+		if (!this.actor || typeof Hooks === "undefined") {
+			return;
+		}
+		const actorId = this.actor.id;
+		for (const hook of ["createItem", "updateItem", "deleteItem"]) {
+			const id = Hooks.on(hook, (item: { actor?: { id: string } | null }) => {
+				if (item.actor?.id === actorId) {
+					this.invalidateItems();
+				}
+			});
+			this.hookIds.push({ hook, id });
+		}
+	};
+
+	public invalidateItems = (): void => {
+		this.itemsVersion += 1;
+	};
+
+	public dispose = (): void => {
+		for (const entry of this.hookIds) {
+			Hooks.off(entry.hook, entry.id);
+		}
+		this.hookIds = [];
+	};
+
 	public getActorEnvelopes = (): GachaItem5e<EnvelopeFlag>[] => {
+		// Subscribe observers to Foundry-driven item changes (see itemsVersion)
+		void this.itemsVersion;
 		if (!this.actor) {
 			return [
 				crimsonLuckFoldFixture,
@@ -84,6 +123,8 @@ export class Inventory {
 	};
 
 	public getActorWishes = (): GachaItem5e<WishFlag>[] => {
+		// Subscribe observers to Foundry-driven item changes (see itemsVersion)
+		void this.itemsVersion;
 		if (!this.actor) {
 			return [
 				blessingWishFixture,
@@ -221,7 +262,7 @@ export class Inventory {
 						}, 600);
 					});
 				});
-			}, 600)
+			}, 600);
 		});
 	};
 
