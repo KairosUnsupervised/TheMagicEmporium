@@ -156,6 +156,7 @@ const hintVariants: Variants = {
 const ringVariants = (index: number): Variants => {
 	return {
 		stamping: {
+			rotate: 45,
 			scale: [0.4, 2.2],
 			opacity: [0, 0.6, 0],
 			transition: {
@@ -164,8 +165,9 @@ const ringVariants = (index: number): Variants => {
 				ease: "easeOut",
 			},
 		},
-		sealed: { scale: 0.4, opacity: 0, transition: { duration: 0 } },
+		sealed: { rotate: 45, scale: 0.4, opacity: 0, transition: { duration: 0 } },
 		bursting: {
+			rotate: 45,
 			scale: [0.4, 2.4],
 			opacity: [0, 0.5, 0],
 			transition: {
@@ -255,21 +257,11 @@ export const PullSummon = (props: PullSummonProps): JSX.Element => {
 					variants={envelopeVariants}
 				>
 					<div className={styles.innerBorder} />
-					<svg
-						className={styles.flap}
-						viewBox="0 0 100 100"
-						preserveAspectRatio="none"
-						xmlns="http://www.w3.org/2000/svg"
-						aria-hidden="true"
-					>
-						<polyline
-							points="0,0 50,100 100,0"
-							fill="none"
-							stroke="rgba(212, 166, 74, 0.45)"
-							strokeWidth="1"
-							vectorEffect="non-scaling-stroke"
-						/>
-					</svg>
+					<div className={`${styles.corner} ${styles.cornerTL}`} />
+					<div className={`${styles.corner} ${styles.cornerTR}`} />
+					<div className={`${styles.corner} ${styles.cornerBL}`} />
+					<div className={`${styles.corner} ${styles.cornerBR}`} />
+					<div className={styles.divider} />
 					<motion.div
 						className={styles.leak}
 						style={{ boxShadow: `inset 0 0 30px rgba(${rgb}, 0.55)` }}
@@ -321,14 +313,17 @@ export const PullSummon = (props: PullSummonProps): JSX.Element => {
 
 				<motion.div
 					className={styles.seal}
-					style={{
-						borderColor: `rgba(${rgb}, 0.75)`,
-						boxShadow: `0 0 18px rgba(${rgb}, 0.35), inset 0 0 12px rgba(${rgb}, 0.2)`,
-					}}
 					initial={{ scale: 2.4, opacity: 0 }}
 					animate={phase}
 					variants={sealVariants}
 				>
+					<div
+						className={styles.sealShape}
+						style={{
+							borderColor: `rgba(${rgb}, 0.75)`,
+							boxShadow: `0 0 18px rgba(${rgb}, 0.35), inset 0 0 12px rgba(${rgb}, 0.2)`,
+						}}
+					/>
 					<span
 						className={styles.sealKanji}
 						style={{
@@ -341,19 +336,19 @@ export const PullSummon = (props: PullSummonProps): JSX.Element => {
 					{isCat && (
 						<svg
 							className={styles.sealEars}
-							viewBox="0 0 58 14"
+							viewBox="0 0 58 58"
 							xmlns="http://www.w3.org/2000/svg"
 							aria-hidden="true"
 						>
 							<polyline
-								points="12,12 17,1 25,7"
+								points="12,16 10,5 21,7"
 								fill="none"
 								stroke={`rgba(${rgb}, 0.75)`}
 								strokeWidth="1"
 								strokeLinejoin="round"
 							/>
 							<polyline
-								points="33,7 41,1 46,12"
+								points="37,7 48,5 46,16"
 								fill="none"
 								stroke={`rgba(${rgb}, 0.75)`}
 								strokeWidth="1"
@@ -443,7 +438,7 @@ export const PullSummon = (props: PullSummonProps): JSX.Element => {
 							borderColor: `rgba(${rgb}, 0.6)`,
 							boxShadow: `0 0 12px rgba(${rgb}, 0.3)`,
 						}}
-						initial={{ scale: 0.4, opacity: 0 }}
+						initial={{ scale: 0.4, opacity: 0, rotate: 45 }}
 						animate={phase}
 						variants={ringVariants(i)}
 					/>
