@@ -2575,6 +2575,38 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.ENLIGHTENED",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ARMOR"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Enlightened",
+				"description": "Reduce any magic damage you take by {amount}",
+				"disclaimer": "Magic isn't real you Idiot"
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 3
+				}
+			],
+			"activeEffects": [],
+			"feats": []
 		}
 	]
 }
