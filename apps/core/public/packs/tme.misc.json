@@ -2694,6 +2694,46 @@
 					"feats": []
 				}
 			]
+		},
+		{
+			"identifier": "TME.REVISIONARY",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ACCESSORY", "ARMOR_CLOTHES"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Revisionary",
+						"description": "Gain a +12 bonus to History checks, but everything you recall is something you just made up",
+						"disclaimer": "Delivered with unwavering confidence"
+					},
+					"activeEffects": [
+						{
+							"changes": [
+								{
+									"key": "system.skills.his.bonuses.check",
+									"mode": "ADD",
+									"value": "12"
+								}
+							]
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Revisionary",
+							"description": "Everything you recall in a history check is something you just made up",
+							"disclaimer": "Delivered with unwavering confidence"
+						}
+					]
+				}
+			]
 		}
 	]
 }
