@@ -2607,6 +2607,93 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.DEEP_POCKETS",
+			"type": "TIERED",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 4
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Deep Pockets",
+						"description": "Your carrying capacity is doubled",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"changes": [
+								{
+									"key": "system.attributes.encumbrance.multiplier",
+									"mode": "MULTIPLY",
+									"value": "2"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Deeper Pockets",
+						"description": "Your carrying capacity is tripled",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"changes": [
+								{
+									"key": "system.attributes.encumbrance.multiplier",
+									"mode": "MULTIPLY",
+									"value": "3"
+								}
+							]
+						}
+					],
+					"feats": []
+				},
+				{
+					"min": 4,
+					"flavor": {
+						"title": "Deepest Pockets",
+						"description": "Your carrying capacity is quadrupled",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"changes": [
+								{
+									"key": "system.attributes.encumbrance.multiplier",
+									"mode": "MULTIPLY",
+									"value": "4"
+								}
+							]
+						}
+					],
+					"feats": []
+				}
+			]
 		}
 	]
 }
