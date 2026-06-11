@@ -9,6 +9,7 @@ import { Sparkles } from "./sparkles/Sparkles";
 
 export interface ItemDisplayProps {
 	item: AbstractItem;
+	hideFrame?: boolean;
 }
 
 const Defs = () => (
@@ -132,6 +133,37 @@ export const ItemDisplay = (props: ItemDisplayProps) => {
 		);
 	}, [props.item]);
 
+	const card = (
+		<motion.div
+			key={props.item.name}
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ duration: 0.2, ease: "easeOut" }}
+		>
+			<div ref={cardRef} className={styles.card}>
+				{background}
+				{sparkles.enabled && <Sparkles amount={sparkles.amount} />}
+				<Corner rotation={0} className={styles.cornerTL} />
+				<Corner rotation={90} className={styles.cornerTR} />
+				<Corner rotation={180} className={styles.cornerBR} />
+				<Corner rotation={270} className={styles.cornerBL} />
+				<Header
+					name={props.item.name}
+					rarity={props.item.rarity}
+					base={props.item.base}
+					currency={props.item.currency}
+				/>
+				<Section title="PRIMARY" modifiers={props.item.primary} />
+				<Section title="SECONDARY" modifiers={props.item.secondary} />
+				<Section title="TERTIARY" modifiers={props.item.tertiary} />
+			</div>
+		</motion.div>
+	);
+
+	if (props.hideFrame) {
+		return card;
+	}
+
 	return (
 		<div>
 			<Defs />
@@ -143,30 +175,7 @@ export const ItemDisplay = (props: ItemDisplayProps) => {
 				>
 					<rect width="100%" height="100%" fill="url(#tme-hex-lat)" />
 				</svg>
-				<motion.div
-					key={props.item.name}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ duration: 0.2, ease: "easeOut" }}
-				>
-					<div ref={cardRef} className={styles.card}>
-						{background}
-						{sparkles.enabled && <Sparkles amount={sparkles.amount} />}
-						<Corner rotation={0} className={styles.cornerTL} />
-						<Corner rotation={90} className={styles.cornerTR} />
-						<Corner rotation={180} className={styles.cornerBR} />
-						<Corner rotation={270} className={styles.cornerBL} />
-						<Header
-							name={props.item.name}
-							rarity={props.item.rarity}
-							base={props.item.base}
-							currency={props.item.currency}
-						/>
-						<Section title="PRIMARY" modifiers={props.item.primary} />
-						<Section title="SECONDARY" modifiers={props.item.secondary} />
-						<Section title="TERTIARY" modifiers={props.item.tertiary} />
-					</div>
-				</motion.div>
+				{card}
 			</div>
 		</div>
 	);

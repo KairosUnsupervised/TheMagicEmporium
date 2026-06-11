@@ -22,7 +22,7 @@ export const PullItemPanel = forwardRef<HTMLDivElement, PullItemPanelProps>(
 							exit={{ x: "100%", opacity: 0 }}
 							transition={{ duration: 0.35, ease: [0.33, 1, 0.68, 1] }}
 						>
-							<ItemDisplay item={props.item} />
+							<ItemDisplay item={props.item} hideFrame={true}/>
 						</motion.div>
 					)}
 				</AnimatePresence>

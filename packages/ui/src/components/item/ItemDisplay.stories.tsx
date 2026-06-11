@@ -21,7 +21,7 @@ const meta = {
 	},
 	render: (props: ItemDisplayProps) => (
 		<div style={{ background: "#040510", padding: "40px" }}>
-			<ItemDisplay item={props.item} />
+			<ItemDisplay item={props.item} hideFrame={props.hideFrame} />
 		</div>
 	),
 } satisfies Meta<typeof ItemDisplay>;
@@ -64,4 +64,8 @@ export const Uncommon: Story = {
 
 export const Common: Story = {
 	args: { item: commonFixture },
+};
+
+export const HideFrame: Story = {
+	args: { item: legendaryOverrideBackgroundFixture, hideFrame: true },
 };
