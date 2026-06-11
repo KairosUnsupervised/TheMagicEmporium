@@ -176,6 +176,9 @@ export const EnvelopeInput = observer(() => {
 												<span className={styles.orbitClearX}>✕</span>
 											</div>
 										)}
+										<span className={styles.orbitQuantity}>
+											×{envelope.system.quantity}
+										</span>
 									</div>
 									<span className={styles.orbitName}>{envelope.name}</span>
 								</motion.div>
@@ -244,6 +247,9 @@ export const EnvelopeInput = observer(() => {
 							<div className={styles.selectedOverlay}>
 								<span className={styles.selectedLabel}>{selected.name}</span>
 							</div>
+							<span className={styles.selectedQuantity}>
+								×{selected.system.quantity}
+							</span>
 						</motion.div>
 					)}
 				</AnimatePresence>

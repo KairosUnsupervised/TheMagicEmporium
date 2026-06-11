@@ -1,12 +1,12 @@
-import type {GachaItem5e, WishFlag} from "@tme/shared/src/types/GachaItem5e";
-import {AnimatePresence, motion, useAnimate} from "framer-motion";
-import {observer} from "mobx-react-lite";
-import type {JSX} from "react";
-import {useCallback, useState} from "react";
-import type {AvailableWish} from "../../../context/gacha/library/Inventory";
-import {useGachaContext} from "../../../context/gacha/useGachaContext";
+import type { GachaItem5e, WishFlag } from "@tme/shared/src/types/GachaItem5e";
+import { AnimatePresence, motion, useAnimate } from "framer-motion";
+import { observer } from "mobx-react-lite";
+import type { JSX } from "react";
+import { useCallback, useState } from "react";
+import type { AvailableWish } from "../../../context/gacha/library/Inventory";
+import { useGachaContext } from "../../../context/gacha/useGachaContext";
 import styles from "./EnvelopeInput.module.css";
-import {Tooltip} from "./Tooltip";
+import { Tooltip } from "./Tooltip";
 
 const ORBIT_RADIUS = 160;
 const SVG_HALF = ORBIT_RADIUS + 20;
@@ -57,13 +57,13 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 			context.inventory.isWishSelectOpen[props.index] = false;
 			animateTile(
 				tileRef.current,
-				{scale: [1, 1.1, 1]},
-				{duration: 0.4, ease: [0.34, 1.56, 0.64, 1]},
+				{ scale: [1, 1.1, 1] },
+				{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] },
 			);
 			animateTile(
 				tileRef.current,
-				{filter: ["brightness(1)", "brightness(2)", "brightness(1)"]},
-				{duration: 0.5, times: [0, 0.15, 1], ease: "easeOut", delay: 0.1},
+				{ filter: ["brightness(1)", "brightness(2)", "brightness(1)"] },
+				{ duration: 0.5, times: [0, 0.15, 1], ease: "easeOut", delay: 0.1 },
 			).then(() => {
 				if (tileRef.current) {
 					tileRef.current.style.transform = "";
@@ -84,10 +84,10 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 				{open && (
 					<motion.div
 						className={styles.backdrop}
-						initial={{opacity: 0}}
-						animate={{opacity: 1}}
-						exit={{opacity: 0}}
-						transition={{duration: 0.15}}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						transition={{ duration: 0.15 }}
 						onClick={handleClose}
 					/>
 				)}
@@ -114,10 +114,10 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 								stroke="rgba(212, 166, 74, 0.4)"
 								strokeWidth={1}
 								transform="rotate(-90)"
-								initial={{pathLength: 0, opacity: 0}}
-								animate={{pathLength: 1, opacity: 1}}
-								exit={{pathLength: 0, opacity: 0}}
-								transition={{duration: 0.5, ease: "easeInOut"}}
+								initial={{ pathLength: 0, opacity: 0 }}
+								animate={{ pathLength: 1, opacity: 1 }}
+								exit={{ pathLength: 0, opacity: 0 }}
+								transition={{ duration: 0.5, ease: "easeInOut" }}
 							/>
 						</motion.svg>
 					)}
@@ -126,14 +126,14 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 				<AnimatePresence>
 					{open &&
 						all.map((wish: AvailableWish, i) => {
-							const {x, y} = computeOrbitPosition(i, all.length);
+							const { x, y } = computeOrbitPosition(i, all.length);
 							const isSelected = wish.item.id === selected?.id;
 							return (
 								<motion.div
 									key={wish.item.id}
 									className={`${styles.orbitItem} ${isSelected ? styles.orbitItemSelected : ""} ${wish.locked ? styles.orbitItemDisabled : ""}`}
-									initial={{x, y, scale: 0, opacity: 0}}
-									animate={{x, y, scale: 1, opacity: 1}}
+									initial={{ x, y, scale: 0, opacity: 0 }}
+									animate={{ x, y, scale: 1, opacity: 1 }}
 									exit={{
 										x,
 										y,
@@ -157,13 +157,13 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 										wish.locked
 											? {}
 											: {
-												scale: 1.1,
-												transition: {
-													type: "spring",
-													stiffness: 500,
-													damping: 26,
-												},
-											}
+													scale: 1.1,
+													transition: {
+														type: "spring",
+														stiffness: 500,
+														damping: 26,
+													},
+												}
 									}
 									onHoverStart={() => {
 										if (!wish.locked) {
@@ -198,9 +198,9 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 											{wish.locked && (
 												<motion.div
 													className={styles.lockOverlay}
-													initial={{opacity: 0}}
-													animate={{opacity: 1}}
-													exit={{opacity: 0}}
+													initial={{ opacity: 0 }}
+													animate={{ opacity: 1 }}
+													exit={{ opacity: 0 }}
 													transition={{
 														duration: 0.2,
 														ease: "easeOut",
@@ -212,12 +212,14 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 														fill="currentColor"
 														aria-hidden="true"
 													>
-														<path
-															d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+														<path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
 													</svg>
 												</motion.div>
 											)}
 										</AnimatePresence>
+										<span className={styles.orbitQuantity}>
+											×{wish.item.system.quantity}
+										</span>
 									</div>
 									<span className={styles.orbitName}>{wish.item.name}</span>
 								</motion.div>
@@ -245,46 +247,49 @@ export const WishInput = observer((props: WishInputProps): JSX.Element => {
 				initial="rest"
 				whileHover="hover"
 				variants={{
-					rest: {scale: 1},
+					rest: { scale: 1 },
 					hover: {
 						scale: 1.05,
-						transition: {type: "spring", stiffness: 350, damping: 28},
+						transition: { type: "spring", stiffness: 350, damping: 28 },
 					},
 				}}
 			>
 				<motion.div
 					className={styles.shimmer}
 					variants={{
-						rest: {x: "-100%"},
+						rest: { x: "-100%" },
 						hover: {
 							x: "160%",
-							transition: {duration: 0.6, ease: "easeOut"},
+							transition: { duration: 0.6, ease: "easeOut" },
 						},
 					}}
 				/>
-				<div className={`${styles.corner} ${styles.cornerTL}`}/>
-				<div className={`${styles.corner} ${styles.cornerTR}`}/>
-				<div className={`${styles.corner} ${styles.cornerBL}`}/>
-				<div className={`${styles.corner} ${styles.cornerBR}`}/>
+				<div className={`${styles.corner} ${styles.cornerTL}`} />
+				<div className={`${styles.corner} ${styles.cornerTR}`} />
+				<div className={`${styles.corner} ${styles.cornerBL}`} />
+				<div className={`${styles.corner} ${styles.cornerBR}`} />
 				<AnimatePresence>
 					{selected && (
 						<motion.div
 							key={selected.id}
 							className={styles.selectedContent}
-							exit={{opacity: 0, scale: 1.06, filter: "blur(3px)"}}
-							transition={{duration: 0.28, ease: "easeIn"}}
+							exit={{ opacity: 0, scale: 1.06, filter: "blur(3px)" }}
+							transition={{ duration: 0.28, ease: "easeIn" }}
 						>
 							<motion.img
 								className={styles.selectedImage}
 								src={selected.img}
 								alt={selected.name}
-								initial={{opacity: 0}}
-								animate={{opacity: 0.85}}
-								transition={{duration: 0.35, ease: "easeOut"}}
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 0.85 }}
+								transition={{ duration: 0.35, ease: "easeOut" }}
 							/>
 							<div className={styles.selectedOverlay}>
 								<span className={styles.selectedLabel}>{selected.name}</span>
 							</div>
+							<span className={styles.selectedQuantity}>
+								×{selected.system.quantity}
+							</span>
 						</motion.div>
 					)}
 				</AnimatePresence>

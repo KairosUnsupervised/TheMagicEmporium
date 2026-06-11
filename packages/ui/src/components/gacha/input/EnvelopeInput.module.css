@@ -220,6 +220,52 @@
 	max-width: 100%;
 }
 
+/* ── Quantity badges ──────────────────────────────── */
+
+.selectedQuantity {
+	position: absolute;
+	top: 8px;
+	right: 12px;
+	z-index: 3;
+	font-family: "Cinzel Decorative", serif;
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	color: rgba(212, 166, 74, 0.95);
+	line-height: 1;
+	text-shadow:
+			0 0 1px rgba(0, 0, 0, 1),
+			0 0 8px rgba(0, 0, 0, 1),
+			1px 1px 4px rgba(0, 0, 0, 1),
+			-1px 1px 4px rgba(0, 0, 0, 1),
+			1px -1px 4px rgba(0, 0, 0, 1),
+			-1px -1px 4px rgba(0, 0, 0, 1);
+}
+
+.orbitQuantity {
+	position: absolute;
+	top: 5px;
+	right: 6px;
+	z-index: 3;
+	font-family: "Cinzel Decorative", serif;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	color: rgba(212, 166, 74, 0.95);
+	line-height: 1;
+	text-shadow:
+		0 0 1px rgba(0, 0, 0, 1),
+		0 0 8px rgba(0, 0, 0, 1),
+		1px 1px 4px rgba(0, 0, 0, 1),
+		-1px 1px 4px rgba(0, 0, 0, 1),
+		1px -1px 4px rgba(0, 0, 0, 1),
+		-1px -1px 4px rgba(0, 0, 0, 1);
+}
+
+.orbitItemDisabled .orbitQuantity {
+	color: rgba(212, 166, 74, 0.4);
+}
+
 /* ── Orbit clear overlay ──────────────────────────── */
 
 .orbitClearOverlay {
