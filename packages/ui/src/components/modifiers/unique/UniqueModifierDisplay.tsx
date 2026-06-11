@@ -1,29 +1,57 @@
-import {Icon} from "@tme/library/src/item/icon";
-import type {UniqueModifier} from "@tme/library/src/modifiers/blueprints/UniqueModifier";
-import {ModifierType} from "@tme/library/src/modifiers/modifier.schema";
-import {BreakpointSwap} from "../BreakpointSwap";
+import { Icon } from "@tme/library/src/item/icon";
+import { generateIconUrl } from "@tme/library/src/misc/generateIconUrl";
+import type { UniqueModifier } from "@tme/library/src/modifiers/blueprints/UniqueModifier";
+import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
+import { BreakpointSwap } from "../BreakpointSwap";
+import { DiffText } from "../DiffText";
 import styles from "./UniqueModifierDisplay.module.css";
-import {generateIconUrl} from "@tme/library/src/misc/generateIconUrl";
 
 export interface UniqueModifierDisplayProps {
 	modifier: UniqueModifier;
 	data: unknown;
 }
 
-const UniqueBody = (props: UniqueModifierDisplayProps) => {
+interface UniqueBodyProps {
+	modifier: UniqueModifier;
+	data: unknown;
+	previousData: unknown;
+}
+
+const UniqueBody = (props: UniqueBodyProps) => {
 	const flavor = props.modifier.getDescription(props.data);
+	const previousFlavor =
+		props.previousData != null
+			? props.modifier.getDescription(props.previousData)
+			: null;
 
 	return (
 		<div className={styles.grid}>
 			<div className={styles.iconWrapper}>
-				<img src={generateIconUrl(Icon.Independent)} alt="Icon"/>
+				<img src={generateIconUrl(Icon.Independent)} alt="Icon" />
 			</div>
 			<div>
 				<div className={styles.label}>UNIQUE</div>
-				<div className={styles.title}>{flavor.title}</div>
-				<div className={styles.description}>{flavor.description}</div>
+				<div className={styles.title}>
+					<DiffText
+						text={flavor.title}
+						previousText={previousFlavor ? previousFlavor.title : null}
+					/>
+				</div>
+				<div className={styles.description}>
+					<DiffText
+						text={flavor.description}
+						previousText={previousFlavor ? previousFlavor.description : null}
+					/>
+				</div>
 				{flavor.disclaimer && (
-					<div className={styles.disclaimer}>{flavor.disclaimer}</div>
+					<div className={styles.disclaimer}>
+						<DiffText
+							text={flavor.disclaimer}
+							previousText={
+								previousFlavor ? (previousFlavor.disclaimer ?? "") : null
+							}
+						/>
+					</div>
 				)}
 			</div>
 		</div>
@@ -39,8 +67,16 @@ export const UniqueModifierDisplay = (props: UniqueModifierDisplayProps) => {
 		(bp) => bp.min === activeBreakpoint.min,
 	);
 
-	const items = breakpoints.map((bp) => (
-		<UniqueBody modifier={props.modifier} data={{float: bp.min}}/>
+	const items = breakpoints.map((bp) => (previousIndex: number | null) => (
+		<UniqueBody
+			modifier={props.modifier}
+			data={{ float: bp.min }}
+			previousData={
+				previousIndex !== null
+					? { float: breakpoints[previousIndex].min }
+					: null
+			}
+		/>
 	));
 
 	return (

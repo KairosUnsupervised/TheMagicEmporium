@@ -5,7 +5,7 @@ import { BreakpointDisplay } from "./BreakpointDisplay";
 
 export interface BreakpointSwapProps {
 	type: ModifierType;
-	items: ReactNode[];
+	items: ((previousIndex: number | null) => ReactNode)[];
 	defaultActiveIndex: number;
 }
 
@@ -30,6 +30,7 @@ export const BreakpointSwap = (props: BreakpointSwapProps): ReactNode => {
 	const [temporaryActiveIndex, setTemporaryActiveIndex] = useState<
 		number | null
 	>(null);
+	const [previousIndex, setPreviousIndex] = useState<number | null>(null);
 
 	const contentRef = useRef<HTMLDivElement>(null);
 	const prevHeightRef = useRef<number | "auto">("auto");
@@ -55,13 +56,14 @@ export const BreakpointSwap = (props: BreakpointSwapProps): ReactNode => {
 	}, []);
 
 	if (props.items.length <= 1) {
-		return <>{props.items[0]}</>;
+		return <>{props.items[0]?.(null)}</>;
 	}
 
 	const currentIndex = temporaryActiveIndex ?? props.defaultActiveIndex;
 
 	const onSelect = (index: number): void => {
 		direction.current = index > currentIndex ? 1 : -1;
+		setPreviousIndex(currentIndex);
 		setTemporaryActiveIndex(index);
 	};
 
@@ -87,7 +89,7 @@ export const BreakpointSwap = (props: BreakpointSwapProps): ReactNode => {
 							exit="exit"
 							transition={swapTransition}
 						>
-							{props.items[currentIndex]}
+							{props.items[currentIndex](previousIndex)}
 						</motion.div>
 					</AnimatePresence>
 				</div>
