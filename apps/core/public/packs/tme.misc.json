@@ -2535,6 +2535,46 @@
 					}
 				}
 			]
+		},
+		{
+			"identifier": "TME.BREAKAWAY",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Breakaway",
+				"description": "When you take the Dash action, you move an additional {amount}ft",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 5
+				},
+				{
+					"min": 0.25,
+					"value": 10
+				},
+				{
+					"min": 0.5,
+					"value": 15
+				},
+				{
+					"min": 0.8,
+					"value": 20
+				},
+				{
+					"min": 0.95,
+					"value": 30
+				}
+			],
+			"activeEffects": [],
+			"feats": []
 		}
 	]
 }
