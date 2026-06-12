@@ -2734,6 +2734,45 @@
 					]
 				}
 			]
+		},
+		{
+			"identifier": "TME.MALPRACTICE_PROFESSIONAL",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 256,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ACCESSORY", "ARMOR_CLOTHES"],
+				"blacklistedBy": ["WISDOM_SKILL"],
+				"applies": ["WISDOM_SKILL"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Malpractice Professional",
+						"description": "Gain a +12 bonus to Medicine checks. You can have no clue about humanoid anatomy",
+						"disclaimer": null
+					},
+					"activeEffects": [
+						{
+							"changes": [
+								{
+									"key": "system.skills.med.bonuses.check",
+									"mode": "ADD",
+									"value": "12"
+								}
+							]
+						}
+					],
+					"feats": [
+						{
+							"type": "FEAT",
+							"title": "Malpractice Professional",
+							"description": "You can have no clue about humanoid anatomy"
+						}
+					]
+				}
+			]
 		}
 	]
 }

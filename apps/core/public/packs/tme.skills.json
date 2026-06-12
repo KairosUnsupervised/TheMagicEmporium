@@ -2110,8 +2110,8 @@
 				{
 					"min": 8,
 					"flavor": {
-						"title": "Surely a Medical Professional",
-						"description": "Your medicine skill increases by 12. You can have no clue about humanoid anatomy",
+						"title": "Medical Professional",
+						"description": "Your medicine skill increases by 6. Once per long rest, as an action, perform field surgery on a creature you touch: it regains 2d6 + your medicine bonus HP",
 						"disclaimer": null,
 						"background": "{backgroundPath}/secondary/medicalProfessional.jpg"
 					},
@@ -2121,7 +2121,7 @@
 								{
 									"key": "system.skills.med.bonuses.check",
 									"mode": "ADD",
-									"value": "12"
+									"value": "6"
 								}
 							]
 						}
@@ -2129,15 +2129,56 @@
 					"feats": [
 						{
 							"type": "FEAT",
-							"title": "Surely a Medical Professional",
-							"description": "You can have no clue about humanoid anatomy",
+							"title": "Medical Professional",
+							"description": "Three times per long rest, as an action, perform field surgery on a creature you touch: it regains 2d6 + your medicine bonus HP",
 							"system": {
 								"activation": {
-									"type": "special",
-									"cost": null,
+									"type": "action",
+									"cost": 1,
 									"condition": ""
 								},
-								"activities": []
+								"uses": {
+									"max": 3,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "heal",
+										"name": "Medical Professional",
+										"activation": {
+											"type": "action",
+											"override": false,
+											"condition": ""
+										},
+										"healing": {
+											"types": ["healing"],
+											"custom": {
+												"enabled": true,
+												"formula": "2d6 + @skills.med.total"
+											},
+											"bonus": ""
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": true,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
 							}
 						}
 					]
