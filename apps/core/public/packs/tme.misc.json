@@ -2773,6 +2773,29 @@
 					]
 				}
 			]
+		},
+		{
+			"identifier": "TME.PRISTINE",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["PROPERTY_CHANGE"],
+				"applies": ["PROPERTY_CHANGE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Pristine",
+						"description": "This item cannot be broken by normal wear and always looks pristine",
+						"disclaimer": null
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
 		}
 	]
 }
