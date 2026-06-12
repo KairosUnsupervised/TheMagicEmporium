@@ -2834,7 +2834,7 @@
 			"type": "LINEAR",
 			"application": {
 				"weight": 1024,
-				"restriction": "PRIMARY",
+				"restriction": "SECONDARY",
 				"whitelistedBy": ["WEAPON"],
 				"blacklistedBy": [],
 				"applies": []
@@ -2860,6 +2860,83 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.SECOND_CHANCE",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Second Chance",
+				"description": "{amount} time(s) per long rest, when you roll a 1 on a d20, you can reroll it",
+				"disclaimer": "You must use the new roll"
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 3
+				}
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "special",
+							"cost": null,
+							"condition": "when you roll a 1 on a d20 test"
+						},
+						"uses": {
+							"max": "{amount}",
+							"recovery": [
+								{
+									"period": "lr",
+									"type": "recoverAll"
+								}
+							]
+						},
+						"activities": [
+							{
+								"type": "utility",
+								"name": "Second Chance",
+								"activation": {
+									"type": "special",
+									"override": false,
+									"condition": "when you roll a 1 on a d20 test"
+								},
+								"consumption": {
+									"scaling": {
+										"allowed": false
+									},
+									"spellSlot": false,
+									"targets": [
+										{
+											"type": "itemUses",
+											"value": "1",
+											"target": "",
+											"scaling": {}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
 		}
 	]
 }
