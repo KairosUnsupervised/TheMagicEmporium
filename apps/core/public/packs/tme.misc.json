@@ -2796,6 +2796,38 @@
 					"activities": []
 				}
 			]
+		},
+		{
+			"identifier": "TME.POWER_NAP",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Power Nap",
+				"description": "When you spend hit dice during a short rest, each die restores {amount} additional HP",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.6,
+					"value": 2
+				},
+				{
+					"min": 0.9,
+					"value": 3
+				}
+			],
+			"activeEffects": [],
+			"feats": []
 		}
 	]
 }
