@@ -2828,6 +2828,38 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.SENTRY",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["WEAPON"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Sentry",
+				"description": "If you haven't moved this turn, your first attack roll gains +{amount} to hit",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.6,
+					"value": 2
+				},
+				{
+					"min": 0.9,
+					"value": 3
+				}
+			],
+			"activeEffects": [],
+			"feats": []
 		}
 	]
 }
