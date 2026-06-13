@@ -8,7 +8,12 @@
 		"description": {
 			"value": "One star, seen clearly, claimed for your own. 4 Reveals, 1 Pull, +1 Luck to Rarity, Perfect Visibility"
 		},
-		"rarity": "legendary"
+		"rarity": "legendary",
+		"price": {
+			"value": 800,
+			"denomination": "gp",
+			"valueInGP": 800
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

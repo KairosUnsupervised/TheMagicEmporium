@@ -8,7 +8,12 @@
 		"description": {
 			"value": "A wish that trades quantity for quality. -2 Pulls, +1 Luck to Rarity"
 		},
-		"rarity": "rare"
+		"rarity": "rare",
+		"price": {
+			"value": 200,
+			"denomination": "gp",
+			"valueInGP": 200
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

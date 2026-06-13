@@ -8,7 +8,12 @@
 		"description": {
 			"value": "You surrender your sight to fate. +1 Luck to Rarity, you are forced to be blind"
 		},
-		"rarity": "rare"
+		"rarity": "rare",
+		"price": {
+			"value": 200,
+			"denomination": "gp",
+			"valueInGP": 200
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

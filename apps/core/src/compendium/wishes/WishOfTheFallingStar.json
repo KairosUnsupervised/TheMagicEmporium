@@ -8,7 +8,12 @@
 		"description": {
 			"value": "A star falls, and with it every promise it carried. +1 Luck to Rarity, +1 Luck to Modifiers"
 		},
-		"rarity": "legendary"
+		"rarity": "legendary",
+		"price": {
+			"value": 800,
+			"denomination": "gp",
+			"valueInGP": 800
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

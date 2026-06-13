@@ -8,7 +8,12 @@
 		"description": {
 			"value": "Fate itself cracks open. Locks to one reveal and one pull. +2 to Luck for Rarity"
 		},
-		"rarity": "veryRare"
+		"rarity": "veryRare",
+		"price": {
+			"value": 400,
+			"denomination": "gp",
+			"valueInGP": 400
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

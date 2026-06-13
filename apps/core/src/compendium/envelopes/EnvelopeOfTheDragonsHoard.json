@@ -8,7 +8,12 @@
 		"description": {
 			"value": "Spilled from a hoard too vast to count. 6 Reveals, 5 Pulls, Medium Visibility"
 		},
-		"rarity": "legendary"
+		"rarity": "legendary",
+		"price": {
+			"value": 800,
+			"denomination": "gp",
+			"valueInGP": 800
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

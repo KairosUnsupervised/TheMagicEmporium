@@ -8,7 +8,12 @@
 		"description": {
 			"value": "Stitched with lantern-thread and offered at the height of the harvest moon. 3 Items, 2 Pulls, High Visibility"
 		},
-		"rarity": "uncommon"
+		"rarity": "uncommon",
+		"price": {
+			"value": 100,
+			"denomination": "gp",
+			"valueInGP": 100
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

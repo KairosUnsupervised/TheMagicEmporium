@@ -8,7 +8,12 @@
 		"description": {
 			"value": "A wish forged through patience and focus. +3 Reveals"
 		},
-		"rarity": "rare"
+		"rarity": "rare",
+		"price": {
+			"value": 200,
+			"denomination": "gp",
+			"valueInGP": 200
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

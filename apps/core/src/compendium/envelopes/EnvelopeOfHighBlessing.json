@@ -8,7 +8,12 @@
 		"description": {
 			"value": "A single thread of gold binds this envelope, holding one promise and one alone. 1 Reveal, 1 Pull, +2 Luck to Rarity"
 		},
-		"rarity": "veryRare"
+		"rarity": "veryRare",
+		"price": {
+			"value": 400,
+			"denomination": "gp",
+			"valueInGP": 400
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

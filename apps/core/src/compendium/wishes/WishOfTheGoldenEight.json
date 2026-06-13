@@ -8,7 +8,12 @@
 		"description": {
 			"value": "Triple eights align in your favor. +0.888 Luck to Modifiers"
 		},
-		"rarity": "rare"
+		"rarity": "rare",
+		"price": {
+			"value": 200,
+			"denomination": "gp",
+			"valueInGP": 200
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

@@ -8,7 +8,12 @@
 		"description": {
 			"value": "A humble envelope tied with plain thread. 5 Reveals, 2 Pulls, restricts to accessories and everyday wear"
 		},
-		"rarity": "uncommon"
+		"rarity": "uncommon",
+		"price": {
+			"value": 100,
+			"denomination": "gp",
+			"valueInGP": 100
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

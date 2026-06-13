@@ -8,7 +8,12 @@
 		"description": {
 			"value": "A wish forged in iron and resolve. Restricts to armor only"
 		},
-		"rarity": "uncommon"
+		"rarity": "uncommon",
+		"price": {
+			"value": 100,
+			"denomination": "gp",
+			"valueInGP": 100
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

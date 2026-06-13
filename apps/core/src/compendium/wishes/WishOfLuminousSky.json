@@ -8,7 +8,12 @@
 		"description": {
 			"value": "The sky opens and hides nothing. Provides perfect visibility"
 		},
-		"rarity": "legendary"
+		"rarity": "legendary",
+		"price": {
+			"value": 800,
+			"denomination": "gp",
+			"valueInGP": 800
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

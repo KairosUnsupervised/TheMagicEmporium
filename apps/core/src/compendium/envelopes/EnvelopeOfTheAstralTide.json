@@ -8,7 +8,12 @@
 		"description": {
 			"value": "The whole sky turns in your favor. 8 Reveals, 3 Pulls, +1 Luck to Rarity, Medium Visibility"
 		},
-		"rarity": "legendary"
+		"rarity": "legendary",
+		"price": {
+			"value": 800,
+			"denomination": "gp",
+			"valueInGP": 800
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

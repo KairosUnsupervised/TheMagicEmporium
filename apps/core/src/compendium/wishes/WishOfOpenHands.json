@@ -8,7 +8,12 @@
 		"description": {
 			"value": "Open arms, open fate. +1 Pull"
 		},
-		"rarity": "uncommon"
+		"rarity": "uncommon",
+		"price": {
+			"value": 100,
+			"denomination": "gp",
+			"valueInGP": 100
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

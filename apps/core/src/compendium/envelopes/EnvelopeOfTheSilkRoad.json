@@ -8,7 +8,12 @@
 		"description": {
 			"value": "Traded across a thousand leagues of silk and sand. 12 Reveals, 1 Pull"
 		},
-		"rarity": "veryRare"
+		"rarity": "veryRare",
+		"price": {
+			"value": 400,
+			"denomination": "gp",
+			"valueInGP": 400
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

@@ -8,7 +8,12 @@
 		"description": {
 			"value": "Pressed in gold leaf and sealed with a prayer. 3 Items, 1 Pull, Medium Visibility"
 		},
-		"rarity": "common"
+		"rarity": "common",
+		"price": {
+			"value": 50,
+			"denomination": "gp",
+			"valueInGP": 50
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

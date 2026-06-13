@@ -8,7 +8,12 @@
 		"description": {
 			"value": "Spoken into the void between stars. Unlocks all possibilities again"
 		},
-		"rarity": "legendary"
+		"rarity": "legendary",
+		"price": {
+			"value": 800,
+			"denomination": "gp",
+			"valueInGP": 800
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

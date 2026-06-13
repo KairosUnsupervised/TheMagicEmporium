@@ -8,7 +8,12 @@
 		"description": {
 			"value": "A wish honed to a razor's edge. Restricts to slashing weapons only"
 		},
-		"rarity": "uncommon"
+		"rarity": "uncommon",
+		"price": {
+			"value": 100,
+			"denomination": "gp",
+			"valueInGP": 100
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

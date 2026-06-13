@@ -8,7 +8,12 @@
 		"description": {
 			"value": "Lanterns rise one by one into the night. +1 Visibility"
 		},
-		"rarity": "uncommon"
+		"rarity": "uncommon",
+		"price": {
+			"value": 100,
+			"denomination": "gp",
+			"valueInGP": 100
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

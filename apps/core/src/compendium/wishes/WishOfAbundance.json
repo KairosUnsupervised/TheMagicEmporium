@@ -8,7 +8,12 @@
 		"description": {
 			"value": "More of everything, freely given. +3 Reveals, +2 Pulls"
 		},
-		"rarity": "veryRare"
+		"rarity": "veryRare",
+		"price": {
+			"value": 400,
+			"denomination": "gp",
+			"valueInGP": 400
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

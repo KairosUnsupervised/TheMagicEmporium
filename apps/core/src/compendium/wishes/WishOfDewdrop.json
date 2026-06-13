@@ -8,7 +8,12 @@
 		"description": {
 			"value": "A single dewdrop catches the light. +0.2 Luck to Rarity, +0.2 Luck to Modifier"
 		},
-		"rarity": "common"
+		"rarity": "common",
+		"price": {
+			"value": 50,
+			"denomination": "gp",
+			"valueInGP": 50
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

@@ -8,7 +8,12 @@
 		"description": {
 			"value": "A small glimpse beyond the veil. +1 Reveal"
 		},
-		"rarity": "common"
+		"rarity": "common",
+		"price": {
+			"value": 50,
+			"denomination": "gp",
+			"valueInGP": 50
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

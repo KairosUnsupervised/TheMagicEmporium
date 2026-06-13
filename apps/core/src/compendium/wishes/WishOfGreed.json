@@ -8,7 +8,12 @@
 		"description": {
 			"value": "More. Always more. +2 Pulls, -1 Luck to Rarity"
 		},
-		"rarity": "uncommon"
+		"rarity": "uncommon",
+		"price": {
+			"value": 100,
+			"denomination": "gp",
+			"valueInGP": 100
+		}
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {
