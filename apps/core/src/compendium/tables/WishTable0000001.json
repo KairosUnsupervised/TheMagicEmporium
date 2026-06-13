@@ -1,0 +1,285 @@
+{
+	"_id": "WishTable0000001",
+	"_key": "!tables!WishTable0000001",
+	"name": "Wishes",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfFortune.jpg",
+	"description": "<p>Draw a random wish. Weighted by rarity for randomized shop stock.</p>",
+	"results": [
+		{
+			"_id": "a3dbf177555f8257",
+			"_key": "!tables.results!WishTable0000001.a3dbf177555f8257",
+			"type": "document",
+			"name": "Wish of Curiosity",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfCuriosity.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfCuriosity1",
+			"weight": 225,
+			"range": [
+				1,
+				225
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "34d4bd722ad28f1d",
+			"_key": "!tables.results!WishTable0000001.34d4bd722ad28f1d",
+			"type": "document",
+			"name": "Wish of Dewdrop",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfDewdrop.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfDewdrop001",
+			"weight": 225,
+			"range": [
+				226,
+				450
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "eb3c5eacd0a6752c",
+			"_key": "!tables.results!WishTable0000001.eb3c5eacd0a6752c",
+			"type": "document",
+			"name": "Wish of Greed",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfGreed.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfGreed00001",
+			"weight": 84,
+			"range": [
+				451,
+				534
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "9ade03bdc8d90213",
+			"_key": "!tables.results!WishTable0000001.9ade03bdc8d90213",
+			"type": "document",
+			"name": "Wish of Open Hands",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfOpenHands.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfOpenHands1",
+			"weight": 84,
+			"range": [
+				535,
+				618
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "0c48319744900df8",
+			"_key": "!tables.results!WishTable0000001.0c48319744900df8",
+			"type": "document",
+			"name": "Wish of Rising Lanterns",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfRisingLanterns.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfRisingLan1",
+			"weight": 84,
+			"range": [
+				619,
+				702
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "347662bbc0e07bb2",
+			"_key": "!tables.results!WishTable0000001.347662bbc0e07bb2",
+			"type": "document",
+			"name": "Wish of the Iron Garden",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfTheIronGarden.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfTheIronGa1",
+			"weight": 84,
+			"range": [
+				703,
+				786
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "6550985423061d7b",
+			"_key": "!tables.results!WishTable0000001.6550985423061d7b",
+			"type": "document",
+			"name": "Wish of the Iron Wall",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfTheIronWall.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfTheIronWa1",
+			"weight": 84,
+			"range": [
+				787,
+				870
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "bd2ec5812d443af4",
+			"_key": "!tables.results!WishTable0000001.bd2ec5812d443af4",
+			"type": "document",
+			"name": "Wish of Certainty",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfCertainty.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfCertainty1",
+			"weight": 72,
+			"range": [
+				871,
+				942
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "5ed2d3e59280592d",
+			"_key": "!tables.results!WishTable0000001.5ed2d3e59280592d",
+			"type": "document",
+			"name": "Wish of Discipline",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfDiscipline.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfDisciplin1",
+			"weight": 72,
+			"range": [
+				943,
+				1014
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "f1037b3934a36467",
+			"_key": "!tables.results!WishTable0000001.f1037b3934a36467",
+			"type": "document",
+			"name": "Wish of Fortune",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfFortune.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfFortune001",
+			"weight": 72,
+			"range": [
+				1015,
+				1086
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "540f90e0ecfb8327",
+			"_key": "!tables.results!WishTable0000001.540f90e0ecfb8327",
+			"type": "document",
+			"name": "Wish of the Blind Monk",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfTheBlindMonk.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfTheBlindM1",
+			"weight": 72,
+			"range": [
+				1087,
+				1158
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "29e7b8c4f5e2777c",
+			"_key": "!tables.results!WishTable0000001.29e7b8c4f5e2777c",
+			"type": "document",
+			"name": "Wish of the Golden Eight",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfTheGoldenEight.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfTheGolden1",
+			"weight": 72,
+			"range": [
+				1159,
+				1230
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "dfb233647e722639",
+			"_key": "!tables.results!WishTable0000001.dfb233647e722639",
+			"type": "document",
+			"name": "Wish of Abundance",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfAbundance.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfAbundance1",
+			"weight": 75,
+			"range": [
+				1231,
+				1305
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "a56f446a5f794d94",
+			"_key": "!tables.results!WishTable0000001.a56f446a5f794d94",
+			"type": "document",
+			"name": "Wish of Cracked Fate",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfCrackedFate.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfCrackedFa1",
+			"weight": 75,
+			"range": [
+				1306,
+				1380
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "8c813bee0fef3919",
+			"_key": "!tables.results!WishTable0000001.8c813bee0fef3919",
+			"type": "document",
+			"name": "Wish of Celestial Mandate",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfCelestialMandate.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfCelestial1",
+			"weight": 40,
+			"range": [
+				1381,
+				1420
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "c66e1daf7f52ce2f",
+			"_key": "!tables.results!WishTable0000001.c66e1daf7f52ce2f",
+			"type": "document",
+			"name": "Wish of Luminous Sky",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfLuminousSky.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfLuminousS1",
+			"weight": 40,
+			"range": [
+				1421,
+				1460
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "d035a18aed2080d3",
+			"_key": "!tables.results!WishTable0000001.d035a18aed2080d3",
+			"type": "document",
+			"name": "Wish of the Falling Star",
+			"img": "modules/the-magic-emporium/gacha/wishes/wishOfTheFallingStar.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.wishes.Item.WishOfTheFallin1",
+			"weight": 40,
+			"range": [
+				1461,
+				1500
+			],
+			"drawn": false,
+			"flags": {}
+		}
+	],
+	"formula": "1d1500",
+	"replacement": true,
+	"displayRoll": true,
+	"flags": {}
+}

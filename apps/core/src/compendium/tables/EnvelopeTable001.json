@@ -1,0 +1,205 @@
+{
+	"_id": "EnvelopeTable001",
+	"_key": "!tables!EnvelopeTable001",
+	"name": "Envelopes",
+	"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfGoldenBlessing.jpg",
+	"description": "<p>Draw a random envelope. Weighted by rarity for randomized shop stock.</p>",
+	"results": [
+		{
+			"_id": "60fdd50e128312b4",
+			"_key": "!tables.results!EnvelopeTable001.60fdd50e128312b4",
+			"type": "document",
+			"name": "Envelope of Golden Blessing",
+			"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfGoldenBlessing.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.envelopes.Item.EnvelopeOfGolde1",
+			"weight": 45,
+			"range": [
+				1,
+				45
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "83a266c8b2639b83",
+			"_key": "!tables.results!EnvelopeTable001.83a266c8b2639b83",
+			"type": "document",
+			"name": "Envelope of Common Folk",
+			"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfCommonFolk.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.envelopes.Item.EnvelopeOfComFo1",
+			"weight": 14,
+			"range": [
+				46,
+				59
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "6a93bd43b13d0b81",
+			"_key": "!tables.results!EnvelopeTable001.6a93bd43b13d0b81",
+			"type": "document",
+			"name": "Envelope of Harvest Moon",
+			"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfHarvestMoon.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.envelopes.Item.EnvelopeOfHarve1",
+			"weight": 14,
+			"range": [
+				60,
+				73
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "3f47daa7d4413ac3",
+			"_key": "!tables.results!EnvelopeTable001.3f47daa7d4413ac3",
+			"type": "document",
+			"name": "Envelope of the Heavy Strike",
+			"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfTheHeavyStrike.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.envelopes.Item.EnvelopeOfHeavy1",
+			"weight": 14,
+			"range": [
+				74,
+				87
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "3c0c1f2da312da9d",
+			"_key": "!tables.results!EnvelopeTable001.3c0c1f2da312da9d",
+			"type": "document",
+			"name": "Envelope of Moongate Tribute",
+			"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfMoongateTribute.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.envelopes.Item.EnvelopeOfMoong1",
+			"weight": 18,
+			"range": [
+				88,
+				105
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "b1f77d68734d107f",
+			"_key": "!tables.results!EnvelopeTable001.b1f77d68734d107f",
+			"type": "document",
+			"name": "Envelope of Sealed Crimson Blessing",
+			"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfSealedCrimsonBlessing.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.envelopes.Item.EnvelopeOfSeale1",
+			"weight": 18,
+			"range": [
+				106,
+				123
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "36f304a38e129009",
+			"_key": "!tables.results!EnvelopeTable001.36f304a38e129009",
+			"type": "document",
+			"name": "Envelope of High Blessing",
+			"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfHighBlessing.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.envelopes.Item.EnvelopeOfHighB1",
+			"weight": 5,
+			"range": [
+				124,
+				128
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "725b9bfd34bb1b45",
+			"_key": "!tables.results!EnvelopeTable001.725b9bfd34bb1b45",
+			"type": "document",
+			"name": "Envelope of Unfound Potential",
+			"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfUnfoundPotential.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.envelopes.Item.EnvelopeOfUnfou1",
+			"weight": 5,
+			"range": [
+				129,
+				133
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "ca437bad3092d421",
+			"_key": "!tables.results!EnvelopeTable001.ca437bad3092d421",
+			"type": "document",
+			"name": "Envelope of the Silk Road",
+			"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfTheSilkRoad.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.envelopes.Item.EnvelopeOfSilkR1",
+			"weight": 5,
+			"range": [
+				134,
+				138
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "99e5d5a3bea5978b",
+			"_key": "!tables.results!EnvelopeTable001.99e5d5a3bea5978b",
+			"type": "document",
+			"name": "Envelope of the Astral Tide",
+			"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfTheAstralTide.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.envelopes.Item.EnvelopeOfAstra1",
+			"weight": 4,
+			"range": [
+				139,
+				142
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "1f2f607cb00b1428",
+			"_key": "!tables.results!EnvelopeTable001.1f2f607cb00b1428",
+			"type": "document",
+			"name": "Envelope of the Dragon's Hoard",
+			"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfTheDragonsHoard.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.envelopes.Item.EnvelopeOfDrago1",
+			"weight": 4,
+			"range": [
+				143,
+				146
+			],
+			"drawn": false,
+			"flags": {}
+		},
+		{
+			"_id": "4a03edfd6c68d708",
+			"_key": "!tables.results!EnvelopeTable001.4a03edfd6c68d708",
+			"type": "document",
+			"name": "Envelope of the Lone Star",
+			"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfTheLoneStar.jpg",
+			"description": "",
+			"documentUuid": "Compendium.the-magic-emporium.envelopes.Item.EnvelopeOfLoneS1",
+			"weight": 4,
+			"range": [
+				147,
+				150
+			],
+			"drawn": false,
+			"flags": {}
+		}
+	],
+	"formula": "1d150",
+	"replacement": true,
+	"displayRoll": true,
+	"flags": {}
+}

@@ -21,4 +21,8 @@ await compilePack("./src/compendium/wishes", "./build/compendium/wishes", {
 	log: true,
 });
 
+await compilePack("./src/compendium/tables", "./build/compendium/tables", {
+	log: true,
+});
+
 console.log("Build complete!");

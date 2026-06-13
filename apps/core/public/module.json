@@ -27,6 +27,13 @@
 			"path": "compendium/wishes",
 			"type": "Item",
 			"system": "dnd5e"
+		},
+		{
+			"name": "tables",
+			"label": "Gacha Tables",
+			"path": "compendium/tables",
+			"type": "RollTable",
+			"system": "dnd5e"
 		}
 	],
 	"languages": [],
