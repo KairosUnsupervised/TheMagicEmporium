@@ -1,0 +1,39 @@
+{
+	"_id": "EnvelopeOfAstra1",
+	"_key": "!items!EnvelopeOfAstra1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfTheAstralTide.jpg",
+	"name": "Envelope of the Astral Tide",
+	"system": {
+		"description": {
+			"value": "The whole sky turns in your favor. 8 Reveals, 3 Pulls, +1 Luck to Rarity, Medium Visibility"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ENVELOPE",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 8
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 3
+				},
+				{
+					"field": "RARITY_LUCK",
+					"op": "ADD",
+					"value": 1
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "SET",
+					"value": 2
+				}
+			]
+		}
+	}
+}

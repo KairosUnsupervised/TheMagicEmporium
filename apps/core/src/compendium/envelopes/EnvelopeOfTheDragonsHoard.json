@@ -1,0 +1,34 @@
+{
+	"_id": "EnvelopeOfDrago1",
+	"_key": "!items!EnvelopeOfDrago1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfTheDragonsHoard.jpg",
+	"name": "Envelope of the Dragon's Hoard",
+	"system": {
+		"description": {
+			"value": "Spilled from a hoard too vast to count. 6 Reveals, 5 Pulls, Medium Visibility"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ENVELOPE",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 6
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 5
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "SET",
+					"value": 2
+				}
+			]
+		}
+	}
+}

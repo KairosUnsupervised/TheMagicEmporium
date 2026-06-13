@@ -1,0 +1,25 @@
+{
+	"_id": "WishOfTheGolden1",
+	"_key": "!items!WishOfTheGolden1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfTheGoldenEight.jpg",
+	"name": "Wish of the Golden Eight",
+	"system": {
+		"description": {
+			"value": "Triple eights align in your favor. +0.888 Luck to Modifiers"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-the-golden-eight",
+			"operations": [
+				{
+					"field": "FLOAT_LUCK",
+					"op": "ADD",
+					"value": 0.888
+				}
+			]
+		}
+	}
+}

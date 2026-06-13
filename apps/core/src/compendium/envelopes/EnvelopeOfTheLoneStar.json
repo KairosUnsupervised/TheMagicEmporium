@@ -1,0 +1,39 @@
+{
+	"_id": "EnvelopeOfLoneS1",
+	"_key": "!items!EnvelopeOfLoneS1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfTheLoneStar.jpg",
+	"name": "Envelope of the Lone Star",
+	"system": {
+		"description": {
+			"value": "One star, seen clearly, claimed for your own. 4 Reveals, 1 Pull, +1 Luck to Rarity, Perfect Visibility"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ENVELOPE",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 4
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 1
+				},
+				{
+					"field": "RARITY_LUCK",
+					"op": "ADD",
+					"value": 1
+				},
+				{
+					"field": "VISIBILITY_LEVEL",
+					"op": "SET",
+					"value": 4
+				}
+			]
+		}
+	}
+}

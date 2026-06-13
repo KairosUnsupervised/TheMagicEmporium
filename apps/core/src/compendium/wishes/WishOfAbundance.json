@@ -1,0 +1,30 @@
+{
+	"_id": "WishOfAbundance1",
+	"_key": "!items!WishOfAbundance1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfAbundance.jpg",
+	"name": "Wish of Abundance",
+	"system": {
+		"description": {
+			"value": "More of everything, freely given. +3 Reveals, +2 Pulls"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-abundance",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "ADD",
+					"value": 3
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "ADD",
+					"value": 2
+				}
+			]
+		}
+	}
+}

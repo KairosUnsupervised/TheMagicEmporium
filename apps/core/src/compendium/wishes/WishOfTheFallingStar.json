@@ -1,0 +1,30 @@
+{
+	"_id": "WishOfTheFallin1",
+	"_key": "!items!WishOfTheFallin1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfTheFallingStar.jpg",
+	"name": "Wish of the Falling Star",
+	"system": {
+		"description": {
+			"value": "A star falls, and with it every promise it carried. +1 Luck to Rarity, +1 Luck to Modifiers"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-the-falling-star",
+			"operations": [
+				{
+					"field": "RARITY_LUCK",
+					"op": "ADD",
+					"value": 1
+				},
+				{
+					"field": "FLOAT_LUCK",
+					"op": "ADD",
+					"value": 1
+				}
+			]
+		}
+	}
+}

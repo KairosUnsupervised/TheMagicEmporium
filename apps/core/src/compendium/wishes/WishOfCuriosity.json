@@ -1,0 +1,25 @@
+{
+	"_id": "WishOfCuriosity1",
+	"_key": "!items!WishOfCuriosity1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/wishes/wishOfCuriosity.jpg",
+	"name": "Wish of Curiosity",
+	"system": {
+		"description": {
+			"value": "A small glimpse beyond the veil. +1 Reveal"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ITEM",
+			"id": "wish-of-curiosity",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "ADD",
+					"value": 1
+				}
+			]
+		}
+	}
+}
