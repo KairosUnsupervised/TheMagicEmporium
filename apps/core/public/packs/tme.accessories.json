@@ -1028,6 +1028,38 @@
 					]
 				}
 			]
+		},
+		{
+			"identifier": "TME.RAPTURE",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Rapture",
+				"description": "As an action, you can cast Reverse Gravity at will, it's always centered on yourself, with a radius of {amount} feet",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 5
+				},
+				{
+					"min": 0.5,
+					"value": 10
+				},
+				{
+					"min": 0.9,
+					"value": 15
+				}
+			],
+			"activeEffects": [],
+			"feats": []
 		}
 	]
 }
