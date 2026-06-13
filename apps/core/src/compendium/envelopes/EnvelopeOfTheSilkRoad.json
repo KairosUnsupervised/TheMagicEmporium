@@ -6,7 +6,7 @@
 	"name": "Envelope of the Silk Road",
 	"system": {
 		"description": {
-			"value": "Traded across a thousand leagues of silk and sand. 12 Reveals, Locked to 1 Pull"
+			"value": "Traded across a thousand leagues of silk and sand. 12 Reveals, 1 Pull"
 		}
 	},
 	"flags": {
@@ -22,10 +22,6 @@
 					"field": "PICK_AMOUNT",
 					"op": "SET",
 					"value": 1
-				},
-				{
-					"field": "PICK_AMOUNT",
-					"op": "LOCK"
 				}
 			]
 		}

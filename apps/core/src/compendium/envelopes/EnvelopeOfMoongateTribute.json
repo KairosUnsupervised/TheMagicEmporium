@@ -6,7 +6,7 @@
 	"name": "Envelope of Moongate Tribute",
 	"system": {
 		"description": {
-			"value": "Left at the threshold of the moongate when the stars align. 5 Items, 3 Pulls, -1 to Luck to Rarity"
+			"value": "Left at the threshold of the moongate when the stars align. 5 Items, 3 Pulls, -0.5 to Luck to Rarity"
 		}
 	},
 	"flags": {
@@ -26,7 +26,7 @@
 				{
 					"field": "RARITY_LUCK",
 					"op": "SUBTRACT",
-					"value": 1
+					"value": 0.5
 				}
 			]
 		}
