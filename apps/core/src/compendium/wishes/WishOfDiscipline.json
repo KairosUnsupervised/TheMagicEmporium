@@ -7,7 +7,8 @@
 	"system": {
 		"description": {
 			"value": "A wish forged through patience and focus. +3 Reveals"
-		}
+		},
+		"rarity": "rare"
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

@@ -7,7 +7,8 @@
 	"system": {
 		"description": {
 			"value": "A single dewdrop catches the light. +0.2 Luck to Rarity, +0.2 Luck to Modifier"
-		}
+		},
+		"rarity": "common"
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

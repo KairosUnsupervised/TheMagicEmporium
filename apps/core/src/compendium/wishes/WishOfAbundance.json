@@ -7,7 +7,8 @@
 	"system": {
 		"description": {
 			"value": "More of everything, freely given. +3 Reveals, +2 Pulls"
-		}
+		},
+		"rarity": "veryRare"
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

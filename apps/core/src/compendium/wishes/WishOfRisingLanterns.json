@@ -7,7 +7,8 @@
 	"system": {
 		"description": {
 			"value": "Lanterns rise one by one into the night. +1 Visibility"
-		}
+		},
+		"rarity": "uncommon"
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

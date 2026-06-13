@@ -7,7 +7,8 @@
 	"system": {
 		"description": {
 			"value": "A battered envelope that hits hard and leaves a mark. 6 Reveals, 1 Pull, Medium Visibility, restricts to bludgeoning weapons only"
-		}
+		},
+		"rarity": "uncommon"
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

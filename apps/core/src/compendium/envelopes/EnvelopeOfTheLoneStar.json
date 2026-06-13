@@ -7,7 +7,8 @@
 	"system": {
 		"description": {
 			"value": "One star, seen clearly, claimed for your own. 4 Reveals, 1 Pull, +1 Luck to Rarity, Perfect Visibility"
-		}
+		},
+		"rarity": "legendary"
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

@@ -7,7 +7,8 @@
 	"system": {
 		"description": {
 			"value": "Wax-sealed against the light. What lies within could be anything, and that is precisely the point. 6 Pulls, 0 Reveals"
-		}
+		},
+		"rarity": "veryRare"
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

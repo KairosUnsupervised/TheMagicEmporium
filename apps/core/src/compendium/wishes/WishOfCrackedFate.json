@@ -7,7 +7,8 @@
 	"system": {
 		"description": {
 			"value": "Fate itself cracks open. Locks to one reveal and one pull. +2 to Luck for Rarity"
-		}
+		},
+		"rarity": "veryRare"
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

@@ -7,7 +7,8 @@
 	"system": {
 		"description": {
 			"value": "A wish forged in iron and resolve. Restricts to armor only"
-		}
+		},
+		"rarity": "uncommon"
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

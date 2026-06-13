@@ -7,7 +7,8 @@
 	"system": {
 		"description": {
 			"value": "Call upon the luck that lies dormant in all things. +0.5 Luck to Rarity, +1 Reveals"
-		}
+		},
+		"rarity": "rare"
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

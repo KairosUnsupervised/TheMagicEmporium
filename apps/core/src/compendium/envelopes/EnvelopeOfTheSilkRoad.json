@@ -7,7 +7,8 @@
 	"system": {
 		"description": {
 			"value": "Traded across a thousand leagues of silk and sand. 12 Reveals, 1 Pull"
-		}
+		},
+		"rarity": "veryRare"
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

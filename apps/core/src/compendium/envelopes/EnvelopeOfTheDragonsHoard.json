@@ -7,7 +7,8 @@
 	"system": {
 		"description": {
 			"value": "Spilled from a hoard too vast to count. 6 Reveals, 5 Pulls, Medium Visibility"
-		}
+		},
+		"rarity": "legendary"
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

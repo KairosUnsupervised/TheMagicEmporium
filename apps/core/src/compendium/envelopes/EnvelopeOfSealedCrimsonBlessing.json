@@ -7,7 +7,8 @@
 	"system": {
 		"description": {
 			"value": "A crimson envelope sealed by fortune's hand. 6 Reveals, 2 Pulls, +0.5 Luck to Rarity, Forced to be blind"
-		}
+		},
+		"rarity": "rare"
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {

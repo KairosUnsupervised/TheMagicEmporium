@@ -7,7 +7,8 @@
 	"system": {
 		"description": {
 			"value": "A wish honed to a razor's edge. Restricts to slashing weapons only"
-		}
+		},
+		"rarity": "uncommon"
 	},
 	"flags": {
 		"the-magic-emporium-gacha": {
