@@ -2,8 +2,10 @@ import { Rarity } from "../item/item.types";
 import { Restriction } from "../modifiers/modifier.schema";
 import type { Template } from "./forge.types";
 
+// 100000 Total Weight
+// Common 58% · Uncommon 27% · Rare 10% · Very Rare 4% · Legendary 1%
 export const templates: Template[] = [
-	// ── Common 45000 Total Weight────────────────────────────────────────────────────────────────
+	// ── Common 58000 Total Weight────────────────────────────────────────────────────────────────
 	{
 		rarity: Rarity.Common,
 		slots: [Restriction.Primary, Restriction.Primary],
@@ -11,7 +13,7 @@ export const templates: Template[] = [
 		luck: -0.5,
 		nonFloatCost: 0.5,
 		backgroundEligible: false,
-		weight: 22500,
+		weight: 29000,
 		gold: { min: 20, additional: 40, equipmentValueImpact: 0.25 },
 	},
 	{
@@ -21,11 +23,11 @@ export const templates: Template[] = [
 		luck: -1,
 		nonFloatCost: 0.5,
 		backgroundEligible: false,
-		weight: 22500,
+		weight: 29000,
 		gold: { min: 20, additional: 40, equipmentValueImpact: 0.25 },
 	},
 
-	// ── Uncommon 25000 Total Weight ──────────────────────────────────────────────────────────────
+	// ── Uncommon 27000 Total Weight ──────────────────────────────────────────────────────────────
 	{
 		rarity: Rarity.Uncommon,
 		slots: [Restriction.Primary, Restriction.Primary, Restriction.Primary],
@@ -33,7 +35,7 @@ export const templates: Template[] = [
 		luck: 0,
 		nonFloatCost: 0.5,
 		backgroundEligible: false,
-		weight: 11000,
+		weight: 11880,
 		gold: { min: 40, additional: 80, equipmentValueImpact: 0.25 },
 	},
 	{
@@ -43,7 +45,7 @@ export const templates: Template[] = [
 		luck: -0.5,
 		nonFloatCost: 0.5,
 		backgroundEligible: true,
-		weight: 1500,
+		weight: 1620,
 		gold: { min: 40, additional: 80, equipmentValueImpact: 0.25 },
 	},
 	{
@@ -53,7 +55,7 @@ export const templates: Template[] = [
 		luck: -1,
 		nonFloatCost: 0.5,
 		backgroundEligible: false,
-		weight: 11000,
+		weight: 11880,
 		gold: { min: 40, additional: 80, equipmentValueImpact: 0.25 },
 	},
 	{
@@ -63,11 +65,11 @@ export const templates: Template[] = [
 		luck: -1,
 		nonFloatCost: 0.5,
 		backgroundEligible: true,
-		weight: 1500,
+		weight: 1620,
 		gold: { min: 40, additional: 80, equipmentValueImpact: 0.25 },
 	},
 
-	// ── Rare 15000 Total Weight ──────────────────────────────────────────────────────────────────
+	// ── Rare 10000 Total Weight ──────────────────────────────────────────────────────────────────
 	{
 		rarity: Rarity.Rare,
 		slots: [
@@ -82,7 +84,7 @@ export const templates: Template[] = [
 		luck: -1,
 		nonFloatCost: 0.4,
 		backgroundEligible: false,
-		weight: 4000,
+		weight: 2680,
 		gold: { min: 100, additional: 150, equipmentValueImpact: 0.5 },
 	},
 	{
@@ -99,7 +101,7 @@ export const templates: Template[] = [
 		luck: -1,
 		nonFloatCost: 0.4,
 		backgroundEligible: true,
-		weight: 1000,
+		weight: 660,
 		gold: { min: 100, additional: 150, equipmentValueImpact: 0.5 },
 	},
 	{
@@ -114,7 +116,7 @@ export const templates: Template[] = [
 		luck: 0,
 		nonFloatCost: 0.4,
 		backgroundEligible: false,
-		weight: 4000,
+		weight: 2680,
 		gold: { min: 100, additional: 150, equipmentValueImpact: 0.5 },
 	},
 	{
@@ -129,7 +131,7 @@ export const templates: Template[] = [
 		luck: 0,
 		nonFloatCost: 0.4,
 		backgroundEligible: true,
-		weight: 1000,
+		weight: 660,
 		gold: { min: 100, additional: 150, equipmentValueImpact: 0.5 },
 	},
 	{
@@ -139,7 +141,7 @@ export const templates: Template[] = [
 		luck: 0.5,
 		nonFloatCost: 0.4,
 		backgroundEligible: false,
-		weight: 4000,
+		weight: 2680,
 		gold: { min: 100, additional: 150, equipmentValueImpact: 0.5 },
 	},
 	{
@@ -149,11 +151,11 @@ export const templates: Template[] = [
 		luck: 0.5,
 		nonFloatCost: 0.4,
 		backgroundEligible: true,
-		weight: 1000,
+		weight: 660,
 		gold: { min: 100, additional: 150, equipmentValueImpact: 0.5 },
 	},
 
-	// ── Very Rare 10000 Total Weight ─────────────────────────────────────────────────────────────
+	// ── Very Rare 4000 Total Weight ─────────────────────────────────────────────────────────────
 	{
 		rarity: Rarity.VeryRare,
 		slots: [
@@ -168,7 +170,7 @@ export const templates: Template[] = [
 		luck: 0,
 		nonFloatCost: 0.3,
 		backgroundEligible: false,
-		weight: 1667,
+		weight: 667,
 		gold: { min: 200, additional: 600, equipmentValueImpact: 1 },
 	},
 	{
@@ -185,7 +187,7 @@ export const templates: Template[] = [
 		luck: 0,
 		nonFloatCost: 0.3,
 		backgroundEligible: true,
-		weight: 1667,
+		weight: 667,
 		gold: { min: 200, additional: 600, equipmentValueImpact: 1 },
 	},
 	{
@@ -200,7 +202,7 @@ export const templates: Template[] = [
 		luck: 1,
 		nonFloatCost: 0.3,
 		backgroundEligible: false,
-		weight: 1667,
+		weight: 667,
 		gold: { min: 200, additional: 600, equipmentValueImpact: 1 },
 	},
 	{
@@ -215,7 +217,7 @@ export const templates: Template[] = [
 		luck: 1,
 		nonFloatCost: 0.3,
 		backgroundEligible: true,
-		weight: 1667,
+		weight: 667,
 		gold: { min: 200, additional: 600, equipmentValueImpact: 1 },
 	},
 	{
@@ -232,7 +234,7 @@ export const templates: Template[] = [
 		luck: -0.5,
 		nonFloatCost: 0.3,
 		backgroundEligible: false,
-		weight: 1667,
+		weight: 667,
 		gold: { min: 200, additional: 600, equipmentValueImpact: 1 },
 	},
 	{
@@ -249,11 +251,11 @@ export const templates: Template[] = [
 		luck: -0.5,
 		nonFloatCost: 0.3,
 		backgroundEligible: true,
-		weight: 1667,
+		weight: 667,
 		gold: { min: 200, additional: 600, equipmentValueImpact: 1 },
 	},
 
-	// ── Legendary 5000 Total Weight ─────────────────────────────────────────────────────────────
+	// ── Legendary 1000 Total Weight ─────────────────────────────────────────────────────────────
 	{
 		rarity: Rarity.Legendary,
 		slots: [
@@ -269,7 +271,7 @@ export const templates: Template[] = [
 		luck: 0,
 		nonFloatCost: 0.3,
 		backgroundEligible: false,
-		weight: 500,
+		weight: 100,
 		gold: { min: 600, additional: 1200, equipmentValueImpact: 1 },
 	},
 	{
@@ -287,7 +289,7 @@ export const templates: Template[] = [
 		luck: 0,
 		nonFloatCost: 0.3,
 		backgroundEligible: true,
-		weight: 2000,
+		weight: 400,
 		gold: { min: 600, additional: 1200, equipmentValueImpact: 1 },
 	},
 	{
@@ -303,7 +305,7 @@ export const templates: Template[] = [
 		luck: 1,
 		nonFloatCost: 0.3,
 		backgroundEligible: false,
-		weight: 500,
+		weight: 100,
 		gold: { min: 600, additional: 1200, equipmentValueImpact: 1 },
 	},
 	{
@@ -319,7 +321,7 @@ export const templates: Template[] = [
 		luck: 1,
 		nonFloatCost: 0.3,
 		backgroundEligible: true,
-		weight: 2000,
+		weight: 400,
 		gold: { min: 600, additional: 1200, equipmentValueImpact: 1 },
 	},
 ];
