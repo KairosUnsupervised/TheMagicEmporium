@@ -1,0 +1,34 @@
+{
+	"_id": "EnvelopeOfHighB1",
+	"_key": "!items!EnvelopeOfHighB1",
+	"type": "loot",
+	"img": "modules/the-magic-emporium/gacha/envelopes/envelopeOfHighBlessing.jpg",
+	"name": "Envelope of High Blessing",
+	"system": {
+		"description": {
+			"value": "A single thread of gold binds this envelope, holding one promise and one alone. 1 Reveal, 1 Pull, +2 Luck to Rarity"
+		}
+	},
+	"flags": {
+		"the-magic-emporium-gacha": {
+			"type": "ENVELOPE",
+			"operations": [
+				{
+					"field": "REVEAL_AMOUNT",
+					"op": "SET",
+					"value": 1
+				},
+				{
+					"field": "PICK_AMOUNT",
+					"op": "SET",
+					"value": 1
+				},
+				{
+					"field": "RARITY_LUCK",
+					"op": "ADD",
+					"value": 2
+				}
+			]
+		}
+	}
+}
