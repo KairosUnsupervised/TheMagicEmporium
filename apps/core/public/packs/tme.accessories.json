@@ -994,6 +994,40 @@
 					}
 				}
 			]
+		},
+		{
+			"identifier": "TME.PAWLYMORPH",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Pawlymorph",
+						"description": "As an action, you can polymorph into a cat at will",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "action",
+									"cost": 1,
+									"condition": ""
+								}
+							}
+						}
+					]
+				}
+			]
 		}
 	]
 }
