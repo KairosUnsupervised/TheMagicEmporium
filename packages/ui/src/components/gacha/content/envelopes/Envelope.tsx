@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import type { JSX } from "react";
 import { animationDelay } from "../../animationDelay";
 import { EnvelopeInput } from "../../input/EnvelopeInput";
-import { Orbit } from "../orbit/Orbit";
 import { Circles } from "./Circles";
+import styles from "./Envelope.module.css";
+import { Orbit } from "./Orbit";
 import { OrbitalPosition } from "./OrbitalPosition";
-import styles from "./Sun.module.css";
 import { Sunburst } from "./Sunburst";
 
 export interface OrbitalCoord {
@@ -13,11 +13,11 @@ export interface OrbitalCoord {
 	readonly y: number;
 }
 
-export interface SunProps {
+export interface EnvelopeProps {
 	orbitalPositions?: readonly OrbitalCoord[];
 }
 
-export const Sun = (props: SunProps): JSX.Element => (
+export const Envelope = (props: EnvelopeProps): JSX.Element => (
 	<div className={styles.root}>
 		<Circles />
 		{props.orbitalPositions && (

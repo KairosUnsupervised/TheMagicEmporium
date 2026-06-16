@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { DiamondType } from "../../../components/gacha/content/orbit/Diamond";
+import { DiamondType } from "../../../components/gacha/content/envelopes/Diamond";
 
 interface OrbiterMeta {
 	x: number;

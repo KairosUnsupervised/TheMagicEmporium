@@ -1,6 +1,6 @@
 import type { JSX } from "react";
+import { Envelope } from "./envelopes/Envelope";
 import styles from "./StarSystem.module.css";
-import { Sun } from "./sun/Sun";
 import { WishNode } from "./wishes/WishNode";
 
 const STAR_DATA = Array.from({ length: 90 }, (_, i) => {
@@ -50,7 +50,7 @@ export const StarSystem = () => {
 					className={styles.node}
 					style={{ transform: "translate(-50%, -50%)" }}
 				>
-					<Sun orbitalPositions={WISH_POSITIONS} />
+					<Envelope orbitalPositions={WISH_POSITIONS} />
 				</div>
 				{WISH_POSITIONS.map((p, i) => {
 					return (

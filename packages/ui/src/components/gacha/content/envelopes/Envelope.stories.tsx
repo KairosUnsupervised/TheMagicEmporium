@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Sun } from "./Sun";
+import { Envelope } from "./Envelope";
 
 const meta = {
-	title: "Components/Gacha/Content/Sun",
-	component: Sun,
+	title: "Components/Gacha/Content/Envelope",
+	component: Envelope,
 	parameters: {
 		layout: "centered",
 		backgrounds: {
@@ -13,10 +13,10 @@ const meta = {
 	},
 	render: () => (
 		<div style={{ background: "#07091a", padding: "60px" }}>
-			<Sun />
+			<Envelope />
 		</div>
 	),
-} satisfies Meta<typeof Sun>;
+} satisfies Meta<typeof Envelope>;
 
 export default meta;
 

@@ -7,7 +7,7 @@ import { veryRareFixture } from "../../fixtures/items/veryRareFixture";
 import { GachaDisplay, type GachaDisplayProps } from "./GachaDisplay";
 
 const meta = {
-	title: "Components/Gacha",
+	title: "Components/Gacha/Display",
 	component: GachaDisplay,
 	parameters: {
 		layout: "fullscreen",

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Diamond, type DiamondProps, DiamondType } from "./Diamond";
 
 const meta = {
-	title: "Components/Gacha/Content/Orbit/Diamond",
+	title: "Components/Gacha/Content/Envelope/Diamond",
 	component: Diamond,
 	parameters: {
 		layout: "centered",

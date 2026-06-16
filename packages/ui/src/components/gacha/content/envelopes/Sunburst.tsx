@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import type { JSX } from "react";
 import { useGachaContext } from "../../../../context/gacha/useGachaContext";
 import { animationDelay } from "../../animationDelay";
-import styles from "./Sun.module.css";
+import styles from "./Envelope.module.css";
 
 interface RayData {
 	x1: number;

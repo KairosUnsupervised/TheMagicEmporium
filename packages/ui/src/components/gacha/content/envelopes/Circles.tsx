@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import type { JSX } from "react";
 import { animationDelay } from "../../animationDelay";
-import styles from "./Sun.module.css";
+import styles from "./Envelope.module.css";
 
 const CIRCLES = [
 	{ r: 240, opacity: 0.42, strokeWidth: 0.3 },
