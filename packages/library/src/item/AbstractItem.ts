@@ -7,6 +7,7 @@ import { equipmentDetails } from "./equipment/equipment.details";
 import { Equipment } from "./equipment/equipment.types";
 import { Rarity } from "./item.types";
 
+// TODO Refactor: Unify this across the codebase
 export const rarityLabel: Record<Rarity, string> = {
 	[Rarity.Common]: "Common",
 	[Rarity.Uncommon]: "Uncommon",
@@ -14,6 +15,8 @@ export const rarityLabel: Record<Rarity, string> = {
 	[Rarity.VeryRare]: "Very Rare",
 	[Rarity.Legendary]: "Legendary",
 };
+
+// TODO Refactor: Merge down float onto the base modifier level for save data
 
 /**
  * Represents an abstracted magic item, no fluff

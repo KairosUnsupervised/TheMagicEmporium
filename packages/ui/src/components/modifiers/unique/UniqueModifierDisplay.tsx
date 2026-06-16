@@ -27,7 +27,7 @@ const UniqueBody = (props: UniqueBodyProps) => {
 	return (
 		<div className={styles.grid}>
 			<div className={styles.iconWrapper}>
-				<img src={generateIconUrl(Icon.Independent)} alt="Icon" />
+				<img src={generateIconUrl(Icon.Unique)} alt="Icon" />
 			</div>
 			<div>
 				<div className={styles.label}>UNIQUE</div>
