@@ -38,8 +38,6 @@ const RARITY_LABEL: Record<Rarity, string> = {
 const formatCurrency = (gp: number) => `${gp.toLocaleString("en-US")} gp`;
 
 export const Header = (props: HeaderProps) => {
-	console.log(props);
-
 	const color = RARITY_COLOR[props.rarity];
 	const shadow = RARITY_SHADOW[props.rarity];
 

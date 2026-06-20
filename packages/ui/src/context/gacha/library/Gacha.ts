@@ -37,7 +37,6 @@ export class Gacha {
 			this.pullProcess.pickAmount.getValue(),
 			this.pullProcess.revealAmount.getValue(),
 		);
-		console.log(JSON.stringify(this.pullProcess, null, 2));
 	};
 
 	public getVisibility = (): 0 | 1 | 2 | 3 | 4 => {
