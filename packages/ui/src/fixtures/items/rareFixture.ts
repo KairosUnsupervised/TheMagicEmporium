@@ -11,9 +11,9 @@ rareFixture.rarity = Rarity.Rare;
 rareFixture.base = Equipment.Longsword;
 rareFixture.currency = 500;
 rareFixture.primary = [
-	{ modifier: uniqueVenomousFixture, data: { float: 0.4 } },
-	{ modifier: tieredFuryFixture, data: { float: 0.3 } },
+	{ modifier: uniqueVenomousFixture, float: 0.4 },
+	{ modifier: tieredFuryFixture, float: 0.3 },
 ];
 rareFixture.secondary = [
-	{ modifier: tieredStealthFixture, data: { float: 0.3 } },
+	{ modifier: tieredStealthFixture, float: 0.3 },
 ];

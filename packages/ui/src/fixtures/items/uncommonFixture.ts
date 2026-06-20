@@ -10,6 +10,6 @@ uncommonFixture.rarity = Rarity.Uncommon;
 uncommonFixture.base = Equipment.Longbow;
 uncommonFixture.currency = 120;
 uncommonFixture.primary = [
-	{ modifier: uniqueVenomousFixture, data: { float: 0.3 } },
-	{ modifier: tieredFuryFixture, data: { float: 0.2 } },
+	{ modifier: uniqueVenomousFixture, float: 0.3 },
+	{ modifier: tieredFuryFixture, float: 0.2 },
 ];

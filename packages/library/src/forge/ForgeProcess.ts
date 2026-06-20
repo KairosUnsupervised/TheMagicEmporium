@@ -59,9 +59,9 @@ export class ForgeProcess {
 	public addModifier = (
 		slot: Restriction,
 		modifier: Modifier,
-		data: unknown,
+		float: number,
 	): void => {
-		const applied: AppliedModifier = { modifier, data };
+		const applied: AppliedModifier = { modifier, float };
 
 		switch (slot) {
 			case Restriction.Primary:
@@ -82,7 +82,7 @@ export class ForgeProcess {
 		}
 	};
 
-	// TODO This should rather be part of AbstractItem or item class
+	// TODO This should rather be part of AbstractItem or item class ?
 	public addToFolder = async (): Promise<void> => {
 		const folder = await getFolder();
 		const document = Item.create(this.abstractItem).export(folder.id);

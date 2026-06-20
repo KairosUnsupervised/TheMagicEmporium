@@ -8,7 +8,7 @@ import {
 	type TieredTier,
 	validateTiered,
 } from "../../schemas/modifiers/tiered.schema";
-import { FloatDataManager } from "../dataManagers/FloatDataManager";
+import { FloatManager } from "../manager/FloatManager";
 import { type CreateProps, Modifier } from "../Modifier";
 import type { Flavor } from "../modifier.schema";
 
@@ -20,7 +20,7 @@ import type { Flavor } from "../modifier.schema";
  * do not need to match.
  */
 export class TieredModifier extends Modifier<TieredSchema> {
-	public readonly dataManager = FloatDataManager.create<TieredBreakpoint>();
+	public readonly float = FloatManager.create<TieredBreakpoint>();
 	private readonly tiers: TieredTier[];
 
 	static create(props: CreateProps): TieredModifier | null {
@@ -45,7 +45,7 @@ export class TieredModifier extends Modifier<TieredSchema> {
 
 	constructor(definition: TieredSchema) {
 		super(definition);
-		this.dataManager.setBreakpoints(definition.breakpoints);
+		this.float.setBreakpoints(definition.breakpoints);
 		this.tiers = [...definition.tiers].sort((a, b) => b.min - a.min);
 	}
 
@@ -58,24 +58,24 @@ export class TieredModifier extends Modifier<TieredSchema> {
 		return this.tiers[this.tiers.length - 1];
 	}
 
-	public override getDescription(data: unknown): Flavor {
-		const value = this.dataManager.getBreakpoint(data).value;
+	public override getDescription(float: number): Flavor {
+		const value = this.float.getBreakpoint(float).value;
 		return this.resolveTier(value).flavor;
 	}
 
-	private getActiveTier = (data: unknown[]): TieredTier | null => {
-		if (data.length === 0) {
+	private getActiveTier = (floats: number[]): TieredTier | null => {
+		if (floats.length === 0) {
 			return null;
 		}
-		const sum = data.reduce(
-			(acc: number, d) => acc + this.dataManager.getBreakpoint(d).value,
+		const sum = floats.reduce(
+			(acc: number, float) => acc + this.float.getBreakpoint(float).value,
 			0,
 		);
 		return this.resolveTier(sum);
 	};
 
-	public override getActiveEffects = (data: unknown[]): ActiveEffect[] => {
-		const tier = this.getActiveTier(data);
+	public override getActiveEffects = (floats: number[]): ActiveEffect[] => {
+		const tier = this.getActiveTier(floats);
 		if (!tier) {
 			return [];
 		}
@@ -86,26 +86,26 @@ export class TieredModifier extends Modifier<TieredSchema> {
 		);
 	};
 
-	public override getFeats = (data: unknown[]): Feat[] => {
-		const tier = this.getActiveTier(data);
+	public override getFeats = (floats: number[]): Feat[] => {
+		const tier = this.getActiveTier(floats);
 		if (!tier) {
 			return [];
 		}
 		return Feat.createMultiple(tier.feats, tier.flavor, Icon.Tiered);
 	};
 
-	public override getBackground = (data: unknown): string | null => {
+	public override getBackground = (float: number): string | null => {
 		return (
-			this.resolveTier(this.dataManager.getBreakpoint(data).value).flavor
+			this.resolveTier(this.float.getBreakpoint(float).value).flavor
 				.background ?? null
 		);
 	};
 
-	public isHighestPossibleBreakpoint = (data: unknown): boolean => {
-		return this.dataManager.isHighestBreakpoint(data);
+	public isHighestPossibleBreakpoint = (float: number): boolean => {
+		return this.float.isHighestBreakpoint(float);
 	};
 
-	public getBreakpointIndex = (data: unknown): number => {
-		return this.dataManager.getBreakpointIndex(data)
-	}
+	public getBreakpointIndex = (float: number): number => {
+		return this.float.getBreakpointIndex(float);
+	};
 }

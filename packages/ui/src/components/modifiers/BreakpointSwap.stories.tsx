@@ -30,10 +30,7 @@ const furyBreakpoints = (
 export const Default: Story = {
 	render: () => (
 		<div style={{ background: "#040510", width: "460px" }}>
-			<UniqueModifierDisplay
-				modifier={uniqueBloodthirstyFixture}
-				data={{ float: 0 }}
-			/>
+			<UniqueModifierDisplay modifier={uniqueBloodthirstyFixture} float={0} />
 		</div>
 	),
 };
@@ -41,10 +38,7 @@ export const Default: Story = {
 export const UniqueVenomousMiddle: Story = {
 	render: () => (
 		<div style={{ background: "#040510", width: "460px" }}>
-			<UniqueModifierDisplay
-				modifier={uniqueVenomousFixture}
-				data={{ float: "0.4" }}
-			/>
+			<UniqueModifierDisplay modifier={uniqueVenomousFixture} float={0.4} />
 		</div>
 	),
 };
@@ -54,7 +48,7 @@ export const UniqueVenomousHighest: Story = {
 		<div style={{ background: "#040510", width: "460px" }}>
 			<UniqueModifierDisplay
 				modifier={uniqueVenomousFixture}
-				data={{ float: venomousBreakpoints[5].min }}
+				float={venomousBreakpoints[5].min}
 			/>
 		</div>
 	),
@@ -65,7 +59,7 @@ export const TieredFuryMiddle: Story = {
 		<div style={{ background: "#040510", width: "460px" }}>
 			<TieredModifierDisplay
 				modifier={tieredFuryFixture}
-				data={{ float: furyBreakpoints[1].min }}
+				float={furyBreakpoints[1].min}
 			/>
 		</div>
 	),

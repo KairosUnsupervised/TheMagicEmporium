@@ -1,9 +1,9 @@
-import type { ActiveEffect } from "../effects/activeEffects/ActiveEffect";
-import type { Activity } from "../effects/activity/Activity";
-import type { Change } from "../effects/change/Change";
-import type { Feat } from "../effects/feats/Feat";
-import { DataManager } from "./dataManagers/DataManager";
-import type { Application, Flavor, ModifierType } from "./modifier.schema";
+import type {ActiveEffect} from "../effects/activeEffects/ActiveEffect";
+import type {Activity} from "../effects/activity/Activity";
+import type {Change} from "../effects/change/Change";
+import type {Feat} from "../effects/feats/Feat";
+import type {Application, Flavor, ModifierType} from "./modifier.schema";
+import {FloatManager} from "./manager/FloatManager";
 
 export type ModifierFactory = (props: CreateProps) => Modifier | null;
 
@@ -20,7 +20,7 @@ export interface BaseSchema {
 
 export interface AppliedModifier {
 	modifier: Modifier;
-	data: unknown;
+	float: number;
 }
 
 export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
@@ -38,7 +38,7 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
 
 	public readonly schema: Schema;
 
-	public readonly dataManager: DataManager | null = DataManager.Disabled;
+	public abstract readonly float: FloatManager<any>;
 
 	protected constructor(definition: Schema) {
 		this.identifier = definition.identifier;
@@ -48,43 +48,38 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
 
 	/**
 	 * Retrieves a description for a slot on an item
-	 * @param _data
 	 */
-	public abstract getDescription(_data: unknown): Flavor;
+	public abstract getDescription(_float: number): Flavor;
 
 	/**
 	 * Retrieves activeEffects for the actor
-	 * @param _data Unverified data from multiple item documents e.g. [{float: 0.777}]
 	 */
-	public getActiveEffects = (_data: any[]): ActiveEffect[] => {
+	public getActiveEffects = (_floats: number[]): ActiveEffect[] => {
 		return [];
 	};
 
 	/**
 	 * Retrieves feats for the actor
-	 * @param _data Unverified data from multiple item documents e.g. [{float: 0.777}]
 	 */
-	public getFeats = (_data: any[]): Feat[] => {
+	public getFeats = (_floats: number[]): Feat[] => {
 		return [];
 	};
 
 	/**
 	 * Retrieves changes to be applied to the item document
-	 * @param _data Unverified data from the item document e.g. {float: 0.777}
 	 */
-	public getItemChanges = (_data: unknown): Change[] => {
+	public getItemChanges = (_float: number): Change[] => {
 		return [];
 	};
 
 	/**
 	 * Retrieves activities to be merged into the item document
-	 * @param _data Unverified data from the item document e.g. {float: 0.777}
 	 */
-	public getItemActivities = (_data: unknown): Activity[] => {
+	public getItemActivities = (_float: number): Activity[] => {
 		return [];
 	};
 
-	public getBackground = (_data: unknown): string | null => {
+	public getBackground = (_float: number): string | null => {
 		return null;
 	};
 
@@ -102,7 +97,7 @@ export abstract class Modifier<Schema extends BaseSchema = BaseSchema> {
 		return JSON.parse(json);
 	};
 
-	public abstract isHighestPossibleBreakpoint: (_data: unknown) => boolean;
+	public abstract isHighestPossibleBreakpoint: (_float: number) => boolean;
 
-	public abstract getBreakpointIndex: (_data: unknown) => number;
+	public abstract getBreakpointIndex: (_float: number) => number;
 }

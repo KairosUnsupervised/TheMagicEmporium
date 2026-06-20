@@ -18,7 +18,7 @@ const meta = {
 	},
 	render: (props: LinearModifierDisplayProps) => (
 		<div style={{ background: "#040510", width: "460px" }}>
-			<LinearModifierDisplay modifier={props.modifier} data={props.data} />
+			<LinearModifierDisplay modifier={props.modifier} float={props.float} />
 		</div>
 	),
 } satisfies Meta<typeof LinearModifierDisplay>;
@@ -28,9 +28,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: { modifier: linearStealthFixture, data: { float: 0 } },
+	args: { modifier: linearStealthFixture, float: 0 },
 };
 
 export const WithDisclaimer: Story = {
-	args: { modifier: linearFortitudeFixture, data: { float: 0.7 } },
+	args: { modifier: linearFortitudeFixture, float: 0.7 },
 };

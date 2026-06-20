@@ -88,7 +88,7 @@ export const PullItem = (props: PullItemProps): JSX.Element => {
 		props.item.tertiary,
 	].map((slot: AppliedModifier[]): number[] => {
 		return slot.map((applied: AppliedModifier): number => {
-			return applied.modifier.getBreakpointIndex(applied.data);
+			return applied.modifier.getBreakpointIndex(applied.float);
 		});
 	});
 

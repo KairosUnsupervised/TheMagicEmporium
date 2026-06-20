@@ -18,7 +18,7 @@ const meta = {
 	},
 	render: (props: TieredModifierDisplayProps) => (
 		<div style={{ background: "#040510", width: "460px" }}>
-			<TieredModifierDisplay modifier={props.modifier} data={props.data} />
+			<TieredModifierDisplay modifier={props.modifier} float={props.float} />
 		</div>
 	),
 } satisfies Meta<typeof TieredModifierDisplay>;
@@ -28,17 +28,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: { modifier: tieredStealthFixture, data: { float: 0 } },
+	args: { modifier: tieredStealthFixture, float: 0 },
 };
 
 export const TwoTiersSecondActive: Story = {
-	args: { modifier: tieredStealthFixture, data: { float: 0.5 } },
+	args: { modifier: tieredStealthFixture, float: 0.5 },
 };
 
 export const FourTiersWithDisclaimer: Story = {
-	args: { modifier: tieredFuryFixture, data: { float: 0.6 } },
+	args: { modifier: tieredFuryFixture, float: 0.6 },
 };
 
 export const FourTiersMaxTier: Story = {
-	args: { modifier: tieredFuryFixture, data: { float: 0.8 } },
+	args: { modifier: tieredFuryFixture, float: 0.8 },
 };

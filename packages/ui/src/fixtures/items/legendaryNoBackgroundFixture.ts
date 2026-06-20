@@ -14,14 +14,14 @@ legendaryNoBackgroundFixture.rarity = Rarity.Legendary;
 legendaryNoBackgroundFixture.base = Equipment.Greatsword;
 legendaryNoBackgroundFixture.currency = 5000;
 legendaryNoBackgroundFixture.primary = [
-	{ modifier: uniqueVenomousFixture, data: { float: 0.8 } },
-	{ modifier: tieredFuryFixture, data: { float: 0.7 } },
-	{ modifier: uniqueWrathfulFixture, data: { float: 0.9 } },
+	{ modifier: uniqueVenomousFixture, float: 0.8 },
+	{ modifier: tieredFuryFixture, float: 0.7 },
+	{ modifier: uniqueWrathfulFixture, float: 0.9 },
 ];
 legendaryNoBackgroundFixture.secondary = [
-	{ modifier: tieredStealthFixture, data: { float: 0.6 } },
-	{ modifier: independentShadowwalkerFixture, data: { float: 0.9 } },
+	{ modifier: tieredStealthFixture, float: 0.6 },
+	{ modifier: independentShadowwalkerFixture, float: 0.9 },
 ];
 legendaryNoBackgroundFixture.tertiary = [
-	{ modifier: linearFortitudeFixture, data: { float: 0.9 } },
+	{ modifier: linearFortitudeFixture, float: 0.9 },
 ];

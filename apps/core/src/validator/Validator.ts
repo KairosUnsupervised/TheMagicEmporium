@@ -22,7 +22,7 @@ interface QuickAccess {
 interface ModifiersMapped {
 	[key: string]: {
 		modifier: Modifier;
-		data: unknown[];
+		float: number[]
 	};
 }
 
@@ -111,9 +111,9 @@ export class Validator {
 				}
 
 				if (!modifierMap[identifier]) {
-					modifierMap[identifier] = { modifier, data: [] };
+					modifierMap[identifier] = { modifier, float: [] };
 				}
-				modifierMap[identifier].data.push(item.data || null);
+				modifierMap[identifier].float.push(item.float);
 			});
 		});
 
@@ -121,16 +121,16 @@ export class Validator {
 	};
 
 	private getAllFeats = (modifiersMapped: ModifiersMapped): Feat[] => {
-		return Object.values(modifiersMapped).flatMap(({ modifier, data }) =>
-			modifier.getFeats(data),
+		return Object.values(modifiersMapped).flatMap(({ modifier, float }) =>
+			modifier.getFeats(float),
 		);
 	};
 
 	private getAllActiveEffects = (
 		modifiersMapped: ModifiersMapped,
 	): ActiveEffect[] => {
-		return Object.values(modifiersMapped).flatMap(({ modifier, data }) =>
-			modifier.getActiveEffects(data),
+		return Object.values(modifiersMapped).flatMap(({ modifier, float }) =>
+			modifier.getActiveEffects(float),
 		);
 	};
 
@@ -152,7 +152,7 @@ export class Validator {
 		let remaining = this.getMagicFeats(actor);
 
 		const creation = feats.map((feat, index) => {
-			// TODO REAL HASH
+			// TODO Improve current implementation of "hash"
 			const hash =
 				feat.document.name + index + feat.document.system.description?.value;
 

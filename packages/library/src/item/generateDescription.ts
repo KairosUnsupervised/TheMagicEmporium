@@ -48,7 +48,7 @@ export const generateDescriptionV3 = (abstractItem: AbstractItem) => {
 };
 
 const generateModifierDescription = (applied: AppliedModifier) => {
-	const flavor = applied.modifier.getDescription(applied.data);
+	const flavor = applied.modifier.getDescription(applied.float);
 
 	const type = (() => {
 		if (applied.modifier instanceof UniqueModifier) {

@@ -1,24 +1,25 @@
-import {Icon} from "@tme/library/src/item/icon";
-import type {LinearModifier} from "@tme/library/src/modifiers/blueprints/LinearModifier";
+import { Icon } from "@tme/library/src/item/icon";
+import type { LinearModifier } from "@tme/library/src/modifiers/blueprints/LinearModifier";
 import styles from "./LinearModifierDisplay.module.css";
-import {generateIconUrl} from "@tme/library/src/misc/generateIconUrl";
+import { generateIconUrl } from "@tme/library/src/misc/generateIconUrl";
 
 export interface LinearModifierDisplayProps {
 	modifier: LinearModifier;
-	data: unknown;
+	float: number;
 }
 
 export const LinearModifierDisplay = (props: LinearModifierDisplayProps) => {
-	const flavor = props.modifier.getDescription(props.data);
-	const activeBreakpoint = props.modifier.dataManager.getBreakpoint(
-		props.data,
-	) as { min: number; value: number };
+	const flavor = props.modifier.getDescription(props.float);
+	const activeBreakpoint = props.modifier.float.getBreakpoint(props.float) as {
+		min: number;
+		value: number;
+	};
 
 	return (
 		<div className={styles.root}>
 			<div className={styles.grid}>
 				<div className={styles.iconWrapper}>
-					<img src={generateIconUrl(Icon.Linear)} alt="Icon"/>
+					<img src={generateIconUrl(Icon.Linear)} alt="Icon" />
 				</div>
 				<div>
 					<div className={styles.label}>LINEAR</div>

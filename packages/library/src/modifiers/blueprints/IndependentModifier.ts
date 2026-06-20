@@ -6,13 +6,13 @@ import {
 	type IndependentSchema,
 	validateIndependent,
 } from "../../schemas/modifiers/independent.schema";
-import { FloatDataManager } from "../dataManagers/FloatDataManager";
+import { FloatManager } from "../manager/FloatManager";
 import { type CreateProps, Modifier } from "../Modifier";
 import type { Flavor } from "../modifier.schema";
 
 export class IndependentModifier extends Modifier<IndependentSchema> {
-	public readonly dataManager =
-		FloatDataManager.create<IndependentBreakpoint>();
+
+	public readonly float = FloatManager.create<IndependentBreakpoint>();
 
 	static create(props: CreateProps): IndependentModifier | null {
 		if (!validateIndependent(props.definition)) {
@@ -37,36 +37,36 @@ export class IndependentModifier extends Modifier<IndependentSchema> {
 
 	constructor(definition: IndependentSchema) {
 		super(definition);
-		this.dataManager.setBreakpoints(definition.breakpoints);
+		this.float.setBreakpoints(definition.breakpoints);
 	}
 
-	public override getDescription = (data: unknown): Flavor => {
-		const breakpoint = this.dataManager.getBreakpoint(data);
+	public override getDescription = (float: number): Flavor => {
+		const breakpoint = this.float.getBreakpoint(float);
 
 		return breakpoint.flavor;
 	};
 
-	public override getItemChanges = (data: unknown): Change[] => {
-		const breakpoint = this.dataManager.getBreakpoint(data);
+	public override getItemChanges = (float: number): Change[] => {
+		const breakpoint = this.float.getBreakpoint(float);
 
 		return Change.createMultiple(breakpoint.changes);
 	};
 
-	public override getItemActivities = (data: unknown): Activity[] => {
-		const breakpoint = this.dataManager.getBreakpoint(data);
+	public override getItemActivities = (float: number): Activity[] => {
+		const breakpoint = this.float.getBreakpoint(float);
 
 		return Activity.createMultiple(breakpoint.activities);
 	};
 
-	public override getBackground = (data: unknown): string | null => {
-		return this.dataManager.getBreakpoint(data).flavor.background ?? null;
+	public override getBackground = (float: number): string | null => {
+		return this.float.getBreakpoint(float).flavor.background ?? null;
 	};
 
-	public isHighestPossibleBreakpoint = (data: unknown): boolean => {
-		return this.dataManager.isHighestBreakpoint(data);
+	public isHighestPossibleBreakpoint = (float: number): boolean => {
+		return this.float.isHighestBreakpoint(float);
 	};
 
-	public getBreakpointIndex = (data: unknown): number => {
-		return this.dataManager.getBreakpointIndex(data)
+	public getBreakpointIndex = (float: number): number => {
+		return this.float.getBreakpointIndex(float)
 	}
 }

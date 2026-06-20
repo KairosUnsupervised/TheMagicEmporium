@@ -8,20 +8,20 @@ import styles from "./UniqueModifierDisplay.module.css";
 
 export interface UniqueModifierDisplayProps {
 	modifier: UniqueModifier;
-	data: unknown;
+	float: number;
 }
 
 interface UniqueBodyProps {
 	modifier: UniqueModifier;
-	data: unknown;
-	previousData: unknown;
+	float: number;
+	previousFloat: number | null;
 }
 
 const UniqueBody = (props: UniqueBodyProps) => {
-	const flavor = props.modifier.getDescription(props.data);
+	const flavor = props.modifier.getDescription(props.float);
 	const previousFlavor =
-		props.previousData != null
-			? props.modifier.getDescription(props.previousData)
+		props.previousFloat != null
+			? props.modifier.getDescription(props.previousFloat)
 			: null;
 
 	return (
@@ -62,7 +62,7 @@ export const UniqueModifierDisplay = (props: UniqueModifierDisplayProps) => {
 	const breakpoints = (
 		props.modifier.schema as unknown as { breakpoints: { min: number }[] }
 	).breakpoints;
-	const activeBreakpoint = props.modifier.dataManager.getBreakpoint(props.data);
+	const activeBreakpoint = props.modifier.float.getBreakpoint(props.float);
 	const activeIndex = breakpoints.findIndex(
 		(bp) => bp.min === activeBreakpoint.min,
 	);
@@ -70,11 +70,9 @@ export const UniqueModifierDisplay = (props: UniqueModifierDisplayProps) => {
 	const items = breakpoints.map((bp) => (previousIndex: number | null) => (
 		<UniqueBody
 			modifier={props.modifier}
-			data={{ float: bp.min }}
-			previousData={
-				previousIndex !== null
-					? { float: breakpoints[previousIndex].min }
-					: null
+			float={bp.min}
+			previousFloat={
+				previousIndex !== null ? breakpoints[previousIndex].min : null
 			}
 		/>
 	));

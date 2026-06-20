@@ -13,13 +13,13 @@ veryRarePerfectFixture.base = Equipment.Rapier;
 veryRarePerfectFixture.currency = 1800;
 veryRarePerfectFixture.backgroundEligible = true;
 veryRarePerfectFixture.primary = [
-	{ modifier: uniqueVenomousFixture, data: { float: 0 } },
-	{ modifier: tieredFuryFixture, data: { float: 0 } },
+	{ modifier: uniqueVenomousFixture, float: 0 },
+	{ modifier: tieredFuryFixture, float: 0 },
 ];
 veryRarePerfectFixture.secondary = [
-	{ modifier: linearFortitudeFixture, data: { float: 0 } },
+	{ modifier: linearFortitudeFixture, float: 0 },
 ];
 // Last in array → first after .reverse() → provides the RedSkull background
 veryRarePerfectFixture.tertiary = [
-	{ modifier: uniqueBloodthirstyFixture, data: { float: 0 } },
+	{ modifier: uniqueBloodthirstyFixture, float: 0 },
 ];

@@ -31,9 +31,9 @@ export interface BaseItem {
 	base: string;
 	backgroundEligible: boolean;
 	backgroundOverride: string | null;
-	primary: { identifier: string; data?: unknown }[];
-	secondary: { identifier: string; data?: unknown }[];
-	tertiary: { identifier: string; data?: unknown }[];
+	primary: { identifier: string, float: number }[];
+	secondary: { identifier: string, float: number }[];
+	tertiary: { identifier: string, float: number }[];
 }
 
 export interface Item5e<Flag = SubItem | BaseItem> {

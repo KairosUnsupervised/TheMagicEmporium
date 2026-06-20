@@ -16,14 +16,14 @@ legendaryOverrideBackgroundFixture.base = Equipment.Longsword;
 legendaryOverrideBackgroundFixture.currency = 2500;
 legendaryOverrideBackgroundFixture.backgroundOverride = boundlessSpirit;
 legendaryOverrideBackgroundFixture.primary = [
-	{ modifier: uniqueVenomousFixture, data: { float: 0.6 } },
-	{ modifier: tieredFuryFixture, data: { float: 0.6 } },
-	{ modifier: uniqueWrathfulFixture, data: { float: 0 } },
+	{ modifier: uniqueVenomousFixture, float: 0.6 },
+	{ modifier: tieredFuryFixture, float: 0.6 },
+	{ modifier: uniqueWrathfulFixture, float: 0 },
 ];
 legendaryOverrideBackgroundFixture.secondary = [
-	{ modifier: tieredStealthFixture, data: { float: 0.5 } },
-	{ modifier: independentShadowwalkerFixture, data: { float: 0.5 } },
+	{ modifier: tieredStealthFixture, float: 0.5 },
+	{ modifier: independentShadowwalkerFixture, float: 0.5 },
 ];
 legendaryOverrideBackgroundFixture.tertiary = [
-	{ modifier: linearFortitudeFixture, data: { float: 0.7 } },
+	{ modifier: linearFortitudeFixture, float: 0.7 },
 ];

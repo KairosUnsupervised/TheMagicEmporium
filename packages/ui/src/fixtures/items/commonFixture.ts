@@ -9,5 +9,5 @@ commonFixture.rarity = Rarity.Common;
 commonFixture.base = Equipment.Dagger;
 commonFixture.currency = 5;
 commonFixture.primary = [
-	{ modifier: uniqueVenomousFixture, data: { float: 0.1 } },
+	{ modifier: uniqueVenomousFixture, float: 0.1 },
 ];

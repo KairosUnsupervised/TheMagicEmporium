@@ -19,6 +19,9 @@ export interface Template {
 	 * Max amount of points for this item, each float reduced its value from remaining points until none are left
 	 */
 	points: number;
+	/**
+	 * @DEPRECATED TODO non applicable anymore since everything has a float
+	 */
 	nonFloatCost: number;
 
 	/**

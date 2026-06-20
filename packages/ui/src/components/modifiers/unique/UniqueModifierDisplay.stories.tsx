@@ -20,7 +20,7 @@ const meta = {
 	},
 	render: (props: UniqueModifierDisplayProps) => (
 		<div style={{ background: "#040510", width: "460px" }}>
-			<UniqueModifierDisplay modifier={props.modifier} data={props.data} />
+			<UniqueModifierDisplay modifier={props.modifier} float={props.float} />
 		</div>
 	),
 } satisfies Meta<typeof UniqueModifierDisplay>;
@@ -30,17 +30,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: { modifier: uniqueBloodthirstyFixture, data: { float: 0 } },
+	args: { modifier: uniqueBloodthirstyFixture, float: 0 },
 };
 
 export const WithDisclaimer: Story = {
-	args: { modifier: uniqueSoulboundFixture, data: { float: 0 } },
+	args: { modifier: uniqueSoulboundFixture, float: 0 },
 };
 
 export const TwoBreakpoints: Story = {
-	args: { modifier: uniqueWrathfulFixture, data: { float: 1 } },
+	args: { modifier: uniqueWrathfulFixture, float: 1 },
 };
 
 export const SixBreakpoints: Story = {
-	args: { modifier: uniqueVenomousFixture, data: { float: 0.8 } },
+	args: { modifier: uniqueVenomousFixture, float: 0.8 },
 };

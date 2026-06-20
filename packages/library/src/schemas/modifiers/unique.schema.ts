@@ -3,11 +3,11 @@ import type { BaseSchema } from "../../modifiers/Modifier";
 import { ModifierType } from "../../modifiers/modifier.schema";
 import { applicationSchema } from "./application.schema";
 import { type Flavor, flavorSchema } from "./flavor.schema";
+import {BaseBreakpoint} from "../../modifiers/manager/FloatManager";
 
 const ajv = new Ajv({ removeAdditional: true, useDefaults: true });
 
-export interface UniqueBreakpoint {
-	min: number;
+export interface UniqueBreakpoint extends BaseBreakpoint {
 	flavor: Flavor;
 	activeEffects: unknown[];
 	feats: unknown[];

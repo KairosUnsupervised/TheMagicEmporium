@@ -93,8 +93,8 @@ export class Item {
 			...this.abstractItem.primary,
 			...this.abstractItem.secondary,
 			...this.abstractItem.tertiary,
-		].flatMap(({ modifier, data }) => {
-			return modifier.getItemChanges(data);
+		].flatMap(({ modifier, float }) => {
+			return modifier.getItemChanges(float);
 		});
 
 		this.document = Change.applyAll(
@@ -114,8 +114,8 @@ export class Item {
 			...this.abstractItem.primary,
 			...this.abstractItem.secondary,
 			...this.abstractItem.tertiary,
-		].flatMap(({ modifier, data }) => {
-			return modifier.getItemActivities(data);
+		].flatMap(({ modifier, float }) => {
+			return modifier.getItemActivities(float);
 		});
 
 		this.document.system!.activities = Activity.activitiesToRecord([
@@ -152,9 +152,9 @@ export class Item {
 	};
 
 	private exportModifiers = (mods: AppliedModifier[]) => {
-		return mods.map(({ modifier, data }) => ({
+		return mods.map(({ modifier, float }) => ({
 			identifier: modifier.identifier,
-			data,
+			float,
 		}));
 	};
 }

@@ -10,28 +10,31 @@ import { UniqueModifierDisplay } from "./unique/UniqueModifierDisplay";
 
 export interface ModifierDisplayProps {
 	modifier: Modifier;
-	data: unknown;
+	float: number;
 }
 
 export const ModifierDisplay = (props: ModifierDisplayProps) => {
 	if (props.modifier instanceof UniqueModifier) {
 		return (
-			<UniqueModifierDisplay modifier={props.modifier} data={props.data} />
+			<UniqueModifierDisplay modifier={props.modifier} float={props.float} />
 		);
 	}
 	if (props.modifier instanceof IndependentModifier) {
 		return (
-			<IndependentModifierDisplay modifier={props.modifier} data={props.data} />
+			<IndependentModifierDisplay
+				modifier={props.modifier}
+				float={props.float}
+			/>
 		);
 	}
 	if (props.modifier instanceof LinearModifier) {
 		return (
-			<LinearModifierDisplay modifier={props.modifier} data={props.data} />
+			<LinearModifierDisplay modifier={props.modifier} float={props.float} />
 		);
 	}
 	if (props.modifier instanceof TieredModifier) {
 		return (
-			<TieredModifierDisplay modifier={props.modifier} data={props.data} />
+			<TieredModifierDisplay modifier={props.modifier} float={props.float} />
 		);
 	}
 	return null;

@@ -16,8 +16,6 @@ export const rarityLabel: Record<Rarity, string> = {
 	[Rarity.Legendary]: "Legendary",
 };
 
-// TODO Refactor: Merge down float onto the base modifier level for save data
-
 /**
  * Represents an abstracted magic item, no fluff
  */
@@ -38,6 +36,7 @@ export class AbstractItem {
 
 	/**
 	 * Creates an abstract item from a foundry item document
+	 * TODO add validation for abstractItem creation
 	 * @param document
 	 */
 	public static createFromDocument = (document: any): null | AbstractItem => {
@@ -67,19 +66,19 @@ export class AbstractItem {
 		data.primary.forEach((rawMod) => {
 			const modifier = registry.get(rawMod.identifier);
 			if (!modifier) return;
-			item.primary.push({ modifier, data: rawMod.data ?? null });
+			item.primary.push({ modifier, float: rawMod.float });
 		});
 
 		data.secondary.forEach((rawMod) => {
 			const modifier = registry.get(rawMod.identifier);
 			if (!modifier) return;
-			item.secondary.push({ modifier, data: rawMod.data ?? null });
+			item.secondary.push({ modifier,  float: rawMod.float });
 		});
 
 		data.tertiary.forEach((rawMod) => {
 			const modifier = registry.get(rawMod.identifier);
 			if (!modifier) return;
-			item.tertiary.push({ modifier, data: rawMod.data ?? null });
+			item.tertiary.push({ modifier,  float: rawMod.float });
 		});
 
 		return item;
@@ -113,7 +112,7 @@ export class AbstractItem {
 				...this.secondary,
 				...this.tertiary,
 			].reverse()) {
-				const backgroundOverride = applied.modifier.getBackground(applied.data);
+				const backgroundOverride = applied.modifier.getBackground(applied.float);
 				if (backgroundOverride) {
 					return backgroundOverride;
 				}
@@ -131,8 +130,8 @@ export class AbstractItem {
 		const all = [...this.primary, ...this.secondary, ...this.tertiary];
 		if (all.length < 3) return { enabled: false, amount: 30 };
 		if (
-			all.every(({ modifier, data }) =>
-				modifier.isHighestPossibleBreakpoint(data),
+			all.every(({ modifier, float }) =>
+				modifier.isHighestPossibleBreakpoint(float),
 			)
 		) {
 			return { enabled: true, amount: all.length * 6 };

@@ -13,12 +13,12 @@ legendaryModifierBackgroundFixture.base = Equipment.Handaxe;
 legendaryModifierBackgroundFixture.currency = 3200;
 legendaryModifierBackgroundFixture.backgroundEligible = true;
 legendaryModifierBackgroundFixture.primary = [
-	{ modifier: uniqueBloodthirstyFixture, data: { float: 0.5 } },
-	{ modifier: tieredFuryFixture, data: { float: 0.7 } },
+	{ modifier: uniqueBloodthirstyFixture, float: 0.5 },
+	{ modifier: tieredFuryFixture, float: 0.7 },
 ];
 legendaryModifierBackgroundFixture.secondary = [
-	{ modifier: tieredStealthFixture, data: { float: 0.4 } },
+	{ modifier: tieredStealthFixture, float: 0.4 },
 ];
 legendaryModifierBackgroundFixture.tertiary = [
-	{ modifier: linearFortitudeFixture, data: { float: 0.6 } },
+	{ modifier: linearFortitudeFixture, float: 0.6 },
 ];

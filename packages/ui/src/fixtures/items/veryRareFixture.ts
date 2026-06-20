@@ -12,10 +12,10 @@ veryRareFixture.rarity = Rarity.VeryRare;
 veryRareFixture.base = Equipment.Shortsword;
 veryRareFixture.currency = 1200;
 veryRareFixture.primary = [
-	{ modifier: uniqueVenomousFixture, data: { float: 0.5 } },
-	{ modifier: tieredFuryFixture, data: { float: 0.5 } },
+	{ modifier: uniqueVenomousFixture, float: 0.5 },
+	{ modifier: tieredFuryFixture, float: 0.5 },
 ];
 veryRareFixture.secondary = [
-	{ modifier: tieredStealthFixture, data: { float: 0.4 } },
-	{ modifier: independentShadowwalkerFixture, data: { float: 0.3 } },
+	{ modifier: tieredStealthFixture, float: 0.4 },
+	{ modifier: independentShadowwalkerFixture, float: 0.3 },
 ];

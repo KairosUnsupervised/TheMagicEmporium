@@ -8,20 +8,20 @@ import styles from "./IndependentModifierDisplay.module.css";
 
 export interface IndependentModifierDisplayProps {
 	modifier: IndependentModifier;
-	data: unknown;
+	float: number;
 }
 
 interface IndependentBodyProps {
 	modifier: IndependentModifier;
-	data: unknown;
-	previousData: unknown;
+	float: number;
+	previousFloat: number | null;
 }
 
 const IndependentBody = (props: IndependentBodyProps) => {
-	const flavor = props.modifier.getDescription(props.data);
+	const flavor = props.modifier.getDescription(props.float);
 	const previousFlavor =
-		props.previousData != null
-			? props.modifier.getDescription(props.previousData)
+		props.previousFloat != null
+			? props.modifier.getDescription(props.previousFloat)
 			: null;
 
 	return (
@@ -64,7 +64,7 @@ export const IndependentModifierDisplay = (
 	const breakpoints = (
 		props.modifier.schema as unknown as { breakpoints: { min: number }[] }
 	).breakpoints;
-	const activeBreakpoint = props.modifier.dataManager.getBreakpoint(props.data);
+	const activeBreakpoint = props.modifier.float.getBreakpoint(props.float);
 	const activeIndex = breakpoints.findIndex(
 		(bp) => bp.min === activeBreakpoint.min,
 	);
@@ -72,11 +72,9 @@ export const IndependentModifierDisplay = (
 	const items = breakpoints.map((bp) => (previousIndex: number | null) => (
 		<IndependentBody
 			modifier={props.modifier}
-			data={{ float: bp.min }}
-			previousData={
-				previousIndex !== null
-					? { float: breakpoints[previousIndex].min }
-					: null
+			float={bp.min}
+			previousFloat={
+				previousIndex !== null ? breakpoints[previousIndex].min : null
 			}
 		/>
 	));

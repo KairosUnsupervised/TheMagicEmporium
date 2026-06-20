@@ -34,7 +34,7 @@ export const Section = (props: SectionProps) => {
 			{props.modifiers.map((applied, i) => (
 				<div key={i} className={styles.item}>
 					{i > 0 && <div className={styles.divider} />}
-					<ModifierDisplay modifier={applied.modifier} data={applied.data} />
+					<ModifierDisplay modifier={applied.modifier} float={applied.float} />
 				</div>
 			))}
 		</div>

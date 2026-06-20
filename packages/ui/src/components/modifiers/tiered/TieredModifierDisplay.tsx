@@ -13,7 +13,7 @@ const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 
 export interface TieredModifierDisplayProps {
 	modifier: TieredModifier;
-	data: unknown;
+	float: number;
 }
 
 interface TieredBodyProps {
@@ -77,9 +77,7 @@ export const TieredModifierDisplay = (props: TieredModifierDisplayProps) => {
 	};
 	const tiers = [...schema.tiers].sort((a, b) => a.min - b.min);
 
-	const activeValue = props.modifier.dataManager.getBreakpoint(
-		props.data,
-	).value;
+	const activeValue = props.modifier.float.getBreakpoint(props.float).value;
 	const activeIndex = tiers.reduce(
 		(best, tier, i) => (activeValue >= tier.min ? i : best),
 		0,

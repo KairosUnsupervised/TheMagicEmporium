@@ -3,11 +3,11 @@ import type { BaseSchema } from "../../modifiers/Modifier";
 import { ModifierType } from "../../modifiers/modifier.schema";
 import { applicationSchema } from "./application.schema";
 import { type Flavor, flavorSchema } from "./flavor.schema";
+import {BaseBreakpoint} from "../../modifiers/manager/FloatManager";
 
 const ajv = new Ajv({ removeAdditional: true, useDefaults: true });
 
-export interface LinearBreakpoint {
-	min: number;
+export interface LinearBreakpoint extends BaseBreakpoint {
 	value: number;
 	background: string | null;
 }

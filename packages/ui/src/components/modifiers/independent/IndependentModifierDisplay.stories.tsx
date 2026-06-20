@@ -18,7 +18,10 @@ const meta = {
 	},
 	render: (props: IndependentModifierDisplayProps) => (
 		<div style={{ background: "#040510", width: "460px" }}>
-			<IndependentModifierDisplay modifier={props.modifier} data={props.data} />
+			<IndependentModifierDisplay
+				modifier={props.modifier}
+				float={props.float}
+			/>
 		</div>
 	),
 } satisfies Meta<typeof IndependentModifierDisplay>;
@@ -28,13 +31,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: { modifier: independentEdibleFixture, data: { float: 0 } },
+	args: { modifier: independentEdibleFixture, float: 0 },
 };
 
 export const WithDisclaimer: Story = {
-	args: { modifier: independentShadowwalkerFixture, data: { float: 0.8 } },
+	args: { modifier: independentShadowwalkerFixture, float: 0.8 },
 };
 
 export const ThreeBreakpoints: Story = {
-	args: { modifier: independentShadowwalkerFixture, data: { float: 0.5 } },
+	args: { modifier: independentShadowwalkerFixture, float: 0.5 },
 };

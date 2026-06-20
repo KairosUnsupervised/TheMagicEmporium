@@ -7,7 +7,7 @@ import {
 	type UniqueSchema,
 	validateUnique,
 } from "../../schemas/modifiers/unique.schema";
-import { FloatDataManager } from "../dataManagers/FloatDataManager";
+import { FloatManager } from "../manager/FloatManager";
 import { type CreateProps, Modifier } from "../Modifier";
 import type { Flavor } from "../modifier.schema";
 
@@ -15,7 +15,7 @@ import type { Flavor } from "../modifier.schema";
  * A Unique modifier bound to a player, e.g. multiple instances do not stack effects instead the highest effect is applied
  */
 export class UniqueModifier extends Modifier<UniqueSchema> {
-	public readonly dataManager = FloatDataManager.create<UniqueBreakpoint>();
+	public readonly float = FloatManager.create<UniqueBreakpoint>();
 
 	static create(props: CreateProps): UniqueModifier | null {
 		if (!validateUnique(props.definition)) {
@@ -39,22 +39,22 @@ export class UniqueModifier extends Modifier<UniqueSchema> {
 
 	constructor(definition: UniqueSchema) {
 		super(definition);
-		this.dataManager.setBreakpoints(definition.breakpoints);
+		this.float.setBreakpoints(definition.breakpoints);
 	}
 
-	public override getDescription(data: unknown): Flavor {
-		const breakpoint = this.dataManager.getBreakpoint(data);
+	public override getDescription(float: number): Flavor {
+		const breakpoint = this.float.getBreakpoint(float);
 		return breakpoint.flavor;
 	}
 
-	private getHighestBreakpoint = (data: unknown[]): UniqueBreakpoint => {
-		return data
-			.map((d) => this.dataManager.getBreakpoint(d))
+	private getHighestBreakpoint = (floats: number[]): UniqueBreakpoint => {
+		return floats
+			.map((float) => this.float.getBreakpoint(float))
 			.sort((a, b) => b.min - a.min)[0];
 	};
 
-	public override getActiveEffects = (data: unknown[]): ActiveEffect[] => {
-		const highest = this.getHighestBreakpoint(data);
+	public override getActiveEffects = (floats: number[]): ActiveEffect[] => {
+		const highest = this.getHighestBreakpoint(floats);
 		return ActiveEffect.createMultiple(
 			highest.activeEffects,
 			highest.flavor,
@@ -62,20 +62,20 @@ export class UniqueModifier extends Modifier<UniqueSchema> {
 		);
 	};
 
-	public override getFeats = (data: unknown[]): Feat[] => {
-		const highest = this.getHighestBreakpoint(data);
+	public override getFeats = (floats: number[]): Feat[] => {
+		const highest = this.getHighestBreakpoint(floats);
 		return Feat.createMultiple(highest.feats, highest.flavor, Icon.Unique);
 	};
 
-	public override getBackground = (data: unknown): string | null => {
-		return this.dataManager.getBreakpoint(data).flavor.background ?? null;
+	public override getBackground = (float: number): string | null => {
+		return this.float.getBreakpoint(float).flavor.background ?? null;
 	};
 
-	public isHighestPossibleBreakpoint = (data: unknown): boolean => {
-		return this.dataManager.isHighestBreakpoint(data);
+	public isHighestPossibleBreakpoint = (float: number): boolean => {
+		return this.float.isHighestBreakpoint(float);
 	};
 
-	public getBreakpointIndex = (data: unknown): number => {
-		return this.dataManager.getBreakpointIndex(data)
-	}
+	public getBreakpointIndex = (float: number): number => {
+		return this.float.getBreakpointIndex(float);
+	};
 }

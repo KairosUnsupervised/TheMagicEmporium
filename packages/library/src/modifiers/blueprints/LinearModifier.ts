@@ -7,12 +7,12 @@ import {
 	type LinearSchema,
 	validateLinear,
 } from "../../schemas/modifiers/linear.schema";
-import { FloatDataManager } from "../dataManagers/FloatDataManager";
+import { FloatManager } from "../manager/FloatManager";
 import { type CreateProps, Modifier } from "../Modifier";
 import type { Flavor } from "../modifier.schema";
 
 export class LinearModifier extends Modifier<LinearSchema> {
-	public readonly dataManager = FloatDataManager.create<LinearBreakpoint>();
+	public readonly float = FloatManager.create<LinearBreakpoint>();
 
 	static create(props: CreateProps): LinearModifier | null {
 		if (!validateLinear(props.definition)) {
@@ -36,28 +36,28 @@ export class LinearModifier extends Modifier<LinearSchema> {
 
 	constructor(definition: LinearSchema) {
 		super(definition);
-		this.dataManager.setBreakpoints(definition.breakpoints);
+		this.float.setBreakpoints(definition.breakpoints);
 	}
 
-	public override getDescription(data: unknown): Flavor {
-		const amount = this.dataManager.getBreakpoint(data).value.toString();
+	public override getDescription(float: number): Flavor {
+		const amount = this.float.getBreakpoint(float).value.toString();
 
 		return this.replaceKeyWords(this.schema.flavor, { amount });
 	}
 
 	/**
 	 * Get the breakpoint amount of each passed float and sums them up
-	 * @param data
+	 * @param floats
 	 */
-	private getAmount = (data: unknown[]): string => {
-		return data
-			.map((d) => this.dataManager.getBreakpoint(d).value)
+	private getAmount = (floats: number[]): string => {
+		return floats
+			.map((float) => this.float.getBreakpoint(float).value)
 			.reduce((a, b) => a + b, 0)
 			.toString();
 	};
 
-	public override getActiveEffects = (data: unknown[]): ActiveEffect[] => {
-		const amount = this.getAmount(data);
+	public override getActiveEffects = (floats: number[]): ActiveEffect[] => {
+		const amount = this.getAmount(floats);
 		return ActiveEffect.createMultiple(
 			this.replaceKeyWords(this.schema.activeEffects, { amount }),
 			this.replaceKeyWords(this.schema.flavor, { amount }),
@@ -65,8 +65,8 @@ export class LinearModifier extends Modifier<LinearSchema> {
 		);
 	};
 
-	public override getFeats = (data: unknown[]): Feat[] => {
-		const amount = this.getAmount(data);
+	public override getFeats = (floats: number[]): Feat[] => {
+		const amount = this.getAmount(floats);
 		return Feat.createMultiple(
 			this.replaceKeyWords(this.schema.feats, { amount }),
 			this.replaceKeyWords(this.schema.flavor, { amount }),
@@ -74,16 +74,16 @@ export class LinearModifier extends Modifier<LinearSchema> {
 		);
 	};
 
-	public override getBackground = (data: unknown): string | null => {
-		const breakpoint = this.dataManager.getBreakpoint(data);
+	public override getBackground = (float: number): string | null => {
+		const breakpoint = this.float.getBreakpoint(float);
 		return breakpoint.background ?? this.schema.flavor.background ?? null;
 	};
 
-	public isHighestPossibleBreakpoint = (data: unknown): boolean => {
-		return this.dataManager.isHighestBreakpoint(data);
+	public isHighestPossibleBreakpoint = (float: number): boolean => {
+		return this.float.isHighestBreakpoint(float);
 	};
 
-	public getBreakpointIndex = (data: unknown): number => {
-		return this.dataManager.getBreakpointIndex(data)
-	}
+	public getBreakpointIndex = (float: number): number => {
+		return this.float.getBreakpointIndex(float);
+	};
 }
