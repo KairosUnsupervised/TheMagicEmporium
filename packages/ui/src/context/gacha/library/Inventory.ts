@@ -257,7 +257,9 @@ export class Inventory {
 						this.foundryQueue = [];
 
 						setTimeout(() => {
-							this.isSyncing = false;
+							runInAction(() => {
+								this.isSyncing = false;
+							});
 							resolve();
 						}, 600);
 					});
@@ -292,7 +294,7 @@ export class Inventory {
 
 		for (const action of closingActions.reverse()) {
 			await delay();
-			action();
+			runInAction(action);
 		}
 
 		await delay();

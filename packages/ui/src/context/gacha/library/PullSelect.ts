@@ -1,7 +1,7 @@
 import { Forge } from "@tme/library/src/forge/Forge";
 import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
 import { Rarity } from "@tme/library/src/item/item.types";
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 import type { Gacha } from "./Gacha";
 import { PullProcess } from "./PullProcess";
 
@@ -54,7 +54,9 @@ export class PullSelect {
 
 	public onCompleteConfirm = async (): Promise<void> => {
 		await this.gacha.inventory.flushQueue();
-		this.isOpen = false;
+		runInAction(() => {
+			this.isOpen = false;
+		});
 	};
 
 	public startProcess = (pullProcess: PullProcess) => {
