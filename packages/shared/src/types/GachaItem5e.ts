@@ -59,7 +59,7 @@ export enum GachaItemType {
 
 export interface EnvelopeFlag {
 	type: GachaItemType.Envelope;
-	operations: AllNumberOperations[];
+	operations: AllOperations[];
 }
 
 export interface WishFlag {

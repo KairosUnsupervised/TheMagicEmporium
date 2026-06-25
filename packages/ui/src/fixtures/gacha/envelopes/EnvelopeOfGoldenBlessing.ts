@@ -6,17 +6,17 @@ import {
 	GachaItemType,
 	NumberOperation,
 } from "@tme/shared/src/types/GachaItem5e";
-import img from "./GoldenBlessingSeal.jpg";
 
-export const goldenBlessingSealFixture: GachaItem5e<EnvelopeFlag> = {
-	id: "fixture-envelope-golden-blessing-seal",
-	img,
-	name: "Golden Blessing Seal",
+export const envelopeOfGoldenBlessingFixture: GachaItem5e<EnvelopeFlag> = {
+	id: "fixture-envelope-of-golden-blessing",
+	img: "modules/the-magic-emporium/gacha/envelopes/envelopeOfGoldenBlessing.jpg",
+	name: "Envelope of Golden Blessing",
+	isOwner: true,
 	system: {
-		quantity: 4,
+		quantity: 99,
 		description: {
 			value:
-				"Pressed in gold leaf and sealed with a prayer. 3 Items, 1 Pull, Moderate Visibility, +0.5 Luck to Rarity",
+				"Pressed in gold leaf and sealed with a prayer. 3 Items, 1 Pull, Medium Visibility",
 		},
 	},
 	flags: {
@@ -25,14 +25,13 @@ export const goldenBlessingSealFixture: GachaItem5e<EnvelopeFlag> = {
 			operations: [
 				{ field: Field.RevealAmount, op: NumberOperation.Set, value: 3 },
 				{ field: Field.PickAmount, op: NumberOperation.Set, value: 1 },
-				{ field: Field.VisibilityLevel, op: NumberOperation.Set, value: 3 },
-				{ field: Field.RarityLuck, op: NumberOperation.Add, value: 0.5 },
+				{ field: Field.VisibilityLevel, op: NumberOperation.Set, value: 2 },
 			],
 		},
 	},
 	update: async (data) => {
 		if (data.system?.quantity !== undefined) {
-			goldenBlessingSealFixture.system.quantity = data.system.quantity;
+			envelopeOfGoldenBlessingFixture.system.quantity = data.system.quantity;
 		}
 	},
 	delete: async () => {},

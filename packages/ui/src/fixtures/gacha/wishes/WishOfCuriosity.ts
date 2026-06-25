@@ -7,31 +7,29 @@ import {
 	type WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
 
-export const wishOfFortuneFixture: GachaItem5e<WishFlag> = {
-	id: "fixture-wish-of-fortune",
-	img: "modules/the-magic-emporium/gacha/wishes/wishOfFortune.jpg",
-	name: "Wish of Fortune",
+export const wishOfCuriosityFixture: GachaItem5e<WishFlag> = {
+	id: "fixture-wish-of-curiosity",
+	img: "modules/the-magic-emporium/gacha/wishes/wishOfCuriosity.jpg",
+	name: "Wish of Curiosity",
 	isOwner: true,
 	system: {
 		quantity: 99,
 		description: {
-			value:
-				"Call upon the luck that lies dormant in all things. +0.5 Luck to Rarity, +1 Reveals",
+			value: "A small glimpse beyond the veil. +1 Reveal",
 		},
 	},
 	flags: {
 		[namespace.gacha.id]: {
 			type: GachaItemType.Wish,
-			id: "wish-of-fortune",
+			id: "wish-of-curiosity",
 			operations: [
-				{ field: Field.RarityLuck, op: NumberOperation.Add, value: 0.5 },
 				{ field: Field.RevealAmount, op: NumberOperation.Add, value: 1 },
 			],
 		},
 	},
 	update: async (data) => {
 		if (data.system?.quantity !== undefined) {
-			wishOfFortuneFixture.system.quantity = data.system.quantity;
+			wishOfCuriosityFixture.system.quantity = data.system.quantity;
 		}
 	},
 	delete: async () => {},

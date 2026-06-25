@@ -6,31 +6,30 @@ import {
 	NumberOperation,
 	type WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
-import img from "./WishOfEmbracement.jpg";
 
-export const wishOfEmbracementFixture: GachaItem5e<WishFlag> = {
-	id: "fixture-wish-embracement",
-	img,
-	name: "Wish of Embracement",
+export const wishOfOpenHandsFixture: GachaItem5e<WishFlag> = {
+	id: "fixture-wish-of-open-hands",
+	img: "modules/the-magic-emporium/gacha/wishes/wishOfOpenHands.jpg",
+	name: "Wish of Open Hands",
+	isOwner: true,
 	system: {
-		quantity: 4,
+		quantity: 99,
 		description: {
-			value: "Open arms, open fate. +1 Pull, +1 Level of Visibility",
+			value: "Open arms, open fate. +1 Pull",
 		},
 	},
 	flags: {
 		[namespace.gacha.id]: {
 			type: GachaItemType.Wish,
-			id: "wish-of-embracement",
+			id: "wish-of-open-hands",
 			operations: [
 				{ field: Field.PickAmount, op: NumberOperation.Add, value: 1 },
-				{ field: Field.VisibilityLevel, op: NumberOperation.Add, value: 1 },
 			],
 		},
 	},
 	update: async (data) => {
 		if (data.system?.quantity !== undefined) {
-			wishOfEmbracementFixture.system.quantity = data.system.quantity;
+			wishOfOpenHandsFixture.system.quantity = data.system.quantity;
 		}
 	},
 	delete: async () => {},

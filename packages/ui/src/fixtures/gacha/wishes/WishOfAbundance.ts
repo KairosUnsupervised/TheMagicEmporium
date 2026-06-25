@@ -7,30 +7,30 @@ import {
 	type WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
 
-export const wishOfGreedFixture: GachaItem5e<WishFlag> = {
-	id: "fixture-wish-of-greed",
-	img: "modules/the-magic-emporium/gacha/wishes/wishOfGreed.jpg",
-	name: "Wish of Greed",
+export const wishOfAbundanceFixture: GachaItem5e<WishFlag> = {
+	id: "fixture-wish-of-abundance",
+	img: "modules/the-magic-emporium/gacha/wishes/wishOfAbundance.jpg",
+	name: "Wish of Abundance",
 	isOwner: true,
 	system: {
 		quantity: 99,
 		description: {
-			value: "More. Always more. +2 Pulls, -1 Luck to Rarity",
+			value: "More of everything, freely given. +3 Reveals, +2 Pulls",
 		},
 	},
 	flags: {
 		[namespace.gacha.id]: {
 			type: GachaItemType.Wish,
-			id: "wish-of-greed",
+			id: "wish-of-abundance",
 			operations: [
+				{ field: Field.RevealAmount, op: NumberOperation.Add, value: 3 },
 				{ field: Field.PickAmount, op: NumberOperation.Add, value: 2 },
-				{ field: Field.RarityLuck, op: NumberOperation.Subtract, value: 1 },
 			],
 		},
 	},
 	update: async (data) => {
 		if (data.system?.quantity !== undefined) {
-			wishOfGreedFixture.system.quantity = data.system.quantity;
+			wishOfAbundanceFixture.system.quantity = data.system.quantity;
 		}
 	},
 	delete: async () => {},

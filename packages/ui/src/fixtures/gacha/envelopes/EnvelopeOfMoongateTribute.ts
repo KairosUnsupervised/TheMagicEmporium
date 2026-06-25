@@ -4,20 +4,19 @@ import {
 	Field,
 	type GachaItem5e,
 	GachaItemType,
-	LockOperation,
 	NumberOperation,
 } from "@tme/shared/src/types/GachaItem5e";
-import img from "./MoongateOffering.jpg";
 
-export const moongateOfferingFixture: GachaItem5e<EnvelopeFlag> = {
-	id: "fixture-envelope-moongate-offering",
-	img,
-	name: "Moongate Offering",
+export const envelopeOfMoongateTributeFixture: GachaItem5e<EnvelopeFlag> = {
+	id: "fixture-envelope-of-moongate-tribute",
+	img: "modules/the-magic-emporium/gacha/envelopes/envelopeOfMoongateTribute.jpg",
+	name: "Envelope of Moongate Tribute",
+	isOwner: true,
 	system: {
-		quantity: 4,
+		quantity: 99,
 		description: {
 			value:
-				"Left at the threshold of the moongate when the stars align. 5 Items, 3 Pulls, Forced to be Blind",
+				"Left at the threshold of the moongate when the stars align. 5 Items, 3 Pulls, -0.5 to Luck to Rarity",
 		},
 	},
 	flags: {
@@ -26,14 +25,13 @@ export const moongateOfferingFixture: GachaItem5e<EnvelopeFlag> = {
 			operations: [
 				{ field: Field.RevealAmount, op: NumberOperation.Set, value: 5 },
 				{ field: Field.PickAmount, op: NumberOperation.Set, value: 3 },
-				{ field: Field.VisibilityLevel, op: NumberOperation.Set, value: 0 },
-				{ field: Field.VisibilityLevel, op: LockOperation.Lock },
+				{ field: Field.RarityLuck, op: NumberOperation.Subtract, value: 0.5 },
 			],
 		},
 	},
 	update: async (data) => {
 		if (data.system?.quantity !== undefined) {
-			moongateOfferingFixture.system.quantity = data.system.quantity;
+			envelopeOfMoongateTributeFixture.system.quantity = data.system.quantity;
 		}
 	},
 	delete: async () => {},

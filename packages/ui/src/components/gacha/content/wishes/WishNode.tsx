@@ -12,7 +12,6 @@ interface WishNodeProps {
 	index: number;
 }
 
-// TODO Add display for quantity
 export const WishNode = (props: WishNodeProps): JSX.Element => {
 	return (
 		<div

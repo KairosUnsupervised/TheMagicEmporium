@@ -6,17 +6,17 @@ import {
 	GachaItemType,
 	NumberOperation,
 } from "@tme/shared/src/types/GachaItem5e";
-import img from "./FestivalSleeve.jpg";
 
-export const festivalSleeveFixture: GachaItem5e<EnvelopeFlag> = {
-	id: "fixture-envelope-festival-sleeve",
-	img,
-	name: "Festival Sleeve",
+export const envelopeOfHarvestMoonFixture: GachaItem5e<EnvelopeFlag> = {
+	id: "fixture-envelope-of-harvest-moon",
+	img: "modules/the-magic-emporium/gacha/envelopes/envelopeOfHarvestMoon.jpg",
+	name: "Envelope of Harvest Moon",
+	isOwner: true,
 	system: {
-		quantity: 4,
+		quantity: 99,
 		description: {
 			value:
-				"Stitched with lantern-thread and offered at the height of the harvest moon. 3 Items, 3 Pulls, Moderate Visibility",
+				"Stitched with lantern-thread and offered at the height of the harvest moon. 3 Items, 2 Pulls, High Visibility",
 		},
 	},
 	flags: {
@@ -31,7 +31,7 @@ export const festivalSleeveFixture: GachaItem5e<EnvelopeFlag> = {
 	},
 	update: async (data) => {
 		if (data.system?.quantity !== undefined) {
-			festivalSleeveFixture.system.quantity = data.system.quantity;
+			envelopeOfHarvestMoonFixture.system.quantity = data.system.quantity;
 		}
 	},
 	delete: async () => {},

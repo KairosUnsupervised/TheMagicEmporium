@@ -7,14 +7,14 @@ import {
 	NumberOperation,
 	type WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
-import img from "./WishOfBlindness.jpg";
 
-export const wishOfBlindnessFixture: GachaItem5e<WishFlag> = {
-	id: "fixture-wish-blindness",
-	img,
-	name: "Wish of Blindness",
+export const wishOfTheBlindMonkFixture: GachaItem5e<WishFlag> = {
+	id: "fixture-wish-of-the-blind-monk",
+	img: "modules/the-magic-emporium/gacha/wishes/wishOfTheBlindMonk.jpg",
+	name: "Wish of the Blind Monk",
+	isOwner: true,
 	system: {
-		quantity: 4,
+		quantity: 99,
 		description: {
 			value:
 				"You surrender your sight to fate. +1 Luck to Rarity, you are forced to be blind",
@@ -23,7 +23,7 @@ export const wishOfBlindnessFixture: GachaItem5e<WishFlag> = {
 	flags: {
 		[namespace.gacha.id]: {
 			type: GachaItemType.Wish,
-			id: "wish-of-blindness",
+			id: "wish-of-the-blind-monk",
 			operations: [
 				{ field: Field.VisibilityLevel, op: LockOperation.Unlock },
 				{ field: Field.VisibilityLevel, op: NumberOperation.Set, value: 0 },
@@ -34,7 +34,7 @@ export const wishOfBlindnessFixture: GachaItem5e<WishFlag> = {
 	},
 	update: async (data) => {
 		if (data.system?.quantity !== undefined) {
-			wishOfBlindnessFixture.system.quantity = data.system.quantity;
+			wishOfTheBlindMonkFixture.system.quantity = data.system.quantity;
 		}
 	},
 	delete: async () => {},

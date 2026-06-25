@@ -6,14 +6,14 @@ import {
 	LockOperation,
 	type WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
-import img from "./CelestialWish.jpg";
 
-export const celestialWishFixture: GachaItem5e<WishFlag> = {
-	id: "fixture-wish-celestial",
-	img,
-	name: "Wish of Celestials",
+export const wishOfCelestialMandateFixture: GachaItem5e<WishFlag> = {
+	id: "fixture-wish-of-celestial-mandate",
+	img: "modules/the-magic-emporium/gacha/wishes/wishOfCelestialMandate.jpg",
+	name: "Wish of Celestial Mandate",
+	isOwner: true,
 	system: {
-		quantity: 4,
+		quantity: 99,
 		description: {
 			value:
 				"Spoken into the void between stars. Unlocks all possibilities again",
@@ -22,19 +22,20 @@ export const celestialWishFixture: GachaItem5e<WishFlag> = {
 	flags: {
 		[namespace.gacha.id]: {
 			type: GachaItemType.Wish,
-			id: "celestial-wish",
+			id: "wish-of-celestial-mandate",
 			operations: [
 				{ field: Field.PickAmount, op: LockOperation.Unlock },
 				{ field: Field.RevealAmount, op: LockOperation.Unlock },
 				{ field: Field.FloatLuck, op: LockOperation.Unlock },
 				{ field: Field.RarityLuck, op: LockOperation.Unlock },
 				{ field: Field.VisibilityLevel, op: LockOperation.Unlock },
+				{ field: Field.EquipmentWhitelist, op: LockOperation.Unlock },
 			],
 		},
 	},
 	update: async (data) => {
 		if (data.system?.quantity !== undefined) {
-			celestialWishFixture.system.quantity = data.system.quantity;
+			wishOfCelestialMandateFixture.system.quantity = data.system.quantity;
 		}
 	},
 	delete: async () => {},
