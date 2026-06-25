@@ -72,13 +72,13 @@ export class AbstractItem {
 		data.secondary.forEach((rawMod) => {
 			const modifier = registry.get(rawMod.identifier);
 			if (!modifier) return;
-			item.secondary.push({ modifier,  float: rawMod.float });
+			item.secondary.push({ modifier, float: rawMod.float });
 		});
 
 		data.tertiary.forEach((rawMod) => {
 			const modifier = registry.get(rawMod.identifier);
 			if (!modifier) return;
-			item.tertiary.push({ modifier,  float: rawMod.float });
+			item.tertiary.push({ modifier, float: rawMod.float });
 		});
 
 		return item;
@@ -112,12 +112,14 @@ export class AbstractItem {
 				...this.secondary,
 				...this.tertiary,
 			].reverse()) {
-				const backgroundOverride = applied.modifier.getBackground(applied.float);
+				const backgroundOverride = applied.modifier.getBackground(
+					applied.float,
+				);
 				if (backgroundOverride) {
 					return backgroundOverride;
 				}
-				return null;
 			}
+			return null;
 		})();
 
 		if (background) {
