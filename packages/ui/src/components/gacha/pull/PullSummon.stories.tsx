@@ -28,6 +28,11 @@ const SummonLoop = (props: SummonLoopProps): JSX.Element => {
 	);
 };
 
+/**
+ * The per-item summon animation: a seal stamps, holds, then bursts to reveal an
+ * item's rarity. `revealRarity` controls whether the rarity colour is shown,
+ * and there's a small chance (or `forceCat`) of a special cat-blessing variant.
+ */
 const meta = {
 	title: "Components/Gacha/Pull/PullSummon",
 	component: PullSummon,
@@ -69,6 +74,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/** Legendary summon with its rarity revealed. */
 export const Default: Story = {
 	args: {
 		rarity: Rarity.Legendary,
@@ -77,6 +83,7 @@ export const Default: Story = {
 	},
 };
 
+/** Common summon with the rarity hidden — no colour tease on the burst. */
 export const UnknownRarity: Story = {
 	args: {
 		rarity: Rarity.Common,
@@ -85,6 +92,7 @@ export const UnknownRarity: Story = {
 	},
 };
 
+/** Rare summon revealing its rarity colour. */
 export const RareTease: Story = {
 	args: {
 		rarity: Rarity.Rare,
@@ -93,6 +101,7 @@ export const RareTease: Story = {
 	},
 };
 
+/** Forces the rare cat-blessing variant instead of leaving it to chance. */
 export const CatBlessing: Story = {
 	args: {
 		rarity: Rarity.Legendary,

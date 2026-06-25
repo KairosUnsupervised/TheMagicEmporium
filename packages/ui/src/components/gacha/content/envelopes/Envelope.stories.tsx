@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Envelope } from "./Envelope";
 
+/** The decorative envelope artwork shown in gacha content. */
 const meta = {
 	title: "Components/Gacha/Content/Envelope",
 	component: Envelope,

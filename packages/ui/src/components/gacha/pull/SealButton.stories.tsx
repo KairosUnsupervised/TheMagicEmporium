@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { SealButton } from "./SealButton";
 
+/**
+ * Confirmation button used to lock in a pull selection. Shows an English title
+ * alongside Japanese kanji.
+ */
 const meta = {
 	title: "Components/Gacha/Pull/SealButton",
 	component: SealButton,
@@ -48,10 +52,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
+/** Non-interactive state shown while the seal is being applied. */
 export const Disabled: Story = {
 	args: { disabled: true, title: "Sealing…" },
 };
 
+/** Post-reveal "continue" state with completed-seal kanji. */
 export const Revealing: Story = {
 	args: { title: "Continue", kanji: "封印完了" },
 };

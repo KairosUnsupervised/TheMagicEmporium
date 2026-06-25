@@ -21,7 +21,7 @@ export const Pull = observer(() => {
 	const panelRef = useRef<HTMLDivElement>(null);
 
 	const handleSelect = (index: number): void => {
-		if(isRevealing){
+		if (isRevealing) {
 			return;
 		}
 		setSelectedIndices((prev) => {

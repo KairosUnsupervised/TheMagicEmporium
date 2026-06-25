@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { WishInput } from "./WishInput";
 
+/**
+ * Slot for selecting a wish to apply to a draw. `index` identifies which of the
+ * four wish slots this input represents.
+ */
 const meta = {
 	title: "Components/Gacha/Input/WishInput",
 	component: WishInput,

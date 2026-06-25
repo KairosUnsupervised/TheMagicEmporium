@@ -234,12 +234,12 @@
 	color: rgba(212, 166, 74, 0.95);
 	line-height: 1;
 	text-shadow:
-			0 0 1px rgba(0, 0, 0, 1),
-			0 0 8px rgba(0, 0, 0, 1),
-			1px 1px 4px rgba(0, 0, 0, 1),
-			-1px 1px 4px rgba(0, 0, 0, 1),
-			1px -1px 4px rgba(0, 0, 0, 1),
-			-1px -1px 4px rgba(0, 0, 0, 1);
+		0 0 1px rgba(0, 0, 0, 1),
+		0 0 8px rgba(0, 0, 0, 1),
+		1px 1px 4px rgba(0, 0, 0, 1),
+		-1px 1px 4px rgba(0, 0, 0, 1),
+		1px -1px 4px rgba(0, 0, 0, 1),
+		-1px -1px 4px rgba(0, 0, 0, 1);
 }
 
 .orbitQuantity {

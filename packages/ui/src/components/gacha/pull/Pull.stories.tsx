@@ -15,6 +15,10 @@ const fiveItems = [
 	legendaryModifierBackgroundFixture,
 ];
 
+/**
+ * The pull selection grid: shows the drawn items and lets the player pick up to
+ * `picks` of them at the current `visibility`, then seal their choice.
+ */
 const meta = {
 	title: "Components/Gacha/Pull/Pull",
 	component: Pull,
@@ -49,10 +53,12 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/** Two picks at high visibility. */
 export const Default: Story = {
 	args: { picks: 2, visibility: 3 },
 };
 
+/** Zero visibility — items are obscured until revealed. */
 export const Blind: Story = {
 	render: () => (
 		<div className="dark" style={{ padding: "48px", background: "#07091a" }}>
@@ -66,6 +72,7 @@ export const Blind: Story = {
 	),
 };
 
+/** One pick at moderate visibility. */
 export const SinglePick: Story = {
 	render: () => (
 		<div className="dark" style={{ padding: "48px", background: "#07091a" }}>
@@ -79,6 +86,7 @@ export const SinglePick: Story = {
 	),
 };
 
+/** Five picks at perfect visibility — every item is selectable. */
 export const PickAll: Story = {
 	render: () => (
 		<div className="dark" style={{ padding: "48px", background: "#07091a" }}>

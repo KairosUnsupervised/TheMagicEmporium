@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { observer } from "mobx-react-lite";
-import type { JSX } from "react";
 import { useEffect, useState } from "react";
 import { useGachaContext } from "../../context/gacha/useGachaContext";
 import { GachaDisplay } from "./GachaDisplay";

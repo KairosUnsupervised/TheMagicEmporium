@@ -2,6 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import background from "./background.png";
 import { GachaIntroHeader } from "./GachaIntroHeader";
 
+/**
+ * Title header shown during the gacha intro sequence, rendered over the
+ * background art.
+ */
 const meta = {
 	title: "Components/Gacha/Header/GachaIntroHeader",
 	component: GachaIntroHeader,

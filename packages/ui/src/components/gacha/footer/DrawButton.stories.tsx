@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { DrawButton } from "./DrawButton";
 
+/** The primary call-to-action in the gacha footer that starts a draw. */
 const meta = {
 	title: "Components/Gacha/Footer/DrawButton",
 	component: DrawButton,

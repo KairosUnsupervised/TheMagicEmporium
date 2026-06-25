@@ -5,6 +5,10 @@ import { rareFixture } from "../../../fixtures/items/rareFixture";
 import type { VignetteStage } from "../content/Vignette";
 import { PullItem } from "./PullItem";
 
+/**
+ * A single drawn item card. Renders rarity, icon, and modifier pips, adapts to
+ * the current `visibility` stage, and can play a reveal animation.
+ */
 const meta = {
 	title: "Components/Gacha/Pull/PullItem",
 	component: PullItem,
@@ -38,10 +42,12 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/** Blind stage, unselected. */
 export const Default: Story = {
 	args: { visibility: 0, selected: false },
 };
 
+/** The same item across all five visibility stages (Blind → Perfect). */
 export const AllStages: Story = {
 	render: () => {
 		const stages: VignetteStage[] = [0, 1, 2, 3, 4];
@@ -89,6 +95,7 @@ export const AllStages: Story = {
 	},
 };
 
+/** A common item at perfect visibility. */
 export const Common: Story = {
 	render: () => (
 		<div className="dark" style={{ padding: "40px", background: "#07091a" }}>
@@ -97,6 +104,7 @@ export const Common: Story = {
 	),
 };
 
+/** A legendary item at perfect visibility, showing its modifier background. */
 export const Legendary: Story = {
 	render: () => (
 		<div className="dark" style={{ padding: "40px", background: "#07091a" }}>
@@ -105,6 +113,7 @@ export const Legendary: Story = {
 	),
 };
 
+/** Cards playing their staggered reveal animation. */
 export const Revealed: Story = {
 	render: () => (
 		<div

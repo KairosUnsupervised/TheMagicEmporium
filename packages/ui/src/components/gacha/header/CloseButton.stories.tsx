@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CloseButton } from "./CloseButton";
 
+/** Header button for dismissing the gacha overlay. */
 const meta = {
 	title: "Components/Gacha/Header/CloseButton",
 	component: CloseButton,
@@ -27,6 +28,7 @@ export const Default: Story = {
 	args: {},
 };
 
+/** Non-interactive state while an action is in progress. */
 export const Disabled: Story = {
 	args: {
 		disabled: true,
