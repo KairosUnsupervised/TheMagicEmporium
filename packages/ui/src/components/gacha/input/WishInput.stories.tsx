@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { WishInput } from "./WishInput";
 
 const meta = {
-	title: "Components/Gacha/WishInput",
+	title: "Components/Gacha/Input/WishInput",
 	component: WishInput,
 	parameters: {
 		layout: "centered",
@@ -12,9 +12,6 @@ const meta = {
 			<div className="dark" style={{ padding: "220px 240px" }}>
 				<div style={{ display: "flex", gap: "16px" }}>
 					<WishInput index={0} />
-					<WishInput index={1} />
-					<WishInput index={2} />
-					<WishInput index={3} />
 				</div>
 			</div>
 		);

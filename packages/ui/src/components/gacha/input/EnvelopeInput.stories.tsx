@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { EnvelopeInput } from "./EnvelopeInput";
 
 const meta = {
-	title: "Components/Gacha/EnvelopeInput",
+	title: "Components/Gacha/Input/EnvelopeInput",
 	component: EnvelopeInput,
 	parameters: {
 		layout: "centered",
