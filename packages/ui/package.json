@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"storybook": "storybook dev -p 6006",
+		"test": "bun test",
 		"format": "bun x @biomejs/biome format --write .",
 		"check": "bun x @biomejs/biome check --write ."
 	},
@@ -19,11 +20,15 @@
 		"react-dom": "canary"
 	},
 	"devDependencies": {
+		"@happy-dom/global-registrator": "^20.10.6",
+		"@storybook/react-vite": "^10.3.6",
+		"@testing-library/jest-dom": "^6.9.1",
+		"@testing-library/react": "^16.3.2",
+		"@testing-library/user-event": "^14.6.1",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"@vitejs/plugin-react": "^4.5.2",
-		"vite": "^7.0.4",
 		"storybook": "^10.3.6",
-		"@storybook/react-vite": "^10.3.6"
+		"vite": "^7.0.4"
 	}
 }
