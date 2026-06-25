@@ -25,11 +25,12 @@ const meta = {
 			control: { type: "boolean" },
 		},
 	},
-	render: (args: { visibility: VignetteStage; selected: boolean }) => {
+	args: { item: rareFixture, visibility: 0, selected: false },
+	render: (args) => {
 		return (
 			<div className="dark" style={{ padding: "40px", background: "#07091a" }}>
 				<PullItem
-					item={rareFixture}
+					item={args.item}
 					visibility={args.visibility}
 					selected={args.selected}
 				/>

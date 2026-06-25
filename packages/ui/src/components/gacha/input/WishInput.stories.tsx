@@ -11,11 +11,11 @@ const meta = {
 	parameters: {
 		layout: "centered",
 	},
-	render: () => {
+	render: (args) => {
 		return (
 			<div className="dark" style={{ padding: "220px 240px" }}>
 				<div style={{ display: "flex", gap: "16px" }}>
-					<WishInput index={0} />
+					<WishInput index={args.index} />
 				</div>
 			</div>
 		);
@@ -26,4 +26,6 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+	args: { index: 0 },
+};

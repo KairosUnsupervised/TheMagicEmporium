@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"target": "ES2020",
+		"target": "ES2021",
 		"module": "ESNext",
 		"moduleResolution": "bundler",
 		"noEmit": true,
@@ -19,5 +19,6 @@
 		"node_modules/vite/client.d.ts",
 		"**/*",
 		"../shared/src/types/foundry.d.ts"
-	]
+	],
+	"exclude": ["storybook-static"]
 }

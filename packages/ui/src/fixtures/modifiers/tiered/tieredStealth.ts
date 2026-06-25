@@ -1,10 +1,19 @@
 import { TieredModifier } from "@tme/library/src/modifiers/blueprints/TieredModifier";
-import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
+import {
+	ModifierType,
+	Restriction,
+} from "@tme/library/src/modifiers/modifier.schema";
 
 export const tieredStealthFixture = new TieredModifier({
 	identifier: "fixture.tiered-stealth",
 	type: ModifierType.Tiered,
-	application: { weight: 1, whitelistedBy: [], blacklistedBy: [], applies: [] },
+	application: {
+		weight: 1,
+		restriction: Restriction.Tertiary,
+		whitelistedBy: [],
+		blacklistedBy: [],
+		applies: [],
+	},
 	breakpoints: [
 		{ min: 0, value: 1 },
 		{ min: 0.5, value: 2 },

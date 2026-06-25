@@ -1,10 +1,19 @@
 import { IndependentModifier } from "@tme/library/src/modifiers/blueprints/IndependentModifier";
-import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
+import {
+	ModifierType,
+	Restriction,
+} from "@tme/library/src/modifiers/modifier.schema";
 
 export const independentRevenantFixture = new IndependentModifier({
 	identifier: "fixture.revenant",
 	type: ModifierType.Independent,
-	application: { weight: 1, whitelistedBy: [], blacklistedBy: [], applies: [] },
+	application: {
+		weight: 1,
+		restriction: Restriction.Primary,
+		whitelistedBy: [],
+		blacklistedBy: [],
+		applies: [],
+	},
 	breakpoints: [
 		{
 			min: 0,

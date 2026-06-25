@@ -1,10 +1,19 @@
 import { UniqueModifier } from "@tme/library/src/modifiers/blueprints/UniqueModifier";
-import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
+import {
+	ModifierType,
+	Restriction,
+} from "@tme/library/src/modifiers/modifier.schema";
 
 export const uniqueSoulboundFixture = new UniqueModifier({
 	identifier: "fixture.soulbound",
 	type: ModifierType.Unique,
-	application: { weight: 1, whitelistedBy: [], blacklistedBy: [], applies: [] },
+	application: {
+		weight: 1,
+		restriction: Restriction.Primary,
+		whitelistedBy: [],
+		blacklistedBy: [],
+		applies: [],
+	},
 	breakpoints: [
 		{
 			min: 0,

@@ -1,5 +1,5 @@
-import type {Meta, StoryObj} from "@storybook/react-vite";
-import {GachaReveal} from "./GachaReveal";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { GachaReveal } from "./GachaReveal";
 
 /**
  * Wraps {@link GachaDisplay} with the cinematic intro / iris-open sequence and
@@ -13,21 +13,21 @@ const meta = {
 		layout: "fullscreen",
 		backgrounds: {
 			default: "dark",
-			values: [{name: "dark", value: "#040510"}],
+			values: [{ name: "dark", value: "#040510" }],
 		},
 		viewport: {
 			defaultViewport: "custom",
 			viewports: {
 				custom: {
 					name: "1920x1080",
-					styles: {width: "1920px", height: "1080px"},
+					styles: { width: "1920px", height: "1080px" },
 				},
 			},
 		},
 	},
 	render: () => (
-		<div style={{width: "1920px", height: "1080px", background: "#040510"}}>
-			<GachaReveal/>
+		<div style={{ width: "1920px", height: "1080px", background: "#040510" }}>
+			<GachaReveal />
 		</div>
 	),
 } satisfies Meta<typeof GachaReveal>;
