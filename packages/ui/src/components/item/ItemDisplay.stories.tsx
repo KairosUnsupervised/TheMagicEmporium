@@ -9,6 +9,11 @@ import { veryRareFixture } from "../../fixtures/items/veryRareFixture";
 import { veryRarePerfectFixture } from "../../fixtures/items/veryRarePerfectFixture";
 import { ItemDisplay, type ItemDisplayProps } from "./ItemDisplay";
 
+/**
+ * Renders a full magic item card: header, modifier sections, rarity frame,
+ * optional background art, and sparkles. This is the primary readout for a
+ * forged item.
+ */
 const meta = {
 	title: "Components/Item",
 	component: ItemDisplay,
@@ -30,42 +35,52 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/** A legendary item using an explicit background override. */
 export const Default: Story = {
 	args: { item: legendaryOverrideBackgroundFixture },
 };
 
+/** Legendary with no background — falls back to the plain rarity frame. */
 export const LegendaryNoBackground: Story = {
 	args: { item: legendaryNoBackgroundFixture },
 };
 
+/** Legendary whose background is set via an explicit override. */
 export const LegendaryOverrideBackground: Story = {
 	args: { item: legendaryOverrideBackgroundFixture },
 };
 
+/** Legendary whose background is supplied by one of its modifiers. */
 export const LegendaryModifierBackground: Story = {
 	args: { item: legendaryModifierBackgroundFixture },
 };
 
+/** A very rare item. */
 export const VeryRare: Story = {
 	args: { item: veryRareFixture },
 };
 
+/** A very rare item with every modifier float maxed — a perfect roll. */
 export const VeryRarePerfect: Story = {
 	args: { item: veryRarePerfectFixture },
 };
 
+/** A rare item. */
 export const Rare: Story = {
 	args: { item: rareFixture },
 };
 
+/** An uncommon item. */
 export const Uncommon: Story = {
 	args: { item: uncommonFixture },
 };
 
+/** A common item. */
 export const Common: Story = {
 	args: { item: commonFixture },
 };
 
+/** Renders without the surrounding rarity frame. */
 export const HideFrame: Story = {
 	args: { item: legendaryOverrideBackgroundFixture, hideFrame: true },
 };

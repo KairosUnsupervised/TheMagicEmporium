@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Sparkles } from "./Sparkles";
 
+/**
+ * Decorative animated sparkle overlay for item cards; `amount` controls the
+ * number of particles.
+ */
 const meta = {
 	title: "Components/Item/Sparkles",
 	component: Sparkles,
@@ -31,18 +35,21 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/** Default density of 30 particles. */
 export const Default: Story = {
 	args: {
 		amount: 30,
 	},
 };
 
+/** Sparse — only a handful of particles. */
 export const Few: Story = {
 	args: {
 		amount: 10,
 	},
 };
 
+/** Dense — a heavy shower of particles. */
 export const Many: Story = {
 	args: {
 		amount: 60,

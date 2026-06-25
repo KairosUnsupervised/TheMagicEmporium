@@ -5,6 +5,10 @@ import { uniqueVenomousFixture } from "../../fixtures/modifiers/unique/uniqueVen
 import { TieredModifierDisplay } from "./tiered/TieredModifierDisplay";
 import { UniqueModifierDisplay } from "./unique/UniqueModifierDisplay";
 
+/**
+ * Demonstrates how a modifier display swaps its flavor and changes as the
+ * `float` crosses breakpoints.
+ */
 const meta: Meta = {
 	title: "Components/Modifiers/BreakpointSwap",
 	parameters: {
@@ -27,6 +31,7 @@ const furyBreakpoints = (
 	tieredFuryFixture.schema as unknown as { breakpoints: { min: number }[] }
 ).breakpoints;
 
+/** A unique modifier at its lowest breakpoint (float 0). */
 export const Default: Story = {
 	render: () => (
 		<div style={{ background: "#040510", width: "460px" }}>
@@ -35,6 +40,7 @@ export const Default: Story = {
 	),
 };
 
+/** Venomous unique at a mid-range float, showing a middle breakpoint. */
 export const UniqueVenomousMiddle: Story = {
 	render: () => (
 		<div style={{ background: "#040510", width: "460px" }}>
@@ -43,6 +49,7 @@ export const UniqueVenomousMiddle: Story = {
 	),
 };
 
+/** Venomous unique at its highest breakpoint. */
 export const UniqueVenomousHighest: Story = {
 	render: () => (
 		<div style={{ background: "#040510", width: "460px" }}>
@@ -54,6 +61,7 @@ export const UniqueVenomousHighest: Story = {
 	),
 };
 
+/** Tiered Fury at its second tier. */
 export const TieredFuryMiddle: Story = {
 	render: () => (
 		<div style={{ background: "#040510", width: "460px" }}>

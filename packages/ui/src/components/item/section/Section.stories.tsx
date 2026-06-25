@@ -2,6 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { veilpiercerFixture } from "../../../fixtures/items/veilpiercerFixture";
 import { Section, type SectionProps } from "./Section";
 
+/**
+ * A titled group of modifiers within an item card — e.g. the primary,
+ * secondary, or tertiary slot.
+ */
 const meta = {
 	title: "Components/Item/Section",
 	component: Section,
@@ -23,14 +27,17 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/** The primary modifier slot. */
 export const Default: Story = {
 	args: { title: "PRIMARY", modifiers: veilpiercerFixture.primary },
 };
 
+/** The secondary modifier slot. */
 export const Secondary: Story = {
 	args: { title: "SECONDARY", modifiers: veilpiercerFixture.secondary },
 };
 
+/** The tertiary modifier slot. */
 export const Tertiary: Story = {
 	args: { title: "TERTIARY", modifiers: veilpiercerFixture.tertiary },
 };

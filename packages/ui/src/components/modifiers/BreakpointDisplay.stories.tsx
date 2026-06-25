@@ -2,6 +2,11 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ModifierType } from "@tme/library/src/modifiers/modifier.schema";
 import { BreakpointDisplay } from "./BreakpointDisplay";
 
+/**
+ * The breakpoint indicator row for a modifier: shows the current active
+ * breakpoint and an optional temporary/preview breakpoint, styled per modifier
+ * type.
+ */
 const meta: Meta = {
 	title: "Components/Modifiers/BreakpointDisplay",
 	component: BreakpointDisplay,
@@ -18,6 +23,7 @@ export default meta;
 
 type Story = StoryObj;
 
+/** Unique-styled rows (6 breakpoints) at various active/preview positions. */
 export const Default: Story = {
 	render: () => (
 		<div
@@ -52,6 +58,7 @@ export const Default: Story = {
 	),
 };
 
+/** Independent-styled rows with 3 breakpoints. */
 export const Independent: Story = {
 	render: () => (
 		<div
@@ -86,6 +93,7 @@ export const Independent: Story = {
 	),
 };
 
+/** Tiered-styled rows with 5 breakpoints. */
 export const Tiered: Story = {
 	render: () => (
 		<div

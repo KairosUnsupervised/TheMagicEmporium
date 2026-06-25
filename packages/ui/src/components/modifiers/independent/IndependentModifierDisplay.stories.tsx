@@ -6,6 +6,10 @@ import {
 	type IndependentModifierDisplayProps,
 } from "./IndependentModifierDisplay";
 
+/**
+ * Displays an independent modifier — each breakpoint owns its own flavor,
+ * changes, and activities, with no interpolation between them.
+ */
 const meta = {
 	title: "Components/Modifiers/Independent",
 	component: IndependentModifierDisplay,
@@ -30,14 +34,17 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/** The edible modifier at its lowest breakpoint. */
 export const Default: Story = {
 	args: { modifier: independentEdibleFixture, float: 0 },
 };
 
+/** A breakpoint that carries a disclaimer line. */
 export const WithDisclaimer: Story = {
 	args: { modifier: independentShadowwalkerFixture, float: 0.8 },
 };
 
+/** Mid-range float landing on the middle of three breakpoints. */
 export const ThreeBreakpoints: Story = {
 	args: { modifier: independentShadowwalkerFixture, float: 0.5 },
 };

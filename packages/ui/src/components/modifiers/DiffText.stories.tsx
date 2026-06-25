@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { DiffText } from "./DiffText";
 
+/**
+ * Renders modifier text with the differences highlighted relative to the
+ * previous breakpoint's text.
+ */
 const meta = {
 	title: "Components/Modifiers/DiffText",
 	component: DiffText,
@@ -34,6 +38,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/** Highlights what changed from the previous breakpoint's text. */
 export const Default: Story = {
 	args: {
 		text: "You can reroll 1-3's on your weapon induced damage dice, up to 3 rerolls",
@@ -42,6 +47,7 @@ export const Default: Story = {
 	},
 };
 
+/** No prior text (null) — nothing is highlighted. */
 export const NoPreviousText: Story = {
 	args: {
 		text: "On direct creature kill, you gain advantage on your next attack",
@@ -49,6 +55,7 @@ export const NoPreviousText: Story = {
 	},
 };
 
+/** Empty previous text — the whole string reads as new. */
 export const EntirelyNew: Story = {
 	args: {
 		text: "Critical hits with this weapon deal an additional 2d6 damage",

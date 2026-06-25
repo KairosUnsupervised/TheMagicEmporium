@@ -1,7 +1,7 @@
 import { Icon } from "@tme/library/src/item/icon";
+import { generateIconUrl } from "@tme/library/src/misc/generateIconUrl";
 import type { LinearModifier } from "@tme/library/src/modifiers/blueprints/LinearModifier";
 import styles from "./LinearModifierDisplay.module.css";
-import { generateIconUrl } from "@tme/library/src/misc/generateIconUrl";
 
 export interface LinearModifierDisplayProps {
 	modifier: LinearModifier;

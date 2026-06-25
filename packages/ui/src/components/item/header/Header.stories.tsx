@@ -4,6 +4,7 @@ import { Rarity } from "@tme/library/src/item/item.types";
 import { veilpiercerFixture } from "../../../fixtures/items/veilpiercerFixture";
 import { Header, type HeaderProps } from "./Header";
 
+/** The item card header: name, rarity, base equipment type, and price. */
 const meta = {
 	title: "Components/Item/Header",
 	component: Header,
@@ -39,6 +40,7 @@ export const Default: Story = {
 	},
 };
 
+/** Low-value common equipment. */
 export const Common: Story = {
 	args: {
 		name: "Iron Dagger",
@@ -48,6 +50,7 @@ export const Common: Story = {
 	},
 };
 
+/** Mid-tier rare equipment. */
 export const Rare: Story = {
 	args: {
 		name: "Stormcaller Bow",
@@ -57,6 +60,7 @@ export const Rare: Story = {
 	},
 };
 
+/** High-value legendary equipment. */
 export const Legendary: Story = {
 	args: {
 		name: "Dawnbreaker",
