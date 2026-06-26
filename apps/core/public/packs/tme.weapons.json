@@ -260,7 +260,7 @@
 			},
 			"flavor": {
 				"title": "Final Verdict",
-				"description": "If a tag a creature and it has less then {amount} HP, execute it immediately"
+				"description": "If you tag a creature and it has less then {amount} HP, execute it immediately"
 			},
 			"breakpoints": [
 				{

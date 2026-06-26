@@ -375,7 +375,7 @@
 					"min": 0,
 					"flavor": {
 						"title": "Tenacious",
-						"description": "While making death saving throws, you can still crawl at double movement speed cost without provoking opportunity attacks",
+						"description": "While making death saving throws, you can crawl at double the movement speed cost without provoking opportunity attacks",
 						"disclaimer": null
 					},
 					"activeEffects": [],
