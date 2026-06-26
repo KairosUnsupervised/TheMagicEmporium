@@ -1,0 +1,43 @@
+name: Deploy Storybook to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Permissions required by the GitHub Pages deployment.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one Pages deployment at a time; don't cancel an in-progress one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      # Bitovi action builds Storybook and deploys it to GitHub Pages.
+      # Defaults assume npm; override install/build for this bun monorepo.
+      # `build:storybook` (root script) emits to dist/storybook, the action's default path.
+      - name: Build and deploy Storybook
+        id: deploy
+        uses: bitovi/github-actions-storybook-to-github-pages@v1.0.4
+        with:
+          checkout: false
+          install_command: bun install --frozen-lockfile
+          build_command: bun run build:storybook
+          path: dist/storybook

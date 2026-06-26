@@ -8,6 +8,7 @@
 		"apps/*"
 	],
 	"scripts": {
+		"build:storybook": "bun run --filter '@tme/ui' build:storybook",
 		"test": "bun run --filter '*' test",
 		"format": "bun run --filter '*' format",
 		"check": "bun run --filter '*' check"

@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"storybook": "storybook dev -p 6006",
+		"build:storybook": "storybook build -o ../../dist/storybook",
 		"test": "bun test",
 		"format": "bun x @biomejs/biome format --write .",
 		"check": "bun x @biomejs/biome check --write ."
