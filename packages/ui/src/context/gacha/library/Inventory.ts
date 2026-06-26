@@ -1,7 +1,7 @@
-import type { AbstractItem } from "@tme/library/src/item/AbstractItem";
-import { Item as RealItem } from "@tme/library/src/item/Item";
-import { namespace } from "@tme/shared/src/namespaceConfig";
-import type { Actor5e } from "@tme/shared/src/types/actor5e";
+import type {AbstractItem} from "@tme/library/src/item/AbstractItem";
+import {Item as RealItem} from "@tme/library/src/item/Item";
+import {namespace} from "@tme/shared/src/namespaceConfig";
+import type {Actor5e} from "@tme/shared/src/types/actor5e";
 import {
 	type AllOperations,
 	type EnvelopeFlag,
@@ -9,22 +9,22 @@ import {
 	GachaItemType,
 	type WishFlag,
 } from "@tme/shared/src/types/GachaItem5e";
-import { makeAutoObservable, runInAction } from "mobx";
-import { envelopeOfCommonFolkFixture } from "../../../fixtures/gacha/envelopes/EnvelopeOfCommonFolk";
-import { envelopeOfGoldenBlessingFixture } from "../../../fixtures/gacha/envelopes/EnvelopeOfGoldenBlessing";
-import { envelopeOfHarvestMoonFixture } from "../../../fixtures/gacha/envelopes/EnvelopeOfHarvestMoon";
-import { envelopeOfHighBlessingFixture } from "../../../fixtures/gacha/envelopes/EnvelopeOfHighBlessing";
-import { envelopeOfMoongateTributeFixture } from "../../../fixtures/gacha/envelopes/EnvelopeOfMoongateTribute";
-import { envelopeOfSealedCrimsonBlessingFixture } from "../../../fixtures/gacha/envelopes/EnvelopeOfSealedCrimsonBlessing";
-import { wishOfAbundanceFixture } from "../../../fixtures/gacha/wishes/WishOfAbundance";
-import { wishOfCelestialMandateFixture } from "../../../fixtures/gacha/wishes/WishOfCelestialMandate";
-import { wishOfCertaintyFixture } from "../../../fixtures/gacha/wishes/WishOfCertainty";
-import { wishOfCrackedFateFixture } from "../../../fixtures/gacha/wishes/WishOfCrackedFate";
-import { wishOfCuriosityFixture } from "../../../fixtures/gacha/wishes/WishOfCuriosity";
-import { wishOfDewdropFixture } from "../../../fixtures/gacha/wishes/WishOfDewdrop";
-import { wishOfDisciplineFixture } from "../../../fixtures/gacha/wishes/WishOfDiscipline";
-import { wishOfFortuneFixture } from "../../../fixtures/gacha/wishes/WishOfFortune";
-import type { Gacha } from "./Gacha";
+import {makeAutoObservable, runInAction} from "mobx";
+import {envelopeOfCommonFolkFixture} from "../../../fixtures/gacha/envelopes/EnvelopeOfCommonFolk";
+import {envelopeOfTheSilkRoadFixture} from "../../../fixtures/gacha/envelopes/EnvelopeOfTheSilkRoad";
+import {envelopeOfUnfoundPotentialFixture} from "../../../fixtures/gacha/envelopes/EnvelopeOfUnfoundPotential";
+import {envelopeOfHighBlessingFixture} from "../../../fixtures/gacha/envelopes/EnvelopeOfHighBlessing";
+import {
+	envelopeOfSealedCrimsonBlessingFixture
+} from "../../../fixtures/gacha/envelopes/EnvelopeOfSealedCrimsonBlessing";
+import {wishOfGreedFixture} from "../../../fixtures/gacha/wishes/WishOfGreed";
+import {wishOfCertaintyFixture} from "../../../fixtures/gacha/wishes/WishOfCertainty";
+import {wishOfCrackedFateFixture} from "../../../fixtures/gacha/wishes/WishOfCrackedFate";
+import {wishOfRisingLanternsFixture} from "../../../fixtures/gacha/wishes/WishOfRisingLanterns";
+import {wishOfDewdropFixture} from "../../../fixtures/gacha/wishes/WishOfDewdrop";
+import {wishOfDisciplineFixture} from "../../../fixtures/gacha/wishes/WishOfDiscipline";
+import {wishOfTheBlindMonkFixture} from "../../../fixtures/gacha/wishes/WishOfTheBlindMonk";
+import type {Gacha} from "./Gacha";
 
 export type Envelope = GachaItem5e<EnvelopeFlag>;
 
@@ -84,7 +84,7 @@ export class Inventory {
 					this.invalidateItems();
 				}
 			});
-			this.hookIds.push({ hook, id });
+			this.hookIds.push({hook, id});
 		}
 	};
 
@@ -105,10 +105,9 @@ export class Inventory {
 		if (!this.actor) {
 			return [
 				envelopeOfCommonFolkFixture,
-				envelopeOfGoldenBlessingFixture,
-				envelopeOfHarvestMoonFixture,
+				envelopeOfTheSilkRoadFixture,
+				envelopeOfUnfoundPotentialFixture,
 				envelopeOfHighBlessingFixture,
-				envelopeOfMoongateTributeFixture,
 				envelopeOfSealedCrimsonBlessingFixture,
 			];
 		}
@@ -129,14 +128,13 @@ export class Inventory {
 		void this.itemsVersion;
 		if (!this.actor) {
 			return [
-				wishOfAbundanceFixture,
-				wishOfCelestialMandateFixture,
+				wishOfGreedFixture,
 				wishOfCertaintyFixture,
 				wishOfCrackedFateFixture,
-				wishOfCuriosityFixture,
+				wishOfRisingLanternsFixture,
 				wishOfDewdropFixture,
 				wishOfDisciplineFixture,
-				wishOfFortuneFixture,
+				wishOfTheBlindMonkFixture,
 			];
 		}
 		return this.actor.items.filter((item) => {
@@ -178,7 +176,7 @@ export class Inventory {
 
 				return (
 					selected.flags[namespace.gacha.id].id ===
-						wish.flags[namespace.gacha.id].id && slotIndex !== index
+					wish.flags[namespace.gacha.id].id && slotIndex !== index
 				);
 			}),
 		}));
@@ -209,7 +207,7 @@ export class Inventory {
 			if (item.system.quantity >= 2) {
 				toUpdate.push({
 					_id: item.id,
-					system: { quantity: item.system.quantity - 1 },
+					system: {quantity: item.system.quantity - 1},
 				});
 			} else {
 				toDelete.push(item.id);

@@ -24,7 +24,7 @@ export const envelopeOfHarvestMoonFixture: GachaItem5e<EnvelopeFlag> = {
 			type: GachaItemType.Envelope,
 			operations: [
 				{ field: Field.RevealAmount, op: NumberOperation.Set, value: 3 },
-				{ field: Field.PickAmount, op: NumberOperation.Set, value: 3 },
+				{ field: Field.PickAmount, op: NumberOperation.Set, value: 2 },
 				{ field: Field.VisibilityLevel, op: NumberOperation.Set, value: 3 },
 			],
 		},
