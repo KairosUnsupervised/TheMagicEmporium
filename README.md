@@ -32,15 +32,15 @@ A Legendary drop is a genuine event. And because the whole thing is automated, t
 Items come in five rarities, drawn from every D&D armor and weapon plus 4 sets of clothes and 3 accessories.
 
 <p align="center">
-  <img src="documentation/img/commonPull.png" alt="Common pull" width="120" />
+  <img src="documentation/img/pull.common.png" alt="Common pull" width="120" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="documentation/img/uncommonPull.png" alt="Uncommon pull" width="120" />
+  <img src="documentation/img/pull.uncommon.png" alt="Uncommon pull" width="120" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="documentation/img/rarePull.png" alt="Rare pull" width="120" />
+  <img src="documentation/img/pull.rare.png" alt="Rare pull" width="120" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="documentation/img/veryRarePull.png" alt="Very Rare pull" width="120" />
+  <img src="documentation/img/pull.veryRare.png" alt="Very Rare pull" width="120" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="documentation/img/legendaryPull.png" alt="Legendary pull" width="120" />
+  <img src="documentation/img/pull.legendary.png" alt="Legendary pull" width="120" />
 </p>
 
 Higher rarity means more modifiers, access to stronger modifier types, and stronger rolls on them. A high-rarity item
@@ -116,7 +116,7 @@ that decide what gets generated, how much the player sees, and how much they kee
 | Lever              | What it does                                                           |
 |--------------------|-----------------------------------------------------------------------|
 | **Reveal**         | How many items are generated to choose from                           |
-| **Pick**           | How many of them the player keeps                                     |
+| **Pull**           | How many of them the player keeps                                     |
 | **Rarity Luck**    | Biases the draw toward higher-rarity items (think D&D advantage)      |
 | **Float Luck**     | Biases modifier strength upward                                       |
 | **Equipment Pool** | Restricts draws to useful item types                                  |
