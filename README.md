@@ -6,9 +6,11 @@ A Foundry VTT module that drops Path of Exile–style randomized magic items int
 pull system your players will *actually* get excited about. No more agonizing over hand-picking treasure. No more "you
 find a +1 sword" for the hundredth time. Roll it, reveal it, gamble for it.
 
-> Currently in **BETA**
+> **BETA DISCLAIMER**
 >
-> APIs and balancing are being tested and actively worked on
+> - Balancing is actively being worked on
+> - Internal APIs may change at any time
+> - No automatic updates 
 
 ## Features
 
