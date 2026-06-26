@@ -174,8 +174,8 @@ Seen enough? You can play with the actual interface, open pulls, inspect items, 
 > **DEMO DISCLAIMER**
 >
 > - This is a [Storybook](https://storybook.js.org/) running the UI against **mocked data**, no Foundry VTT required
-> - It showcases the components in isolation, without FoundryVTT or a character sheet, so character sheet depending flows and live game state won't behave like the real module
-> - The Gacha story uses real modifiers from the default packs, all other component stories use fixtures with out of date modifier descriptions
+> - It showcases the components in isolation, without FoundryVTT or a character sheet, so character-dependent flows and live game state won't behave like the real module
+> - The Gacha uses live modifiers from the default packs, for technical reasons all other components use modifiers that may be out of date
 
 ## Requirements
 
