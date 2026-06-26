@@ -10,6 +10,7 @@ find a +1 sword" for the hundredth time. Roll it, reveal it, gamble for it.
 >
 > - Balancing is actively being worked on
 > - Internal APIs may change at any time
+> - Screen size optimization is a work in progress
 > - No automatic updates 
 
 [Live Demo](https://kairosunsupervised.github.io/TheMagicEmporium/iframe.html?id=components-gacha-reveal--default&viewMode=story) - play with the UI in your browser, no install required.

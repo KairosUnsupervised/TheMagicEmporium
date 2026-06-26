@@ -26,7 +26,7 @@ const meta = {
 		},
 	},
 	render: () => (
-		<div style={{ width: "1920px", height: "1080px", background: "#040510" }}>
+		<div style={{ width: "100vw", height: "100vh", background: "#040510" }}>
 			<GachaReveal />
 		</div>
 	),
