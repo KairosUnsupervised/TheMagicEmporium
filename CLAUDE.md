@@ -67,3 +67,39 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 ```
+
+---
+
+### Tests
+
+- Use `bun:test` (`describe`, `it`, `expect`) with `@testing-library/react`.
+- Structure every test with the AAA (Arrange, Act, Assert) pattern, marked with comments. Combine `ARRANGE & ACT` when rendering is the action.
+- Write `it` descriptions as a behavior the component exhibits ("labels the modifier as LINEAR"), not as an implementation detail.
+
+```tsx
+import { describe, expect, it } from "bun:test";
+import { render, screen } from "@testing-library/react";
+import { linearStealthFixture } from "../../../fixtures/modifiers/linear/linearStealth";
+import { LinearModifierDisplay } from "./LinearModifierDisplay";
+
+describe("LinearModifierDisplay", () => {
+	it("labels the modifier as LINEAR", () => {
+		// ARRANGE & ACT
+		render(<LinearModifierDisplay modifier={linearStealthFixture} float={0} />);
+
+		// ASSERT
+		expect(screen.getByText("LINEAR")).toBeInTheDocument();
+	});
+
+	it("renders the flavor description", () => {
+		// ARRANGE
+		const modifier = linearStealthFixture;
+
+		// ACT
+		const view = render(<LinearModifierDisplay modifier={modifier} float={0} />);
+
+		// ASSERT
+		expect(view.container.textContent).toContain("Your Stealth skill increases");
+	});
+});
+```
