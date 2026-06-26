@@ -27,7 +27,7 @@
 				{
 					"field": "PICK_AMOUNT",
 					"op": "SET",
-					"value": 3
+					"value": 2
 				},
 				{
 					"field": "VISIBILITY_LEVEL",
