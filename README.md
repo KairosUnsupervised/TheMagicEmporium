@@ -12,6 +12,8 @@ find a +1 sword" for the hundredth time. Roll it, reveal it, gamble for it.
 > - Internal APIs may change at any time
 > - No automatic updates 
 
+[Live Demo](https://kairosunsupervised.github.io/TheMagicEmporium/iframe.html?id=components-gacha-reveal--default&viewMode=story) - play with the UI in your browser, no install required.
+
 ## Features
 
 Every magic item is rolled from a deep pool of modifiers, gated by rarity. Two Rare daggers are never the same daggers.
@@ -161,6 +163,18 @@ Here: 9 reveals at moderate visibility, so the player sees each item's name and 
   stored in flags
 - ⚙️ **No overload** Modifiers are designed with GM overload in mind: the taxing work falls on the player, so you can
   keep on killing them!
+
+## Try it yourself
+
+Seen enough? You can play with the actual interface, open pulls, inspect items, and explore modifiers. Right in your browser:
+
+[Live Demo](https://kairosunsupervised.github.io/TheMagicEmporium/iframe.html?id=components-gacha-reveal--default&viewMode=story)
+
+> **DEMO DISCLAIMER**
+>
+> - This is a [Storybook](https://storybook.js.org/) running the UI against **mocked data**, no Foundry VTT required
+> - It showcases the components in isolation, without FoundryVTT or a character sheet, so character sheet depending flows and live game state won't behave like the real module
+> - The Gacha story uses real modifiers from the default packs, all other component stories use fixtures with out of date modifier descriptions
 
 ## Requirements
 
