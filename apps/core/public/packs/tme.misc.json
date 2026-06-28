@@ -2964,6 +2964,38 @@
 					"feats": []
 				}
 			]
+		},
+		{
+			"identifier": "TME.BLAST_RADIUS",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ACCESSORY", "ARMOR"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Blast Radius",
+				"description": "Increases the radius of your spells by +{amount}ft",
+				"disclaimer": "Includes spheres, cones, lines etc, not the range itself"
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 5
+				},
+				{
+					"min": 0.6,
+					"value": 10
+				},
+				{
+					"min": 0.9,
+					"value": 15
+				}
+			],
+			"activeEffects": [],
+			"feats": []
 		}
 	]
 }
