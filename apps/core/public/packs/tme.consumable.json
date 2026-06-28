@@ -282,6 +282,29 @@
 					]
 				}
 			]
+		},
+		{
+			"identifier": "TME.CHANGE_OF_MIND",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["CONSUMABLE"],
+				"applies": ["CONSUMABLE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Change of Mind",
+						"description": "This item can be absorbed as an action to swap one of your learned spells for another",
+						"disclaimer": "The usual class restrictions still apply"
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
 		}
 	]
 }
