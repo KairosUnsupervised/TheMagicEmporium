@@ -12,6 +12,11 @@
 		{ "type": "build", "hidden": true },
 		{ "type": "ci", "hidden": true }
 	],
+	"packageFiles": ["package.json"],
+	"bumpFiles": [
+		"package.json",
+		{ "filename": "apps/core/public/module.json", "type": "json" }
+	],
 	"commitUrlFormat": "https://github.com/KairosUnsupervised/TheMagicEmporium/commit/{{hash}}",
 	"compareUrlFormat": "https://github.com/KairosUnsupervised/TheMagicEmporium/compare/{{previousTag}}...{{currentTag}}"
 }
