@@ -171,6 +171,8 @@ Seen enough? Play with the actual interface, open pulls, inspect items, and expl
 
 [Live Demo](https://kairosunsupervised.github.io/TheMagicEmporium/iframe.html?id=components-gacha-reveal--default&viewMode=story)
 
+[Modifier Catalogue](https://kairosunsupervised.github.io/TheMagicEmporium/?path=/docs/catalog-modifiers--docs)
+
 > **DEMO DISCLAIMER**
 >
 > - This is a [Storybook](https://storybook.js.org/) running the UI against **mocked data**, no Foundry VTT required
