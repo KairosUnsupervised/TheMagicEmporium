@@ -3436,6 +3436,83 @@
 					}
 				}
 			]
+		},
+		{
+			"identifier": "TME.SECOND_WIND",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Second Wind",
+				"description": "{amount} time(s) per long rest, as a bonus action, you can spend a Hit Die and regain that many HP",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.3,
+					"value": 2
+				},
+				{
+					"min": 0.6,
+					"value": 3
+				}
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "bonus",
+							"cost": 1,
+							"condition": ""
+						},
+						"uses": {
+							"max": "{amount}",
+							"recovery": [
+								{
+									"period": "lr",
+									"type": "recoverAll"
+								}
+							]
+						},
+						"activities": [
+							{
+								"type": "utility",
+								"name": "Second Wind",
+								"activation": {
+									"type": "bonus",
+									"override": false,
+									"condition": ""
+								},
+								"consumption": {
+									"scaling": {
+										"allowed": false
+									},
+									"spellSlot": false,
+									"targets": [
+										{
+											"type": "itemUses",
+											"value": "1",
+											"target": "",
+											"scaling": {}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
 		}
 	]
 }
