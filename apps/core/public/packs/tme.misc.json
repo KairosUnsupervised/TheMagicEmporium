@@ -3133,6 +3133,42 @@
 					"feats": []
 				}
 			]
+		},
+		{
+			"identifier": "TME.WITHERING_CASCADE",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ACCESSORY", "ARMOR"],
+				"blacklistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Withering Cascade",
+				"description": "When you kill a hostile with necrotic damage, the overflowing damage is redirected to the nearest hostile within {amount}ft",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 15
+				},
+				{
+					"min": 0.4,
+					"value": 30
+				},
+				{
+					"min": 0.7,
+					"value": 45
+				},
+				{
+					"min": 0.9,
+					"value": 60
+				}
+			],
+			"activeEffects": [],
+			"feats": []
 		}
 	]
 }
