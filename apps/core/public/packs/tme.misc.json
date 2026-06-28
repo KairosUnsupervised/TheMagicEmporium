@@ -3078,6 +3078,38 @@
 					"feats": []
 				}
 			]
+		},
+		{
+			"identifier": "TME.EXECUTIONER",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Executioner",
+				"description": "Your attacks deal +{amount} damage to creatures below half their HP",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.6,
+					"value": 2
+				},
+				{
+					"min": 0.85,
+					"value": 3
+				}
+			],
+			"activeEffects": [],
+			"feats": []
 		}
 	]
 }
