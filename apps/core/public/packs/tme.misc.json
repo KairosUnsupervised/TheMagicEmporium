@@ -3647,6 +3647,49 @@
 					}
 				}
 			]
+		},
+		{
+			"identifier": "TME.SENTINEL",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Sentinel",
+						"description": "Your opportunity attacks gain a +3 bonus to the attack roll",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 0.6,
+					"flavor": {
+						"title": "Greater Sentinel",
+						"description": "You make opportunity attacks with advantage",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 0.9,
+					"flavor": {
+						"title": "Supreme Sentinel",
+						"description": "Your opportunity attacks gain a +3 bonus to the attack roll and are made with advantage",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
 		}
 	]
 }
