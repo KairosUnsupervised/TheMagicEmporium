@@ -3200,6 +3200,37 @@
 					"activities": []
 				}
 			]
+		},
+		{
+			"identifier": "TME.MANY_FASHIONS",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["APPEARANCE"],
+				"applies": ["APPEARANCE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Many Fashions",
+						"description": "As a bonus action, you can change the style, color, and apparent material of this item"
+					},
+					"changes": [],
+					"activities": []
+				},
+				{
+					"min": 0.9,
+					"flavor": {
+						"title": "Many Fashions",
+						"description": "As a bonus action, you can change the style, color, apparent material, rough shape, and details of this item"
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
 		}
 	]
 }
