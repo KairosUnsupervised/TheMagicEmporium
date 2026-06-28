@@ -706,7 +706,7 @@
 					"min": 0,
 					"flavor": {
 						"title": "Bloodbath",
-						"description": "On direct creature kill, gain an additional action this turn",
+						"description": "On direct hostile kill, gain an additional action this turn",
 						"disclaimer": "This action must be used to harm a creature, it cannot be skipped",
 						"background": "{backgroundPath}/tertiary/bloodbath.jpg"
 					},

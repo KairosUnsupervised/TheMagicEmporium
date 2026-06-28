@@ -1548,25 +1548,25 @@
 			},
 			"flavor": {
 				"title": "Aura of Blood",
-				"description": "At the start of your turn, each hostile creature within 10ft must make a CON saving throw or take {amount} necrotic damage",
+				"description": "At the start of your turn, each hostile within 10ft takes {amount} necrotic damage",
 				"disclaimer": null
 			},
 			"breakpoints": [
 				{
 					"min": 0,
-					"value": 2
+					"value": 1
 				},
 				{
 					"min": 0.5,
-					"value": 4
+					"value": 2
 				},
 				{
 					"min": 0.8,
-					"value": 6
+					"value": 3
 				},
 				{
 					"min": 0.95,
-					"value": 8,
+					"value": 4,
 					"background": "{backgroundPath}/secondary/auraOfBlood.jpg"
 				}
 			],
@@ -2333,7 +2333,7 @@
 			},
 			"flavor": {
 				"title": "Condemned",
-				"description": "Readied attacks and spell attacks you make deal {amount}d6 additional damage",
+				"description": "Readied attacks deal {amount}d6 additional damage",
 				"disclaimer": null
 			},
 			"breakpoints": [
