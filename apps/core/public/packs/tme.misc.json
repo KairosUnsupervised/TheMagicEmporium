@@ -3762,6 +3762,83 @@
 					]
 				}
 			]
+		},
+		{
+			"identifier": "TME.REPLENISH",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ACCESSORY", "ARMOR"],
+				"blacklistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Replenish",
+				"description": "Once per long rest, as a bonus action, regain one expended spell slot of level {amount} or lower",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.6,
+					"value": 2
+				},
+				{
+					"min": 0.8,
+					"value": 3
+				}
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "bonus",
+							"cost": 1,
+							"condition": ""
+						},
+						"uses": {
+							"max": 1,
+							"recovery": [
+								{
+									"period": "lr",
+									"type": "recoverAll"
+								}
+							]
+						},
+						"activities": [
+							{
+								"type": "utility",
+								"name": "Replenish",
+								"activation": {
+									"type": "bonus",
+									"override": false,
+									"condition": ""
+								},
+								"consumption": {
+									"scaling": {
+										"allowed": false
+									},
+									"spellSlot": false,
+									"targets": [
+										{
+											"type": "itemUses",
+											"value": "1",
+											"target": "",
+											"scaling": {}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
 		}
 	]
 }
