@@ -1,10 +1,10 @@
 import { IndependentModifier } from "../blueprints/IndependentModifier";
 import { ModifierType, Restriction } from "../modifier.schema";
 
-export class ExhaustedModifier extends IndependentModifier {
+export class NonExistingModifier extends IndependentModifier {
 	public constructor() {
 		super({
-			identifier: "INTERNAL_EXHAUSTED",
+			identifier: "INTERNAL_NON_EXISTING",
 			type: ModifierType.Independent,
 			application: {
 				restriction: Restriction.Primary,
@@ -17,9 +17,9 @@ export class ExhaustedModifier extends IndependentModifier {
 				{
 					min: 0,
 					flavor: {
-						title: "LOOT POOL EXHAUSTED",
+						title: "MISSING MODIFIER",
 						description:
-							"There were no eligible modifiers left to fill this slot. Add more modifiers to the pool so every slot can be filled.",
+							"The referenced modifier has been deleted and no longer exists. To keep a modifier available for reference while preventing it from appearing again, set its weight to zero instead of deleting it.",
 						disclaimer: "Ask you DM, you may be entitled to compensation",
 						background: null,
 					},

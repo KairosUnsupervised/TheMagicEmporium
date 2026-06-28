@@ -3,8 +3,8 @@ import { IndependentModifier } from "../modifiers/blueprints/IndependentModifier
 import { LinearModifier } from "../modifiers/blueprints/LinearModifier";
 import { TieredModifier } from "../modifiers/blueprints/TieredModifier";
 import { UniqueModifier } from "../modifiers/blueprints/UniqueModifier";
-import { BrokenModifier } from "../modifiers/internal/Broken";
 import { ExhaustedModifier } from "../modifiers/internal/Exhausted";
+import { NonExistingModifier } from "../modifiers/internal/NonExisting";
 import type { Modifier, ModifierFactory } from "../modifiers/Modifier";
 import {
 	ModifierType,
@@ -28,8 +28,8 @@ export class Registry {
 	 * All modifiers mapped by their identifier
 	 */
 	public mapped: { [key: string]: Modifier } = {
-		INTERNAL_BROKEN: new BrokenModifier(),
 		INTERNAL_EXHAUSTED: new ExhaustedModifier(),
+		INTERNAL_NON_EXISTING: new NonExistingModifier(),
 	};
 
 	/**
@@ -91,7 +91,7 @@ export class Registry {
 		logger.notification.all.error(
 			`No modifier found with identifier ${identifier}`,
 		);
-		return null;
+		return this.mapped["INTERNAL_NON_EXISTING"];
 	};
 }
 
