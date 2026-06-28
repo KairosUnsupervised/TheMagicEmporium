@@ -3295,6 +3295,74 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.STAND_YOUR_GROUND",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Stand Your Ground",
+						"description": "Three times per long rest, as a reaction, when an effect would knock you prone, you can choose to remain standing",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "reaction",
+									"cost": 1,
+									"condition": "when an effect would knock you prone"
+								},
+								"uses": {
+									"max": 3,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Stand Your Ground",
+										"activation": {
+											"type": "reaction",
+											"override": false,
+											"condition": "when an effect would knock you prone"
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": false,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
 		}
 	]
 }
