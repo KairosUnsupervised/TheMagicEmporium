@@ -3363,6 +3363,79 @@
 					]
 				}
 			]
+		},
+		{
+			"identifier": "TME.AEGIS",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Aegis",
+				"description": "{amount} time(s) per long rest, as a reaction when you take damage, prevent that instance of damage entirely",
+				"disclaimer": null
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.8,
+					"value": 2
+				}
+			],
+			"activeEffects": [],
+			"feats": [
+				{
+					"type": "FEAT",
+					"system": {
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"condition": "when you take damage"
+						},
+						"uses": {
+							"max": "{amount}",
+							"recovery": [
+								{
+									"period": "lr",
+									"type": "recoverAll"
+								}
+							]
+						},
+						"activities": [
+							{
+								"type": "utility",
+								"name": "Aegis",
+								"activation": {
+									"type": "reaction",
+									"override": false,
+									"condition": "when you take damage"
+								},
+								"consumption": {
+									"scaling": {
+										"allowed": false
+									},
+									"spellSlot": false,
+									"targets": [
+										{
+											"type": "itemUses",
+											"value": "1",
+											"target": "",
+											"scaling": {}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
 		}
 	]
 }
