@@ -581,7 +581,7 @@
 			]
 		},
 		{
-			"identifier": "TME.BATTLE_MAGE",
+			"identifier": "TME.ARCANE_BATTERY",
 			"type": "LINEAR",
 			"application": {
 				"weight": 1024,
@@ -591,7 +591,7 @@
 				"applies": []
 			},
 			"flavor": {
-				"title": "Battle Mage",
+				"title": "Arcane Battery",
 				"description": "While you are concentrating on a spell, your melee attacks deal an additional {amount}d4 damage",
 				"disclaimer": null
 			},
@@ -618,7 +618,7 @@
 						"activities": [
 							{
 								"type": "damage",
-								"name": "Battle Mage",
+								"name": "Arcane Battery",
 								"activation": {
 									"type": "special",
 									"override": false,
