@@ -2052,7 +2052,7 @@
 			"type": "LINEAR",
 			"application": {
 				"weight": 1024,
-				"restriction": "SECONDARY",
+				"restriction": "PRIMARY",
 				"whitelistedBy": [],
 				"blacklistedBy": [],
 				"applies": []
@@ -2072,8 +2072,12 @@
 					"value": 10
 				},
 				{
-					"min": 0.9,
-					"value": 15,
+					"min": 0.8,
+					"value": 15
+				},
+				{
+					"min": 0.95,
+					"value": 20,
 					"background": "{backgroundPath}/secondary/mysticReach.jpg"
 				}
 			],
