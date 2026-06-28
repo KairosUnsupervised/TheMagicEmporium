@@ -2941,6 +2941,29 @@
 					}
 				}
 			]
+		},
+		{
+			"identifier": "TME.LONG_SHOT",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "TERTIARY",
+				"whitelistedBy": ["ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Long Shot",
+						"description": "Any spell you cast with a range of 120ft or more is treated as having an infinite range",
+						"disclaimer": "Please don't place a portal on the moon"
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
 		}
 	]
 }
