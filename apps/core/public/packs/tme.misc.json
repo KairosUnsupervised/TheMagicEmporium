@@ -3263,6 +3263,38 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.BRACE_FOR_IMPACT",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Brace for Impact",
+				"description": "When you take the Dodge action, gain {amount} temporary HP",
+				"disclaimer": "Temporary HP do not stack, only the highest value applies"
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 2
+				},
+				{
+					"min": 0.6,
+					"value": 4
+				},
+				{
+					"min": 0.9,
+					"value": 6
+				}
+			],
+			"activeEffects": [],
+			"feats": []
 		}
 	]
 }
