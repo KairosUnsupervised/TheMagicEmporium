@@ -2996,6 +2996,34 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.FIREBALLING",
+			"type": "LINEAR",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": ["ARMOR"],
+				"blacklistedBy": ["ARMOR_WITH_ARMOR_CLASS"],
+				"applies": []
+			},
+			"flavor": {
+				"title": "Fireballing",
+				"description": "Fuck it, we ball. Each fireball you cast is automatically upcast by {amount} level(s)",
+				"disclaimer": "Collateral damage is a 'future you' problem"
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.8,
+					"value": 2
+				}
+			],
+			"activeEffects": [],
+			"feats": []
 		}
 	]
 }
