@@ -3024,6 +3024,60 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.PYROMANIAC",
+			"type": "TIERED",
+			"application": {
+				"weight": 512,
+				"restriction": "SECONDARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"value": 1
+				},
+				{
+					"min": 0.5,
+					"value": 2
+				},
+				{
+					"min": 0.9,
+					"value": 3
+				}
+			],
+			"tiers": [
+				{
+					"min": 1,
+					"flavor": {
+						"title": "Pyromaniac",
+						"description": "Fire damage you caused deals double damage to objects and structures"
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 2,
+					"flavor": {
+						"title": "Pyromaniac",
+						"description": "Fire damage you caused deals triple damage to objects and structures"
+					},
+					"activeEffects": [],
+					"feats": []
+				},
+				{
+					"min": 3,
+					"flavor": {
+						"title": "Pyromaniac",
+						"description": "Fire damage you caused deals quadruple damage to objects and structures"
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
 		}
 	]
 }
