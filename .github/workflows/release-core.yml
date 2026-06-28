@@ -1,0 +1,69 @@
+name: Release Core Module
+
+# Runs when commit-and-tag-version pushes a version tag (e.g. v0.1.0).
+# Build the Foundry module, then publish it as a GitHub Release marked
+# "latest", with that version's CHANGELOG section as the release notes.
+on:
+  push:
+    tags:
+      - "v*"
+
+# Required to create releases and upload assets.
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build core module
+        run: bun run --filter @emporium/core build
+
+      - name: Inject release download URL into module.json
+        # The manifest URL is static (set in source), but the download URL must
+        # point at this specific tag's asset, so write it at release time.
+        run: |
+          bun -e '
+            const path = "apps/core/build/module.json";
+            const manifest = await Bun.file(path).json();
+            manifest.download = `https://github.com/${process.env.GITHUB_REPOSITORY}/releases/download/${process.env.GITHUB_REF_NAME}/TheMagicEmporium.zip`;
+            await Bun.write(path, JSON.stringify(manifest, null, "\t") + "\n");
+          '
+          echo "----- module.json -----"
+          cat apps/core/build/module.json
+
+      - name: Package module
+        # Zip the build output at the archive root so Foundry can extract it
+        # directly (module.json, index.js, compendium/ ... all top-level).
+        # module.json keeps its name *inside* the zip (Foundry reads it by that
+        # name); only the standalone manifest asset is renamed below.
+        run: |
+          cd apps/core/build
+          zip -r "$GITHUB_WORKSPACE/TheMagicEmporium.zip" .
+          cp module.json "$GITHUB_WORKSPACE/TheMagicEmporium.json"
+
+      - name: Extract changelog for this release
+        # Print the topmost version section of CHANGELOG.md: everything from
+        # the first "## " heading up to (but not including) the next one.
+        run: |
+          awk '/^## / { if (seen) exit; seen = 1 } seen' CHANGELOG.md > release-notes.md
+          echo "----- release notes -----"
+          cat release-notes.md
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            TheMagicEmporium.zip
+            TheMagicEmporium.json
+          body_path: release-notes.md
+          make_latest: true

@@ -3,6 +3,8 @@
 	"title": "The Magic Emporium",
 	"description": "Some Description",
 	"version": "0.1.0",
+	"url": "https://github.com/KairosUnsupervised/TheMagicEmporium",
+	"manifest": "https://github.com/KairosUnsupervised/TheMagicEmporium/releases/latest/download/TheMagicEmporium.json",
 	"authors": [
 		{
 			"name": "KairosUnsupervised",
