@@ -3907,6 +3907,129 @@
 					]
 				}
 			]
+		},
+		{
+			"identifier": "TME.TUNNEL_VISION",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "SECONDARY",
+				"whitelistedBy": ["ARMOR", "ACCESSORY"],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Tunnel Vision",
+						"description": "Twice per long rest, you can automatically succeed on a Concentration saving throw",
+						"disclaimer": "Must be declared before rolling the saving throw"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": "before a Concentration saving throw"
+								},
+								"uses": {
+									"max": 2,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Tunnel Vision",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": "before a Concentration saving throw"
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": false,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"min": 0.7,
+					"flavor": {
+						"title": "Greater Tunnel Vision",
+						"description": "Three times per long rest, you can automatically succeed on a Concentration saving throw",
+						"disclaimer": "Must be declared before rolling the saving throw"
+					},
+					"activeEffects": [],
+					"feats": [
+						{
+							"type": "FEAT",
+							"system": {
+								"activation": {
+									"type": "special",
+									"cost": null,
+									"condition": "before a Concentration saving throw"
+								},
+								"uses": {
+									"max": 3,
+									"recovery": [
+										{
+											"period": "lr",
+											"type": "recoverAll"
+										}
+									]
+								},
+								"activities": [
+									{
+										"type": "utility",
+										"name": "Tunnel Vision",
+										"activation": {
+											"type": "special",
+											"override": false,
+											"condition": "before a Concentration saving throw"
+										},
+										"consumption": {
+											"scaling": {
+												"allowed": false
+											},
+											"spellSlot": false,
+											"targets": [
+												{
+													"type": "itemUses",
+													"value": "1",
+													"target": "",
+													"scaling": {}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			]
 		}
 	]
 }
