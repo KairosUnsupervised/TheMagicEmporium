@@ -2785,8 +2785,8 @@
 				"weight": 1024,
 				"restriction": "PRIMARY",
 				"whitelistedBy": [],
-				"blacklistedBy": ["PROPERTY_CHANGE"],
-				"applies": ["PROPERTY_CHANGE"]
+				"blacklistedBy": ["PROPERTY_CHANGE", "APPEARANCE"],
+				"applies": ["PROPERTY_CHANGE", "APPEARANCE"]
 			},
 			"breakpoints": [
 				{
@@ -3169,6 +3169,37 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.PRISMATIC",
+			"type": "INDEPENDENT",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": ["APPEARANCE"],
+				"applies": ["APPEARANCE"]
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Prismatic",
+						"description": "Its surface constantly shifts through the colors of the rainbow"
+					},
+					"changes": [],
+					"activities": []
+				},
+				{
+					"min": 0.9,
+					"flavor": {
+						"title": "Prismatic",
+						"description": "Its surface constantly shifts through the colors of the rainbow. As a bonus action, you can change the colors it cycles through and how fast they shift"
+					},
+					"changes": [],
+					"activities": []
+				}
+			]
 		}
 	]
 }

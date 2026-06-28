@@ -1004,8 +1004,8 @@
 				"weight": 1024,
 				"restriction": "PRIMARY",
 				"whitelistedBy": ["WEAPON"],
-				"blacklistedBy": ["PROPERTY_CHANGE"],
-				"applies": ["PROPERTY_CHANGE"]
+				"blacklistedBy": ["APPEARANCE"],
+				"applies": ["APPEARANCE"]
 			},
 			"breakpoints": [
 				{
@@ -1027,8 +1027,8 @@
 				"weight": 1024,
 				"restriction": "PRIMARY",
 				"whitelistedBy": ["WEAPON"],
-				"blacklistedBy": ["PROPERTY_CHANGE"],
-				"applies": ["PROPERTY_CHANGE"]
+				"blacklistedBy": ["APPEARANCE"],
+				"applies": ["APPEARANCE"]
 			},
 			"breakpoints": [
 				{

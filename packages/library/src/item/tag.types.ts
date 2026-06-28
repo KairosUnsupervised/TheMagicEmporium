@@ -20,13 +20,15 @@ export enum Tag {
 	WeaponRanged = "WEAPON_RANGED",
 
 	/**
-	 * Modifier Tags
+	 * Modifier Tags, used in the packs and are placed here for reference
 	 */
 	Score = "SCORE", // Indicates that a modifier on the item already grants score bonuses
 	Consumable = "CONSUMABLE", // Indicates that this item already has a consumable modifier applied
-	SelfImmolation = "SELF_IMMOLATION",
-	Economy = "ECONOMY",
-	PropertyChange = "PROPERTY_CHANGE",
+	Economy = "ECONOMY", // Indicates that the gold value of the item is altered
+	PropertyChange = "PROPERTY_CHANGE", // Indicates that properties of the FoundryVTT item are already altered
+	Appearance = "APPEARANCE", // Indicates that this item already has an appearance-altering modifier applied
+
+	SelfImmolation = "SELF_IMMOLATION", // So that the two SelfImmolation variants exclude each other
 
 	/**
 	 * Skill Modifier Tags
