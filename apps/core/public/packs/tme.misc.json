@@ -3110,6 +3110,29 @@
 			],
 			"activeEffects": [],
 			"feats": []
+		},
+		{
+			"identifier": "TME.CULL_THE_WEAK",
+			"type": "UNIQUE",
+			"application": {
+				"weight": 1024,
+				"restriction": "PRIMARY",
+				"whitelistedBy": [],
+				"blacklistedBy": [],
+				"applies": []
+			},
+			"breakpoints": [
+				{
+					"min": 0,
+					"flavor": {
+						"title": "Cull the Weak",
+						"description": "Creatures killed by your fire damage are destroyed outright",
+						"disclaimer": null
+					},
+					"activeEffects": [],
+					"feats": []
+				}
+			]
 		}
 	]
 }
